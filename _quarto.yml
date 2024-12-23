@@ -1,0 +1,20 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Calc-I-II-home"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - resources.qmd
+
+format:
+  html:
+    theme: litera
+    css: styles.css
+    toc: true
+
+
+

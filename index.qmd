@@ -1,0 +1,204 @@
+---
+title: "Calc I & II at University of Austin"
+subtitle: "Prof. Daniel Kaplan"
+---
+
+This is the home page for the Winter and Spring terms of the course sequence Calc I/II at UATX. 
+But from here on, assignments due *before class* are really due before class. Similarly, the *readings* should be completed before class (which will put you in a position to answer the reading questions). When you have questions about a reading, let's make it part of a class discussion on the day the reading is due.
+
+## Schedule: Near future
+
+**Orientation**: For simplicity, most class days will be structured in the same way:
+
+- Often, we will cover one chapter of *MOSAIC Calculus* each class days. Some chapters may take longer.
+- We will discuss the reading in class, so you should do the reading and hand in the reading questions *before* that class. 
+- You can go back, re-do, and re-submit the reading questions if you like, but this is not required.
+- The assignment for each chapter will be due the class day *following* the discussion of that chapter. If you have questions, bring them to that following day to discuss them, then you can complete your assignment.
+
+::: {.callout-note}
+## 1. Tuesday 7 January, 2025
+Topics: Orientation to course resources
+
+Reading:     
+
+- *MOSAIC Calculus* [Preface](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/)
+- *MOSAIC Calculus* [Chap 1: Quantity, function, space](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/01-quant-fun-space.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/01-reading.html). 
+:::
+
+::: {.callout-note}
+## 2. Thursday 9 January
+Topics:     
+
+- Clearing up any start-up problems   
+
+- Math and computing notation for *MOSAIC Calculus*
+
+Reading: *MOSAIC Calculus* [Chap 2: Notation](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/02-notation.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/02-reading.html)
+
+Assignments due: 
+  - [Chap 1 Exercises](https://dtkaplan.github.io/MC-Workbook/01-exercises.html)
+
+
+:::
+
+::: {.callout-note}
+## 3. Friday 10 January
+
+Topics: Computing for calculus with R
+
+Reading: *MOSAIC Calculus* [Chap 3 Computing with R](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/03-computing.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/03-reading.html)
+
+Assignment due: [Chapter 2 Exercises](https://dtkaplan.github.io/MC-Workbook/02-exercises.html)
+:::
+
+
+## Further out (i.e. tentative)
+
+::: {.callout-note}
+## 4. Tuesday 14 January
+
+:::
+
+
+::: {.callout-note}
+## 5. Thursday 16 January
+:::
+
+::: {.callout-note}
+## 6. Friday 17 January
+:::
+
+::: {.callout-note}
+## 7. Tuesday 21 January
+
+:::
+
+
+::: {.callout-note}
+## 8. Thursday 23 January
+:::
+
+::: {.callout-note}
+## 9. Friday 24 January
+
+:::
+
+::: {.callout-note}
+## 10. Tuesday 28 January
+
+:::
+
+::: {.callout-note}
+## 11. Thursday 30 January
+:::
+
+
+::: {.callout-note}
+## 12. Friday 31 January
+
+:::
+
+::: {.callout-note}
+## 13. Tuesday 4 February
+
+:::
+
+
+::: {.callout-note}
+## 14. Thursday 6 February
+:::
+
+
+
+::: {.callout-note}
+## 15. Friday 7 February
+
+:::
+
+Mid-term break
+
+::: {.callout-note}
+## 16. Tuesday 11 February
+
+:::
+
+::: {.callout-note}
+## 17. Thursday 13 February
+:::
+
+
+::: {.callout-note}
+## 18. Friday 14 February
+
+:::
+
+
+::: {.callout-note}
+## 19. Tuesday 18 February
+
+:::
+
+
+::: {.callout-note}
+## 20. Thursday 20 February}
+:::
+
+::: {.callout-note}
+## 21. Friday 21 February
+
+:::
+
+
+::: {.callout-note}
+## 22. Tuesday 25 February
+
+:::
+
+::: {.callout-note}
+## 23. Thursday 27 February
+
+:::
+
+::: {.callout-note}
+## 24. Friday 28 February
+
+:::
+
+
+::: {.callout-note}
+## 25. Tuesday 4 March
+
+:::
+
+::: {.callout-note}
+## 26 Thursday 6 March
+:::
+
+::: {.callout-note}
+## 27. Friday 7 March
+
+:::
+
+
+::: {.callout-note}
+## 28. Tuesday 11 March
+
+:::
+
+::: {.callout-note}
+## 29 Thursday 13 March
+:::
+
+
+::: {.callout-note}
+## 30. Friday 14 March
+
+:::
+
+
+
+## Already past
+
+Schedule items will be moved here (in reverse chronological order) as an archive.
+
+
