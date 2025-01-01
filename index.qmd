@@ -6,6 +6,16 @@ subtitle: "Prof. Daniel Kaplan"
 This is the home page for the Winter and Spring terms of the course sequence Calc I/II at UATX. 
 But from here on, assignments due *before class* are really due before class. Similarly, the *readings* should be completed before class (which will put you in a position to answer the reading questions). When you have questions about a reading, let's make it part of a class discussion on the day the reading is due.
 
+::: {.callout-note}
+## Link for homework submissions
+
+Each of the homework assignment documents is set up to collect your answers at the press of a button. The answers are copied to your clipboard in a web-standard format called JSON, which you aren't expected to read.
+
+From your clipboard, paste the JSON string into this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog)
+
+I suggest that you bookmark the Google Form link. You will be using it often.
+:::
+
 ## Schedule: Near future
 
 **Orientation**: For simplicity, most class days will be structured in the same way:

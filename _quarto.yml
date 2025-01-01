@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Calc-I-II-home"
+  title: "UATX Calc-I-II, AY 2025"
   navbar:
     left:
       - href: index.qmd
