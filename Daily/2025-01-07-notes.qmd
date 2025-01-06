@@ -18,7 +18,8 @@ format: html
     - What calculus topics did you cover? [Assemble a list.]
     - What were these topic for? Directly of use? Preparation for further study?
    
-   
+  
+
 - A little history of this course.
     - Origins in "calculus reform" from the late 20th century
     - MAA project to find what "partner disciplines" needed from college math. There was little overlap with traditional topics.
@@ -34,7 +35,10 @@ format: html
     iii. It is multi-variate from the beginning.
     iv. It is an *applied* course, meaning that we focus on techniques that are useful across a broad array of tasks. We avoid the layer of theory that mathematicians added to calculus in the middle of the 19th century.
     v. Just two courses will cover the topics is the usual four- or five-semester-long sequence.
-    
+
+
+
+
 ## Resources
 
 1. Day-by-day schedule will explicitly list readings and assignments. Reading questions are due **before** the class which they are linked to. 
@@ -47,13 +51,19 @@ format: html
     - The computing is embedded into course documents, so you don't have to install anything.
     - For those who are especially keen, you can install the (free) software on your laptop. But, to avoid confusion and to work with the electronic submission of assignments, use the embedded software for your course work.
 
+
+
+
 ## Chap 1: Quantity, function, space
 
 These are the big three concepts for our calculus course. Neither Newton nor Leibniz would recognize them for what they are. Calculus has evolved hugely since its invention, and continues to evolve.
 
+
 - Example: Our calculus course is closely related to the methods used in machine learning and (so-called) artificial intelligence.
 
 **Quantity**: the amount of some "stuff." Need to specify both the amount and the kind of stuff. 
+
+
 
 i. Units tell us the kind of stuff.
 ii. "Dimensions" is the framework for organizing units. It's important to master this. Fundamental dimensions: L, T, M. 
@@ -80,6 +90,10 @@ Examples:
 
 Calculus is largely about **state**, **change**, and **motion**. A state is a point in the space. To change means to move from one point in the space to another. From any point, there is a set of independent directions in which you can move: e.g. left-right, forward-back, up-down. The number of such independent directions is called the "degrees of freedom" of the state.
 
+   
+   
+
+
 ## Activity
 
 What is the state of a baseball game? Construct a complete set of quantities to represent the state at an instant in time. 
@@ -87,6 +101,12 @@ What is the state of a baseball game? Construct a complete set of quantities to 
 This is a *modeling* task. To get anywhere, you have to decide what aspects of the situation are important. For instance, saying the state is a set of molecular positions and orientations would be unwieldy and impractical. 
 
 "Important" is a subjective term and depends on the goals of the modeler. A good place to start when constructing a model is to think about the people the model is intended to serve.
+
+## Activity II
+
+1. Do the reading questions and hand them in.
+
+2. If there is time ... Start on the exercises. Have students hand in the work that they get done.
 
 
 
