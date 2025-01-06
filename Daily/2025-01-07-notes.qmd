@@ -1,0 +1,95 @@
+---
+title: "2025-01-07-notes"
+format: html
+---
+
+## About the preface
+
+
+- You took some mathematics in high school.
+    - Starting with, say, 9th grade, up to but not including calculus, what topics did you study? [Assemble a list.]
+    - What were these topics for? Directly of use? Preparation for further study? [Work with list].
+
+- You are taking this calculus course. What are you hoping to get out of it?
+
+- Did you take a calculus course?
+    - Tell me what calculus is about. (But don't recite from the readings.)
+    - Where does the word *calculus* come from?
+    - What calculus topics did you cover? [Assemble a list.]
+    - What were these topic for? Directly of use? Preparation for further study?
+   
+   
+- A little history of this course.
+    - Origins in "calculus reform" from the late 20th century
+    - MAA project to find what "partner disciplines" needed from college math. There was little overlap with traditional topics.
+    - Introduced in 2003 at Macalester College with support from US NSF, Keck Foundation, HHMI
+        i. Became the second most heavily enrolled class at Macalester. (The statistics counterpart was the most enrolled.)
+        ii. Still taught at Macalester,
+    - The US Air Force Academy invited me to redo their core math requirements. The current version of the course is now their official calculus curriculum, taken by about 800 cadets every year.
+
+
+- **Warning**: This course will be different from any other calculus course you are likely to have encountered. 
+    i. Many obsolete topics have been discarded.
+    ii. Computing is at the center of the course. Algebraic manipulation is greatly de-emphasized.
+    iii. It is multi-variate from the beginning.
+    iv. It is an *applied* course, meaning that we focus on techniques that are useful across a broad array of tasks. We avoid the layer of theory that mathematicians added to calculus in the middle of the 19th century.
+    v. Just two courses will cover the topics is the usual four- or five-semester-long sequence.
+    
+## Resources
+
+1. Day-by-day schedule will explicitly list readings and assignments. Reading questions are due **before** the class which they are linked to. 
+2. Free, online textbook, [*MOSIAC Calculus*](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/).
+3. Exercises, reading questions, projects are in the [*MOSAIC Calculus Workbook*](https://dtkaplan.github.io/MC-Workbook/).
+4. Show how to hand in assignments electronically.
+5. Computing is integral to the course. We use the professional-level R platform, which is also being used in QR2.
+    - Everything is open source.
+    - Each course has its own set of basic R functions.
+    - The computing is embedded into course documents, so you don't have to install anything.
+    - For those who are especially keen, you can install the (free) software on your laptop. But, to avoid confusion and to work with the electronic submission of assignments, use the embedded software for your course work.
+
+## Chap 1: Quantity, function, space
+
+These are the big three concepts for our calculus course. Neither Newton nor Leibniz would recognize them for what they are. Calculus has evolved hugely since its invention, and continues to evolve.
+
+- Example: Our calculus course is closely related to the methods used in machine learning and (so-called) artificial intelligence.
+
+**Quantity**: the amount of some "stuff." Need to specify both the amount and the kind of stuff. 
+
+i. Units tell us the kind of stuff.
+ii. "Dimensions" is the framework for organizing units. It's important to master this. Fundamental dimensions: L, T, M. 
+iii. Derived dimensions, e.g. L/T or L/T^2^, or M L^2^ / T^2^ are constructed by multiplying and dividing fundamental dimensions. Only multiplication and division are allowed!
+iv. We often have English words that correspond to specific dimensions, e.g.
+M L^2^ T^-2^ is "energy" while M L^2^ T^-3^ is "power." Other, very common English dimension words: area, volume, flow, ...
+
+
+**Function**: in the calculus sense is a relationship between one or more inputs and a single output. You will learn about 20 vocabulary terms involving functions, some of which you already know. It is crucial to use the vocabulary precisely and accurately. Examples: input, domain, output, curvature, continuity, ...
+
+- Notation: Almost every function will have a name, e.g. `sin`, `sqrt`. We will usually write the name followed by a pair of *empty* parentheses to remind us that the name refers to a function.
+- Putting inputs inside the parentheses means "evaluate the function for that input." Example: 
+    i. $\sin()$ is the *name* of a function
+    ii. $\sin(\pi)$ is a number, not a function.
+    iii. Often we will use *names* for the inputs to a function, especially when defining them, e.g., $f(x, t) \equiv A \exp(-t/T_0) \sin(2\pi t/P)$. 
+- Surprising fundamental fact that you didn't learn in high school. If $t$ stands for time (say, units of seconds), then $\sin(t)$ is not a valid expression. We'll see why later.
+- A good, but partial definition of calculus is "the mathematics of functions."
+
+**Space**: This is at once completely intuitive and utterly incomprehensible. In a mathematical sense, a space is a "set of possibilities." Each individual possibility is called a "point."
+
+Examples: 
+- A table-top is a space. You can put an object at any point on the table.
+- The stuff of the universe occupies space. Intuitively, this is 3-dimensional space, but relativists consider it to be 4-dimensional and string-theorists often talk about 9-dimensional space.
+
+Calculus is largely about **state**, **change**, and **motion**. A state is a point in the space. To change means to move from one point in the space to another. From any point, there is a set of independent directions in which you can move: e.g. left-right, forward-back, up-down. The number of such independent directions is called the "degrees of freedom" of the state.
+
+## Activity
+
+What is the state of a baseball game? Construct a complete set of quantities to represent the state at an instant in time. 
+
+This is a *modeling* task. To get anywhere, you have to decide what aspects of the situation are important. For instance, saying the state is a set of molecular positions and orientations would be unwieldy and impractical. 
+
+"Important" is a subjective term and depends on the goals of the modeler. A good place to start when constructing a model is to think about the people the model is intended to serve.
+
+
+
+
+
+

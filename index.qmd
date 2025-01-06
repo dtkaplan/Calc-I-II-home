@@ -3,8 +3,9 @@ title: "Calc I & II at University of Austin"
 subtitle: "Prof. Daniel Kaplan"
 ---
 
-This is the home page for the Winter and Spring terms of the course sequence Calc I/II at UATX. 
-But from here on, assignments due *before class* are really due before class. Similarly, the *readings* should be completed before class (which will put you in a position to answer the reading questions). When you have questions about a reading, let's make it part of a class discussion on the day the reading is due.
+This is the home page for the Winter and Spring terms of the course sequence Calc I/II at UATX. But from here on, assignments due *before class* are really due before class. Similarly, the *readings* should be completed before class (which will put you in a position to answer the reading questions). When you have questions about a reading, let's make it part of a class discussion on the day the reading is due.
+
+
 
 ::: {.callout-note}
 ## Link for homework submissions
@@ -27,7 +28,7 @@ I suggest that you bookmark the Google Form link. You will be using it often.
 
 ::: {.callout-note}
 ## 1. Tuesday 7 January, 2025
-Topics: Orientation to course resources
+Topics: Orientation to course resources[.](Daily/2025-01-07-notes.html)
 
 Reading:     
 
