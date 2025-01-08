@@ -14,6 +14,8 @@ Each of the homework assignment documents is set up to collect your answers at t
 
 From your clipboard, paste the JSON string into this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog)
 
+
+https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=sharing
 I suggest that you bookmark the Google Form link. You will be using it often.
 :::
 
@@ -38,7 +40,7 @@ Reading:
 
 ::: {.callout-note}
 ## 2. Thursday 9 January
-Topics:     
+Topics[:](Daily/2025-01-09-notes.html)
 
 - Clearing up any start-up problems   
 
