@@ -1,0 +1,32 @@
+---
+title: "Policies and other course information"
+format: html
+---
+
+Assignments:  
+
+- The *readings* should be completed before class (which will put you in a position to answer the reading questions). The *reading questions* should also be **submitted** before the class for which the reading is assigned.
+
+- When you have questions about a reading, let's make it part of a class discussion on the day the reading is due.
+
+- *Exercises* are due by the class day after they are assigned. 
+
+
+
+::: {.callout-note}
+## Link for homework submissions
+
+Each of the homework assignment documents is set up to collect your answers at the press of a button. The answers are copied to your clipboard in a web-standard format called JSON, which you aren't expected to read.
+
+From your clipboard, paste the JSON string into this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog)
+
+I suggest that you bookmark the Google Form link. You will be using it often.
+:::
+
+
+**Orientation to each day**: For simplicity, most class days will be structured in the same way:
+
+- Often, we will cover one chapter of *MOSAIC Calculus* each class days. Some chapters may take longer.
+- We will discuss the reading in class, so you should do the reading and hand in the reading questions *before* that class. 
+- You can go back, re-do, and re-submit the reading questions if you like, but this is not required.
+- The assignment for each chapter will be due the class day *following* the discussion of that chapter. If you have questions, bring them to that following day to discuss them, then you can complete your assignment.

@@ -1,7 +1,10 @@
 ---
-title: "2025-01-09-notes"
-format: html
+author: DTK
+date: 2025-01-09
+number-offset: 1
 ---
+
+# 2025-01-09 class notes
 
 ```{r include=FALSE}
 library(mosaicCalc)
@@ -98,7 +101,14 @@ $\sin()$, $\log()$, $\exp()$ or, in computer notation, `sin()`, `log()`, `exp()`
 
 iii. Wondering which logarithm $\log()$ refers to? Hold on to that. We will almost always be using the so-called "natural logarithm." If you don't know what this is, you are far from the only person. There's plenty of time to find out.
 
-### Defining functions
+iv. The above style of notation can be called "functional notation." There are very familiar functions that use a different system for notation, called **infix**. Infix functions, $+$, $-$, $\times$, $/$ take **two** arguments, one placed on the left-hand side of the name the other on the right-hand side of the name, do not involve parentheses. 
+
+    a. Examples:
+        - $3+2$ stands for something that in functional notation might be written $plus(3, 2)$.
+    b. You can use infix notation in R, and there is a large number of infix functions. `+`, `-`, `*`, `/`, `||`, `%in$`, and so on, including the "tilde" `~` that's used to construct a "tilde expression." (See @sec-def-functions.) You're familiarity with traditional infix notation will get you through. Just be aware that the *canonical* syntax for a function is the "name followed by parentheses."
+    c. By way of example of the last sentence in (b), here's an R command that will accomplish $3 + 2$: ``+``(3, 2)`. The back-quotes (which you will never need to use) are R's escape mechanism to allow otherwise invalid characters to be used as names.
+
+### Defining functions {#sec-def-functions}
 
 High-school notation is incredibly sloppy when it comes to working with functions. You've seen $y = m x + b$. Is this an equation (yes), a function defintion (sometimes), or a "constraint" (complicated).
 
@@ -106,7 +116,7 @@ We will use a consistent notation that yells at you that a function is being def
 
 **Traditional notation**: $$\text{snowfall}(t) \equiv a t + b\ .$$ We know that snowfall() is a function because it is a name followed immedidately by an open parenthesis. This has several components:
 
-1. snowfall: the name of the function. (But in narratives the name will be written snowfall() so that we can tell immediately that the name refers to a function.)
+1. snowfall : the name of the function. (But in narratives the name will be written snowfall() so that we can tell immediately that the name refers to a function.)
 2. $(t)$ the function has one input, and we're calling it $t$.
 3. $\equiv$ means defined to be.
 4. $a t + b$. In this case we are using a **formula** to define the function.
@@ -120,8 +130,10 @@ This has the same four components, but written differently.
 1. `snowfall`: the name of the function. 
 2. `<-` a computer instruction called variously "assignment" or "naming" or "stored under the name". The result of the computation on the right-hand side of `<-` is the **value** that will be stored under that name.
 3. `makeFun()`, the name of a **computer function**. These are the action verbs of computing; they do something with the **arguments** handed over in the parentheses. The job of `makeFun()` is to construct a set of computer instructions, packaging it as a function.  It's unfortunate that we use the word "function" to mean different things: 1) a mathematical relationship between inputs and an output and 2) a computer procedure that packages up computer instructions.
-4. `a * t + b ~ t`. This is a special grammatical construction in the computer language called a **tilde expression**. The name comes from the character [`~`
-]{style = "fontsize:20;"}
+4. `a * t + b ~ t`. This is a special grammatical construction in the computer language called a **tilde expression**. 
+
+    The name comes from the character [~]{style="font-size:2em;"}.
+
     i. You will use tilde expressions very extensively and for many purposes. The one here is taken apart by `makeFun()`. The R expression on the left-hand side of `~` is a **formula**, that is, a description of a computation. The R expression on the right-hand side tells `makeFun()` that the input name will be `t`. 
 
 `makeFun()` is the right tool for building functions from a **formula**. As we move through the course you will meet other function-building tools. Some examples (which you don't need to understand yet):

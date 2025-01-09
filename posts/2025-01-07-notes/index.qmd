@@ -1,6 +1,7 @@
 ---
-title: "2025-01-07-notes"
-format: html
+title: "2025-01-07 class notes"
+author: DTK
+date: 2025-01-07
 ---
 
 ## About the preface

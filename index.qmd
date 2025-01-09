@@ -3,40 +3,14 @@ title: "Calc I & II at University of Austin"
 subtitle: "Prof. Daniel Kaplan"
 ---
 
-This is the home page for the Winter and Spring terms of the course sequence Calc I/II at UATX. But from here on, assignments due *before class* are really due before class. Similarly, the *readings* should be completed before class (which will put you in a position to answer the reading questions). When you have questions about a reading, let's make it part of a class discussion on the day the reading is due.
 
+This is the home page for the Winter and Spring terms of the course sequence Calc I/II at UATX. Please read the [**Basics**](basics.html) page for course policies and such. 
 
+------
 
-::: {.callout-note}
-## Link for homework submissions
+[Homework submission link](https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog target="_blank")
 
-Each of the homework assignment documents is set up to collect your answers at the press of a button. The answers are copied to your clipboard in a web-standard format called JSON, which you aren't expected to read.
-
-From your clipboard, paste the JSON string into this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog)
-
-
-https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=sharing
-I suggest that you bookmark the Google Form link. You will be using it often.
-:::
-
-## Schedule: Near future
-
-**Orientation**: For simplicity, most class days will be structured in the same way:
-
-- Often, we will cover one chapter of *MOSAIC Calculus* each class days. Some chapters may take longer.
-- We will discuss the reading in class, so you should do the reading and hand in the reading questions *before* that class. 
-- You can go back, re-do, and re-submit the reading questions if you like, but this is not required.
-- The assignment for each chapter will be due the class day *following* the discussion of that chapter. If you have questions, bring them to that following day to discuss them, then you can complete your assignment.
-
-::: {.callout-note}
-## 1. Tuesday 7 January, 2025
-Topics: Orientation to course resources[.](Daily/2025-01-07-notes.html)
-
-Reading:     
-
-- *MOSAIC Calculus* [Preface](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/)
-- *MOSAIC Calculus* [Chap 1: Quantity, function, space](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/01-quant-fun-space.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/01-reading.html). 
-:::
+## Day-by-day schedule
 
 ::: {.callout-note}
 ## 2. Thursday 9 January
@@ -64,6 +38,18 @@ Reading: *MOSAIC Calculus* [Chap 3 Computing with R](https://www.mosaic-web.org/
 Assignment due: [Chapter 2 Exercises](https://dtkaplan.github.io/MC-Workbook/02-exercises.html)
 :::
 
+
+## Recent history
+
+::: {.callout-note}
+## 1. Tuesday 7 January, 2025
+Topics: Orientation to course resources[.](Daily/2025-01-07-notes.html)
+
+Reading:     
+
+- *MOSAIC Calculus* [Preface](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/)
+- *MOSAIC Calculus* [Chap 1: Quantity, function, space](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/01-quant-fun-space.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/01-reading.html). 
+:::
 
 ## Further out (i.e. tentative)
 

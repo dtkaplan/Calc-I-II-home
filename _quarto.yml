@@ -8,6 +8,10 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: about.qmd
+        text: Basics
+      - href: posts.qmd
+        text: Class notes and posts
 
 format:
   html:
