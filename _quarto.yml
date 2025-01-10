@@ -19,5 +19,11 @@ format:
     css: styles.css
     toc: true
 
+# Enable webR
+webr:
+  channel-type: 'automatic'
+  packages: ['ggplot2', 'mosaicCalc' ]
+filters:
+  - webr
 
 

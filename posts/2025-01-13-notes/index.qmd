@@ -1,0 +1,172 @@
+---
+author: DTK
+date: 2025-01-13
+number-offset: 2
+---
+
+# 2025-01-13 class notes
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+## Where we are
+
+We've been introducing new terms that we will employ throughout the semester, mostly with an eye to creating an explicit nomenclature and notation.
+
+- **Fundamental concepts**: Quantity, Function, Space
+- Model**ing**: The process of constructing a model. We will cover this systematically, but *not yet*.
+- We will use two systems for notation:
+    1. traditional, as you might see in the textbook reading.
+    2. computing, to be used in constructing computer commands
+
+I've taken pains to make the two systems of notation as similar as possible, but respect for tradition and the restrictions of computer language interpreters force some divergences.
+
+**Elements of notation**:
+
+- names: `x`, `y`, `t`, `rainfall`, `temp_{high}`. When writing a name in computer notation, do **not** use quotation marks.
+- numerals: the character representation of a number.
+- functions: f(), g(), h() are common pronouns, but we will use a lot of proper names for functions, e.g. `sin()`, `log()`, `dnorm()`. (`dnorm()` is a new one for you! Be patient.)
+    i. I write the `()` after a function name to remind you that the thing being named is a function. 
+    ii. A handful of functions are written in *infix* notation. Thus, `+` is a function name, but you use it as 3 + 2 with the two arguments on the different sides of the function name. This contrasts with *functional* notation which would look something like $plus(3, 2)$. Even on the computer, don't convert infix notation to functional notation. Infix is usually easier to read (so long as there are just a handful of operators.)
+- defining mathematical functions. When modeling, we will be creating and using mathematical functions. We will also be building computing expressions using computer functions. 
+- traditional notation to define a function named henry(): $\text{henry}(t) \equiv t^2 / \sin(2\pi t/P)$
+- *computer notation*: `henry <- makeFun(t^2 / sin(2*pi*t/P))`
+- Note that the computer notation doesn't have "implicit multiplication." You must use the `*` infix operator.
+
+## Computing with R
+
+### Chunks for composing commands
+
+In your own work, you will use *interactive* boxes---called "chunks" or "webr chunks"---to construct commands and, by pressing the "Run Code" button, get the computer to process them and appropriately display the results. It looks like this:
+
+![](webr-chunk.png)
+
+In writing up notes, I often use a different system that looks like this, without a "Run Code" button.
+
+```{r}
+2 + 3
+```
+
+In both styles, the output is reported with some formatting. The content of the output in the above chunks is 5. Often, output will have more than one component and the `[1]` is just telling you that the 5 is the first component.
+
+You'll also sometimes see me using a different interface, called "RStudio," where I type commands in a console or in a document. You don't need to worry about this.
+
+You cannot create on your own a webr chunk. I create them in the process of writing documents that you use. For instance, here is one:
+
+```{webr-r}
+15 + 98
+```
+
+But you can use a webr-chunk for any purpose that you like. Feel free to erase whatever expression has been typed and put in your own.
+
+**NB**: Use the Calc I/II webr chunks for calculus, and the QR2 webr chunks for QR2. It would have been possible to arrange things so that you could use any chunk for any course, but I haven't thought this necessary. 
+
+IN-CLASS EXERCISES:
+
+Do some arithmetic and simple function application in R:
+
+1. $\frac{22 - 5}{7}$
+2. $4.14\! \times\! 10^{-3} \times 2.83\!\times\!10^{4}$
+3. $18 \sin \frac{\pi}{5}$
+4. $\ln(200)$
+5. $\log_{10}(1000)$
+6. $\sqrt{17}$
+7. $\sqrt[3]{17}$
+8. $2.14^{3.1 + 7.8}$
+9. $e^2$
+
+```{webr-r}
+
+
+```
+
+
+
+## Storage
+
+We often will want to give names to computed objects.
+
+* I use the strange word "object" because there are different kinds of computationally constructed things, e.g. numbers and functions among several others. (For instance, in QR2, you will sometimes create "simulations.")
+
+* The computer syntax for giving a name to an object involves the "storage arrow" `->`. Here, I'll store the *value* 5.3 under the name `b`. The name always goes on the RHS of `<-`.
+
+```{r}
+b <- 5.3
+```
+
+Note that when you store an object, the object is not printed.
+
+To recall the named object from storage, just use the name as a command or as part of a command. For instance:
+
+```{r}
+b
+b + 17
+```
+
+IN-CLASS EXERCISES:
+
+1. Store the value $\sqrt{22}$ under the name `billy_bob`. Then confirm by calculating `bill_bob` squared.
+2. Why is $y^4 = 19$ not a valid storage expression? Fix it to express the intent.
+3. Can `=` be used in place of `<-`?
+
+```{webr-r}
+
+```
+
+
+
+## Errors
+
+In response to an ill-formed computer command or some other troubling condition, R will cancel the computation and display an error message. For instance, here is an expression that refers to a name that is not yet in use:
+
+```{r error=TRUE}
+bb
+```
+
+On some web browsers, the webr-chunk error messages are not shown. That's a bug, and I'm trying to figure out what to do about it. For now, I can only apologize and give you a heads up.
+
+**Error messages are your friend**. Admittedly, it is the kind of friend who you only welcome under special circumstances and otherwise avoid. The friend's [affect is offputting]{style="color: red;"} and intimidating. Try to overcome being affected by that. Also, the friend mostly mumbles. It takes work to feret out the valuable hint that your friend is trying to provide.
+
+In-class EXERCISES:
+
+1. What happens if you use the name `billy bob` to hold the value $\cos(22)$? After observing the error message, fix it.
+
+```{webr-r}
+
+
+```
+
+2. Here is a command intended to create a function `francis()`:
+
+```{webr-r}
+francis() <- makeFn(y ~ 3 * y^2 - 4)
+```
+
+Figure out what's wrong and fix it.
+
+
+
+
+
+## Graphs of functions
+
+Graphing functions of one variable and setting the graphics domain.
+
+- `domain(x = 0:10)`
+- `slice_plot(x^2 - 3*x + 2 ~ x, domain(x=-5:5))`
+
+In-class EXERCISES:
+
+```{webr-r}
+
+
+```
+
+1. Plot out each of the pattern-book functions on a suitable domain. pnorm(), dnorm(), exp(), sin(), sqrt(), log(), 
+
+2. Define a `recip()` function using `makeFun()`. 
+
+3. Define an `identity()` function using `makeFun()`. (The identity function returns its input unaltered.)
+
+4. Define a `power_law()` function using `makeFun()`. Example of a power-law function: $y^{2.4}$
