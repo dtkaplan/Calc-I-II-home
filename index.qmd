@@ -13,8 +13,75 @@ This is the home page for the Winter and Spring terms of the course sequence Cal
 ## Day-by-day schedule
 
 ::: {.callout-note}
+## 4. Tuesday 14 January
+Topics: Visualizing functions
+
+Reading: *MOSAIC Calculus* [Chap 4 Visualizing functions](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html) and [reading questions due before class](https://dtkaplan.github.io/MC-Workbook/04-reading.html)
+
+Assignment due: [Chapter 3 Exercises](https://dtkaplan.github.io/MC-Workbook/03-exercises.html)
+:::
+
+::: {.callout-note}
+## 5. Thursday 16 January
+Topics: Our pattern book functions
+
+Reading: *MOSAIC Calculus* [Chap 5 Pattern book functions](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/05-pattern-book-functions.html) and [reading questions due before class](https://dtkaplan.github.io/MC-Workbook/05-reading.html)
+
+Assignment due: [Chapter 4 Exercises](https://dtkaplan.github.io/MC-Workbook/04-exercises.html)
+:::
+
+::: {.callout-note}
+## 6. Friday 17 January
+
+Topics: Describing functions
+
+Reading: *MOSAIC Calculus* [Chap 6 Describing functions ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/06-describing-functions.html) and [reading questions due before class](https://dtkaplan.github.io/MC-Workbook/06-reading.html)
+
+Assignment due: [Chapter 5 Exercises](https://dtkaplan.github.io/MC-Workbook/05-exercises.html)
+:::
+
+
+<!-- THIS IS PAST STUFF. YOU SHOULD BE EDITING ABOVE THIS LINE -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Recent history
+
+
+
+::: {.callout-note}
+## 1. Tuesday 7 January, 2025
+Topics: Orientation to course resources
+
+Reading:     
+
+- *MOSAIC Calculus* [Preface](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/)
+- *MOSAIC Calculus* [Chap 1: Quantity, function, space](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/01-quant-fun-space.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/01-reading.html). 
+:::
+
+::: {.callout-note}
 ## 2. Thursday 9 January
-Topics[:](Daily/2025-01-09-notes.html)
+Topics:
 
 - Clearing up any start-up problems   
 
@@ -39,33 +106,8 @@ Assignment due: [Chapter 2 Exercises](https://dtkaplan.github.io/MC-Workbook/02-
 :::
 
 
-## Recent history
-
-::: {.callout-note}
-## 1. Tuesday 7 January, 2025
-Topics: Orientation to course resources[.](Daily/2025-01-07-notes.html)
-
-Reading:     
-
-- *MOSAIC Calculus* [Preface](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/)
-- *MOSAIC Calculus* [Chap 1: Quantity, function, space](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/01-quant-fun-space.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/01-reading.html). 
-:::
 
 ## Further out (i.e. tentative)
-
-::: {.callout-note}
-## 4. Tuesday 14 January
-
-:::
-
-
-::: {.callout-note}
-## 5. Thursday 16 January
-:::
-
-::: {.callout-note}
-## 6. Friday 17 January
-:::
 
 ::: {.callout-note}
 ## 7. Tuesday 21 January
