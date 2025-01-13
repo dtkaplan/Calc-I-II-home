@@ -1,10 +1,11 @@
 ---
 author: DTK
-date: 2025-01-13
+date: 2025-01-14
 number-offset: 3
+format: live-html
 ---
 
-# 2025-01-13 class notes
+# 2025-01-14 class notes
 
 ```{r include=FALSE}
 library(mosaicCalc)
@@ -12,6 +13,18 @@ library(mosaicCalc)
 
 ## Where we are
 
+Activities we didn't get to on Friday
+
+::: {#lst-slice-plot}
+```{webr-r}
+#| caption: Making a graph of f(x).
+#| context: interactive
+#| persist: true
+#| editor-code-line-numbers: 2
+slice_plot(__tilde_exp__, 
+           domain(x = -5:5))
+```
+:::
 
 1. Plot out each of the pattern-book functions on a suitable domain. pnorm(), dnorm(), exp(), sin(), sqrt(), log(), 
 
@@ -20,3 +33,6 @@ library(mosaicCalc)
 3. Define an `identity()` function using `makeFun()`. (The identity function returns its input unaltered.)
 
 4. Define a `power_law()` function using `makeFun()`. Example of a power-law function: $y^{2.4}$
+
+
+

@@ -1,8 +1,8 @@
 {
-  "hash": "75a42b21cd8ce5b56b6dc00d361a8b8d",
+  "hash": "4be8a58829030773572cdf090be4c274",
   "result": {
     "engine": "knitr",
-    "markdown": "---\nauthor: DTK\ndate: 2025-01-13\nnumber-offset: 3\n---\n\n\n\n# 2025-01-13 class notes\n\n\n\n\n\n\n\n## Where we are\n\n\n1. Plot out each of the pattern-book functions on a suitable domain. pnorm(), dnorm(), exp(), sin(), sqrt(), log(), \n\n2. Define a `recip()` function using `makeFun()`. \n\n3. Define an `identity()` function using `makeFun()`. (The identity function returns its input unaltered.)\n\n4. Define a `power_law()` function using `makeFun()`. Example of a power-law function: $y^{2.4}$\n",
+    "markdown": "---\nauthor: DTK\ndate: 2025-01-14\nnumber-offset: 3\n---\n\n\n\n# 2025-01-14 class notes\n\n\n\n\n\n\n\n## Where we are\n\n```{webr-r}\n#| context: interactive\nslice_plot()\n```\n\n1. Plot out each of the pattern-book functions on a suitable domain. pnorm(), dnorm(), exp(), sin(), sqrt(), log(), \n\n2. Define a `recip()` function using `makeFun()`. \n\n3. Define an `identity()` function using `makeFun()`. (The identity function returns its input unaltered.)\n\n4. Define a `power_law()` function using `makeFun()`. Example of a power-law function: $y^{2.4}$\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

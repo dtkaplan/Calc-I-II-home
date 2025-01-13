@@ -1,0 +1,15 @@
+{
+  "hash": "994806333ee5fb6e29d430e4fbaa308a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nauthor: DTK\ndate: 2025-01-14\nnumber-offset: 3\nformat: live-html\n---\n\n\n\n# 2025-01-14 class notes\n\n\n\n\n\n\n\n## Where we are\n\nActivities we didn't get to on Friday\n\n::: {#lst-slice-plot}\n```{webr-r}\n#| caption: Making a graph of f(x).\n#| context: interactive\n#| persist: true\n#| editor-code-line-numbers: 2\nslice_plot(__tilde_exp__, \n           domain(x = -5:5))\n```\n:::\n\n1. Plot out each of the pattern-book functions on a suitable domain. pnorm(), dnorm(), exp(), sin(), sqrt(), log(), \n\n2. Define a `recip()` function using `makeFun()`. \n\n3. Define an `identity()` function using `makeFun()`. (The identity function returns its input unaltered.)\n\n4. Define a `power_law()` function using `makeFun()`. Example of a power-law function: $y^{2.4}$\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

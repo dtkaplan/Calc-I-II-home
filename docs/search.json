@@ -39,7 +39,7 @@
     "href": "posts/2025-01-13-notes/index.html",
     "title": "UATX Calc-I-II, AY 2025",
     "section": "",
-    "text": "4 2025-01-13 class notes\n\n4.1 Where we are\n\nPlot out each of the pattern-book functions on a suitable domain. pnorm(), dnorm(), exp(), sin(), sqrt(), log(),\nDefine a recip() function using makeFun().\nDefine an identity() function using makeFun(). (The identity function returns its input unaltered.)\nDefine a power_law() function using makeFun(). Example of a power-law function: \\(y^{2.4}\\)"
+    "text": "4 2025-01-14 class notes\n\n4.1 Where we are\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlot out each of the pattern-book functions on a suitable domain. pnorm(), dnorm(), exp(), sin(), sqrt(), log(),\nDefine a recip() function using makeFun().\nDefine an identity() function using makeFun(). (The identity function returns its input unaltered.)\nDefine a power_law() function using makeFun(). Example of a power-law function: \\(y^{2.4}\\)"
   },
   {
     "objectID": "index.html",
@@ -81,6 +81,13 @@
     "href": "posts.html",
     "title": "Class notes and posts",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nJan 13, 2025\n\n\n2025-01-13 class notes\n\n\nDTK \n\n\n\n\nJan 10, 2025\n\n\n2025-01-10 class notes\n\n\nDTK \n\n\n\n\nJan 9, 2025\n\n\n2025-01-09 class notes\n\n\nDTK \n\n\n\n\nJan 7, 2025\n\n\n2025-01-07 class notes\n\n\nDTK \n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nJan 14, 2025\n\n\n2025-01-14 class notes\n\n\nDTK \n\n\n\n\nJan 10, 2025\n\n\n2025-01-10 class notes\n\n\nDTK \n\n\n\n\nJan 9, 2025\n\n\n2025-01-09 class notes\n\n\nDTK \n\n\n\n\nJan 7, 2025\n\n\n2025-01-07 class notes\n\n\nDTK \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2025-01-14-notes/index-01-14-2025.html",
+    "href": "posts/2025-01-14-notes/index-01-14-2025.html",
+    "title": "UATX Calc-I-II, AY 2025",
+    "section": "",
+    "text": "4 2025-01-14 class notes\n\n4.1 Where we are\nActivities we didn’t get to on Friday\n\n\n\nListing 1\n\n\n\n\n\n\n\n\n\n\n\n\nPlot out each of the pattern-book functions on a suitable domain. pnorm(), dnorm(), exp(), sin(), sqrt(), log(),\nDefine a recip() function using makeFun().\nDefine an identity() function using makeFun(). (The identity function returns its input unaltered.)\nDefine a power_law() function using makeFun(). Example of a power-law function: \\(y^{2.4}\\)"
   }
 ]
