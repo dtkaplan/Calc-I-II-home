@@ -2,6 +2,7 @@
 author: DTK
 date: 2025-01-10
 number-offset: 2
+format: live-html
 ---
 
 # 2025-01-10 class notes
@@ -77,7 +78,7 @@ Do some arithmetic and simple function application in R:
 9. $e^2$
 
 ```{webr-r}
-
+#| persist: true
 
 ```
 
