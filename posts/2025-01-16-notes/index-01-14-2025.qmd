@@ -1,0 +1,86 @@
+---
+author: DTK
+date: 2025-01-16
+number-offset: 4
+format: live-html
+---
+
+# 2025-01-16 class notes
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+## Administration
+
+1. I want to arrange a 5-10 minute meeting (or longer, if you want) with each of you, just to get to know you a little. 
+
+    - I'm free the rest of this morning, and from about 2:30 - 4:00 this afternoon. Or tomorrow.
+    
+2. I'm going to start looking at reading questions, exercises, and such on a regular schedule.
+
+    - If you are still shakey about submitting your work, let's fix it! 
+    - I want to see submissions from all of you on every document from now on.
+    
+3. Grading. The STEM faculty have set a rule for instructors about grading.
+
+> Half or more of graded content should be presented and done in a classroom setting. 
+
+- I'm thinking to make this about 50%. Split more or less evenly between class participation and short (15 min) inclass quizzes roughly once a week. 
+- I won't necessarily tell you in advance about such a quiz. If you need to make one up, we can do it in my office. 
+
+
+
+
+## Where we are
+
+Activities we didn't get to on Friday
+
+::: {#lst-slice-plot}
+```{webr-r}
+#| caption: Making a graph of f(x).
+#| context: interactive
+#| persist: true
+#| editor-code-line-numbers: 2
+slice_plot(__tilde_exp__, 
+           domain(x = -5:5))
+```
+:::
+
+1. Plot out each of the pattern-book functions on a suitable domain. pnorm(), dnorm(), exp(), sin(), sqrt(), log(), 
+
+2. Define a `recip()` function using `makeFun()`. 
+
+3. Define an `identity()` function using `makeFun()`. (The identity function returns its input unaltered.)
+
+4. Define a `power_law()` function using `makeFun()`. Example of a power-law function: $y^{2.4}$
+
+## Spaces, graphs, and graphics
+
+Composition of input and output spaces in `slice_plot()`. [link](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html#spaces-and-graphs-of-functions)
+
+Mapping from (part of?) input space to output space.
+
+### 2-d input spaces. 
+
+- Can compose input space with output space to get a 3-dimensional space. Mathematicians like this because the surfaces are beautiful, especially when you can interact with them. 
+    a. Example: [](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html#fig-first-surface){target="_blank"}
+    b. The above example is quite complicated and relates to physics/engineering: a wave packet, and such.
+    c. Of more general use in modeling are simpler functions that resemble terrain **locally**. The word "local" will be important. Calculus provides tools for translating between the local and the global.
+    
+```{r}
+f <- doodle_fun(~ w & z, seed=101)
+surface_plot(f(w, z) ~ w & z, domain(w=-5:5, z=-5:5))
+```
+
+We will tend to use "contour plots" instead. It's easier to make measurements on them, but you have to learn how.
+
+```{r}
+contour_plot(f(w, z) ~ w & z, domain(w=-5:5, z=-5:5), fill_alpha = 0.5)
+```
+
+
+
+[](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html#fig-contour-pre-slice)
+
+
