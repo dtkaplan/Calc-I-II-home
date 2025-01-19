@@ -1,10 +1,19 @@
 ---
-title: "Calc I & II at University of Austin"
+title: "UATX/MOSAIC Calculus"
 subtitle: "Prof. Daniel Kaplan"
 ---
 
 
-This is the home page for the Winter and Spring terms of the course sequence Calc I/II at UATX. Please read the [**Basics**](basics.html) page for course policies and such. 
+
+------
+
+This is the home page for both terms of the two-term UATX/MOSAIC Calculus sequence. The course has no specific pre-requisites and is suited both to those who have no previous experience with Calculus and those who have taken an AP or IB year-long calculus sequence. The UATX Calculus sequence is designed to replace the entire multi-term traditional sequence---Calc I, II, III, differential equations, linear algebra---for STEM students and is highly relevant to economics, biology and medicine, data science, public policy, physics, and chemistry but does not emphasize "pure" (theoretical) mathematics or proof.
+
+Please read the [**Basics**](basics.html) page for course policies and such. 
+
+------
+
+All of us are busy people and need to regulate how much time we spend on each activity. For UATX calculus, make sure to complete the readings and reading questions. The chapter-by-chapter exercises are also important for learning and as a component of the grade, but you are not obliged (unless otherwise stated) to do *all* the exercises. More is better. Exercises marked as "in-class" are not required homework.
 
 ------
 
@@ -13,33 +22,78 @@ This is the home page for the Winter and Spring terms of the course sequence Cal
 ## Day-by-day schedule
 
 ::: {.callout-note}
-## 4. Tuesday 14 January
-Topics: Visualizing functions
+## 7. Tuesday 21 January
 
-Reading: *MOSAIC Calculus* [Chap 4 Visualizing functions](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html) and [reading questions due before class](https://dtkaplan.github.io/MC-Workbook/04-reading.html)
+Topics: Graphics and parameters.
 
-Assignment due: [Chapter 3 Exercises](https://dtkaplan.github.io/MC-Workbook/03-exercises.html)
+Reading: *MOSAIC Calculus* [Chapter 7]() & [Chapter 8]() and their associated reading questions. Why two chapters in one day? As it happens, Chap. 7 is a rehash of what you have already seen about graphing data from the QR2 course.
+
+Start on exercises for Chaps. 7 & 8. Due Thurs and Fri respectively
 :::
 
 ::: {.callout-note}
-## 5. Thursday 16 January
-Topics: Our pattern book functions
+## 8. Thursday 23 January
 
-Reading: *MOSAIC Calculus* [Chap 5 Pattern book functions](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/05-pattern-book-functions.html) and [reading questions due before class](https://dtkaplan.github.io/MC-Workbook/05-reading.html)
+Topics: Assembling functions
 
-Assignment due: [Chapter 4 Exercises](https://dtkaplan.github.io/MC-Workbook/04-exercises.html)
+Reading: *MOSAIC Calculus* [Chapter 9](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/09-assembling-functions.html) & its associated reading questions. 
+:::
+
+Assignment Due: [Chapter 7 exercises](https://dtkaplan.github.io/MC-Workbook/07-exercises.html)
+
+::: {.callout-note}
+## 9. Friday 24 January
+
+Topics: Fitting function features
+
+*Note*: We are covering Ch **11** and deferring Chapter 10 until Tuesday.
+
+Reading: *MOSAIC Calculus* [Chapter 11](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/11-fitting-features.html) & its associated reading questions. 
+
+Assignment Due: [Chapter 8 exercises](https://dtkaplan.github.io/MC-Workbook/08-exercises.html)
 :::
 
 ::: {.callout-note}
-## 6. Friday 17 January
+## 10. Tuesday 28 January
 
-Topics: Describing functions
+Topics: Fitting function features
 
-Reading: *MOSAIC Calculus* [Chap 6 Describing functions ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/06-describing-functions.html) and [reading questions due before class](https://dtkaplan.github.io/MC-Workbook/06-reading.html)
+*Note*: Chapter 10 today!
 
-Assignment due: [Chapter 5 Exercises](https://dtkaplan.github.io/MC-Workbook/05-exercises.html)
+Reading: *MOSAIC Calculus* [Chapter 10](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/10-functions-with-multiple-inputs.html) & its associated reading questions. 
+
+Assignment Due: [Chapter 11 exercises](https://dtkaplan.github.io/MC-Workbook/11-exercises.html)
 :::
 
+
+::: {.callout-note}
+## 11. Thursday 30 January
+:::
+
+
+::: {.callout-note}
+## 12. Friday 31 January
+
+:::
+
+::: {.callout-note}
+## 13. Tuesday 4 February
+
+:::
+
+
+::: {.callout-note}
+## 14. Thursday 6 February
+:::
+
+
+
+::: {.callout-note}
+## 15. Friday 7 February
+
+:::
+
+Mid-term break
 
 <!-- THIS IS PAST STUFF. YOU SHOULD BE EDITING ABOVE THIS LINE -->
 
@@ -65,7 +119,7 @@ Assignment due: [Chapter 5 Exercises](https://dtkaplan.github.io/MC-Workbook/05-
 
 
 
-## Recent history
+## Archive
 
 
 
@@ -105,6 +159,35 @@ Reading: *MOSAIC Calculus* [Chap 3 Computing with R](https://www.mosaic-web.org/
 Assignment due: [Chapter 2 Exercises](https://dtkaplan.github.io/MC-Workbook/02-exercises.html)
 :::
 
+::: {.callout-note}
+## 4. Tuesday 14 January
+Topics: Visualizing functions
+
+Reading: *MOSAIC Calculus* [Chap 4 Visualizing functions](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html) and [reading questions due before class](https://dtkaplan.github.io/MC-Workbook/04-reading.html)
+
+Assignment due: [Chapter 3 Exercises](https://dtkaplan.github.io/MC-Workbook/03-exercises.html)
+:::
+
+::: {.callout-note}
+## 5. Thursday 16 January
+Topics: Our pattern book functions
+
+Reading: *MOSAIC Calculus* [Chap 5 Pattern book functions](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/05-pattern-book-functions.html) and [reading questions due before class](https://dtkaplan.github.io/MC-Workbook/05-reading.html)
+
+Assignment due: [Chapter 4 Exercises](https://dtkaplan.github.io/MC-Workbook/04-exercises.html)
+:::
+
+::: {.callout-note}
+## 6. Friday 17 January
+
+Topics: Describing functions
+
+Reading: *MOSAIC Calculus* [Chap 6 Describing functions ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/06-describing-functions.html) and [reading questions due before class](https://dtkaplan.github.io/MC-Workbook/06-reading.html)
+
+Assignment due: [Chapter 5 Exercises](https://dtkaplan.github.io/MC-Workbook/05-exercises.html)
+:::
+
+
 
 
 ## Further out (i.e. tentative)
@@ -129,34 +212,7 @@ Assignment due: [Chapter 2 Exercises](https://dtkaplan.github.io/MC-Workbook/02-
 
 :::
 
-::: {.callout-note}
-## 11. Thursday 30 January
-:::
 
-
-::: {.callout-note}
-## 12. Friday 31 January
-
-:::
-
-::: {.callout-note}
-## 13. Tuesday 4 February
-
-:::
-
-
-::: {.callout-note}
-## 14. Thursday 6 February
-:::
-
-
-
-::: {.callout-note}
-## 15. Friday 7 February
-
-:::
-
-Mid-term break
 
 ::: {.callout-note}
 ## 16. Tuesday 11 February

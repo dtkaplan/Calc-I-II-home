@@ -1,0 +1,31 @@
+---
+title: "Calc I/II Daily Roster 2025"
+format: pdf
+---
+
+```{r echo=FALSE}
+student_names <- c(
+  "Alistair Haglund",
+  "Nicole Kargin",
+  "Max Litvinenka",
+  "Everett McAlister",
+  "Grace Price",
+  "Simon Rinehart",
+  "Almar Tishenko",
+  "Max Weinstein",
+  "Ian Wicht")
+todays_roster <- function(today) {
+  if (missing(today)) today <- strtrim(date(), 11)
+  
+  student_list <- paste0("- ", sample(student_names), collapse = "\n\n")
+  
+  glue::glue("### Class roster for {today}{{.unnumbered}}\n\n{student_list}")
+}
+```
+
+
+
+
+```{r echo = FALSE, results = "asis"}
+todays_roster("Fri Jan 17, 2025")
+```

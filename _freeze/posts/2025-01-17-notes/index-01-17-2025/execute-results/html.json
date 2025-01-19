@@ -1,0 +1,17 @@
+{
+  "hash": "3ed7560bc79b31eda2a7ffa8ebb3ac37",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nauthor: DTK\ndate: 2025-01-17\nnumber-offset: 5\nformat: live-html\n---\n\n\n\n\n\n\n# 2025-01-17 class notes\n\n\n\n\n\n\n\n\n\n\n\n\n\nLet's just call it \"Calculus\" instead of Calc I/II\n\n## Where we are\n\nReview of the chapters. Each student picks one chapter.\n\n## Describing functions with words\n\nThese words are used to describe **local** properties, that is, over a \"finite\" part of the domain. \n\ni. slope\n#. concavity\n#. continuity\n#. monotonicity\n#. periodicity\n#. asymptotes\n#. local extrema\n\nFunctions can change their properties as you move from one locale in the domain to another. \n\n\n## Building new functions\n\nWe will build new functions from old ones. There are several techniques, that are talked about in the next block.\n\ni. input scaling\nii. output scaling\niii. linear combination\niv. multiplication\nv. composition\n\nThere are also many methods to build functions that approximate data. You've seen this with `annot = \"model\"` in QR2, but in Calculus we will use different software because we will focus on *continuous* functions.\n\n\n## Activity\n\n1. Summarize each of the pattern-book functions in terms of these descriptive words.\n\n![](../2025-01-16-notes/www/pattern-book-shapes.png){width=\"100%\"}\n\n2. On the board, sketch out some imagined functions over some finite domain that have these properties:\n\na. downward sloping but concave up.\nb. discontinuous at a point\nc. non-monotonic and concave down.\nd. vertical asymptote at $x=1$\ne. left horizontal asymptote at 0, right at 0 as well\nf. a function with two local extrema (over the domain you are showing)\n\n3. Are the functions described below possible?\n\na. Continuous with two local maximum but **no local minimum**.\nb. Switching from concave up to concave down as $x$ increases\nc. Monotonic with a local maximum\nd. Have both left and right horizontal asymptotes and also a vertical asymptote at $x=5$.\n\n\n## Quiz (15 minutes)\n\nPossibly: review quiz\n\n\n",
+    "supporting": [
+      "index-01-17-2025_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

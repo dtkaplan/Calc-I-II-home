@@ -46,7 +46,7 @@ todays_roster <- function() {
   
   student_list <- paste0("- ", sample(student_names), collapse = "\n\n")
   
-  glue::glue("### Class roster for {today}{{.unnumbered}}\n\n{student_list}")
+  glue::glue("### Class roster for {today}{{.nonumber}}\n\n{student_list}")
 }
 ```
 
@@ -135,8 +135,8 @@ square      | $x^2$               | `x^2`
 identity    | $x$                 | `x`
 one         | $1$                 | `1`
 reciprocal  | $1/x$ or $x^{-1}$   | `1/x`
-gaussian    | $\text{dnorm}(x)$         | `dnorm(x)`
-sigmoid     | $\text{pnorm}(x)$         | `pnorm(x)`
+gaussian    | $\dnorm(x)$         | `dnorm(x)`
+sigmoid     | $\pnorm(x)$         | `pnorm(x)`
 
 
 You need to:
@@ -160,9 +160,7 @@ You need to:
 In small groups: Pick three pattern-book functions. Find some special inputs where the output is easy to remember, e.g. the output is zero or the output is an integer.
 
 ```{webr-r}
-# Space to compute
+
 ```
-
-
 
 

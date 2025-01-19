@@ -1,0 +1,17 @@
+{
+  "hash": "0363e3a24d076b9ba7bcb8832062475c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nauthor: DTK\ndate: 2025-01-17\nnumber-offset: 6\nformat: live-html\n---\n\n\n\n\n\n\n# 2025-01-21 class notes\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe only change is a different R function, `gf_point()` that plots a response variable against a **single** explanatory variable, e.g., `Galton <- gf_point(height ~ mother)`. There\n\n\n## Activity\n\n1. Plot some data on the screen. \n\n2. Copy it over to your board.\n\n3. Draw a version of a basic modeling function that aligns with the data. \n\nSome pattern-book functions will work better than others. `fitModel()` makes you choose the function, then does the rest automatically. \n\nIf we expanded `fitModel()` so that it would go through a large library of functions, try them all, and then pick the one that works best overall, we would be doing \"*machine learning*.\" (There would be additional technicalities, which are discussed a little in Spiegelhalter Ch. 4. \"Cross-validation\" is one of the methods that can come into play, but we won't talk about that in this Calculus course.)\n\nHow do you think the computer could do what you do by eye automatically? We need a framework and a procedure.\n\n## Framework Part 1: Input and output scaling\n\n\n## Framework Part 2: Residuals\n\nWe are going to make the residuals as small as possible.\n\n## Procedure: Guess, check, and improve\n\nThis is where you can start to talk about finite diferences, slopes, and increments. We will eventually change this into the language of \"derivatives.\" The \"back propagation\" used in Deep Learning neural networks is nothing more than this, although on an immense scale.\n\n\n## Fitting functions to data\n\nWe're going to stretch and shift the input and output spaces so that the pattern-book function overlies the data plotted. Imagine that we have a projector with separate zoom-in/zoom-out for the horizontal and vertical planes. As for pan---moving the image sideways or up and down---this doesn't require any cleverness.\n\nTalk about residuals.\n\nHow do we set the scaling parameters to align the function image with the data?\n\n1. It can be done.\n2. `fitModel()` is a pretty good way to do it.\n\n\n\n## Activity\n\n\n",
+    "supporting": [
+      "index-01-21-2025_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,58 @@
+---
+author: DTK
+date: 2025-01-17
+number-offset: 6
+format: live-html
+---
+
+# 2025-01-21 class notes
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+The only change is a different R function, `gf_point()` that plots a response variable against a **single** explanatory variable, e.g., `Galton <- gf_point(height ~ mother)`. There
+
+
+## Activity
+
+1. Plot some data on the screen. 
+
+2. Copy it over to your board.
+
+3. Draw a version of a basic modeling function that aligns with the data. 
+
+Some pattern-book functions will work better than others. `fitModel()` makes you choose the function, then does the rest automatically. 
+
+If we expanded `fitModel()` so that it would go through a large library of functions, try them all, and then pick the one that works best overall, we would be doing "*machine learning*." (There would be additional technicalities, which are discussed a little in Spiegelhalter Ch. 4. "Cross-validation" is one of the methods that can come into play, but we won't talk about that in this Calculus course.)
+
+How do you think the computer could do what you do by eye automatically? We need a framework and a procedure.
+
+## Framework Part 1: Input and output scaling
+
+
+## Framework Part 2: Residuals
+
+We are going to make the residuals as small as possible.
+
+## Procedure: Guess, check, and improve
+
+This is where you can start to talk about finite diferences, slopes, and increments. We will eventually change this into the language of "derivatives." The "back propagation" used in Deep Learning neural networks is nothing more than this, although on an immense scale.
+
+
+## Fitting functions to data
+
+We're going to stretch and shift the input and output spaces so that the pattern-book function overlies the data plotted. Imagine that we have a projector with separate zoom-in/zoom-out for the horizontal and vertical planes. As for pan---moving the image sideways or up and down---this doesn't require any cleverness.
+
+Talk about residuals.
+
+How do we set the scaling parameters to align the function image with the data?
+
+1. It can be done.
+2. `fitModel()` is a pretty good way to do it.
+
+
+
+## Activity
+
+

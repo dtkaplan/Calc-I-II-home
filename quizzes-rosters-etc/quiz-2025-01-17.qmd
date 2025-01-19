@@ -1,0 +1,82 @@
+---
+title: "Calc I/II quiz"
+author: "January 17, 2025"
+format: pdf
+include-in-header:         
+  - text: \usepackage{nopageno}
+---
+
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+Student name: _____________. Do what you can in 15 minutes. 
+
+1. What are three *fundamental* dimensions for quantities? (Hint: They are represented by single letters.)
+
+ 
+
+
+2. Using the fundamental dimensions from question (1), write down the dimension of each of these "kinds of stuff."
+    - Area
+    - Velocity
+    - Flow, e.g. volume per minute
+
+ 
+
+3. What is the dimension of the *input space* for each of these functions? (Hint: don't overthink things.)
+    - $f(x, t) \equiv \sin(x) e^t$
+    - $g(a, b, c) \equiv \sqrt{\frac{a^2 - b^3}{\ln(c)}}$
+    - $h(u, v) \equiv 1$
+    
+ 
+
+4. Draw a horizontal and a vertical line to represent the coordinate axes. Then draw a graph of dnorm(). Put 2 or 3 tick marks on the vertical axis with numerical values.
+
+ 
+
+ 
+
+5. Most of the *pattern-book functions* have a domain that is the entire number line, that is $-\infty < x < \infty$. Name two pattern-book functions where this is not true. (Hint: One of the two is missing only a single point on the number line.)
+
+ 
+
+6. @fig-two-contour-plots are contour plots showing two different functions.
+
+```{r echo = FALSE}
+#| label: fig-two-contour-plots
+#| layout-ncol: 2
+#| fig-cap: "Contour plots for Question 6"
+#| fig-subcap:
+#| - $f(x, y)$
+#| - $g(x, y)$
+f <- doodle_fun(~ x & y, seed = 932)
+g <- doodle_fun(~ x & y, seed = 3403)
+contour_plot(f(x, y) / 10 ~ x & y,
+             domain(x = -5:5, y = -5:5)) +
+  theme_minimal()
+Spring <- data.frame(x = 4.5, y = -4.5, label = "Spring")
+contour_plot(g(x, y) ~ x & y,
+             domain(x = -5:5, y = -5:5), skip = 0) +
+  geom_text(data = Spring, aes(x =x, y = y, label = label)) +
+  theme_minimal()
+```
+
+- 6(a) Which function has the higher output value at $(x=0, y=0)$?
+
+- 6(b) Each of the functions has a "mountain." Mark the **top** of the mountain with an x and then give numerically the input coordinates (approximately) that correspond to that top.
+
+- 6(c) The location of a spring (that is, a source of water) is marked on one graph. Trace out, approximately, the path taken by the stream stemming from that spring.
+
+
+7. Consider the contour plot below. Draw in plausible contours for output values 0 and 8.
+
+```{r echo = FALSE}
+#| out.width: 4in
+g <- doodle_fun(~ x & y, seed = 3408)
+contour_plot(-g(x, y) ~ x & y,
+             domain(x = -5:5, y = -5:5), contours_at = c(-1,3,10), skip=0) + 
+  theme_minimal()
+```

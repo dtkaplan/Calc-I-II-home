@@ -1,0 +1,75 @@
+---
+author: DTK
+date: 2025-01-17
+number-offset: 5
+format: live-html
+---
+
+# 2025-01-17 class notes
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+Let's just call it "Calculus" instead of Calc I/II
+
+## Where we are
+
+Review of the chapters. Each student picks one chapter.
+
+## Describing functions with words
+
+These words are used to describe **local** properties, that is, over a "finite" part of the domain. 
+
+i. slope
+#. concavity
+#. continuity
+#. monotonicity
+#. periodicity
+#. asymptotes
+#. local extrema
+
+Functions can change their properties as you move from one locale in the domain to another. 
+
+
+## Building new functions
+
+We will build new functions from old ones. There are several techniques, that are talked about in the next block.
+
+i. input scaling
+ii. output scaling
+iii. linear combination
+iv. multiplication
+v. composition
+
+There are also many methods to build functions that approximate data. You've seen this with `annot = "model"` in QR2, but in Calculus we will use different software because we will focus on *continuous* functions.
+
+
+## Activity
+
+1. Summarize each of the pattern-book functions in terms of these descriptive words.
+
+![](../2025-01-16-notes/www/pattern-book-shapes.png){width="100%"}
+
+2. On the board, sketch out some imagined functions over some finite domain that have these properties:
+
+a. downward sloping but concave up.
+b. discontinuous at a point
+c. non-monotonic and concave down.
+d. vertical asymptote at $x=1$
+e. left horizontal asymptote at 0, right at 0 as well
+f. a function with two local extrema (over the domain you are showing)
+
+3. Are the functions described below possible?
+
+a. Continuous with two local maximum but **no local minimum**.
+b. Switching from concave up to concave down as $x$ increases
+c. Monotonic with a local maximum
+d. Have both left and right horizontal asymptotes and also a vertical asymptote at $x=5$.
+
+
+## Quiz (15 minutes)
+
+Possibly: review quiz
+
+
