@@ -11,6 +11,26 @@ format: live-html
 library(mosaicCalc)
 ```
 
+An unexpected snow day! I'm going to have to improvise a little.
+
+Here are a few chunks for me to work in on my tablet
+
+```{webr-r}
+
+```
+
+
+```{webr-r}
+# Chunk 2
+
+```
+
+
+```{webr-r}
+# Chunk 3
+
+```
+
 The only change is a different R function, `gf_point()` that plots a response variable against a **single** explanatory variable, e.g., `Galton <- gf_point(height ~ mother)`. There
 
 
