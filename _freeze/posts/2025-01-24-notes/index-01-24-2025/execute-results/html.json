@@ -1,0 +1,15 @@
+{
+  "hash": "af137822a5a1a4d71f19a69007e79b89",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nauthor: DTK\ndate: 2025-01-24\nnumber-offset: 8\nformat: live-html\n---\n\n\n\n\n\n# 2025-01-24 class notes\n\n\n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

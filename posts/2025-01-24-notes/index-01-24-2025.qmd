@@ -1,0 +1,14 @@
+---
+author: DTK
+date: 2025-01-24
+number-offset: 8
+format: live-html
+---
+
+# 2025-01-24 class notes
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+

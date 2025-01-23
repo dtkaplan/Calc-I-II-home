@@ -62,12 +62,15 @@ Topics: Fitting function features
 
 Reading: *MOSAIC Calculus* [Chapter 10](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/10-functions-with-multiple-inputs.html) & its associated reading questions. 
 
-Assignment Due: [Chapter 11 exercises](https://dtkaplan.github.io/MC-Workbook/11-exercises.html)
+Assignment Due: [Chapter 11 exercises](https://dtkaplan.github.io/MC-Workbook/11-exercises.html) (but not the project)
 :::
 
 
 ::: {.callout-note}
 ## 11. Thursday 30 January
+
+Assignment Due: [Chapter 10 exercises](https://dtkaplan.github.io/MC-Workbook/10-exercises.html) (but not the "class activity")
+
 :::
 
 

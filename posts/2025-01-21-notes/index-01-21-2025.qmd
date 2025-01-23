@@ -1,6 +1,6 @@
 ---
 author: DTK
-date: 2025-01-17
+date: 2025-01-21
 number-offset: 6
 format: live-html
 ---
@@ -51,27 +51,9 @@ How do you think the computer could do what you do by eye automatically? We need
 ## Framework Part 1: Input and output scaling
 
 
-## Framework Part 2: Residuals
-
-We are going to make the residuals as small as possible.
-
-## Procedure: Guess, check, and improve
-
-This is where you can start to talk about finite diferences, slopes, and increments. We will eventually change this into the language of "derivatives." The "back propagation" used in Deep Learning neural networks is nothing more than this, although on an immense scale.
 
 
-## Fitting functions to data
-
-We're going to stretch and shift the input and output spaces so that the pattern-book function overlies the data plotted. Imagine that we have a projector with separate zoom-in/zoom-out for the horizontal and vertical planes. As for pan---moving the image sideways or up and down---this doesn't require any cleverness.
-
-Talk about residuals.
-
-How do we set the scaling parameters to align the function image with the data?
-
-1. It can be done.
-2. `fitModel()` is a pretty good way to do it.
-
-
+Framework Part 2 was deferred to 01-23
 
 ## Activity
 
