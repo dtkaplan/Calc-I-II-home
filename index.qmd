@@ -37,20 +37,26 @@ Start on exercises for Chaps. 7 & 8. Due Thurs and Fri respectively
 Topics: Assembling functions
 
 Reading: *MOSAIC Calculus* [Chapter 9](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/09-assembling-functions.html) & its associated reading questions. 
-:::
 
 Assignment Due: [Chapter 7 exercises](https://dtkaplan.github.io/MC-Workbook/07-exercises.html)
+:::
+
 
 ::: {.callout-note}
 ## 9. Friday 24 January
 
 Topics: Fitting function features
 
-*Note*: We are covering Ch **11** and deferring Chapter 10 until Tuesday.
+*Note*: We are covering Ch **11** and deferring Chapter 10 until next Tuesday.
 
 Reading: *MOSAIC Calculus* [Chapter 11](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/11-fitting-features.html) & its associated reading questions. 
 
 Assignment Due: [Chapter 8 exercises](https://dtkaplan.github.io/MC-Workbook/08-exercises.html)
+
+Start on: 
+
+- [Chapter 11 exercises](https://dtkaplan.github.io/MC-Workbook/11-exercises.html) (but not the project)
+
 :::
 
 ::: {.callout-note}
@@ -63,13 +69,28 @@ Topics: Fitting function features
 Reading: *MOSAIC Calculus* [Chapter 10](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/10-functions-with-multiple-inputs.html) & its associated reading questions. 
 
 Assignment Due: [Chapter 11 exercises](https://dtkaplan.github.io/MC-Workbook/11-exercises.html) (but not the project)
+
+Start on:
+
+- [Chapter 9 exercises](https://dtkaplan.github.io/MC-Workbook/09-exercises.html) numbers 1 through 8
+- [Chapter 10 exercises](https://dtkaplan.github.io/MC-Workbook/10-exercises.html) (but not the "class activity")
 :::
 
 
 ::: {.callout-note}
 ## 11. Thursday 30 January
 
-Assignment Due: [Chapter 10 exercises](https://dtkaplan.github.io/MC-Workbook/10-exercises.html) (but not the "class activity")
+Reading: *MOSAIC Calculus* [Chapter 12](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/12-low-order-polynomials.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/12-reading.html)
+
+QUIZ through Chapter 10
+
+Assignmenta Due: 
+
+- [Chapter 9 exercises](https://dtkaplan.github.io/MC-Workbook/09-exercises.html) numbers 1 through 8
+- [Chapter 10 exercises](https://dtkaplan.github.io/MC-Workbook/10-exercises.html) (but not the "class activity")
+
+Start on: Assignment Due: [Chapter 12 exercises](https://dtkaplan.github.io/MC-Workbook/12-exercises.html) (but not the project)
+
 
 :::
 
@@ -77,22 +98,56 @@ Assignment Due: [Chapter 10 exercises](https://dtkaplan.github.io/MC-Workbook/10
 ::: {.callout-note}
 ## 12. Friday 31 January
 
+Reading: *MOSAIC Calculus* [Chapter 13](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/13-operations.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/13-reading.html)
+
+Assignment Due: 
+
+- [Chapter 12 exercises](https://dtkaplan.github.io/MC-Workbook/12-exercises.html) 
+
+Start on: [Chapter 13 exercises](https://dtkaplan.github.io/MC-Workbook/13-exercises.html) 
+
 :::
 
 ::: {.callout-note}
 ## 13. Tuesday 4 February
+
+Reading: *MOSAIC Calculus* [Chapter 14](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/14-magnitudes.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/14-reading.html)
+
+Assignment Due: [Chapter 13 exercises](https://dtkaplan.github.io/MC-Workbook/13-exercises.html) 
+
+Start on: [Chapter 14 exercises](https://dtkaplan.github.io/MC-Workbook/14-exercises.html) 
+
+
 
 :::
 
 
 ::: {.callout-note}
 ## 14. Thursday 6 February
+
+Reading: *MOSAIC Calculus* [Chapter 15](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/15-dimensions.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/15-reading.html)
+
+Assignment Due: [Chapter 14 exercises](https://dtkaplan.github.io/MC-Workbook/15-exercises.html) 
+
+Start on: 
+
+- [Chapter 9 exercises](https://dtkaplan.github.io/MC-Workbook/12-exercises.html) number 9 through 18 (due by end of reading week)
+- [Chapter 15 exercises](https://dtkaplan.github.io/MC-Workbook/15-exercises.html) (due by end of reading week)
+
+
 :::
-
-
 
 ::: {.callout-note}
 ## 15. Friday 7 February
+
+Reading: **MOSAIC Calculus* [Chapter 16](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/16-modeling-scientific-method.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/16-reading.html)
+
+Assignment due: (by end of reading week)
+
+- [Chapter 9 exercises](https://dtkaplan.github.io/MC-Workbook/12-exercises.html) number 9 through 18 
+- [Chapter 15 exercises](https://dtkaplan.github.io/MC-Workbook/15-exercises.html) 
+
+QUIZ through Chapter 15
 
 :::
 

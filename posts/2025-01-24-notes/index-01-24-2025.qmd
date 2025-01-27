@@ -11,4 +11,29 @@ format: live-html
 library(mosaicCalc)
 ```
 
+[picked up from Thursday's class]
+
+## Assembling new functions from existing ones (Chapter 9)
+
+Widely used ways to combine functions to create new ones:
+
+1. Linear combination
+2. Function multiplication
+3. Function composition
+4. Piecewise definition (and the `ifelse()` function.)
+
+## Chapter 11: Fitting features
+
+Input- and output-scaling heuristics for a handful of pattern book functions 
+
+Note that the output scaling is a form of LINEAR COMBINATION.
+
+- Exponential
+
+This is as far as we got on Friday.
+
+- Sin
+
+- Gaussian & sigmoid
+
 

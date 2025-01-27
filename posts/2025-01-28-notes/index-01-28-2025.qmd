@@ -1,0 +1,120 @@
+---
+author: DTK
+date: 2025-01-28
+number-offset: 9
+format: live-html
+---
+
+# 2025-01-28 class notes
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+[picked up from Friday's class]
+
+
+## Chapter 11: Fitting features
+
+Input- and output-scaling heuristics for a handful of pattern book functions 
+
+Note that the output scaling is a form of LINEAR COMBINATION.
+
+- Exponential [We did this one on Friday 24 Jan.]
+
+```{webr-r}
+t0 <- sample(1:20, 1)
+halflife <- exp(runif(1, -15, 15))
+span <- sort(runif(2, t0 - 5*halflife, t0 + 5*halflife ))
+f <- makeFun(A*exp((t-t0)/halflife) + B ~ t, 
+             A = sample(-10:10,1), 
+             B = sample(-10:10, 1))
+slice_plot(f(t) ~ t, 
+           domain(t = c(span)),
+           npts = 500
+           )
+```   
+
+- Sin(). There are four parameters. 
+     -The output and output scaling is the same as for other functions, but a different convention is used for the input scaling expression: $$A \sin(2\pi (t-t_0)/P) + B .$$
+        - $P$ is the **period**: peak-to-peak in the domain.
+        - $B$ is still called the "baseline" but it is not at the bottom of the function range. 
+       - $A$ is the "amplitude". It corresponds to **half** the peak-to-trough range.
+       - $t_0$ is the "left-shift," the location in the domain of an upward-sloping baseline crossing. 
+       - Sometimes people write things differently: 
+           i. $A \sin(2\pi (t-t_0)/P) + B$
+           ii. $A \sin(2\pi t/P + \theta) + B$
+           #. $A \sin(\omega t + \phi) + B$
+           #. $A \sin(\omega t) + B \cos(\omega t) + C$
+        - The first three of the above should be recognizably equivalent with simple algebraic re-arrangement. (iv) is more subtle and results from a trigonometric *identity*. 
+        - We'll use (i), and you're expected to be able to estimate by eye the four parameters.
+        - We could also write $A \cos(2 \pi (t - t_0)/P) + B$, but $t_0$ would be the location of a peak.
+       
+    
+```{webr-r}
+period <- sample(1:20, 1)
+span <- sort(runif(2, -3*period, 3*period ))
+slice_plot(A*sin(2*pi*(t-t0)/P) + B ~ t, 
+           domain(t = c(span)),
+           A = sample(-10:10, 1), 
+           B = sample(-10:10, 1),
+           P = period, 
+           t0 = sample(seq(-pi, pi, length=10), 1),
+           npts = 500
+           )
+```           
+
+
+
+- Gaussian & sigmoid
+    - Output scaling is the same as always: $A$ and $B$.
+        - for $A > 0$, $B$, "baseline," is the value at the left horizontal asymptote.
+        - $A$ is more difficult for `dnorm()`
+            - `pnorm()`: easy. Vertical distance between lower and upper horizontal asymptote. 
+            - `dnorm()` the meaning of $A$ depends on `sd`. If you must know (you don't at this point), 
+    - Input scaling is different, written in terms of two *new* parameters: `mean` and `sd`.
+        - `mean` the location in the domain of the peak (`dnorm()`) or the half-way point (`pnorm()`)
+        - `sd`, the "standard deviation," is 
+            - `dnorm()`: *roughly* the half-width (61%) at half-height 
+            - `pnorm()`: *roughly* the width between the half-way point and the input producing an output at three-quarters (80%) of the way to the top.
+    
+
+```{r}
+mean <- sample(1:20, 1)
+sd <- runif(1, 0.5, 5)
+fun <- ifelse(rnorm(1) > .25, pnorm, dnorm)
+span <- runif(1, -mean - 3*sd, mean - sd)
+span[2] <- runif(1, mean + sd, mean + 3*sd )
+f <- makeFun(A*fun(t, mean=mean, sd==sd) + B ~ t, 
+             A = sample(setdiff(-10:10, 0),1), 
+             B = sample(-10:10, 1))
+slice_plot(f(t) ~ t, 
+           domain(t = c(span)),
+           npts = 500
+           )
+```           
+
+
+## Chapter 10: Functions with multiple inputs
+
+Making them by ...
+
+- Linear combination
+- Multiplication
+- Composition (?)
+- Piecewise (?)
+
+Common forms from science generally:
+
+- Example: Breaking distance of car as function of speed and road conditions (slip)
+
+- Interaction. 
+    - Example, rabbits and foxes. Change in rabbit population as function of rabbit population and fox population.
+    - Example, rate of reaction between two re-agents $\alpha\ [A][B]$
+    - Example (maybe): demand for one good as a function of price of that good and price of a substitute.
+    - We are going to see this particularly when we look at low-order polynomials in multiple variables.
+    
+    
+
+
+

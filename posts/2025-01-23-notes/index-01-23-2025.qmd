@@ -69,13 +69,5 @@ Improve: The goal is to modify our guess in order to improve the closeness of ou
 
 An informal way to fit functions works when we "check" by eye the current fit by looking at the match between the graph of the function and the data. Then tweak the input and/or output scaling to improve things a little bit. 
 
+[We only got here. Deferring the following until Friday 1/24]
 
-
-## Assembling new functions from existing ones
-
-Widely used ways to combine functions to create new ones:
-
-1. Linear combination
-2. Function multiplication
-3. Function composition
-4. Piecewise definition (and the `ifelse()` function.)

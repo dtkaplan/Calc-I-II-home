@@ -1,5 +1,5 @@
 ---
-title: "Calc I/II Daily Roster 2025"
+title: "Calculus Daily Roster 2025"
 format: pdf
 ---
 
@@ -27,5 +27,5 @@ todays_roster <- function(today) {
 
 
 ```{r echo = FALSE, results = "asis"}
-todays_roster("Thurs Jan 23, 2025")
+todays_roster("Tues Jan 28, 2025")
 ```

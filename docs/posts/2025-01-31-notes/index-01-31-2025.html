@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="DTK">
-<meta name="dcterms.date" content="2025-01-23">
+<meta name="dcterms.date" content="2025-01-31">
 
-<title>index-01-23-2025 – UATX Calc-I-II, AY 2025</title>
+<title>index-01-31-2025 – UATX Calc-I-II, AY 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,9 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-79108a0fc1995748cbd19a5b0e3e3e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,42 +68,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -162,7 +130,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 23, 2025</p>
+        <p class="date">January 31, 2025</p>
       </div>
     </div>
     
@@ -173,7 +141,15 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#class-notes" id="toc-class-notes" class="nav-link active" data-scroll-target="#class-notes"><span class="header-section-number">12</span> 2025-01-31 class notes</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -181,84 +157,13 @@ window.Quarto = {
 
 
 
-<section id="class-notes" class="level3" data-number="8">
-<h3 data-number="8" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">8</span> 2025-01-23 class notes</h3>
-<section id="where-we-are-and-where-we-are-heading" class="level4" data-number="8.1">
-<h4 data-number="8.1" class="anchored" data-anchor-id="where-we-are-and-where-we-are-heading"><span class="header-section-number">8.1</span> Where we are … and where we are heading</h4>
-<p>You are getting comfortable with the basics of function, spaces, quantity. You have a basic vocabulary for describing functions in words and for interpreting functions with one- and two-inputs. You have a basic set of <strong>pattern-book</strong> functions. These are purely mathematical functions in the sense that the input and output is always a pure number rather than a quantity with units and dimension.</p>
-<p>In modeling, we construct functions to represent the relationship between quantities in the real world.</p>
-<ul>
-<li><p>You have already seen how to <strong>parameterize</strong> the pattern-book functions so that they can take a <strong>quantity</strong> as input and produce a (perhaps different) <strong>quantity</strong> as output. This is the point of input and output scaling: (Chapter 8)</p></li>
-<li><p>Input scaling turns a quantity into a pure number suited as an input to the pattern-book functions.</p></li>
-<li><p>Output scaling turns a pure number—the output of a pattern-book function—into a quantity.</p></li>
-</ul>
-<p>ACTIVITY: If <span class="math inline">\(x\)</span> and <span class="math inline">\(f(x)\)</span> are pure numbers, explain what have to be the dimensions in the scaling parameters</p>
-<ul>
-<li><span class="math inline">\(a (q - q_0)\)</span> is to translate <span class="math inline">\(q\)</span> to a specified quantity</li>
-<li><span class="math inline">\(A f(a(q - q0) + b) + B\)</span> to translate the pure number output of <span class="math inline">\(f()\)</span> into the output quantity <span class="math inline">\(Q\)</span>.</li>
-</ul>
-<ol type="i">
-<li>input: miles per hour; output: force (e.g.&nbsp;air resistence)</li>
-<li>input: Yen; output: tons of cardboard boxes</li>
-</ol>
-<p>TODAY, we will discuss two important topics:</p>
-<ul>
-<li><p>The idea of “fitting functions to data” and the basics behind getting a computer to do this for you. (Chapter 7).</p></li>
-<li><p>Combining existing functions to create new ones. (Chapter 9)</p></li>
-</ul>
-<p>TOMORROW, we will look at “fitting function features”: Chapter 11. There are a few recognizable features—“amplitude,” “baseline,” “doubling time,” etc.—that enable us to estimate the parameters of a handful of functions based on measurements of plotted data or a specified graph.</p>
-<p>NEXT WEEK:</p>
-<ol type="i">
-<li>Looking at functions with multiple inputs. (Chap 10)</li>
-<li>Using low-order polynomials to encode our understanding of a relationship. (Chap 12)</li>
-<li>Some of the mathematical operations we can perform on functions to extract information from them. (Chap 13)</li>
-</ol>
-</section>
-<section id="framework-part-2-automatic-fitting-of-functions-to-data" class="level4" data-number="8.2">
-<h4 data-number="8.2" class="anchored" data-anchor-id="framework-part-2-automatic-fitting-of-functions-to-data"><span class="header-section-number">8.2</span> Framework Part 2: Automatic fitting of functions to data</h4>
-<section id="procedure-guess-check-and-improve" class="level5" data-number="8.2.1">
-<h5 data-number="8.2.1" class="anchored" data-anchor-id="procedure-guess-check-and-improve"><span class="header-section-number">8.2.1</span> Procedure: Guess, check, and improve</h5>
-<p>Guess: Pick/guess some more-or-less reasonable specific parameter values</p>
-<p>Check: Now that we have a function in hand (with the guessed parameter values), how close is our function to the data. We will measure this with the “residuals.” Each data point is a distance from the function. We’ll sum or average this over all the data points to get a reading of closeness.</p>
-<p>Improve: The goal is to modify our guess in order to improve the closeness of our function to the data. How can we guess how to change our first guess to improve things? This is where you can start to talk about finite diferences, slopes, and increments. We will eventually change this into the language of “derivatives.” The “back propagation” used in Deep Learning neural networks is nothing more than this, although on an immense scale.</p>
-<p><code>fitModel()</code> adopts this strategy. Sometimes it needs a starting guess, sometimes not. Later in the course we’ll see a way (that sometimes works) to avoid the starting guess.</p>
-</section>
-<section id="fitting-functions-to-data" class="level5" data-number="8.2.2">
-<h5 data-number="8.2.2" class="anchored" data-anchor-id="fitting-functions-to-data"><span class="header-section-number">8.2.2</span> Fitting functions to data</h5>
-<p>An informal way to fit functions works when we “check” by eye the current fit by looking at the match between the graph of the function and the data. Then tweak the input and/or output scaling to improve things a little bit.</p>
-<p>[We only got here. Deferring the following until Friday 1/24]</p>
+<section id="class-notes" class="level3" data-number="12">
+<h3 data-number="12" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">12</span> 2025-01-31 class notes</h3>
 
 
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
-
-</div>
-<div class="spinner-grow spinner-grow-sm">
-
-</div>
-</div>
-<script type="vfs-file">
-W10=
-</script>
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../posts/2025-01-23-notes";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "../..";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
