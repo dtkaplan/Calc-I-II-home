@@ -1,0 +1,136 @@
+---
+title: "Calculus Quiz 2: Prof. Kaplan"
+author: "January 30, 2025"
+number-depth: 1
+number-offset: 1
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      left: 1cm
+      right: 1cm
+      top: 1cm
+      bottom: 1cm
+---
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+Student name: _____________. Do what you can in 15 minutes. 
+
+
+**Question 1**: @fig-eyeball-params shows a function $Af(a(x-x_0)) + B$ that uses input scaling and output scaling on a pattern-book function.
+
+```{r echo=FALSE}
+#| label: fig-eyeball-params
+#| fig-cap: $Af(a(x-x_0)) + B$
+#| out-width: "40%"
+slice_plot(3*pnorm(2*(x-1)) - 2 ~ x,
+           domain(x = -4:4)) +
+  theme_minimal()
+```
+
+i. Which pattern-book function is involved?
+ii. Give numerical values for each of the four parameters.
+
+-----
+
+**Question 2**: @fig-half-life shows an exponential function with input and output scaling. 
+
+```{r echo=FALSE}
+#| label: fig-half-life
+#| fig-cap: For Question 2.
+#| out-width: "40%"
+slice_plot(10 - 6*2^(-t/7) ~ t, domain(t = -15:30)) +
+  theme_minimal()
+```
+
+i. Is this exponential decay or exponential growth?
+ii. What is the baseline parameter $B$?
+iii. Find either the half-life or the doubling-time depending on your answer to (i).
+
+-----
+
+**Question 3**: Draw a graph of $g(t) \equiv 3 \sin\left(\frac{2\pi}{4}t\right) - 5$ over a domain of your choice but which clearly shows the period. Place reasonably accurate labelled tick marks along the two axes.
+
+ 
+
+ 
+
+ 
+
+-----
+
+**Question 4**: @fig-residuals shows a handful of data points and a candidate function not them. 
+
+i. Draw in the residual for each data point, quantify it, and calculate the "sum of squared residuals." (You can round off reasonably in quantifying the residuals.)
+
+ii. Draw in a better fitting function of the same shape.
+
+```{r echo=FALSE}
+#| label: fig-residuals
+#| fig-cap: "Data and a fitted function"
+#| out-width: "40%"
+set.seed(323)
+npts <- 5
+dat <- tibble::tibble(
+  x = seq(1, 10, length=npts) + runif(npts, -.2, .2),
+  y = 15*pnorm(1.5*(x-2)/2, mean=3, sd=1.5) + 3*rnorm(5)
+)
+gf_point(y ~ x, data = dat) |>
+  slice_plot(15*pnorm(1.5*(x-2)/2, mean=3, sd=1.5) ~ x, color = "blue") +
+  theme_minimal()
+```
+
+ 
+
+ 
+
+-----
+
+**Question 5**: 
+
+```{r echo=FALSE}
+#| label: fig-f-g-h
+#| layout-ncol: 3
+#| fig-cap: "Plots for Question 5"
+#| fig-subcap:
+#| - $f(x,y)$
+#| - $g(x,y)$
+#| - $h(x,7)$
+f <- makeFun(10*(dnorm(x) + 3*sin(y/3)) ~ x + y)
+contour_plot(f(x,y) ~ x + y, domain(x=-5:5, y=-5:5)) +
+  theme_minimal() + coord_fixed()
+g <- makeFun(ifelse(y > 0, x*y - y, x*y + y) ~ x + y)
+contour_plot(g(x,y) ~ x + y, domain(x=-5:5, y=-5:5)) +
+  theme_minimal() + coord_fixed()
+# h <- makeFun(x*y + y^3/25 + x ~ x + y)
+h <- doodle_fun(~ x & y, seed = 9383)
+contour_plot(h(x,y) ~ x + y, domain(x=-5:5, y=-5:5)) +
+  theme_minimal() + coord_fixed()
+
+```
+
+Above are contour plots for three unrelated functions: $f(x,y)$, $g(x,y)$, and $h(x,y)$. One of the three involves a linear combination of two functions $u_1(x)$ and $u_2(y)$. Another is defined piecewise. The third is a nonlinear combination (e.g. function multiplication). 
+
+a. We haven't talked about the features of a function of two variables that would let you answer this question precisely, but which contour plot corresponds to which kind of function? 
+
+    i. $f(x,y)$: linear-comb or piecewise or nonlinear-comb
+    ii. $f(x,y)$: linear-comb or piecewise or nonlinear-comb
+    iii. $f(x,y)$: linear-comb or piecewise or nonlinear-comb
+
+b. Briefly explain what feature(s) in the contour plots informed your answer to (a).
+
+ 
+
+ 
+
+
+
+
+
+
+
+
