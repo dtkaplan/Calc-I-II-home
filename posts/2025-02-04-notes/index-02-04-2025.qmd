@@ -1,0 +1,133 @@
+---
+author: DTK
+date: 2025-02-04
+number-offset: 12
+format: live-html
+---
+
+# 2025-02-04 class notes
+
+I haven't been going over the exercises. But I want to make clear that class is an appropriate place to talk about them:
+
+i. Things that made no sense.
+ii. Things that you're shakey on.
+iii. Need a review.
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+{{< include ../../set-up.qmd >}}
+
+## Operations on Functions
+
+All three of these seek a specific value for the input. That is, these operations 
+
+- take a **function** as primary input, and a **domain** as an argument.
+- produce a quantity as output
+
+1. Zero-finding
+    - Guess two initial domain values and evaluate function at them.
+    - Modify the state 
+       - Straddle zero? We have a bracket. Bisection or linear interpolation (Newton's Method)
+       - Otherwise: Move in the downhill direction until we have a bracket, then continue.
+           - If move proves to be uphill, start with different initial values. 
+    - Return the average (or zero of the linear interpolant) of the bracketed values.
+
+2. Optimization in one input
+    - Algorithm I: Gradient descent (for *minimization*)
+        i. Guess two initial values
+        ii. Pick a third in a downhill direction.
+        iii. If the attempt to move downward results in an upward movement, now you have a bracket.
+    - Algorithm II: Newton's method for minimization (or maximization)
+        i. Guess **three** initial domain values and evaluate function at them.
+        ii. Fit a quadratic to the three points and find its argmin (or argmax)
+        iii. Choose the closest two of the initial values to the value in (ii) and repeat.
+    - Stupid calculus algorithm: Differentiate objective function and find the zero crossing. 
+        i. Bad because you need many function evaluations. In practice, you need a *formula* for the objective function to create the derivative without large number of function evaluations.
+        
+        
+For functions of multiple inputs, 
+
+- Zero finding follows a similar strategy.
+- Optimization requires new concepts from calculus that we will start to talk about after break.
+
+3. Iteration. Take a function and a **state**. Evaluate the function on the state to create a new state, and so on ....
+    i. State is one value: a dynamical system or Newton's method 
+    ii. Sometimes a state is a bracket.
+
+### Examples
+
+In each of the following code chunks, I am creating a randomly shaped function and operating on it. I might get zero or one or more rows.
+
+#### Zero-finding example: 
+
+```{webr-r}
+f <- doodle_fun(~ z)
+Zeros(f(x) ~ x, domain(x = -10:10))
+```
+
+#### Optimization example:
+
+```{webr-r}
+f <- doodle_fun(~ z)
+argM(f(x) ~ x, domain(x = -10:10))
+```
+
+## Magnitude
+
+Scientific notation makes it easier to write very big or very small quantities.  
+
+- Mass of the electron: 9.1093837 × 10^-31^ kilograms
+- Avogadro's number: 6.023 x 10^23^ (molecules per mol)
+6.6743 × 10-11 m3 kg-1 s-2
+- Universal gravitational constant: 6.6743 × 10^-11^ m^3^ kg^-1^ s^-2^
+- [Ideal gas constant]() 8.31446261815324	J⋅K^−1^⋅mol^−1^
+
+Such numerals come in two parts:
+
+i. The **mantissa**, e.g. 9.1093837 or 6.023
+ii. The **exponent**, e.g. -31 or 23
+
+
+Sometimes we need to work in settings that include a huge range of relative sizes. Here's a table of internal combustion engines of various sizes.
+
+
+```{r}
+DT::datatable(Engines)
+```
+
+### Counting digits
+
+```{webr-r}
+digits <- makeFun(log(x) / log(10) ~ x)
+digits(658)
+```
+
+### Computing via the axes
+
+#### Linear axes
+
+This graph will not be informative about the engines.
+
+```{webr-r}
+gf_point(RPM ~ mass, data = Engines)
+```
+
+#### Semi-log axes
+
+```{webr-r}
+gf_point(RPM ~ mass, data = Engines) |>
+  gf_refine(scale_x_log10())
+```
+
+#### Log-log axes
+
+```{webr-r}
+gf_point(RPM ~ mass, data = Engines) |>
+  gf_refine(scale_x_log10(), scale_y_log10())
+```
+
+
+Using a ruler and a printed logarithmic scale
+

@@ -118,8 +118,8 @@ Above are contour plots for three unrelated functions: $f(x,y)$, $g(x,y)$, and $
 a. We haven't talked about the features of a function of two variables that would let you answer this question precisely, but which contour plot corresponds to which kind of function? 
 
     i. $f(x,y)$: linear-comb or piecewise or nonlinear-comb
-    ii. $f(x,y)$: linear-comb or piecewise or nonlinear-comb
-    iii. $f(x,y)$: linear-comb or piecewise or nonlinear-comb
+    ii. $g(x,y)$: linear-comb or piecewise or nonlinear-comb
+    iii. $h(x,y)$: linear-comb or piecewise or nonlinear-comb
 
 b. Briefly explain what feature(s) in the contour plots informed your answer to (a).
 

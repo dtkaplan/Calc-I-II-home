@@ -73,6 +73,35 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -154,6 +183,57 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="class-notes" class="level3" data-number="12">
 <h3 data-number="12" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">12</span> 2025-01-31 class notes</h3>
+<p><span class="math display">\[g(x, y) \equiv a_0 + \underbrace{a_x x + a_y y}_\text{linear terms} \ \ \ +
+\underbrace{a_{xy} x y}_\text{interaction term} +\ \ \  \underbrace{a_{yy} y^2 + a_{xx} x^2}_\text{quadratic terms}\]</span></p>
+<p>What is the order of an interaction term?</p>
+<p>To be proficient, a modeler must know how to translate a modeling context into the choice of terms for a low-order polynomial. AVOID terms that you don’t need.</p>
+<p>[Got to here on Thursday]</p>
+<section id="why-do-bicycles-have-gears" class="level4" data-number="12.1">
+<h4 data-number="12.1" class="anchored" data-anchor-id="why-do-bicycles-have-gears"><span class="header-section-number">12.1</span> Why do bicycles have gears</h4>
+<p>Similar to the reason that gasoline cars have gears, but electric cars don’t need them.</p>
+<p>Bike speed <span class="math inline">\(B\)</span> increases with power applied. You can also think of it as foot speed multiplied by gear ratio.</p>
+<p>Muscle Force and speed: There is a decreasing relationship between the force a muscle can apply and the speed of contraction. (Extension is similar, but we need a <span class="math inline">\(\Lambda\)</span>-shaped function to put both contraction and extraction into one function.)</p>
+<p>Let’s keep it simple, use a low-order polynomial, say F(v) = 1 - v. (I’m writing only the sign of the coefficients to make the notation as clean as possible, but in general it should be <span class="math inline">\(F(v) = a - b\ v\)</span>).</p>
+<p>Power: Power is Force times speed. Work out the dimensions.</p>
+<p>Graph the function: multiply the F(v) decreasing function by v, that is</p>
+<p><span class="math inline">\(Power(v) = v (1-v)\)</span></p>
+<p>An optimal speed to maximize power!</p>
+<p>ASIDE: Gas engines: power proportional to RPM times efficiency of each fuel “event.” Efficiency also has an optimal: need to give the gas enough time to burn, but too much leads to “detonation.” Ergo, cars have gears.</p>
+<section id="extending-the-example" class="level5" data-number="12.1.1">
+<h5 data-number="12.1.1" class="anchored" data-anchor-id="extending-the-example"><span class="header-section-number">12.1.1</span> Extending the example</h5>
+<p>Find the speed of a bicycle as a function of road steepness (<span class="math inline">\(s\)</span>) and gear (<span class="math inline">\(g\)</span>) selected.</p>
+<ul>
+<li><p>There are of course many other factors that play a crucial role: power (<span class="math inline">\(p\)</span>) provided by the cyclist, wind speed, tire inflation, and so on.</p></li>
+<li><p>In our model today, we will consider these other factors fixed.</p></li>
+</ul>
+</section>
+<section id="add-in-rider-power" class="level5" data-number="12.1.2">
+<h5 data-number="12.1.2" class="anchored" data-anchor-id="add-in-rider-power"><span class="header-section-number">12.1.2</span> Add in rider power</h5>
+<ul>
+<li><p>Always put in the linear time.</p></li>
+<li><p>Are there interactions with other variables?</p></li>
+<li><p>Is there an optimum power?</p></li>
+</ul>
+<p>As a first pass, we don’t need to consider terms of order three or higher. Examples:</p>
+<ul>
+<li><p><span class="math inline">\(p s g\)</span></p></li>
+<li><p><span class="math inline">\(p s^2\)</span> or <span class="math inline">\(p g^2\)</span>, let alone <span class="math inline">\(p^2 s^2 g\)</span> (fifth order) and such.</p></li>
+</ul>
+</section>
+</section>
+<section id="operations-on-functions" class="level4" data-number="12.2">
+<h4 data-number="12.2" class="anchored" data-anchor-id="operations-on-functions"><span class="header-section-number">12.2</span> Operations on Functions</h4>
+<p>All three of these seek a specific value for the input. That is, these operations</p>
+<ul>
+<li>take a function as input</li>
+<li>produce a quantity as output</li>
+</ul>
+<ol type="1">
+<li><p>Zero-finding</p></li>
+<li><p>Optimization</p></li>
+<li><p>Iteration</p></li>
+</ol>
+<p>After break, we’ll start on the famous operations of calculus: differentiation and anti-differentiation. These both take a function as input and produce a function as output.</p>
 
 
 <script type="ojs-module-contents">
@@ -170,6 +250,7 @@ eyJjb250ZW50cyI6W119
 <script type="vfs-file">
 W10=
 </script>
+</section>
 </section>
 
 </main> <!-- /main -->

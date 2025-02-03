@@ -1,0 +1,17 @@
+{
+  "hash": "8335d487651ed1b8c06ad16e02a2ab3a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nwebr:\n  channel-type: 'automatic'\n  repos: [\"https://dtkaplan.r-universe.dev\"]\n  packages: ['ggplot2', 'mosaicCalc' ]\nfilters:\n  - webr\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n3+2\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 5\n```\n\n\n:::\n:::\n\n\n\n\n\n\n\n\n\n```{webr-r}\n#| context: setup\n#| autorun: true\ndoodle_fun <- mosaic::rfun\n```\n\n\n",
+    "supporting": [
+      "set-up_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

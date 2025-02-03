@@ -84,6 +84,9 @@ What is the order of an interaction term?
 
 To be proficient, a modeler must know how to translate a modeling context into the choice of terms for a low-order polynomial. AVOID terms that you don't need.
 
+[Got to here on Thursday]
+
+
 ## An example
 
 The speed of a bicycle as a function of road steepness ($s$) and gear ($g$) selected.

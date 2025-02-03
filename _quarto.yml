@@ -22,6 +22,7 @@ format:
 # Enable webR
 webr:
   channel-type: 'automatic'
+  repos: ["https://dtkaplan.r-universe.dev"]
   packages: ['ggplot2', 'mosaicCalc' ]
 filters:
   - webr

@@ -1,0 +1,8 @@
+
+```{webr-r}
+#| echo: false
+#| autorun: true
+doodle_fun <- mosaic::rfun
+```
+
+
