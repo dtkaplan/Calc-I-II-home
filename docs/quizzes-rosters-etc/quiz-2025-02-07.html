@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="February 7, 2025">
 
-<title>set-up – UATX Calc-I-II, AY 2025</title>
+<title>Calculus Quiz 3: Prof.&nbsp;Kaplan – UATX Calc-I-II, AY 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +68,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">UATX Calc-I-II, AY 2025</span>
     </a>
   </div>
@@ -89,15 +119,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./basics.html"> 
+    <a class="nav-link" href="../basics.html"> 
 <span class="menu-text">Basics</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
+    <a class="nav-link" href="../posts.html"> 
 <span class="menu-text">Class notes and posts</span></a>
   </li>  
 </ul>
@@ -111,15 +141,81 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="quiz-2025-02-07.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Calculus Quiz 3: Prof.&nbsp;Kaplan</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>February 7, 2025 </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Student name: _____________. Do what you can in 15 minutes.</p>
+<p><strong>Question 1</strong> Inflation is an important economic phenomenon concerning the level of prices. As you likely know, inflation rates vary over the months and years. Imagine a country that has an inflation rate of 2%/year for three years changing to 5%/year for two years, then settling down to 3%/year for another three years.</p>
+<p>Think of price <span class="math inline">\(P(t)\)</span> as a function of time <span class="math inline">\(t\)</span> (in years). <span class="math inline">\(P(0)\)</span> will be the price level at year zero, let’s call it 100. The 2% inflation means that the price at year 1 will be <span class="math inline">\(P(1) = 1.02 P(0)\)</span>. Staying at that inflation rate at year 3 the price will be <span class="math inline">\(P(3) = 1.02^3 P(0)\)</span>.</p>
+<ol type="1">
+<li><p>Overall, the price function a constant inflation rate of 2% would be <span class="math inline">\(P(t) = 1.02^t P(0) = 1.02^t \times 100\)</span>. What shape of function is this? Think in terms of our pattern-book functions.</p></li>
+<li><p>An economist is plotting a graph of <span class="math inline">\(P(t)\)</span> versus <span class="math inline">\(t\)</span>. She has a choice: use (i) linear axes, (ii) semi-log axes, or (iii) log-log axes. A good choice is one that makes the graph of the function as simple as possible. Which choice would be good for the function in (1)? Briefly justify your choice.</p></li>
+<li><p>Using your choice from (2), sketch the function from (1). Draw <span class="math inline">\(P(t)\)</span> and <span class="math inline">\(t\)</span> axes, and indicate your choice from (2) by labeling each of those axes as either “linear” or “log.” Then draw the appropriate graph of <span class="math inline">\(P(t)\)</span> from (1).</p></li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ol start="4" type="1">
+<li>Extend your axes as needed to provide room for the graph of <span class="math inline">\(P(t)\)</span> over the entire 8-year domain, <span class="math inline">\(0 \leq t \leq 8\)</span>. Put tick marks on the <span class="math inline">\(t\)</span> axis at values 0, 3, 5, and 8. Then draw <span class="math inline">\(P(t)\)</span> over the whole 8-year domain, using the rates specified in the first paragraph of this problem. You don’t need to put tick marks on the <span class="math inline">\(P(t)\)</span> axis; it’s only the shape of the function we’re concerned with here. (Hint: It’s easier than you might think if you made the right choice at step (2).)</li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr>
+<p><strong>Question 2</strong> The function <span class="math inline">\(h(x) \equiv 1/x^2\)</span> is the composition of two simpler pattern book functions <span class="math inline">\(h(x) \equiv f(g(x))\)</span>. Write down the formulas for <span class="math inline">\(f()\)</span> and <span class="math inline">\(g()\)</span>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr>
+<p><strong>Question 3</strong> The graph shows the composition <span class="math inline">\(f(g(t))\)</span> functions, <span class="math inline">\(f(x) \equiv 1/x\)</span> and <span class="math inline">\(g(y) \equiv A \sin\left(\frac{2\pi}{P} y\right) + B\)</span>. (Note that the parts of the graph where the curve runs away from the graph are vertical asymptotes. Such a small range is graphed so that you have a good shot at finding the parameters from the graph.)</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="quiz-2025-02-07_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Give somewhat accurate numerical values for the three parameters <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(P\)</span>.</p>
+<hr>
+<p><strong>Question 4</strong>:</p>
+<p>You are to build a model of student performance on an exam as a function of the time spent studying (<span class="math inline">\(s\)</span>) during previous weeks and the time spent <em>sleeping</em> (<span class="math inline">\(z\)</span>) during that time. Let’s agree that there is such a thing as studying too much. As for sleep, assume that more is better and that our model doesn’t need to include “over-sleep.”</p>
+<p>Here is the generic second-order polynomial in two variables, <span class="math inline">\(s\)</span> and <span class="math inline">\(z\)</span>:</p>
+<p><span class="math inline">\(a_0 + a_s s + a_z z + a_{sz}\ s z + a_{ss} s^2 + a_{zz} z^2\)</span></p>
+<p>Your task is to say which of the coefficients you will need in the model to capture the phenomena described in the first paragraph and your common sense about performance, studying, and sleep.</p>
+<p>Leaving aside <span class="math inline">\(a_0\)</span> … you should use your intuition, knowledge of calculus, and modeling to say what the expected <strong>sign</strong> is for each of coefficients you decided to include in the model. Also, for each of these coefficients give a very brief explanation of why you decided that the coefficient will be positive or negative.</p>
 
 
 

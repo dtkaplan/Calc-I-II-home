@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -118,8 +147,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#day-by-day-schedule" id="toc-day-by-day-schedule" class="nav-link active" data-scroll-target="#day-by-day-schedule">Day-by-day schedule</a></li>
   <li><a href="#archive" id="toc-archive" class="nav-link" data-scroll-target="#archive">Archive</a></li>
-  <li><a href="#further-out-i.e.-tentative" id="toc-further-out-i.e.-tentative" class="nav-link" data-scroll-target="#further-out-i.e.-tentative">Further out (i.e.&nbsp;tentative)</a></li>
-  <li><a href="#already-past" id="toc-already-past" class="nav-link" data-scroll-target="#already-past">Already past</a></li>
   </ul>
 </nav>
     </div>
@@ -155,6 +182,337 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog%20target=%22_blank%22">Homework submission link</a></p>
 <section id="day-by-day-schedule" class="level2">
 <h2 class="anchored" data-anchor-id="day-by-day-schedule">Day-by-day schedule</h2>
+<p>Mid-term break</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+16. Tuesday 18 February
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Continuous change</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/17-continuous-change.html">Chap 17</a> and <a href="https://dtkaplan.github.io/MC-Workbook/17-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/16-exercises.html">Chapter 16 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+17. Thursday 20 February
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Rate of change</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/18-computing.html">Chap 18</a> and <a href="https://dtkaplan.github.io/MC-Workbook/18-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/17-exercises.html">Chapter 17 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+18. Friday 21 February
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Evanescent <span class="math inline">\(h\)</span></p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/19-evanescent-h.html">Chap 19</a> and <a href="https://dtkaplan.github.io/MC-Workbook/19-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/18-exercises.html">Chapter 18 Exercises</a></p>
+<p>QUIZ</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+19. Tuesday 25 February
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Constructing derivatives</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/20-computing.html">Chap 20</a> and <a href="https://dtkaplan.github.io/MC-Workbook/20-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/19-exercises.html">Chapter 19 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+20. Thursday 27 February
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Concavity and curvature</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/21-concavity.html">Chap 21</a> and <a href="https://dtkaplan.github.io/MC-Workbook/21-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/20-exercises.html">Chapter 20 Exercises</a></p>
+<p>QUIZ</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+21. Friday 28 February
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Continuity &amp; smoothness</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/22-cont-and-smooth.html">Chap 22</a> and <a href="https://dtkaplan.github.io/MC-Workbook/22-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/20-exercises.html">Chapter 20 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+22. Tuesday 4 March
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Derivatives of assembled functions</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/23-rules.html">Chap 23</a> and <a href="https://dtkaplan.github.io/MC-Workbook/23-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/22-exercises.html">Chapter 22 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+23 Thursday 6 March
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Optimization</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/24-optim.html">Chap 24</a> and <a href="https://dtkaplan.github.io/MC-Workbook/24-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/23-exercises.html">Chapter 23 Exercises</a></p>
+<p>QUIZ</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+24. Friday 7 March
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Partial differentiation &amp; the gradient vector</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/25-partial.html">Chap 25</a> and <a href="https://dtkaplan.github.io/MC-Workbook/25-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/24-exercises.html">Chapter 24 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+25. Tuesday 11 March
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics:</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/26-approximation.html">Chap 26</a> and <a href="https://dtkaplan.github.io/MC-Workbook/26-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/25-exercises.html">Chapter 25 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+26 Thursday 13 March
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Taylor polynomials</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/27-taylor.html">Chap 27</a> and <a href="https://dtkaplan.github.io/MC-Workbook/27-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/26-exercises.html">Chapter 26 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+27. Friday 14 March
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Catch-up &amp; projects with differentiation</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/Differentiation-projects.html">Differentiation projects</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/27-exercises.html">Chapter 27 Exercises</a></p>
+<p>QUIZ on differentiation</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+28. Tuesday 18 March
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: This is the start of a new Block about representing high-dimensional spaces and basic operations on their inhabitants: Vectors and subspaces.</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/28-Vectors.html">Chap 28</a> and <a href="https://dtkaplan.github.io/MC-Workbook/28-reading.html">reading questions</a></p>
+<p>Assignment due:</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+29 Thursday 20 March
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Linear combinations of vectors</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/29-linear-combinations.html">Chap 29</a> and <a href="https://dtkaplan.github.io/MC-Workbook/29-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/28-exercises.html">Chapter 28 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+30. Friday 21 March
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Last day of this term!</p>
+<p>Review and preview of Spring term component of the course.</p>
+<p>QUIZ (30 minutes): Overview of the course.</p>
+</div>
+</div>
+<!-- THIS IS PAST STUFF. YOU SHOULD BE EDITING ABOVE THIS LINE -->
+</section>
+<section id="archive" class="level2">
+<h2 class="anchored" data-anchor-id="archive">Archive</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+1. Tuesday 7 January, 2025
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Orientation to course resources</p>
+<p>Reading:</p>
+<ul>
+<li><em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/">Preface</a></li>
+<li><em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/01-quant-fun-space.html">Chap 1: Quantity, function, space</a> and <a href="https://dtkaplan.github.io/MC-Workbook/01-reading.html">reading questions</a>.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2. Thursday 9 January
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics:</p>
+<ul>
+<li><p>Clearing up any start-up problems</p></li>
+<li><p>Math and computing notation for <em>MOSAIC Calculus</em></p></li>
+</ul>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/02-notation.html">Chap 2: Notation</a> and <a href="https://dtkaplan.github.io/MC-Workbook/02-reading.html">reading questions</a></p>
+<p>Assignments due: - <a href="https://dtkaplan.github.io/MC-Workbook/01-exercises.html">Chap 1 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+3. Friday 10 January
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Computing for calculus with R</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/03-computing.html">Chap 3 Computing with R</a> and <a href="https://dtkaplan.github.io/MC-Workbook/03-reading.html">reading questions</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/02-exercises.html">Chapter 2 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+4. Tuesday 14 January
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Visualizing functions</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html">Chap 4 Visualizing functions</a> and <a href="https://dtkaplan.github.io/MC-Workbook/04-reading.html">reading questions due before class</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/03-exercises.html">Chapter 3 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+5. Thursday 16 January
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Our pattern book functions</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/05-pattern-book-functions.html">Chap 5 Pattern book functions</a> and <a href="https://dtkaplan.github.io/MC-Workbook/05-reading.html">reading questions due before class</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/04-exercises.html">Chapter 4 Exercises</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+6. Friday 17 January
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Topics: Describing functions</p>
+<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/06-describing-functions.html">Chap 6 Describing functions</a> and <a href="https://dtkaplan.github.io/MC-Workbook/06-reading.html">reading questions due before class</a></p>
+<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/05-exercises.html">Chapter 5 Exercises</a></p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -317,362 +675,6 @@ ul.task-list li input[type="checkbox"] {
 <p>QUIZ through Chapter 15</p>
 </div>
 </div>
-<p>Mid-term break</p>
-<!-- THIS IS PAST STUFF. YOU SHOULD BE EDITING ABOVE THIS LINE -->
-</section>
-<section id="archive" class="level2">
-<h2 class="anchored" data-anchor-id="archive">Archive</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-1. Tuesday 7 January, 2025
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Topics: Orientation to course resources</p>
-<p>Reading:</p>
-<ul>
-<li><em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/">Preface</a></li>
-<li><em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/01-quant-fun-space.html">Chap 1: Quantity, function, space</a> and <a href="https://dtkaplan.github.io/MC-Workbook/01-reading.html">reading questions</a>.</li>
-</ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-2. Thursday 9 January
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Topics:</p>
-<ul>
-<li><p>Clearing up any start-up problems</p></li>
-<li><p>Math and computing notation for <em>MOSAIC Calculus</em></p></li>
-</ul>
-<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/02-notation.html">Chap 2: Notation</a> and <a href="https://dtkaplan.github.io/MC-Workbook/02-reading.html">reading questions</a></p>
-<p>Assignments due: - <a href="https://dtkaplan.github.io/MC-Workbook/01-exercises.html">Chap 1 Exercises</a></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-3. Friday 10 January
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Topics: Computing for calculus with R</p>
-<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/03-computing.html">Chap 3 Computing with R</a> and <a href="https://dtkaplan.github.io/MC-Workbook/03-reading.html">reading questions</a></p>
-<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/02-exercises.html">Chapter 2 Exercises</a></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-4. Tuesday 14 January
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Topics: Visualizing functions</p>
-<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html">Chap 4 Visualizing functions</a> and <a href="https://dtkaplan.github.io/MC-Workbook/04-reading.html">reading questions due before class</a></p>
-<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/03-exercises.html">Chapter 3 Exercises</a></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-5. Thursday 16 January
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Topics: Our pattern book functions</p>
-<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/05-pattern-book-functions.html">Chap 5 Pattern book functions</a> and <a href="https://dtkaplan.github.io/MC-Workbook/05-reading.html">reading questions due before class</a></p>
-<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/04-exercises.html">Chapter 4 Exercises</a></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-6. Friday 17 January
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Topics: Describing functions</p>
-<p>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/06-describing-functions.html">Chap 6 Describing functions</a> and <a href="https://dtkaplan.github.io/MC-Workbook/06-reading.html">reading questions due before class</a></p>
-<p>Assignment due: <a href="https://dtkaplan.github.io/MC-Workbook/05-exercises.html">Chapter 5 Exercises</a></p>
-</div>
-</div>
-</section>
-<section id="further-out-i.e.-tentative" class="level2">
-<h2 class="anchored" data-anchor-id="further-out-i.e.-tentative">Further out (i.e.&nbsp;tentative)</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-7. Tuesday 21 January
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-8. Thursday 23 January
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-9. Friday 24 January
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-10. Tuesday 28 January
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-16. Tuesday 11 February
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-17. Thursday 13 February
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-18. Friday 14 February
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-19. Tuesday 18 February
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-20. Thursday 20 February}
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-21. Friday 21 February
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-22. Tuesday 25 February
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-23. Thursday 27 February
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-24. Friday 28 February
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-25. Tuesday 4 March
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-26 Thursday 6 March
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-27. Friday 7 March
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-28. Tuesday 11 March
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-29 Thursday 13 March
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-30. Friday 14 March
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-</section>
-<section id="already-past" class="level2">
-<h2 class="anchored" data-anchor-id="already-past">Already past</h2>
-<p>Schedule items will be moved here (in reverse chronological order) as an archive.</p>
 
 
 </section>

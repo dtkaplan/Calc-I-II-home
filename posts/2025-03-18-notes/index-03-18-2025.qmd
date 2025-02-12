@@ -1,0 +1,11 @@
+---
+author: DTK
+date: 2025-03-18
+number-offset: 27
+format: live-html
+---
+
+# 2025-03-18 class notes
+
+
+

@@ -1,0 +1,279 @@
+---
+author: DTK
+date: 2025-02-06
+number-offset: 13
+format: live-html
+---
+
+# 2025-02-06 class notes
+
+I haven't been going over the exercises. But I want to make clear that class is an appropriate place to talk about them:
+
+i. Things that made no sense.
+ii. Things that you're shakey on.
+iii. Need a review.
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+{{< include ../../set-up.qmd >}}
+
+
+
+
+## Logarithms and digits
+
+### The "digits()" function
+
+I used the name *digits()* for my function. But maybe, since scientific notation is a familiar in-between form, I should rely on that notation. In
+$$6.32 \times 10^{31}$$ 
+
+31 is the *exponent*, 6.32 is the *mantissa* (and 10 is the *base*). Our goal with the `digits` function is to move the information from the mantissa into the exponent. That is, formally, we'll use 1 as the mantissa, and allow fractional exponents so to record what previously was spread between the original mantissa and the original exponent. For instance: you can confirm that 
+
+$$6.32 \times 10^{31} = 1 \times 10^{31.80072}$$
+
+Written this way, with the formal 1 mantissa, we read off the digits from the exponent. So, digits($3.2 \times 10^{31}$) is 31.80072.
+
+Now, journey back historically to about 1580, before Napier's invention of the logarithm. We are going to scoop Napier, but with the advantage of modern computing. 
+
+Our goal is to create a `digits()` function that for input 10 will give output 1, for input 100 will give output 2, and so on. Or, as a table:
+
+
+input | output
+-----:|-------
+1 | 0
+10 | 1
+100 | 2
+1000 | 3
+
+We need to figure out what the output should be for an input like 3 or 59. 
+
+Since multiplying the input by 10 raises the output by 1, we can imagine that multiplying the input by $\sqrt{10}$ will raise the output by 1/2. 
+
+From ancient times, mathematicians knew how to compute the output of the `sqrt()` function. (We'll see how to do this by Newton's method in Block 3, but there is older methods, such as the [Babylonian](https://en.wikipedia.org/wiki/Methods_of_computing_square_roots). By iteratively computing square roots we can get decimal format versions of $\sqrt[16]{10}$ or even $\sqrt[256]{10}$. Also, from ancient times, mathematicians could multiply numbers. Thus, even if tedious, we can calculate the decimal version of, say $10^{17/128}$, which turns out to be 1.357727. That is, 
+$10^{17/128}$ has 1.357727 digits!
+
+Let's make a lot of such numbers. The R code is not something you need to worry about.
+
+```{r}
+Pairs <- tibble::tibble(
+  basics = 2:31,
+  nice_powers = 10^(1/basics),
+  combiners = 1:30)
+More_pairs <- with(Pairs, expand.grid(nice_powers, combiners)) |>
+  dplyr::rename(nice_powers = Var1, combiners = Var2) |>
+  dplyr::mutate(basics = rep(2:31, times =30))
+Digits_function <- More_pairs |>
+  dplyr::mutate(input = (nice_powers)^combiners,
+                output = combiners/basics)
+Digits_function |> 
+  dplyr::filter(input < 10) |> 
+  ggformula::gf_line(output ~ input)
+```
+
+
+
+### Logarithmic axes for graphing
+Some historical events as they are spaced over time. When there is no characteristic "scale" (e.g., a presidential term, a decade, a century), graphing the log is the way to go!
+
+::: {#fig-historical-events}
+![historical events spaced in time](www/historical-events.png)
+
+Historical events spaced in time. Units are millions of years.
+Source: Katherine Yoshiwara [*Modeling, Functions, and Graphs*](https://yoshiwarabooks.org/mfg/Logarithm-Scales.html) 
+:::
+
+Typically on a log scale such as @fig-historical-events, the tick marks are evenly spaced and it is only the *labels* that show that the logarithm is being plotted. Usually the labels are given in decimal notation, as in the top scale in @fig-labelled-1. But, as you know, the labels on the bottom scale are exactly equivalent, although written in scientific notation.
+
+::: {#fig-labelled-1}
+![](www/doubly-labelled-1.png)
+
+Exponentially spaced numbers plotted along a ruler. The bottom labels show the numbers in scientific notation. If you want to see the logarithm instead, simply look at the exponent in the scientific notation label. Source: Katherine Yoshiwara [*Modeling, Functions, and Graphs*](https://yoshiwarabooks.org/mfg/Logarithm-Scales.html) 
+:::
+
+If you use finer divisions between numbers than the factor-of-10 used in @fig-labelled-1, the decimal notation and scientific notation numbers don't match so prettily. 
+
+::: {#fig-labelled-2}
+![](www/doubly-labelled-2.png)
+
+We can use steps smaller than the base of the log. Here the step is 0.1 log unit as opposed to the 1.0 log unit in @fig-labelled-1, the decimal equivalent of the log value seems bizarrely uneven. Source: Katherine Yoshiwara [*Modeling, Functions, and Graphs*](https://yoshiwarabooks.org/mfg/Logarithm-Scales.html) 
+:::
+
+Most people are more comfortable with labels where the information is not squirreled up in the exponent, but displayed as round numbers as in #fig-labelled-1. To accomplish this, whenever ticks are spaced by smaller than a log unit, they end up being *unevenly spaced*.
+
+Sometimes, as in @fig-energy-mass, only the occasional grid line is labelled, but the intermediate, unlabelled grid lines are unevenly spaced even if the labels are spaced evenly.
+
+::: {#fig-energy-mass}
+
+![](www/energy-mass.png)
+Plot of metabolic energy rate (that is, power in kcal/day) versus body mass (in kg) for different species of mammals. The dog's mass is at the first grid line after the one labelled 100. That is, the mass given for the dog is about 20 kg.In contrast, the sheep is at about 60 kg. It takes some practice to remember that the first grid line after 10 is 20, not 11. Source: Grace Imson, [*How to read a logarithmic scale*](https://www.wikihow.com/Read-a-Logarithmic-Scale)
+:::
+
+
+Two different types of logarithmically labelled graphs are in wide use, as in @fig-semi-log-log. Semi-log is appropriate when only one variable is "scaleless." Log-log is when both variables are without a characteristic scale.
+
+::: {#fig-semi-log-log}
+![](www/semi-and-log-log-scales.png)
+
+Two types of logarithmically spaced graph paper for plotting one variable against another.
+:::
+
+
+EXERCISES:
+
+1. Label the intermediate (unlabelled) ticks on a logarithmic axis.
+
+2. The @fig-semi-log-log graphs are gridded on a "decade" system, that is, 1, 2, 3, ..., 10, 20, 30, ... 100, 200, .... What happens if we want to use a "century" system, that is 1, ..., 100, ..., 10000. What would be the values on the unlabelled tick marks. 
+
+Solution: 
+
+Here are the positions of 1, 2, 3, ..., 10  on the unevenly spaced ticks between decades:
+
+```{r}
+log10(seq(1, 10, by = 1))
+```
+
+If we want to use the same marks but have them divide a century, the evenly spaced values will be 
+
+```{r}
+seq(1, 100, length=10)
+```
+
+and their logarithm positions will be
+
+```{r}
+log10(seq(1, 100, length=10))
+```
+
+We put the ticks at these positions and could write the labels either in scientific form as $$10^0, 10^{1.079181}, 10^{1.361728}, ...$$ or in decimal form as :
+
+```{r}
+10^(log10(seq(1, 100, length=10)))
+```
+
+
+
+
+
+
+## Operations on Functions
+
+All three of these seek a specific value for the input. That is, these operations 
+
+- take a **function** as primary input, and a **domain** as an argument.
+- produce a quantity as output
+
+1. Zero-finding
+    - Guess two initial domain values and evaluate function at them.
+    - Modify the state 
+       - Straddle zero? We have a bracket. Bisection or linear interpolation (Newton's Method)
+       - Otherwise: Move in the downhill direction until we have a bracket, then continue.
+           - If move proves to be uphill, start with different initial values. 
+    - Return the average (or zero of the linear interpolant) of the bracketed values.
+
+2. Optimization in one input
+    - Algorithm I: Gradient descent (for *minimization*)
+        i. Guess two initial values
+        ii. Pick a third in a downhill direction.
+        iii. If the attempt to move downward results in an upward movement, now you have a bracket.
+    - Algorithm II: Newton's method for minimization (or maximization)
+        i. Guess **three** initial domain values and evaluate function at them.
+        ii. Fit a quadratic to the three points and find its argmin (or argmax)
+        iii. Choose the closest two of the initial values to the value in (ii) and repeat.
+    - Stupid calculus algorithm: Differentiate objective function and find the zero crossing. 
+        i. Bad because you need many function evaluations. In practice, you need a *formula* for the objective function to create the derivative without large number of function evaluations.
+        
+        
+For functions of multiple inputs, 
+
+- Zero finding follows a similar strategy.
+- Optimization requires new concepts from calculus that we will start to talk about after break.
+
+3. Iteration. Take a function and a **state**. Evaluate the function on the state to create a new state, and so on ....
+    i. State is one value: a dynamical system or Newton's method 
+    ii. Sometimes a state is a bracket.
+
+### Examples
+
+In each of the following code chunks, I am creating a randomly shaped function and operating on it. I might get zero or one or more rows.
+
+#### Zero-finding example: 
+
+```{webr-r}
+f <- doodle_fun(~ z)
+Zeros(f(x) ~ x, domain(x = -10:10))
+```
+
+#### Optimization example:
+
+```{webr-r}
+f <- doodle_fun(~ z)
+argM(f(x) ~ x, domain(x = -10:10))
+```
+
+## Magnitude
+
+Scientific notation makes it easier to write very big or very small quantities.  
+
+- Mass of the electron: 9.1093837 × 10^-31^ kilograms
+- Avogadro's number: 6.023 x 10^23^ (molecules per mol)
+6.6743 × 10-11 m3 kg-1 s-2
+- Universal gravitational constant: 6.6743 × 10^-11^ m^3^ kg^-1^ s^-2^
+- [Ideal gas constant]() 8.31446261815324	J⋅K^−1^⋅mol^−1^
+
+Such numerals come in two parts:
+
+i. The **mantissa**, e.g. 9.1093837 or 6.023
+ii. The **exponent**, e.g. -31 or 23
+
+
+Sometimes we need to work in settings that include a huge range of relative sizes. Here's a table of internal combustion engines of various sizes.
+
+
+```{r}
+DT::datatable(Engines)
+```
+
+### Counting digits
+
+```{webr-r}
+digits <- makeFun(log(x) / log(10) ~ x)
+digits(658)
+```
+
+### Computing via the axes
+
+#### Linear axes
+
+This graph will not be informative about the engines.
+
+```{webr-r}
+gf_point(RPM ~ mass, data = Engines)
+```
+
+#### Semi-log axes
+
+```{webr-r}
+gf_point(RPM ~ mass, data = Engines) |>
+  gf_refine(scale_x_log10())
+```
+
+#### Log-log axes
+
+```{webr-r}
+gf_point(RPM ~ mass, data = Engines) |>
+  gf_refine(scale_x_log10(), scale_y_log10())
+```
+
+
+Using a ruler and a printed logarithmic scale
+
+## Units and Dimensions
+
+Think about the kinds of physical things, e.g. velocity, force, frequency, energy, power.
+
+We start out with an abstract sense of these, e.g. what's the difference between force and velocity, or between energy and power.
+
+We have a notation that enables us to construct *any kind of thing* by putting together powers of a very few general, simple kinds of thing: length, mass, time, money, ....
+

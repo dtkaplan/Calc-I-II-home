@@ -1,0 +1,99 @@
+---
+title: "Calculus Quiz 3: Prof. Kaplan"
+author: "February 7, 2025"
+number-depth: 1
+number-offset: 1
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      left: 1cm
+      right: 1cm
+      top: 1cm
+      bottom: 1cm
+---
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+Student name: _____________. Do what you can in 15 minutes. 
+
+
+**Question 1** Inflation is an important economic phenomenon concerning the level of prices. As you likely know, inflation rates vary over the months and years. Imagine a country that has an inflation rate of 2%/year for three years changing to 5%/year for two years, then settling down to 3%/year for another three years.
+
+Think of price $P(t)$ as a function of time $t$ (in years). $P(0)$ will be the price level at year zero, let's call it 100. The 2% inflation means that the price at year 1 will be $P(1) = 1.02 P(0)$. Staying at that inflation rate at year 3 the price will be $P(3) = 1.02^3 P(0)$. 
+
+1. Overall, the price function a constant inflation rate of 2% would be $P(t) = 1.02^t P(0) = 1.02^t \times 100$. What shape of function is this? Think in terms of our pattern-book functions.
+
+2. An economist is plotting a graph of $P(t)$ versus $t$. She has a choice: use (i) linear axes, (ii) semi-log axes, or (iii) log-log axes. A good choice is one that makes the graph of the function as simple as possible. Which choice would be good for the function in (1)? Briefly justify your choice.
+
+3. Using your choice from (2), sketch the function from (1). Draw $P(t)$ and $t$ axes, and indicate your choice from (2) by labeling each of those axes as either "linear" or "log." Then draw the appropriate graph of $P(t)$ from (1).
+
+ 
+
+ 
+
+ 
+
+4. Extend your axes as needed to provide room for the graph of $P(t)$ over the entire 8-year domain, $0 \leq t \leq 8$. Put tick marks on the $t$ axis at values 0, 3, 5, and 8. Then draw $P(t)$ over the whole 8-year domain, using the rates specified in the first paragraph of this problem. You don't need to put tick marks on the $P(t)$ axis; it's only the shape of the function we're concerned with here. (Hint: It's easier than you might think if you made the right choice at step (2).)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+-----
+
+**Question 2** The function $h(x) \equiv 1/x^2$ is the composition of two simpler pattern book functions $h(x) \equiv f(g(x))$. Write down the formulas for $f()$ and $g()$.
+
+ 
+
+ 
+
+ 
+
+ 
+
+------
+
+**Question 3** The graph shows the composition $f(g(t))$ functions, $f(x) \equiv 1/x$ and $g(y) \equiv A \sin\left(\frac{2\pi}{P} y\right) + B$. (Note that the parts of the graph where the curve runs away from the graph are vertical asymptotes. Such a small range is graphed so that you have a good shot at finding the parameters from the graph.)
+
+```{r echo = FALSE}
+g <- makeFun(2*sin(2*pi*y/3) + 1 ~ y)
+slice_plot(1/g(y) ~ y, domain(y=-5:5), npts=3000) |>
+  gf_lims(y = c(-2, 3))
+```
+
+
+
+
+Give somewhat accurate numerical values for the three parameters $A$, $B$, and $P$.
+
+-------
+
+**Question 4**: 
+
+You are to build a model of student performance on an exam as a function of the time spent studying ($s$) during previous weeks and the time spent *sleeping* ($z$) during that time. Let's agree that there is such a thing as studying too much. As for sleep, assume that more is better and that our model doesn't need to include "over-sleep."
+
+Here is the generic second-order polynomial in two variables, $s$ and $z$:
+
+$a_0 + a_s s + a_z z + a_{sz}\ s z + a_{ss} s^2 + a_{zz} z^2$
+
+Your task is to say which of the coefficients you will need in the model to capture the phenomena described in the first paragraph and your common sense about performance, studying, and sleep. 
+
+Leaving aside $a_0$ ... you should use your intuition, knowledge of calculus, and modeling to say what the expected **sign** is for each of coefficients you decided to include in the model. Also, for each of these coefficients give a very brief explanation of why you decided that the coefficient will be positive or negative.
+
+
+
+
+
+
+
+
