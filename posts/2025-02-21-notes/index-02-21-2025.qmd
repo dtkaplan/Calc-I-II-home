@@ -7,5 +7,5 @@ format: live-html
 
 # 2025-02-21 class notes
 
-
+Activities 8, 9, 10, 11 in Chapter 19 exercises.
 

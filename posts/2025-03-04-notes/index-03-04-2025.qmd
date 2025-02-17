@@ -1,0 +1,11 @@
+---
+author: DTK
+date: 2025-03-04
+number-offset: 21
+format: live-html
+---
+
+# 2025-03-04 class notes
+
+
+Add activities from Ch 23 to lesson plan. 8-12

@@ -1,0 +1,14 @@
+---
+author: DTK
+date: 2025-03-07
+number-offset: 23
+format: live-html
+---
+
+# 2025-03-07 class notes
+
+Chapter 25
+
+Activities from Ch. 25 exercises.
+
+

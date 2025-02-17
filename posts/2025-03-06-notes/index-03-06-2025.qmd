@@ -1,0 +1,13 @@
+---
+author: DTK
+date: 2025-03-06
+number-offset: 22
+format: live-html
+---
+
+# 2025-03-06 class notes
+
+
+Chapter 24.
+
+Show Nelder-Mead animation from Exercises/Activities section.
