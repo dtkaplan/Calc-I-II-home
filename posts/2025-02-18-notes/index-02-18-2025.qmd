@@ -100,6 +100,11 @@ play_ramp <- function(n=7, intervals=rep(.5,n)) {
 }
 ```
 
+```{r}
+play_ramp()
+play_seq(n=10, bump = .000)
+```
+
 Starting point: evenly spaced gates.
 ```{r}
 positions <- c(0,1,2,3,4,5,6)
@@ -117,61 +122,6 @@ And the second differences
 ```{r}
 diff(diff(positions))
 ```
-
-## Definition of the "change function"
-
-The changeFun() function will be a new function that describes how much the function given as an argument changes in an increment of time $h$.
-
-```{r}
-changeFun <- function(tilde, h = 0.001, ...) {
-  f <- makeFun(tilde, ...)
-  cf <- function(t) {
-    f(t+h) - f(t)
-  }
-  return(cf)
-}
-```
-
-
-Show that changeFun() depends on `h`
-
-```{r}
-cf1 <- changeFun(x^2 ~ x, h=0.001)
-cf2 <- changeFun(x^2 ~ x, h=0.0005)
-slice_plot(cf1(x)/0.001 ~ x, 
-          domain(x = -5:5),
-          label_text = "h=0.001") |>
-  slice_plot(cf2(x)/0.0005 ~ x, 
-            color = "blue",
-            label_text = "h=0.0005") 
-```  
-
-Modify this to become the "rate of change" function.
-
-## How this was described in early days
-
-Show [John Adam's copy](www/analysedesinfini00lhos.pdf) of l'Hôpital's textbook. 
-
-- Graphs are at end of book, not a function among them.
-
-> *Simpsons Doctrine and Application of Fluxions* Vol.1.p.150. Scholium 134 [Link](https://archive.org/details/doctrineandappli00simpiala/page/32/mode/2up)
-
-[The following is copied from the above source.]
-
-> [In t]he Beginning of this and the preceeding Sections, We have seen how the Fluxions of Quantities are determined by conceiving the generating Motion, to become uniform to the proposed Positions: but hitherto no notice as been taken of the method of Increments or indefinitely little Parts, used and mistaken by many for that of Fluxions, in which the operations are, for the general Part exactly the same and which, tho less accurate, may be applied to good purpose in finding the Fluxions themselves in many cases to show the Beginner how the two Methods differ from each other.
-
-> The Fluxions of Quantities are always measured by how much the quantities themselves would be uniformly augmented in a given time. Therefore if two quantities or lines [?] A.B. and C.D. be generated together by the uniform or equable action of the Points B. and D. it follows that [?] any span Bb and Dd actualy gone over whereby AB and CD. are augmented, in the  same time will nearly [?] express the Fluxions of the given lines A.B and C.D. whence it appears that the Increments or Spans [?] actually gone over and the Fluxions are the Same in tis case, where the generating Velocities are equable,
-
-![](hand-drawing.png)
-
-> but if on the contrary, the velocities of the two Points in generating the Increments Mb and Nd be Supposed either to increase or decrease, the Lines or Increments so generated will no longer express the Fluxions of A.B. and C.D. being greater or less than the Spans [?] that might be uniformly described in the Same time with the Velocities at M. and N.
-
-> [I]f indeed those Increments and the time of this Description be taken so small that the motion of the points during that time may be considered as equable, The Ratio of the said Increments will then express that of the Fluxtion [?] or be as the Velocity of M. to that at N, indefinitely near but cannot be conceived to be strictly so; unless, perhaps in certain particular cases.
-
-> Hence We See tht the Differential Method, which proceeds upon those indefinitely little Increments, actually generated as we do upon Fluxions, or the Spaces that might be uniformly generated differs little or nothing from the Method of Fluxions, except in the manner of conceptions, and in point of accuracy, wherein it appears defective: and yet it is very certain the conclusions thiw way derived are mathematically true.
-
-> For although the whole compleat Increment is actually understood by the Notation and first Deffinition of the Differential Method yet in the Solution of Problems the exact Measure thereof is not taken, but only that Part of it which would arise from an uniform increase, agreable to the Notion of a Fluxion; whih admits of a strict demonstration. But after all the Differential Method has on advantage above that of Fluxions, which is, we are not here obpliged to introduce the Properties of Motion. Since We reason upon the Increments themselves, and not upon the manner in which they may be generated.
-
 
 
 ## Quiz from Feb 7

@@ -316,90 +316,32 @@ sin(x * a) + C</code></pre>
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">play_ramp</span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">play_seq</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">bump =</span> .<span class="dv">000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Starting point: evenly spaced gates.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>positions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">play_ramp</span>(<span class="at">intervals =</span> <span class="fu">interval_from_pos</span>(positions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>positions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">play_ramp</span>(<span class="at">intervals =</span> <span class="fu">interval_from_pos</span>(positions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Calculate the first differences</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(positions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(positions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 1 1 1 1 1</code></pre>
 </div>
 </div>
 <p>And the second differences</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">diff</span>(positions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">diff</span>(positions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0 0 0 0 0</code></pre>
 </div>
 </div>
 </section>
-<section id="definition-of-the-change-function" class="level4" data-number="16.3">
-<h4 data-number="16.3" class="anchored" data-anchor-id="definition-of-the-change-function"><span class="header-section-number">16.3</span> Definition of the “change function”</h4>
-<p>The changeFun() function will be a new function that describes how much the function given as an argument changes in an increment of time <span class="math inline">\(h\)</span>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>changeFun <span class="ot">&lt;-</span> <span class="cf">function</span>(tilde, <span class="at">h =</span> <span class="fl">0.001</span>, ...) {</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="fu">makeFun</span>(tilde, ...)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  cf <span class="ot">&lt;-</span> <span class="cf">function</span>(t) {</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">f</span>(t<span class="sc">+</span>h) <span class="sc">-</span> <span class="fu">f</span>(t)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(cf)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Show that changeFun() depends on <code>h</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>cf1 <span class="ot">&lt;-</span> <span class="fu">changeFun</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">~</span> x, <span class="at">h=</span><span class="fl">0.001</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cf2 <span class="ot">&lt;-</span> <span class="fu">changeFun</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">~</span> x, <span class="at">h=</span><span class="fl">0.0005</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_plot</span>(<span class="fu">cf1</span>(x)<span class="sc">/</span><span class="fl">0.001</span> <span class="sc">~</span> x, </span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>          <span class="fu">domain</span>(<span class="at">x =</span> <span class="sc">-</span><span class="dv">5</span><span class="sc">:</span><span class="dv">5</span>),</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">label_text =</span> <span class="st">"h=0.001"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_plot</span>(<span class="fu">cf2</span>(x)<span class="sc">/</span><span class="fl">0.0005</span> <span class="sc">~</span> x, </span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"blue"</span>,</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">label_text =</span> <span class="st">"h=0.0005"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index-02-18-2025_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Modify this to become the “rate of change” function.</p>
-</section>
-<section id="how-this-was-described-in-early-days" class="level4" data-number="16.4">
-<h4 data-number="16.4" class="anchored" data-anchor-id="how-this-was-described-in-early-days"><span class="header-section-number">16.4</span> How this was described in early days</h4>
-<p>Show <a href="www/analysedesinfini00lhos.pdf">John Adam’s copy</a> of l’Hôpital’s textbook.</p>
-<ul>
-<li>Graphs are at end of book, not a function among them.</li>
-</ul>
-<blockquote class="blockquote">
-<p><em>Simpsons Doctrine and Application of Fluxions</em> Vol.1.p.150. Scholium 134 <a href="https://archive.org/details/doctrineandappli00simpiala/page/32/mode/2up">Link</a></p>
-</blockquote>
-<p>[The following is copied from the above source.]</p>
-<blockquote class="blockquote">
-<p>[In t]he Beginning of this and the preceeding Sections, We have seen how the Fluxions of Quantities are determined by conceiving the generating Motion, to become uniform to the proposed Positions: but hitherto no notice as been taken of the method of Increments or indefinitely little Parts, used and mistaken by many for that of Fluxions, in which the operations are, for the general Part exactly the same and which, tho less accurate, may be applied to good purpose in finding the Fluxions themselves in many cases to show the Beginner how the two Methods differ from each other.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>The Fluxions of Quantities are always measured by how much the quantities themselves would be uniformly augmented in a given time. Therefore if two quantities or lines [?] A.B. and C.D. be generated together by the uniform or equable action of the Points B. and D. it follows that [?] any span Bb and Dd actualy gone over whereby AB and CD. are augmented, in the same time will nearly [?] express the Fluxions of the given lines A.B and C.D. whence it appears that the Increments or Spans [?] actually gone over and the Fluxions are the Same in tis case, where the generating Velocities are equable,</p>
-</blockquote>
-<p><img src="hand-drawing.png" class="img-fluid"></p>
-<blockquote class="blockquote">
-<p>but if on the contrary, the velocities of the two Points in generating the Increments Mb and Nd be Supposed either to increase or decrease, the Lines or Increments so generated will no longer express the Fluxions of A.B. and C.D. being greater or less than the Spans [?] that might be uniformly described in the Same time with the Velocities at M. and N.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>[I]f indeed those Increments and the time of this Description be taken so small that the motion of the points during that time may be considered as equable, The Ratio of the said Increments will then express that of the Fluxtion [?] or be as the Velocity of M. to that at N, indefinitely near but cannot be conceived to be strictly so; unless, perhaps in certain particular cases.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Hence We See tht the Differential Method, which proceeds upon those indefinitely little Increments, actually generated as we do upon Fluxions, or the Spaces that might be uniformly generated differs little or nothing from the Method of Fluxions, except in the manner of conceptions, and in point of accuracy, wherein it appears defective: and yet it is very certain the conclusions thiw way derived are mathematically true.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>For although the whole compleat Increment is actually understood by the Notation and first Deffinition of the Differential Method yet in the Solution of Problems the exact Measure thereof is not taken, but only that Part of it which would arise from an uniform increase, agreable to the Notion of a Fluxion; whih admits of a strict demonstration. But after all the Differential Method has on advantage above that of Fluxions, which is, we are not here obpliged to introduce the Properties of Motion. Since We reason upon the Increments themselves, and not upon the manner in which they may be generated.</p>
-</blockquote>
-</section>
-<section id="quiz-from-feb-7" class="level4" data-number="16.5">
-<h4 data-number="16.5" class="anchored" data-anchor-id="quiz-from-feb-7"><span class="header-section-number">16.5</span> Quiz from Feb 7</h4>
+<section id="quiz-from-feb-7" class="level4" data-number="16.3">
+<h4 data-number="16.3" class="anchored" data-anchor-id="quiz-from-feb-7"><span class="header-section-number">16.3</span> Quiz from Feb 7</h4>
 <p><strong>Question 1</strong> Inflation is an important economic phenomenon concerning the level of prices. As you likely know, inflation rates vary over the months and years. Imagine a country that has an inflation rate of 2%/year for three years changing to 5%/year for two years, then settling down to 3%/year for another three years.</p>
 <p>Think of price <span class="math inline">\(P(t)\)</span> as a function of time <span class="math inline">\(t\)</span> (in years). <span class="math inline">\(P(0)\)</span> will be the price level at year zero, let’s call it 100. The 2% inflation means that the price at year 1 will be <span class="math inline">\(P(1) = 1.02 P(0)\)</span>. Staying at that inflation rate at year 3 the price will be <span class="math inline">\(P(3) = 1.02^3 P(0)\)</span>.</p>
 <ol type="1">
@@ -430,7 +372,7 @@ sin(x * a) + C</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index-02-18-2025_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index-02-18-2025_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
