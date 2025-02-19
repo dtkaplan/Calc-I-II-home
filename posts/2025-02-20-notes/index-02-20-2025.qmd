@@ -70,7 +70,19 @@ Show [John Adam's copy](www/analysedesinfini00lhos.pdf) of l'Hôpital's textbook
 
 > For although the whole compleat Increment is actually understood by the Notation and first Deffinition of the Differential Method yet in the Solution of Problems the exact Measure thereof is not taken, but only that Part of it which would arise from an uniform increase, agreable to the Notion of a Fluxion; whih admits of a strict demonstration. But after all the Differential Method has on advantage above that of Fluxions, which is, we are not here obpliged to introduce the Properties of Motion. Since We reason upon the Increments themselves, and not upon the manner in which they may be generated.
 
+## A function and it's change over a small interval
 
+![](www/slope-rose.png)
+
+We'll divide the x-axis into 60 equal segments, then plot out the *change* in the function from the start to the end of the segment.
+The height of each sloping graph is the amount of change during the segment.
+
+![](www/slope-segments.png)
+
+
+Now to convert that "change" into a rate of change, just divide by the small interval of time. That is, divide by 1/60.
+
+![](www/rate-of-change.png)
 
 ## Definition of the "change function"
 
@@ -92,13 +104,42 @@ Show that changeFun() depends on `h`
 ```{r}
 cf1 <- changeFun(x^2 ~ x, h=0.001)
 cf2 <- changeFun(x^2 ~ x, h=0.0005)
-slice_plot(cf1(x)/0.001 ~ x, 
+slice_plot(cf1(x) ~ x, 
           domain(x = -5:5),
           label_text = "h=0.001") |>
-  slice_plot(cf2(x)/0.0005 ~ x, 
+  slice_plot(cf2(x) ~ x, 
             color = "blue",
             label_text = "h=0.0005") 
 ```  
 
 Modify this to become the "rate of change" function.
+
+```{r}
+rateOfChangeFun <- function(tilde, h = 0.001, ...) {
+  f <- makeFun(tilde, ...)
+  cf <- function(t) {
+    (f(t+h) - f(t)) / h
+  }
+  return(cf)
+}
+```
+
+```{r}
+rcf1 <- rateOfChangeFun(x^2 ~ x, h=0.001)
+rcf2 <- rateOfChangeFun(x^2 ~ x, h=0.0005)
+slice_plot(rcf1(x) ~ x, 
+          domain(x = -5:5),
+          label_text = "h=0.001") |>
+  slice_plot(rcf2(x) ~ x, 
+            color = "blue",
+            label_text = "h=0.0005") 
+```
+
+## Algebra
+
+Let's compute the rate-of-change function for $f(x) \equiv x^2$
+
+$$ \frac{f(x + h) - f(x)}{h} = 
+\frac{x^2 + 2hx + h^2 - x^2}{h} = \frac{2hx + h^2}{h} = 2x + h$$
+Since $h$ can be as small as we want to make it, let's treat it as zero, so the rate of change of $x^2$ is $2x$.
 
