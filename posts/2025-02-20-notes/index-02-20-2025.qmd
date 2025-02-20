@@ -88,7 +88,7 @@ Now to convert that "change" into a rate of change, just divide by the small int
 
 The changeFun() function will be a new function that describes how much the function given as an argument changes in an increment of time $h$.
 
-```{r}
+```{webr-r}
 changeFun <- function(tilde, h = 0.001, ...) {
   f <- makeFun(tilde, ...)
   cf <- function(t) {
@@ -101,7 +101,7 @@ changeFun <- function(tilde, h = 0.001, ...) {
 
 Show that changeFun() depends on `h`
 
-```{r}
+```{webr-r}
 cf1 <- changeFun(x^2 ~ x, h=0.001)
 cf2 <- changeFun(x^2 ~ x, h=0.0005)
 slice_plot(cf1(x) ~ x, 
@@ -114,7 +114,7 @@ slice_plot(cf1(x) ~ x,
 
 Modify this to become the "rate of change" function.
 
-```{r}
+```{webr-r}
 rateOfChangeFun <- function(tilde, h = 0.001, ...) {
   f <- makeFun(tilde, ...)
   cf <- function(t) {
@@ -124,7 +124,7 @@ rateOfChangeFun <- function(tilde, h = 0.001, ...) {
 }
 ```
 
-```{r}
+```{webr-r}
 rcf1 <- rateOfChangeFun(x^2 ~ x, h=0.001)
 rcf2 <- rateOfChangeFun(x^2 ~ x, h=0.0005)
 slice_plot(rcf1(x) ~ x, 

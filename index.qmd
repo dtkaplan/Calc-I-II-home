@@ -41,7 +41,8 @@ Assignment due: [Chapter 16 Exercises](https://dtkaplan.github.io/MC-Workbook/16
 
 Topics: Rate of change
 
-Reading: *MOSAIC Calculus* [Chap 18 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/18-computing.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/18-reading.html)
+Reading: *MOSAIC Calculus* [Chap 18 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/18-computing.html)
+and [reading questions](https://dtkaplan.github.io/MC-Workbook/18-reading.html)
 
 Assignment due: [Chapter 17 Exercises](https://dtkaplan.github.io/MC-Workbook/17-exercises.html)
 :::
@@ -52,7 +53,7 @@ Assignment due: [Chapter 17 Exercises](https://dtkaplan.github.io/MC-Workbook/17
 
 Topics: Evanescent $h$
 
-Reading: *MOSAIC Calculus* [Chap 19 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/19-evanescent-h.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/19-reading.html)
+Reading: *MOSAIC Calculus* [Chap 19 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/19-evanescent-h.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/19-reading.html)
 
 Assignment due: [Chapter 18 Exercises](https://dtkaplan.github.io/MC-Workbook/18-exercises.html)
 
@@ -66,7 +67,7 @@ QUIZ
 
 Topics: Constructing derivatives
 
-Reading: *MOSAIC Calculus* [Chap 20 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/20-computing.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/20-reading.html)
+Reading: *MOSAIC Calculus* [Chap 20 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/20-computing.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/20-reading.html)
 
 Assignment due: [Chapter 19 Exercises](https://dtkaplan.github.io/MC-Workbook/19-exercises.html)
 
@@ -78,7 +79,7 @@ Assignment due: [Chapter 19 Exercises](https://dtkaplan.github.io/MC-Workbook/19
 
 Topics: Concavity and curvature
 
-Reading: *MOSAIC Calculus* [Chap 21 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/21-concavity.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/21-reading.html)
+Reading: *MOSAIC Calculus* [Chap 21 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/21-concavity.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/21-reading.html)
 
 Assignment due: [Chapter 20 Exercises](https://dtkaplan.github.io/MC-Workbook/20-exercises.html)
 
@@ -91,7 +92,7 @@ QUIZ
 
 Topics: Continuity & smoothness
 
-Reading: *MOSAIC Calculus* [Chap 22 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/22-cont-and-smooth.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/22-reading.html)
+Reading: *MOSAIC Calculus* [Chap 22 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/22-cont-and-smooth.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/22-reading.html)
 
 Assignment due: [Chapter 20 Exercises](https://dtkaplan.github.io/MC-Workbook/20-exercises.html)
 :::
@@ -102,7 +103,7 @@ Assignment due: [Chapter 20 Exercises](https://dtkaplan.github.io/MC-Workbook/20
 
 Topics: Derivatives of assembled functions
 
-Reading: *MOSAIC Calculus* [Chap 23 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/23-rules.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/23-reading.html)
+Reading: *MOSAIC Calculus* [Chap 23 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/23-rules.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/23-reading.html)
 
 Assignment due: [Chapter 22 Exercises](https://dtkaplan.github.io/MC-Workbook/22-exercises.html)
 :::
@@ -112,7 +113,7 @@ Assignment due: [Chapter 22 Exercises](https://dtkaplan.github.io/MC-Workbook/22
 
 Topics: Optimization
 
-Reading: *MOSAIC Calculus* [Chap 24 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/24-optim.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/24-reading.html)
+Reading: *MOSAIC Calculus* [Chap 24 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/24-optim.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/24-reading.html)
 
 Assignment due: [Chapter 23 Exercises](https://dtkaplan.github.io/MC-Workbook/23-exercises.html)
 
@@ -124,7 +125,7 @@ QUIZ
 
 Topics: Partial differentiation & the gradient vector
 
-Reading: *MOSAIC Calculus* [Chap 25 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/25-partial.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/25-reading.html)
+Reading: *MOSAIC Calculus* [Chap 25 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/25-partial.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/25-reading.html)
 
 Assignment due: [Chapter 24 Exercises](https://dtkaplan.github.io/MC-Workbook/24-exercises.html)
 
@@ -136,7 +137,7 @@ Assignment due: [Chapter 24 Exercises](https://dtkaplan.github.io/MC-Workbook/24
 
 Topics: 
 
-Reading: *MOSAIC Calculus* [Chap 26 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/26-approximation.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/26-reading.html)
+Reading: *MOSAIC Calculus* [Chap 26 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/26-approximation.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/26-reading.html)
 
 Assignment due: [Chapter 25 Exercises](https://dtkaplan.github.io/MC-Workbook/25-exercises.html)
 
@@ -147,7 +148,7 @@ Assignment due: [Chapter 25 Exercises](https://dtkaplan.github.io/MC-Workbook/25
 
 Topics: Taylor polynomials
 
-Reading: *MOSAIC Calculus* [Chap 27 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/27-taylor.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/27-reading.html)
+Reading: *MOSAIC Calculus* [Chap 27 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/27-taylor.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/27-reading.html)
 
 Assignment due: [Chapter 26 Exercises](https://dtkaplan.github.io/MC-Workbook/26-exercises.html)
 
@@ -172,7 +173,7 @@ QUIZ on differentiation
 
 Topics: This is the start of a new Block about representing high-dimensional spaces and basic operations on their inhabitants: Vectors and subspaces.
 
-Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/28-Vectors.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/28-reading.html)
+Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/28-reading.html)
 
 Assignment due: 
 :::
@@ -182,7 +183,7 @@ Assignment due:
 
 Topics: Linear combinations of vectors
 
-Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/29-linear-combinations.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/29-reading.html)
+Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/29-reading.html)
 
 Assignment due: [Chapter 28 Exercises](https://dtkaplan.github.io/MC-Workbook/28-exercises.html)
 :::
