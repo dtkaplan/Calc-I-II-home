@@ -109,9 +109,9 @@ rateOfChange <- function(tilde, h = 0.001, ...) {
 
 Example:
 
-```{webr-r}
-f <- makeFun(dnorm(t) ~ t)
-candidate <- makeFun(-t * dnorm(t) ~ t)
+```{r}
+f <- makeFun(log(t) ~ t)
+candidate <- makeFun(1/t ~ t)
 Df <- rateOfChange(f(t) ~ t)
 slice_plot(
   candidate(t) ~ t,

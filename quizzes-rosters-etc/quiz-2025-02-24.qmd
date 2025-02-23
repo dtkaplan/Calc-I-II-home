@@ -1,0 +1,62 @@
+---
+title: "Calculus Quiz 4: Prof. Kaplan"
+author: "February 24, 2025"
+number-depth: 1
+number-offset: 1
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      left: 1cm
+      right: 1cm
+      top: 1cm
+      bottom: 1cm
+---
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+Student name: _____________. Do what you can in 15 minutes. 
+
+
+**Question 1**
+
+The table has one row for each of our nine "pattern-book" functions. One column shows a graph of the *shape* of the function. Your job is to fill in the other three columns:
+
+ii. Write the name or formula for the function (e.g. `dnorm()` or $e^x$).
+iii. Write the formula for the derivative of the function with respect to its argument.
+iv. Sketch a graph of the derivative function.
+
+Graph | $f(x)$ | $\partial_x f(x)$ | Graph of $\partial_x f(x)$
+------------------|------------|------------|-----------------------------
+![](www/pb-gauss-gg.png){width=120} | | |
+![](www/pb-log-gg.png){width=120} | | |
+![](www/pb-recip-gg.png){width=120} | | |
+![](www/pb-exp-gg.png){width=120} | | |
+![](www/pb-sigmoid-gg.png){width=120} | | |
+![](www/pb-sin-gg.png){width=120} | | |
+![](www/pb-identity-gg.png){width=120} | | |
+![](www/pb-const-gg.png){width=120} | | |
+![](www/pb-square-gg.png){width=120} | | |
+
+Once you have completed the table, go through the table row by row and, for the pair of graphs in each row, mark three corresponding points on the curves. (Corresponding means "same input value in the two graphs"). Use these marks:
+
+- $+$ for an input where the derivative is positive
+- $\times$ for an input where the derivative is negative
+- $\circ$ for an input where the derivative is zero
+
+If a particular row doesn't have one or more of the three situations, leave out the corresponding mark from that graph.
+
+--------
+ 
+
+ 
+
+**Question 2** Write down the formula for the finite-difference derivative of the function $g(t)$.
+
+$D_t g(t) \equiv \ \ \ \ \ \ \ \ \ \ $
+
+
+
