@@ -80,7 +80,6 @@ Need to run these interactively, but not using webr because webr doesn't play so
 play_seq <- function(n=5, bump = 0, intervals=rep(.5,n)) {
   k <- sample(2:(n-2), size = 1)
   if (bump > 0) intervals[k] <- intervals[k] + sample(c(-bump, bump), size=1)
-  audio::play(sin(1:5000/20))
   for (wait in intervals) {
     Sys.sleep(wait)
     audio::play(sin(1:5000/20))

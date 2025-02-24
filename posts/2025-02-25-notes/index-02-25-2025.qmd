@@ -5,7 +5,141 @@ number-offset: 18
 format: live-html
 ---
 
+```{r include=FALSE}
+library(mosaicCalc)
+library(audio)
+```
+
 # 2025-02-25 class notes
 
+Reminder: QUIZ at end of hour, mainly on the derivatives of the pattern-book functions.
+
+----------
+
+## The *finite-difference* derivative operator, ${\cal D}_x$
+
+- Takes a function as input and produces a function as output.
+- An infinity of ways to define it, all variations on the same thing.
+
+Right sided $${\cal D}_t f(t) \equiv \frac{f(t + h) - f(t)}{h}$$
+
+Left sided: $${\cal D}_t f(t) \equiv \frac{f(t) - f(t-h)}{h}$$    
+    
+Centered: $${\cal D}_t f(t) \equiv \frac{f(t+h/2) - f(t-h/2)}{h}$$      
+    
+Centered: $${\cal D}_t f(t) \equiv \frac{f(t+h) - f(t-h)}{2 h}$$      
+
+- Which of these is "right"? Insofar as they give the same result, they are all right. 
+
+- Look at the value of the derivative at any specific input as a function of $h$. For small enough $h$, all these head in the same direction.
+
+- Definition of small enough in mathematics: $\lim h \rightarrow 0$.
+
+- Definition of small enough in numerics: Check at $h$ and at $h/8$: do these give *equivalent* results. If so, we're done.
+
+NOTE: "equivalent" requires that we accept the idea of "close enough for our purposes."
+
+## Higher order derivatives
+
+Go to the board and find formulas for the 2nd- and 3rd-order derivatives of a function with one input.
+
+To find a finite-difference formula for a second derivative, $\cal D_{t\, t} f(t)$ apply the finite-difference formula to $\cal D_t f(t)$:
+
+$$\cal D_{t\ t} f(t) = \frac{\cal D_t f(t + h) - \cal D_t f(t-h)}{2h} = $$
+
+$$= \frac{\frac{f(t + h + h) - f(t)}{2 h} - \frac{f(t) - f(t-h - h)}{2 h}}{2 h}$$
+
+$$ \frac{f(t + 2 h) - 2 f(t) + f(t-2h)}{4 h^2}$$
+
+For simplicity, let's rewrite this using a new $h_\star = 2 h$, getting
+$$\cal D_{t\ t} f(t) = \frac{f(t + h_\star) - 2 f(t) + f(t - h_\star)}{2h_\star^2}$$
+
+Paint a geometric picture of this: The average of the two end points minus the middle point.
 
 
+Third derivative $$\cal D_{t\, t\, t} = \frac{\cal D_{t\, t} f(t + h) - \cal D_{t\, t} f(t-h)}{2h}$$
+
+$$= \frac{\frac{f(t+2h) -2 f(t+h) + f(t)}{2h} - \frac{f(t) - 2 f(t - h) + f(t - 2h)}{2h}}{2h}$$
+
+$$= \frac{f(t + 2h) - 2\left({\large\strut} f(t+h) - f(t-h)\right) - f(t-2h)}{2 h^3}$$
+
+
+
+
+Let's check if this is right ...
+
+f(x + 2 * .h) - 2 * (f(x + .h) - f(x - .h)) - f(x - 2 * .h)/(2 *.h^3)
+```{r}
+f <- sin # Non-mosaiCalc notation
+slice_plot(
+  (f(t + 2*h) - 2*(f(t+h) - f(t-h)) - f(t - 2*h)) /
+    (2*h^3) ~ t, 
+  domain(t = -5:5), 
+  h = 0.001
+)
+```
+
+```{r}
+numD(f(x) ~ x + x + x)
+```
+
+
+
+
+## If you have an analytic formula for a derivative, use it.
+
+Example: $g(t) \equiv sin(t)$.
+
+Algebraic fact : $\sin(a + b) = \sin(a)\cos(b) + \cos(a)\sin(b)$
+
+Let's apply this to our definition of the derivative:
+
+$$\frac{\sin(t + h) - \sin(t)}{h} = \frac{\sin(t)\cos(h) + \cos(t)\sin(h) - \sin(t)}{h}$$
+$$ = \frac{(\cos{h} - 1)}{h} \sin(t) + \frac{\sin(h)}{h} \cos(t)$$
+
+Example of a limit proof: [$\lim_{h \rightarrow 0} \frac{\sin(h)}{h} = 1$](https://www.youtube.com/watch?v=5xitzTutKqM)
+
+## Close enough
+
+### Sound
+
+Sound is communicated to our ears by a function `pressure(t)`. What does "close enough for our purposes" mean here? 
+
+[Recording of report about](https://archive.org/details/WWII_News_1940/1940-05-13_BBC_Bernard_Stubbs_On_The_BEF_Advance_Into_Belgium.mp3) the BEF entering Belgium (1940)
+
+A pure sine wave
+
+```{r}
+time = (0:44100)/44100
+hz = 440
+audio::play(sin(hz*2*pi*time), rate = 44100)
+```
+
+For the purpose of representing audio to humans, we can cut out sounds that we can't perceive.
+
+## Digital audio: Nyquist sampling theorem
+
+```{r}
+sinc <- makeFun(sin(t)/t ~ t)
+slice_plot(sinc(t) ~ t, domain(t = -25:25), npts = 500)
+```
+
+### Training neural networks 
+
+
+
+
+## Digital signal processing
+
+
+```{r}
+audio::play(Cello$y)
+
+Sys.sleep(1)
+Dcello <- (Cello$y[-1] - Cello$y[-nrow(Cello)])
+
+
+
+audio::play(as.integer(20*Dcello))
+
+```

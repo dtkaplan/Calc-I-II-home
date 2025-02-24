@@ -7,6 +7,13 @@ format: live-html
 
 ```{r include=FALSE}
 library(mosaicCalc)
+rateOfChange <- function(tilde, h = 0.001, ...) {
+  f <- makeFun(tilde, ...)
+  cf <- function(t) {
+    (f(t+h) - f(t)) / h
+  }
+  return(cf)
+}
 ```
 
 # 2025-02-21 class notes
