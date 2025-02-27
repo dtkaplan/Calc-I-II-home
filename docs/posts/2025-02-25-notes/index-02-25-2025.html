@@ -219,6 +219,9 @@ window.Quarto = {
 <h3 data-number="19" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">19</span> 2025-02-25 class notes</h3>
 <p>Reminder: QUIZ at end of hour, mainly on the derivatives of the pattern-book functions.</p>
 <hr>
+<p>Hundredth anniversary of microphone use in musical recordings. <a href="https://www.nytimes.com/2025/02/24/arts/music/100th-anniversary-microphone-recording.html?smid=nytcore-ios-share&amp;referringSource=articleShare">Link</a></p>
+<hr>
+<p><a href="https://www.youtube.com/watch?v=5xitzTutKqM">Khan Academy proof</a> that <span class="math display">\[\lim_{h\rightarrow 0} \frac{\sin(x)}{x}\]</span></p>
 <section id="the-finite-difference-derivative-operator-cal-d_x" class="level4" data-number="19.1">
 <h4 data-number="19.1" class="anchored" data-anchor-id="the-finite-difference-derivative-operator-cal-d_x"><span class="header-section-number">19.1</span> The <em>finite-difference</em> derivative operator, <span class="math inline">\({\cal D}_x\)</span></h4>
 <ul>
@@ -275,7 +278,7 @@ window.Quarto = {
     (f(x + 2 * .h) - 2 * (f(x + .h) - f(x - .h)) - f(x - 2 * 
         .h))/(2 * .h^3)
 }
-&lt;environment: 0x7ff037c93ea8&gt;</code></pre>
+&lt;environment: 0x7fc7f333b3c0&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -296,7 +299,7 @@ window.Quarto = {
 <p>A pure sine wave</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>time <span class="ot">=</span> (<span class="dv">0</span><span class="sc">:</span><span class="dv">44100</span>)<span class="sc">/</span><span class="dv">44100</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>hz <span class="ot">=</span> <span class="dv">440</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>hz <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="dv">880</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>audio<span class="sc">::</span><span class="fu">play</span>(<span class="fu">sin</span>(hz<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>time), <span class="at">rate =</span> <span class="dv">44100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For the purpose of representing audio to humans, we can cut out sounds that we can’t perceive.</p>
@@ -322,14 +325,15 @@ window.Quarto = {
 <section id="digital-signal-processing" class="level4" data-number="19.6">
 <h4 data-number="19.6" class="anchored" data-anchor-id="digital-signal-processing"><span class="header-section-number">19.6</span> Digital signal processing</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>audio<span class="sc">::</span><span class="fu">play</span>(Cello<span class="sc">$</span>y)</span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>audio<span class="sc">::</span><span class="fu">play</span>(Violin<span class="sc">$</span>y)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.sleep</span>(<span class="dv">1</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Dcello <span class="ot">&lt;-</span> (Cello<span class="sc">$</span>y[<span class="sc">-</span><span class="dv">1</span>] <span class="sc">-</span> Cello<span class="sc">$</span>y[<span class="sc">-</span><span class="fu">nrow</span>(Cello)])</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>audio<span class="sc">::</span><span class="fu">play</span>(<span class="fu">as.integer</span>(<span class="dv">20</span><span class="sc">*</span>Dcello))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.sleep</span>(<span class="dv">2</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Dcello <span class="ot">&lt;-</span> (Violin<span class="sc">$</span>y[<span class="sc">-</span><span class="dv">1</span>] <span class="sc">-</span> Violin<span class="sc">$</span>y[<span class="sc">-</span><span class="fu">nrow</span>(Cello)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in Violin$y[-1] - Violin$y[-nrow(Cello)]: longer object length is not a
+multiple of shorter object length</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>audio<span class="sc">::</span><span class="fu">play</span>(<span class="fu">as.integer</span>(<span class="dv">20</span><span class="sc">*</span>Dcello))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

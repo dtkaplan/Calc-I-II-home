@@ -16,6 +16,13 @@ Reminder: QUIZ at end of hour, mainly on the derivatives of the pattern-book fun
 
 ----------
 
+Hundredth anniversary of microphone use in musical recordings. [Link](https://www.nytimes.com/2025/02/24/arts/music/100th-anniversary-microphone-recording.html?smid=nytcore-ios-share&referringSource=articleShare)
+
+
+----------
+
+[Khan Academy proof](https://www.youtube.com/watch?v=5xitzTutKqM) that $$\lim_{h\rightarrow 0} \frac{\sin(x)}{x}$$
+
 ## The *finite-difference* derivative operator, ${\cal D}_x$
 
 - Takes a function as input and produces a function as output.
@@ -111,7 +118,7 @@ A pure sine wave
 
 ```{r}
 time = (0:44100)/44100
-hz = 440
+hz = 2*2*2*2*2*2*880
 audio::play(sin(hz*2*pi*time), rate = 44100)
 ```
 
@@ -133,10 +140,10 @@ slice_plot(sinc(t) ~ t, domain(t = -25:25), npts = 500)
 
 
 ```{r}
-audio::play(Cello$y)
+audio::play(Violin$y)
 
-Sys.sleep(1)
-Dcello <- (Cello$y[-1] - Cello$y[-nrow(Cello)])
+Sys.sleep(2)
+Dcello <- (Violin$y[-1] - Violin$y[-nrow(Cello)])
 
 
 

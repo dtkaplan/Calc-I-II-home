@@ -5,10 +5,107 @@ number-offset: 19
 format: live-html
 ---
 
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
+
 # 2025-02-27 class notes
 
 
-FOR CHAPTER 21, put the activities from the workbook into the lesson plan.
 
-Exercises 8 & 9
+[Ch 21 Activities](https://dtkaplan.github.io/MC-Workbook/21-exercises.html) 10
 
+
+Assume that the boy, the center of the ball, and the center of the hoop in @fig-basketball-shot are all in the same plane, as required for a swish shot. Assume as well that when the ball left the boy's hands it was in the position now occupied by the boy's head and that there was no spin on the ball. 
+
+> Will the ball swish through the basket?
+
+::: {#fig-basketball-shot}
+![](www/basketball-shot.png)
+
+A drawing from a children's song book, *I'm still here in the bathtub*, illustrated by David Catrow. (Scholastic, Inc. 2004)
+:::
+
+## French curves
+
+![](www/french-curves.png)
+
+## Formula for curvature $K(x)$ of a function $f()$
+
+$$ K(x) = \frac{\partial_{xx} f(x)}{(1 + \partial_x f(x)^2)^{2/3}}$$
+
+Curvature is 1/radius of the inscribed circle.
+
+
+[Ch 21 Activities](https://dtkaplan.github.io/MC-Workbook/21-exercises.html), 8, 9
+
+
+
+
+$$ r = \frac{(1 - \partial_x f(x)^2)^{2/3}}{\partial_{xx} f(x)}$$
+
+## Specifying the curvature of a highway ramp
+
+
+Highway entrance/exit ramps [from textbook](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/21-concavity.html#thm-highway-curves)
+
+```{r}
+K_design <- function(x, xb1 = 1, xb2 = 3, A=.02) {
+  ifelse(
+    x < 0, 
+    0, 
+    ifelse(
+      x <= xb1, 
+      A*x/xb1,
+      ifelse(
+        x <= xb2, A,
+        ifelse(x < xb2+xb1,
+               A * (1 - (x-xb2)/xb1),
+               0)
+      )
+    )
+  )
+}
+  
+slice_plot(K_design(x) ~ x, domain(x = -1:5), npts = 503)
+```
+
+
+```{r}
+h <- 0.01
+state <- list(n = 0, x0 = 0, x1 = h, y0=0, y1 = h, yprime = 1)
+
+
+next_state <- function(state, h = 0.1, xb1 = 1, xb2 = 3, A = 2) {
+  with(state, {
+    n <- n + 1
+    K <- K_design(x1, xb1 = xb1, xb2 = xb2, A = A) 
+    x0 <- x1
+    x1 <- x1 + h
+    y2 <- 2*y1 - y0 # old y1 + (y1-x0)
+    ypp <- abs((1 + ((y1-y0)/(x1 - x0))^2))^(2/3) * K
+    y2 <- y2 - h^2 * ypp 
+    list(n=n, x0=x0, x1=x1, y0=y1, y1=y2, yprime=ypp, K=K)
+  })
+}
+```
+
+```{r}
+h = 0.1
+state <- list(n = 0, x0 = 0, x1 = h, y0=0, y1 = h, yprime = 1, K =0)
+accumulated_state <- as.data.frame(state)
+for (k in 1:1000) {
+  state <- next_state(state, h=h, A = 0.02, xb1 = 10, xb2 = 90)
+  accumulated_state <- bind_rows(accumulated_state, state)
+}
+gf_point(y0 ~ x0, data = accumulated_state) |>
+  gf_refine(coord_fixed()) 
+```
+
+
+accumulated_state <- as.data.frame(state)
+
+}
+bind_rows(accumulated_state, state)
+```
