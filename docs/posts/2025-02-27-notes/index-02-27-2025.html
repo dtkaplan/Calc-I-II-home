@@ -74,9 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-79108a0fc1995748cbd19a5b0e3e3e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,8 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -137,9 +133,10 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -207,7 +204,15 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#class-notes" id="toc-class-notes" class="nav-link active" data-scroll-target="#class-notes"><span class="header-section-number">20</span> 2025-02-27 class notes</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -217,7 +222,9 @@ window.Quarto = {
 
 <section id="class-notes" class="level3" data-number="20">
 <h3 data-number="20" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">20</span> 2025-02-27 class notes</h3>
-<p><a href="https://dtkaplan.github.io/MC-Workbook/21-exercises.html">Ch 21 Activities</a> 10</p>
+<p>Degrees, minutes, seconds</p>
+<p>Counting out seconds activity against stop-watch</p>
+<p>Theme doing calculations with curvature without calculus.</p>
 <p>Assume that the boy, the center of the ball, and the center of the hoop in <a href="#fig-basketball-shot" class="quarto-xref">Figure&nbsp;1</a> are all in the same plane, as required for a swish shot. Assume as well that when the ball left the boy’s hands it was in the position now occupied by the boy’s head and that there was no spin on the ball.</p>
 <blockquote class="blockquote">
 <p>Will the ball swish through the basket?</p>
@@ -274,37 +281,60 @@ Figure&nbsp;1: A drawing from a children’s song book, <em>I’m still here in 
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="dv">0</span>, <span class="at">x0 =</span> <span class="dv">0</span>, <span class="at">x1 =</span> h, <span class="at">y0=</span><span class="dv">0</span>, <span class="at">y1 =</span> h, <span class="at">yprime =</span> <span class="dv">1</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>next_state <span class="ot">&lt;-</span> <span class="cf">function</span>(state, <span class="at">h =</span> <span class="fl">0.1</span>, <span class="at">xb1 =</span> <span class="dv">1</span>, <span class="at">xb2 =</span> <span class="dv">3</span>, <span class="at">A =</span> <span class="dv">2</span>) {</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(state, {</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> n <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    K <span class="ot">&lt;-</span> <span class="fu">K_design</span>(x1, <span class="at">xb1 =</span> xb1, <span class="at">xb2 =</span> xb2, <span class="at">A =</span> A) </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    x0 <span class="ot">&lt;-</span> x1</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    x1 <span class="ot">&lt;-</span> x1 <span class="sc">+</span> h</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    y2 <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>y1 <span class="sc">-</span> y0 <span class="co"># old y1 + (y1-x0)</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    ypp <span class="ot">&lt;-</span> <span class="fu">abs</span>((<span class="dv">1</span> <span class="sc">+</span> ((y1<span class="sc">-</span>y0)<span class="sc">/</span>(x1 <span class="sc">-</span> x0))<span class="sc">^</span><span class="dv">2</span>))<span class="sc">^</span>(<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> K</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    y2 <span class="ot">&lt;-</span> y2 <span class="sc">-</span> h<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> ypp </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">n=</span>n, <span class="at">x0=</span>x0, <span class="at">x1=</span>x1, <span class="at">y0=</span>y1, <span class="at">y1=</span>y2, <span class="at">yprime=</span>ypp, <span class="at">K=</span>K)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">=</span> <span class="fl">0.1</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="dv">0</span>, <span class="at">x0 =</span> <span class="dv">0</span>, <span class="at">x1 =</span> h, <span class="at">y0=</span><span class="dv">0</span>, <span class="at">y1 =</span> h, <span class="at">yprime =</span> <span class="dv">1</span>, <span class="at">K =</span><span class="dv">0</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>accumulated_state <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(state)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>) {</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  state <span class="ot">&lt;-</span> <span class="fu">next_state</span>(state, <span class="at">h=</span>h, <span class="at">A =</span> <span class="fl">0.02</span>, <span class="at">xb1 =</span> <span class="dv">10</span>, <span class="at">xb2 =</span> <span class="dv">90</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  accumulated_state <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(accumulated_state, state)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(y0 <span class="sc">~</span> x0, <span class="at">data =</span> accumulated_state) <span class="sc">|&gt;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_refine</span>(<span class="fu">coord_fixed</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">makeFun</span>( <span class="fu">sqrt</span>(r<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> x<span class="sc">^</span><span class="dv">2</span>)    <span class="sc">~</span> x, <span class="at">r=</span><span class="dv">3</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_plot</span>(<span class="fu">f</span>(x) <span class="sc">~</span> x, <span class="fu">domain</span>(<span class="at">x =</span> <span class="sc">-</span><span class="dv">3</span><span class="sc">:</span><span class="dv">3</span>), <span class="at">npts =</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_refine</span>(<span class="fu">coord_fixed</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index-02-27-2025_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index-02-27-2025_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fprime <span class="ot">&lt;-</span> <span class="fu">D</span>(<span class="fu">f</span>(x) <span class="sc">~</span> x)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fpp <span class="ot">&lt;-</span> <span class="fu">D</span>(<span class="fu">f</span>(x) <span class="sc">~</span> x <span class="sc">+</span> x)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>fpp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (x, r = 3) 
+{
+    .e1 &lt;- x^2
+    .e3 &lt;- r^2 - .e1
+    -((1 + .e1/.e3)/sqrt(.e3))
+}</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="dv">0</span>, <span class="at">x0 =</span> <span class="dv">0</span>, <span class="at">x1 =</span> h, <span class="at">y0=</span><span class="dv">0</span>, <span class="at">y1 =</span> h, <span class="at">yprime =</span> <span class="dv">1</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>next_state <span class="ot">&lt;-</span> <span class="cf">function</span>(state, <span class="at">h =</span> <span class="fl">0.1</span>, <span class="at">xb1 =</span> <span class="dv">1</span>, <span class="at">xb2 =</span> <span class="dv">3</span>, <span class="at">A =</span> <span class="dv">2</span>) {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(state, {</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> n <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    K <span class="ot">&lt;-</span> <span class="fu">K_design</span>(x1, <span class="at">xb1 =</span> xb1, <span class="at">xb2 =</span> xb2, <span class="at">A =</span> A) </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    x0 <span class="ot">&lt;-</span> x1</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    x1 <span class="ot">&lt;-</span> x1 <span class="sc">+</span> h</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    y2 <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>y1 <span class="sc">-</span> y0 <span class="co"># old y1 + (y1-x0)</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    ypp <span class="ot">&lt;-</span> <span class="fu">abs</span>((<span class="dv">1</span> <span class="sc">+</span> ((y1<span class="sc">-</span>y0)<span class="sc">/</span>(x1 <span class="sc">-</span> x0))<span class="sc">^</span><span class="dv">2</span>))<span class="sc">^</span>(<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> K</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    y2 <span class="ot">&lt;-</span> y2 <span class="sc">-</span> h<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> ypp </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">n=</span>n, <span class="at">x0=</span>x0, <span class="at">x1=</span>x1, <span class="at">y0=</span>y1, <span class="at">y1=</span>y2, <span class="at">yprime=</span>ypp, <span class="at">K=</span>K)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">=</span> <span class="fl">0.1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="dv">0</span>, <span class="at">x0 =</span> <span class="dv">0</span>, <span class="at">x1 =</span> h, <span class="at">y0=</span><span class="dv">0</span>, <span class="at">y1 =</span> h, <span class="at">yprime =</span> <span class="dv">1</span>, <span class="at">K =</span><span class="dv">0</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>accumulated_state <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(state)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>) {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  state <span class="ot">&lt;-</span> <span class="fu">next_state</span>(state, <span class="at">h=</span>h, <span class="at">A =</span> <span class="fl">0.02</span>, <span class="at">xb1 =</span> <span class="dv">10</span>, <span class="at">xb2 =</span> <span class="dv">90</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  accumulated_state <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(accumulated_state, state)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">gf_point</span>(y0 <span class="sc">~</span> x0, <span class="at">data =</span> accumulated_state) <span class="sc">|&gt;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_refine</span>(<span class="fu">coord_fixed</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index-02-27-2025_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -313,35 +343,10 @@ Figure&nbsp;1: A drawing from a children’s song book, <em>I’m still here in 
 <p>} bind_rows(accumulated_state, state) ```</p>
 
 
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
-
-</div>
-<div class="spinner-grow spinner-grow-sm">
-
-</div>
-</div>
-<script type="vfs-file">
-W10=
-</script>
 </section>
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../posts/2025-02-27-notes";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "../..";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

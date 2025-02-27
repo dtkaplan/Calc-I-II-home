@@ -94,7 +94,7 @@ Topics: Continuity & smoothness
 
 Reading: *MOSAIC Calculus* [Chap 22 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/22-cont-and-smooth.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/22-reading.html)
 
-Assignment due: [Chapter 20 Exercises](https://dtkaplan.github.io/MC-Workbook/20-exercises.html)
+Assignment due: [Chapter 21 Exercises](https://dtkaplan.github.io/MC-Workbook/20-exercises.html)
 :::
 
 
