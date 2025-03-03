@@ -10,7 +10,6 @@ student_names <- c(
   "Max Litvinenka",
   "Everett McAlister",
   "Grace Price",
-  "Simon Rinehart",
   "Almar Tishenko",
   "Max Weinstein",
   "Ian Wicht")
@@ -27,5 +26,5 @@ todays_roster <- function(today) {
 
 
 ```{r echo = FALSE, results = "asis"}
-todays_roster("Tuesday 18 Feb, 2025")
+todays_roster("February 28 Feb, 2025")
 ```

@@ -7,5 +7,236 @@ format: live-html
 
 # 2025-03-04 class notes
 
+## Recursive nature of differentiation.
+
+Consider the structure of a tilde expression. We'll use this one as a running example:
+
+```{r}
+Tilde <- A*sin(x^2 + y*exp(k*x)) + B ~ x
+```
+
+This doesn't have any compelling modeling context. I chose it to illustrate the mechanics of differentiation.
+
+What we call a "tilde expression" has a different standard name in the R language: a "formula." We use "tilde expression" because we are reserving "formula" to use under its standard mathematical expression. But we will need some more R names to work with tilde expressions. Here's how to find out the "class" of an R object.
+
+```{r}
+class(Tilde)
+```
+
+The tilde expression stored under the name `Tilde` has three parts: the tilde symbol itself, and two valid R expressions, one on the right and one on the left side.
+
+What do I mean by a valid R expression? A fragment of code that would be recognized as a complete command by R so long as bindings were provided giving values for the names: `A`, `x`, `y`, `k`, `B`.
+
+We can look at each of the three parts separately. The double-bracket `[[]]` notation is effective here. We aren't using this notation elsewhere in *MOSAIC Calculus*. It relates to pulling a part out of a list. There is also a single-brack notation `[]` that pulls a list out of a list.
+
+```{r}
+Tilde[[1]]
+```
+
+The first part of `Tilde` is the tilde symbol itself. Notice, however, the two little back-ticks around the printed form of `Tilde[[1]]`. This indicates that `Tilde[[1]]` contains a "name." It might be surprising, but the tilde symbol (with those backticks) is the name of a function, an infix operation much like `+` or `*`.
+
+```{r}
+class(`~`)
+class(`+`)
+class(`*`)
+class(sin)
+```
+
+The object stored in slot 1 of `Tilde` is really the name of a function, whose printed form is the back-ticked tilde.
+
+```{r}
+class(Tilde[[1]])
+```
+
+The other two parts of `Tilde` are objects, in this case, of class "call." This signifies that each of the objects is an invocation of a *function* on arguments (as in "call a function").
+
+```{r}
+Tilde[[2]]
+class(Tilde[[2]])
+```
+
+```{r}
+Tilde[[3]]
+class(Tilde[[3]])
+```
+
+"Calls" are also stored in a list fashion, just like tilde expressions. But instead of `~` being the first item of the list, the function itself is the first item. Functions can have zero, one, two, three, or more arguments, which are stored as items in the list.
+
+Those arguments can be numbers or R expressions, in this case, "name"s or "call"s.
+
+```{r}
+Left <- Tilde[[2]]
+length(Left)
+Left[[1]]
+Left[[2]]
+Left[[3]]
+Left[[1]] |> class()
+Left[[2]] |> class()
+Left[[3]] |> class()
+```
+
+The right-hand expression is simpler, consisting only of a name.
+
+```{r}
+Right <- Tilde[[3]]
+length(Right)
+class(Right)
+```
+
+In the case where an expression is a numeral, the "type" will be "numeric." The derivative of a numeric expression is zero.
+
+```{webr-r}
+# define the rules as formulas
+
+```
+
+Let's start writing a symbolic differentiation function, keeping it very simple:
+
+```{r}
+Dsimp1 <- function(expression, wrt) {
+  if (is.name(expression) || is.numeric(expression)) {
+    if (expression == wrt) one()
+    else zero()
+  } else Dsimp2(expression, wrt)
+}
+```
+
+And some stand-ins for names used in `Dsimp1()`:
+
+```{r}
+Dsimp2 <- function(expression, name) message("Kick the can down the road.")
+```
+
+Handling constants as functions
+
+All this does, at this point, is to check whether the expression given is a name, and, if so, return the appropriate function for the derivative of this name with respect to `wrt`.
+
+We will also need a function to supervise the proces of differentiating an expression. For consistency with our use of tilde expressions to hold a formula and the WRT variables, this supervisory function will take a tilde expression as its only argument.
+
+```{r}
+Driv <- function(tilde) {
+  Dsimp1(tilde[[2]], all.names(tilde[[3]])[1])
+}
+```
+
+Let's try out what we have so far:
+
+```{r eval=FALSE}
+Dsuper(x ~ x)
+Dsuper(y ~ x)
+Dsuper(3 ~ x)
+Dsuper(sin(x) ~ x)
+```
+
+So far, so good. Now let's teach `Dsuper` another differentiation rule, the "plus" or "minus" rule. We'll package this into `Dsimp2()`, and make a new kick-the-can function `Dsimp3()` which we can elaborate on late.
+
+```{r eval=FALSE}
+Dsimp3 <- Dsimp2 # kick the can
+Dsimp2 <- function(expression, wrt) {
+  # Addition and subtraction
+  if (length(expression) > 1) {
+    # The first will be a function, the remaining arguments.
+    fun <- as.character(expression[[1]])
+    if (fun %in% c("+", "-")) { 
+      # apply the rule
+      part1 <- Dsimp1(expression[[2]], wrt)
+      part2 <- Dsimp1(expression[[3]], wrt)
+      # Simplification if possible
+      if (is_zero(part1)) return(part2)
+      if (is_zero(part2)) return(part1)
+      # It would be good to do some simplification here, like 1+1 ==> 2
+      if (is_constant(part1) && is_constant(part2)) {
+        return(make_constant(part1() + part2()))
+      }
+      # 
+      expression[[2]] <- part1
+      expression[[3]] <- part2
+      return(expression)
+    } else {
+      Dsimp3(expression, wrt)
+    }
+    # we should never get here, since all valid
+    # length-1 expressions were handled by <Dsimp1>
+    stop("Length-one expression not handled by Dsimp1()?")
+  }
+}
+```
+
+Try it out:
+
+```{r eval=FALSE}
+Dsuper(x + 3 ~ x)
+Dsuper(x + x + x ~ y)
+Dsuper(x + x + x ~ x)
+Dsuper( - x ~ x)
+Dsuper(3 ^ x ~ x)
+```
+
+Now to handle simple cases: sin(), exp() where the leading function name will be replaced by cos() and exp() respectively. All we need is the chain rule. And we'll do a bit of simplification for zero() and one().
+
+```{r eval=FALSE}
+Dsimp4 <- Dsimp3
+Dsimp3 <- function(expression, wrt) {
+  browser()
+  if (length(expression) <= 1) {
+    # we shouldn't get here
+    stop("Length-1 expression being handed to Dsimp3().")
+  } 
+  
+  if (length(expression) == 2) {
+    fname <- as.character(expression[[1]])
+    chain <- Dsimp1(expression[[2]], wrt)
+    
+    if (if (inherits(chain, "constantval") && chain() == 0) return(zero)
+    if (fname == "sin") {
+      if (chain == one) {
+        expression[[1]] <- cos
+        return(expression)
+      } else {
+        framework <- quote(1 * 1)
+        expression[[1]] <- cos
+        framework[[2]] <- expression
+        framework[[3]] <- chain
+        return(framework)
+      }
+    } else if (fname == "exp") {
+      if (chain == one) {
+        return(expression)
+      } else {
+        framework <- quote(1 * 1)
+        framework[[2]] <- expression
+        framework[[3]] <- chain
+      }
+      return(framework)
+    } else if (fname == "^") {
+      base <- expression[[2]]
+      dbase <- Dsimp1(base)
+      # Need to look at the first argument, to see if it's a constant
+      if (dbase != zero) {
+        return(Dsimp4(expression, wrt))
+      }
+      
+      if (chain == one) {
+        return(expression)
+      } else {
+        framework <- quote(1 * 1)
+        framework[[2]] <- expression
+        framework[[3]] <- chain
+        return(framework)
+      }
+      
+    } else {
+      stop("Add in other 1-argument functions here.")
+    }
+  } else {
+    Dsimp4(expression, wrt)
+  }
+}
+```
+  
+
+
+
+-------------
 
 Add activities from Ch 23 to lesson plan. 8-12
