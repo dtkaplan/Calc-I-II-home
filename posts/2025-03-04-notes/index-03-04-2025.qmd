@@ -11,7 +11,7 @@ format: live-html
 
 Consider the structure of a tilde expression. We'll use this one as a running example:
 
-```{r}
+```{webr-r}
 Tilde <- A*sin(x^2 + y*exp(k*x)) + B ~ x
 ```
 
@@ -19,7 +19,7 @@ This doesn't have any compelling modeling context. I chose it to illustrate the 
 
 What we call a "tilde expression" has a different standard name in the R language: a "formula." We use "tilde expression" because we are reserving "formula" to use under its standard mathematical expression. But we will need some more R names to work with tilde expressions. Here's how to find out the "class" of an R object.
 
-```{r}
+```{webr-r}
 class(Tilde)
 ```
 
@@ -29,13 +29,13 @@ What do I mean by a valid R expression? A fragment of code that would be recogni
 
 We can look at each of the three parts separately. The double-bracket `[[]]` notation is effective here. We aren't using this notation elsewhere in *MOSAIC Calculus*. It relates to pulling a part out of a list. There is also a single-brack notation `[]` that pulls a list out of a list.
 
-```{r}
+```{webr-r}
 Tilde[[1]]
 ```
 
 The first part of `Tilde` is the tilde symbol itself. Notice, however, the two little back-ticks around the printed form of `Tilde[[1]]`. This indicates that `Tilde[[1]]` contains a "name." It might be surprising, but the tilde symbol (with those backticks) is the name of a function, an infix operation much like `+` or `*`.
 
-```{r}
+```{webr-r}
 class(`~`)
 class(`+`)
 class(`*`)
@@ -44,18 +44,18 @@ class(sin)
 
 The object stored in slot 1 of `Tilde` is really the name of a function, whose printed form is the back-ticked tilde.
 
-```{r}
+```{webr-r}
 class(Tilde[[1]])
 ```
 
 The other two parts of `Tilde` are objects, in this case, of class "call." This signifies that each of the objects is an invocation of a *function* on arguments (as in "call a function").
 
-```{r}
+```{webr-r}
 Tilde[[2]]
 class(Tilde[[2]])
 ```
 
-```{r}
+```{webr-r}
 Tilde[[3]]
 class(Tilde[[3]])
 ```
@@ -64,7 +64,7 @@ class(Tilde[[3]])
 
 Those arguments can be numbers or R expressions, in this case, "name"s or "call"s.
 
-```{r}
+```{webr-r}
 Left <- Tilde[[2]]
 length(Left)
 Left[[1]]
@@ -77,7 +77,7 @@ Left[[3]] |> class()
 
 The right-hand expression is simpler, consisting only of a name.
 
-```{r}
+```{webr-r}
 Right <- Tilde[[3]]
 length(Right)
 class(Right)
@@ -86,13 +86,29 @@ class(Right)
 In the case where an expression is a numeral, the "type" will be "numeric." The derivative of a numeric expression is zero.
 
 ```{webr-r}
-# define the rules as formulas
+#| autorun: true
+install.packages("lobstr")
+```
+
+```{webr-r}
+# draw the expression as a tree
+lobstr::ast(!!Left)
+```
+
+```{webr-r}
+# define the rules as formulas using quote
 
 ```
 
+The rest of this has been superceded by the `{Driv}` 
+package.
+
+--------------
+
+
 Let's start writing a symbolic differentiation function, keeping it very simple:
 
-```{r}
+```{webr-r}
 Dsimp1 <- function(expression, wrt) {
   if (is.name(expression) || is.numeric(expression)) {
     if (expression == wrt) one()
@@ -103,7 +119,7 @@ Dsimp1 <- function(expression, wrt) {
 
 And some stand-ins for names used in `Dsimp1()`:
 
-```{r}
+```{webr-r}
 Dsimp2 <- function(expression, name) message("Kick the can down the road.")
 ```
 
@@ -113,7 +129,7 @@ All this does, at this point, is to check whether the expression given is a name
 
 We will also need a function to supervise the proces of differentiating an expression. For consistency with our use of tilde expressions to hold a formula and the WRT variables, this supervisory function will take a tilde expression as its only argument.
 
-```{r}
+```{webr-r}
 Driv <- function(tilde) {
   Dsimp1(tilde[[2]], all.names(tilde[[3]])[1])
 }
@@ -121,7 +137,7 @@ Driv <- function(tilde) {
 
 Let's try out what we have so far:
 
-```{r eval=FALSE}
+```{webr-r}
 Dsuper(x ~ x)
 Dsuper(y ~ x)
 Dsuper(3 ~ x)
@@ -130,7 +146,7 @@ Dsuper(sin(x) ~ x)
 
 So far, so good. Now let's teach `Dsuper` another differentiation rule, the "plus" or "minus" rule. We'll package this into `Dsimp2()`, and make a new kick-the-can function `Dsimp3()` which we can elaborate on late.
 
-```{r eval=FALSE}
+```{webr-r}
 Dsimp3 <- Dsimp2 # kick the can
 Dsimp2 <- function(expression, wrt) {
   # Addition and subtraction
@@ -164,7 +180,7 @@ Dsimp2 <- function(expression, wrt) {
 
 Try it out:
 
-```{r eval=FALSE}
+```{webr-r}
 Dsuper(x + 3 ~ x)
 Dsuper(x + x + x ~ y)
 Dsuper(x + x + x ~ x)
@@ -174,7 +190,7 @@ Dsuper(3 ^ x ~ x)
 
 Now to handle simple cases: sin(), exp() where the leading function name will be replaced by cos() and exp() respectively. All we need is the chain rule. And we'll do a bit of simplification for zero() and one().
 
-```{r eval=FALSE}
+```{webr-r}
 Dsimp4 <- Dsimp3
 Dsimp3 <- function(expression, wrt) {
   browser()
