@@ -5,9 +5,151 @@ number-offset: 23
 format: live-html
 ---
 
+```{r include=FALSE}
+library(mosaicCalc)
+library(ggplot2)
+```
+
 # 2025-03-07 class notes
 
-Chapter 25
+## Partial derivative
+
+A derivative with respect to one variable, holding all the other variables constant. "Constant" is not necessarily zero. 
+
+::: {.callout-note}
+## Moving this to 03-11 class
+
+Example, low-order polynomial in two variables:
+
+
+
+$$g(x, y) \equiv a_0 + a_x x + a_y y + a_{xy} x y + a_{xx} x^2 + a_{yy} y^2$$
+
+- Pick out two students to do $\partial_x g(x, y)$ and $\partial_y g(x,y)$
+- Pick out two students to do $\partial_{xx} g(x, y)$ and $\partial_{yy} g(x, y)$.
+- Pick out two students to do $\partial_{xy} g(x, y)$ and $\partial_{yx} g(x, y)$.
+
+$$\partial_x g(x, y) = a_x + a_{xy} y + 2 a_{xx} x$$
+$$\partial_y g(x, y) = a_y + a_{xy} x + 2 a_{yy} y$$
+
+A second-order polynomial in two inputs:
+```{webr-r}
+f <- makeFun(a0 + ax*x + ay*y + 
+               axy*x*y + 
+               axx*x^2 + ayy*y^2 ~ x & y,
+             a0 = "a0", ax = "ax", ay = "ay",
+             axy = "axy", axx = "axx", ayy = "ayy")
+D(f(x, y) ~ x)
+D(f(x, y) ~ y)
+D(f(x, y) ~ z)
+D(f(x, y) ~ x & x)
+D(f(x, y) ~ y & y)
+D(f(x, y) ~ x & y)
+D(f(x, y) ~ y & x)
+```
+
+
+
+
+```{webr-r}
+rrnorm <- function(n=1) {round(rnorm(n), 2)}
+
+make_random_poly <- function(seed=NA) {
+  if (!is.na(seed)) set.seed(seed)
+  makeFun(a0 + ax*x + ay*y + axy*x*y + axx*x^2 + ayy*y^2 ~ x & y,
+          a0 = rrnorm(), ax = rrnorm(), ay = rrnorm(), 
+          axy = rrnorm(),
+          axx = rrnorm(), ayy = rrnorm() )
+}
+g <- make_random_poly()
+contour_plot(g(x, y) ~ x & y, domain(x=-1:1, y=-1:1))
+```
+
+```{webr-r}
+g
+D(g(x, y) ~ x)
+D(g(x, y) ~ y)
+```
+
+Second-order partial derivatives
+```{webr-r}
+D(g(x, y) ~ x & x)
+D(g(x, y) ~ y & y)
+D(g(x, y) ~ x & y)
+D(g(x, y) ~ y & x)
+```
+:::
+
+
+## Gradient field
+
+```{webr-r}
+f <- doodle_fun(~ x + y, seed = 445)
+dom <- domain(x = -5:5, y = -5:5)
+contour_plot(
+  f(x, y) ~ x & y, dom) |> 
+  gf_refine(coord_fixed())
+```
+
+
+
+
+The *gradient field* is a pair of functions on the $x, y$ space:
+
+```{webr-r}
+#| layout-ncol: 2
+g_x <- D(f(x, y) ~ x)
+g_y <- D(f(x, y) ~ y)
+contour_plot(g_x(x, y) ~ x & y, dom) + coord_fixed()
+contour_plot(g_y(x, y) ~ x & y, dom) + coord_fixed()
+```
+
+Let's show the zero contour of both partial derivatives on top of the function $f(x, y)$ itself.
+
+```{webr-r}
+contour_plot(f(x, y) ~ x & y, dom) |>
+contour_plot(g_x(x, y) ~ x & y, dom, 
+             contours_at = 0, contour_color = "red") |>
+contour_plot(g_y(x, y) ~ x & y, dom, 
+             contours_at = 0, contour_color = "magenta") |>
+  gf_refine(coord_fixed())
+```
+
+```{webr-r}
+contour_plot(f(x, y) ~ x & y, dom) |>
+gradient_plot(f(x, y) ~ x + y, dom) |>
+  gf_refine(coord_fixed())
+```
+
+## Gradient vector points in most steep direction
+
+Imagine that we take a small step $(h_x, h_y)$ from an initial input point $(x_0, y_0)$. 
+
+The gradient vector is 
+$$\nabla f(x, y) \equiv\left({\Large\strut}\partial_x f(x, y) ,\ \  \partial_y f(x,y)\right)$$ but to keep the notation compact, we'll write $\nabla f(x,y) \equiv (dx, dy)$.
+
+The **total change** in the function output will be approximately 
+$$h_x dx + h_y dy$$.
+
+We want to pick $h_x$ and $h_y$ to make the increase as large as possible. But there needs to be some constraint, otherwise, we would just make the $h$'s big. So we will make it a unit length step, that is 
+$$(h_x, h_y) = (h, \sqrt{\strut1 - h^2})$$
+
+The total change is therefore
+$$\Delta (h) \equiv h\  dx + \sqrt{\strut 1 - h^2}\ dy$$
+We want to maximize this with our choice of $h$. 
+
+
+
+
+Set the derivative equal to zero:
+
+$$\partial_h \Delta (h) = 0 = dx - \frac{h}{\sqrt{\strut 1 - h^2}}  dy$$
+or, 
+$$\frac{dx}{dy} = \frac{h}{\sqrt{\strut 1-h^2}} = \frac{h_x}{h_y}$$
+ 
+In other words, we want $h_x$ to be proportional to $dx$ and $h_y$ to be likewise proportional to $dy$. 
+
+The direction to achieve the greatest increase in the value of $f()$ is the same as the direction of $\nabla f(x, y)$.
 
 Activities from Ch. 25 exercises.
 

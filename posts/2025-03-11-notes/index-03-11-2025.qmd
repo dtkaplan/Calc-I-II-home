@@ -7,5 +7,98 @@ format: live-html
 
 # 2025-03-11 class notes
 
+Recall: 
+
+Partial derivative
+: A derivative with respect to one variable, holding all the other variables constant. "Constant" is not necessarily zero. 
+
+## Derivs of low-order-polynomials
+
+The low-order polynomial in two variables:
+
+$$g(x, y) \equiv a_0 + a_x x + a_y y + a_{xy} x y + a_{xx} x^2 + a_{yy} y^2$$
+
+- Pick out two students to do $\partial_x g(x, y)$ and $\partial_y g(x,y)$
+- Pick out two students to do $\partial_{xx} g(x, y)$ and $\partial_{yy} g(x, y)$.
+- Pick out two students to do $\partial_{xy} g(x, y)$ and $\partial_{yx} g(x, y)$.
+
+$$\partial_x g(x, y) = a_x + a_{xy} y + 2 a_{xx} x$$
+$$\partial_y g(x, y) = a_y + a_{xy} x + 2 a_{yy} y$$
+
+A second-order polynomial in two inputs:
+```{webr-r}
+f <- makeFun(a0 + ax*x + ay*y + 
+               axy*x*y + 
+               axx*x^2 + ayy*y^2 ~ x & y,
+             a0 = "a0", ax = "ax", ay = "ay",
+             axy = "axy", axx = "axx", ayy = "ayy")
+D(f(x, y) ~ x)
+D(f(x, y) ~ y)
+D(f(x, y) ~ z)
+D(f(x, y) ~ x & x)
+D(f(x, y) ~ y & y)
+D(f(x, y) ~ x & y)
+D(f(x, y) ~ y & x)
+```
+
+
+
+
+```{webr-r}
+rrnorm <- function(n=1) {round(rnorm(n), 2)}
+
+make_random_poly <- function(seed=NA) {
+  if (!is.na(seed)) set.seed(seed)
+  makeFun(a0 + ax*x + ay*y + axy*x*y + axx*x^2 + ayy*y^2 ~ x & y,
+          a0 = rrnorm(), ax = rrnorm(), ay = rrnorm(), 
+          axy = rrnorm(),
+          axx = rrnorm(), ayy = rrnorm() )
+}
+g <- make_random_poly()
+contour_plot(g(x, y) ~ x & y, domain(x=-1:1, y=-1:1))
+```
+
+```{webr-r}
+g
+D(g(x, y) ~ x)
+D(g(x, y) ~ y)
+```
+
+Second-order partial derivatives
+```{webr-r}
+D(g(x, y) ~ x & x)
+D(g(x, y) ~ y & y)
+D(g(x, y) ~ x & y)
+D(g(x, y) ~ y & x)
+```
+
+## Almar's question: "What if $x$ and $y$ are related?"
+
+Three ways to think about this in terms of functions:
+
+1. $y$ is a function of $x$, that is, $y(x) \equiv ...$
+2. $x$ is a function of $y$, that is $x(y) \equiv ...$
+3. $x$ and $y$ are both functions of some third variable $t$.
+
+Handling case 1:
+
+```{r}
+f <- doodle_fun(~ x + y, seed = 9392)
+```
+
+Example of $y$ being a function of $x$:
+
+```{r}
+g <- makeFun(f(x, sin(x)) ~ x + y)
+```
+
+```{r}
+dom = domain(x = -5:5, y = -5:5)
+contour_plot(
+  g(x, y) ~ x & y, 
+  dom)
+```
+
+## Practice problems on the "Rules"
 
 
