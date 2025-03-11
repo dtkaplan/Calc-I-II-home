@@ -5,12 +5,72 @@ number-offset: 24
 format: live-html
 ---
 
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
 # 2025-03-11 class notes
 
-Recall: 
-
 Partial derivative
-: A derivative with respect to one variable, holding all the other variables constant. "Constant" is not necessarily zero. 
+: A derivative with respect to one variable, holding all the other variables constant. "Constant" is not necessarily zero. For instance $$f(x, y)\equiv x y^2\ \ \ \longrightarrow\ \ \ \ \partial_x f(x, y) = y^2 \ \text{ and } \partial_y f(x,y) = 2 y x .$$
+
+Or, computationally, 
+
+```{webr-r}
+f <- makeFun(x*y^2 ~ x & y)
+D(f(x,y) ~ x)
+D(f(x,y) ~ y)
+```
+
+## Almar's question from Friday
+
+> What happens when $x$ and $y$ are related?
+
+A function $f(x,y)$ does not itself impose any relationship between $x$ and $y$. They are the inputs and can be selected however you like.
+
+HOWEVER, when a function is held at a particular value, an *implicit* relationship between $x$ and $y$ is created: for a given value of $x$ there are only certain corresponding valid values of $y$. 
+
+To illustrate:
+
+```{webr-r}
+contour_plot(
+  f(x, y) ~ x & y,
+  domain(x = -2:2, y = -2:2),
+  contours_at = 1
+  )
+```
+
+Although convention calls for these to be interpreted as *contours*, it's perfectly reasonable to think of each branch as defining a function $g(x)$.
+
+For instance, suppose we have a physical system that has inputs $x$ and $y$. We add on to this a **control system** that, for any valid input $x$ changes $y$ automatically to stay on the contour line.
+
+We would like to have, for instance, a formula that relates any change $dx$ in $x$ to a required change $dy$ in $y$ to keep us on the control line.
+
+The change $dx$ induces a change in the function value of $\partial_x f(x,y) dx$. Any nonzero change in $x$ would take us off the control line unless we change $y$ to balance it out. The change in function value due to a change $dy$ is $\partial_y f(x,y) dy$.
+
+We want the total change, due to both $dx$ and $dy$ to be zero. Hence:
+
+$$\partial_x f(x, y) dx = - \partial_y f(x, y) dy$$ or, re-arranged,
+$$\frac{dy}{dx} = -\frac{\partial_x f(x, y)}{\partial_y f(x, y)} .$$ 
+This is sometimes called "*implicit differentiation*," and is taught in conventional Calc I courses. I don't see why. If you know about partial derivatives, the result is simple. 
+
+
+or, in terms of the control system, $$dy = - \frac{\partial_x f(x, y)}{\partial_y f(x, y)} dx$$
+
+
+Let's plot out this relationship between $dx$ and $dy$ need to keep us on a contour. 
+
+```{webr-r}
+dom <- domain(x = -2:2, y = -2:2)
+contour_plot(
+  f(x, y) ~ x & y,
+  dom, n_contours = 20) |>
+  vectorfield_plot(
+    x ~ 2*x*y, 
+    y ~ - y^2, domain = dom)
+```
+
+
 
 ## Derivs of low-order-polynomials
 
@@ -82,17 +142,17 @@ Three ways to think about this in terms of functions:
 
 Handling case 1:
 
-```{r}
+```{webr-r}
 f <- doodle_fun(~ x + y, seed = 9392)
 ```
 
 Example of $y$ being a function of $x$:
 
-```{r}
+```{webr-r}
 g <- makeFun(f(x, sin(x)) ~ x + y)
 ```
 
-```{r}
+```{webr-r}
 dom = domain(x = -5:5, y = -5:5)
 contour_plot(
   g(x, y) ~ x & y, 
