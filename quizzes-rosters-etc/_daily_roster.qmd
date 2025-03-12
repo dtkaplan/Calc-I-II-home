@@ -26,5 +26,5 @@ todays_roster <- function(today) {
 
 
 ```{r echo = FALSE, results = "asis"}
-todays_roster("March 4 Feb, 2025")
+todays_roster("March 11, 2025")
 ```

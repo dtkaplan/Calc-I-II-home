@@ -1,0 +1,283 @@
+---
+title: "Calculus Quiz 5: Prof. Kaplan"
+subtitle: "March 12, 2025"
+author: "Student name: __________________.            Do what you can in 15 minutes." 
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      left: 1cm
+      right: 1cm
+      top: 1cm
+      bottom: 8mm
+    columns: 2
+    shift-heading-level-by: -1
+    
+crossref:
+  chapters: true
+  exr-title: "Question"
+  exr-prefix: "Question"
+---
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+knitr::opts_chunk$set(results="asis", roman=TRUE)
+```
+
+
+
+
+```{r include=FALSE}
+library(devoirs)
+```
+
+[**Question 5.1**]{.underline}: 
+What is $\partial_y \left(\ a_0 + a_1 x + a_2 x^2\ \right)$?
+
+```{mcq}
+#| label: PD11
+#| show_hints: true
+#| inline: true
+1.  $a_1 + a_2 x$
+2.  $a_1 + 2 a_2 x$
+3.  $a_1 + 2 a_2 y$ [hint: There's no $y$ in the function being differentiated.]
+4. 0 [correct hint: The function being differentiated has no $y$, so the derivative with respect to $y$ must be 0. This is just a fancy way of saying that changing $y$ causes 0 change in the output of the function being differentiated.]
+```
+
+[**Question 5.2**]{.underline}:
+What is $\partial_t  A x e^{kt}$? <!--Partial derivatives-->
+
+```{mcq}
+#| label: PD09
+#| show_hints: true
+#| inline: true
+1.  $0$ 
+2.  $A k e^{kt}$ [hint: What happened to the $x$? The with-respect-to input is $t$.]
+3. $A k x e^{kt}$  [correct] 
+4.  $A e^{kt}$ 
+```
+
+
+
+[**Question 5.3**]{.underline}: 
+What is $$\partial_{yx} \left[ a_0 + a_1 x + b_1 y + c x y + a_2 x^2 + b_2 y^2 \right]\ ?$$ <!--Partial derivatives-->
+
+```{mcq}
+#| label: PD18
+#| show_hints: true
+#| inline: true
+1. $c$  [correct] 
+2.  $2 a_2$ [hint: $a_2 x^2$ doesn't survive $\partial_y$.]
+3.  $2 b_2$ [hint: $b_2 y^2$ doesn't survive $\partial_x$.] 
+4.  $0$ 
+```
+
+[**Question 5.4**]{.underline}: 
+What is $\partial_{yx}  h(x,y) g(y)$?<!--Partial derivatives-->
+
+```{mcq}
+#| label: PD30
+#| show_hints: true
+1.  $$\partial_{yx} h(x, y)$$ 
+2.  $$g(y) \partial_{yx} h(x,y) + h(x,y)\ \partial_y g(y)$$
+3. $$(\partial_y g(y)) \ (\partial_x h(x, y)) + g(y)\ (\partial_{yx} h(x, y))$$  [correct] 
+4.  $$(\partial_x g(y))\  (\partial_x h(x, y)) + g(y) (\partial_{xx} h(x, y) )$$ [hint: The $\partial_{xx}$ can't come from nowhere!]
+```
+
+[**Question 5.5]{.underline}**:
+What is $\partial_{t} \left(7 + 8 t^2 + 3 t^4\right)$?  
+
+```{mcq}
+#| label: drill-Deriv-rules-14
+#| show_hints: true
+1. $16 t + 12 t^3$ [correct]
+2. $8 t + 4 t^3$ 
+3. $16 t^2 + 9 t^3$ 
+4. $4 t + 12 t^2$ 
+```
+
+[**Question 5.6**]{.underline}:
+What is $\partial_y  h(x,y) g(y)$?<!--Partial derivatives-->
+
+
+```{mcq}
+#| label: PD28
+#| show_hints: true
+1.  $\partial_y g(y)$ 
+2.  $g(y) \partial_y h(x, y)$ [hint: You'll need to apply the product rule.]
+3.  0
+4. $ g(y)\ \partial_y h(x,y) + h(x,y) \partial_y g(y)$  [correct] 
+```
+
+[**Question 5.7**]{.underline}:
+Which of the derivative rules should you use to find $$\partial_t e^{t^2}\ ?$$  
+
+```{mcq}
+#| label: drill-Deriv-rules-1
+#| show_hints: true
+1. The constant multiplier rule 
+2. The linear combination rule 
+3. The product rule 
+4. The chain rule [correct]
+5. No rule needed, it is so basic. 
+```
+
+ 
+
+ 
+
+ 
+
+ 
+
+[**Question 5.8**]{.underline}:
+Which of the derivative rules should you use to find $$\partial_t e^t \sin(x)\ ?$$  
+
+```{mcq}
+#| label: drill-Deriv-rules-4
+#| show_hints: true
+1. The constant multiplier rule [correct]
+2. The linear combination rule 
+3. The product rule [ hint: This was a trick. So far as $\partial_t$ is concerned, $\sin(x)$ is a constant. ]
+4. The chain rule 
+5. No rule needed, it is so basic. 
+```
+
+
+[**Question 5.9**]{.underline}:
+For the function $$g(P) \equiv \sin\left(\frac{2 \pi}{P} (t - t_0)\right)$$ is the interior function linear? 
+
+```{mcq}
+#| label: drill-M08-2
+#| show_hints: true
+#| inline: true
+1. Yes [ hint: Look carefully at the name of the argument to $g()$. Notice that it appears as a reciprocal in the interior function. ]
+2. No [correct hint: Excellent! You noticed that the name of the argument is $P$. Very good. ]
+```
+
+[**Question 5.10**]{.underline}:
+Here are several functions that are related by differentiation and integration:
+
+a.   $\frac{1}{a} e^{ax + b}$
+b.   $a^2 e^{a x + b}$
+c.   $\frac{1}{a^2} e^{ax + b}$
+d.   $e^{ax + b}$
+e.   $a e^{ax + b}$
+
+
+Put these functions in order that the derivative of each function preceeds the anti-derivative.
+
+```{mcq}
+#| label: naCVxW
+#| show_hints: true
+1. The order is b-e-d-a-c [correct]
+2. The order is b-d-e-c-a [hint: $\frac{1}{a^2} e^{a x + b}$ is the anti-derivative of $\frac{1}{a} e^{ax + b}$.]
+3. The order is b-d-c-e-a [hint: The multipliers (e.g. $a^2$ or $\frac{1}{a^2}$) should be in a particular, simple sequence.]
+4. The order is e-b-d-c-a
+5. The order is e-b-d-a-c [hint: $a^2 e^{a x + b}$ is the derivative of $a e^{a x + b}$.]
+```
+
+[**Question 5.11**]{.underline}:
+There are two pattern-book functions whose **second** derivative is proportional to the function itself. Which are they?  
+
+```{mcq}
+#| label: drill-Pattern-book-derivs-5
+#| show_hints: true
+1. Exponential and sinusoid [correct]
+2. Exponential and sigmoid [ hint: The second derivative of the sigmoid is $-x\, \text{dnorm}(x)$. ]
+3. Exponential and logarithm [ hint: The second derivative of the logarithm is $-x^{-2}$ ]
+4. Sinusoid and gaussian [ hint: The second derivative of the gaussian is far from obvious at first glance---$(x^2 - 1) \text{dnorm}(x)$. Don't freak out; you aren't expected to memorize this one! ]
+```
+
+
+ 
+
+ 
+
+[**Question 5.12**]{.underline}: Consider the function shown in the following contour plot:
+
+![](https://raw.githubusercontent.com/dtkaplan/Zdrill/main/inst/rev2/rev2-05.png) 
+At which of these inputs is the function practically flat? 
+
+```{mcq}
+#| label: drill-Quiz-2-18
+#| show_hints: true
+1. $(x=0, y=6)$ [correct]
+2. $(x=1, y=2)$ 
+3. $(x=-2, y=3)$ 
+4. $(x=0, y=1)$ 
+```
+
+[**Question 5.13**]{.underline}:
+Imagine a second-order polynomial in three inputs: $x$, $y$, and $z$, like this: $$b_0 + b_x x + b_y y + b_z z + b_{xy} xy + b_{xz} xz + b_{xx} x^2 + b_{yy} y^2 + b_zz z^2\ .$$ All of the possible second-order (or less) terms are shown, except for one. Which term is missing?  <!--Polynomials-->
+
+
+```{mcq}
+#| label: Poly03
+#| show_hints: true
+1. the interaction between $y$ and $z$ [correct]
+2. the quadratic term in $z$
+3. the linear term in $y$
+4. the constant term
+```
+
+[**Question 5.14**]{.underline}:
+Suppose you know only this one fact about $f(x)$, that 
+$$\left[\partial_{xx}\, f(x)\right]_{x=7} = 1.6\ .$$ Which of these statements **must** be true?  
+
+```{mcq}
+#| label: drill-Pattern-book-derivs-9
+#| show_hints: true
+1. $f(x)$ is increasing at $x=7.3$. [ hint: The first derivative $\partial_x f(x)$ would tell you about whether the function is increasing or decreasing. The second derivative $\partial_{xx} f(x)$ tells you about something else. ]
+2. $f(x)$ is concave up and decreasing at $x=7.3$ [ hint: Second derivatives tell you about concavity, but not about whether the function is increasing or decreasing. ]
+3. $f(x)$ is concave up at $x=7.3$ [correct hint: Good job! The 2nd derivative tells you **only** about the concavity of a function. It has nothing to say about the value of the slope. ]
+4. $f(x)$ is concave up at $x=7.3$, but eventually it will become concave down. [ hint: In a graph of a function, the second derivative corresponds to concavity. But knowing only the numerical value for the second derivative at a single input value does not tell you what the function is doing anywhere else. ]
+```
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+[**Question 5.15**]{.underline}:
+Which of the following is the correct construction for $\partial_t g(t)$?   
+
+```{mcq}
+#| label: drill-Pattern-book-derivs-12
+#| show_hints: true
+1. $$\lim_{h \rightarrow 0} \frac{g(t + h) - g(t)}{h}$$ [correct]
+2. $$\lim_{h \rightarrow 0} \frac{g(t + h) - g(t)}{t}$$ [ hint: The division should be by $h$, not by $t$. ]
+3. $$\lim_{h \rightarrow 0} \frac{g(t) - g(t+h)}{h}$$ [ hint: This will be the $- \partial_t g(t)$. ]
+4. $$\lim_{x \rightarrow 0} \frac{g(t + h) - g(t)}{h}$$ [ hint: $x$ has nothing to do with it, so $\lim_{x \rightarrow 0}$ means nothing in this context. ]
+```
+
+
+
+[**Question 5.16**]{.underline}: 
+The derivative $$\partial_x \text{dnorm}(x) = - x\, \text{dnorm}(x)\ .$$
+What is $$\partial_x \text{dnorm}\left(\frac{x^2}{4}\right)\ ?$$  
+
+```{mcq}
+#| label: drill-Deriv-rules-16
+#| show_hints: true
+1. $- \frac{x^3}{8} \text{dnorm}\left(\frac{x^2}{4}\right)$ [correct]
+2. $-\frac{x}{2} \text{dnorm}\left(\frac{x^2}{4}\right)$ 
+3. $-\frac{x}{8} \text{dnorm}\left(\frac{x^2}{4}\right)$ 
+4. $-\frac{x^2}{2} \text{dnorm}\left(\frac{x^2}{4}\right)$ 
+```
