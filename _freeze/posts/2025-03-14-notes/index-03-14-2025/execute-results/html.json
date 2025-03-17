@@ -1,0 +1,15 @@
+{
+  "hash": "66edfddcd4da104a9cddc9475e4bedbb",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nauthor: DTK\ndate: 2025-03-14\nnumber-offset: 26\nformat: live-html\n---\n\n\n\n# 2025-03-14 class notes\n\n\n[Steve Strogatz's $pi$-day article](https://www.nytimes.com/article/pi-day-math-geometry-infinity.html?smid=nytcore-ios-share&referringSource=articleShare)\n\nTalking about convergence.\n\nNumber systems: What is 1.11111111 $\\ldots$?\n\n\n\n\ncurrency: pounds, shillings, pence\n\ntime: hours, minutes, seconds\n\nangle, degrees, minutes seconds: show a decimal lat/long location on Google Maps\n\nHow do we know that 3.14159265358979 ... converges to a finite number. It's the sum of an infinite number of things:\n\n$$ 3 x^0 + 1 x + 4 x^2 + 1 x^3 + 5 x^4 + 9 x^5 + 2 x^6 + \\ ... \\text{ at } x=1/10$$\n\nThis looks like a function. (It is a function, it's just that we are evaluating it at x=0.1 to get $\\pi$)\n\n## Convergence of an infinitely long polynomial:\n\n$$\\sum_{0}^{n\\rightarrow \\infty} x^{-n} = 1 + x \\sum_{0}^{n \\rightarrow \\infty} x^{-n} $$\n\nso\n\n$$ \\sum_{0}^{n\\rightarrow \\infty} x^{-n} \\left(1 -x \\strut\\right) = 1$$\n\nso \n\n$$ \\sum_{0}^{n\\rightarrow \\infty} x^{-n} = \\frac{1}{1-x} $$\n\nEvaluate this at x = 1/10 to get the value of 1.11111 $\\ldots$\n\n\nNow look at $\\sum_{0}^{n\\rightarrow \\infty} 10 x^{-n}$. It is larger than any decimal digit expansion.\n## How high a power do I really need for the polynomial?\n\n## Exponential\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmyexp <- function(x) {\n  if (x < 0) 1/myexp(-x)\n  else {\n    power <- 0\n    while(x > 0.01) {\n      x <- x / 2\n      power <- power + 1\n    }\n    exp_tailor(x)^(2^power)\n  }\n}\nexp_tailor <- function(x){\n  1 + x + x^2/2 + x^3/6 #+ x^4/24\n}\n```\n:::\n\n\n\n## Sinusoid\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmysin <-function(x) {\n  x <- x %% (2*pi)\n  if (x < 0) -mysin(-x)\n  else if (x > pi) - mysin(x - pi)\n  else if (x > pi/2) mysin(pi - x)\n  else if (x > pi/4) cos_taylor(x - pi/2)\n  else sin_taylor(x)\n}\n\nsin_taylor <- function(x) {\n  x - x^3/6. + x^5/120. - x^7/5040.\n}\n\ncos_taylor <- function(x) {\n  1 - x^2/2 + x^4/24 - x^6/720\n}\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,6 +1,6 @@
 ---
 title: "Calculus Quiz 5: Prof. Kaplan"
-subtitle: "March 12, 2025"
+subtitle: "March 13, 2025"
 author: "Student name: __________________.            Do what you can in 15 minutes." 
 format:
   typst:
@@ -85,7 +85,7 @@ What is $\partial_{yx}  h(x,y) g(y)$?<!--Partial derivatives-->
 4.  $$(\partial_x g(y))\  (\partial_x h(x, y)) + g(y) (\partial_{xx} h(x, y) )$$ [hint: The $\partial_{xx}$ can't come from nowhere!]
 ```
 
-[**Question 5.5]{.underline}**:
+[**Question 5.5**]{.underline}:
 What is $\partial_{t} \left(7 + 8 t^2 + 3 t^4\right)$?  
 
 ```{mcq}
@@ -224,13 +224,13 @@ Imagine a second-order polynomial in three inputs: $x$, $y$, and $z$, like this:
 
 [**Question 5.14**]{.underline}:
 Suppose you know only this one fact about $f(x)$, that 
-$$\left[\partial_{xx}\, f(x)\right]_{x=7} = 1.6\ .$$ Which of these statements **must** be true?  
+$$\left[\partial_{xx}\, f(x)\right]_{x=7.3} = 1.6\ .$$ Which of these statements **must** be true?  
 
 ```{mcq}
 #| label: drill-Pattern-book-derivs-9
 #| show_hints: true
-1. $f(x)$ is increasing at $x=7.3$. [ hint: The first derivative $\partial_x f(x)$ would tell you about whether the function is increasing or decreasing. The second derivative $\partial_{xx} f(x)$ tells you about something else. ]
-2. $f(x)$ is concave up and decreasing at $x=7.3$ [ hint: Second derivatives tell you about concavity, but not about whether the function is increasing or decreasing. ]
+1. $f(x)$ is increasing at $x=7.3$. [hint: The first derivative $\partial_x f(x)$ would tell you about whether the function is increasing or decreasing. The second derivative $\partial_{xx} f(x)$ tells you about something else. ]
+2. $f(x)$ is concave up and decreasing at $x=7.3$ [hint: Second derivatives tell you about concavity, but not about whether the function is increasing or decreasing.]
 3. $f(x)$ is concave up at $x=7.3$ [correct hint: Good job! The 2nd derivative tells you **only** about the concavity of a function. It has nothing to say about the value of the slope. ]
 4. $f(x)$ is concave up at $x=7.3$, but eventually it will become concave down. [ hint: In a graph of a function, the second derivative corresponds to concavity. But knowing only the numerical value for the second derivative at a single input value does not tell you what the function is doing anywhere else. ]
 ```

@@ -5,7 +5,40 @@ number-offset: 25
 format: live-html
 ---
 
+```{r include=FALSE}
+library(mosaicCalc)
+```
+
 # 2025-03-13 class notes
 
+[Steve Strogatz's $pi$-day article](https://www.nytimes.com/article/pi-day-math-geometry-infinity.html?smid=nytcore-ios-share&referringSource=articleShare)
+
+Talking about convergence.
+
+Number systems: 
+
+currency: pounds, shillings, pence
+
+time: hours, minutes, seconds
+
+angle, degrees, minutes seconds: show a decimal lat/long location on Google Maps
+
+How do we know that 3.14159265358979 ... converges to a finite number. It's the sum of an infinite number of things:
+
+$$ 3 x^0 + 1 x + 4 x^2 + 1 x^3 + 5 x^4 + 9 x^5 + 2 x^6 + \ ... \text{ at } x=1/10$$
+
+This looks like a function. (It is a function, it's just that we are evaluating it at x=0.1 to get $\pi$)
+
+a polynomial approximation found by matching the derivatives. 
 
 
+## Convergence of an infinitely long polynomial:
+
+$$\sum_{0}^{n\rightarrow \infty} x^{-n} = 1 + x \sum_{0}^{n \rightarrow \infty} x^{-n} $$
+so
+
+$$ \sum_{0}^{n\rightarrow \infty} x^{-n} \left(1 -x \strut\right) = 1$$
+
+so 
+
+$$ \sum_{0}^{n\rightarrow \infty} x^{-n} = \frac{1}{1-x} $$

@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -73,6 +107,35 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -154,6 +217,107 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="class-notes" class="level3" data-number="28">
 <h3 data-number="28" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">28</span> 2025-03-18 class notes</h3>
+<section id="finishing-up-polynomials" class="level4" data-number="28.1">
+<h4 data-number="28.1" class="anchored" data-anchor-id="finishing-up-polynomials"><span class="header-section-number">28.1</span> Finishing up polynomials</h4>
+</section>
+<section id="how-high-a-power-do-i-really-need-for-the-polynomial" class="level4" data-number="28.2">
+<h4 data-number="28.2" class="anchored" data-anchor-id="how-high-a-power-do-i-really-need-for-the-polynomial"><span class="header-section-number">28.2</span> How high a power do I really need for the polynomial?</h4>
+</section>
+<section id="exponential" class="level4" data-number="28.3">
+<h4 data-number="28.3" class="anchored" data-anchor-id="exponential"><span class="header-section-number">28.3</span> Exponential</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>myexp <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">0</span>) <span class="dv">1</span><span class="sc">/</span><span class="fu">myexp</span>(<span class="sc">-</span>x)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    power <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(x <span class="sc">&gt;</span> <span class="fl">0.01</span>) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">&lt;-</span> x <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      power <span class="ot">&lt;-</span> power <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">exp_tailor</span>(x)<span class="sc">^</span>(<span class="dv">2</span><span class="sc">^</span>power)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>exp_tailor <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span> <span class="sc">+</span> x <span class="sc">+</span> x<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> x<span class="sc">^</span><span class="dv">3</span><span class="sc">/</span><span class="dv">6</span> <span class="co">#+ x^4/24</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sinusoid" class="level4" data-number="28.4">
+<h4 data-number="28.4" class="anchored" data-anchor-id="sinusoid"><span class="header-section-number">28.4</span> Sinusoid</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mysin <span class="ot">&lt;-</span><span class="cf">function</span>(x) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x <span class="sc">%%</span> (<span class="dv">2</span><span class="sc">*</span>pi)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">0</span>) <span class="sc">-</span><span class="fu">mysin</span>(<span class="sc">-</span>x)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&gt;</span> pi) <span class="sc">-</span> <span class="fu">mysin</span>(x <span class="sc">-</span> pi)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&gt;</span> pi<span class="sc">/</span><span class="dv">2</span>) <span class="fu">mysin</span>(pi <span class="sc">-</span> x)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&gt;</span> pi<span class="sc">/</span><span class="dv">4</span>) <span class="fu">cos_taylor</span>(x <span class="sc">-</span> pi<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="fu">sin_taylor</span>(x)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>sin_taylor <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">-</span> x<span class="sc">^</span><span class="dv">3</span><span class="sc">/</span><span class="fl">6.</span> <span class="sc">+</span> x<span class="sc">^</span><span class="dv">5</span><span class="sc">/</span><span class="fl">120.</span> <span class="sc">-</span> x<span class="sc">^</span><span class="dv">7</span><span class="sc">/</span><span class="fl">5040.</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>cos_taylor <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span> <span class="sc">-</span> x<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> x<span class="sc">^</span><span class="dv">4</span><span class="sc">/</span><span class="dv">24</span> <span class="sc">-</span> x<span class="sc">^</span><span class="dv">6</span><span class="sc">/</span><span class="dv">720</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="logarithm" class="level5" data-number="28.4.1">
+<h5 data-number="28.4.1" class="anchored" data-anchor-id="logarithm"><span class="header-section-number">28.4.1</span> Logarithm</h5>
+<p>It’s easiest to write the Taylor series of <span class="math inline">\(\log(1+x)\)</span> around <span class="math inline">\(x = 0\)</span></p>
+<ul>
+<li><p>Find successive derivatives of <span class="math inline">\(\log(1+x)\)</span> and evaluate at <span class="math inline">\(x=0\)</span>. It becomes very easy.</p></li>
+<li><p>Turn these into the multipliers of a Taylor polynomial by dividing the <span class="math inline">\(n\)</span><sup>th</sup> derivative by <span class="math inline">\(n!\)</span></p></li>
+<li><p>Use this polynomial to calculate <span class="math inline">\(\log(1+x)\)</span>.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>logxp1_taylor <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">-</span> x<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> x<span class="sc">^</span><span class="dv">3</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> x<span class="sc">^</span><span class="dv">4</span><span class="sc">/</span><span class="dv">4</span>  <span class="sc">+</span> x<span class="sc">^</span><span class="dv">5</span><span class="sc">/</span><span class="dv">5</span> <span class="co">#- x^6/6 + x^7/7 - x^8/8</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can then write <code>log_taylor(x)</code> as</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>log_taylor <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">logxp1_taylor</span>(x <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Try this out for <code>x=2</code> and observe the bad answer compared to <code>log(3)</code>. The answer gets even worse for bigger <code>x</code>. What’s wrong? Convergence.</p>
+<p>Now use manipulations to squeeze <code>x</code> closer to `.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>log_taylor <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="cn">NaN</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">1</span>) <span class="fu">return</span>(<span class="sc">-</span><span class="fu">log_taylor</span>(<span class="dv">1</span><span class="sc">/</span>x))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="fl">1.0001</span>) <span class="fu">return</span>(<span class="dv">2</span><span class="sc">*</span><span class="fu">log_taylor</span>(<span class="fu">sqrt</span>(x)))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="fu">return</span>(<span class="fu">log_taylor</span>(x<span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.693147180559945</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logxp1_taylor</span>(x <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="a-least-squares-approach." class="level4" data-number="28.5">
+<h4 data-number="28.5" class="anchored" data-anchor-id="a-least-squares-approach."><span class="header-section-number">28.5</span> A least-squares approach.</h4>
+<p>Evaluate <span class="math inline">\(\log(x + 1)\)</span> at a few points.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Pts <span class="ot">&lt;-</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, .<span class="dv">01</span>, <span class="at">length=</span><span class="dv">1000</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">log</span>(x <span class="sc">+</span> <span class="dv">1</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>approx <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> Pts) <span class="sc">|&gt;</span> <span class="fu">makeFun</span>()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_plot</span>(<span class="fu">approx</span>(x) <span class="sc">-</span> <span class="fu">log</span>(x<span class="sc">+</span><span class="dv">1</span>) <span class="sc">~</span> x, <span class="fu">domain</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="fl">0.01</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_plot</span>(<span class="fu">logxp1_taylor</span>(x) <span class="sc">-</span> <span class="fu">log</span>(x<span class="sc">+</span><span class="dv">1</span>) <span class="sc">~</span> x, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"blue"</span>, </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index-03-18-2025_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="modeling-project-speed-of-a-satellite" class="level4" data-number="28.6">
+<h4 data-number="28.6" class="anchored" data-anchor-id="modeling-project-speed-of-a-satellite"><span class="header-section-number">28.6</span> Modeling project: Speed of a satellite</h4>
+<p><a href="https://dtkaplan.github.io/MC-Workbook/Block-1-models.html#project-2-orbit-dimensions">Write-up from Workbook</a></p>
 
 
 <script type="ojs-module-contents">
@@ -170,6 +334,7 @@ eyJjb250ZW50cyI6W119
 <script type="vfs-file">
 W10=
 </script>
+</section>
 </section>
 
 </main> <!-- /main -->

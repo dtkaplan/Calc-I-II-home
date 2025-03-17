@@ -1,0 +1,17 @@
+{
+  "hash": "ff149759131cb9182059b9dc006e356f",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nauthor: DTK\ndate: 2025-03-18\nnumber-offset: 27\nformat: live-html\n---\n\n\n\n\n\n# 2025-03-18 class notes\n\n## Finishing up polynomials\n\n## How high a power do I really need for the polynomial?\n\n## Exponential\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmyexp <- function(x) {\n  if (x < 0) 1/myexp(-x)\n  else {\n    power <- 0\n    while(x > 0.01) {\n      x <- x / 2\n      power <- power + 1\n    }\n    exp_tailor(x)^(2^power)\n  }\n}\nexp_tailor <- function(x){\n  1 + x + x^2/2 + x^3/6 #+ x^4/24\n}\n```\n:::\n\n\n\n## Sinusoid\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmysin <-function(x) {\n  x <- x %% (2*pi)\n  if (x < 0) -mysin(-x)\n  else if (x > pi) - mysin(x - pi)\n  else if (x > pi/2) mysin(pi - x)\n  else if (x > pi/4) cos_taylor(x - pi/2)\n  else sin_taylor(x)\n}\n\nsin_taylor <- function(x) {\n  x - x^3/6. + x^5/120. - x^7/5040.\n}\n\ncos_taylor <- function(x) {\n  1 - x^2/2 + x^4/24 - x^6/720\n}\n```\n:::\n\n\n\n### Logarithm\n\nIt's easiest to write the Taylor series of $\\log(1+x)$ around $x = 0$\n\n- Find successive derivatives of $\\log(1+x)$ and evaluate at $x=0$. It becomes very easy.\n\n- Turn these into the multipliers of a Taylor polynomial by dividing the $n$^th^ derivative by $n!$\n\n- Use this polynomial to calculate $\\log(1+x)$.\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlogxp1_taylor <- function(x){\n  x - x^2/2 + x^3/3 - x^4/4  + x^5/5 #- x^6/6 + x^7/7 - x^8/8\n}\n```\n:::\n\n\n\nWe can then write `log_taylor(x)` as\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlog_taylor <- function(x) logxp1_taylor(x + 1)\n```\n:::\n\n\n\nTry this out for `x=2` and observe the bad answer compared to `log(3)`. The answer gets even worse for bigger `x`. What's wrong? Convergence.\n\nNow use manipulations to squeeze `x` closer to `.\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlog_taylor <- function(x) {\n  if (x < 0) return(NaN)\n  if (x < 1) return(-log_taylor(1/x))\n  if (x > 1.0001) return(2*log_taylor(sqrt(x)))\n  if (x > 2) return(log_taylor(x/2) + 0.693147180559945)\n  logxp1_taylor(x - 1)\n}\n```\n:::\n\n\n\n## A least-squares approach.\n\nEvaluate $\\log(x + 1)$ at a few points.\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nPts <- \n  tibble::tibble(x = seq(0, .01, length=1000)) |>\n  mutate(y = log(x + 1))\n \napprox <- lm(y ~ x + I(x^2), data = Pts) |> makeFun()\n\nslice_plot(approx(x) - log(x+1) ~ x, domain(x = 0:0.01)) |> \n  slice_plot(logxp1_taylor(x) - log(x+1) ~ x, \n             color = \"blue\", \n             linewidth = 4, alpha = 0.3) \n```\n\n::: {.cell-output-display}\n![](index-03-18-2025_files/figure-html/unnamed-chunk-7-1.png){width=672}\n:::\n:::\n\n\n\n## Modeling project: Speed of a satellite\n\n[Write-up from Workbook](https://dtkaplan.github.io/MC-Workbook/Block-1-models.html#project-2-orbit-dimensions)\n\n\n\n",
+    "supporting": [
+      "index-03-18-2025_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

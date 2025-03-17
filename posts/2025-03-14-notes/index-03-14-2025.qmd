@@ -8,4 +8,81 @@ format: live-html
 # 2025-03-14 class notes
 
 
+[Steve Strogatz's $pi$-day article](https://www.nytimes.com/article/pi-day-math-geometry-infinity.html?smid=nytcore-ios-share&referringSource=articleShare)
 
+Talking about convergence.
+
+Number systems: What is 1.11111111 $\ldots$?
+
+
+
+
+currency: pounds, shillings, pence
+
+time: hours, minutes, seconds
+
+angle, degrees, minutes seconds: show a decimal lat/long location on Google Maps
+
+How do we know that 3.14159265358979 ... converges to a finite number. It's the sum of an infinite number of things:
+
+$$ 3 x^0 + 1 x + 4 x^2 + 1 x^3 + 5 x^4 + 9 x^5 + 2 x^6 + \ ... \text{ at } x=1/10$$
+
+This looks like a function. (It is a function, it's just that we are evaluating it at x=0.1 to get $\pi$)
+
+## Convergence of an infinitely long polynomial:
+
+$$\sum_{0}^{n\rightarrow \infty} x^{-n} = 1 + x \sum_{0}^{n \rightarrow \infty} x^{-n} $$
+
+so
+
+$$ \sum_{0}^{n\rightarrow \infty} x^{-n} \left(1 -x \strut\right) = 1$$
+
+so 
+
+$$ \sum_{0}^{n\rightarrow \infty} x^{-n} = \frac{1}{1-x} $$
+
+Evaluate this at x = 1/10 to get the value of 1.11111 $\ldots$
+
+
+Now look at $\sum_{0}^{n\rightarrow \infty} 10 x^{-n}$. It is larger than any decimal digit expansion.
+## How high a power do I really need for the polynomial?
+
+## Exponential
+```{r}
+myexp <- function(x) {
+  if (x < 0) 1/myexp(-x)
+  else {
+    power <- 0
+    while(x > 0.01) {
+      x <- x / 2
+      power <- power + 1
+    }
+    exp_tailor(x)^(2^power)
+  }
+}
+exp_tailor <- function(x){
+  1 + x + x^2/2 + x^3/6 #+ x^4/24
+}
+```
+
+## Sinusoid
+
+```{r}
+mysin <-function(x) {
+  x <- x %% (2*pi)
+  if (x < 0) -mysin(-x)
+  else if (x > pi) - mysin(x - pi)
+  else if (x > pi/2) mysin(pi - x)
+  else if (x > pi/4) cos_taylor(x - pi/2)
+  else sin_taylor(x)
+}
+
+sin_taylor <- function(x) {
+  x - x^3/6. + x^5/120. - x^7/5040.
+}
+
+cos_taylor <- function(x) {
+  1 - x^2/2 + x^4/24 - x^6/720
+}
+
+```
