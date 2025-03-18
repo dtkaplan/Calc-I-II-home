@@ -12,16 +12,68 @@ library(dplyr)
 
 # 2025-03-18 class notes
 
-## Finishing up polynomials
+## Complex exponentials
+
+$e^{i\omega t}$ as a replacement for $sin(\omega t)$.
+
+- 2nd derivative is proportional to negative itself.
+- Differentiation is a matter of multiplying by $i \omega$.
+- Multiplication of one sine by another is akin (sort of) to advancing the argument.
+
+Modeling a pendulum.
+
+ASK: What do we know about the acceleration along the arc of swing.
+
+i. It's zero at an angle of zero.
+ii. It's an odd function, meaning $f(-\theta) = - f(\theta)$
+iii. We can expand this out as a Taylor polynomial: first and third-order terms.
+
+**Equation of motion:**
+
+$$\partial_{tt} \theta(t) = - \omega^2 \theta(t)$$
+Substitute in $a \sin(\omega t)$.
+
+NOW, add in air resistence. What do we know about air resistence?
+
+i. It's a function of speed
+ii. It's odd
+iii. It's nil when the velocity is zero.
+
+**Equation of motion**
+
+$$\partial_{tt} \theta(t) = -\omega^2 \theta(t) + \nu \partial_t \theta(t)$$
+
+Plug in $\sin(\omega t)$: doesn't quite work.
+
+Plug in $e^{i k t}$ giving
+
+$$- k^2 e^{ikt} = - \omega^2 e^{ikt} + i \nu \omega k e^{ikt}$$
+or
+
+$$\omega^2 -i \nu \omega - k^2 = 0$$
+
+## Another Taylor expansion
+
+Expand $\ln(x + 1)$ around $x=0$.
+
+One team writes the derivatives, the other team sets up the polynomial waiting for the derivatives. 
+
+Implement on the computer.
+
+```{webr-r}
+
+```
+
 
 ## How high a power do I really need for the polynomial?
 
 ## Exponential
-```{r}
+```{webr-r}
 myexp <- function(x) {
   if (x < 0) 1/myexp(-x)
   else {
     power <- 0
+    # replace this with recursion
     while(x > 0.01) {
       x <- x / 2
       power <- power + 1
@@ -29,6 +81,8 @@ myexp <- function(x) {
     exp_tailor(x)^(2^power)
   }
 }
+
+
 exp_tailor <- function(x){
   1 + x + x^2/2 + x^3/6 #+ x^4/24
 }
@@ -36,7 +90,7 @@ exp_tailor <- function(x){
 
 ## Sinusoid
 
-```{r}
+```{webr-r}
 mysin <-function(x) {
   x <- x %% (2*pi)
   if (x < 0) -mysin(-x)
@@ -74,7 +128,7 @@ logxp1_taylor <- function(x){
 
 We can then write `log_taylor(x)` as
 
-```{r}
+```{webr-r}
 log_taylor <- function(x) logxp1_taylor(x + 1)
 ```
 
@@ -82,7 +136,7 @@ Try this out for `x=2` and observe the bad answer compared to `log(3)`. The answ
 
 Now use manipulations to squeeze `x` closer to `.
 
-```{r}
+```{webr-r}
 log_taylor <- function(x) {
   if (x < 0) return(NaN)
   if (x < 1) return(-log_taylor(1/x))
@@ -97,7 +151,7 @@ log_taylor <- function(x) {
 
 Evaluate $\log(x + 1)$ at a few points.
 
-```{r}
+```{webr-r}
 Pts <- 
   tibble::tibble(x = seq(0, .01, length=1000)) |>
   mutate(y = log(x + 1))
