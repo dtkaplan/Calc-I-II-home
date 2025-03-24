@@ -8,7 +8,9 @@ format: live-html
 # 2025-03-14 class notes
 
 
-[Steve Strogatz's $pi$-day article](https://www.nytimes.com/article/pi-day-math-geometry-infinity.html?smid=nytcore-ios-share&referringSource=articleShare)
+[Steve Strogatz's $pi$-day article](https://www.nytimes.com/article/pi-day-math-geometry-infinity.html?smid=nytcore-ios-share&referringSource=articleShare) published on March 13.
+
+The March 14 [NY Times $pi$-day article](https://www.nytimes.com/2025/03/14/science/mathematics-daubechies-mathemalchemy.html?smid=nytcore-ios-share&referringSource=articleShare)
 
 Talking about convergence.
 

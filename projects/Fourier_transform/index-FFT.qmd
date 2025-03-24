@@ -1,0 +1,8 @@
+---
+title: "Linear Algebra: Fourier Transforms"
+author: DTK
+format: live-html
+date: last-modified
+---
+
+SciComp2009 2009-04-30

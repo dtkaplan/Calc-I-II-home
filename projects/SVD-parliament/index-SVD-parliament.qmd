@@ -1,0 +1,181 @@
+---
+title: "Linear Algebra: SVD in politics"
+author: DTK
+date: last-modified
+format: live-html
+description: "Machine learning of political orientation"
+---
+
+```{r include=FALSE}
+library(ggplot2)
+```
+
+It often happens that a variable carries little information that's relevant to the task at hand.  Even for variables that are informative, there can be redundancy or near duplication of variables.  That is, two or more variables are giving essentially the same information; they have similar patterns across the cases.  
+
+
+```{r echo=FALSE}
+# Get the party names
+Parties <-  read.csv("www/VotesS1-tally.csv", as.is=TRUE, 
+                      header=FALSE, nrows=1,
+                     stringsAsFactors = FALSE )
+# Get rid of the first column and turn into a vector.
+Parties <- as.character(Parties[,-1])
+
+Votes <- read.csv( "www/VotesS1-tally.csv", skip=1 )
+Bills <- Votes[,1]
+Votes <- subset(Votes, complete.cases(Votes) )
+rownames( Votes ) <- Votes$VOTE
+Votes <- Votes[,-1]
+memberNames <- names(Votes)
+nBallots <- nrow( Votes )
+# new on March 24
+colnames(Votes) <- NULL
+rownames(Votes) <- NULL
+# Need to get this into matrix form
+
+
+VotesM <- matrix( unlist( Votes ) |> as.numeric(), nrow=nBallots )
+# VotesM <- VotesM[1:nBallots,1:ncol(Votes)] # drop the ballot names
+# Put in alphabetical order
+inds <- order( memberNames )
+VAlpha <- VotesM[,inds]
+Parties <- Parties[inds]
+# remove <- which( apply( VAlpha, 2, function(x) sum(abs(x))) < 100 )
+# memberNames <- memberNames[-remove]
+# Parties <- Parties[-remove]
+# Valpha <- VAlpha[,-remove]
+
+# get rid of NAS
+VAlpha[is.na(VAlpha)] <- 0
+# VAlpha <- as.numeric(VAlpha)
+res <- svd( VAlpha)
+showVotes <- Votes[,inds]
+a1 <- res$u[,1,drop=FALSE]
+b1 <- res$v[,1,drop=FALSE] |> t()
+a2 <- res$u[,2,drop=FALSE]
+b2 <- res$v[,2,drop=FALSE] |> t()
+```
+
+
+```{r scot-votes-small, echo=FALSE, nrows=nrow(showVotes),caption="A few cases and variables from the Scottish Parliament voting data. There are 134 variables, each corresponding to a different ballot.", nrows=nrow(showVotes)}
+data.frame(t(showVotes)[1:10,1:3])
+```
+
+
+```{r raw-parliament-votes, echo=FALSE, fig.cap="The values from the Scottish Parliament voting record displayed using a color code.  Each dot refers to one member's vote on one ballot. Order is alphabetical by member, chronological by Ballot."}
+library(reshape2) # for melt
+melt( VAlpha ) |> 
+  dplyr::mutate( Vote=factor(value, labels=c("Nay","Abstain","Aye"))) |> 
+  ggplot( aes(x=Var1, y=Var2, fill=Vote)) +
+  geom_tile() +
+  xlab("Ballot") + ylab("Member of Parliament") + 
+  scale_fill_manual( values=c(rgb(.2,.2,.2,.6), rgb(.95,.95,.95), rgb(209/255,148/255,12/255)))
+```
+
+Such irrelevant or redundant variables make it harder to learn from data.  The irrelevant variables are simply noise that obscures actual patterns.  Similarly, when two or more variables are redundant, the differences between them may represent random noise.
+
+It's helpful to remove irrelevant or redundant variables so that they, and the noise they carry, don't obscure the patterns that machine learning could learn.
+
+As an example of such a situation, consider votes in a parliament or congress. This section explores one such voting record, the Scottish Parliament in 2008. The pattern of ayes and nays may indicate which members are affiliated, i.e. members of the same political party.  To test this idea, you might try clustering the members by their voting record.
+
+
+Table \@ref(tab:scot-votes-small) shows a small part of the voting record. The names of the members of parliament are the cases.  Each ballot --- identified by a file number such as "S1M-4.3" --- is a variable. A $1$ means an aye vote, $-1$ is nay, and $0$ is an abstention.  There are more than 130 members and more than 700 ballots.  It's impractical to show all of the 100,000+ votes in a table.  But there are only 3 levels for each variable, so displaying the table as an image might work. (Figure \@ref(fig:raw-parliament-votes))
+
+
+```{r west-virginia-tartan, echo=FALSE, out.width = "50%", fig.cap="A tartan pattern, in this case the official tartan of West Virginia University."}
+knitr::include_graphics("Images/WestVirginiaTartan-small.png")
+```
+
+ <!-- (http://upload.wikimedia.org/wikipedia/commons/d/d0/West-Virginia-University-Official-Tartan.jpg) -->
+
+
+
+
+It's hard to see much of a pattern here, although you may notice something like a tartan structure. The tartan pattern provides an indication to experts that the data could be re-organized in a much simpler way.^[For those who have studied linear algebra: "Much simpler way" means that the matrix can be approximated by a matrix of low-rank.] 
+
+
+As a start, Figure \@ref(fig:ballot-values) shows the ballot values for all of the members of parliament for two randomly selected ballots. (Jittering is used to give a better idea of the point count at each position. The red dots are the actual positions.)
+
+```{r ballot-values, echo=FALSE, fig.cap="Positions of members of parliament on two ballots."}
+Random2 <- data.frame( ballot48=VAlpha[48,], ballot118=VAlpha[118,] )
+ggplot( Random2, aes(x=ballot48, y=ballot118)) +
+  geom_point( alpha=.7, position=position_jitter(width = .1, height = .1) )+
+  geom_point( alpha=.01, size=10, color="red" )
+```
+```{r many-ballots, echo=FALSE, fig.cap="Positions of members of parliament on two ballot indices made up by the sum of groups of ballots."}
+AllOfThem <- data.frame( First336=colSums( VAlpha[1:336,]), 
+                         RemainingOnes=colSums(VAlpha[337:773,]))
+ggplot( AllOfThem, aes(x=First336, y=RemainingOnes)) +
+  geom_point( alpha=.7, size=5 )
+```
+
+
+
+Each point is one member of parliament.  Similarly aligned members are grouped together at one of the nine possibilities marked in red: (Aye, Nay), (Aye, Abstain), (Aye, Aye), and so on through to (Nay, Nay).  In these two ballots, eight of the nine are possibilities are populated.  Does this mean that there are 8 clusters of members?
+
+Intuition suggests that it would be better to use *all* of the ballots, rather than just two.  In Figure \@ref(fig:many-ballots), the first 336 ballots have been added together, as have the remaining ballots. This graphic suggests that there might be two clusters of members who are aligned with each other.  Using all of the data seems to give more information than using just two ballots.
+
+You may ask why the choice was made to add up the first 336 ballots as $x$ and the remaining ballots as $y$.  Perhaps there is a better choice to display the underlying patterns, adding up the ballots in a different way.
+
+In fact, there is a mathematical approach to finding the *best* way to add up the ballots, called "singular value decomposition" (SVD).  The mathematics of SVD draw on a knowledge of matrix algebra, but the operation itself is readily available to anyone.^[In brief, SVD calculates the best way to add up (i.e. linearly combine) the columns and the rows of a matrix to produce the largest possible variance.  Then SVD finds  the best way to add up the what's left, and so on.]  Figure \@ref(fig:ballot-PCA) shows the position of each member on the best two ways of summing up the ballots.
+
+```{r ballot-PCA, echo=FALSE, fig.cap="The position of each member of Parliament using the two 'best' ways of summing the ballots."}
+set.seed(110)
+Best <- data.frame( one=c(b1), two=c(b2), three=res$v[,3], four=res$v[,4], five=res$v[,5] )
+clusts <- kmeans( Best, centers=6)
+Best$cluster <- as.factor(clusts$cluster)
+# I lost the first member: Canavan.  Figure out later.
+Best$actualParty <- Parties
+ggplot( data=Best, aes( x=one, y=two )) +
+    geom_point( shape=1, color='red', size=7, aes(x=0,y=0)) + 
+  geom_point( size=5, alpha=.6, aes(color=cluster,shape=cluster) ) + 
+  xlab("Best Vector from SVD") + 
+  ylab("Next Best Vector from SVD") + 
+  ggtitle("Political Positions of Members of Parliament")
+```
+
+Figure \@ref(fig:ballot-PCA) shows, at a glance, that there are three main clusters.  The red circle marks the "average" member.  The three clusters move away from average in different directions.  There are several members whose position is in-between the average and the cluster to which they are closest.
+
+For a graphic, one is limited to using two variables for position.  Clustering, however, can be based on many more variables.  Using more SVD sums enables may allow the three clusters to be split up further.  The color in Figure \@ref(fig:ballot-PCA) above shows the result of asking for 6 clusters using the 5 best SVD sums. Table \@ref(tab:scottish-clustering) compares the actual party of each member to the cluster memberships.
+
+
+```{r scottish-clustering, echo=FALSE,caption="The correspondence between cluster membership and actual party affiliation.", show_n=7}
+with(Best, table( Party <- actualParty, cluster)) %>%
+  data.frame() %>% 
+  spread(key=cluster,value=Freq) %>%
+  rename(`party     . . . . . . . . .           cluster`=Var1)
+```
+
+How well did clustering do?  The party affiliation of each member of parliament is known, even though it wasn't used in finding the clusters. For each of the parties with multiple members, the large majority of members are placed into a unique cluster for that party. In other words, the technique has identified correctly that there are four different major parties.  
+
+```{r issue-clusters, echo=FALSE, fig.cap="Orientation of issues among the ballots."}
+BestBallots <- data.frame( one=res$u[,1], two=res$u[,2], three=res$u[,3], four=res$u[,4], five=res$u[,5] )
+clustBallots <- kmeans( BestBallots, centers=16 )
+BestBallots$cluster <- as.factor(clustBallots$cluster)
+ggplot( data=BestBallots, aes( x=one, y=two )) +
+    geom_point( shape=1, color='red', size=7, aes(x=0,y=0)) + 
+  geom_point( size=5, alpha=.6 ) + 
+  xlab("Best Vector from SVD") + 
+  ylab("Next Best Vector from SVD") 
+```
+
+There's more information to be extracted from the ballot data.  Just as there are clusters of political positions, there are clusters of ballots that might correspond to such factors as social effect, economic effect, etc.  Figure \@ref(fig:issue-clusters) a shows the position of each individual ballot, using the best two SVD sums as the x- and y-coordinates.
+
+There are obvious clusters in Figure \@ref(fig:issue-clusters).  Still, interpretation can be tricky.  Remember that, on each issue, there are both aye and nay votes.  This is what accounts for the symmetry of the dots around the center (indicated by an open circle).  The opposing dots along each angle from the center might be interpreted in terms of *socially liberal* vs *socially conservative* and *economically liberal* versus *economically* conservative.  Deciding which is which likely involves reading the bill itself.
+
+Finally, the "best" sums from SVD can be used to re-arrange cases and separately re-arrange variables  while keeping exactly the same values for each case in each variable. (Figure \@ref(fig:SVD-ballots).) This amounts simply to re-ordering the members in a way other than alphabetical and similarly with the ballots.  This dramatically simplifies the appearance of the data compared to Figure \ref{fig:raw-parliament-votes}.  With the cases and rows arranged as in Figure \@ref(fig:SVD-ballots), it's easy to identify blocks of members and which ballots are about issues for which the members vote *en bloc*.
+
+```{r SVD-ballots, echo=FALSE, fig.cap="Re-arranging the order of the variables and cases in the Scottish parliament data simplifies the appearance of the data table."}
+inds1 <- order(c(res$u[,1]))
+inds2 <- order(c(res$v[,1]))
+VA <- VAlpha[ inds1, inds2 ]
+foo <- data.frame( vote=factor(c(t(VA)), labels=c("Nay","Abstain","Aye")), 
+  y=rep(1:134,times=773),
+  x=rep(1:773, each=134) )
+ggplot( foo, aes(x=x, y=y, fill=vote)) +
+  geom_tile() +
+  xlab("Ballot") + ylab("Member of Parliament") + 
+  scale_fill_manual( values=c(rgb(.2,.2,.2,.6), rgb(.95,.95,.95), rgb(209/255,148/255,12/255))) 
+```
+
+

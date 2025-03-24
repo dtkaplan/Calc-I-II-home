@@ -7,5 +7,91 @@ format: live-html
 
 # 2025-03-21 class notes
 
+Ian and Max W are missing. 
+
+## Review of class topics
+
+Preliminary:
+
+Who didn't have a serious calculus course before? Maxim, Grace, Ian, Max
+
+- Gradient vectors and Taylor series
+    - we didn't do problems on what vector fields might be gradient fields like the last problem on the long quiz.
+    
+- Units and dimensions
+    - felt like physics
+    - write "dimension" in a special notation so that it's clear what we're talking about.
+
+- Continuity and non-continuous functions, C^3^ and such.
+
+- Magnitudes.
+
+    - Doing more plotting and different bases of logarithm.
+    
+- Should be more computing throughout.
+
+- Be more explicit about ChatGPT and R coding. Give a prompt to use a particular coding style. 
+
+* What surprised you to see in a calculus course.
+
+* What are you anticipating in a second course. 
+
+
+## Evaluation of 
+
+- Pace
+
+    - Make it clear that not all the exercises need to be done in each chapter.
+    
+    - Sometimes falling behind, especially after the mid-term break.
+    
+    
+
+- Plotting derivatives and the cognitive shift between f() and f'().
+    * Maybe have an intermediate step: plot the slope on the input axis, then translate that to a graph of the value of the derivative. 
+
+- Maxim not enough time on derivatives Max L and Grace
+
+Exercises and drill: 
+
+- More drill on a day-to-day basis: practice problems.
+
+- Try to make more connections between chapters explicit. 
+
+Assignments:
+
+- Drill for every chapter
+
+- Assignment for each week, more projects
+
+Areas of application:
+
+- More connections to biology, economics, machine learning functions, maybe look at continuity with respect to those.
+
+- Image processing: edge detection
+
+- More examples for low-order polynomials
+
+- Maybe use DEs to generate trajectories and have them work on that. 
+
+Calculus Topics
+
+- how many were familiar and repetitive
+
+- equations, theoretical understanding
+    - equations are more of an algebraic thing: balancing
+    - 
+- Operations
+    - spend more time putting the 5 operations together and using them. 
+
+History
+
+- 
+
+Technology
+
+Shall we use RStudio next term? They are lukewarm.
+
+
 
 

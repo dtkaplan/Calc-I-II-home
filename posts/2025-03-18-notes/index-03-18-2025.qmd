@@ -12,6 +12,15 @@ library(dplyr)
 
 # 2025-03-18 class notes
 
+Plan for this week:
+
+- I've got topics for today and Thursday
+- 30 minute quiz on Thursday
+- Assignment for Friday
+    i. Send evaluation answers to me via a friend's email
+    ii. Write down on paper three things that give you the most trouble.
+
+
 ## Complex exponentials
 
 $e^{i\omega t}$ as a replacement for $sin(\omega t)$.

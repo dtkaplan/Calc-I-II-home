@@ -1,0 +1,193 @@
+---
+title: "Linear Algebra: Finding eigenvalues"
+author: DTK
+date: last-modified
+format: live-html
+description: "They will find themselves by iteration."
+---
+
+## Class notes
+
+LEAD QUESTION: TELL me everything you know about eigenvalues and eigenvectors.  What are they?  Why do we study them? What are they useful for?
+
+
+Start with stories about Harry Cooper and Jon Franzen --- eigenvectors are what drove them away from science.
+
+In linear algebra, eigenvalues and eigenvectors are often introduced as an application of the determinant: you set up the problem $A x = \lambda x$ and then transform it into another problem, the roots of the characteristic equation $det( A - \lambda I) = 0$.
+
+The theory of determinants certainly has something to say about eigenvalues, particularly for proving theorems.  But once these theorems are proven, it's not so clear what the determinant is doing for us.
+
+Some applications of eigenvectors and eigenvalues:
+
+#. The PageRank problem.
+
+#. Eigenfunctions of linear differential operators: sines and cosines, exponentials, complex exponentials.  Modes of motion.  Orbitals and other states in quantum mechanics.
+
+#. Face recognition software.  See \url{http://www.face-rec.org/algorithms/}  What is an 'eigenface'
+
+Let's focus on the geometry of the situation.  [Fisher and Poincare had poor eyesight, couldn't see equations written on the board, and had to figure out ways to visualize the situation in their heads.]
+
+Basics about Eigenvectors and Eigenvalues of a matrix $A$.
+
+#. 'Eigen' is German for 'own' or 'individual.' An eigenvector has its own, individual eigenvalue and it's own, individual direction in space that is unaltered by $A$. It used to be that the term 'proper value' was used for 'eigenvalue.'  I presume this relates to an old meaning for 'proper' relating to the French 'propre' meaning 'in it's true form,' or 'particular or distinctively to.'
+
+#. Numerical methods date from 1929 when Von Mises published the power method.
+
+#. Eigenvalues are the $\lambda$ such that $A x = \lambda x$ for some vector $x$.  The $x$ is called the eigenvector.
+
+#. Suppose you have an invertible matrix $S$.  This means that the transformation performed by $S$ can be undone and that the operation done by $A_1$ can also be looked at in terms of another matrix $A_2$ such that $A_1 = S A_2 S^{-1}$.  We call $A_1$ and $A_2$ 'similar.'  Similar matrices have identical eigenvalues. $$A_1 -\lambda I = S A_2 S^{-1} - \lambda I = S A_2 S^{-1} - \lambda S I S^{-1} = S( A_2 - \lambda I )S^{-1}$$ Since the determinant of a matrix product is the product of the determinants, and since $det(S) = 1/det(S^{-1})$, the characteristic equations of $A_1$ and $A_2$ are the same.
+
+#. This might make you think that determinants are important in calculating eigenvalues, but they are not, because the roots of the characteristic equation are not a stable route for finding eigenvalues.
+
+#. Eigenvalues of a symmetric matrix are  real numbers and the eigenvectors are mutually orthogonal.
+
+#. Why are eigenvalues of interest?
+    a. Some problems have a natural form $A x = \lambda x$.  For instance, ranking problems of the sort encountered in web or sports rankins.
+
+    #. Calculations involving matrices operating on vector 'states' are much simpler if they the states are written as a sum of eigenvectors.  In particular, it becomes much easier to think about the evolution of the state.
+
+    #. Eigenvectors of differential operators are the 'modes' and have a physical reality. Modes (in linear systems) often have the pleasant property of evolving simply: the grow or decay exponentially as indicated by an eigenvalue.
+
+        i. In quantum mechanics, energies of different states are
+            the eigenvalues of the Schr\"{o}dinger Equation: $H \Psi =
+            E \Psi$ where $H$ is the Hamiltonian.
+
+        #. Symmetrical matrices are important in statistics: they
+            describe covariances and multivariate normal distributions.
+
+        #. Symmetrical matrices.  Why are they important?
+              
+            1. Hessians.  E.g. are they positive definite?
+            #. Operators in quantum systems.
+            #. Covariance matrix
+                
+
+
+#. Eigenvalues are the roots of the characteristic polynomial $det( A - \lambda I)$
+
+
+ 
+
+How to find eigenvalues and eigenvectors of a matrix A.
+
+Some principles:
+
+1. If you know an eigenvector $x_\star$, you can find the corresponding eigenvalue $\lambda_\star$:
+  $$\lambda_\star = \frac{x_\star^T A x_\star}{x_\star^T x_\star}$$
+
+#. You can find the eigenvector $x_1$ with the largest eigenvalue $\lambda_1$ by the power method. Pick some random $x$ and compute $A^n x$. The resulting vector will be aligned with $x_1$.
+
+#. You can find the smallest eigenvector by the inverse power method: $(A^{-1})^n x$.  In practice, to avoid finding the inverse, solve $A x_{k+1} = x{x}$ repeatedly.
+
+#. If you know an eigenvalue $\lambda_\star$, you can find the corresponding eigenvector.  How? Shift by $\lambda -\eps$ and use inverse power iteration.
+
+#. The speed of convergence of the power method is proportional to the ratio of magnitudes of the first and second largest eigenvectors.  For the inverse power method, it's proportional to the ratio of magnitudes of the smallest and second smalles eigenvalues.  By shifting appropriately, we can make this ratio as small as we like.
+
+#. Rayleigh quotient iteration exploits this by shifting toward the eigenvalue that it is finding and using inverse power method.
+
+#. QR algorithm for symmetrical matrices.  Since the eigenvectors are orthogonal, the power method pushes each vector toward the largest eigenvalue that's an orthogonal complement to the vectors to the left, the QR part keeps things orthogonal.
+
+
+## Software
+
+Construct a matrix with the given eigenvalues
+
+```{r label="eigen-slwd"}
+eigen_make <- function(lambda = 1:4) {
+  rmat <- matrix(rnorm(length(lambda)^2), nrow=length(lambda))
+  ortho <- qr.Q(qr(rmat))
+  diagonal <- diag(lambda)
+  t(ortho) %*% diagonal %*% ortho
+}
+```
+
+
+Iteration to find the dominant eigenvalue
+
+```{r label="eigen-k2ls"}
+# Translated from Sauer p. 546 with small changes
+powerit <- function(A, x = NULL, niters = 10){
+  if (is.null(x)) x <- cbind(rnorm(ncol(A)))
+
+  # Normalize and advance, step by step
+  for (j in 1:niters) {
+    u <- x / sqrt( sum(x^2) )
+    x <- A%*% u
+  }
+  lam <- t(u) %*% x
+  return( list(val = lam, vec = x))
+}
+```
+
+
+```{r}
+# Example from p. 545
+A <- cbind( c(1, 2), c(3, 2))
+powerit(A, niters = 20 )
+```
+
+```{r}
+# Inverse power iteration: finding the smallest eigenvalue
+invpowerit = function(A,x=NULL,s=0,niters=10){
+  if (is.null(x) ) x = cbind( rnorm(ncol(A)))
+  diag(A) = diag(A)-s
+  for (j in 1:niters) {
+    u = x / sqrt( sum(x^2) )
+    x = solve( A, u)
+  }
+  lam = t(u)%*%x
+  return( list(val=s+ 1/lam, vec=x ) )
+}
+```
+
+An Example from p. 545.  The matrix $A$ there has a
+smallest magnitude eigenvalue of $-1$.
+
+```{r}
+invpowerit(A)
+```
+
+## Activities
+
+1. Construct and confirm a n x n orthogonal matrix using `qr()` and the `qr.Q()` extractor. 
+
+2. Make a matrix with a given set of eigenvalues.
+
+3. Do power and inverse power iteration to confirm that you're getting what you should from (2).
+
+4. Show that the eigenvalues of a matrix are shifted by subtracting a constant from the diagonal.
+
+
+## Exercises
+
+\section{Computer Problems 12.1}
+
+\subsection{Problem 12.1.1}
+
+Using the power iteration method, find the dominant eigenvector of $A$ and estimate the dominant eigenvalue.
+
+a.
+```{r}
+A.12.1.1.a = cbind( c(10,5,-1), c(-12,-5,0), c(-6,4,3) )
+powerit(A.12.1.1.a)
+```
+
+b.  This converges less rapidly because the two leading eigenvalues are similar in size:
+```{r}
+A.12.1.1.b = cbind( c(-14,-19,23), c(20,27,-32), c(10,12,-13) )
+powerit(A.12.1.1.b, niters=50)
+```
+
+c.
+```{r}
+A.12.1.1.c = cbind( c(8,12,-18), c(-8,-15,26), c(-4,-7,12) )
+powerit(A.12.1.1.c, niters=50)
+```
+
+d.  This converges very slowly because the two leading eigenvalues are similar in size:
+```{r}
+A.12.1.1.d = cbind( c(12,19,-35), c(-4,-19,52), c(-2,-10,27))
+powerit(A.12.1.1.d, niters=50)
+```
+
+

@@ -1,0 +1,600 @@
+---
+title: "Calculus Quiz 5: Prof. Kaplan"
+subtitle: "March 20, 2025"
+author: "Student name: __________________.            Do what you can in 30 minutes." 
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      left: 1cm
+      right: 1cm
+      top: 1cm
+      bottom: 8mm
+    columns: 2
+    shift-heading-level-by: -1
+    
+crossref:
+  chapters: true
+  exr-title: "Question"
+  exr-prefix: "Question"
+---
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+knitr::opts_chunk$set(results="asis", roman=TRUE)
+```
+
+
+
+
+```{r include=FALSE}
+library(devoirs)
+```
+
+[**Question 6.1**]{.underline}: 
+
+<!--#exr-drill-Quiz-2-11-->
+Which of these is a positive-going zero crossing of $g(t)$ where $$g(t) \equiv \sin\left(\frac{2\pi}{5}t-3\right)\ ?$$
+
+```{mcq}
+#| label: drill-Quiz-2-11
+#| show_hints: true
+#| inline: true
+1. $t=15/2\pi$ [correct hint: Excellent! This makes the $\frac{2\pi}{5}t$ component go to 3, which cancels out the -3. ]
+2. $t = 2 \pi/15$ 
+3. $t = 3$ [ hint: Notice that the argument is **not** $\frac{2\pi}{5}(t-3)$. ]
+4. None of the above 
+```
+
+
+
+[**Question 6.2**]{.underline}: 
+
+<!-- exr-drill-M01-5-->
+What is the **change** in the value of $f()$ when the input goes from 2 to 4?     
+Assume $f(x) \equiv 2 x + 1$    
+
+```{mcq}
+#| label: drill-M01-5
+#| show_hints: true
+#| inline: true
+1. -4 
+2. -2 
+3. 2 
+4. 4 [correct]
+5. 9 
+```
+
+
+[**Question 6.3**]{.underline}: 
+
+<!-- exr-drill-M01-6-->
+What is the **rate of change** in the value of $f()$ when the input goes from 2 to 4?     
+Assume $f(x) \equiv 2 x + 1$   
+
+```{mcq}
+#| label: drill-M01-6
+#| show_hints: true
+#| inline: true
+1. -2 
+2. -4 
+3. 2 [correct]
+4. 4 [ hint: You've calculated the net change, not the rate of change. ]
+5. 9 
+```
+
+
+[**Question 6.4**]{.underline}: 
+
+```{r echo=FALSE}
+#| label: fig-rev2-03b
+#| fig-cap: "A periodic function"
+#| out-width: "60%"
+slice_plot(2 * sin(2*pi*(t+2.5)/5)  + 1 ~ t, domain(t = -5.2 : 5.2)) |>
+  gf_refine(scale_x_continuous(breaks = -5:5)) |>
+  gf_theme(axis.text = element_text(size = 16),
+           axis.title = element_text(size = 16))
+```
+
+<!--exr-drill-Quiz-2-22-->
+What is the period of the function graphed in @fig-rev2-03b?
+
+```{mcq}
+#| label: drill-Quiz-2-22
+#| show_hints: true
+#| inline: true
+1. 1 
+2. 2 
+3. 3 
+4. 4 
+5. 5 [correct]
+```
+
+[**Question 6.5**]{.underline}: 
+
+If $t$ is measured in seconds and $A$ is measured in feet, what will be the dimension of $A \sin(2\pi t/P)$ when $P$ is two hours? 
+
+```{mcq}
+#| label: drill-Dimensions-17
+#| show_hints: true
+#| inline: true
+1. L [correct]
+2. T [ hint: Remember, the output of $\sin()$ is dimensionless. ]
+3. L/T [ hint: Remember, the output of $\sin()$ is dimensionless. ]
+```
+
+ 
+
+ 
+
+[**Question 6.6**]{.underline}: 
+
+Which one of these is **not** the derivative of a pattern-book function?   
+
+```{mcq}
+#| label: drill-Pattern-book-derivs-14
+#| show_hints: true
+#| inline: true
+1. Reciprocal [ hint: The reciprocal is the derivative of the logarithm. ]
+2. Zero [ hint: Zero is the derivative of the constant function. ]
+3. One [ hint: The constant function 1 is the derivative of the identity function $x$. ]
+4. Sigmoid [correct hint: right-o There is some function whose derivative is the sigmoid, but it is not a function that we've discussed and it is not much (or ever!?) used in modeling. ]
+```
+
+
+
+[**Question 6.7**]{.underline}: 
+
+<!--exr-drill-Polynomials-3-->
+Imagine a second-order polynomial in three inputs: $x$, $y$, and $z$, like this: 
+$$b_0 + b_x x  + b_{xy} xy + b_{xz} xz + b_{xx} x^2 + b_z z\ +$$ 
+$$ \ \ \ \ \ + b_y y + b_{yy} y^2 + b_{zz} z^2\ .$$ 
+All of the possible second-order (or less) terms are shown, except for one. Which term is missing?  
+
+```{mcq}
+#| label: drill-Polynomials-3
+#| show_hints: true
+1. the interaction between $y$ and $z$ [correct]
+2. the quadratic term in $z$ 
+3. the linear term in $y$ 
+4. the constant term 
+```
+
+
+[**Question 6.8**]{.underline}: 
+
+
+```{r echo=FALSE}
+#| label: fig-power-law-neg
+#| fig-cap: "Pay attention to the axis scale."
+#| out-width: "60%"
+slice_plot(10 - 2*x ~ x, domain(x = 0 : 5), size=2)  |>
+  gf_labs(y = "log(output)", x = "log(input)") |>
+  gf_theme(axis.text = element_text(size = 16),
+           axis.title = element_text(size = 16))
+```
+
+<!--exr-drill-Scales-2-->
+What is the correct form for the relationship shown in @fig-power-law-neg?
+
+```{mcq}
+#| label: drill-Scales-2
+#| show_hints: true
+1. $g(x) \equiv 10 x^{-2}$ [ hint: When $x=0$, the ln(output) is 10. This isn't the same as saying the output is 10. ]
+2. $g(x) \equiv e^{10} e^{-1.5 x}$ [ hint: Check the slope again ]
+3. $g(x) \equiv e^{10} x^{-2}$ [correct hint: right-o Isn't it a decaying function of $x$? ]
+4. $g(x) \equiv e^10 x^{-1.5}$ [ hint: Check the slope. ]
+```
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+[**Question 6.9**]{.underline}: 
+
+Suppose $a = 25$ft and $d = 1$meter
+
+Is this combination dimensionally valid? $$\sqrt[3]{a^2 d}$$ Why or why not?
+
+```{mcq}
+#| label: drill-Dimensions-5
+#| show_hints: true
+1. Invalid. You cannot raise a dimensionful quantity to a non-integer power. [hint: You can always raise a dimensionful quantity to an integer power. And, if the result of raising to the non-integer power is to produce dimensions that have integer powers, that is valid, too. ]
+2. Valid. $a^2 d$ is a volume: L$^3$. The cube root of L$^3$ is L. [correct]
+3. Invalid. 25 feet squared is 625 square feet. It makes no sense to multiply square feet by meters. [hint: Why not? 625 square-feet meters is a volume. It has dimension L$^3$. Admittedly a strange unit, but no stranger than the "acre-foot" used to measure agricultural irrigation. ]
+```
+
+
+[**Question 6.10**]{.underline}: 
+
+
+```{r echo=FALSE}
+#| label: fig-rev2-04
+#| fig-cap: "A bump function"
+#| out-width: "60%"
+slice_plot(2 * dnorm(t,-1, 2)  + 1 ~ t, domain(t = -5.2 : 5.2)) |>
+  gf_refine(scale_x_continuous(breaks = -5:5)) |>
+  gf_theme(axis.text = element_text(size = 16),
+           axis.title = element_text(size = 16))
+```
+
+<!--exr-drill-Quiz-2-8-->
+One of the following choices is the standard deviation of the function graphed in @fig-rev2-04. Which one?
+
+```{mcq}
+#| label: drill-Quiz-2-8
+#| show_hints: true
+#| inline: true
+1. 0 [ hint: A gaussian with 0 standard deviation would be infinitely narrow and infinitely high! ]
+2. 1 
+3. 2 [correct]
+4. 3 [ hint: Remember the rule of thumb---half-width at half-height ]
+5. 4 
+```
+
+
+[**Question 6.11**]{.underline}: 
+
+Engineers often prefer to describe sinusoids in terms of their *frequency* $\omega$, writing the function as $\sin(2 \pi \omega t)$, where $t$ is time. 
+
+What is the dimension of $\omega$? 
+
+```{mcq}
+#| label: drill-Dimensions-18
+#| show_hints: true
+#| inline: true
+1. T$^{-1}$ [correct hint: Nice. A common unit of frequency is Hertz (Hz), sometimes called "cycles per second."]
+2. T [hint: This would mean the input to $\sin()$ has dimension T$^2$. But $\sin()$ only makes sense for a dimensionless input.]
+3. T$^2$ [hint: This would mean the input to $\sin()$ has dimension T$^3$. But $\sin()$ only makes sense for a dimensionless input.]
+```
+
+
+[**Question 6.12**]{.underline}: 
+
+Which pattern-book function is the **anti-derivative** of the gaussian $\text{dnorm()}$? 
+
+
+
+
+[**Question 6.13**]{.underline}: 
+
+What is $\partial_{x} \ln(x)/x^2$? (Hint: A simple trick will turn the division into multiplication!) 
+
+```{mcq}
+#| label: drill-Deriv-rules-12
+#| show_hints: true
+1. $-2 x^{-1} \ln(x)$ 
+2. $-2 x^{-3} \ln(x)$ 
+3. $x^{-3} \left(1 - 2 \ln(x)\right)$ [correct]
+4. $-2 x^{-3} \left(1/x - 1\right)$ 
+```
+
+ 
+
+ 
+
+ 
+
+[**Question 6.14**]{.underline}: 
+
+```{r echo=FALSE}
+#| label: fig-pieces-03
+#| fig-cap: "A wiggly function"
+#| out-width: "60%"
+f3 <- makeFun(ifelse(abs(x) > 1, x, x^3) ~ x)
+slice_plot(f3(x) ~ x, domain(x = -2 : 2)) |>
+  gf_theme(axis.text = element_text(size = 16),
+           axis.title = element_text(size = 16))
+```
+
+<!--exr-drill-Piecewise-3-->
+
+Which of the following tilde-expressions could be used to generate the graph in @fig-pieces-03?
+
+```{mcq}
+#| label: drill-Piecewise-3
+#| show_hints: true
+1. `ifelse(x > 1, 1, x^2) ~ x` 
+2. `ifelse(x > 0, sin(x), x) ~ x` 
+3. `ifelse(abs(x) > 1, x, x^3) ~ x` [correct]
+4. `ifelse(abs(x) > 1, x^3, x) ~ x` 
+5. `ifelse(abs(x) > 1, x, exp(x^2)) ~ x` 
+```
+
+
+
+[**Question 6.15**]{.underline}: 
+
+Which of the following shapes of functions is **not** allowed? If the shape is allowed, make a tiny drawing of the shape next to the item.
+
+1. Increasing and concave up. 
+2. Decreasing and concave up. 
+3. Increasing and concave down. 
+4. Decreasing and concave down. 
+5. None of them are allowed. 
+6. All of them are allowed. 
+
+[**Question 6.16**]{.underline}: 
+
+1. Which of the following is the reason that $$\displaystyle{\lim_{x\rightarrow 0}\sin (1/x)}$$ does not exist?
+
+```{mcq}
+#| label: csc4-1
+#| show_hints: true
+1. Because no matter how close $x$ gets to $0$, there are $x$'s near $0$ for which $\sin(1/x) =1$, and some for which $\sin (1/x)=-1$. [correct]
+2. Because the function values oscillate around $0$ [ hint: They do oscillate. But oscillation is OK so long as the amplitude of the oscillation goes to zero. ]
+3. Because $1/0$ is undefined. [ hint: The point of defining something as a $\lim_{x\rightarrow 0}$ is to avoid setting the input exactly to 0. ]
+4. all of the above 
+```
+
+
+
+[**Question 6.17**]{.underline}: 
+
+You're not expected to get this one, but write down an idea about how you might go about finding the answer.
+
+Find the derivative of $g(x)^{f(x)}$
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+[**Question 6.18**]{.underline}: 
+
+Using  $f'()$ and $g'()$ to stand for the derivatives $\partial_x f(x)$ and $\partial_x g(x)$, write down the derivative w.r.t. $x$ of each of these functions:
+
+
+1. $A f(x) + B$
+
+ 
+
+2. $f(x) g(x)$
+
+ 
+
+3. $f(x) + g(x)$
+
+ 
+
+4. $\log(g(x))$
+
+ 
+
+5. $\exp(f(x))$
+
+ 
+
+6. $f(g(x))$ 
+
+ 
+
+7. $1/g(x)$ 
+
+ 
+
+8. $\left| \ g(x))\ \right|$
+
+
+
+
+[**Question 6.19**]{.underline}: 
+
+$H()$ is the Heaviside ("step") function. Write down the derivative of $H(x) g(x)$.
+
+ 
+
+ 
+
+[**Question 6.20**]{.underline}: 
+
+For the function $$h(u) \equiv \ln(a^2 u - \sqrt{b})$$ is the interior function linear? 
+
+```{mcq}
+#| label: drill-M08-3
+#| show_hints: true
+#| inline: true
+1. Yes [correct]
+2. No [ hint: Although $a^2$ and $\sqrt{b}$ appear to be nonlinear, they are not the inputs to the function. The function input is named $u$, and that appears in a strictly linear manner. If we had written the interior function as $9 u - 4$, you would have had no problem recognizing it as linear. We can equally well write this as $3^2 u - \sqrt{4}$; it is the same function and it is still linear in $u$. ]
+```
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+[**Question 6.21**]{.underline}: 
+
+Which of these is $\partial_t \left(ln(6)+t^4-e^t\right)$?
+
+```{mcq}
+#| label: drill-Deriv-rules-12a
+#| show_hints: true
+1. $\frac{1}{6}+4t^3-e^t$
+2. $\frac{1}{6}+4t^3-e^{-t}$
+3. $4t^3-e^{-t}$
+4. $4t^3-e^t$ [correct] 
+```
+
+ 
+
+ 
+
+ 
+
+[**Question 6.22**]{.underline}: 
+
+Which of these is a reasonable definition of a derivative?   
+
+```{mcq}
+#| label: drill-Pattern-book-derivs-13
+#| show_hints: true
+1. A derivative is a function whose value tells, for any input, the instantaneous rate of change of the function from which it was derived. [correct]
+2. A derivative is the slope of a function. [hint: For functions that aren't straight lines, it does not mean anything to speak of "the slope" because the slope varies from place to place. Always remember that the derivative of a function is another **function**.]
+3. A derivative is a function whose value tells, for any input, the instantaneous change of the function from which it was derived. [hint: Not a bad start but a crucial word was left out. It should say, "the instantaneous **rate** of change". "Instantaneous" and "rate" go hand in hand.]
+```
+
+[**Question 6.23**]{.underline}: 
+
+What is $\partial_y \partial_x \left[\ a_0 + a_1 x + b_1 y + c x y + a_2 x^2 + b_2 y^2 \ \right]$?  
+
+```{mcq}
+#| label: PD18
+#| show_hints: true
+#| inline: true
+1. $c$  [correct] 
+2.  $2 a_2$ [hint: $a_2 x^2$ doesn't survive $\partial_y$.]
+3.  $2 b_2$ [hint: $b_2 y^2$ doesn't survive $\partial_x$.] 
+4.  $0$ 
+```
+
+
+[**Question 6.24**]{.underline}: 
+
+::: {#fig-rev2-05}
+![](www/rev2-05.png)
+
+An imagined terrain.
+:::
+
+
+You are standing in the terrain shown in @fig-rev2-05, the position $(x=-1,y=4)$. In terms of the compass points (where north would be up and east to the right), which direction points most steeply uphill from where you are standing. 
+
+```{mcq}
+#| label: drill-Quiz-2-19
+#| show_hints: true
+#| inline: true
+1. NE [correct]
+2. SE 
+3. SW [ hint: it is steep in this direction, but **downhill**! ]
+4. NW 
+```
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+
+
+[**Question 6.25**]{.underline}: 
+
+::: {#fig-6-25-terrain}
+```{r echo=FALSE}
+f <- mosaicCalc::doodle_fun(~ lat & long, seed=9372)
+contour_plot(20 + f(long, lat) ~ long & lat, domain(lat = -5:5, long = -5:5)) |>
+  gf_refine(coord_fixed())
+```
+
+A different terrain.
+:::
+
+On @fig-6-25-terrain, mark all local maximum with the letter "T" and all local minima with the letter "B." 
+
+ 
+
+ 
+
+ 
+
+[**Question 6.26**]{.underline}: 
+
+Again with respect to @fig-6-25-terrain, draw 10 gradient vectors at scattered points of your choice. Make the length of the vector (roughly) proportional to the steepness of the terrain. 
+
+[**Question 6.27**]{.underline}: 
+
+Using @fig-6-27-gradient mark every local maximum with "T" and every local minimum with "B." 
+
+::: {#fig-6-27-gradient}
+```{r echo=FALSE}
+f <- doodle_fun( ~ x & y, seed = 999)
+gradient_plot(f(x, y) ~ x & y, domain(x=-5:5, y=-5:5), npts=15) |>
+  gf_refine(coord_fixed())
+```
+
+A gradient field.
+:::
+
+ 
+
+ 
+
+[**Question 6.28**]{.underline}: 
+
+For the function $f(x)$, write down the first five terms of the Taylor polynomial expansion around $x_0 = 0$. Use prime notation, for instance $f''(x)$
+
+ 
+
+ 
+
+
+[**Question 6.29**]{.underline}: 
+
+Here is a Taylor polynomial for a familiar, even, pattern-book function, centered on $x_0 = 2$.
+
+$$1 - \frac{(x - 2)^2}{2!} + \frac{(x-2)^4}{4!} + \ldots$$
+
+Paying attention only to the zeroth-order and second-order terms (that is, ignoring $(x-2)^4/4!$ and everything that might follow), expand out the second-order term algebraically and re-write the result in standard polynomial order (that is, $a_0 + a_1 x + a_2 x^2$).
+
+Is the resulting function even around $x=0$? Briefly explain the reasoning behind your conclusion?
+
+
+ 
+
+ 
+
+[**Question 6.30**]{.underline}: 
+
+::: {#fig-6-28-along-contours}
+```{r echo=FALSE}
+f <- doodle_fun(~ x & y, seed = 1023)
+dfdx <- D(f(x,y) ~ x)
+dfdy <- D(f(x,y) ~ y)
+vectorfield_plot( dx ~ dfdy(x, y), dy ~ -dfdx(x,y),
+                  domain(x = 0:3, y = 0:3),
+                  npts=15) |>
+  gf_refine(coord_fixed())
+```
+
+A vector field.
+:::
+
+Does the vector field in @fig-6-28-along-contours show the gradient of a function. Explain your reasoning.
+
+ 
+
+ 
+
+ 
+
+ 

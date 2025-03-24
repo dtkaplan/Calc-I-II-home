@@ -1,0 +1,144 @@
+---
+title: "Linear Algebra: Sorting by grade"
+author: DTK
+date: last-modified
+format: live-html
+desc: "Applying the SVD method to the Registrar database"
+---
+
+```{r include=FALSE}
+library(LSTbook)
+library(ggplot2)
+library(tidyr)
+```
+
+Re-arrange the grades into a matrix
+```{r message=FALSE}
+Whole <- LSTbook::Grades |>
+  left_join(LSTbook::Sessions) |>
+  left_join(LSTbook::Gradepoint)
+```
+
+How many students did each instructor teach?
+
+```{r}
+nstudents <- Whole |> 
+  summarize(count = n(), .by = iid) |>
+  arrange(desc(count))
+```
+
+Let's look only at instructors with more than 10 students.
+
+```{r}
+Keepers <-
+  nstudents |>
+  filter(count > 10) |>
+  left_join(All)
+```
+
+## Head-to-head competitions
+
+```{r}
+To <- Keepers |> select(sid, sessionID, gradepoint)
+From <- To |>
+  rename(sid2 = sid,  gradepoint2 = gradepoint)
+All <- To |> left_join(From) |> unique()
+Session_pos <- All |>
+  select(sessionID) |>
+  unique() |>
+  mutate(Session_pos = row_number())
+Student_pos <- All |>
+  select(sid) |>
+  unique() |>
+  mutate(Student_pos = row_number())
+
+All<- All |>
+  filter(sid < sid2) |>
+  mutate(pointdiff = gradepoint - gradepoint2) |>
+  left_join(Session_pos) |>
+  left_join(Student_pos) |>
+  left_join(Student_pos |> rename(sid2 = sid, Student2_pos = Student_pos))
+
+M <- matrix(0, nrow = nrow(All), ncol = nrow(Student_pos))
+
+Pos1 <- All |> select(Student_pos) |>
+  mutate(pos = row_number() + n()*(Student_pos - 1))
+Pos2 <- All |> select(Student2_pos) |>
+  mutate(pos = row_number() + n()*(Student2_pos - 1))
+M[Pos1$pos] <- 1
+M[Pos2$pos] <- -1
+rankings <- lm(All$pointdiff ~ M - 1)
+Result <- tibble::tibble(ranking = coef(rankings), sid = Student_pos$sid) |> 
+  arrange(desc(ranking))
+```
+
+Compare ranking to GPA
+```{r}
+Sidebyside <- Whole |> 
+  summarize(gpa = mean(gradepoint, na.rm = TRUE), .by = sid) |>
+  left_join(Result)
+
+Sidebyside |> ggformula::gf_point(gpa ~ ranking)
+```
+
+Now we have the gradepoints in a head to head competition
+
+
+
+## SVD approach, not working
+Break into an array, students on vertical axis, instructors on horizontal.
+
+MINI- PROJect on cleaning: Who are the duplicates?
+
+```{r}
+Mat <-
+  Keepers |> 
+  unique() |> # THERE ARE DUPLICATES
+  select(sessionID, sid, gradepoint) |>
+  pivot_wider(names_from = sid, 
+              values_from = gradepoint,
+              values_fn = ~ mean(.x))
+Mat[is.na(Mat)] <- 3.5
+```
+
+Make into a matrix
+```{r}
+Students <- names(Mat)
+Sessions <- Mat$sessionID
+Mat2 <- Mat |> select(-sessionID) |>
+  unlist() |> as.numeric() |> 
+  matrix(nrow = length(Sessions))
+```
+
+Do the SVD
+
+```{r}
+res <- svd( Mat2)
+a1 <- res$u[,1,drop=FALSE]
+b1 <- res$v[,1,drop=FALSE] |> t()
+a2 <- res$u[,2,drop=FALSE]
+b2 <- res$v[,2,drop=FALSE] |> t()
+```
+
+Show the raw data
+```{r}
+library(reshape2) # for melt
+melt( Mat2 ) |> 
+  ggplot( aes(x=Var1, y=Var2, fill=value)) +
+  geom_tile() +
+  scale_fill_gradient2() +
+  xlab("") + ylab("Student") 
+```
+
+Re-arrange according to principal vectors
+
+```{r}
+inds1 <- order(c(res$u[,1]))
+inds2 <- order(c(res$v[,1]))
+Sorted <- Mat2[ inds1, inds2 ]
+Sorted[1:50,1:50] |> melt() |> 
+  ggplot( aes(x=Var1, y=Var2, fill=value)) +
+  geom_tile() +
+  scale_fill_gradient2() +
+  xlab("") + ylab("Student") 
+```

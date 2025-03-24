@@ -1,5 +1,17 @@
 [
   {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/TEMPLATE/index-TOPIC.html",
+      "/projects/SVD-parliament/index-SVD-parliament.html",
+      "/projects/GPS/index-GPS.html",
+      "/projects/Fourier_transform/index-FFT.html",
+      "/projects/Dominant-eigenvalue/index-dominant-eigenvalue.html",
+      "/projects/Automatic-differentiation/index-AD.html",
+      "/projects/Life_expectancy/index-Life-expectancy.html"
+    ]
+  },
+  {
     "listing": "/posts.html",
     "items": [
       "/posts/2025-03-21-notes/index-03-21-2025.html",

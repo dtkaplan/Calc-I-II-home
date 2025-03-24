@@ -1,0 +1,91 @@
+---
+title: "Linear Algebra: GPS"
+author: DTK
+date: last-modified
+format: live-html
+description: "Solve for position and time!"
+---
+
+GPS data from SciComp2009 2009-03-24
+
+```{r}
+c.speed <- 299792.458 # km/sec
+
+sat.positions <- rbind(
+  c(15600,7540, 10380,.0593200),
+  c(11760, 2750, 16190, 0.0519200),
+  c(11610, 14630, 7680, 0.0624200),
+  c(15170, 610, 13320, 0.0557100))
+
+book.answer <-  cbind( -19.053, 11.318, 6370.252, -0.0000426)
+```
+
+## Software
+
+```{r}
+
+
+example.positions = rbind(
+  c(15600,7540, 10380,.0593200),
+  c(11760, 2750, 16190, 0.0519200),
+  c(11610, 14630, 7680, 0.0624200),
+  c(15170, 610, 13320, 0.0557100))
+
+example.positions2 = rbind(
+  c(15600,7540, 10380,.0593626),
+  c(11760, 2750, 16190, 0.0519626),
+  c(11610, 14630, 7680, 0.0624626),
+  c(15170, 610, 13320, 0.0557526))
+
+book.answer =  cbind( -19.053, 11.318, 6370.252, -0.0000426)
+
+book.answer2 = cbind( -19.053, 11.318, 6370.252, 0) 
+```
+
+# take A,B,C,t as vectors and return a function of vec= (x,y,z,d)
+```{r}
+# find the transit times for light
+find.times <- function( pos, where ) {
+  res = rep(0, nrow(pos))
+  for (k in 1:nrow(pos) ) {
+    res[k] = sqrt( sum((pos[k,1:3] - where[1:3])^2) )/c.speed
+  }
+  return( res ) 
+}
+  
+r.sat <- function( pos ) {
+  A=pos[,1]; B=pos[,2]; C=pos[,3]; t=pos[,4];
+  res = function(vec) {
+    v = cbind(sqrt((vec[1] - A)^2 + (vec[2] -B)^2 + (vec[3]-C)^2) -
+      (c.speed*(t-vec[4])))
+    return( cbind( c(v)))
+  }
+  return(res)
+}
+
+Dr.sat <- function( pos ) {
+  A=pos[,1]; B=pos[,2]; C=pos[,3]; t=pos[,4];
+  res = function(vec) {
+     dr = matrix(0, nrow=nrow(pos), ncol=4)
+     for (k in 1: nrow(pos) ) {
+       S = sqrt(sum((vec[1:3] - pos[k,1:3])^2))
+       dr[k,1:3] = (vec[1:3]-pos[k,1:3])/S
+       dr[k,4] = c.speed
+     }
+     return(dr)
+   }
+  return(res)
+}
+  
+iterate <- function(pos, start, n = 5) {
+  rfun = r.sat( pos )
+  Drfun = Dr.sat( pos )
+  x = cbind(c(start)); # make it a column matrix
+  for (k in 1:n ) {
+    r = rfun(x)
+    Dr = Drfun(x)
+    v = solve( t(Dr)%*%Dr, -t(Dr)%*%r)
+    x = x + v
+  }
+  return(x)
+}

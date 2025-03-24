@@ -1,0 +1,143 @@
+---
+title: "Derivatives: Automatic differentiation"
+author: DTK
+date: last-modified
+format: live-html
+desc: "Implementing the 'Rules' numerically"
+---
+
+We would teach the "rules" differently if using a different notation.
+
+A straightforward numerical technique for evaluating the derivative of a function at the same time that the function itself is created.
+
+The basic idea is this: suppose that you have a value $y(x)$ along with its derivative $dy/dx$.  When you compute $z = f(y)$, you can compute $dz/dx$ pretty simply: $dz/dx = f'(y) dy/dx$.  Now you have $z$ and $dz/dx$, which can be used in additional computations.
+
+For binary operations, e.g., $w = y + z$, there are similar rules for the derivative: $dw/dx = 
+dy/dx + dz/dx$.  
+
+
+The following code sets up a data type called \texttt{ad}  that holds the value along with its derivative.  It then defines a series of functions (e.g., exp, ln, ...) where $f'$ is known to override the native functions.
+
+```{r}
+# functions for automatic differentiation
+as.ad = function(first, second=1){ 
+  foo = list(first = first, second=second)
+  class(foo) = 'ad'
+  return(foo)
+}
+``` 
+
+Next, define the binary and unary functions in a way that carries forward the derivative.
+```{r}
+"+.ad" = function(a,b){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  if (is.numeric(b)) b = as.ad(b, 0)
+  res = as.ad( a$first+b$first, a$second+b$second ) 
+  return(res)
+}
+"-.ad" = function(a,b){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  if (is.numeric(b)) b = as.ad(b, 0)
+  res = as.ad( a$first-b$first, a$second-b$second ) 
+  return(res)
+}
+"*.ad" = function(a,b){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  if (is.numeric(b)) b = as.ad(b, 0)
+  res = as.ad( a$first*b$first, a$second*b$first + a$first*b$second ) 
+  return(res)
+}
+"/.ad" = function(a,b){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  if (is.numeric(b)) b = as.ad(b, 0)
+  f = a$first/b$first  
+  res = as.ad( f, (a$second - f*b$second)/b$first ) 
+  return(res)
+}
+pow.ad = function(a,b){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  if (is.numeric(b)) b = as.ad(b, 0)
+  k = log(a$first)
+  f = exp(b$first*k) 
+  res = as.ad( f, f*(k*b$second + b$first*a$second/a$first))
+  return(res)
+}
+"^.ad" = function(a,n){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  if (n >= 1) {
+     k = a$first^(n-1)
+     res = as.ad( k*a$first, n*k*a$second)
+  } else {
+     f = a$first^n
+     res = as.ad( f, n*f*a$second/a$first )
+  }
+  return(res)
+}
+sqrt.ad = function(a) {
+  if (is.numeric(a)) a = as.ad(a, 0)
+  f = sqrt(a$first)
+  res = as.ad( f, a$second/(2*f))
+  return(res)
+}
+exp.ad = function(a){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  f = exp(a$first)
+  res = as.ad( f, f*a$second)
+  return(res)
+}
+log.ad = function(a){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  res = as.ad( log(a$first), a$second/a$first)
+  return(res)
+}
+abs.ad = function(a){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  res = as.ad( abs(a$first), sign(a$first)*a$second)
+  return(res)
+}
+sin.ad = function(a){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  res = as.ad( sin(a$first), cos(a$first)*a$second)
+  return(res)
+}
+cos.ad = function(a){
+  if (is.numeric(a)) a = as.ad(a, 0)
+  res = as.ad( cos(a$first), 0-sin(a$first)*a$second)
+  return(res)
+}
+
+print.ad = function(a) {
+  hoo = cbind( a$first, a$second)
+  colnames(hoo) = c('Value', 'Deriv')
+  print(hoo)
+  invisible(a)
+}
+``` 
+
+To carry out a computation, just use the above defined functions rather than the native functions.  This is done automatically if the type of a quantity is ``ad.''
+
+For example, here is the variable $x$ with value 3 written as an ``ad''
+```{r}
+x = as.ad(3)
+x
+```
+
+Notice that the derivative of this value with respect to $x$ is 1.  It's important to remember that $x$ is not a constant, it is a variable whose value is 3.
+
+To illustrate, calculate $x + 2$.  The value should be 5, and the derivative with respect to $x$ should be 1:
+```{r}
+x + 2
+``` 
+
+More complicated derivatives:
+```{r}
+x^2
+abs(x)
+abs(x-5)
+sin(x)
+sin(x)^2 + cos(x)^2
+sin(x^2 + abs(x) - cos(abs(x))^2)
+``` 
+
+This approach to differentiation can be extended to 2nd (and presumably higher-order) derivatives, and to Jacobians and Hessians.
+

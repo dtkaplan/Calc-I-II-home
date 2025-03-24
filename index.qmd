@@ -21,109 +21,123 @@ All of us are busy people and need to regulate how much time we spend on each ac
 
 ## Day-by-day schedule
 
+## Week 1
 
-
-::: {.callout-note}
-## 22. Tuesday 4 March
-
-Topics: Derivatives of assembled functions
-
-Reading: *MOSAIC Calculus* [Chap 23 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/23-rules.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/23-reading.html)
-
-Assignment due: [Chapter 22 Exercises](https://dtkaplan.github.io/MC-Workbook/22-exercises.html)
-:::
-
-::: {.callout-note}
-## 23 Thursday 6 March
-
-Topics: Optimization
-
-Reading: *MOSAIC Calculus* [Chap 24 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/24-optim.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/24-reading.html)
-
-Assignment due: [Chapter 23 Exercises](https://dtkaplan.github.io/MC-Workbook/23-exercises.html)
-
-QUIZ
-:::
-
-::: {.callout-note}
-## 24. Friday 7 March
-
-Topics: Partial differentiation & the gradient vector
-
-Reading: *MOSAIC Calculus* [Chap 25 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/25-partial.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/25-reading.html)
-
-Assignment due: [Chapter 24 Exercises](https://dtkaplan.github.io/MC-Workbook/24-exercises.html)
-
-:::
-
-
-::: {.callout-note}
-## 25. Tuesday 11 March
-
-Topics: 
-
-Reading: *MOSAIC Calculus* [Chap 26 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/26-approximation.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/26-reading.html)
-
-Assignment due: [Chapter 25 Exercises](https://dtkaplan.github.io/MC-Workbook/25-exercises.html)
-
-:::
-
-::: {.callout-note}
-## 26 Thursday 13 March
-
-Topics: Taylor polynomials
-
-Reading: *MOSAIC Calculus* [Chap 27 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/27-taylor.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/27-reading.html)
-
-Assignment due: [Chapter 26 Exercises](https://dtkaplan.github.io/MC-Workbook/26-exercises.html)
-
-:::
-
-
-::: {.callout-note}
-## 27. Friday 14 March
-
-Topics: Catch-up & projects with differentiation
-
-Reading: *MOSAIC Calculus* [Differentiation projects ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/Differentiation-projects.html) 
-
-
-Assignment due: [Chapter 27 Exercises](https://dtkaplan.github.io/MC-Workbook/27-exercises.html)
-
-QUIZ on differentiation
-:::
-
-::: {.callout-note}
-## 28. Tuesday 18 March
+### Tuesday April 1
 
 Topics: This is the start of a new Block about representing high-dimensional spaces and basic operations on their inhabitants: Vectors and subspaces.
 
 Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/28-reading.html)
 
-Assignment due: 
-:::
+### Thursday April 3
 
-::: {.callout-note}
-## 29 Thursday 20 March
-
-Topics: Linear combinations of vectors
+Linear combinations of vectors
 
 Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/29-reading.html)
 
 Assignment due: [Chapter 28 Exercises](https://dtkaplan.github.io/MC-Workbook/28-exercises.html)
-:::
 
 
-::: {.callout-note}
-## 30. Friday 21 March
+### Friday April 4
 
-Last day of this term!
+## Week 2
 
-Review and preview of Spring term component of the course.
+### Tuesday April 8
 
-QUIZ (30 minutes): Overview of the course.
 
-:::
+
+### Thursday April 10
+
+
+### Friday April 11
+
+
+## Week 3
+
+### Tuesday April 15
+
+
+
+### Thursday April 17
+
+
+### Friday April 18
+
+## Week 4
+
+### Tuesday April 22
+
+
+### Thursday April 24
+
+
+### Friday April 25
+
+## Week 5
+
+### Tuesday April 29
+
+
+### Thursday Map 1
+
+
+### Friday May 2
+
+## Week 6
+
+### Tuesday May 13
+
+
+### Thursday May 15
+
+
+### Friday May 16
+
+## Week 7
+
+### Tuesday May 20
+
+
+### Thursday May 22
+
+
+### Friday May 23
+
+## Week 8
+
+### Tuesday May 27
+
+
+### Thursday May 29
+
+
+### Friday May 30
+
+## Week 9
+
+### Tuesday June 3
+
+
+### Thursday June 5
+
+
+### Friday June 6
+
+## Week 10
+
+### Tuesday June 10
+
+### Thursday June 12
+
+### Friday June 13
+
+
+
+
+
+-------
+
+## Previous Winter term
 
 
 
@@ -369,6 +383,94 @@ Topics: Continuity & smoothness
 Reading: *MOSAIC Calculus* [Chap 22 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/22-cont-and-smooth.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/22-reading.html)
 
 Assignment due: [Chapter 21 Exercises](https://dtkaplan.github.io/MC-Workbook/20-exercises.html)
+
+::: {.callout-note}
+## 22. Tuesday 4 March
+
+Topics: Derivatives of assembled functions
+
+Reading: *MOSAIC Calculus* [Chap 23 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/23-rules.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/23-reading.html)
+
+Assignment due: [Chapter 22 Exercises](https://dtkaplan.github.io/MC-Workbook/22-exercises.html)
+:::
+
+::: {.callout-note}
+## 23 Thursday 6 March
+
+Topics: Optimization
+
+Reading: *MOSAIC Calculus* [Chap 24 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/24-optim.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/24-reading.html)
+
+Assignment due: [Chapter 23 Exercises](https://dtkaplan.github.io/MC-Workbook/23-exercises.html)
+
+QUIZ
+
+## 24. Friday 7 March
+
+Topics: Partial differentiation & the gradient vector
+
+Reading: *MOSAIC Calculus* [Chap 25 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/25-partial.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/25-reading.html)
+
+Assignment due: [Chapter 24 Exercises](https://dtkaplan.github.io/MC-Workbook/24-exercises.html)
+
+
+## 25. Tuesday 11 March
+
+Topics: 
+
+Reading: *MOSAIC Calculus* [Chap 26 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/26-approximation.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/26-reading.html)
+
+Assignment due: [Chapter 25 Exercises](https://dtkaplan.github.io/MC-Workbook/25-exercises.html)
+
+## 26 Thursday 13 March
+
+Topics: Taylor polynomials
+
+Reading: *MOSAIC Calculus* [Chap 27 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/27-taylor.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/27-reading.html)
+
+Assignment due: [Chapter 26 Exercises](https://dtkaplan.github.io/MC-Workbook/26-exercises.html)
+
+## 27. Friday 14 March
+
+Topics: Infinite series, decimal expansions, convergence 
+
+Reading: *MOSAIC Calculus* [Differentiation projects ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/Differentiation-projects.html) 
+
+
+Assignment due: [Chapter 27 Exercises](https://dtkaplan.github.io/MC-Workbook/27-exercises.html)
+
+QUIZ on differentiation
+
+
+## 28. Tuesday 18 March
+
+Topics: Do we need high order? 
+
+Recursive calculation of sin, exp, log(x+1) to produce x near zero and obviate need for
+high-order polynomial approximations. 
+
+Assignment due: 
+
+
+## 29 Thursday 20 March
+
+Topics: Complex exponentials, damped pendulum
+
+Low-order, multi-equation differential systems as opposed to high order. Example: Coupled pendula
+
+
+
+QUIZ (30 minutes): Overview of the course.
+
+## 30. Friday 21 March
+
+Last day of this term!
+
+Review and preview of Spring term component of the course.
+
+
+
+
 
 
 

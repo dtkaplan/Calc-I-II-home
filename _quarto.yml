@@ -12,6 +12,8 @@ website:
         text: Basics
       - href: posts.qmd
         text: Class notes and posts
+      - href: projects.qmd
+        text: Project topics
 
 format:
   html:
