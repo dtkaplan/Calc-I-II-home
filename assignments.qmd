@@ -1,0 +1,8 @@
+---
+title: "Daily assignments"
+listing: 
+  contents: assignments 
+  type: table 
+  sort: "date" # can also sort on more than one field
+  categories: true # allows you to sort posts by assigned categories 
+---

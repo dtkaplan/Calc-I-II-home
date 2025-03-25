@@ -1,0 +1,90 @@
+---
+title: MOSAIC Assignment 34
+date: 2025-04-03
+format: html
+categories: [linear algebra]
+---
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(LSTbook)
+library(devoirs)
+```
+
+
+
+::: {.callout-warning collapse=true}
+## Background software: the man behind the curtain
+
+These are functions written in support of the exercises. You don't need to read them.
+```{webr-r}
+#| autorun: true
+```
+:::
+
+## Basic operations
+
+::: {#exr-34-1}
+
+
+:::
+<!-- end of exr-34-1 -->
+
+
+
+::: {#exr-34-2}
+
+
+:::
+<!-- end of exr-34-2 -->
+
+
+
+
+
+::: {#exr-34-3}
+
+
+:::
+<!-- end of exr-34-3 -->
+
+```{webr-r}
+plot_antiD <- function(f, Fbrush = NULL) {
+  suppressWarnings({
+    P <- slice_plot(f(t) ~ t, domain(t=c(-5, 5))) |>
+      gf_hline(yintercept = 0, color="dodgerblue") |>
+      gf_labs(y ="f(t)",
+              title = "f(t), the derivative of F(t)") |>
+      gf_refine(scale_x_continuous(breaks = (-5):5))
+  })
+  if (! is.null(Fbrush)) {
+    Area <- tibble(
+      t = seq(Fbrush$xmin, Fbrush$xmax, length=100),
+      y = f(t)
+    )
+    Neg_area <- Area %>% filter(y < 0)
+    P <- P |> gf_ribbon(0 + y ~ t, data = Area, inherit=FALSE,
+                         fill = "dodgerblue", color=NA, alpha = 0.3) 
+    if (nrow(Neg_area) > 0)
+      P <- P |>
+      gf_ribbon(0 + y ~ t, data=Neg_area %>% filter(y < 0), inherit = FALSE,
+                fill = "orange3", color = NA, alpha = 0.3)
+  }
+  P
+}
+```
+
+```{webr-r}
+plot_antiD(doodle_fun(~ x), list(xmin=3, xmax=4))
+```
+
+`r devoirs_text("cor-by-dot-R2")`
+
+
+
+`r devoirs_start_no_link()`
+
+
+```{r echo=FALSE}
+devoirs_end()
+```

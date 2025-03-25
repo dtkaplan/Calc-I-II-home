@@ -11,6 +11,7 @@ Assignments:
 
 - *Exercises* are due by the class day after they are assigned. 
 
+All of us are busy people and need to regulate how much time we spend on each activity. For UATX calculus, make sure to complete the readings and reading questions. The chapter-by-chapter exercises are also important for learning and as a component of the grade, but you are not obliged (unless otherwise stated) to do *all* the exercises. More is better. Exercises marked as "in-class" are not required homework.
 
 
 ::: {.callout-note}
