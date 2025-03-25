@@ -1,0 +1,23 @@
+---
+title: "Dynamics: Coupled pendula"
+author: DTK
+date: last-modified
+format: live-html
+desc: "Forcing and synchrony"
+---
+
+## Pendulum dynamics
+
+## The forced pendulum and resonance
+
+Using exponential ansatz and confirming numerically
+
+## Two pendula
+
+First set up the DEs with independent pendula, then add in coupling terms.
+
+## Many pendula
+
+How strong a coupling will produce synchrony?
+
+Can driving one pendulum drive them all?

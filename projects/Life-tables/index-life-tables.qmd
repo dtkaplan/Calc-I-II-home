@@ -1,0 +1,10 @@
+---
+title: "Life tables "
+author: DTK
+date: last-modified
+format: live-html
+desc: "Calculus for life and death"
+categories: [Accumulation]
+---
+
+See <https://dtkaplan.github.io/MC-Workbook/Block-3-models.html>

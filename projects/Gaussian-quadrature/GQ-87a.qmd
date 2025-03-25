@@ -1,0 +1,32 @@
+```{r}
+#| label: GQ-87a
+gaussquad <- function(f, a = -1, b = 1, order = 4, ...) {
+  foo = gausspts(order)
+  x = foo$roots
+  vals = x
+  x = ((b-a)*x + b + a)/2
+  for (k in 1:length(vals) )  vals[k] = f(x[k], ...)
+  return( (b-a)*sum(foo$coefs*vals)/2)
+}
+
+gausspts <-  function(n=2){
+  if (n==1)
+    return( list(roots=0, coefs=2))
+  if (n==2)
+    return(list(roots=c(-1,1)*.57735026918963, coefs = c(1,1) ))
+  if (n==3)
+    return(list(roots=c(-1,0,1)*.77459666924148, coefs = c(5,8,5)/9 ))
+  if (n==4)
+    return(list(roots=c(-1,0,0,1)*.86113631159405 + c(0,-1,1,0)*0.33998104358486,
+                coefs = (90+c(-1,1,1,-1)*5*sqrt(30))/180))
+  if (n==5) {
+    middle = sqrt(5 - 2*sqrt(10/7))/3
+    outer =  sqrt(5 + 2*sqrt(10/7))/3
+    middlew = (322 + 13*sqrt(70))/900
+    outerw = (322 - 13*sqrt(70))/900
+    return(list(roots=c(-outer,-middle,0,middle,outer), coefs=c(outerw,middlew, 128/225, middlew, outerw)))
+    }
+  else
+    stop("Untabulated order for Gaussian Quadrature")
+}
+```

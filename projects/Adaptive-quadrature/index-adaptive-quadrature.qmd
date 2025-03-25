@@ -4,10 +4,16 @@ author: DTK
 date: last-modified
 format: live-html
 desc: "Making it smaller when you need to"
+categories: [accumulation, recursion, numerical]
 ---
 
 Translated from Sauer program 5.2 on p. 271
+
+{{< include ../Gaussian-quadrature/GQ-87a.qmd >}}
+
+
 ```{r}
+#| label: AQ-1a
 trap = function(f,a,b,...) {
   return( (f(a,...) + f(b,...))*(b-a)/2)
 }
@@ -50,12 +56,14 @@ Use adaptive quadrature to approximate the integral
 $$ \int_{-1}^1 (1 + \sin( e^{3x} ) dx . $$
 
 ```{r}
+#| label: AQ-1b
 example.5.12 = function(x){1 + sin(exp(3*x))}
 ```
 
 Adaptive quadrature with trapezoidal rule
 
 ```{r}
+#| label: AQ-1c
 res = adapquad( example.5.12, a=-1, b=1, integrator=trap )
 plot( example.5.12, -1, 1, n=1000 )
 points( res$pts, example.5.12(res$pts), pch=20)
@@ -65,6 +73,7 @@ rug( res$pts )
 Adaptive quadrature with Simpson's rule
 
 ```{r}
+#| label: AQ-1d
 res = adapquad( example.5.12, a=-1, b=1, integrator=simpson )
 plot( example.5.12, -1, 1, n=1000 )
 points( res$pts, example.5.12(res$pts), pch=20)
@@ -74,6 +83,7 @@ rug( res$pts )
 Adaptive quadrature with Gaussian quadrature
 
 ```{r}
+#| label: AQ-1e
 res = adapquad( example.5.12, a=-1, b=1, integrator=gaussquad )
 plot( example.5.12, -1, 1, n=1000 )
 points( res$pts, example.5.12(res$pts), pch=20)
@@ -83,6 +93,7 @@ rug( res$pts )
 Repeating, but with a finer tolerance:
 
 ```{r}
+#| label: AQ-1f
 res = adapquad( example.5.12, a=-1, b=1, integrator=gaussquad, tol=0.000001 )
 plot( example.5.12, -1, 1, n=1000 )
 points( res$pts, example.5.12(res$pts), pch=20)

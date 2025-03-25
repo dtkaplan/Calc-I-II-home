@@ -1,0 +1,10 @@
+---
+title: "Factory production"
+author: DTK
+date: last-modified
+format: live-html
+desc: "A model of the balance of capital and labor"
+categories: [derivatives]
+---
+
+See <https://dtkaplan.github.io/MC-Workbook/Block-2-models.html#labor-vs-capital>

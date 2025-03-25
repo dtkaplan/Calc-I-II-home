@@ -1,0 +1,79 @@
+---
+author: DTK
+date: 2025-03-21
+number-offset: 29
+format: live-html
+---
+
+# 2025-04-01 class notes
+
+Review of objects and operations:
+
+## Mathematical object types
+
+1. Quantities. Have a unit and a `Dimension` e.g. L, T, L T^-2^ and so on.
+    - symbolic notation: names from the start of the alphabet, names with subscripts, names with special superscripts, e.g. $x^\star$.
+    - parameters have their own naming conventions: $P, k, \omega, \tau$, ...
+
+2. Spaces. Sets of possibilities. In calculus, we are usually interested in **continuous spaces** such as the number line. 
+    - symbolic notation: often letters from the end of the alphabet: $t, u, v, w, x, y, z$.
+    - dimension or "degrees of freedom." Continuous spaces are often composed from lower-dimensional spaces. The number line has dimension 1 and is often denoted $\mathbb{R}$. 
+    - One notation for composed spaces looks like $(x, y)$. The dimension is the number of spaces involved (or, really, the sum of the dimensions of the individual spaces). Generic notation, $\mathbb{R}^2$.
+    - Heads up ... In the linear algebra block, we will be specifying spaces using sets of vectors. Will need to distinguish between the number of vectors specified and the "rank" of the set of vectors. Also, we will see spaces with names like $\vec{x}$.
+    
+3. Functions. A transformation from an **input space** to an **output space**. 
+    - Domain: the input space covered by the function
+    - Range: the output space
+    - We have focussed on output spaces that are $\mathbb{R}$, but we are going to get more general. The "gradient" is a function with a higher-dimensional output space. 
+    - Notation: 
+          - Definition $$f(x,y,z) \equiv \text{some formula or algorithm involving the inputs}$$
+          - Refering to function, either $f()$ or $f(x,y,z)$.
+          
+## Operations
+
+This will get a little abstract for operations that we haven't yet encountered. Don't worry.
+
+
+1. Evaluation. Provide quantity values to a function as inputs and recieve back the corresponding output. $f(a, b, c)$ or $f(x_0, y_1, z_3)$ or, as we are about to see, $f(\vec{x})$.
+    
+2. Visualization. Making a graphical depiction of a function by displaying the input space and the output space.
+    - `slice_plot()` suitable for functions $\mathbb{R} \rightarrow \mathbb{R}$
+    - `contour_plot()` suitable for functions $\mathbb{R^2} \rightarrow \mathbb{R}$
+    - Barely touched on last tem: `vectorfield_plot()` for functions $\mathbb{R^2} \rightarrow \mathbb{R}^2$
+    - Another possible $\mathbb{R^2} \rightarrow \mathbb{R}^2$ graphic is a "domain to range mapping." This is fairly common for graphing functions with a complex number input and output. But we won't need this.
+    
+3. Solving, which we will call "zero-finding." For polynomials, this is called "root finding."
+    - The `mosaicCalc::Zeros()` function handles $\mathbb{R} \rightarrow \mathbb{R}$ functions.
+    - For $\mathbb{R}^2 \rightarrow \mathbb{R}$ functions, use `contour_plot()` or reduce the dimension of the input space by "Currying."
+    - Basic iterative method: Newton's method $$x_{i+1} = x_{x} - f(x)/f'(x)$. With linear algebra techniques, we will be able to handle $\mathbb{R}^n \rightarrow \mathbb{R}$ functions.
+    
+4. Currying. Reducing the dimension of the input space. We haven't seen this much yet but will have many uses for it, for example with parametric plots for trajectories.
+    - General idea: start with $f(x, y)$ then restrict input to a subspace, e.g. $f(x, a x + b)$. Trajectories are $f(x(t), y(t))$, which is a function of $t$.
+    
+5. Finding argmaxes or argmin of an "objective function." 
+    - Read from slice plots (trivial) or contour plots.
+    - `mosaicCalc::argM()` for $\mathbb{R} \rightarrow \mathbb{R}$ functions
+    - For $\mathbb{R}^n \rightarrow \mathbb{R}$ functions, we will have a variety of methods: quadratic approximation, iteration.
+    - Newton's method: $$x_{i+1} = x_{x} - f'(x)/f''(x)$. With linear algebra techniques, we will be able to handle $\mathbb{R}^n \rightarrow \mathbb{R}$
+    - Later on, we'll look at objectives $\mathbb{R}^n \rightarrow \mathbb{R}^m$. This is handled by "constrained optimization." 
+    
+6. Differentiation. Takes a function $\mathbb{R}^n \rightarrow \mathbb{R}$ and gives back a function $\mathbb{R}^n \rightarrow \mathbb{R}^n$.
+    i. When $n = 1$, this is just the conventional $\partial_x f(x)$
+    ii. When $n > 1$, derivative with respect to one input is the "partial derivative." In contrast, we sometimes differentiate with respect to all $n$ inputs.this is the gradient, which is $n$ functions of $n$ inputs.
+    iii. For the future ... differentiating $n$ functions of $n$ inputs will give us $n^2$ functions of $n$ inputs. 
+    
+7. Anti-differentiation and accumulation/integration. 
+    i. So far, we've only considered the anti-derivatives of the basic-modeling functions, that is finding the function whose derivative will be the one we already have in hand.
+    ii. We'll start this in a couple of weeks.
+    iii. In the *dynamics* block, we'll accumulate several derivatives simultaneously.
+    
+8. Constructing functions from data
+    i. So far, we've done this by finding parameters, e.g. by `model_train()` or `fitModel()`. This will be an important application of linear algebra.
+    ii. More generally, "machine-learning" methods can be applied.
+    iii. Later, we'll look at "interpolating functions" and "smoothers" and "splines." 
+    
+9. Future: "Transformation" or "re-basing." Referring to a space using a new set of coordinates.
+    i. Fourier transforms, singular-value-decomposition, eigenvectors
+    ii. In physics, transformation to polar, cylindrical, or spherical coordinates is common, but we won't touch on these. 
+    
+    

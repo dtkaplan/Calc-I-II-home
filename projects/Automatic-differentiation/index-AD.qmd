@@ -1,9 +1,10 @@
 ---
-title: "Derivatives: Automatic differentiation"
+title: "Automatic differentiation"
 author: DTK
 date: last-modified
 format: live-html
 desc: "Implementing the 'Rules' numerically"
+categories: [derivatives, recursion]
 ---
 
 We would teach the "rules" differently if using a different notation.

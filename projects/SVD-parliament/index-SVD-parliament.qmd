@@ -1,19 +1,21 @@
 ---
-title: "Linear Algebra: SVD in politics"
+title: "SVD in politics"
 author: DTK
 date: last-modified
 format: live-html
 description: "Machine learning of political orientation"
+categories: [linear algebra, matrices, SVD]
 ---
 
 ```{r include=FALSE}
+library(dplyr)
 library(ggplot2)
 ```
 
 It often happens that a variable carries little information that's relevant to the task at hand.  Even for variables that are informative, there can be redundancy or near duplication of variables.  That is, two or more variables are giving essentially the same information; they have similar patterns across the cases.  
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 # Get the party names
 Parties <-  read.csv("www/VotesS1-tally.csv", as.is=TRUE, 
                       header=FALSE, nrows=1,
@@ -82,9 +84,11 @@ As an example of such a situation, consider votes in a parliament or congress. T
 Table \@ref(tab:scot-votes-small) shows a small part of the voting record. The names of the members of parliament are the cases.  Each ballot --- identified by a file number such as "S1M-4.3" --- is a variable. A $1$ means an aye vote, $-1$ is nay, and $0$ is an abstention.  There are more than 130 members and more than 700 ballots.  It's impractical to show all of the 100,000+ votes in a table.  But there are only 3 levels for each variable, so displaying the table as an image might work. (Figure \@ref(fig:raw-parliament-votes))
 
 
-```{r west-virginia-tartan, echo=FALSE, out.width = "50%", fig.cap="A tartan pattern, in this case the official tartan of West Virginia University."}
-knitr::include_graphics("Images/WestVirginiaTartan-small.png")
-```
+::: {#fig-west-virginia-tartan}
+![](www/WestVirginiaTartan.jpg)
+
+A tartan pattern, in this case the official tartan of West Virginia University.
+:::
 
  <!-- (http://upload.wikimedia.org/wikipedia/commons/d/d0/West-Virginia-University-Official-Tartan.jpg) -->
 
@@ -140,9 +144,9 @@ For a graphic, one is limited to using two variables for position.  Clustering, 
 
 
 ```{r scottish-clustering, echo=FALSE,caption="The correspondence between cluster membership and actual party affiliation.", show_n=7}
-with(Best, table( Party <- actualParty, cluster)) %>%
-  data.frame() %>% 
-  spread(key=cluster,value=Freq) %>%
+with(Best, table( Party <- actualParty, cluster)) |>
+  data.frame() |> 
+  tidyr::pivot_wider(names_from = cluster, values_from = Freq) |>
   rename(`party     . . . . . . . . .           cluster`=Var1)
 ```
 

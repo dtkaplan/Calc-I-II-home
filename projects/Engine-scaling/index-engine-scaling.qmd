@@ -1,0 +1,10 @@
+---
+title: "Linear Algebra: Engine scaling"
+author: DTK
+date: last-modified
+format: live-html
+desc: "Finding physical relationships in data"
+---
+
+See <https://dtkaplan.github.io/MC-Workbook/Block-1-models.html#engine-scaling>
+

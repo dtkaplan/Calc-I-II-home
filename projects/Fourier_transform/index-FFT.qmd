@@ -1,8 +1,12 @@
 ---
-title: "Linear Algebra: Fourier Transforms"
+title: "Fourier Transforms"
 author: DTK
 format: live-html
 date: last-modified
+description: "Operating in the frequency domain"
+categories: [linear algebra, numerical]
 ---
 
 SciComp2009 2009-04-30
+
+fourier.pdf

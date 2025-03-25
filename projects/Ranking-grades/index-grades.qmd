@@ -1,9 +1,10 @@
 ---
-title: "Linear Algebra: Sorting by grade"
+title: "Ranking by grade"
 author: DTK
 date: last-modified
 format: live-html
-desc: "Applying the SVD method to the Registrar database"
+desc: "Applying a sports ranking method to the Registrar database"
+categories: [linear algebra]
 ---
 
 ```{r include=FALSE}
@@ -22,6 +23,7 @@ Whole <- LSTbook::Grades |>
 How many students did each instructor teach?
 
 ```{r}
+#| label: grades-42s
 nstudents <- Whole |> 
   summarize(count = n(), .by = iid) |>
   arrange(desc(count))
@@ -30,15 +32,22 @@ nstudents <- Whole |>
 Let's look only at instructors with more than 10 students.
 
 ```{r}
+#| label: grades-42t
 Keepers <-
   nstudents |>
   filter(count > 10) |>
-  left_join(All)
+  left_join(Whole)
 ```
+
+## Method
+
+<https://maherou.github.io/Teaching/files/CS317/masseyMethod.pdf>
+
 
 ## Head-to-head competitions
 
 ```{r}
+#| label: grades-42lu
 To <- Keepers |> select(sid, sessionID, gradepoint)
 From <- To |>
   rename(sid2 = sid,  gradepoint2 = gradepoint)
@@ -74,6 +83,7 @@ Result <- tibble::tibble(ranking = coef(rankings), sid = Student_pos$sid) |>
 
 Compare ranking to GPA
 ```{r}
+#| label: grades-42lv
 Sidebyside <- Whole |> 
   summarize(gpa = mean(gradepoint, na.rm = TRUE), .by = sid) |>
   left_join(Result)
@@ -91,6 +101,7 @@ Break into an array, students on vertical axis, instructors on horizontal.
 MINI- PROJect on cleaning: Who are the duplicates?
 
 ```{r}
+#| label: grades-42lw
 Mat <-
   Keepers |> 
   unique() |> # THERE ARE DUPLICATES
@@ -103,6 +114,7 @@ Mat[is.na(Mat)] <- 3.5
 
 Make into a matrix
 ```{r}
+#| label: grades-42lx
 Students <- names(Mat)
 Sessions <- Mat$sessionID
 Mat2 <- Mat |> select(-sessionID) |>
@@ -113,6 +125,7 @@ Mat2 <- Mat |> select(-sessionID) |>
 Do the SVD
 
 ```{r}
+#| label: grades-42ly
 res <- svd( Mat2)
 a1 <- res$u[,1,drop=FALSE]
 b1 <- res$v[,1,drop=FALSE] |> t()
@@ -122,6 +135,7 @@ b2 <- res$v[,2,drop=FALSE] |> t()
 
 Show the raw data
 ```{r}
+#| label: grades-42lz
 library(reshape2) # for melt
 melt( Mat2 ) |> 
   ggplot( aes(x=Var1, y=Var2, fill=value)) +
@@ -133,6 +147,7 @@ melt( Mat2 ) |>
 Re-arrange according to principal vectors
 
 ```{r}
+#| label: grades-52la
 inds1 <- order(c(res$u[,1]))
 inds2 <- order(c(res$v[,1]))
 Sorted <- Mat2[ inds1, inds2 ]

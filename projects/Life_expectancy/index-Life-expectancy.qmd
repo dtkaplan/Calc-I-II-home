@@ -1,8 +1,9 @@
 ---
-title: "Accumulation: Life expectancy"
+title: "Life expectancy"
 author: DTK
 date: last-modified
 format: live-html
+categories: [accumulation]
 ---
 
 SciComp2009 2009-04-30

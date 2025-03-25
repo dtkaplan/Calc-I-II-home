@@ -1,0 +1,11 @@
+---
+title: "Walking uphill"
+author: DTK
+date: last-modified
+format: live-html
+desc: "A modeling warm-up"
+categories: [Preliminaries]
+---
+
+See <https://dtkaplan.github.io/MC-Workbook/Block-1-models.html#walking-uphill>
+

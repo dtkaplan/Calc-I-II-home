@@ -1,9 +1,10 @@
 ---
-title: "Linear Algebra: GPS"
+title: "Global positioning"
 author: DTK
 date: last-modified
 format: live-html
 description: "Solve for position and time!"
+categories: [linear algebra]
 ---
 
 GPS data from SciComp2009 2009-03-24
