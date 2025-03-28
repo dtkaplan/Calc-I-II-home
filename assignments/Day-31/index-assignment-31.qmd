@@ -38,6 +38,19 @@ library(devoirs)
 {{< include ../../../../MC-Workbook/Block_3/duck-do-pantry.qmd >}}
 :::
 
+::: {#exr-titmouse-stand-pantry}
+{{< include ../../../../MC-Workbook/Block_3/titmouse-stand-pantry.qmd >}}
+:::
+
+::: {#exr-cat-understand-car}
+{{< include ../../../../MC-Workbook/Block_3/cat-understand-car.qmd >}}
+:::
+
+::: {#exr-kid-become-pants}
+{{< include ../../../../MC-Workbook/Block_3/kid-become-pants.qmd >}}
+:::
+
+
 ## Part2: Computing
 
 ### Basic operations
