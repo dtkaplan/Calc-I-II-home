@@ -1,0 +1,10 @@
+---
+title: "A modeling framework for epidemics"
+author: DTK
+date: last-modified
+format: live-html
+desc: "The SIR model and some of its uses"
+categories: [dynamics, health]
+---
+
+See <https://dtkaplan.github.io/MC-Workbook/Block-5-models.html>

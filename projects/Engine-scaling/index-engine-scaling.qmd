@@ -4,6 +4,7 @@ author: DTK
 date: last-modified
 format: live-html
 desc: "Finding physical relationships in data"
+categories: [linear algebra, automobiles, Week1]
 ---
 
 See <https://dtkaplan.github.io/MC-Workbook/Block-1-models.html#engine-scaling>

@@ -3,11 +3,13 @@ project:
   output-dir: docs
 
 website:
-  title: "UATX Calc-I-II, AY 2025"
+  title: "UATX MOSAIC Calculus, AY 2025"
   navbar:
     left:
       - href: index.qmd
         text: Home
+      - href: mosaic.qmd
+        text: "Why mosaic?"
       - href: basics.qmd
         text: Basics
       - href: posts.qmd

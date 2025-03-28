@@ -1,3 +1,7 @@
+---
+subject: software for Gausian Quadrature
+---
+
 ```{r}
 #| label: GQ-87a
 gaussquad <- function(f, a = -1, b = 1, order = 4, ...) {

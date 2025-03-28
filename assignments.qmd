@@ -1,8 +1,10 @@
 ---
-title: "Daily assignments"
+title: "Weekly assignments"
 listing: 
   contents: assignments 
   type: table 
   sort: "date" # can also sort on more than one field
   categories: true # allows you to sort posts by assigned categories 
 ---
+
+Refer to the [class schedule](index.html) for the due date for each assignment. Some of these are in development and may not be assigned. 

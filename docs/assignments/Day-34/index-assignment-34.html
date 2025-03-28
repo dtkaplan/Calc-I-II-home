@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2025-04-03">
 
-<title>MOSAIC Assignment 34 – UATX Calc-I-II, AY 2025</title>
+<title>MOSAIC Assignment 34 – UATX MOSAIC Calculus, AY 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -367,7 +367,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"plot_antiD <- function(f, Fbrush = NULL) {\n  suppressWarnings({\n    P <- slice_plot(f(t) ~ t, domain(t=c(-5, 5))) |>\n      gf_hline(yintercept = 0, color=\"dodgerblue\") |>\n      gf_labs(y =\"f(t)\",\n              title = \"f(t), the derivative of F(t)\") |>\n      gf_refine(scale_x_continuous(breaks = (-5):5))\n  })\n  if (! is.null(Fbrush)) {\n    Area <- tibble(\n      t = seq(Fbrush$xmin, Fbrush$xmax, length=100),\n      y = f(t)\n    )\n    Neg_area <- Area %>% filter(y < 0)\n    P <- P |> gf_ribbon(0 + y ~ t, data = Area, inherit=FALSE,\n                         fill = \"dodgerblue\", color=NA, alpha = 0.3) \n    if (nrow(Neg_area) > 0)\n      P <- P |>\n      gf_ribbon(0 + y ~ t, data=Neg_area %>% filter(y < 0), inherit = FALSE,\n                fill = \"orange3\", color = NA, alpha = 0.3)\n  }\n  P\n}","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"plot_antiD(doodle_fun(~ x), list(xmin=3, xmax=4))","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"vec <- function(...) {\n  vals <- list(...) |> unlist()\n  matrix(vals, ncol=1)\n}\nrvec <- function(first, ..., rfun=rnorm) {\n  dots <- c(first, list(...)) |> unlist()\n  if (length(dots) == 1) {\n    dots <- rfun(dots[[1]])\n  }\n\n  vec(dots)\n}\n\nveclen <- function(v) sqrt(v %dot% v)\nunitvec <- function(vec) vec/length(vec)\ncang <- function(v, w) {(v %dot% w) / (veclen(v) * veclen(w))}\n","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"plot_antiD <- function(f, Fbrush = NULL) {\n  suppressWarnings({\n    P <- slice_plot(f(t) ~ t, domain(t=c(-5, 5))) |>\n      gf_hline(yintercept = 0, color=\"dodgerblue\") |>\n      gf_labs(y =\"f(t)\",\n              title = \"f(t), the derivative of F(t)\") |>\n      gf_refine(scale_x_continuous(breaks = (-5):5))\n  })\n  if (! is.null(Fbrush)) {\n    Area <- tibble(\n      t = seq(Fbrush$xmin, Fbrush$xmax, length=100),\n      y = f(t)\n    )\n    Neg_area <- Area %>% filter(y < 0)\n    P <- P |> gf_ribbon(0 + y ~ t, data = Area, inherit=FALSE,\n                         fill = \"dodgerblue\", color=NA, alpha = 0.3) \n    if (nrow(Neg_area) > 0)\n      P <- P |>\n      gf_ribbon(0 + y ~ t, data=Neg_area %>% filter(y < 0), inherit = FALSE,\n                fill = \"orange3\", color = NA, alpha = 0.3)\n  }\n  P\n}","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"plot_antiD(doodle_fun(~ x), list(xmin=3, xmax=4))","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -1633,7 +1633,7 @@ globalThis.qwebrExecuteCode = async function (
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">UATX Calc-I-II, AY 2025</span>
+    <span class="navbar-title">UATX MOSAIC Calculus, AY 2025</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -1645,6 +1645,10 @@ globalThis.qwebrExecuteCode = async function (
   <li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../mosaic.html"> 
+<span class="menu-text">Why mosaic?</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../basics.html"> 
@@ -1997,26 +2001,31 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Background software: the man behind the curtain
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>These are functions written in support of the exercises. You don’t need to read them.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</div>
 <section id="basic-operations" class="level2">
 <h2 class="anchored" data-anchor-id="basic-operations">Basic operations</h2>
+<p>The <code>{mosaicCalc}</code> package provides you with a small set of basic vector operations.</p>
+<ul>
+<li><code>v %dot% w</code> - the dot product between <code>v</code> and <code>w</code>. Output: scalar.</li>
+<li><code>v %onto% w</code> - a decomposition operation giving the component of <code>v</code> aligned with <code>w</code>. Output: vector</li>
+<li><code>v %perp% w</code> - another decomposition operation. The component of <code>v</code> perpendicular to <code>w</code>. Output: vector</li>
+</ul>
+<p>In addition, you have some functions you wrote for [Day 31]{../index-assignment-31.html} that have been pre-loaded into this assignment.</p>
+<ul>
+<li><code>cang(v, w)</code> the cosine of the angle between <code>v</code> and <code>w</code>. Output: scalar</li>
+<li><code>unitvec(v)</code> produces a vector aligned with <code>v</code> but with unit length. Output: vector</li>
+<li><code>veclen(v)</code> calculates the length of <code>v</code>. Output: scalar.</li>
+</ul>
+<div class="{exr-34-project-write}">
+<p>Your task is to write your own <code>onto()</code> function, that will perform the same task as <code>%onto</code>. You can accomplish this with <code>cang()</code>, <code>unitvec()</code>, and <code>veclen()</code>, along with multiplication.</p>
+<p><embed src="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html#fig-b-onto-a" class="img-fluid"></p>
+<p>Projection onto a single vector</p>
+</div>
+<p>Projection onto orthogonal vectors</p>
+<p>Projection onto an arbitrary vector set</p>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div id="exr-34-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1</strong></span> &nbsp;</p>
 </div>
@@ -2029,9 +2038,9 @@ Background software: the man behind the curtain
 <p><span class="theorem-title"><strong>Exercise 3</strong></span> &nbsp;</p>
 </div>
 <!-- end of exr-34-3 -->
-<div id="qwebr-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p><textarea id="cor-by-dot-R2" name="cor-by-dot-R2" class="devoirs-text" rows="4" cols="50" placeholder="Type here. (ID cor-by-dot-R2)"></textarea></p>
 <span id="devoirs-docID" style="display: none;">index-assignment-34.rmarkdown</span> <button onclick="devoirsSubmit()">Collect your answers</button>

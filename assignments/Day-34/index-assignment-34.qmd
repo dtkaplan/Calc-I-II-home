@@ -9,21 +9,152 @@ categories: [linear algebra]
 library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
+{{< include ../prelim-31.R >}}
+{{< include ../prelim-34.R >}}
 ```
 
-
-
-::: {.callout-warning collapse=true}
-## Background software: the man behind the curtain
-
-These are functions written in support of the exercises. You don't need to read them.
 ```{webr-r}
 #| autorun: true
+#| context: setup
+{{< include ../prelim-31.R >}}
+{{< include ../prelim-34.R >}}
+```
+
+## By hand and eye
+
+::: {#exr-by-hand-A}
+
+```{r echo=FALSE}
+solve_for(c("u", "w", "b1"))
+```
+
+What will be the signs on the multipliers of $\vec{u}$ and $\vec{w}$ to construct $\vec{b}_1$? (You don't have to give the multipliers themselves, just their signs.)
+
+```{mcq}
+#| label: by-hand-A
+1. positive for $\vec{u}$, positive for $\vec{w}$
+2. positive for $\vec{u}$, negative for $\vec{w}$ [correct]
+3. negative for $\vec{u}$, positive for $\vec{w}$
+4. negative for $\vec{u}$, negative for $\vec{w}$
 ```
 :::
 
-## Basic operations
+::: {#exr-by-hand-B}
 
+```{r echo=FALSE}
+solve_for(c("x", "b2", "v"))
+```
+
+What will be the signs on the multipliers of $\vec{x}$ and $\vec{v}$ to construct $\vec{b}_2$? (You don't have to give the multipliers themselves, just their signs.)
+
+```{mcq}
+#| label: by-hand-B
+1. positive for $\vec{x}$, positive for $\vec{v}$
+2. positive for $\vec{x}$, negative for $\vec{v}$ [correct]
+3. negative for $\vec{x}$, positive for $\vec{v}$
+4. negative for $\vec{x}$, negative for $\vec{v}$
+```
+:::
+
+
+
+
+## Computing
+
+The `{mosaicCalc}` package provides you with a small set of basic vector operations.
+
+- `b %dot% a` - the dot product between `b` and `a`. Output: scalar.
+- `b %onto% a` - a decomposition operation giving the component of `b` aligned with `a`. Output: vector
+- `b %perp% a` - another decomposition operation. The component of `b` perpendicular to `a`. Output: vector
+
+In addition, you have some functions you wrote for [Day 31]{../index-assignment-31.html} that have been pre-loaded into this assignment.
+
+- `cang(b, a)` the cosine of the angle between `b` and `a`. Output: scalar
+- `unitvec(a)` produces a vector aligned with `s` but with unit length. Output: vector
+- `veclen(b)` calculates the length of `b`. Output: scalar.
+
+::: {exr-34-project-write}
+Your task is to write your own `onto()` function, that will perform the same task as `%onto`. You can accomplish this with `cang()`, `unitvec()`, and `veclen()`, along with multiplication. The geometry is shown in @fig-b-onto-a, which projects `b` onto `a` and gives as output the vector `s`.
+
+::: {#fig-b-onto-a}
+![](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/www/project-b-onto-a.png)
+The geometry of projecting $\vec{b}$ onto $\vec{a}$, producing vector $\vec{s}$. Source: Fig 30.4 of *MOSAIC Calculus*](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html#fig-b-onto-a)
+:::
+
+1. Define your `onto()` function.
+```{webr-r}
+#| label: define-onto-fun
+onto <- function(a, b) {
+  
+}
+```
+
+2. Write some test statements to confirm that your `onto()` does the same thing as `%onto%`.
+
+```{webr-r}
+#| label: test-onto-fun
+
+
+```
+
+:::
+
+A graphic for vectors and target points.
+
+```{r echo=FALSE}
+
+```
+
+::: {#exr-solvefor1}
+Find the multipliers for the linear combination to construct $\vec{b}_1$ from $\vec{u}$ and $\vec{w}$.
+
+```{r echo=FALSE}
+solve_for(c("u", "w", "b1"))
+```
+
+```{webr-r}
+#| label: solvefor1
+u <- vec()
+w <- vec()
+b1 = vec()
+qr.solve(cbind(  ),  )
+```
+:::
+
+::: {#exr-solvefor2}
+Find the multipliers for the linear combination to construct $\vec{b}_2$ from $\vec{y}$ and $\vec{w}$.
+
+```{r echo=FALSE}
+solve_for(c("y", "w", "b2"))
+```
+
+```{webr-r}
+#| label: solvefor2
+y <- vec()
+w <- vec()
+b2 = vec()
+qr.solve( )
+```
+:::
+
+
+
+
+::: {#exr-make-matrix}
+
+
+:::
+
+Projection onto orthogonal vectors
+
+Projection onto an arbitrary vector set
+
+
+
+
+```{webr-r}
+
+```
 ::: {#exr-34-1}
 
 
@@ -46,37 +177,7 @@ These are functions written in support of the exercises. You don't need to read 
 
 
 :::
-<!-- end of exr-34-3 -->
 
-```{webr-r}
-plot_antiD <- function(f, Fbrush = NULL) {
-  suppressWarnings({
-    P <- slice_plot(f(t) ~ t, domain(t=c(-5, 5))) |>
-      gf_hline(yintercept = 0, color="dodgerblue") |>
-      gf_labs(y ="f(t)",
-              title = "f(t), the derivative of F(t)") |>
-      gf_refine(scale_x_continuous(breaks = (-5):5))
-  })
-  if (! is.null(Fbrush)) {
-    Area <- tibble(
-      t = seq(Fbrush$xmin, Fbrush$xmax, length=100),
-      y = f(t)
-    )
-    Neg_area <- Area %>% filter(y < 0)
-    P <- P |> gf_ribbon(0 + y ~ t, data = Area, inherit=FALSE,
-                         fill = "dodgerblue", color=NA, alpha = 0.3) 
-    if (nrow(Neg_area) > 0)
-      P <- P |>
-      gf_ribbon(0 + y ~ t, data=Neg_area %>% filter(y < 0), inherit = FALSE,
-                fill = "orange3", color = NA, alpha = 0.3)
-  }
-  P
-}
-```
-
-```{webr-r}
-plot_antiD(doodle_fun(~ x), list(xmin=3, xmax=4))
-```
 
 `r devoirs_text("cor-by-dot-R2")`
 

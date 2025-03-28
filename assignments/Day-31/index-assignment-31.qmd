@@ -10,44 +10,37 @@ library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
 
-vec <- function(...) {
-  vals <- list(...) |> unlist()
-  matrix(vals, ncol=1)
-}
-rvec <- function(first, ..., rfun=rnorm) {
-  dots <- c(first, list(...)) |> unlist()
-  if (length(dots) == 1) {
-    dots <- rfun(dots[[1]])
-  }
-    
-  vec(dots)
-}
+{{< include ../prelim-31.R >}}
 ```
 
 
-::: {.callout-warning collapse=true}
-## Background software: the man behind the curtain
-
-You likely won't understand these two programs. They are needed to support the rest of the exercises, but are written in a standard dialect of R.
 ```{webr-r}
 #| autorun: true
-# generate a random vector with the specified components
-rvec <- function(first, ..., rfun=rnorm) {
-  dots <- c(first, list(...)) |> unlist()
-  if (length(dots) == 1) {
-    dots <- rfun(dots[[1]])
-  }
-    
-  vec(dots)
-}
-vec <- function(...) {
-  vals <- list(...) |> unlist()
-  matrix(vals, ncol=1)
-}
+#| context: setup
+{{< include ../prelim-31.R >}}
 ```
+
+## Part 1: By hand and eye
+
+::: {#exr-girl-send-scarf}
+{{< include ../../../../MC-Workbook/Block_3/girl-send-scarf.qmd >}}
 :::
 
-## Basic operations
+-----
+
+::: {#exr-panda-think-plate}
+{{< include ../../../../MC-Workbook/Block_3/panda-think-plate.qmd >}}
+:::
+
+-----
+
+::: {#exr-duck-do-pantry}
+{{< include ../../../../MC-Workbook/Block_3/duck-do-pantry.qmd >}}
+:::
+
+## Part2: Computing
+
+### Basic operations
 
 a. Use `vec()` to create a vector from individual components (*scalars*). Example:
 
@@ -87,7 +80,7 @@ vec(.....) %dot% vec(.....) # four dimensional vecs
 ```
 :::
 
-## Write these functions and tests
+### Write these functions and tests
 
 ::: {#exr-31-make_veclen}
 Use `%dot%`, `sqrt()`, and `/` to calculate the length of a vector
@@ -222,7 +215,7 @@ Galton |> model_train(..tilde..) |> R2()
 Explain whether the results correspond or not.
 :::
 
-## Orthogonality
+### Orthogonality
 
 ::: {#exr-create-orthogonal1}
 Create vectors that are orthogonal to each of these and confirm your answer using `cang()`

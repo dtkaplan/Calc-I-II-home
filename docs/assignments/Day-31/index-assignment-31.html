@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2025-03-31">
 
-<title>MOSAIC Assignment 31 – UATX Calc-I-II, AY 2025</title>
+<title>MOSAIC Assignment 31 – UATX MOSAIC Calculus, AY 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -401,7 +401,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"# generate a random vector with the specified components\nrvec <- function(first, ..., rfun=rnorm) {\n  dots <- c(first, list(...)) |> unlist()\n  if (length(dots) == 1) {\n    dots <- rfun(dots[[1]])\n  }\n    \n  vec(dots)\n}\nvec <- function(...) {\n  vals <- list(...) |> unlist()\n  matrix(vals, ncol=1)\n}","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"vec(3, 6, -9)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"assignment-31-a","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"rvec(5)","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"u <- vec(1, 2, 3)\nv <- vec(3, 2, 1)\nu %dot% v","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"assignment-31-b","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"vec(.....) %dot% vec(.....) # two dimensional vecs\nvec(.....) %dot% vec(.....) # three dimensional vecs\nvec(.....) %dot% vec(.....) # four dimensional vecs","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"dot-test-cases","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"veclen <- function(v) {\n  .....\n}","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"write-length","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"veclen( ..... ) == .....\nveclen( ..... ) == .....\nveclen( ..... ) == .....","id":7,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"length-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"unitvec <- function(vec) {\n  \n}","id":8,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"normalize-vec","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Add your tests here","id":9,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unitvec-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Here's a test of mine\nvec <- rvec(3)\nveclen(\n  length(vec) *  unitvec(vec) -\n  vec\n)","id":10,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-10","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"cang <- function(v, w) {\n  .....\n}","id":11,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"write-cang","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"cang( ....., ..... ) == cos(0)\ncang( ....., ..... ) == cos(pi/4)\ncang( ....., ..... ) == cos(pi/2)\ncang( ....., ..... ) == cos(pi)","id":12,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"cang-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"cor_by_dot <- function(data, tilde) {\n  left <- data[[tilde[[2]]]]\n  right <- data[[tilde[[3]]]]\n  left <- left - mean(left)\n  right <- right - mean(right)\n\n  cang(left, right)\n}","id":13,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"find-r","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Galton |> cor_by_dot(..tilde..)\nGalton |> model_train(..tilde..) |> R2()","id":14,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"cor-by-dot-test","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"u <- vec(1, 2, 3)\nv <- vec(3, 1, 2, 4)\nw <- vec(5, 6, -1, 2, 7)\northu <- vec() # fill in your values!\northv <- vec()\northw <- vec()\ncang(u, orthu )\ncang(v, orthv)\ncang(w, orthw)","id":15,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"make-ortho-test","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"dtk_ortho <- function(M) {\n  new <- rvec(nrow(M))\n  qr.Q(\n    qr(cbind(M, new))\n  )[ , ncol(M) + 1]\n}","id":16,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"dtk-ortho","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Your tests here","id":17,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"dtk-ortho-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"vec <- function(...) {\n  vals <- list(...) |> unlist()\n  matrix(vals, ncol=1)\n}\nrvec <- function(first, ..., rfun=rnorm) {\n  dots <- c(first, list(...)) |> unlist()\n  if (length(dots) == 1) {\n    dots <- rfun(dots[[1]])\n  }\n\n  vec(dots)\n}","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"vec(3, 6, -9)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"assignment-31-a","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"rvec(5)","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"u <- vec(1, 2, 3)\nv <- vec(3, 2, 1)\nu %dot% v","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"assignment-31-b","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"vec(.....) %dot% vec(.....) # two dimensional vecs\nvec(.....) %dot% vec(.....) # three dimensional vecs\nvec(.....) %dot% vec(.....) # four dimensional vecs","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"dot-test-cases","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"veclen <- function(v) {\n  .....\n}","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"write-length","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"veclen( ..... ) == .....\nveclen( ..... ) == .....\nveclen( ..... ) == .....","id":7,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"length-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"unitvec <- function(vec) {\n  \n}","id":8,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"normalize-vec","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Add your tests here","id":9,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unitvec-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Here's a test of mine\nvec <- rvec(3)\nveclen(\n  length(vec) *  unitvec(vec) -\n  vec\n)","id":10,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-10","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"cang <- function(v, w) {\n  .....\n}","id":11,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"write-cang","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"cang( ....., ..... ) == cos(0)\ncang( ....., ..... ) == cos(pi/4)\ncang( ....., ..... ) == cos(pi/2)\ncang( ....., ..... ) == cos(pi)","id":12,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"cang-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"cor_by_dot <- function(data, tilde) {\n  left <- data[[tilde[[2]]]]\n  right <- data[[tilde[[3]]]]\n  left <- left - mean(left)\n  right <- right - mean(right)\n\n  cang(left, right)\n}","id":13,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"find-r","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Galton |> cor_by_dot(..tilde..)\nGalton |> model_train(..tilde..) |> R2()","id":14,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"cor-by-dot-test","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"u <- vec(1, 2, 3)\nv <- vec(3, 1, 2, 4)\nw <- vec(5, 6, -1, 2, 7)\northu <- vec() # fill in your values!\northv <- vec()\northw <- vec()\ncang(u, orthu )\ncang(v, orthv)\ncang(w, orthw)","id":15,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"make-ortho-test","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"dtk_ortho <- function(M) {\n  new <- rvec(nrow(M))\n  qr.Q(\n    qr(cbind(M, new))\n  )[ , ncol(M) + 1]\n}","id":16,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"dtk-ortho","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Your tests here","id":17,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"dtk-ortho-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -1655,6 +1655,35 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -1667,7 +1696,7 @@ globalThis.qwebrExecuteCode = async function (
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">UATX Calc-I-II, AY 2025</span>
+    <span class="navbar-title">UATX MOSAIC Calculus, AY 2025</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -1679,6 +1708,10 @@ globalThis.qwebrExecuteCode = async function (
   <li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../mosaic.html"> 
+<span class="menu-text">Why mosaic?</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../basics.html"> 
@@ -1712,9 +1745,13 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#basic-operations" id="toc-basic-operations" class="nav-link active" data-scroll-target="#basic-operations">Basic operations</a></li>
+  <li><a href="#part-1-by-hand-and-eye" id="toc-part-1-by-hand-and-eye" class="nav-link active" data-scroll-target="#part-1-by-hand-and-eye">Part 1: By hand and eye</a></li>
+  <li><a href="#part2-computing" id="toc-part2-computing" class="nav-link" data-scroll-target="#part2-computing">Part2: Computing</a>
+  <ul class="collapse">
+  <li><a href="#basic-operations" id="toc-basic-operations" class="nav-link" data-scroll-target="#basic-operations">Basic operations</a></li>
   <li><a href="#write-these-functions-and-tests" id="toc-write-these-functions-and-tests" class="nav-link" data-scroll-target="#write-these-functions-and-tests">Write these functions and tests</a></li>
   <li><a href="#orthogonality" id="toc-orthogonality" class="nav-link" data-scroll-target="#orthogonality">Orthogonality</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2033,26 +2070,94 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Background software: the man behind the curtain
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>You likely won’t understand these two programs. They are needed to support the rest of the exercises, but are written in a standard dialect of R.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="part-1-by-hand-and-eye" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-by-hand-and-eye">Part 1: By hand and eye</h2>
+<div id="exr-girl-send-scarf" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> Consider this set of vectors</p>
+<div id="fig-girl-send-scarf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-girl-send-scarf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="www/basic-vectors.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-girl-send-scarf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Vectors to use for this exercise
+</figcaption>
+</figure>
+</div>
+<ol type="a">
+<li>Find the lengths of each of these vectors. Assume that the vectors begin and end exactly on the graph-paper intersections.</li>
+</ol>
+<p>Which one of these is <strong>not</strong> a length of the vectors in <a href="#fig-girl-send-scarf" class="quarto-xref">Figure&nbsp;1</a>?</p>
+<div class="cell" data-inline="true">
+<p><span><span> <span> <input type="radio" class="devoirs-mcq" value="$\sqrt{8}$" id="girl-send-scarf-1-1" w="32" name="girl-send-scarf-1" hint="Untrue!" show_hints="false"> <span class="math inline">\(\sqrt{8}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$\sqrt{16}$" id="girl-send-scarf-1-2" w="23" name="girl-send-scarf-1" hint="You're mistaken" show_hints="false"> <span class="math inline">\(\sqrt{16}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="5 " id="girl-send-scarf-1-3" w="87" name="girl-send-scarf-1" hint="Not quite." show_hints="false"> 5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="6" id="girl-send-scarf-1-4" w="18" name="girl-send-scarf-1" hint="Yup!" show_hints="false"> 6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-1" id="girl-send-scarf-1.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-1-hintarea">girl-send-scarf-1</small> </span> </span> </span></span></p>
+</div>
+<ol start="2" type="a">
+<li><em>Two</em> pairs of vectors in <a href="#fig-girl-send-scarf" class="quarto-xref">Figure&nbsp;1</a> are orthogonal within each pair. Which one of these is <strong>not</strong> one of those pairs?</li>
+</ol>
+<div class="cell" data-inline="true" data-leed="*Two* pairs of vectors in @fig-girl-send-scarf are orthogonal within each pair. Which one of these is **not** one of those pairs?">
+<p><em>Two</em> pairs of vectors in <a href="#fig-girl-send-scarf" class="quarto-xref">Figure&nbsp;1</a> are orthogonal within each pair. Which one of these is <strong>not</strong> one of those pairs?&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="A and B" id="girl-send-scarf-2-1" w="7" name="girl-send-scarf-2" hint="Wrong." show_hints="false"> A and B &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="B and C" id="girl-send-scarf-2-2" w="5" name="girl-send-scarf-2" hint="Bullseye!" show_hints="false"> B and C &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="C and D" id="girl-send-scarf-2-3" w="19" name="girl-send-scarf-2" hint="Not on target." show_hints="false"> C and D &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="All of the ... nal pairs." id="girl-send-scarf-2-4" w="23" name="girl-send-scarf-2" hint="You're wrong here." show_hints="false"> All of these are orthogonal pairs. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-2" id="girl-send-scarf-2.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-2-hintarea">girl-send-scarf-2</small> </span> </span> </span></span></p>
+</div>
+<ol start="3" type="a">
+<li>Just using your eye, say whether the dot product between every pair of vectors is positive, zero, or negative.</li>
+</ol>
+<div class="cell" data-inline="true" data-leed="1. A &amp; B">
+<ol type="1">
+<li>A &amp; B&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="girl-send-scarf-c1-1" w="19" name="girl-send-scarf-c1" hint="Not so!" show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="girl-send-scarf-c1-2" w="18" name="girl-send-scarf-c1" hint="Yeah!" show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="girl-send-scarf-c1-3" w="7" name="girl-send-scarf-c1" hint="Sorry!" show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-c1" id="girl-send-scarf-c1.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-c1-hintarea">girl-send-scarf-c1</small> </span> </span> </span></span></li>
+</ol>
+</div>
+<div class="cell" data-inline="true" data-leed="2. A &amp; C">
+<ol start="2" type="1">
+<li>A &amp; C&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="girl-send-scarf-c2-1" w="16" name="girl-send-scarf-c2" hint="Yup!" show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="girl-send-scarf-c2-2" w="3" name="girl-send-scarf-c2" hint="Oops!" show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="girl-send-scarf-c2-3" w="32" name="girl-send-scarf-c2" hint="Wrong." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-c2" id="girl-send-scarf-c2.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-c2-hintarea">girl-send-scarf-c2</small> </span> </span> </span></span></li>
+</ol>
+</div>
+<div class="cell" data-inline="true" data-leed="3. A &amp; D">
+<ol start="3" type="1">
+<li>A &amp; D&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="girl-send-scarf-c3-1" w="29" name="girl-send-scarf-c3" hint="A hit!" show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="girl-send-scarf-c3-2" w="3" name="girl-send-scarf-c3" hint="Better luck next time." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="girl-send-scarf-c3-3" w="87" name="girl-send-scarf-c3" hint="You're wrong here." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-c3" id="girl-send-scarf-c3.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-c3-hintarea">girl-send-scarf-c3</small> </span> </span> </span></span></li>
+</ol>
+</div>
+<div class="cell" data-inline="true" data-leed="4. A &amp; E">
+<ol start="4" type="1">
+<li>A &amp; E&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="girl-send-scarf-c4-1" w="5" name="girl-send-scarf-c4" hint="Right." show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="girl-send-scarf-c4-2" w="19" name="girl-send-scarf-c4" hint="Try again!" show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="girl-send-scarf-c4-3" w="87" name="girl-send-scarf-c4" hint="Not quite right." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-c4" id="girl-send-scarf-c4.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-c4-hintarea">girl-send-scarf-c4</small> </span> </span> </span></span></li>
+</ol>
+</div>
+<div class="cell" data-inline="true" data-leed="5. B &amp; C">
+<ol start="5" type="1">
+<li>B &amp; C&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="girl-send-scarf-c5-1" w="23" name="girl-send-scarf-c5" hint="Try again!" show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="girl-send-scarf-c5-2" w="87" name="girl-send-scarf-c5" hint="Nope." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="girl-send-scarf-c5-3" w="20" name="girl-send-scarf-c5" hint="You're right!" show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-c5" id="girl-send-scarf-c5.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-c5-hintarea">girl-send-scarf-c5</small> </span> </span> </span></span></li>
+</ol>
+</div>
+<div class="cell" data-inline="true" data-leed="6. B &amp; D">
+<ol start="6" type="1">
+<li>B &amp; D&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="girl-send-scarf-c6-1" w="23" name="girl-send-scarf-c6" hint="Incorrect choice." show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="girl-send-scarf-c6-2" w="19" name="girl-send-scarf-c6" hint="Incorrect." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="girl-send-scarf-c6-3" w="16" name="girl-send-scarf-c6" hint="Bullseye!" show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-c6" id="girl-send-scarf-c6.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-c6-hintarea">girl-send-scarf-c6</small> </span> </span> </span></span></li>
+</ol>
+</div>
+<div class="cell" data-inline="true" data-leed="7. B &amp; E">
+<ol start="7" type="1">
+<li>B &amp; E&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="girl-send-scarf-c7-1" w="20" name="girl-send-scarf-c7" hint="Right on the nose!" show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="girl-send-scarf-c7-2" w="87" name="girl-send-scarf-c7" hint="Try again!" show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="girl-send-scarf-c7-3" w="23" name="girl-send-scarf-c7" hint="Not so!" show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-c7" id="girl-send-scarf-c7.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-c7-hintarea">girl-send-scarf-c7</small> </span> </span> </span></span></li>
+</ol>
+</div>
+<div class="cell" data-inline="true" data-leed="8. C &amp; D">
+<ol start="8" type="1">
+<li>C &amp; D&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="girl-send-scarf-c8-1" w="19" name="girl-send-scarf-c8" hint="Hmmm ..." show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="girl-send-scarf-c8-2" w="18" name="girl-send-scarf-c8" hint="That's right." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="girl-send-scarf-c8-3" w="23" name="girl-send-scarf-c8" hint="You might think so, but ..." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-c8" id="girl-send-scarf-c8.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-c8-hintarea">girl-send-scarf-c8</small> </span> </span> </span></span></li>
+</ol>
+</div>
+<div class="cell" data-inline="true" data-leed="9. C &amp; E">
+<ol start="9" type="1">
+<li>C &amp; E&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="girl-send-scarf-c9-1" w="14" name="girl-send-scarf-c9" hint="You've got it!" show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero " id="girl-send-scarf-c9-2" w="7" name="girl-send-scarf-c9" hint="Oops!" show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="girl-send-scarf-c9-3" w="87" name="girl-send-scarf-c9" hint="Wrong." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-c9" id="girl-send-scarf-c9.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-c9-hintarea">girl-send-scarf-c9</small> </span> </span> </span></span></li>
+</ol>
+</div>
+<div class="cell" data-inline="true" data-leed="10. D &amp; E">
+<ol start="10" type="1">
+<li>D &amp; E&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="girl-send-scarf-c10-1" w="32" name="girl-send-scarf-c10" hint="Nope." show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="girl-send-scarf-c10-2" w="32" name="girl-send-scarf-c10" hint="You might think so, but ..." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="girl-send-scarf-c10-3" w="16" name="girl-send-scarf-c10" hint="Certainly." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="girl-send-scarf-c10" id="girl-send-scarf-c10.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="girl-send-scarf-c10-hintarea">girl-send-scarf-c10</small> </span> </span> </span></span></li>
+</ol>
 </div>
 </div>
-</div>
-<section id="basic-operations" class="level2">
-<h2 class="anchored" data-anchor-id="basic-operations">Basic operations</h2>
+</section>
+<section id="part2-computing" class="level2">
+<h2 class="anchored" data-anchor-id="part2-computing">Part2: Computing</h2>
+<section id="basic-operations" class="level3">
+<h3 class="anchored" data-anchor-id="basic-operations">Basic operations</h3>
 <ol type="a">
 <li>Use <code>vec()</code> to create a vector from individual components (<em>scalars</em>). Example:</li>
 </ol>
@@ -2069,20 +2174,20 @@ Background software: the man behind the curtain
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div id="exr-31-dot-test-cases" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> Write three test cases for <code>%dot%</code> using vectors for which you can easily find the value by eye.</p>
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> Write three test cases for <code>%dot%</code> using vectors for which you can easily find the value by eye.</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </section>
-<section id="write-these-functions-and-tests" class="level2">
-<h2 class="anchored" data-anchor-id="write-these-functions-and-tests">Write these functions and tests</h2>
+<section id="write-these-functions-and-tests" class="level3">
+<h3 class="anchored" data-anchor-id="write-these-functions-and-tests">Write these functions and tests</h3>
 <div id="exr-31-make_veclen" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2</strong></span> Use <code>%dot%</code>, <code>sqrt()</code>, and <code>/</code> to calculate the length of a vector</p>
+<p><span class="theorem-title"><strong>Exercise 3</strong></span> Use <code>%dot%</code>, <code>sqrt()</code>, and <code>/</code> to calculate the length of a vector</p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2091,7 +2196,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>veclen <span class="ot">&lt;-</span> <span class="cf">function</span>(v) <span class="fu">sqrt</span>(v <span class="sc">%dot%</span> v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2100,16 +2205,16 @@ Solution
 </div>
 </div>
 <div id="exr-31-veclen-test" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3</strong></span> Write three tests for <code>length()</code> on vectors where you <em>already know</em> the answer.</p>
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> Write three tests for <code>length()</code> on vectors where you <em>already know</em> the answer.</p>
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div id="exr-31-unitvec-write" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4</strong></span> Write a function, <code>unitvec()</code> that takes a vector as an input and returns the same vector but with unit magnitude.</p>
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> Write a function, <code>unitvec()</code> that takes a vector as an input and returns the same vector but with unit magnitude.</p>
 <div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2118,7 +2223,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>unitvec <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
@@ -2137,11 +2242,11 @@ Tip
 <p><textarea id="my-unitvec-test" name="my-unitvec-test" class="devoirs-text" rows="4" cols="50" placeholder="Type here. (ID my-unitvec-test)"></textarea></p>
 </div>
 <div id="exr-cosine-make" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5</strong></span> Use <code>%dot%</code>, <code>sqrt()</code>, <code>*</code>, and <code>/</code> to calculated the cosine of the angle between two vectors.</p>
+<p><span class="theorem-title"><strong>Exercise 6</strong></span> Use <code>%dot%</code>, <code>sqrt()</code>, <code>*</code>, and <code>/</code> to calculated the cosine of the angle between two vectors.</p>
 <div id="qwebr-insertion-location-11"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2150,7 +2255,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cang <span class="ot">&lt;-</span> <span class="cf">function</span>(v, w) {</span>
@@ -2167,7 +2272,7 @@ Solution
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div id="exr-correlation-is-angle" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6</strong></span> Application. The correlation coefficient is a dot product. I’ll write the function for you so that you can use the tilde notation from QR2.</p>
+<p><span class="theorem-title"><strong>Exercise 7</strong></span> Application. The correlation coefficient is a dot product. I’ll write the function for you so that you can use the tilde notation from QR2.</p>
 <div id="qwebr-insertion-location-13"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Test this out on any data frame and pair of variables you like.</p>
@@ -2176,15 +2281,15 @@ Solution
 <p>Explain whether the results correspond or not.</p>
 </div>
 </section>
-<section id="orthogonality" class="level2">
-<h2 class="anchored" data-anchor-id="orthogonality">Orthogonality</h2>
+<section id="orthogonality" class="level3">
+<h3 class="anchored" data-anchor-id="orthogonality">Orthogonality</h3>
 <div id="exr-create-orthogonal1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7</strong></span> Create vectors that are orthogonal to each of these and confirm your answer using <code>cang()</code></p>
+<p><span class="theorem-title"><strong>Exercise 8</strong></span> Create vectors that are orthogonal to each of these and confirm your answer using <code>cang()</code></p>
 <div id="qwebr-insertion-location-15"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 <div id="exr-ortho-to-any" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8</strong></span> Here’s a function (written in jibberish that you won’t yet understand) but which will construct a vector orthogonal to any vector or set of vectors.</p>
+<p><span class="theorem-title"><strong>Exercise 9</strong></span> Here’s a function (written in jibberish that you won’t yet understand) but which will construct a vector orthogonal to any vector or set of vectors.</p>
 <div id="qwebr-insertion-location-16"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Write some tests on vectors you create of various dimensions and find out whether <code>dtk_ortho()</code> works or not.</p>
@@ -2301,6 +2406,7 @@ console.log("Added hint summary.")
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

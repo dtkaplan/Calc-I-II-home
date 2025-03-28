@@ -1,9 +1,73 @@
 [
   {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/2025-04-01-notes/index-04-01-2025.html",
+      "/posts/2025-03-21-notes/index-03-21-2025.html",
+      "/posts/2025-03-20-notes/index-03-20-2025.html",
+      "/posts/2025-03-18-notes/index-03-18-2025.html",
+      "/posts/2025-03-14-notes/index-03-14-2025.html",
+      "/posts/2025-03-13-notes/index-03-13-2025.html",
+      "/posts/2025-03-11-notes/index-03-11-2025.html",
+      "/posts/2025-03-07-notes/index-03-07-2025.html",
+      "/posts/2025-03-06-notes/index-03-06-2025.html",
+      "/posts/2025-03-04-notes/index-03-04-2025.html",
+      "/posts/2025-02-28-notes/index-02-28-2025.html",
+      "/posts/2025-02-27-notes/index-02-27-2025.html",
+      "/posts/2025-02-25-notes/index-02-25-2025.html",
+      "/posts/2025-02-21-notes/index-02-21-2025.html",
+      "/posts/2025-02-20-notes/index-02-20-2025.html",
+      "/posts/2025-02-18-notes/index-02-18-2025.html",
+      "/posts/2025-02-06-notes/index-02-06-2025.html",
+      "/posts/2025-02-04-notes/index-02-04-2025.html",
+      "/posts/2025-01-31-notes/index-01-31-2025.html",
+      "/posts/2025-01-30-notes/index-01-30-2025.html",
+      "/posts/2025-01-28-notes/index-01-28-2025.html",
+      "/posts/2025-01-24-notes/index-01-24-2025.html",
+      "/posts/2025-01-23-notes/index-01-23-2025.html",
+      "/posts/2025-01-21-notes/index-01-21-2025.html",
+      "/posts/2025-01-17-notes/index-01-17-2025.html",
+      "/posts/2025-01-16-notes/index-01-16-2025.html",
+      "/posts/2025-01-14-notes/index-01-14-2025.html",
+      "/posts/2025-01-10-notes/index.html",
+      "/posts/2025-01-09-notes/index.html",
+      "/posts/2025-01-07-notes/index.html"
+    ]
+  },
+  {
     "listing": "/assignments.html",
     "items": [
       "/assignments/Day-31/index-assignment-31.html",
       "/assignments/Day-34/index-assignment-34.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/Gaussian-quadrature/GQ-87a.html",
+      "/projects/Walking-uphill/index-walking-uphill.html",
+      "/projects/TEMPLATE/index-TOPIC.html",
+      "/projects/Stress-in-a-truss/index-stress-in-a-truss.html",
+      "/projects/SVD-parliament/index-SVD-parliament.html",
+      "/projects/Ranking-grades/index-grades.html",
+      "/projects/Present-value/index-present-value.html",
+      "/projects/Dominant-eigenvalue/index-dominant-eigenvalue.html",
+      "/projects/Engine-scaling/index-engine-scaling.html",
+      "/projects/Life-tables/index-life-tables.html",
+      "/projects/Life_expectancy/index-Life-expectancy.html",
+      "/projects/Iterative-search/index-iterative-search.html",
+      "/projects/GPS/index-GPS.html",
+      "/projects/Gaussian-quadrature/index-gaussian-quadrature.html",
+      "/projects/Fourier_transform/index-FFT.html",
+      "/projects/Cobb-Douglas/index-Cobb-Douglas.html",
+      "/projects/Coupled-pendula/index-coupled-pendula.html",
+      "/projects/Diffusion/index-diffusion.html",
+      "/projects/Shadow-prices/index-shadow-prices.html",
+      "/projects/Fuel-use/index-fuel-use.html",
+      "/projects/Probability/index-probability.html",
+      "/projects/Automatic-differentiation/index-AD.html",
+      "/projects/Adaptive-quadrature/index-adaptive-quadrature.html",
+      "/projects/SIR/index-SIR.html"
     ]
   }
 ]

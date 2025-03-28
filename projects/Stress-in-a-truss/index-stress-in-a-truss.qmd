@@ -1,0 +1,14 @@
+---
+title: "Stress in a bridge"
+author: DTK
+date: last-modified
+format: live-html
+desc: "Calculating forces on bridge elements"
+categories: [linear algebra, engineering]
+---
+
+Figure 17.1 in Chapter17.pdf
+
+drawbridge.m findtensions.m readbridge.m
+
+

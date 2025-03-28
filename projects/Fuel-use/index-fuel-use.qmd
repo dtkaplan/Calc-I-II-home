@@ -1,0 +1,10 @@
+---
+title: "Calculus of driving"
+author: DTK
+date: last-modified
+format: live-html
+desc: "From instantaneous to total"
+categories: [accumulation, automobiles, Week6]
+---
+
+See <https://dtkaplan.github.io/MC-Workbook/Block-4-models.html>

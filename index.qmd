@@ -39,28 +39,23 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 
 ### Tuesday April 1
 
-Review: Objects and operators in calculus
-
-Topics: This is the start of a new Block about representing high-dimensional spaces and basic operations on their inhabitants: Vectors and subspaces.
-
-Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/28-reading.html)
-
-Assignment [Day 31](./assignments/Day-31/index-assignment-31.html): Vectors and pairs of vectors. Due on Friday. (*The "Day 31" refers to this being the 31st day of 60 in the two-term calculus course.*)
+- Topics: 
+    * Review: Objects and operators in calculus
+    * Vectors and subspaces.
+- Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html) 
+- Start [Assignment 1](./assignments/Day-31/index-assignment-31.html). Due in one week.
 
 ### Thursday April 3
 
-Modeling topic: [Walking uphill](projects/Walking-uphill/)
-
-Modeling topic: [Factory production](projects/Cobb-Douglas)
+Modeling day: Review
+* [Walking uphill](projects/Walking-uphill/)
+* [Factory production](projects/Cobb-Douglas)
 
 ### Friday April 4
 
-Linear combinations of vectors
-
-Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html) and [reading questions](https://dtkaplan.github.io/MC-Workbook/29-reading.html)
-
-Assignment due: [Chapter 28 Exercises](https://dtkaplan.github.io/MC-Workbook/28-exercises.html)
-
+- Topic: Linear combinations of vectors
+- Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html) 
+- Start [Assignment 2](./assignments/Day-34/index-assignment-34.html). Due in one week.
 
 
 ## Week 2  {-}
@@ -71,6 +66,7 @@ Assignment due: [Chapter 28 Exercises](https://dtkaplan.github.io/MC-Workbook/28
 
 ### Thursday April 10
 
+Modeling day: linear algebra
 
 ### Friday April 11
 
@@ -83,7 +79,7 @@ Assignment due: [Chapter 28 Exercises](https://dtkaplan.github.io/MC-Workbook/28
 
 ### Thursday April 17
 
-
+Modeling day: linear algebra 2
 ### Friday April 18
 
 ## Week 4  {-}

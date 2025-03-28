@@ -1,0 +1,16 @@
+---
+title: "Iterative search"
+author: DTK
+date: last-modified
+format: live-html
+desc: "Zeros and argm in multiple dimensions"
+categories: [dynamics, optimization, Week7]
+---
+
+
+See <https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/49-optimization.html>
+
+
+Maybe something on constructing a likelihood function from data.
+
+Then do the Fisher information and the standard error.

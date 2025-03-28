@@ -10,3 +10,7 @@ categories: [linear algebra, numerical]
 SciComp2009 2009-04-30
 
 fourier.pdf
+
+SciCompFiles/whistle.wav
+
+SciCompFiles/aeiou.wav g-fugue.wav finest-hour.wav
