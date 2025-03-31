@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="DTK">
+<meta name="dcterms.date" content="2025-03-31">
 
-<title>UATX/MOSAIC Calculus – MOSAIC Calc 2025</title>
+<title>Bond ratings ups and downs – MOSAIC Calc 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">MOSAIC Calc 2025</span>
     </a>
   </div>
@@ -89,23 +125,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./mosaic.html"> 
+    <a class="nav-link" href="../../mosaic.html"> 
 <span class="menu-text">Mosaic?</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./basics.html"> 
+    <a class="nav-link" href="../../basics.html"> 
 <span class="menu-text">Basics</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Class notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assignments.html"> 
+    <a class="nav-link" href="../../assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
@@ -119,41 +155,38 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#two-term-course-outline" id="toc-two-term-course-outline" class="nav-link active" data-scroll-target="#two-term-course-outline">Two-term course outline</a></li>
-  <li><a href="#day-by-day-schedule" id="toc-day-by-day-schedule" class="nav-link" data-scroll-target="#day-by-day-schedule">Day-by-day schedule</a>
-  <ul class="collapse">
-  <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2</a></li>
-  <li><a href="#week-3" id="toc-week-3" class="nav-link" data-scroll-target="#week-3">Week 3</a></li>
-  <li><a href="#week-4" id="toc-week-4" class="nav-link" data-scroll-target="#week-4">Week 4</a></li>
-  <li><a href="#week-5" id="toc-week-5" class="nav-link" data-scroll-target="#week-5">Week 5</a></li>
-  <li><a href="#week-6" id="toc-week-6" class="nav-link" data-scroll-target="#week-6">Week 6</a></li>
-  <li><a href="#week-7" id="toc-week-7" class="nav-link" data-scroll-target="#week-7">Week 7</a></li>
-  <li><a href="#week-8" id="toc-week-8" class="nav-link" data-scroll-target="#week-8">Week 8</a></li>
-  <li><a href="#week-9" id="toc-week-9" class="nav-link" data-scroll-target="#week-9">Week 9</a></li>
-  <li><a href="#week-10" id="toc-week-10" class="nav-link" data-scroll-target="#week-10">Week 10</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">UATX/MOSAIC Calculus</h1>
-<p class="subtitle lead">Prof.&nbsp;Daniel Kaplan</p>
-</div>
+<h1 class="title">Bond ratings ups and downs</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">finance</div>
+    <div class="quarto-category">linear algebra</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>DTK </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 31, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -163,190 +196,148 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<hr>
-<p>This is the home page for both terms of the two-term UATX/MOSAIC Calculus sequence. The course has no specific pre-requisites and is suited both to those who have no previous experience with Calculus and those who have taken an AP or IB year-long calculus sequence. The MOSAIC Calculus sequence is designed to replace the entire multi-term traditional sequence—Calc I, II, III, differential equations, linear algebra—for STEM students and is highly relevant to economics, biology and medicine, data science, public policy, physics, and chemistry. Proof and other aspects of “pure” (theoretical) mathematics are introduced only where necessary and appropriate.</p>
-<p>Please read the <a href="basics.html"><strong>Basics</strong></a> page for course policies and such.</p>
-<hr>
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog%20target=%22_blank%22">Homework submission link</a></p>
-<section id="two-term-course-outline" class="level2">
-<h2 class="anchored" data-anchor-id="two-term-course-outline">Two-term course outline</h2>
-<ul>
-<li><p>First term (10 weeks, winter term)</p>
-<ol type="1">
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/preliminaries-part.html">Preliminaries</a>: Quantities, spaces, functions, notation, computing</li>
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/modeling-part.html">Modeling</a>: General techniques used in constructing models, that is, building mathematical representations of real-world objects.</li>
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/differentiation-part.html">Differentiation</a>/anti-differentiation and applications of derivatives.</li>
-</ol></li>
-<li><p>Second term (10 weeks, spring term)</p>
-<ol start="4" type="1">
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/linear-combinations-part.html">Linear algebra</a> (approx 3 weeks). High-dimensional spaces and their residents, projection, decomposition, transformation</li>
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/accumulation-part.html">Accumulation</a> (approx 3 weeks). Taking information about change of state and turning it into information about state.</li>
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/dynamics-part.html">Dynamics</a> (approx 3 weeks). Modeling state as it evolves in time.</li>
-</ol></li>
-</ul>
-</section>
-<section id="day-by-day-schedule" class="level2">
-<h2 class="anchored" data-anchor-id="day-by-day-schedule">Day-by-day schedule</h2>
-<section id="week-1" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="week-1">Week 1</h4>
-<section id="tuesday-april-1" class="level5">
-<h5 class="anchored" data-anchor-id="tuesday-april-1">Tuesday April 1</h5>
-<ul>
-<li>Topics:
-<ul>
-<li>Review: Objects and operators in calculus</li>
-<li>Vectors and subspaces.</li>
-</ul></li>
-<li>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html">Chap 28</a></li>
-<li>Start <a href="./assignments/Day-31/index-assignment-31.html">Assignment 1</a>. Due next week.</li>
-</ul>
-</section>
-<section id="thursday-april-3" class="level5">
-<h5 class="anchored" data-anchor-id="thursday-april-3">Thursday April 3</h5>
-<ul>
-<li>Modeling day: Review of first term
-<ul>
-<li><a href="projects/Walking-uphill/">Walking uphill</a></li>
-<li><a href="projects/Cobb-Douglas">Factory production</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="friday-april-4" class="level5">
-<h5 class="anchored" data-anchor-id="friday-april-4">Friday April 4</h5>
-<ul>
-<li>Topic: Linear combinations of vectors</li>
-<li>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html">Chap 29</a></li>
-<li>Start <a href="./assignments/Day-34/index-assignment-34.html">Assignment 2</a>. Due in one week.</li>
-</ul>
-</section>
-</section>
-<section id="week-2" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-2">Week 2</h3>
-<section id="tuesday-april-8" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-april-8">Tuesday April 8</h4>
-<ul>
-<li>Topic: Projection and residual</li>
-<li>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html">Chap 30</a></li>
-<li>Start <a href="./assignments/Day-34/index-assignment-34.html">Assignment 2</a>. Due next week.</li>
-</ul>
-</section>
-<section id="thursday-april-10" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-april-10">Thursday April 10</h4>
-<ul>
-<li>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/31-target-problem.html">Chap 31</a></li>
-</ul>
-<p>Modeling day: linear algebra</p>
-</section>
-<section id="friday-april-11" class="level4">
-<h4 class="anchored" data-anchor-id="friday-april-11">Friday April 11</h4>
-<ul>
-<li>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/32-stat-modeling.html">Chap 32</a></li>
-</ul>
-</section>
-</section>
-<section id="week-3" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-3">Week 3</h3>
-<section id="tuesday-april-15" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-april-15">Tuesday April 15</h4>
-</section>
-<section id="thursday-april-17" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-april-17">Thursday April 17</h4>
-<p>Modeling day: linear algebra 2</p>
-</section>
-<section id="friday-april-18" class="level4">
-<h4 class="anchored" data-anchor-id="friday-april-18">Friday April 18</h4>
-</section>
-</section>
-<section id="week-4" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-4">Week 4</h3>
-<section id="tuesday-april-22" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-april-22">Tuesday April 22</h4>
-</section>
-<section id="thursday-april-24" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-april-24">Thursday April 24</h4>
-</section>
-<section id="friday-april-25" class="level4">
-<h4 class="anchored" data-anchor-id="friday-april-25">Friday April 25</h4>
-</section>
-</section>
-<section id="week-5" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-5">Week 5</h3>
-<section id="tuesday-april-29" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-april-29">Tuesday April 29</h4>
-</section>
-<section id="thursday-map-1" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-map-1">Thursday Map 1</h4>
-</section>
-<section id="friday-may-2" class="level4">
-<h4 class="anchored" data-anchor-id="friday-may-2">Friday May 2</h4>
-</section>
-</section>
-<section id="week-6" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-6">Week 6</h3>
-<section id="tuesday-may-13" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-may-13">Tuesday May 13</h4>
-</section>
-<section id="thursday-may-15" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-may-15">Thursday May 15</h4>
-</section>
-<section id="friday-may-16" class="level4">
-<h4 class="anchored" data-anchor-id="friday-may-16">Friday May 16</h4>
-</section>
-</section>
-<section id="week-7" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-7">Week 7</h3>
-<section id="tuesday-may-20" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-may-20">Tuesday May 20</h4>
-</section>
-<section id="thursday-may-22" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-may-22">Thursday May 22</h4>
-</section>
-<section id="friday-may-23" class="level4">
-<h4 class="anchored" data-anchor-id="friday-may-23">Friday May 23</h4>
-</section>
-</section>
-<section id="week-8" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-8">Week 8</h3>
-<section id="tuesday-may-27" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-may-27">Tuesday May 27</h4>
-</section>
-<section id="thursday-may-29" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-may-29">Thursday May 29</h4>
-</section>
-<section id="friday-may-30" class="level4">
-<h4 class="anchored" data-anchor-id="friday-may-30">Friday May 30</h4>
-</section>
-</section>
-<section id="week-9" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-9">Week 9</h3>
-<section id="tuesday-june-3" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-june-3">Tuesday June 3</h4>
-</section>
-<section id="thursday-june-5" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-june-5">Thursday June 5</h4>
-</section>
-<section id="friday-june-6" class="level4">
-<h4 class="anchored" data-anchor-id="friday-june-6">Friday June 6</h4>
-</section>
-</section>
-<section id="week-10" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-10">Week 10</h3>
-<section id="tuesday-june-10" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-june-10">Tuesday June 10</h4>
-</section>
-<section id="thursday-june-12" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-june-12">Thursday June 12</h4>
-</section>
-<section id="friday-june-13" class="level4">
-<h4 class="anchored" data-anchor-id="friday-june-13">Friday June 13</h4>
-<hr>
-<p><a href="winter-term.html">Schedule for Winter Term</a></p>
-<!-- THIS IS PAST STUFF. YOU SHOULD BE EDITING ABOVE THIS LINE -->
+<p>The ratings of companies and governments by agencies such as Moody’s Investor Services or Standard and Poor’s are used by investors to indicate the level of risk of loaning money (through, say, a bond).</p>
+<p>The ratings take the form of letter grades as in <a href="#tbl-letter-grades-S-and-P" class="quarto-xref">Table&nbsp;1</a>.</p>
+<div id="tbl-letter-grades-S-and-P" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-letter-grades-S-and-P-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Rating grades and their interpretion for Standard and Poor’s
+</figcaption>
+<div aria-describedby="tbl-letter-grades-S-and-P-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Grade</th>
+<th style="text-align: left;">Financial strength description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">AAA</td>
+<td style="text-align: left;">Extremely strong</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">AA</td>
+<td style="text-align: left;">Very strong</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">A</td>
+<td style="text-align: left;">Strong</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">BBB</td>
+<td style="text-align: left;">Adequate</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">BB</td>
+<td style="text-align: left;">Facing financial uncertainty</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">B</td>
+<td style="text-align: left;">Vulnerable</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">CCC</td>
+<td style="text-align: left;">Vulnerable and dependent on good business conditions to continue</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">CC</td>
+<td style="text-align: left;">Highly vulnerable</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">C</td>
+<td style="text-align: left;">Highly vulnerable to non-payment with low expectation of recovery</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">D</td>
+<td style="text-align: left;">General default or breach</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">NR</td>
+<td style="text-align: left;">Not rated</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The letter grade is often used to set the interest rate for the loan, a combination of a “safe” interest rate (generally, the US Treasury Bill rate) and a premium to reflect risk. Low-rated companies have to pay a higher interest premium.</p>
+<p>Bonds are often long-term affairs, spanning several years or even a decade or more. But a company’s fortunes can change over the years; it’s helpful to know, for example, the probability that a strongly-rated company will fall to a lower rating.</p>
+<p>The transition matrix below was published by S&amp;P in 2017 and reflects the changes in ratings over a three-year period. Prof.&nbsp;Haiyan Su (of Montclair State University) describes the use of the data in an “industrial mathematics” course in an upcoming AMS/MAA Classroom Resource Materials volume edited by Tim Chartier and Jason Douma, <em>Data Science: Plug-and-play Modules for the College Classroom</em>.</p>
+<p>The <code>Transitions</code> data frame states the probability over the three year period of a company moving from one grade to another. The starting grade is given in the first column, and the different ending grades are the columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Transitions <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>,  <span class="at">text =</span> <span class="st">"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">from  AAA   AA    A     BBB   BB    B     CCCC  D   NR </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">AAA   .6548 .2209 .0235 .0032 .0019 .0008 .0011 .0013 .0924 </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">AA    .0121 .6614 .1853 .0206 .0035 .0022 .0003 .0012 .1133 </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">A     .0006 .0407 .6885 .1172 .0130 .0044 .0009 .0025 .1321</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">BBB   .0002 .0028 .0842 .6466 .0711 .0164 .0030 .0087 .1670 </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">BB    .0001 .0006 .0051 .1108 .4704 .1158 .0125 .0396 .2451 </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">B      0    .0003 .0021 .0078 .1023 .4146 .0467 .1257 .3005</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">CCCC   0     0    .0014 .0061 .0163 .1686 .1054 .4065 .2957"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tmat <span class="ot">&lt;-</span> Transitions <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>from, <span class="sc">-</span>D, <span class="sc">-</span>NR) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>() <span class="sc">%&gt;%</span> <span class="fu">t</span>()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tmat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7 7</code></pre>
+</div>
+</div>
+<p>12-year transition simulation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tmat <span class="sc">%*%</span> tmat <span class="sc">%*%</span> tmat <span class="sc">%*%</span> tmat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             [,1]        [,2]        [,3]         [,4]         [,5]
+AAA  0.1909304142 0.014455646 0.002169655 0.0005827262 0.0001842381
+AA   0.2605915319 0.219475490 0.053605790 0.0128459981 0.0027255159
+A    0.1421310190 0.243735823 0.274080901 0.1083564702 0.0263878502
+BBB  0.0365166019 0.084730617 0.153222682 0.2193634350 0.0896928779
+BB   0.0076541316 0.016105436 0.031928425 0.0610341243 0.0790377991
+B    0.0037453571 0.006947270 0.012942941 0.0267556765 0.0507105327
+CCCC 0.0008750053 0.001072082 0.001936587 0.0037272003 0.0066180211
+             [,6]         [,7]
+AAA  4.356926e-05 1.474043e-05
+AA   7.828510e-04 3.126728e-04
+A    6.367000e-03 2.726844e-03
+BBB  2.496704e-02 9.119954e-03
+BB   4.222725e-02 1.599170e-02
+B    4.940885e-02 2.202523e-02
+CCCC 6.673059e-03 3.048269e-03</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Factorization <span class="ot">&lt;-</span> <span class="fu">eigen</span>(tmat)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Factorization</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>eigen() decomposition
+$values
+[1] 0.82151650 0.69970529 0.63264315 0.56476458 0.50586267 0.33584280 0.08136501
+
+$vectors
+           [,1]        [,2]       [,3]        [,4]         [,5]          [,6]
+[1,] 0.01948894  0.09380906 -0.1034883  0.04558441 -0.007236647 -4.215963e-05
+[2,] 0.22106255  0.36952322  0.1797625 -0.36496211  0.100514559  5.379392e-03
+[3,] 0.71733703 -0.09792869  0.4885301  0.63683777 -0.379341435 -5.448650e-02
+[4,] 0.62768663 -0.82583724 -0.6558557 -0.10325685  0.641611732  2.374015e-01
+[5,] 0.18330737 -0.34783013 -0.4409848 -0.49621329 -0.391367554 -6.643193e-01
+[6,] 0.09177254 -0.20329059 -0.3034338 -0.44594050 -0.525623233  6.982704e-01
+[7,] 0.01283805 -0.02724719 -0.0403428 -0.05839381 -0.069502302  1.083565e-01
+              [,7]
+[1,] -1.326075e-05
+[2,]  1.345365e-04
+[3,]  1.757702e-03
+[4,] -2.126335e-02
+[5,]  9.174333e-02
+[6,] -4.738456e-01
+[7,]  8.755560e-01</code></pre>
+</div>
+</div>
+<p>Task: Find the one-year transition matrix.</p>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,78 @@
+---
+title: "Bond ratings ups and downs"
+author: DTK
+date: last-modified
+format: live-html
+desc: "Do bond ratings get higher?"
+categories: [finance, linear algebra, ]
+---
+
+```{r include=FALSE}
+library(dplyr)
+```
+
+The ratings of companies and governments by agencies such as Moody's Investor Services or  Standard and Poor's are used by investors to indicate the level of risk of loaning money (through, say, a bond).
+
+The ratings take the form of letter grades as in @tbl-letter-grades-S-and-P.
+
+::: {#tbl-letter-grades-S-and-P}
+Grade | Financial strength description
+-----:|:-------------------------
+AAA | Extremely strong
+AA | Very strong
+A | Strong
+BBB | Adequate
+BB | Facing financial uncertainty
+B | Vulnerable
+CCC | Vulnerable and dependent on good business conditions to continue
+CC | Highly vulnerable
+C | Highly vulnerable to non-payment with low expectation of recovery
+D | General default or breach
+NR | Not rated
+
+Rating grades and their interpretion for Standard and Poor's
+:::
+
+The letter grade is often used to set the interest rate for the loan, a combination of a "safe" interest rate (generally, the US Treasury Bill rate) and a premium to reflect risk. Low-rated companies have to pay a higher interest premium.
+
+Bonds are often long-term affairs, spanning several years or even a decade or more. But a company's fortunes can change over the years; it's helpful to know, for example, the probability that a strongly-rated company will fall to a lower rating.
+
+The transition matrix below was published by S&P in 2017 and reflects the changes in ratings over a three-year period. Prof. Haiyan Su (of Montclair State University) describes the use of the data in an "industrial mathematics" course in an upcoming AMS/MAA Classroom Resource Materials volume edited by Tim Chartier and Jason Douma, *Data Science: Plug-and-play Modules for the College Classroom*.
+
+The `Transitions` data frame states the probability over the three year period of a company moving from one grade to another. The starting grade is given in the first column, and the different ending grades are the columns. 
+
+
+
+
+```{r}
+Transitions <- read.table(header = TRUE,  text = "
+from  AAA   AA    A     BBB   BB    B     CCCC  D   NR 
+AAA   .6548 .2209 .0235 .0032 .0019 .0008 .0011 .0013 .0924 
+AA    .0121 .6614 .1853 .0206 .0035 .0022 .0003 .0012 .1133 
+A     .0006 .0407 .6885 .1172 .0130 .0044 .0009 .0025 .1321
+BBB   .0002 .0028 .0842 .6466 .0711 .0164 .0030 .0087 .1670 
+BB    .0001 .0006 .0051 .1108 .4704 .1158 .0125 .0396 .2451 
+B      0    .0003 .0021 .0078 .1023 .4146 .0467 .1257 .3005
+CCCC   0     0    .0014 .0061 .0163 .1686 .1054 .4065 .2957"
+)
+```
+
+```{r}
+tmat <- Transitions |> 
+  select(-from, -D, -NR) |>
+  as.matrix() %>% t()
+dim(tmat)
+```
+
+12-year transition simulation.
+```{r}
+tmat %*% tmat %*% tmat %*% tmat
+```
+
+```{r}
+Factorization <- eigen(tmat)
+Factorization
+```
+
+
+Task: Find the one-year transition matrix.

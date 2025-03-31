@@ -62,14 +62,19 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 
 #### Tuesday April 8
 
-
+- Topic: Projection and residual
+- Reading: *MOSAIC Calculus* [Chap 30](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html)
+- Start [Assignment 2](./assignments/Day-34/index-assignment-34.html). Due next week.
 
 #### Thursday April 10
+
+- Reading: *MOSAIC Calculus* [Chap 31](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/31-target-problem.html)
 
 Modeling day: linear algebra
 
 #### Friday April 11
 
+- Reading: *MOSAIC Calculus* [Chap 32](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/32-stat-modeling.html)
 
 ### Week 3  {.unnumbered}
 
