@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2025-04-03">
 
-<title>MOSAIC Assignment 34 – UATX MOSAIC Calculus, AY 2025</title>
+<title>MOSAIC Assignment 34 – MOSAIC Calc 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -367,7 +367,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"vec <- function(...) {\n  vals <- list(...) |> unlist()\n  matrix(vals, ncol=1)\n}\nrvec <- function(first, ..., rfun=rnorm) {\n  dots <- c(first, list(...)) |> unlist()\n  if (length(dots) == 1) {\n    dots <- rfun(dots[[1]])\n  }\n\n  vec(dots)\n}\n\nveclen <- function(v) sqrt(v %dot% v)\nunitvec <- function(vec) vec/length(vec)\ncang <- function(v, w) {(v %dot% w) / (veclen(v) * veclen(w))}\n","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"plot_antiD <- function(f, Fbrush = NULL) {\n  suppressWarnings({\n    P <- slice_plot(f(t) ~ t, domain(t=c(-5, 5))) |>\n      gf_hline(yintercept = 0, color=\"dodgerblue\") |>\n      gf_labs(y =\"f(t)\",\n              title = \"f(t), the derivative of F(t)\") |>\n      gf_refine(scale_x_continuous(breaks = (-5):5))\n  })\n  if (! is.null(Fbrush)) {\n    Area <- tibble(\n      t = seq(Fbrush$xmin, Fbrush$xmax, length=100),\n      y = f(t)\n    )\n    Neg_area <- Area %>% filter(y < 0)\n    P <- P |> gf_ribbon(0 + y ~ t, data = Area, inherit=FALSE,\n                         fill = \"dodgerblue\", color=NA, alpha = 0.3) \n    if (nrow(Neg_area) > 0)\n      P <- P |>\n      gf_ribbon(0 + y ~ t, data=Neg_area %>% filter(y < 0), inherit = FALSE,\n                fill = \"orange3\", color = NA, alpha = 0.3)\n  }\n  P\n}","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"plot_antiD(doodle_fun(~ x), list(xmin=3, xmax=4))","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"vec <- function(...) {\n  vals <- list(...) |> unlist()\n  matrix(vals, ncol=1)\n}\nrvec <- function(first, ..., rfun=rnorm) {\n  dots <- c(first, list(...)) |> unlist()\n  if (length(dots) == 1) {\n    dots <- rfun(dots[[1]])\n  }\n\n  vec(dots)\n}\n\nveclen <- function(v) sqrt(v %dot% v)\nunitvec <- function(vec) vec/length(vec)\ncang <- function(v, w) {(v %dot% w) / (veclen(v) * veclen(w))}\nmakeQ <- function(...) {\n  dots <- list(...) |> bind_cols()\n  qr.Q(qr(dots))\n}\nsomevecs <- tibble::tribble(\n  ~ rootx, ~ rooty, ~ headx, ~ heady, ~ color, ~ name,\n  0, 0, -2, 4, \"blue\", \"u\",\n  1, -2, 5, -3, \"green\", \"v\",\n  -1, -1, -4, -1, \"orange\", \"w\",\n  1, 0, 4, 3, \"brown\", \"x\",\n  0, -2, 3, -3, \"salmon\", \"y\",\n  0, 0, 4, 3, \"magenta\", \"b1\",\n  0, 0, -3, 2, \"magenta\", \"b2\",\n) |>\n  mutate(labelx = (rootx + headx)/2,\n         labely = (2*rooty + heady)/3)\nsolve_for <- function(vecnames) {\n  somevecs |>\n    filter(name %in% vecnames) |>\n    gf_segment(rooty + heady ~ rootx + headx,\n               arrow = grid::arrow(length=unit(0.15, \"inches\"), type=\"closed\"),\n               color = ~ color, linewidth=2) |>\n    gf_label(labely ~ labelx, label= ~ name, color = ~ color, size=3) |>\n    gf_refine(scale_color_identity(),\n              scale_y_continuous(limits=c(-5,5),\n                                 breaks=(-5):5),\n              scale_x_continuous(limits=c(-5,5),\n                                 breaks=(-5):5),\n              coord_fixed()) |>\n    gf_labs(x=\"\", y = \"\")\n}","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"onto <- function(a, b) {\n  \n}","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"define-onto-fun","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"test-onto-fun","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"u <- vec()\nw <- vec()\nb1 = vec()\nqr.solve(cbind(  ),  )","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"solvefor1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"y <- vec()\nw <- vec()\nb2 = vec()\nqr.solve( )","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"solvefor2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-6","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -1621,6 +1621,35 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -1633,7 +1662,7 @@ globalThis.qwebrExecuteCode = async function (
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">UATX MOSAIC Calculus, AY 2025</span>
+    <span class="navbar-title">MOSAIC Calc 2025</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -1643,12 +1672,8 @@ globalThis.qwebrExecuteCode = async function (
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../mosaic.html"> 
-<span class="menu-text">Why mosaic?</span></a>
+<span class="menu-text">Mosaic?</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../basics.html"> 
@@ -1656,7 +1681,7 @@ globalThis.qwebrExecuteCode = async function (
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../posts.html"> 
-<span class="menu-text">Class notes and posts</span></a>
+<span class="menu-text">Class notes</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../assignments.html"> 
@@ -1664,7 +1689,7 @@ globalThis.qwebrExecuteCode = async function (
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../projects.html"> 
-<span class="menu-text">Project topics</span></a>
+<span class="menu-text">Projects</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -1682,7 +1707,8 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#basic-operations" id="toc-basic-operations" class="nav-link active" data-scroll-target="#basic-operations">Basic operations</a></li>
+  <li><a href="#by-hand-and-eye" id="toc-by-hand-and-eye" class="nav-link active" data-scroll-target="#by-hand-and-eye">By hand and eye</a></li>
+  <li><a href="#computing" id="toc-computing" class="nav-link" data-scroll-target="#computing">Computing</a></li>
   </ul>
 </nav>
     </div>
@@ -2003,45 +2029,159 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<section id="basic-operations" class="level2">
-<h2 class="anchored" data-anchor-id="basic-operations">Basic operations</h2>
+<section id="by-hand-and-eye" class="level2">
+<h2 class="anchored" data-anchor-id="by-hand-and-eye">By hand and eye</h2>
+<div id="exr-by-hand-A" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> &nbsp;</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index-assignment-34_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>What will be the signs on the multipliers of <span class="math inline">\(\vec{u}\)</span> and <span class="math inline">\(\vec{w}\)</span> to construct <span class="math inline">\(\vec{b}_1\)</span>? (You don’t have to give the multipliers themselves, just their signs.)</p>
+<div class="cell">
+<span>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="positive f ...  $\vec{w}$" id="by-hand-A-1" w="19" name="by-hand-A" hint="Incorrect." show_hints="false"> positive for <span class="math inline">\(\vec{u}\)</span>, positive for <span class="math inline">\(\vec{w}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="positive f ...  $\vec{w}$" id="by-hand-A-2" w="14" name="by-hand-A" hint="You've got it!" show_hints="false"> positive for <span class="math inline">\(\vec{u}\)</span>, negative for <span class="math inline">\(\vec{w}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="negative f ...  $\vec{w}$" id="by-hand-A-3" w="3" name="by-hand-A" hint="Try again!" show_hints="false"> negative for <span class="math inline">\(\vec{u}\)</span>, positive for <span class="math inline">\(\vec{w}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="negative f ...  $\vec{w}$" id="by-hand-A-4" w="32" name="by-hand-A" hint="Better luck next time." show_hints="false"> negative for <span class="math inline">\(\vec{u}\)</span>, negative for <span class="math inline">\(\vec{w}\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="by-hand-A" id="by-hand-A.null" style="display: none;" w="skipped" checked="">
+<div class="hintarea">
+<p><small style="color: grey;" id="by-hand-A-hintarea">by-hand-A</small></p>
+</div>
+<p></p>
+</span></div>
+</div>
+<div id="exr-by-hand-B" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> &nbsp;</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index-assignment-34_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>What will be the signs on the multipliers of <span class="math inline">\(\vec{x}\)</span> and <span class="math inline">\(\vec{v}\)</span> to construct <span class="math inline">\(\vec{b}_2\)</span>? (You don’t have to give the multipliers themselves, just their signs.)</p>
+<div class="cell">
+<span>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="positive f ...  $\vec{v}$" id="by-hand-B-1" w="19" name="by-hand-B" hint="Boo!" show_hints="false"> positive for <span class="math inline">\(\vec{x}\)</span>, positive for <span class="math inline">\(\vec{v}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="positive f ...  $\vec{v}$" id="by-hand-B-2" w="16" name="by-hand-B" hint="A hit!" show_hints="false"> positive for <span class="math inline">\(\vec{x}\)</span>, negative for <span class="math inline">\(\vec{v}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="negative f ...  $\vec{v}$" id="by-hand-B-3" w="32" name="by-hand-B" hint="Try again!" show_hints="false"> negative for <span class="math inline">\(\vec{x}\)</span>, positive for <span class="math inline">\(\vec{v}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="negative f ...  $\vec{v}$" id="by-hand-B-4" w="23" name="by-hand-B" hint="Wrong." show_hints="false"> negative for <span class="math inline">\(\vec{x}\)</span>, negative for <span class="math inline">\(\vec{v}\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="by-hand-B" id="by-hand-B.null" style="display: none;" w="skipped" checked="">
+<div class="hintarea">
+<p><small style="color: grey;" id="by-hand-B-hintarea">by-hand-B</small></p>
+</div>
+<p></p>
+</span></div>
+</div>
+</section>
+<section id="computing" class="level2">
+<h2 class="anchored" data-anchor-id="computing">Computing</h2>
 <p>The <code>{mosaicCalc}</code> package provides you with a small set of basic vector operations.</p>
 <ul>
-<li><code>v %dot% w</code> - the dot product between <code>v</code> and <code>w</code>. Output: scalar.</li>
-<li><code>v %onto% w</code> - a decomposition operation giving the component of <code>v</code> aligned with <code>w</code>. Output: vector</li>
-<li><code>v %perp% w</code> - another decomposition operation. The component of <code>v</code> perpendicular to <code>w</code>. Output: vector</li>
+<li><code>b %dot% a</code> - the dot product between <code>b</code> and <code>a</code>. Output: scalar.</li>
+<li><code>b %onto% a</code> - a decomposition operation giving the component of <code>b</code> aligned with <code>a</code>. Output: vector</li>
+<li><code>b %perp% a</code> - another decomposition operation. The component of <code>b</code> perpendicular to <code>a</code>. Output: vector</li>
 </ul>
 <p>In addition, you have some functions you wrote for [Day 31]{../index-assignment-31.html} that have been pre-loaded into this assignment.</p>
 <ul>
-<li><code>cang(v, w)</code> the cosine of the angle between <code>v</code> and <code>w</code>. Output: scalar</li>
-<li><code>unitvec(v)</code> produces a vector aligned with <code>v</code> but with unit length. Output: vector</li>
-<li><code>veclen(v)</code> calculates the length of <code>v</code>. Output: scalar.</li>
+<li><code>cang(b, a)</code> the cosine of the angle between <code>b</code> and <code>a</code>. Output: scalar</li>
+<li><code>unitvec(a)</code> produces a vector aligned with <code>s</code> but with unit length. Output: vector</li>
+<li><code>veclen(b)</code> calculates the length of <code>b</code>. Output: scalar.</li>
 </ul>
 <div class="{exr-34-project-write}">
-<p>Your task is to write your own <code>onto()</code> function, that will perform the same task as <code>%onto</code>. You can accomplish this with <code>cang()</code>, <code>unitvec()</code>, and <code>veclen()</code>, along with multiplication.</p>
-<p><embed src="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html#fig-b-onto-a" class="img-fluid"></p>
-<p>Projection onto a single vector</p>
+<p>Your task is to write your own <code>onto()</code> function, that will perform the same task as <code>%onto</code>. You can accomplish this with <code>cang()</code>, <code>unitvec()</code>, and <code>veclen()</code>, along with multiplication. The geometry is shown in <a href="#fig-b-onto-a" class="quarto-xref">Figure&nbsp;1</a>, which projects <code>b</code> onto <code>a</code> and gives as output the vector <code>s</code>.</p>
+<div id="fig-b-onto-a" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-b-onto-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/www/project-b-onto-a.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-b-onto-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li>Define your <code>onto()</code> function.</li>
+</ol>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ol start="2" type="1">
+<li>Write some test statements to confirm that your <code>onto()</code> does the same thing as <code>%onto%</code>.</li>
+</ol>
+<div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<p>A graphic for vectors and target points.</p>
+<div id="exr-solvefor1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3</strong></span> Find the multipliers for the linear combination to construct <span class="math inline">\(\vec{b}_1\)</span> from <span class="math inline">\(\vec{u}\)</span> and <span class="math inline">\(\vec{w}\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index-assignment-34_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="exr-solvefor2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> Find the multipliers for the linear combination to construct <span class="math inline">\(\vec{b}_2\)</span> from <span class="math inline">\(\vec{y}\)</span> and <span class="math inline">\(\vec{w}\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index-assignment-34_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="exr-make-matrix" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> &nbsp;</p>
 </div>
 <p>Projection onto orthogonal vectors</p>
 <p>Projection onto an arbitrary vector set</p>
-<div id="qwebr-insertion-location-2"></div>
+<div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div id="exr-34-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 6</strong></span> &nbsp;</p>
 </div>
 <!-- end of exr-34-1 -->
 <div id="exr-34-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 7</strong></span> &nbsp;</p>
 </div>
 <!-- end of exr-34-2 -->
 <div id="exr-34-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Exercise 8</strong></span> &nbsp;</p>
 </div>
-<!-- end of exr-34-3 -->
-<div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p><textarea id="cor-by-dot-R2" name="cor-by-dot-R2" class="devoirs-text" rows="4" cols="50" placeholder="Type here. (ID cor-by-dot-R2)"></textarea></p>
 <span id="devoirs-docID" style="display: none;">index-assignment-34.rmarkdown</span> <button onclick="devoirsSubmit()">Collect your answers</button>
 <div id="devoirs_summary">

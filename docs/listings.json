@@ -35,13 +35,6 @@
     ]
   },
   {
-    "listing": "/assignments.html",
-    "items": [
-      "/assignments/Day-31/index-assignment-31.html",
-      "/assignments/Day-34/index-assignment-34.html"
-    ]
-  },
-  {
     "listing": "/projects.html",
     "items": [
       "/projects/Gaussian-quadrature/GQ-87a.html",
@@ -68,6 +61,13 @@
       "/projects/Automatic-differentiation/index-AD.html",
       "/projects/Adaptive-quadrature/index-adaptive-quadrature.html",
       "/projects/SIR/index-SIR.html"
+    ]
+  },
+  {
+    "listing": "/assignments.html",
+    "items": [
+      "/assignments/Day-31/index-assignment-31.html",
+      "/assignments/Day-34/index-assignment-34.html"
     ]
   }
 ]

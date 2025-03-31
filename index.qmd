@@ -7,7 +7,7 @@ subtitle: "Prof. Daniel Kaplan"
 
 ------
 
-This is the home page for both terms of the two-term UATX/MOSAIC Calculus sequence. The course has no specific pre-requisites and is suited both to those who have no previous experience with Calculus and those who have taken an AP or IB year-long calculus sequence. The UATX Calculus sequence is designed to replace the entire multi-term traditional sequence---Calc I, II, III, differential equations, linear algebra---for STEM students and is highly relevant to economics, biology and medicine, data science, public policy, physics, and chemistry. It does not emphasize "pure" (theoretical) mathematics or proof.
+This is the home page for both terms of the two-term UATX/MOSAIC Calculus sequence. The course has no specific pre-requisites and is suited both to those who have no previous experience with Calculus and those who have taken an AP or IB year-long calculus sequence. The MOSAIC Calculus sequence is designed to replace the entire multi-term traditional sequence---Calc I, II, III, differential equations, linear algebra---for STEM students and is highly relevant to economics, biology and medicine, data science, public policy, physics, and chemistry. Proof and other aspects of "pure" (theoretical) mathematics are introduced only where necessary and appropriate.
 
 Please read the [**Basics**](basics.html) page for course policies and such. 
 
@@ -15,7 +15,7 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 
 [Homework submission link](https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog target="_blank")
 
-## Course outline
+## Two-term course outline
 
 * First term (10 weeks, winter term)
 
@@ -25,9 +25,9 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 
 * Second term (10 weeks, spring term)
 
-    1. [Linear algebra](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/linear-combinations-part.html) (approx 3 weeks). High-dimensional spaces and their residents, projection, decomposition, transformation
-    2. [Accumulation](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/accumulation-part.html) (approx 3 weeks). Taking information about change of state and turning it into information about state.
-    3. [Dynamics](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/dynamics-part.html) (approx 3 weeks). Modeling state as it evolves in time.
+    4. [Linear algebra](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/linear-combinations-part.html) (approx 3 weeks). High-dimensional spaces and their residents, projection, decomposition, transformation
+    5. [Accumulation](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/accumulation-part.html) (approx 3 weeks). Taking information about change of state and turning it into information about state.
+    6. [Dynamics](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/dynamics-part.html) (approx 3 weeks). Modeling state as it evolves in time.
     
 
 
@@ -35,120 +35,121 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 
 ## Day-by-day schedule
 
-## Week 1 {-}
+#### Week 1 {.unnumbered}
 
-### Tuesday April 1
+##### Tuesday April 1
 
 - Topics: 
     * Review: Objects and operators in calculus
     * Vectors and subspaces.
 - Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html) 
-- Start [Assignment 1](./assignments/Day-31/index-assignment-31.html). Due in one week.
+- Start [Assignment 1](./assignments/Day-31/index-assignment-31.html). Due next week.
 
-### Thursday April 3
+##### Thursday April 3
 
-Modeling day: Review
-* [Walking uphill](projects/Walking-uphill/)
-* [Factory production](projects/Cobb-Douglas)
+- Modeling day: Review of first term 
+    * [Walking uphill](projects/Walking-uphill/)
+    * [Factory production](projects/Cobb-Douglas)
 
-### Friday April 4
+##### Friday April 4
 
 - Topic: Linear combinations of vectors
 - Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html) 
 - Start [Assignment 2](./assignments/Day-34/index-assignment-34.html). Due in one week.
 
 
-## Week 2  {-}
+### Week 2  {.unnumbered}
 
-### Tuesday April 8
+#### Tuesday April 8
 
 
 
-### Thursday April 10
+#### Thursday April 10
 
 Modeling day: linear algebra
 
-### Friday April 11
+#### Friday April 11
 
 
-## Week 3  {-}
+### Week 3  {.unnumbered}
 
-### Tuesday April 15
+#### Tuesday April 15
 
 
 
-### Thursday April 17
+#### Thursday April 17
 
 Modeling day: linear algebra 2
-### Friday April 18
 
-## Week 4  {-}
+#### Friday April 18
 
-### Tuesday April 22
+### Week 4  {.unnumbered}
 
-
-### Thursday April 24
+#### Tuesday April 22
 
 
-### Friday April 25
-
-## Week 5  {-}
-
-### Tuesday April 29
+#### Thursday April 24
 
 
-### Thursday Map 1
+#### Friday April 25
+
+### Week 5  {.unnumbered}
+
+#### Tuesday April 29
 
 
-### Friday May 2
-
-## Week 6  {-}
-
-### Tuesday May 13
+#### Thursday Map 1
 
 
-### Thursday May 15
+#### Friday May 2
+
+### Week 6  {.unnumbered}
+
+#### Tuesday May 13
 
 
-### Friday May 16
-
-## Week 7 {-}
-
-### Tuesday May 20
+#### Thursday May 15
 
 
-### Thursday May 22
+#### Friday May 16
+
+### Week 7 {.unnumbered}
+
+#### Tuesday May 20
 
 
-### Friday May 23
-
-## Week 8 {-}
-
-### Tuesday May 27
+#### Thursday May 22
 
 
-### Thursday May 29
+#### Friday May 23
+
+### Week 8 {.unnumbered}
+
+#### Tuesday May 27
 
 
-### Friday May 30
-
-## Week 9 {-}
-
-### Tuesday June 3
+#### Thursday May 29
 
 
-### Thursday June 5
+#### Friday May 30
+
+### Week 9 {.unnumbered}
+
+#### Tuesday June 3
 
 
-### Friday June 6
+#### Thursday June 5
 
-## Week 10 {-}
 
-### Tuesday June 10
+#### Friday June 6
 
-### Thursday June 12
+### Week 10 {.unnumbered}
 
-### Friday June 13
+#### Tuesday June 10
+
+#### Thursday June 12
+
+#### Friday June 13
 
 
 
