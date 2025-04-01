@@ -1,0 +1,17 @@
+---
+title: "Bird Species"
+author: DTK
+date: last-modified
+format: live-html
+desc: "Tuning a graphic of bird species seasonality"
+categories: [SVD, ecology]
+---
+
+Make a raster plot of the bird species versus month for the Ordway Birds data.
+
+Pre-clean by cleaning species names and months, ...
+
+Pick out the 50 most common species, and give a count versus month.
+
+Arrange this so that seasonality patterns are easier to see.
+
