@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-04-03">
+
+<title>A nice walk up a hill – MOSAIC Calc 2025</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">MOSAIC Calc 2025</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../mosaic.html"> 
+<span class="menu-text">Mosaic?</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../basics.html"> 
+<span class="menu-text">Basics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts.html"> 
+<span class="menu-text">Class notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../assignments.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A nice walk up a hill</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">modeling project</div>
+    <div class="quarto-category">physiology</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 3, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Picking up from our discussion on Thursday 3 April about <a href="../../projects/Walking-uphill/index-walking-uphill.html">walking energetics</a> …</p>
+<p>The American College of Sports Medicine (ACSM) model of power consumption (watts, joules/min, horsepower, <span class="math inline">\(\dot{V}_{0_2}\)</span>, etc. are units) when walking on an incline at grade <span class="math inline">\(g_\text{path}\)</span> is<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
+<p><span id="eq-power-uphill"><span class="math display">\[P = (h + w g_\text{path}) V \tag{1}\]</span></span></p>
+<p>What must be the u-dimension of <span class="math inline">\(h\)</span> and <span class="math inline">\(w\)</span> for <a href="#eq-power-uphill" class="quarto-xref">Equation&nbsp;1</a> to be dimensionally consistent. (<span class="math inline">\(g_\text{path}\)</span> has u-dimension L/L., while power has u-dimension ML<sup>2</sup>T<sup>-3</sup>.)</p>
+<div class="cell" data-inline="true" data-show_hints="true">
+<p><span><span> <span> <input type="radio" class="devoirs-mcq" value="Distance L" id="dimension-h-w-1" w="19" name="dimension-h-w" hint="Wrong." show_hints="TRUE"> Distance L &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Velocity LT^-1^" id="dimension-h-w-2" w="19" name="dimension-h-w" hint="Not quite right." show_hints="TRUE"> Velocity LT<sup>-1</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Acceleration LT^-2^" id="dimension-h-w-3" w="23" name="dimension-h-w" hint="Not so!" show_hints="TRUE"> Acceleration LT<sup>-2</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Force M L T^-2^" id="dimension-h-w-4" w="8" name="dimension-h-w" hint="That's right." show_hints="TRUE"> Force M L T<sup>-2</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Energy ML^2^T^-2^" id="dimension-h-w-5" w="87" name="dimension-h-w" hint="Oops!" show_hints="TRUE"> Energy ML<sup>2</sup>T<sup>-2</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Power ML^2^T^-3^" id="dimension-h-w-6" w="23" name="dimension-h-w" hint="Not quite." show_hints="TRUE"> Power ML<sup>2</sup>T<sup>-3</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="dimension-h-w" id="dimension-h-w.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="dimension-h-w-hintarea">dimension-h-w</small> </span> </span> </span></span></p>
+</div>
+<p>The physics quantity “work” (u-dimension: energy) is power times time, so consider walking for a time <span class="math inline">\(t_d\)</span> to get us a distance <span class="math inline">\(d\)</span>:</p>
+<p><span id="eq-energy-uphill"><span class="math display">\[E = P t_d = (h + w g_\text{path}) V t_d = (h + w g_\text{path}) d \tag{2}\]</span></span></p>
+<p>Remember that the objective of walking this distance <span class="math inline">\(d\)</span> was to get the hiker to an elevation of 1000m. <span class="math inline">\(d\)</span> is the hypothenuse of a right triangle, so what is the correct relationship between <span class="math inline">\(d\)</span> and the gradient.</p>
+<div class="cell" data-show_hints="true">
+<span>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$d^2 = 100 ... {path})^2$" id="walk-d-at-g-1" w="3" name="walk-d-at-g" hint="Sorry!" show_hints="TRUE"> <span class="math inline">\(d^2 = 1000^2 + (1000 g_\text{path})^2\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$d^2 = 100 ... {path})^2$" id="walk-d-at-g-1" w="16" name="walk-d-at-g" hint="Right-O!" show_hints="TRUE"> <span class="math inline">\(d^2 = 1000^2 + (1000/g_\text{path})^2\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$d = 1000/ ... ext{path}$" id="walk-d-at-g-1" w="19" name="walk-d-at-g" hint="Think again." show_hints="TRUE"> <span class="math inline">\(d = 1000/g_\text{path}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$d^2 = 100 ... {path})^2$" id="walk-d-at-g-1" w="3" name="walk-d-at-g" hint="Wrong." show_hints="TRUE"> <span class="math inline">\(d^2 = 1000^2 - (1000/g_\text{path})^2\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="walk-d-at-g" id="walk-d-at-g.null" style="display: none;" w="skipped" checked="">
+<div class="hintarea">
+<p><small style="color: grey;" id="walk-d-at-g-hintarea">walk-d-at-g</small></p>
+</div>
+<p></p>
+</span></div>
+<p>In other words, <span class="math inline">\(d\)</span> is a function of <span class="math inline">\(g_\text{path}\)</span>, that is <span class="math inline">\(d(g_\text{path})\)</span>. Substitute the formula for this function into <a href="#eq-energy-uphill" class="quarto-xref">Equation&nbsp;2</a> to get an expression for <span class="math inline">\(E(g_\text{path})\)</span>.</p>
+<p>Graph the function <span class="math inline">\(E(g_\text{path})\)</span> over an appropriate domain to determine if there is a minimum and, if there is, the corresponding argmin. This is the answer we sought: the grade that makes getting uphill as energy-efficient as possible.</p>
+<p>One way to help people visualize your recommended grade … Pick a few real-world examples of paths, both steep and shallow. For example, there’s the Manitou incline near Colorado Springs as an example of a steep hike. Heartbreak Hill in the Boston Marathon has earned its name. Another example, pick a couple of streets in San Francisco, perhaps one with a cable-car running along it. Paste the URLs of the images that you like into the answer box.</p>
+<p><textarea id="slopes-urls" name="slopes-urls" class="devoirs-text" rows="4" cols="50" placeholder="Type here. (ID slopes-urls)"></textarea></p>
+<p><a href="#fig-map-to-draw-on" class="quarto-xref">Figure&nbsp;1</a> shows an imagined hill with contours drawn at intervals of 10. All units, horizontal and vertical, are in meters. Draw a path from the starting mark to the top of the hill that is at the optimal grade for walking. (You don’t need to have an exact answer, just a reasonable approximation.) A good way to proceed is to draw a short, straight segment from the starting point on one contour to the appropriate place at the next contour.</p>
+<div id="fig-map-to-draw-on" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-map-to-draw-on-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index-walking-project_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-map-to-draw-on-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The terrain on which to draw paths between the start and the point at the top of the hill.
+</figcaption>
+</figure>
+</div>
+<span id="devoirs-docID" style="display: none;">index-walking-project.rmarkdown</span> <button onclick="devoirsSubmit()">Collect your answers</button>
+<div id="devoirs_summary">
+No answers yet collected
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<script type="text/javascript">
+ console.log("In devoirs.js")
+
+function devoirsCollectEssays() {
+  var essay_answers = [];
+  var items = document.getElementsByClassName("devoirs-text");
+  for (i = 0; i < items.length; i++) {
+    //console.log("text entry" + i + "being handled");
+    essay_answers[i] = {itemid: items[i].id, contents: items[i].value}
+  }
+
+  return essay_answers;
+}
+
+function devoirsGetDocID() {
+  return document.getElementById("devoirs-docID").innerHTML
+}
+
+function devoirsCollectMC() {
+    let mc_answers = [] // Hold the information
+    var ele = document.getElementsByClassName("devoirs-mcq");
+    var count = 0;
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+          //console.log("Entering conditional.");
+          let checked_one = ele[i];
+          mc_answers[count++] = {itemid: checked_one.id, w: checked_one.getAttribute("w"), contents: checked_one.text};
+        }
+    }
+    return mc_answers;
+}
+
+console.log("About to define WebR")
+
+function devoirsCollectWebR() {
+  var chunk_contents = []; // placeholder for collecting webr items
+  if (typeof qwebrCellDetails == "undefined") {
+    // There aren't any webr chunks
+    return chunk_contents;
+  }
+  var chunks = qwebrCellDetails;
+  for (i = 0; i < chunks.length; i++) {
+    chunk_contents[i] = {itemid: chunks[i].options["label"], contents: chunks[i].code};
+  }
+
+  return chunk_contents;
+}
+
+console.log("About to define devoirsSubmit")
+
+function devoirsSubmit() {
+  console.log("About to collect history")
+
+  // check if there is any sign of a webr entry
+  // If not, don't try to collect webr entries
+  if (typeof qwebrRCommandHistory === 'undefined') {
+    items = {docid: devoirsGetDocID(), MC: devoirsCollectMC(), Essays: devoirsCollectEssays(), WebR: {}, R: {}}
+  } else {
+    console.log("Getting R commands.")
+    var Rhistory = qwebrRCommandHistory.map((x) => x.replace(/Ran code in (.*) at (.*[AP]M).{5}(.*)/, "[chunk: $1, time: $2, code: $3]"))
+
+    items = {docid: devoirsGetDocID(), MC: devoirsCollectMC(), Essays: devoirsCollectEssays(), WebR: devoirsCollectWebR(), R: Rhistory}
+  }
+
+  navigator.clipboard.writeText(JSON.stringify(items));
+
+  // summarize what's being collected
+  var my_summary = "Answers copied to clipboard. Fixed choice: " + items.MC.length + " Essays: " + items.Essays.length + " WebR chunks: " + items.WebR.length
+
+  document.getElementById("devoirs_summary").innerHTML = my_summary;
+}
+
+console.log("Read devoirsSubmit()")
+
+// Hint handling in Multiple choice
+
+// Still have to add an on/off switch from options
+
+function devoirs_setup_hintarea() {
+  answers = document.getElementsByClassName("devoirs-mcq")
+  for (i=0; i<answers.length; i++) answers[i].addEventListener('click', function(e){document.getElementById(e.target.name + "-hintarea").innerHTML = e.target.getAttribute("hint")})
+}
+
+ window.addEventListener("load", function() {
+  answers = document.getElementsByClassName("devoirs-mcq")
+  for (i=0; i<answers.length; i++) {
+    if (answers[i].getAttribute("show_hints") == "TRUE") {
+        answers[i].addEventListener('click', function(e){
+        document.getElementById(e.target.name + "-hintarea").innerText = e.target.getAttribute("hint")
+      })
+
+    }
+  }
+})
+
+console.log("Added hint summary.") 
+</script>
+
+</div>
+</div>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I’ve reformulated this to be consistent with the physiology literature<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

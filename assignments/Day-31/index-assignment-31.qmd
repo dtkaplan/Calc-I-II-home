@@ -153,10 +153,9 @@ unitvec <- function(vec) {
 Here's a test that I invented. See if it works in any dimension 2 or greater$
 ```{webr-r}
 # Here's a test of mine
-vec <- rvec(3)
+v <- rvec(3)
 veclen(
-  length(vec) *  unitvec(vec) -
-  vec
+  (length(v) *  unitvec(v)) - v
 )
 ```
 
@@ -277,8 +276,7 @@ Write the test code in the above chunk and explain what you found here.
 
 `r devoirs_text("cor-by-dot-R2")`
 
-
-
+  
 `r devoirs_start_no_link()`
 
 

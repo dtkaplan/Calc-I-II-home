@@ -50,12 +50,13 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 - Modeling day: Review of first term 
     * [Walking uphill](projects/Walking-uphill/)
     * [Factory production](projects/Cobb-Douglas)
+    - After class: [Assignment about walking project.](./assignments/Day-32/index-walking-project.html)
 
 ##### Friday April 4
 
 - Topic: Linear combinations of vectors
 - Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html) 
-- Start [Assignment 2](./assignments/Day-34/index-assignment-34.html). Due in one week.
+
 
 
 ### Week 2  {.unnumbered}
@@ -68,19 +69,18 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 
 #### Thursday April 10
 
-- Reading: *MOSAIC Calculus* [Chap 31](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/31-target-problem.html)
-
 Modeling day: linear algebra
 
 #### Friday April 11
 
-- Reading: *MOSAIC Calculus* [Chap 32](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/32-stat-modeling.html)
+- Reading: *MOSAIC Calculus* [Chap 31](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/31-target-problem.html)
+
 
 ### Week 3  {.unnumbered}
 
 #### Tuesday April 15
 
-
+- Reading: *MOSAIC Calculus* [Chap 32](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/32-stat-modeling.html)
 
 #### Thursday April 17
 

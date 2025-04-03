@@ -2,7 +2,9 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/2025-04-04-notes/index-04-04-2025.html",
       "/posts/2025-04-01-notes/index-04-01-2025.html",
+      "/posts/2025-04-03-notes/index-04-03-2025.html",
       "/posts/2025-03-21-notes/index-03-21-2025.html",
       "/posts/2025-03-20-notes/index-03-20-2025.html",
       "/posts/2025-03-18-notes/index-03-18-2025.html",
@@ -69,6 +71,7 @@
     "listing": "/assignments.html",
     "items": [
       "/assignments/Day-31/index-assignment-31.html",
+      "/assignments/Day-32/index-walking-project.html",
       "/assignments/Day-34/index-assignment-34.html"
     ]
   }

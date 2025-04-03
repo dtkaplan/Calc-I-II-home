@@ -11,6 +11,7 @@ categories: [linear algebra]
 library(LSTbook)
 library(ggplot2)
 library(tidyr)
+library(LSTbook)
 ```
 
 Re-arrange the grades into a matrix
@@ -42,6 +43,89 @@ Keepers <-
 ## Method
 
 <https://maherou.github.io/Teaching/files/CS317/masseyMethod.pdf>
+
+
+## Matrix of students in departments
+
+```{r}
+To <- Keepers |> select(sid, dept, gradepoint)
+M <- matrix(0, nrow=40, ncol=443)
+depts <- unique(To$dept)
+depts_inds <- 1:length(depts)
+students <- unique(To$sid)
+students_inds <- 1:length(students)
+
+# Loop over the sessions
+for (k in 1:length(depts)) {
+  this_session <- To |> filter(dept == depts[k]) |> select(sid)
+  inds <- which(students %in% this_session$sid)
+  M[k, inds] <- 1
+}
+image(1:ncol(M), 1:nrow(M), 1000*t(M), col = terrain.colors(5), axes = FALSE)
+
+S <- svd(M)
+inds1 <- order(c(S$u[,1]))
+inds2 <- order(c(S$v[,1]))
+VA <- M[ inds1, inds2 ]
+# assemble the first few rank-1 matrices
+one <- S$u[inds1,1, drop = FALSE] %*% t(S$v[inds2,1, drop = FALSE])
+
+partial <- 0 # initial value
+for (k in 1:4) {
+  partial <- partial +  S$d[k] * S$u[inds1,k, drop = FALSE] %*% t(S$v[inds2,k, drop = FALSE])
+}
+
+
+
+
+image(1:ncol(partial), 1:nrow(partial), t(partial), 
+      col = scales::grey_pal(start = 0.2, end = 0.8)(15), 
+      axes = FALSE)
+```
+
+
+## Matrix of students in sessions
+
+```{r}
+To <- Keepers |> select(sid, sessionID, gradepoint)
+M <- matrix(0, nrow=1368, ncol=443)
+sessions <- unique(To$sessionID)
+sessions_inds <- 1:length(sessions)
+students <- unique(To$sid)
+students_inds <- 1:length(students)
+
+# Loop over the sessions
+for (k in 1:length(sessions)) {
+  this_session <- To |> filter(sessionID == sessions[k]) |> select(sid)
+  inds <- which(students %in% this_session$sid)
+  M[k, inds] <- 1
+}
+
+
+image(1:ncol(M), 1:nrow(M), 1000*t(M), col = terrain.colors(5), axes = FALSE)
+
+S <- svd(M)
+inds1 <- order(c(S$u[,1]))
+inds2 <- order(c(S$v[,1]))
+VA <- M[ inds1, inds2 ]
+# assemble the first few rank-1 matrices
+one <- S$u[inds1,1, drop = FALSE] %*% t(S$v[inds2,1, drop = FALSE])
+
+image(1:ncol(one), 1:nrow(one), 1000*t(one), col = terrain.colors(5), axes = FALSE)
+
+
+dim((S$u[,1, drop = FALSE]))
+dim(S$u[,1, drop=FALSE])
+```
+
+```{r}
+foo <- data.frame(index=c(t(VA)), 
+  y=rep(1:443,times=1368),
+  x=rep(1:1368, each=443) )
+ggplot( foo, aes(x=x, y=y, fill=index)) +
+  geom_tile() +
+  xlab("Class session") + ylab("Student") 
+```
 
 
 ## Head-to-head competitions
@@ -93,7 +177,20 @@ Sidebyside |> ggformula::gf_point(gpa ~ ranking)
 
 Now we have the gradepoints in a head to head competition
 
-
+```{r}
+Pairs <- abs(M)
+dim(Pairs)
+S <- svd(Pairs)
+inds1 <- order(c(S$u[,1]))
+inds2 <- order(c(S$v[,1]))
+VA <- Pairs[ inds1, inds2 ]
+foo <- data.frame(index=c(t(Pairs)), 
+  y=rep(1:443,times=13348),
+  x=rep(1:13348, each=443) )
+ggplot( foo, aes(x=x, y=y, fill=index)) +
+  geom_tile() +
+  xlab("Class session") + ylab("Student") 
+```
 
 ## SVD approach, not working
 Break into an array, students on vertical axis, instructors on horizontal.
@@ -157,3 +254,34 @@ Sorted[1:50,1:50] |> melt() |>
   scale_fill_gradient2() +
   xlab("") + ylab("Student") 
 ```
+
+
+## SAT scores and academic performance
+
+The College Board claims that the predictive power of the SAT on (first-year) college performance corresponds to $r \approx 0.40$.
+
+To visualize what this means, let's construct 10,000 pairs of SAT versus UATX performance that have this correlation and look at the rank of each student by both measures.
+
+```{r}
+n = 10000
+Simulation <- tibble(
+  common = 0.4 * rnorm(n),
+  UATX = common + 0.47 * rnorm(n),
+  SAT = common + 0.47 * rnorm(n)
+)
+Simulation |>
+  model_train(UATX ~ SAT) |>
+  R2()
+Simulation |> point_plot(rank(UATX) ~ rank(SAT))
+```
+
+Perhaps a better intuition can be had by imagining 200 applicants and looking at the performace of those in the top half of the SAT versus those in the bottom half.
+
+```{r}
+Simulation |> 
+  mutate(sat_position = ifelse(rank(SAT) > n/2, "top", "bottom")) |>
+  take_sample(n = 200) |>
+  point_plot(rank(UATX) ~ sat_position, annot = "model",
+             point_ink = 0.5)
+```
+

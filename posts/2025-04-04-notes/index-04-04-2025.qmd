@@ -1,0 +1,105 @@
+---
+author: DTK
+date: 2025-04-04
+number-offset: 32
+format: live-html
+---
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(purrr)
+library(LSTbook)
+```
+
+# 2025-04-04 class notes
+
+## Dot product and the correlation coefficient
+
+Here's the way we did things in QR2:
+
+```{r}
+Galton |> model_train(height ~ mother) |>
+  R2()
+```
+
+The correlation coefficient is the square root of R^2^ for for a model with only one explanatory variable where both the response and the explanatory variables are quantitative.
+
+```{r}
+sqrt(0.0406647)
+```
+
+Now let's compute the dot-product and the cosine of the inclusive angle by data wrangling. 
+
+```{r}
+Galton |>
+  mutate(standardH = (height - mean(height))/sd(height),
+         standardM = (mother - mean(mother))/sd(mother)) |>
+  summarize(dotproduct = sum(standardH * standardM),
+            lenH = sqrt(sum(standardH^2)),
+            lenM = sqrt(sum(standardM^2)),
+            cosTheta = dotproduct / (lenH * lenM))
+```
+## Addition
+
+## Scaling
+
+## Linear combination
+
+## Functions as vectors
+
+Gaussians over a two second-window
+
+```{r}
+step = 2^(1/12)
+
+Sounds <- tibble::tibble(
+  time = (0:44100)/22050,
+  g1 = pmin(1.0, dnorm(time, mean = 1, sd=0.5)),
+  g2 = pmin(1.0, dnorm(time, mean = 0.25, sd=0.2)),
+  g3 = pmin(1.0, dnorm(time, mean = .75, sd=0.2)),
+  g4 = pmin(1.0, dnorm(time, mean = 1.25, sd=0.1)),
+  one =    sin(step^0  * 2 * pi * 440 * time),
+  two =    sin(step^1  * 2 * pi * 440 * time),
+  three =  sin(step^2  * 2 * pi * 440 * time),
+  four =   sin(step^3  * 2 * pi * 440 * time),
+  five =   sin(step^4  * 2 * pi * 440 * time),
+  six =    sin(step^5  * 2 * pi * 440 * time),
+  seven =  sin(step^6  * 2 * pi * 440 * time),
+  eight =  sin(step^7  * 2 * pi * 440 * time),
+  nine =   sin(step^8  * 2 * pi * 440 * time),
+  ten =    sin(step^9  * 2 * pi * 440 * time),
+  eleven = sin(step^10 * 2 * pi * 440 * time),
+  twelve = sin(step^11 * 2 * pi * 440 * time)
+)  |>
+  mutate(sum = g2*three + g2*five + g2*seven + 2*three^2)
+
+audio::play(Sounds$sum / 10, rate = 22050)
+```
+
+## Matrices
+
+## Subspaces
+
+## SVD and the dimension of subspaces
+
+Create some vectors, then some linear combinations of them than look at the singular values.
+
+```{r}
+u <- rbind(1,2,3, 6, -2)
+v <- rbind(2,5,3, -4, 1)
+w <- 3*u - 2*v
+x <- w - u
+y <- u + v - w
+M <- cbind(u, v, w, x, y)
+M |> svd() |> pluck("d")
+```
+
+
+```{r}
+M <- Sounds |> 
+  select(one, two, three, four, five, 
+         six, seven, eight, nine, ten, eleven, twelve) |>
+  as.matrix(ncol = 12) 
+M |> svd() |> pluck("d")
+```
