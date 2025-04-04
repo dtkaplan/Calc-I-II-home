@@ -9,15 +9,14 @@ categories: [linear algebra]
 library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
-
-{{< include ../prelim-31.R >}}
+{{< include ../../_software/software.R >}}
 ```
 
 
 ```{webr-r}
 #| autorun: true
 #| context: setup
-{{< include ../prelim-31.R >}}
+{{< include ../../_software/software.R >}}
 ```
 
 ## Part 1: By hand and eye
@@ -276,10 +275,6 @@ Write the test code in the above chunk and explain what you found here.
 
 `r devoirs_text("cor-by-dot-R2")`
 
+
+{{< include ../../_software/devoirs.qmd >}}
   
-`r devoirs_start_no_link()`
-
-
-```{r echo=FALSE}
-devoirs_end()
-```

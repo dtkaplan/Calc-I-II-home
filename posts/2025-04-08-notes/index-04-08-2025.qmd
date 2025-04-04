@@ -1,7 +1,7 @@
 ---
 author: DTK
-date: 2025-04-04
-number-offset: 32
+date: 2025-04-08
+number-offset: 33
 format: live-html
 ---
 
@@ -16,7 +16,7 @@ library(LSTbook)
 
 
 
-# 2025-04-04 class notes
+# 2025-04-08 class notes
 
 ::: {.callout-tip collapse=true}
 ## Console A
@@ -42,49 +42,48 @@ library(LSTbook)
 ```
 :::
 
-## Dot product and the correlation coefficient
 
-Here's the way we did things in QR2:
+## From last week ...
 
-```{webr-r}
-Galton |> model_train(height ~ mother) |>
-  R2()
+We talked about the dot product, linear combinations, the idea of a subspace as defined by a set of vectors. 
+
+We started to think about linear modeling (as in `model_train()`, which uses `lm()`) in terms of vectors.
+
+Reminder of "case space" versus "variable space."
+
+
+Today's goal is to give you a complete understanding of linear modeling in terms of vectors. 
+
+## Matrices
+
+A matrix is a set of vectors. All of them must share an embedding space, that is, they all must have the same number of components.
+
+* Making vectors, say with `rvec()`
+* Making matrices with `cbind()`
+* Sometimes it will be nice to display a large matrix visually, one pixel per number.
+
+
+## Matrix/vector multiplication
+
+Canonical form: m-by-n matrix times an n-dimensional vector gives an m-dimensional vector.
+
+The result is a linear combination of the vectors in the matrix, with the "coefficients"/"scalars" coming from the vector. 
+
+Not necessarily commutative. 
+
+Why I was dodgy in writing the dot product using two column vectors. Better if the dot product is seen as a kind of matrix/vector multiplication, where the matrix consists simply as a row of scalars.
+
+Use `values_mat()` to create the vectors and the matrix.
+
+# Finding the coefficients using `lm()`
+
+```{r}
+v <- values_mat(4, 1)
+M <- values_mat(4, 4)
+list(M=M, v=v) |>
+  model_train(v ~ M - 1) |>
+  conf_interval()
 ```
-
-The correlation coefficient is the square root of R^2^ for for a model with only one explanatory variable where both the response and the explanatory variables are quantitative.
-
-```{webr-r}
-sqrt(0.0406647)
-```
-
-Now let's compute the dot-product and the cosine of the inclusive angle by data wrangling. 
-
-```{webr-r}
-Galton |>
-  mutate(standardH = (height - mean(height))/sd(height),
-         standardM = (mother - mean(mother))/sd(mother)) |>
-  summarize(dotproduct = sum(standardH * standardM),
-            lenH = sqrt(sum(standardH^2)),
-            lenM = sqrt(sum(standardM^2)),
-            cosTheta = dotproduct / (lenH * lenM))
-```
-## Addition
-
-## Scaling
-
-Scaling provides the way to turn a vector into a space.
-
-## Linear combination
-
-A way to produce a space defined by two or more vectors.
-
-What is modeling in terms of vectors. Find the best linear combination of vectors (explanatory terms) to approximate the response vector.
-
-## Subspaces
-
-What's the subspace spanned by 3 vectors on a table?
-
-[We only got this far.]
 
 ## Functions as vectors
 

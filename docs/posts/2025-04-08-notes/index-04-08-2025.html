@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-03-31">
+<meta name="author" content="DTK">
+<meta name="dcterms.date" content="2025-04-08">
 
-<title>MOSAIC Assignment 31 – MOSAIC Calc 2025</title>
+<title>index-04-08-2025 – MOSAIC Calc 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -401,7 +402,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"vec <- function(...) {\n  vals <- list(...) |> unlist()\n  matrix(vals, ncol=1)\n}\n\nrvec <- function(first, ..., rfun=rnorm) {\n  dots <- c(first, list(...)) |> unlist()\n  if (length(dots) == 1) {\n    dots <- rfun(dots[[1]])\n  }\n\n  vec(dots)\n}\n\nshow_matrix <- function(M) {\n  image(1:ncol(M), 1:nrow(M), t(M),\n        col = colorspace::diverging_hcl(\n          15, h = c(180, 50), c = 80,\n          l = c(20, 95), power = c(0.7, 1.3)),\n        axes = FALSE)\n}\n","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"vec(3, 6, -9)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"assignment-31-a","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"rvec(5)","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"u <- vec(1, 2, 3)\nv <- vec(3, 2, 1)\nu %dot% v","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"assignment-31-b","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"vec(.....) %dot% vec(.....) # two dimensional vecs\nvec(.....) %dot% vec(.....) # three dimensional vecs\nvec(.....) %dot% vec(.....) # four dimensional vecs","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"dot-test-cases","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"veclen <- function(v) {\n  .....\n}","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"write-length","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"veclen( ..... ) == .....\nveclen( ..... ) == .....\nveclen( ..... ) == .....","id":7,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"length-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"unitvec <- function(vec) {\n  \n}","id":8,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"normalize-vec","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Add your tests here","id":9,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unitvec-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Here's a test of mine\nv <- rvec(3)\nveclen(\n  (length(v) *  unitvec(v)) - v\n)","id":10,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-10","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"cang <- function(v, w) {\n  .....\n}","id":11,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"write-cang","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"cang( ....., ..... ) == cos(0)\ncang( ....., ..... ) == cos(pi/4)\ncang( ....., ..... ) == cos(pi/2)\ncang( ....., ..... ) == cos(pi)","id":12,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"cang-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"cor_by_dot <- function(data, tilde) {\n  left <- data[[tilde[[2]]]]\n  right <- data[[tilde[[3]]]]\n  left <- left - mean(left)\n  right <- right - mean(right)\n\n  cang(left, right)\n}","id":13,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"find-r","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Galton |> cor_by_dot(..tilde..)\nGalton |> model_train(..tilde..) |> R2()","id":14,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"cor-by-dot-test","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"u <- vec(1, 2, 3)\nv <- vec(3, 1, 2, 4)\nw <- vec(5, 6, -1, 2, 7)\northu <- vec() # fill in your values!\northv <- vec()\northw <- vec()\ncang(u, orthu )\ncang(v, orthv)\ncang(w, orthw)","id":15,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","eval":"false","fig-cap":"","fig-height":5,"fig-width":7,"label":"make-ortho-test","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"dtk_ortho <- function(M) {\n  new <- rvec(nrow(M))\n  qr.Q(\n    qr(cbind(M, new))\n  )[ , ncol(M) + 1]\n}","id":16,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"dtk-ortho","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Your tests here","id":17,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"dtk-ortho-tests","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","persist":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"step = 2^(1/12)\n\nSounds <- tibble::tibble(\n  time = (0:44100)/22050,\n  g1 = pmin(1.0, dnorm(time, mean = 1, sd=0.5)),\n  g2 = pmin(1.0, dnorm(time, mean = 0.25, sd=0.2)),\n  g3 = pmin(1.0, dnorm(time, mean = .75, sd=0.2)),\n  g4 = pmin(1.0, dnorm(time, mean = 1.25, sd=0.1)),\n  one =    sin(step^0  * 2 * pi * 440 * time),\n  two =    sin(step^1  * 2 * pi * 440 * time),\n  three =  sin(step^2  * 2 * pi * 440 * time),\n  four =   sin(step^3  * 2 * pi * 440 * time),\n  five =   sin(step^4  * 2 * pi * 440 * time),\n  six =    sin(step^5  * 2 * pi * 440 * time),\n  seven =  sin(step^6  * 2 * pi * 440 * time),\n  eight =  sin(step^7  * 2 * pi * 440 * time),\n  nine =   sin(step^8  * 2 * pi * 440 * time),\n  ten =    sin(step^9  * 2 * pi * 440 * time),\n  eleven = sin(step^10 * 2 * pi * 440 * time),\n  twelve = sin(step^11 * 2 * pi * 440 * time)\n)  |>\n  mutate(sum = g2*three + g2*five + g2*seven + 2*three^2)\n\n# audio::play(Sounds$sum / 10, rate = 22050)","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Mrand <- matrix(rnorm(40*30), nrow=40, ncol=30)\ndraw_matrix(Mrand)","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"u <- rbind(1,2,3, 6, -2)\nv <- rbind(2,5,3, -4, 1)\nw <- 3*u - 2*v\nx <- w - u\ny <- u + v - w\nM <- cbind(u, v, w, x, y)\nM |> svd() |> purrr::pluck(\"d\")","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-6","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"draw_matrix(M)\nM","id":7,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-7","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"M <- Sounds |> \n  select(one, two, three, four, five, \n         six, seven, eight, nine, ten, eleven, twelve) |>\n  as.matrix(ncol = 12) \nM |> svd() |> purrr::pluck(\"d\")","id":8,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-8","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Drawing vectors and matrices\n\ndraw_matrix <- function(M) {\n  image(1:ncol(M), 1:nrow(M), t(M[nrow(M):1, ]),\n        col = colorspace::diverging_hcl(\n          15, h = c(180, 50), c = 80,\n          l = c(20, 95), power = c(0.7, 1.3)),\n        axes = FALSE)\n}\n\nsomevecs <- tibble::tribble(\n  ~ rootx, ~ rooty, ~ headx, ~ heady, ~ color, ~ name,\n  0, 0, -2, 4, \"blue\", \"u\",\n  1, -2, 5, -3, \"green\", \"v\",\n  -1, -1, -4, -1, \"orange\", \"w\",\n  1, 0, 4, 3, \"brown\", \"x\",\n  0, -2, 3, -3, \"salmon\", \"y\",\n  0, 0, 4, 3, \"magenta\", \"b1\",\n  0, 0, -3, 2, \"magenta\", \"b2\",\n) |>\n  mutate(labelx = (rootx + headx)/2,\n         labely = (2*rooty + heady)/3)\nsolve_for <- function(vecnames) {\n  somevecs |>\n    filter(name %in% vecnames) |>\n    gf_segment(rooty + heady ~ rootx + headx,\n               arrow = grid::arrow(length=unit(0.15, \"inches\"), type=\"closed\"),\n               color = ~ color, linewidth=2) |>\n    gf_label(labely ~ labelx, label= ~ name, color = ~ color, size=3) |>\n    gf_refine(scale_color_identity(),\n              scale_y_continuous(limits=c(-5,5),\n                                 breaks=(-5):5),\n              scale_x_continuous(limits=c(-5,5),\n                                 breaks=(-5):5),\n              coord_fixed()) |>\n    gf_labs(x=\"\", y = \"\")\n}\n\n\n# Simple vector/matrix operations\n\nvec <- function(...) {\n  vals <- list(...) |> unlist()\n  matrix(vals, ncol=1)\n}\n\nrvec <- function(first, ..., rfun=rnorm) {\n  dots <- c(first, list(...)) |> unlist()\n  if (length(dots) == 1) {\n    dots <- rfun(dots[[1]])\n  }\n\n  vec(dots)\n}\n\nveclen <- function(v) sqrt(v %dot% v)\nunitvec <- function(vec) vec/length(vec)\ncang <- function(v, w) {(v %dot% w) / (veclen(v) * veclen(w))}\nmakeQ <- function(...) {\n  dots <- list(...) |> bind_cols()\n  qr.Q(qr(dots))\n}\n\ncheck_for_svd <- function(S) {\n  if (inherits(S, \"matrix\")) S <- svd(S)\n  if (!is.list(S) || !all(c(\"d\",\"v\", \"u\") %in% names(S)))\n    stop(\"Argument must be matrix or the SVD of a matrix.\")\n  S\n}\n\nrank_mat <- function(S, thresh = 0.01) {\n  S <- check_for_svd(S)\n  sum(S$d > S$d[1] * thresh)\n}\n\nrand_mat <- function(nrow=3, ncol=6, rank = pmin(nrow, ncol)) {\n  M <- matrix(runif(nrow*ncol), nrow = nrow, ncol = ncol)\n  if (rank >= nrow || rank >= ncol) {\n   M\n  } else {\n    approx_mat(S, n=sample(pmin(rank, nrow, ncol)))\n  }\n}\n\n# Grab rank 1 matrix from SVD\napprox_mat <- function(S, n=1, order = 0) { # input a matrix or the SVD of a matrix\n  S <- check_for_svd(S)\n  if (order > 0) {\n    inds1 <- order(c(S$u[,order]))\n    inds2 <- order(c(S$v[,order]))\n  } else {\n    inds1 <- 1:nrow(S$u)\n    inds2 <- 1:nrow(S$v)\n  }\n  partial <- 0 # initial value\n  for (k in n) {\n    partial <- partial +  S$d[k] * S$u[inds1,k, drop = FALSE] %*% t(S$v[inds2,k, drop = FALSE])\n  }\n\n  partial\n}\n\npretty_mat <- function(M) {\n  inds1 <- order(rowSums(M))\n  inds2 <- order(colSums(M))\n  M[inds1, inds2]\n}\n\n#' Generate a matrix whose elements are selected randomly from a set\n#' of specified values.\n#' @param nrow number of rows for the matrix produced\n#' @param ncol number of columns\n#' @param values the set from which to draw (randomly) the\n#' values in the matrix. Default: integers -9 to 9\nvalues_mat <- function(nrow=4, ncol=3, values = -9:9) {\n  matrix(sample(values, size = nrow * ncol, replace = TRUE),\n         nrow = nrow, ncol=ncol)\n}","id":9,"options":{"autorun":"true","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-9","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"hide","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -1655,35 +1656,6 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -1691,7 +1663,7 @@ window.Quarto = {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -1733,7 +1705,35 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>DTK </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 8, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -1741,18 +1741,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#part-1-by-hand-and-eye" id="toc-part-1-by-hand-and-eye" class="nav-link active" data-scroll-target="#part-1-by-hand-and-eye">Part 1: By hand and eye</a></li>
-  <li><a href="#part2-computing" id="toc-part2-computing" class="nav-link" data-scroll-target="#part2-computing">Part2: Computing</a>
-  <ul class="collapse">
-  <li><a href="#basic-operations" id="toc-basic-operations" class="nav-link" data-scroll-target="#basic-operations">Basic operations</a></li>
-  <li><a href="#write-these-functions-and-tests" id="toc-write-these-functions-and-tests" class="nav-link" data-scroll-target="#write-these-functions-and-tests">Write these functions and tests</a></li>
-  <li><a href="#orthogonality" id="toc-orthogonality" class="nav-link" data-scroll-target="#orthogonality">Orthogonality</a></li>
-  </ul></li>
+  <li><a href="#class-notes" id="toc-class-notes" class="nav-link active" data-scroll-target="#class-notes"><span class="header-section-number">34</span> 2025-04-08 class notes</a></li>
+  <li><a href="#finding-the-coefficients-using-lm" id="toc-finding-the-coefficients-using-lm" class="nav-link" data-scroll-target="#finding-the-coefficients-using-lm"><span class="header-section-number">35</span> Finding the coefficients using <code>lm()</code></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
 <script type="module" id="qwebr-monaco-editor-init">
 
@@ -2038,567 +2033,132 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">MOSAIC Assignment 31</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">linear algebra</div>
-  </div>
-  </div>
 
 
 
-<div class="quarto-title-meta">
 
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 31, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div id="qwebr-insertion-location-1"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<section id="part-1-by-hand-and-eye" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-by-hand-and-eye">Part 1: By hand and eye</h2>
-<div id="exr-girl-send-scarf" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> Consider this set of vectors</p>
-<div id="fig-girl-send-scarf" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-girl-send-scarf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="www/basic-vectors.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-girl-send-scarf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Vectors to use for this exercise
-</figcaption>
-</figure>
-</div>
-<ol type="a">
-<li>Find the lengths of each of these vectors. Assume that the vectors begin and end exactly on the graph-paper intersections.</li>
-</ol>
-<p>Which one of these is <strong>not</strong> a length of the vectors in <a href="#fig-girl-send-scarf" class="quarto-xref">Figure&nbsp;1</a>?</p>
-<div class="cell" data-inline="true">
-<p><span><span> <span> <input type="radio" class="devoirs-mcq" value="$\sqrt{8}$" id="gsc-1-1" w="3" name="gsc-1" hint="Better luck next time." show_hints="false"> <span class="math inline">\(\sqrt{8}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$\sqrt{16}$" id="gsc-1-2" w="29" name="gsc-1" hint="A win!" show_hints="false"> <span class="math inline">\(\sqrt{16}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="5 " id="gsc-1-3" w="23" name="gsc-1" hint="You're mistaken" show_hints="false"> 5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$\sqrt{40}$ " id="gsc-1-4" w="23" name="gsc-1" hint="Not on target." show_hints="false"> <span class="math inline">\(\sqrt{40}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-1" id="gsc-1.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-1-hintarea">gsc-1</small> </span> </span> </span></span></p>
-</div>
-<ol start="2" type="a">
-<li><em>Two</em> pairs of vectors in <a href="#fig-girl-send-scarf" class="quarto-xref">Figure&nbsp;1</a> are orthogonal within each pair. Which one of these is <strong>not</strong> one of those pairs?</li>
-</ol>
-<div class="cell" data-inline="true">
-<p><span><span> <span> <input type="radio" class="devoirs-mcq" value="A and B" id="gsc-2-1" w="7" name="gsc-2" hint="Think again." show_hints="false"> A and B &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="B and C" id="gsc-2-2" w="35" name="gsc-2" hint="Yes!" show_hints="false"> B and C &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="C and D" id="gsc-2-3" w="7" name="gsc-2" hint="Sorry!" show_hints="false"> C and D &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="All of the ... nal pairs." id="gsc-2-4" w="7" name="gsc-2" hint="No." show_hints="false"> All of these are orthogonal pairs. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-2" id="gsc-2.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-2-hintarea">gsc-2</small> </span> </span> </span></span></p>
-</div>
-<ol start="3" type="a">
-<li>Just using your eye, say whether the dot product between every pair of vectors is positive, zero, or negative.</li>
-</ol>
-<div class="cell" data-inline="true" data-leed="1. A &amp; B">
-<ol type="1">
-<li>A &amp; B&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="gsc-c1-1" w="32" name="gsc-c1" hint="Not on target." show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="gsc-c1-2" w="14" name="gsc-c1" hint="Nice." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="gsc-c1-3" w="32" name="gsc-c1" hint="Nope." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-c1" id="gsc-c1.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-c1-hintarea">gsc-c1</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="2. A &amp; C">
-<ol start="2" type="1">
-<li>A &amp; C&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="gsc-c2-1" w="20" name="gsc-c2" hint="Bingo!" show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="gsc-c2-2" w="32" name="gsc-c2" hint="Incorrect." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="gsc-c2-3" w="23" name="gsc-c2" hint="Incorrect." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-c2" id="gsc-c2.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-c2-hintarea">gsc-c2</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="3. A &amp; D">
-<ol start="3" type="1">
-<li>A &amp; D&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="gsc-c3-1" w="14" name="gsc-c3" hint="Good job!" show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="gsc-c3-2" w="23" name="gsc-c3" hint="Wrong." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="gsc-c3-3" w="3" name="gsc-c3" hint="No." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-c3" id="gsc-c3.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-c3-hintarea">gsc-c3</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="4. A &amp; E">
-<ol start="4" type="1">
-<li>A &amp; E&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="gsc-c4-1" w="35" name="gsc-c4" hint="Yes." show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="gsc-c4-2" w="3" name="gsc-c4" hint="Boo!" show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="gsc-c4-3" w="3" name="gsc-c4" hint="Wrong." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-c4" id="gsc-c4.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-c4-hintarea">gsc-c4</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="5. B &amp; C">
-<ol start="5" type="1">
-<li>B &amp; C&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="gsc-c5-1" w="7" name="gsc-c5" hint="Oops!" show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="gsc-c5-2" w="23" name="gsc-c5" hint="Not on target." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="gsc-c5-3" w="20" name="gsc-c5" hint="Right on the nose!" show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-c5" id="gsc-c5.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-c5-hintarea">gsc-c5</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="6. B &amp; D">
-<ol start="6" type="1">
-<li>B &amp; D&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="gsc-c6-1" w="7" name="gsc-c6" hint="This is wide of the mark." show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="gsc-c6-2" w="32" name="gsc-c6" hint="Nope." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="gsc-c6-3" w="20" name="gsc-c6" hint="Correct." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-c6" id="gsc-c6.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-c6-hintarea">gsc-c6</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="7. B &amp; E">
-<ol start="7" type="1">
-<li>B &amp; E&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="gsc-c7-1" w="14" name="gsc-c7" hint="Right." show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="gsc-c7-2" w="3" name="gsc-c7" hint="Not quite." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="gsc-c7-3" w="32" name="gsc-c7" hint="Hmmm ..." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-c7" id="gsc-c7.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-c7-hintarea">gsc-c7</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="8. C &amp; D">
-<ol start="8" type="1">
-<li>C &amp; D&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="gsc-c8-1" w="87" name="gsc-c8" hint="Not quite right." show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="gsc-c8-2" w="8" name="gsc-c8" hint="Certainly." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="gsc-c8-3" w="23" name="gsc-c8" hint="Wrong." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-c8" id="gsc-c8.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-c8-hintarea">gsc-c8</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="9. C &amp; E">
-<ol start="9" type="1">
-<li>C &amp; E&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="gsc-c9-1" w="18" name="gsc-c9" hint="Bingo!" show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero " id="gsc-c9-2" w="3" name="gsc-c9" hint="Not quite." show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="gsc-c9-3" w="3" name="gsc-c9" hint="This is wide of the mark." show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-c9" id="gsc-c9.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-c9-hintarea">gsc-c9</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="10. D &amp; E">
-<ol start="10" type="1">
-<li>D &amp; E&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="positive" id="gsc-c10-1" w="32" name="gsc-c10" hint="Hmmm ..." show_hints="false"> positive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="zero" id="gsc-c10-2" w="23" name="gsc-c10" hint="You're mistaken" show_hints="false"> zero &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="negative" id="gsc-c10-3" w="41" name="gsc-c10" hint="A win!" show_hints="false"> negative &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="gsc-c10" id="gsc-c10.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="gsc-c10-hintarea">gsc-c10</small> </span> </span> </span></span></li>
-</ol>
-</div>
-</div>
-<hr>
-<div id="exr-panda-think-plate" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2</strong></span> Here are several vectors:</p>
-<p><img src="www/many-vectors1.png" class="img-fluid"></p>
-<ol type="a">
-<li>Remembering that mathematical vectors have only two properties—length and direction—how many mathematically different vectors are being shown.</li>
-</ol>
+<section id="class-notes" class="level3" data-number="34">
+<h3 data-number="34" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">34</span> 2025-04-08 class notes</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+Console A
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Five. Color is not a property of a mathematical vector. Orientation, however, is.</p>
+<div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </div>
 </div>
-<ol start="2" type="a">
-<li><p>Measure the length of each vector. (Hint: Use a ruler! You can round to the nearest millimeter.)</p></li>
-<li><p>Find the included angle between the <span class="math inline">\(\color{blue}{\text{blue}}\)</span> and <span class="math inline">\(\color{brown}{\text{brown}}\)</span> vectors. (Your answer should be correct to within <span class="math inline">\(\pm 15^\circ\)</span>.)</p></li>
-</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+Console B
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>About 135 degrees. Note that the orientation makes a difference. The angle is measured with the vectors placed tail to tail.</p>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </div>
 </div>
-<ol start="4" type="a">
-<li>Find the included angle between the <span class="math inline">\(\color{magenta}{\text{magenta}}\)</span> and <span class="math inline">\(\color{blue}{\text{blue}}\)</span> vectors.</li>
-</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+Console C
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Magenta points in the same direction as brown, so the answer is the same as in the previous question.</p>
-</div>
-</div>
-</div>
-<ol start="5" type="a">
-<li>Find the included angle between 0.7 times the <span class="math inline">\(\color{blue}{\text{blue}}\)</span> vector and -11.3 times the <span class="math inline">\(\color{brown}{\text{brown}}\)</span>.</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The scaling does not matter except that the negative sign for the brown vector means that its orientation will be reversed. This means that the included angle will be 45 degrees, not 135 degrees as in the previous two questions.</p>
-</div>
-</div>
-</div>
-</div>
-<hr>
-<div id="exr-duck-do-pantry" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3</strong></span> Collision course?</p>
-<p>Consider the diagram showing two straight-line tracks, a dot on each track, and a vector.</p>
-<p><img src="www/collision.png" class="img-fluid"></p>
-<p>Let’s imagine that dot 1 is an aircraft and that the black vector attached to it is the aircraft’s velocity. We will call this <span class="math inline">\(\vec{v}_1\)</span>, Similarly for dot 2, where the velocity vector will be called <span class="math inline">\(\vec{v}_2\)</span>.</p>
-<p>There is a third vector drawn in red: the difference in position of the two aircraft at the exact moment depicted in the drawing.</p>
-<p>The question we want to address is whether the aircraft are on a collision course. Obviously, the two courses cross. So we know that the two aircraft will cross the same point. For a collision, the aircraft have to cross that point at the same time.</p>
-<p>Copy over the drawing to your own piece of paper. You don’t need to get the vectors and positions exactly right; any reasonable approximation will do.</p>
-<p>Now you will do <em>visual</em> vector addition and subtraction to answer the collision question.</p>
-<ol type="1">
-<li><p>The <em>relative</em> velocity of the two planes is the difference between their velocities. Subtract <span class="math inline">\(\vec{v}_2\)</span> from <span class="math inline">\(\vec{v}_1\)</span> and draw the resulting vector. Pay attention to both the <em>length</em> and <em>direction</em> of the relative velocity.</p></li>
-<li><p>The displacement between the two planes is the red vector: the position of dot 2 subtracted from dot 1. Compare the <em>directions</em> of the relative velocity vector and the displacement vector. <strong>If they are aligned, then the planes are on a collision course.</strong></p></li>
-<li><p>In the picture as drawn, the relative velocity vector and the displacement vector are not aligned. Figure out how much you would need to change the length of <span class="math inline">\(\vec{v}_2\)</span> so that the relative velocity <em>does</em> align with the displacement. (Keep the direction the same.) Draw this new vector and label it “vector for intercept.”</p></li>
-<li><p>In (3) you changed the <em>length</em> of <span class="math inline">\(\vec{v}_2\)</span> keeping the direction the same. Now you will keep <span class="math inline">\(\vec{v}_2\)</span> at the original length, but change its direction so that the new relative velocity is aligned with the displacement vector.</p></li>
-</ol>
-<p>Items (3) and (4) are two different ways of designing an intercept of plane 1 by plane 2.</p>
-<p>Bonus) You can figure out how long it takes for each plane to reach the intersection point by finding out how many multiples of the velocity vector will cover the line segment between the plane’s position and the intersection point. For example, in the original drawing <span class="math inline">\(4 \vec{v}_1\)</span> will bring the plane to the intersection point, so it takes 4 “time units” for the plane to reach the point. (What is the time unit? If velocity is in miles/hour, then the time unit is hours. If the velocity is in feet/second, then the time unit is seconds.) Your task: Figure out where aircraft 2 will be in 4 time units. This will tell you the separation between aircraft 2 and aircraft 1 when 1 reaches the intersection point. Draw and label this vector.</p>
-</div>
-<div id="exr-titmouse-stand-pantry" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4</strong></span> Here are 12 vectors, labeled “a” through “m.” (Letter “i” has been left out.) There are several quick questions, each of which makes a claim about whether the sum of two vectors equals a third. Answer <em>true</em> or <em>false</em> to the claim. There are no tricks about exactitude, so if the claim is close to being true, answer true.</p>
-<div id="fig-titmouse-12-vectors" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-titmouse-12-vectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="www/vectors-for-sums.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-titmouse-12-vectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
-</figcaption>
-</figure>
-</div>
-<div class="cell" data-inline="true" data-leed="1. $\vec{a} + \vec{b} = \vec{L}$">
-<ol type="1">
-<li><span class="math inline">\(\vec{a} + \vec{b} = \vec{L}\)</span>&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="True" id="tsp-1-1" w="23" name="tsp-1" hint="Sorry!" show_hints="false"> True &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="False" id="tsp-1-2" w="5" name="tsp-1" hint="Yup!" show_hints="false"> False &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="tsp-1" id="tsp-1.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="tsp-1-hintarea">tsp-1</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="2. $\vec{b} + \vec{J} = \vec{a}$">
-<ol start="2" type="1">
-<li><span class="math inline">\(\vec{b} + \vec{J} = \vec{a}\)</span>&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="True" id="tsp-2-1" w="87" name="tsp-2" hint="No." show_hints="false"> True &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="False" id="tsp-2-2" w="8" name="tsp-2" hint="Yes!" show_hints="false"> False &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="tsp-2" id="tsp-2.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="tsp-2-hintarea">tsp-2</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="3. $\vec{b} + \vec{m} = \vec{J}$">
-<ol start="3" type="1">
-<li><span class="math inline">\(\vec{b} + \vec{m} = \vec{J}\)</span>&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="True" id="tsp-3-1" w="87" name="tsp-3" hint="Hmmm ..." show_hints="false"> True &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="False" id="tsp-3-2" w="14" name="tsp-3" hint="Bingo!" show_hints="false"> False &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="tsp-3" id="tsp-3.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="tsp-3-hintarea">tsp-3</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="4. $\vec{c} + \vec{f} = \vec{d}$">
-<ol start="4" type="1">
-<li><span class="math inline">\(\vec{c} + \vec{f} = \vec{d}\)</span>&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="True" id="tsp-4-1" w="8" name="tsp-4" hint="Bingo!" show_hints="false"> True &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="False" id="tsp-4-2" w="19" name="tsp-4" hint="You might think so, but ..." show_hints="false"> False &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="tsp-4" id="tsp-4.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="tsp-4-hintarea">tsp-4</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="5. $\vec{k} + \vec{L} = \vec{e}$">
-<ol start="5" type="1">
-<li><span class="math inline">\(\vec{k} + \vec{L} = \vec{e}\)</span>&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="True" id="tsp-5-1" w="20" name="tsp-5" hint="A hit!" show_hints="false"> True &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="False" id="tsp-5-2" w="32" name="tsp-5" hint="Wrong." show_hints="false"> False &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="tsp-5" id="tsp-5.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="tsp-5-hintarea">tsp-5</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="6. $\vec{e} + \vec{b} = \vec{m}$">
-<ol start="6" type="1">
-<li><span class="math inline">\(\vec{e} + \vec{b} = \vec{m}\)</span>&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="True" id="tsp-6-1" w="87" name="tsp-6" hint="Not quite." show_hints="false"> True &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="False" id="tsp-6-2" w="16" name="tsp-6" hint="Bullseye!" show_hints="false"> False &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="tsp-6" id="tsp-6.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="tsp-6-hintarea">tsp-6</small> </span> </span> </span></span></li>
-</ol>
-</div>
-<div class="cell" data-inline="true" data-leed="7. $\vec{m} + \vec{g} = \vec{b}$">
-<ol start="7" type="1">
-<li><span class="math inline">\(\vec{m} + \vec{g} = \vec{b}\)</span>&nbsp;&nbsp; <span><span> <span> <input type="radio" class="devoirs-mcq" value="True" id="tsp-7-1" w="18" name="tsp-7" hint="A hit!" show_hints="false"> True &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="False" id="tsp-7-2" w="23" name="tsp-7" hint="Not on target." show_hints="false"> False &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="tsp-7" id="tsp-7.null" style="display: none;" w="skipped" checked=""> <span class="hintarea"> <small style="color: grey;" id="tsp-7-hintarea">tsp-7</small> </span> </span> </span></span></li>
-</ol>
-</div>
-</div>
-<div id="exr-cat-understand-car" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5</strong></span> <strong>Locating WW I aircraft</strong></p>
-<p>The photograph shows part of an aircraft detection system from World War I. The concrete block is an “acoustic mirror.” Its purpose is to collect and reflect sound from an aircraft, concentrating them at a point where they can be picked up by a microphone. Moving the microphone to a point where the concentrated sound is strongest allows the aircraft’s bearing to be identified, helping observers acquire the aircraft visually.</p>
-<p><img src="www/WW1AcousticMirrorKilnsea-Jan2007.jpg" class="img-fluid" style="width:60.0%"></p>
-<p><a href="https://en.wikipedia.org/wiki/Acoustic_mirror#/media/File:WW1AcousticMirrorKilnsea(PaulGlazzard)Jan2007.jpg">Source</a></p>
-<p><a href="#fig-cat-understand-car-2" class="quarto-xref">Figure&nbsp;3</a> shows an imagined situation where two bearing vectors have been identified for an aircraft.</p>
-<div id="fig-cat-understand-car-2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cat-understand-car-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="www/mirror-vectors.png" class="img-fluid figure-img" style="width:60.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-cat-understand-car-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3
-</figcaption>
-</figure>
-</div>
-<p>Give the position of the aircraft as a multiple of <span class="math inline">\(\vec{a}\)</span> from sound mirror A and as a multiple of <span class="math inline">\(\vec{b}\)</span> from sound mirror B. (Choose the closest answer)</p>
-<div class="cell" data-show_hints="true">
-<span>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$3 \vec{a} ... 5 \vec{b}$" id="g4ZZQz-1" w="18" name="g4ZZQz" hint="Nice." show_hints="TRUE"> <span class="math inline">\(3 \vec{a}\)</span> and <span class="math inline">\(4.5 \vec{b}\)</span></p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$4 \vec{a} ...  \vec{b}$ " id="g4ZZQz-2" w="7" name="g4ZZQz" hint="Try again!" show_hints="TRUE"> <span class="math inline">\(4 \vec{a}\)</span> and <span class="math inline">\(6 \vec{b}\)</span></p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$3\vec{a}$ ...  \vec{b}$ " id="g4ZZQz-3" w="7" name="g4ZZQz" hint="Wrong." show_hints="TRUE"> <span class="math inline">\(3\vec{a}\)</span> and <span class="math inline">\(2  \vec{b}\)</span></p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$4\vec{a}$ ... 5\vec{b}$ " id="g4ZZQz-4" w="87" name="g4ZZQz" hint="Think again." show_hints="TRUE"> <span class="math inline">\(4\vec{a}\)</span> and <span class="math inline">\(4.5\vec{b}\)</span></p>
-<p></p>
-<input type="radio" class="devoirs-mcq" name="g4ZZQz" id="g4ZZQz.null" style="display: none;" w="skipped" checked="">
-<div class="hintarea">
-<p><small style="color: grey;" id="g4ZZQz-hintarea">g4ZZQz</small></p>
-</div>
-<p></p>
-</span></div>
-</div>
-<div id="exr-kid-become-pants" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6</strong></span> Define the vector <span class="math display">\[\vec{v} \equiv \left[\begin{array}{r}4\\1\\3\\-2\end{array}\right]\ .\]</span></p>
-<p>Your task is to construct different vectors that are orthogonal to <span class="math inline">\(\vec{v}\)</span>. You can use the trick presented in <strong>?@sec-orthogonality</strong> of creating templates with zero in all but two of the positions, e.g. <span class="math display">\[\left[\begin{array}{r}0\\0\\\_\\\_\end{array}\right] \ \ \text{or}\ \ \
-\left[\begin{array}{r}0\\\_\\0\\\_\end{array}\right] \ \ \text{and}\ \ \
-\left[\begin{array}{r}\_\\\_\\0\\0\end{array}\right]\]</span> To construct a vector orthogonal to <span class="math inline">\(\vec{v}\)</span>, fill in the blanks by taking the corresponding elements of <span class="math inline">\(\vec{v}\)</span>, swapping them, and negating one of them. For example, taking the first template will produce</p>
-<p><span class="math display">\[\left[\begin{array}{c}0\\0\\\underline{\ 2\ }\\\underline{\ 3\ }\end{array}\right]\ .\]</span></p>
-<ol type="a">
-<li><p>Fill in the blanks of the other two tempates to create vectors orthogonal to <span class="math inline">\(\vec{v}\)</span>.</p></li>
-<li><p>Construct 3 new vectors by taking different linear combinations of the vectors you created in (A). Are any of these new vectors orthogonal to <span class="math inline">\(\vec{v}\)</span>? Show your work.</p></li>
-<li><p>Prove algebraically that any linear combination of a set of vectors orthogonal to <span class="math inline">\(\vec{x}\)</span> will itself be orthogonal to <span class="math inline">\(\vec{x}\)</span>.</p></li>
-</ol>
-</div>
-</section>
-<section id="part2-computing" class="level2">
-<h2 class="anchored" data-anchor-id="part2-computing">Part2: Computing</h2>
-<section id="basic-operations" class="level3">
-<h3 class="anchored" data-anchor-id="basic-operations">Basic operations</h3>
-<ol type="a">
-<li>Use <code>vec()</code> to create a vector from individual components (<em>scalars</em>). Example:</li>
-</ol>
-<div id="qwebr-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ol start="2" type="a">
-<li>Use <code>rvec()</code> to create a random vector of the specified dimension.</li>
-</ol>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ol start="3" type="a">
-<li>Use the <code>%dot%</code> operator to calculate the dot product.</li>
-</ol>
+</div>
+</div>
+</div>
+<section id="from-last-week" class="level4" data-number="34.1">
+<h4 data-number="34.1" class="anchored" data-anchor-id="from-last-week"><span class="header-section-number">34.1</span> From last week …</h4>
+<p>We talked about the dot product, linear combinations, the idea of a subspace as defined by a set of vectors.</p>
+<p>We started to think about linear modeling (as in <code>model_train()</code>, which uses <code>lm()</code>) in terms of vectors.</p>
+<p>Reminder of “case space” versus “variable space.”</p>
+<p>Today’s goal is to give you a complete understanding of linear modeling in terms of vectors.</p>
+</section>
+<section id="matrices" class="level4" data-number="34.2">
+<h4 data-number="34.2" class="anchored" data-anchor-id="matrices"><span class="header-section-number">34.2</span> Matrices</h4>
+<p>A matrix is a set of vectors. All of them must share an embedding space, that is, they all must have the same number of components.</p>
+<ul>
+<li>Making vectors, say with <code>rvec()</code></li>
+<li>Making matrices with <code>cbind()</code></li>
+<li>Sometimes it will be nice to display a large matrix visually, one pixel per number.</li>
+</ul>
+</section>
+<section id="matrixvector-multiplication" class="level4" data-number="34.3">
+<h4 data-number="34.3" class="anchored" data-anchor-id="matrixvector-multiplication"><span class="header-section-number">34.3</span> Matrix/vector multiplication</h4>
+<p>Canonical form: m-by-n matrix times an n-dimensional vector gives an m-dimensional vector.</p>
+<p>The result is a linear combination of the vectors in the matrix, with the “coefficients”/“scalars” coming from the vector.</p>
+<p>Not necessarily commutative.</p>
+<p>Why I was dodgy in writing the dot product using two column vectors. Better if the dot product is seen as a kind of matrix/vector multiplication, where the matrix consists simply as a row of scalars.</p>
+<p>Use <code>values_mat()</code> to create the vectors and the matrix.</p>
+</section>
+</section>
+<section id="finding-the-coefficients-using-lm" class="level3" data-number="35">
+<h3 data-number="35" class="anchored" data-anchor-id="finding-the-coefficients-using-lm"><span class="header-section-number">35</span> Finding the coefficients using <code>lm()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">values_mat</span>(<span class="dv">4</span>, <span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">values_mat</span>(<span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(<span class="at">M=</span>M, <span class="at">v=</span>v) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model_train</span>(v <span class="sc">~</span> M <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">conf_interval</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in qt(a, object$df.residual): NaNs produced</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  term   .lwr  .coef  .upr
+  &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 M1      NaN  0.893   NaN
+2 M2      NaN  0.707   NaN
+3 M3      NaN -0.526   NaN
+4 M4      NaN -0.736   NaN</code></pre>
+</div>
+</div>
+<section id="functions-as-vectors" class="level4" data-number="35.1">
+<h4 data-number="35.1" class="anchored" data-anchor-id="functions-as-vectors"><span class="header-section-number">35.1</span> Functions as vectors</h4>
+<p>Gaussians over a two second-window</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="exr-31-dot-test-cases" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7</strong></span> Write three test cases for <code>%dot%</code> using vectors for which you can easily find the value by eye.</p>
+</section>
+<section id="matrices-1" class="level4" data-number="35.2">
+<h4 data-number="35.2" class="anchored" data-anchor-id="matrices-1"><span class="header-section-number">35.2</span> Matrices</h4>
+<p>Matrix of random numbers</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
 </section>
-<section id="write-these-functions-and-tests" class="level3">
-<h3 class="anchored" data-anchor-id="write-these-functions-and-tests">Write these functions and tests</h3>
-<div id="exr-31-make_veclen" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8</strong></span> Use <code>%dot%</code>, <code>sqrt()</code>, and <code>/</code> to calculate the length of a vector</p>
+<section id="svd-and-the-dimension-of-subspaces" class="level4" data-number="35.3">
+<h4 data-number="35.3" class="anchored" data-anchor-id="svd-and-the-dimension-of-subspaces"><span class="header-section-number">35.3</span> SVD and the dimension of subspaces</h4>
+<p>Create some vectors, then some linear combinations of them than look at the singular values.</p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>veclen <span class="ot">&lt;-</span> <span class="cf">function</span>(v) <span class="fu">sqrt</span>(v <span class="sc">%dot%</span> v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<div id="exr-31-veclen-test" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9</strong></span> Write three tests for <code>length()</code> on vectors where you <em>already know</em> the answer.</p>
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="exr-31-unitvec-write" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10</strong></span> Write a function, <code>unitvec()</code> that takes a vector as an input and returns the same vector but with unit magnitude.</p>
 <div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>unitvec <span class="ot">&lt;-</span> <span class="cf">function</span>(vec) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  vec<span class="sc">/</span><span class="fu">length</span>(vec)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
 <div id="qwebr-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Here’s a test that I invented. See if it works in any dimension 2 or greater$</p>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Explain the result of my test.</p>
-<p><textarea id="my-unitvec-test" name="my-unitvec-test" class="devoirs-text" rows="4" cols="50" placeholder="Type here. (ID my-unitvec-test)"></textarea></p>
-</div>
-<div id="exr-cosine-make" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11</strong></span> Use <code>%dot%</code>, <code>sqrt()</code>, <code>*</code>, and <code>/</code> to calculated the cosine of the angle between two vectors.</p>
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cang <span class="ot">&lt;-</span> <span class="cf">function</span>(v, w) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  (v <span class="sc">%dot%</span> w) <span class="sc">/</span> (<span class="fu">veclen</span>(v) <span class="sc">*</span> <span class="fu">veclen</span>(w))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="exr-cang-test">
-<p>Write these tests for <code>cang()</code> for cases where you already know the answer:</p>
-<div id="qwebr-insertion-location-12"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="exr-correlation-is-angle" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12</strong></span> Application. The correlation coefficient is a dot product. I’ll write the function for you so that you can use the tilde notation from QR2.</p>
-<div id="qwebr-insertion-location-13"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Test this out on any data frame and pair of variables you like.</p>
-<div id="qwebr-insertion-location-14"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Explain whether the results correspond or not.</p>
-</div>
-</section>
-<section id="orthogonality" class="level3">
-<h3 class="anchored" data-anchor-id="orthogonality">Orthogonality</h3>
-<div id="exr-create-orthogonal1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13</strong></span> Create vectors that are orthogonal to each of these and confirm your answer using <code>cang()</code></p>
-<div id="qwebr-insertion-location-15"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="exr-ortho-to-any" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 14</strong></span> Here’s a function (written in jibberish that you won’t yet understand) but which will construct a vector orthogonal to any vector or set of vectors.</p>
-<div id="qwebr-insertion-location-16"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Write some tests on vectors you create of various dimensions and find out whether <code>dtk_ortho()</code> works or not.</p>
-<div id="qwebr-insertion-location-17"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<p>Write the test code in the above chunk and explain what you found here.</p>
-<p><textarea id="cor-by-dot-R2" name="cor-by-dot-R2" class="devoirs-text" rows="4" cols="50" placeholder="Type here. (ID cor-by-dot-R2)"></textarea></p>
-<span id="devoirs-docID" style="display: none;">index-assignment-31.rmarkdown</span> <button onclick="devoirsSubmit()">Collect your answers</button>
-<div id="devoirs_summary">
-No answers yet collected
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<script type="text/javascript">
- console.log("In devoirs.js")
-
-function devoirsCollectEssays() {
-  var essay_answers = [];
-  var items = document.getElementsByClassName("devoirs-text");
-  for (i = 0; i < items.length; i++) {
-    //console.log("text entry" + i + "being handled");
-    essay_answers[i] = {itemid: items[i].id, contents: items[i].value}
-  }
-
-  return essay_answers;
-}
-
-function devoirsGetDocID() {
-  return document.getElementById("devoirs-docID").innerHTML
-}
-
-function devoirsCollectMC() {
-    let mc_answers = [] // Hold the information
-    var ele = document.getElementsByClassName("devoirs-mcq");
-    var count = 0;
-    for (i = 0; i < ele.length; i++) {
-        if (ele[i].checked) {
-          //console.log("Entering conditional.");
-          let checked_one = ele[i];
-          mc_answers[count++] = {itemid: checked_one.id, w: checked_one.getAttribute("w"), contents: checked_one.text};
-        }
-    }
-    return mc_answers;
-}
-
-console.log("About to define WebR")
-
-function devoirsCollectWebR() {
-  var chunk_contents = []; // placeholder for collecting webr items
-  if (typeof qwebrCellDetails == "undefined") {
-    // There aren't any webr chunks
-    return chunk_contents;
-  }
-  var chunks = qwebrCellDetails;
-  for (i = 0; i < chunks.length; i++) {
-    chunk_contents[i] = {itemid: chunks[i].options["label"], contents: chunks[i].code};
-  }
-
-  return chunk_contents;
-}
-
-console.log("About to define devoirsSubmit")
-
-function devoirsSubmit() {
-  console.log("About to collect history")
-
-  // check if there is any sign of a webr entry
-  // If not, don't try to collect webr entries
-  if (typeof qwebrRCommandHistory === 'undefined') {
-    items = {docid: devoirsGetDocID(), MC: devoirsCollectMC(), Essays: devoirsCollectEssays(), WebR: {}, R: {}}
-  } else {
-    console.log("Getting R commands.")
-    var Rhistory = qwebrRCommandHistory.map((x) => x.replace(/Ran code in (.*) at (.*[AP]M).{5}(.*)/, "[chunk: $1, time: $2, code: $3]"))
-
-    items = {docid: devoirsGetDocID(), MC: devoirsCollectMC(), Essays: devoirsCollectEssays(), WebR: devoirsCollectWebR(), R: Rhistory}
-  }
-
-  navigator.clipboard.writeText(JSON.stringify(items));
-
-  // summarize what's being collected
-  var my_summary = "Answers copied to clipboard. Fixed choice: " + items.MC.length + " Essays: " + items.Essays.length + " WebR chunks: " + items.WebR.length
-
-  document.getElementById("devoirs_summary").innerHTML = my_summary;
-}
-
-console.log("Read devoirsSubmit()")
-
-// Hint handling in Multiple choice
-
-// Still have to add an on/off switch from options
-
-function devoirs_setup_hintarea() {
-  answers = document.getElementsByClassName("devoirs-mcq")
-  for (i=0; i<answers.length; i++) answers[i].addEventListener('click', function(e){document.getElementById(e.target.name + "-hintarea").innerHTML = e.target.getAttribute("hint")})
-}
-
- window.addEventListener("load", function() {
-  answers = document.getElementsByClassName("devoirs-mcq")
-  for (i=0; i<answers.length; i++) {
-    if (answers[i].getAttribute("show_hints") == "TRUE") {
-        answers[i].addEventListener('click', function(e){
-        document.getElementById(e.target.name + "-hintarea").innerText = e.target.getAttribute("hint")
-      })
-
-    }
-  }
-})
-
-console.log("Added hint summary.") 
-</script>
-
-</div>
-</div>
 
 
 </section>

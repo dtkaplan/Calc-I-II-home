@@ -92,7 +92,6 @@ approx_mat <- function(S, n=1, order = 0) { # input a matrix or the SVD of a mat
     inds1 <- 1:nrow(S$u)
     inds2 <- 1:nrow(S$v)
   }
-  browser()
   partial <- 0 # initial value
   for (k in n) {
     partial <- partial +  S$d[k] * S$u[inds1,k, drop = FALSE] %*% t(S$v[inds2,k, drop = FALSE])
@@ -107,3 +106,13 @@ pretty_mat <- function(M) {
   M[inds1, inds2]
 }
 
+#' Generate a matrix whose elements are selected randomly from a set
+#' of specified values.
+#' @param nrow number of rows for the matrix produced
+#' @param ncol number of columns
+#' @param values the set from which to draw (randomly) the
+#' values in the matrix. Default: integers -9 to 9
+values_mat <- function(nrow=4, ncol=3, values = -9:9) {
+  matrix(sample(values, size = nrow * ncol, replace = TRUE),
+         nrow = nrow, ncol=ncol)
+}
