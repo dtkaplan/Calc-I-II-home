@@ -6,32 +6,60 @@ format: live-html
 ---
 
 
+
 ```{r include=FALSE}
 library(mosaicCalc)
 library(purrr)
 library(LSTbook)
+{{< include ../../_software/software.R >}}
 ```
 
+
+
 # 2025-04-04 class notes
+
+::: {.callout-tip collapse=true}
+## Console A
+```{webr-r}
+#| persist: true
+
+```
+:::
+
+::: {.callout-tip collapse=true}
+## Console B
+```{webr-r}
+#| persist: true
+
+```
+:::
+
+::: {.callout-tip collapse=true}
+## Console C
+```{webr-r}
+#| persist: true
+
+```
+:::
 
 ## Dot product and the correlation coefficient
 
 Here's the way we did things in QR2:
 
-```{r}
+```{webr-r}
 Galton |> model_train(height ~ mother) |>
   R2()
 ```
 
 The correlation coefficient is the square root of R^2^ for for a model with only one explanatory variable where both the response and the explanatory variables are quantitative.
 
-```{r}
+```{webr-r}
 sqrt(0.0406647)
 ```
 
 Now let's compute the dot-product and the cosine of the inclusive angle by data wrangling. 
 
-```{r}
+```{webr-r}
 Galton |>
   mutate(standardH = (height - mean(height))/sd(height),
          standardM = (mother - mean(mother))/sd(mother)) |>
@@ -44,13 +72,21 @@ Galton |>
 
 ## Scaling
 
+Scaling provides the way to turn a vector into a space.
+
 ## Linear combination
+
+A way to produce a space defined by two or more vectors.
+
+What is modeling in terms of vectors. Find the best linear combination of vectors (explanatory terms) to approximate the response vector.
+
+
 
 ## Functions as vectors
 
 Gaussians over a two second-window
 
-```{r}
+```{webr-r}
 step = 2^(1/12)
 
 Sounds <- tibble::tibble(
@@ -74,32 +110,51 @@ Sounds <- tibble::tibble(
 )  |>
   mutate(sum = g2*three + g2*five + g2*seven + 2*three^2)
 
-audio::play(Sounds$sum / 10, rate = 22050)
+# audio::play(Sounds$sum / 10, rate = 22050)
 ```
 
 ## Matrices
 
+Matrix of random numbers
+
+```{webr-r}
+Mrand <- matrix(rnorm(40*30), nrow=40, ncol=30)
+draw_matrix(Mrand)
+```
+
 ## Subspaces
+
+What's the subspace spanned by 3 vectors on a table?
 
 ## SVD and the dimension of subspaces
 
 Create some vectors, then some linear combinations of them than look at the singular values.
 
-```{r}
+```{webr-r}
 u <- rbind(1,2,3, 6, -2)
 v <- rbind(2,5,3, -4, 1)
 w <- 3*u - 2*v
 x <- w - u
 y <- u + v - w
 M <- cbind(u, v, w, x, y)
-M |> svd() |> pluck("d")
+M |> svd() |> purrr::pluck("d")
 ```
 
+```{webr-r}
+draw_matrix(M)
+M
+```
 
-```{r}
+```{webr-r}
 M <- Sounds |> 
   select(one, two, three, four, five, 
          six, seven, eight, nine, ten, eleven, twelve) |>
   as.matrix(ncol = 12) 
-M |> svd() |> pluck("d")
+M |> svd() |> purrr::pluck("d")
+```
+
+```{webr-r}
+#| results: hide
+#| autorun: true
+{{< include ../../_software/software.R >}}
 ```
