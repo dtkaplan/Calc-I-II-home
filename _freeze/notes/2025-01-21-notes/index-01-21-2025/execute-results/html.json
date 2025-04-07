@@ -1,0 +1,15 @@
+{
+  "hash": "f7162439071d5800795336bc681e190b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nauthor: DTK\ndate: 2025-01-21\nnumber-offset: 6\nformat: live-html\n---\n\n\n\n# 2025-01-21 class notes\n\n\n\n\n\n\n\nAn unexpected snow day! I'm going to have to improvise a little.\n\nHere are a few chunks for me to work in on my tablet\n\n```{webr-r}\n\n```\n\n\n```{webr-r}\n# Chunk 2\n\n```\n\n\n```{webr-r}\n# Chunk 3\n\n```\n\nThe only change is a different R function, `gf_point()` that plots a response variable against a **single** explanatory variable, e.g., `Galton <- gf_point(height ~ mother)`. There\n\n\n## Activity\n\n1. Plot some data on the screen. \n\n2. Copy it over to your board.\n\n3. Draw a version of a basic modeling function that aligns with the data. \n\nSome pattern-book functions will work better than others. `fitModel()` makes you choose the function, then does the rest automatically. \n\nIf we expanded `fitModel()` so that it would go through a large library of functions, try them all, and then pick the one that works best overall, we would be doing \"*machine learning*.\" (There would be additional technicalities, which are discussed a little in Spiegelhalter Ch. 4. \"Cross-validation\" is one of the methods that can come into play, but we won't talk about that in this Calculus course.)\n\nHow do you think the computer could do what you do by eye automatically? We need a framework and a procedure.\n\n## Framework Part 1: Input and output scaling\n\n\n\n\nFramework Part 2 was deferred to 01-23\n\n## Activity\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

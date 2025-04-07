@@ -10,7 +10,7 @@ website:
         text: "Mosaic?"
       - href: basics.qmd
         text: Basics
-      - href: posts.qmd
+      - href: notes.qmd
         text: Class notes
       - href: assignments.qmd
         text: Assignments

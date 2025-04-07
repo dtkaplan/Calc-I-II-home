@@ -7,25 +7,171 @@ desc: "Applying a sports ranking method to the Registrar database"
 categories: [linear algebra]
 ---
 
+
 ```{r include=FALSE}
 library(LSTbook)
+library(ggformula)
+library(dplyr)
 library(ggplot2)
 library(tidyr)
 library(LSTbook)
+source("../../_software/software.R")
 ```
 
-Re-arrange the grades into a matrix
+```{webr-r}
+#| autorun: true
+#| context: setup
+{{< include ../../_software/software.R >}}
+```
+
+The task of this modeling project is to construct a ranking of students based on their grades over a college career.
+
+The data come from a small college in the US Midwest. For reasons of anonymity, student names have been replace with unique meaningless ID codes, with all the courses taken by a student and the grades received identified by that student's code. Similarly, the instructor and department indentities are encoded. Also, only about half of the courses taken by each student are included. The students listed graduated in AY 2004/2005.
+
+The data were originally in the form of three data frames in a relational database. We use data wrangling to merge them into a single data `Events` frame where the unit of observation is an event consisting of a single student receiving a grade in a single course.
+
 ```{r message=FALSE}
-Whole <- LSTbook::Grades |>
+Events <- LSTbook::Grades |>
   left_join(LSTbook::Sessions) |>
   left_join(LSTbook::Gradepoint)
 ```
+
+To orient you to the variables and their meanings, here are five randomly selected events:
+
+```{r}
+Events |> take_sample(n = 5)
+```
+
+The `gradepoint` variable is the numerical equivalent of the letter `grade`.
+
+One oddity of the data is that, for a few students, courses were taken some years before the rest of the cohort. Let's wrangle up the distribution of semesters:
+
+```{r}
+Semesters <- Events |> 
+  mutate(sem = gsub("S(1|2)", "SP", sem)) |>
+  summarize(takers = n(), .by = sem) |>
+  arrange(desc(takers)) |>
+  mutate(keep = ifelse(takers > 400, "keep", "rid"))
+Semesters
+```
+
+TASK: 
+Join `Semesters` with `Events`. Use it to remove students who took any course outside of the most populated 8 semesters.
+
+
+Most students are familiar with the GPA and its use in ranking students. Here's the calculation written in the `{dplyr}` notation.
+
+```{r}
+GPA <- Events |>
+  summarize(gpa_raw = mean(gradepoint, na.rm = TRUE), .by = sid)
+GPA |> take_sample(n = 5)
+```
+
+To be statistically literate, such an estimate of the GPA should come with a confidence interval. We'll calculate the margin of error using stardard textbook formulas. In calculating the margin of error, I'll artificially *double* the $n$ for each student so that we get the magnitude of standard errors we would expect to see if we had *all* the student-grade records.
+
+```{r}
+GPA <- Events |>
+  summarize(gpa_raw = mean(gradepoint, na.rm = TRUE), 
+            gp_var = var(gradepoint, na.rm = TRUE),
+            gp_me = 2 * sqrt(gp_var / 2 * n()),
+            .lwr = gpa_raw - gp_me,
+            .upr = gpa_raw + gp_me,
+            .by = sid) |>
+  select(sid, .lwr, gpa_raw, .upr)
+GPA |> take_sample(n=5)
+GPA |> 
+  arrange(gpa_raw) |>
+  mutate(rank = 1:n()) |>
+  gf_segment(.lwr + .upr ~ rank + rank) |>
+  gf_point(gpa_raw ~ rank, color = "red", size=0.1)
+```
+
+We can do much the same calculation by modeling, but we'll have to "adjust" the confidence intervals by hand to mimic data with the full collection of grades.
+
+```{r}
+GPA2 <- Events |> 
+  model_train(gradepoint ~ sid) |>
+  model_eval(data = tibble(sid = unique(Events$sid)), interval = "confidence") |>
+  mutate(.lwr = .output - (.output - .lwr)/sqrt(2), .upr = .output + (.upr - .output)/sqrt(2))
+set.seed(101)
+GPA2 |>
+  take_sample(n=5)
+```
+
+Compare GPA with GPA2:
+
+```{r}
+Compare <- GPA |> 
+  select(sid, gpa_raw) |>
+  mutate(gpa2 = GPA2$.output)
+Compare |> point_plot(gpa_raw ~ gpa2)
+```
+  
+TASK: Let's speculate on why registrars don't report a GPA with a confidence interval.
+
+TASK: Add in some covariates: semester, class level, class size
+
+```{r}
+GPA3 <- Events |> 
+  model_train(gradepoint ~ sid + enroll + level + sem) |>
+  model_eval(data = tibble(sid = unique(Events$sid), sem="SP2005", level=300, enroll=12), interval = "confidence") |>
+  mutate(.lwr = .output - (.output - .lwr)/sqrt(2), .upr = .output + (.upr - .output)/sqrt(2))
+set.seed(101)
+GPA3 |>
+  take_sample(n=5) |>
+  select(sid, .lwr, .output, .upr)
+```
+
+```{r}
+Compare <- Compare |>
+  mutate(gpa3 = GPA3$.output)
+```
+
+Let's look at the extent to which `dept` or `instructor` plays a role:
+
+```{r}
+Events |> 
+  model_train(gradepoint ~ enroll + level + sem + dept + iid + sid) |>
+  anova_summary()
+```
+
+And find the "instructor-adjusted" GPA:
+```{r}
+GPA4 <- Events |> 
+  model_train(gradepoint ~ sid + enroll + level + sem + dept + iid) |>
+  model_eval(data = tibble(sid = unique(Events$sid), 
+                           sem="SP2005", level=300, enroll=12,
+                           iid = "inst436", dept = "q"), 
+             interval = "confidence") |>
+  mutate(.lwr = .output - (.output - .lwr)/sqrt(2), .upr = .output + (.upr - .output)/sqrt(2))
+```
+
+```{r}
+Compare <- Compare |>
+  mutate(gpa4 = GPA4$.output) |>
+  mutate(r_gpa_raw = rank(gpa_raw),
+         r_gpa3 = rank(gpa3),
+         r_gpa4 = rank(gpa4))
+
+Compare |>
+  point_plot(r_gpa_raw ~ r_gpa4)
+```
+
+
+## A political problem
+
+The registrar would never perform such a regression. The political heat from the faculty would be too great. 
+
+Can we construct a ranking that uses only `sid`, `session`, and `gradepoint`? That will let us avoid
+
+
+
 
 How many students did each instructor teach?
 
 ```{r}
 #| label: grades-42s
-nstudents <- Whole |> 
+nstudents <- Events |> 
   summarize(count = n(), .by = iid) |>
   arrange(desc(count))
 ```
@@ -37,7 +183,7 @@ Let's look only at instructors with more than 10 students.
 Keepers <-
   nstudents |>
   filter(count > 10) |>
-  left_join(Whole)
+  left_join(Events)
 ```
 
 ## Method
@@ -168,7 +314,7 @@ Result <- tibble::tibble(ranking = coef(rankings), sid = Student_pos$sid) |>
 Compare ranking to GPA
 ```{r}
 #| label: grades-42lv
-Sidebyside <- Whole |> 
+Sidebyside <- Events |> 
   summarize(gpa = mean(gradepoint, na.rm = TRUE), .by = sid) |>
   left_join(Result)
 

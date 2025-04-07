@@ -1,6 +1,22 @@
-`r devoirs_start_no_link()`
 
+```{r include=FALSE}
+library(devoirs)
+```
+
+:::{.callout-warning}
+## Submitting your answers
+
+If the answers that have been loaded automatically are not yours, press this button before starting your work:
+`r devoirs::clear_persistent_storage()`
+
+At any point, you can submit your answers by collecting them and uploading them to the class site.
+
+`r devoirs_start_no_link()`
 
 ```{r echo=FALSE}
 devoirs_end()
 ```
+
+:::
+
+

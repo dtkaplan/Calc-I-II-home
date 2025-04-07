@@ -1,0 +1,15 @@
+{
+  "hash": "d6d47de6b6cb5c43709390ea6b49df50",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nauthor: DTK\ndate: 2025-01-24\nnumber-offset: 8\nformat: live-html\n---\n\n\n\n# 2025-01-24 class notes\n\n\n\n\n\n\n\n[picked up from Thursday's class]\n\n## Assembling new functions from existing ones (Chapter 9)\n\nWidely used ways to combine functions to create new ones:\n\n1. Linear combination\n2. Function multiplication\n3. Function composition\n4. Piecewise definition (and the `ifelse()` function.)\n\n## Chapter 11: Fitting features\n\nInput- and output-scaling heuristics for a handful of pattern book functions \n\nNote that the output scaling is a form of LINEAR COMBINATION.\n\n- Exponential\n\nThis is as far as we got on Friday.\n\n- Sin\n\n- Gaussian & sigmoid\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,195 @@
+---
+author: DTK
+date: 2025-04-08
+number-offset: 33
+format: live-html
+---
+
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(purrr)
+library(LSTbook)
+source("../../_software/software.R")
+```
+
+
+
+```{webr-r}
+#| autorun: true
+#| context: setup
+{{< include ../../_software/software.R >}}
+```
+
+
+# 2025-04-08 class notes
+
+::: {.callout-tip collapse=true}
+## Console A
+```{webr-r}
+#| persist: true
+
+```
+:::
+
+::: {.callout-tip collapse=true}
+## Console B
+```{webr-r}
+#| persist: true
+
+```
+:::
+
+::: {.callout-tip collapse=true}
+## Console C
+```{webr-r}
+#| persist: true
+
+```
+:::
+
+
+## From last week ...
+
+We talked about the dot product, linear combinations, the idea of a subspace as defined by a set of vectors. 
+
+We started to think about linear modeling (as in `model_train()`, which uses `lm()`) in terms of vectors.
+
+Reminder of "case space" versus "variable space."
+
+
+Today's goal is to give you a complete understanding of linear modeling in terms of vectors. 
+
+## Matrices
+
+A matrix is a set of vectors. All of them must share an embedding space, that is, they all must have the same number of components.
+
+* Making vectors, say with `rvec()`
+* Making matrices with `cbind()`
+* Sometimes it will be nice to display a large matrix visually, one pixel per number.
+
+
+Example: Matrix of random numbers
+
+```{webr-r}
+Mrand <- matrix(rnorm(40*30), nrow=40, ncol=30)
+draw_matrix(Mrand)
+```
+
+## Grabbing components of matrices
+
+Occasionally, we will need to look at just one (or a few) columns (or rows) in a matrix. We can use the **indexing syntax** for this, which involves square braces: `[ , ]`
+
+Example: Matrix of small integers
+
+```{r}
+M <- values_mat(4, 3)
+M
+M[1, ]  # first row
+M[ , 1] # first column
+```
+
+Now for an R oddity. The people who initially wrote S (the precursor to R) created an object called a "vector" that, unlike the linear algebra conception 
+
+
+## Matrix/vector multiplication
+
+Canonical form: m-by-n matrix times an n-dimensional vector gives an m-dimensional vector.
+
+The result is a *linear combination of the vectors in the matrix*, with the "coefficients"/"scalars" coming from the vector. 
+
+Not necessarily commutative. 
+
+Why I was dodgy in writing the dot product using two column vectors. Better if the dot product is seen as a kind of matrix/vector multiplication, where the matrix consists simply as a row of scalars.
+
+Use `values_mat()` to create the vectors and the matrix.
+
+# Finding the coefficients using `lm()`
+
+```{webr-r}
+v <- values_mat(4, 1)
+M <- values_mat(4, 4)
+list(M=M, v=v) |>
+  model_train(v ~ M - 1) |>
+  conf_interval()
+```
+
+How does `model_train()` manage this? It calls a more basic function `lm()` (short for "linear model") which in turn calls `qr.solve()` which in turn calls a linear algebra package called "LINPACK" or a newer system "LAPACK" that's used by technical workers world-wide.
+
+```{webr-r}
+qr.solve(M, v)
+```
+
+## Q and R matrices
+
+`qr.solve()` takes the matrix and re-writes it as a linear combination of two special matrices, one called Q and the other R. 
+
+```{r}
+myQ <- qr.Q(qr(M))
+```
+
+
+## Functions as vectors
+
+Gaussians over a two second-window
+
+```{r}
+step = 2^(1/12)
+
+Sounds <- tibble::tibble(
+  time = (0:44100)/22050,
+  g1 = pmin(1.0, dnorm(time, mean = 1, sd=0.5)),
+  g2 = pmin(1.0, dnorm(time, mean = 0.25, sd=0.2)),
+  g3 = pmin(1.0, dnorm(time, mean = .75, sd=0.2)),
+  g4 = pmin(1.0, dnorm(time, mean = 1.25, sd=0.1)),
+  one =    sin(step^0  * 2 * pi * 440 * time),
+  two =    sin(step^1  * 2 * pi * 440 * time),
+  three =  sin(step^2  * 2 * pi * 440 * time),
+  four =   sin(step^3  * 2 * pi * 440 * time),
+  five =   sin(step^4  * 2 * pi * 440 * time),
+  six =    sin(step^5  * 2 * pi * 440 * time),
+  seven =  sin(step^6  * 2 * pi * 440 * time),
+  eight =  sin(step^7  * 2 * pi * 440 * time),
+  nine =   sin(step^8  * 2 * pi * 440 * time),
+  ten =    sin(step^9  * 2 * pi * 440 * time),
+  eleven = sin(step^10 * 2 * pi * 440 * time),
+  twelve = sin(step^11 * 2 * pi * 440 * time)
+)  |>
+  mutate(sum = g2*three + g2*five + g2*seven + 2*three^2)
+
+audio::play(Sounds$sum / 10, rate = 22050)
+```
+
+
+
+
+
+## SVD and the dimension of subspaces
+
+Create some vectors, then some linear combinations of them than look at the singular values.
+
+```{webr-r}
+u <- rbind(1,2,3, 6, -2)
+v <- rbind(2,5,3, -4, 1)
+w <- 3*u - 2*v
+x <- w - u
+y <- u + v - w
+M <- cbind(u, v, w, x, y)
+M |> svd() |> purrr::pluck("d")
+```
+
+```{webr-r}
+draw_matrix(M)
+M
+```
+
+```{webr-r}
+M <- Sounds |> 
+  select(one, two, three, four, five, 
+         six, seven, eight, nine, ten, eleven, twelve) |>
+  as.matrix(ncol = 12) 
+M |> svd() |> purrr::pluck("d")
+```
+
+

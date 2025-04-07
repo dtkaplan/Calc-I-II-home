@@ -1,0 +1,23 @@
+---
+title: MOSAIC Week 18 Assignment
+date: 2025-04-26
+categories: [linear algebra]
+---
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(LSTbook)
+library(devoirs)
+{{< include ../../_software/software.R >}}
+```
+
+{{< include ../../_software/devoirs.qmd >}}
+
+```{webr-r}
+#| autorun: true
+#| context: setup
+{{< include ../../_software/software.R >}}
+```
+
+
+

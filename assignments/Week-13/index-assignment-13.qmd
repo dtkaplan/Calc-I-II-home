@@ -1,0 +1,49 @@
+---
+title: MOSAIC Week 13
+date: 2025-04-03
+format: html
+categories: [linear algebra]
+---
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(LSTbook)
+library(devoirs)
+{{< include ../../_software/software.R >}}
+```
+
+{{< include ../../_software/devoirs.qmd >}}
+
+```{webr-r}
+#| autorun: true
+#| context: setup
+{{< include ../../_software/software.R >}}
+```
+
+Can I make this persistent?
+
+`r devoirs_text("try-persistent")`
+
+<button id='foo-save'>save</button>
+<button id='foo-restore'>restore</button>
+
+<script type="text/javascript">
+
+      //save entered info
+      document.getElementById("foo-save").addEventListener("click", function () {
+        var todo = document.getElementById("try-persistent").value;
+        console.log(todo);
+        localStorage.setItem("try-persistent", todo);
+        alert("Saved text");
+        console.log("Saved text")
+      }, false);
+
+      //reload last session
+      document.getElementById("foo-restore").addEventListener("click", function () {
+        document.getElementById("try-persistent").value = localStorage.getItem("try-persistent");
+        alert("Reloaded text");
+        console.log("Reloaded text")
+      }, false);
+
+    </script>
+

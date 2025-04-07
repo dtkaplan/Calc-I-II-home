@@ -1,40 +1,56 @@
 [
   {
-    "listing": "/posts.html",
+    "listing": "/notes.html",
     "items": [
-      "/posts/2025-04-08-notes/index-04-08-2025.html",
-      "/posts/2025-04-04-notes/index-04-04-2025.html",
-      "/posts/2025-04-01-notes/index-04-01-2025.html",
-      "/posts/2025-04-03-notes/index-04-03-2025.html",
-      "/posts/2025-03-21-notes/index-03-21-2025.html",
-      "/posts/2025-03-20-notes/index-03-20-2025.html",
-      "/posts/2025-03-18-notes/index-03-18-2025.html",
-      "/posts/2025-03-14-notes/index-03-14-2025.html",
-      "/posts/2025-03-13-notes/index-03-13-2025.html",
-      "/posts/2025-03-11-notes/index-03-11-2025.html",
-      "/posts/2025-03-07-notes/index-03-07-2025.html",
-      "/posts/2025-03-06-notes/index-03-06-2025.html",
-      "/posts/2025-03-04-notes/index-03-04-2025.html",
-      "/posts/2025-02-28-notes/index-02-28-2025.html",
-      "/posts/2025-02-27-notes/index-02-27-2025.html",
-      "/posts/2025-02-25-notes/index-02-25-2025.html",
-      "/posts/2025-02-21-notes/index-02-21-2025.html",
-      "/posts/2025-02-20-notes/index-02-20-2025.html",
-      "/posts/2025-02-18-notes/index-02-18-2025.html",
-      "/posts/2025-02-06-notes/index-02-06-2025.html",
-      "/posts/2025-02-04-notes/index-02-04-2025.html",
-      "/posts/2025-01-31-notes/index-01-31-2025.html",
-      "/posts/2025-01-30-notes/index-01-30-2025.html",
-      "/posts/2025-01-28-notes/index-01-28-2025.html",
-      "/posts/2025-01-24-notes/index-01-24-2025.html",
-      "/posts/2025-01-23-notes/index-01-23-2025.html",
-      "/posts/2025-01-21-notes/index-01-21-2025.html",
-      "/posts/2025-01-17-notes/index-01-17-2025.html",
-      "/posts/2025-01-16-notes/index-01-16-2025.html",
-      "/posts/2025-01-14-notes/index-01-14-2025.html",
-      "/posts/2025-01-10-notes/index.html",
-      "/posts/2025-01-09-notes/index.html",
-      "/posts/2025-01-07-notes/index.html"
+      "/notes/2025-04-10-notes/index-04-10-2025.html",
+      "/notes/2025-04-08-notes/index-04-08-2025.html",
+      "/notes/2025-04-04-notes/index-04-04-2025.html",
+      "/notes/2025-04-01-notes/index-04-01-2025.html",
+      "/notes/2025-04-03-notes/index-04-03-2025.html",
+      "/notes/2025-03-21-notes/index-03-21-2025.html",
+      "/notes/2025-03-20-notes/index-03-20-2025.html",
+      "/notes/2025-03-18-notes/index-03-18-2025.html",
+      "/notes/2025-03-14-notes/index-03-14-2025.html",
+      "/notes/2025-03-13-notes/index-03-13-2025.html",
+      "/notes/2025-03-11-notes/index-03-11-2025.html",
+      "/notes/2025-03-07-notes/index-03-07-2025.html",
+      "/notes/2025-03-06-notes/index-03-06-2025.html",
+      "/notes/2025-03-04-notes/index-03-04-2025.html",
+      "/notes/2025-02-28-notes/index-02-28-2025.html",
+      "/notes/2025-02-27-notes/index-02-27-2025.html",
+      "/notes/2025-02-25-notes/index-02-25-2025.html",
+      "/notes/2025-02-21-notes/index-02-21-2025.html",
+      "/notes/2025-02-20-notes/index-02-20-2025.html",
+      "/notes/2025-02-18-notes/index-02-18-2025.html",
+      "/notes/2025-02-06-notes/index-02-06-2025.html",
+      "/notes/2025-02-04-notes/index-02-04-2025.html",
+      "/notes/2025-01-31-notes/index-01-31-2025.html",
+      "/notes/2025-01-30-notes/index-01-30-2025.html",
+      "/notes/2025-01-28-notes/index-01-28-2025.html",
+      "/notes/2025-01-24-notes/index-01-24-2025.html",
+      "/notes/2025-01-23-notes/index-01-23-2025.html",
+      "/notes/2025-01-21-notes/index-01-21-2025.html",
+      "/notes/2025-01-17-notes/index-01-17-2025.html",
+      "/notes/2025-01-16-notes/index-01-16-2025.html",
+      "/notes/2025-01-14-notes/index-01-14-2025.html",
+      "/notes/2025-01-10-notes/index.html",
+      "/notes/2025-01-09-notes/index.html",
+      "/notes/2025-01-07-notes/index.html"
+    ]
+  },
+  {
+    "listing": "/assignments.html",
+    "items": [
+      "/assignments/Week-11/index-assignment-11.html",
+      "/assignments/Week-11-project/index-walking-project.html",
+      "/assignments/Week-13/index-assignment-13.html",
+      "/assignments/Week-12/index-assignment-12.html",
+      "/assignments/Week-14/index-assignment-14.html",
+      "/assignments/Week-15/index-assignment-15.html",
+      "/assignments/Week-18/index-assignment-18.html",
+      "/assignments/Week-16/index-assignment-16.html",
+      "/assignments/Week-17/index-assignment-17.html",
+      "/assignments/Week-19/index-assignment-19.html"
     ]
   },
   {
@@ -66,14 +82,6 @@
       "/projects/Automatic-differentiation/index-AD.html",
       "/projects/Adaptive-quadrature/index-adaptive-quadrature.html",
       "/projects/SIR/index-SIR.html"
-    ]
-  },
-  {
-    "listing": "/assignments.html",
-    "items": [
-      "/assignments/Day-31/index-assignment-31.html",
-      "/assignments/Day-32/index-walking-project.html",
-      "/assignments/Day-34/index-assignment-34.html"
     ]
   }
 ]

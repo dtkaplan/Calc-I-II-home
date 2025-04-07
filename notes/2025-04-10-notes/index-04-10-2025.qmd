@@ -1,0 +1,136 @@
+---
+author: DTK
+date: 2025-04-10
+number-offset: 34
+format: live-html
+webr:
+  channel-type: 'automatic'
+  repos: ["https://dtkaplan.r-universe.dev"]
+  packages: ['ggplot2', 'mosaicCalc', "LSTbook" ]
+filters:
+  - live
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(purrr)
+library(LSTbook)
+library(devoirs)
+{{< include ../../_software/software.R >}}
+```
+
+
+
+# 2025-04-10 class notes
+
+```{webr-r}
+#| caption: User console A
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console B
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console C
+#| persist: true
+```
+
+
+```{r}
+#| results: asis
+cat(htmltools::HTML("The square root is $\\sqrt{x}$"))
+```
+
+<form id="radioForm">
+  <label><input type="radio" id="option1" name="options" value="value1"> $\sqrt{x^2}$</label><br>
+  <label><input type="radio" id="option2" name="options" value="value2"> If I really, really, really, wanted to say something about this then I would type in a very long answer such as $\int_0^\infty \frac{dx}{x}$</label><br>
+  <label><input type="radio" id="option3" name="options" value="value3"> Option 3</label><br>
+</form>
+
+ 
+
+
+And here is the second question ...
+
+<form id="secondForm">
+  <label><input type="radio" id="option4" name="options2" value="value4"> Option A</label><br>
+  <label><input type="radio" id="option5" name="options2" value="value5"> Option B</label><br>
+  <label><input type="radio" id="option6" name="options2" value="value6"> Option C</label><br>
+</form>
+
+<script type='text/javascript'>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('radioForm');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+    
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('selectedOption');
+      if (savedValue) {
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+    
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          localStorage.setItem('selectedOption', event.target.value);
+        }
+      });
+    });
+</script>
+
+<script type='text/javascript'>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("Adding event listener.");
+      const form = document.getElementById('secondForm');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+    
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('secondFormOption');
+      if (savedValue) {
+        console.log("Restoring radio button values.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+    
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          localStorage.setItem('secondFormOption', event.target.value);
+        }
+      });
+    });
+</script>
+
+`r devoirs_text("try-persistent")`
+
+<script type="text/javascript">
+
+      //save entered info
+      document.getElementById("try-persistent").addEventListener("input", function () {
+        var todo = document.getElementById("try-persistent").value;
+        localStorage.setItem("try-persistent", todo);
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem('try-persistent');
+      if (savedValue) {
+        document.getElementById("try-persistent").value = savedValue
+      }
+      
+
+    </script>
+
+## From last week ...
+
