@@ -15,13 +15,14 @@ source("../../_software/software.R")
 ```
 
 
-
+::: {.callout-warning collapse=true}
+## Background software
 ```{webr-r}
 #| autorun: true
 #| context: setup
 {{< include ../../_software/software.R >}}
 ```
-
+:::
 
 # 2025-04-08 class notes
 
@@ -73,6 +74,7 @@ A matrix is a set of vectors. All of them must share an embedding space, that is
 Example: Matrix of random numbers
 
 ```{webr-r}
+#| caption: A random matrix
 Mrand <- matrix(rnorm(40*30), nrow=40, ncol=30)
 draw_matrix(Mrand)
 ```
@@ -83,21 +85,37 @@ Occasionally, we will need to look at just one (or a few) columns (or rows) in a
 
 Example: Matrix of small integers
 
-```{r}
+```{webr-r}
 M <- values_mat(4, 3)
 M
 M[1, ]  # first row
 M[ , 1] # first column
 ```
 
-Now for an R oddity. The people who initially wrote S (the precursor to R) created an object called a "vector" that, unlike the linear algebra conception 
+Now for an R oddity. The people who initially wrote S (the precursor to R) created an object called a "vector" that, unlike the linear algebra conception, doesn't distinguish between rows and columns. The *indexing operator* will collapse the result to an R vector, if it can.
 
+To get the matrix part correctly formatted, you need to cancel this behavior:
+
+```{webr-r}
+M[1,  , drop = FALSE]
+M[ , 1, drop = FALSE]
+```
 
 ## Matrix/vector multiplication
 
 Canonical form: m-by-n matrix times an n-dimensional vector gives an m-dimensional vector.
 
+The *times* here is not scalar multiplication. It is "**matrix multiplication**." The operator is
+
+[`%*%`]{style="font-size: xxx-large;"}
+
+You will mistakenly use simple `*` often. Be gentle with yourself!
+
 The result is a *linear combination of the vectors in the matrix*, with the "coefficients"/"scalars" coming from the vector. 
+
+```{webr-r}
+M %*% vec(1,0,-1)
+```
 
 Not necessarily commutative. 
 
@@ -125,8 +143,89 @@ qr.solve(M, v)
 
 `qr.solve()` takes the matrix and re-writes it as a linear combination of two special matrices, one called Q and the other R. 
 
-```{r}
+```{webr-r}
 myQ <- qr.Q(qr(M))
+myR <- qr.R(qr(M))
+myQ
+myR
+myQ %*% myR
+```
+
+Each of the vectors in Q is orthogonal to every other vector in Q. 
+
+```{webr-r}
+myQ[,1] %dot% myQ[,1]
+myQ[,1] %dot% myQ[,2]
+```
+
+The `%dot%` operator is really a special form of matrix multiplication, arranged to disregard whether vectors are in row or column format. With matrix multiplication, we have to be more careful.
+
+```{webr-r}
+myQ[, 1:2]
+myQ[, 1, drop=FALSE]
+t(myQ[, 1:2])
+t(myQ[, 1:2]) %*% myQ[, 1, drop = FALSE]
+
+```
+
+
+The R matrix is also special.  To illustrate, let's solve a made-up set of equations:
+
+```{webr-r}
+R1 <- cbind(vec(4, 0), vec(-2, 6))
+Target1 <- vec(8, 12)
+R1 
+Target1
+qr.solve(R1, Target1)
+```
+
+```{web-r}
+myR
+```
+
+```{webr-r}
+M[, 1, drop=FALSE]
+myQ[ , 1, drop=FALSE] * 11.09045
+```
+
+Then work out the second column of M as a linear combination of the first *two* vectors in myQ.
+
+
+## Projection onto a subspace
+
+Let's look at the space spanned by the second and third vector in M
+
+
+```{webr-r}
+mySpace <- M[, 2:3]
+mySpace
+target <- vec(1,2,3,4)
+```
+
+Project the target vector onto mySpace
+```{webr-r}
+target %onto% mySpace
+qr.solve(mySpace, target)
+mySpace %*% qr.solve(mySpace, target)
+```
+
+
+```{webr-r}
+t(qr.Q(qr(mySpace))) %*% target
+```
+
+```{webr-r}
+qr.R(qr(mySpace))
+```
+
+## Getting to Q
+
+Graham-Schmidt orthogonalization 
+
+Do an example by hand.
+
+```{webr-r}
+
 ```
 
 
