@@ -43,7 +43,7 @@ Please read the [**Basics**](basics.html) page for course policies and such.
     * Review: Objects and operators in calculus
     * Vectors and subspaces.
 - Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html) 
-- Start [Assignment 1](./assignments/Week-11/index-week-11.html). Due next week.
+- Start [Assignment 1](./assignments/Week-11/index-assignment-11.html). Due next week.
 
 ##### Thursday April 3
 
@@ -65,7 +65,7 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 
 - Topic: Projection and residual
 - Reading: *MOSAIC Calculus* [Chap 30](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html)
-- Start [Assignment 2](./assignments/Week-12/index-week-12.html). Due next week.
+- Start [Assignment 2](./assignments/Week-12/index-assignment-12.html). Due next week.
 
 #### Thursday April 10
 

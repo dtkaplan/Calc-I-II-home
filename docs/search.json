@@ -396,14 +396,14 @@
     "href": "assignments/Week-12/index-assignment-12.html#by-hand-and-eye",
     "title": "MOSAIC Week 12",
     "section": "By hand and eye",
-    "text": "By hand and eye\n\nExercise 1  \n\n\n\n\n\n\n\n\n\nWhat will be the signs on the multipliers of \\(\\vec{u}\\) and \\(\\vec{w}\\) to construct \\(\\vec{b}_1\\)? (You don’t have to give the multipliers themselves, just their signs.)\n\n\n\n&lt;small style=\"color: grey;\" id=\"by-hand-A-hintarea\"&gt;by-hand-A&lt;/small&gt;\n\n\n\n positive for \\(\\vec{u}\\), positive for \\(\\vec{w}\\)\n\n\n positive for \\(\\vec{u}\\), negative for \\(\\vec{w}\\)\n\n\n negative for \\(\\vec{u}\\), positive for \\(\\vec{w}\\)\n\n\n negative for \\(\\vec{u}\\), negative for \\(\\vec{w}\\)\n\n\n\n\n\n\n\n\nExercise 2  \n\n\n\n\n\n\n\n\n\nWhat will be the signs on the multipliers of \\(\\vec{x}\\) and \\(\\vec{v}\\) to construct \\(\\vec{b}_2\\)? (You don’t have to give the multipliers themselves, just their signs.)\n\n\n\n&lt;small style=\"color: grey;\" id=\"by-hand-B-hintarea\"&gt;by-hand-B&lt;/small&gt;\n\n\n\n positive for \\(\\vec{x}\\), positive for \\(\\vec{v}\\)\n\n\n positive for \\(\\vec{x}\\), negative for \\(\\vec{v}\\)\n\n\n negative for \\(\\vec{x}\\), positive for \\(\\vec{v}\\)\n\n\n negative for \\(\\vec{x}\\), negative for \\(\\vec{v}\\)"
+    "text": "By hand and eye\n\nExercise 1  \n\n\n\n\n\n\n\n\n\nWhat will be the signs on the multipliers of \\(\\vec{u}\\) and \\(\\vec{w}\\) to construct \\(\\vec{b}_1\\)? (You don’t have to give the multipliers themselves, just their signs.)\n\n by-hand-A\n\n\n positive for \\(\\vec{u}\\), positive for \\(\\vec{w}\\)\n\n\n positive for \\(\\vec{u}\\), negative for \\(\\vec{w}\\)\n\n\n negative for \\(\\vec{u}\\), positive for \\(\\vec{w}\\)\n\n\n negative for \\(\\vec{u}\\), negative for \\(\\vec{w}\\)\n\n\n\n\n\n\n\n\nExercise 2  \n\n\n\n\n\n\n\n\n\nWhat will be the signs on the multipliers of \\(\\vec{x}\\) and \\(\\vec{v}\\) to construct \\(\\vec{b}_2\\)? (You don’t have to give the multipliers themselves, just their signs.)\n\n by-hand-B\n\n\n positive for \\(\\vec{x}\\), positive for \\(\\vec{v}\\)\n\n\n positive for \\(\\vec{x}\\), negative for \\(\\vec{v}\\)\n\n\n negative for \\(\\vec{x}\\), positive for \\(\\vec{v}\\)\n\n\n negative for \\(\\vec{x}\\), negative for \\(\\vec{v}\\)"
   },
   {
     "objectID": "assignments/Week-12/index-assignment-12.html#computing",
     "href": "assignments/Week-12/index-assignment-12.html#computing",
     "title": "MOSAIC Week 12",
     "section": "Computing",
-    "text": "Computing\nThe {mosaicCalc} package provides you with a small set of basic vector operations.\n\nb %dot% a - the dot product between b and a. Output: scalar.\nb %onto% a - a decomposition operation giving the component of b aligned with a. Output: vector\nb %perp% a - another decomposition operation. The component of b perpendicular to a. Output: vector\n\nIn addition, you have some functions you wrote for [Day 31]{../index-assignment-31.html} that have been pre-loaded into this assignment.\n\ncang(b, a) the cosine of the angle between b and a. Output: scalar\nunitvec(a) produces a vector aligned with s but with unit length. Output: vector\nveclen(b) calculates the length of b. Output: scalar.\n\n\nYour task is to write your own onto() function, that will perform the same task as %onto%. You can accomplish this with cang(), unitvec(), and veclen(), along with multiplication. The geometry is shown in Figure 1, which projects b onto a and gives as output the vector s.\n\n\n\n\n\n\nFigure 1\n\n\n\n\nDefine your onto() function.\n\n\n\n\n\n\n\n\nWrite some test statements to confirm that your onto() does the same thing as %onto%.\n\n\n\n\n\n\n\n\nA graphic for vectors and target points.\n\nExercise 3 Find the multipliers for the linear combination to construct \\(\\vec{b}_1\\) from \\(\\vec{u}\\) and \\(\\vec{w}\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExercise 4 Find the multipliers for the linear combination to construct \\(\\vec{b}_2\\) from \\(\\vec{y}\\) and \\(\\vec{w}\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExercise 5  \n\nProjection onto orthogonal vectors\nProjection onto an arbitrary vector set\n\n\n\n\n\n\n\nExercise 6  \n\n\n\nExercise 7  \n\n\n\nExercise 8"
+    "text": "Computing\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n}"
   },
   {
     "objectID": "assignments/Week-13/index-assignment-13.html",
@@ -754,5 +754,12 @@
     "title": "MOSAIC Week 18 Assignment",
     "section": "",
     "text": "Submitting your answers\n\n\n\nIf the answers that have been loaded automatically are not yours, press this button before starting your work:\n\n\nClear memory\n\nAt any point, you can submit your answers by collecting them and uploading them to the class site.\nindex-assignment-18.rmarkdown Collect your answers No answers yet collected"
+  },
+  {
+    "objectID": "assignments/Week-12/index-assignment-12.html#submitting-code-and-responses",
+    "href": "assignments/Week-12/index-assignment-12.html#submitting-code-and-responses",
+    "title": "MOSAIC Week 12",
+    "section": "Submitting code and responses",
+    "text": "Submitting code and responses\nThe {devoirs} package has changed. In the old version, your R-chunks were collected automatically when you press the “collect answers” button. That is no longer true.\nInstead, there will be text boxes into which you can paste code and/or results. They will look like this:"
   }
 ]

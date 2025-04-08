@@ -1,7 +1,7 @@
 ---
 title: MOSAIC Week 12
 date: 2025-04-03
-format: html
+format: live-html
 categories: [linear algebra]
 ---
 
@@ -9,177 +9,122 @@ categories: [linear algebra]
 library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
-{{< include ../../_software/software.R >}}
+source("../../_software/software.R")
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
 
+::: {.callout-warning collapse=true}
+## Background software
 ```{webr-r}
 #| autorun: true
 #| context: setup
+#| results: 
 {{< include ../../_software/software.R >}}
 ```
+:::
 
 ## By hand and eye
-
-::: {#exr-by-hand-A}
-
-```{r echo=FALSE}
-solve_for(c("u", "w", "b1"))
-```
-
-What will be the signs on the multipliers of $\vec{u}$ and $\vec{w}$ to construct $\vec{b}_1$? (You don't have to give the multipliers themselves, just their signs.)
-
-```{mcq}
-#| label: by-hand-A
-1. positive for $\vec{u}$, positive for $\vec{w}$
-2. positive for $\vec{u}$, negative for $\vec{w}$ [correct]
-3. negative for $\vec{u}$, positive for $\vec{w}$
-4. negative for $\vec{u}$, negative for $\vec{w}$
-```
-:::
-
-::: {#exr-by-hand-B}
-
-```{r echo=FALSE}
-solve_for(c("x", "b2", "v"))
-```
-
-What will be the signs on the multipliers of $\vec{x}$ and $\vec{v}$ to construct $\vec{b}_2$? (You don't have to give the multipliers themselves, just their signs.)
-
-```{mcq}
-#| label: by-hand-B
-1. positive for $\vec{x}$, positive for $\vec{v}$
-2. positive for $\vec{x}$, negative for $\vec{v}$ [correct]
-3. negative for $\vec{x}$, positive for $\vec{v}$
-4. negative for $\vec{x}$, negative for $\vec{v}$
-```
-:::
 
 
 
 
 ## Computing
 
-The `{mosaicCalc}` package provides you with a small set of basic vector operations.
+::: {.callout-tip}
+## Submitting code and responses
 
-- `b %dot% a` - the dot product between `b` and `a`. Output: scalar.
-- `b %onto% a` - a decomposition operation giving the component of `b` aligned with `a`. Output: vector
-- `b %perp% a` - another decomposition operation. The component of `b` perpendicular to `a`. Output: vector
+The `{devoirs}` package has changed. In the old version, your R-chunks were collected automatically when you press the "collect answers" button. That is no longer true.
 
-In addition, you have some functions you wrote for [Day 31]{../index-assignment-31.html} that have been pre-loaded into this assignment.
+Instead, there will be text boxes into which you can paste code and/or results. They will look like this:
 
-- `cang(b, a)` the cosine of the angle between `b` and `a`. Output: scalar
-- `unitvec(a)` produces a vector aligned with `s` but with unit length. Output: vector
-- `veclen(b)` calculates the length of `b`. Output: scalar.
-
-::: {exr-34-project-write}
-Your task is to write your own `onto()` function, that will perform the same task as `%onto%`. You can accomplish this with `cang()`, `unitvec()`, and `veclen()`, along with multiplication. The geometry is shown in @fig-b-onto-a, which projects `b` onto `a` and gives as output the vector `s`.
-
-::: {#fig-b-onto-a}
-![](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/www/project-b-onto-a.png)
-The geometry of projecting $\vec{b}$ onto $\vec{a}$, producing vector $\vec{s}$. Source: Fig 30.4 of *MOSAIC Calculus*](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html#fig-b-onto-a)
+`r devoirs_text("just-an-example", code="the corresponding chunk")`
 :::
 
-1. Define your `onto()` function.
+
+::: {#exr-rotation-matrix-by-hand}
+
+Here is a matrix that when multiplied by a vector $\vec{v}$ will produce a rotated version of $\vec{v}$.
+
+$$\left(\begin{array}{rr} \cos(\theta) & \sin(\theta)\\ -\sin(\theta) & \cos(\theta)\end{array} \right)$$
+
+Such matrices are called "*rotation matrices*."
+
+Use Chunk A to write a function `mat_rotation()` that takes the angle $\theta$ (in radians) and produces the corresponding rotation matrix.
+
 ```{webr-r}
-#| label: define-onto-fun
-onto <- function(a, b) {
+#| caption: Chunk A (rotation matrix function)
+mat_rotation <- function(theta) {
   
 }
 ```
 
-2. Write some test statements to confirm that your `onto()` does the same thing as `%onto%`.
+1. Use your function to create a rotation matrix and show that it is orthogonal. (Hint: Calculate `t(M) %*% M` and correctly interpret the result.) You can create the matrix in Chunk A, do the demonstration of orthogonality, and paste your code and results here:
+
+`r devoirs_text("rotation-ortho", code = "Chunk A")`
+
+
+2. For your convenience, here is a function that will compute the orientation angle of a 2-dimensional vector.
 
 ```{webr-r}
-#| label: test-onto-fun
-
-
+#| caption: Helper to find angle
+#| autorun: true
+find_vec_angle <- function(v) {
+  atan2(v[[2]], v[[1]])
+}
 ```
+
+Write a couple of test cases and explain the results here.
+
+`r devoirs_text("angle-helper", code="Helper to find angle")`
+
+3. Create a vector, and find the orientation angle. Then multiply the vector by a rotation matrix with $\theta = \pi/4$ and show that the orientation angle has changed accordingly. Paste your code, results, and commentary into the text-entry box here:
+
+`r devoirs_text("test-rotation-matrix-on-vector")`
 
 :::
 
-A graphic for vectors and target points.
 
-```{r echo=FALSE}
+::: {#exr-glass-patterns-8322}
 
-```
+As a more compelling example of the action of rotation matrices, consider a visual phenomenon called a ["Glass pattern"](www/Glass69a.pdf) discovered about 50 years ago. 
 
-::: {#exr-solvefor1}
-Find the multipliers for the linear combination to construct $\vec{b}_1$ from $\vec{u}$ and $\vec{w}$.
-
-```{r echo=FALSE}
-solve_for(c("u", "w", "b1"))
-```
+The pattern appears when a set of random dots is copied, perhaps with some rotation and scaling in the x and/or y directions. Even though the dots are random, the human visual system is easily able to discern the relationship between the original and transformed dot. The function `glass_pattern()`---defined below---generates a dataframe with `x` and `y` variables, and a rotated/scaled pair `x2` and `y2`. It allows you to easily generate the pairs of dots in a format (a data frame) that makes them easy to graph.
 
 ```{webr-r}
-#| label: solvefor1
-u <- vec()
-w <- vec()
-b1 = vec()
-qr.solve(cbind(  ),  )
+#| autorun: true
+#| caption: Produces correlated pairs
+glass_pattern <- function(n=1000, theta=5, xscale = 1, yscale = 1) {
+  theta <- pi*theta/180 # in radians
+  Pts <- tibble::tibble(
+    x = runif(n, -1, 1),
+    y = runif(n, -1, 1),
+    xx = x*xscale,
+    yy = y*yscale) |>
+    mutate(x2 = cos(theta)*xx + sin(theta)*yy,
+           y2 = -sin(theta)*xx + cos(theta)*yy) |>
+    select(-xx, -yy)
+}
 ```
-:::
+  
+a. Where in the definition for `glass_pattern()` do you see the application of a rotation matrix?
 
-::: {#exr-solvefor2}
-Find the multipliers for the linear combination to construct $\vec{b}_2$ from $\vec{y}$ and $\vec{w}$.
+`r devoirs_text("glass-pattern-function-rotation")`
+  
 
-```{r echo=FALSE}
-solve_for(c("y", "w", "b2"))
-```
+b. Chunk B generates a Glass pattern and plots it. (In Glass's work, just the point were shown. Probably I have over-elaborated by plotting little segments between pairs instead. You can comment out the `gf_segment()` and uncomment the `gf_point()`s if you want to see the original form.)
 
 ```{webr-r}
-#| label: solvefor2
-#| persist: true
-y <- vec()
-w <- vec()
-b2 = vec()
-qr.solve( )
-```
+#| caption: Chunk B show a transformation
+glass_pattern(xscale = 0.95, yscale = 1.2, theta = 15) |>
+  # gf_point(y ~ x, size=0.3) |>
+  # gf_point(y2 ~ x2, size=0.3) |>
+  gf_segment(y + y2 ~ x + x2, linewidth=0.2,
+             arrow = arrow(length=unit(0.03, "inches"))) |>
+  gf_refine(coord_fixed())
+```  
+
+Play around with the parameters for angle and x- and y-scaling to generate some different patterns. Paste the parameters you liked into the following text box.
+
+`r devoirs_text("glass-pattern-nice-params)`
 :::
-
-
-
-
-::: {#exr-make-matrix}
-
-
-:::
-
-Projection onto orthogonal vectors
-
-Projection onto an arbitrary vector set
-
-
-
-
-```{webr-r}
-
-```
-::: {#exr-34-1}
-
-
-:::
-<!-- end of exr-34-1 -->
-
-
-
-::: {#exr-34-2}
-
-
-:::
-<!-- end of exr-34-2 -->
-
-
-
-
-
-::: {#exr-34-3}
-
-
-:::
-
-
-`r devoirs_text("cor-by-dot-R2")`
-
-
