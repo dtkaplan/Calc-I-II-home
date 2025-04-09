@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="DTK">
-<meta name="dcterms.date" content="2025-04-09">
+<meta name="dcterms.date" content="2025-04-10">
 
-<title>Factory production – MOSAIC Calc 2025</title>
+<title>Balancing labor and capital – MOSAIC Calc 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -402,7 +367,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"P <- makeFun( _____  ~ L & K, A = 2.5, alpha = 0.33)","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"PKLdata <- tibble::tribble(\n  ~ year, ~ product, ~labor, ~ capital, \n  1899, 100, 100, 100,\n  1900, 101, 105, 107, \n  1901, 112, 110, 114, \n  1902, 122, 118, 122, \n  1903, 124, 123, 131, \n  1904, 122, 116, 138, \n  1905, 143, 125, 149, \n  1906, 152, 133, 163, \n  1907, 151, 138, 176, \n  1908, 126, 121, 185, \n  1909, 155, 140, 198, \n  1910, 159, 144, 208, \n  1911, 153, 145, 216, \n  1912, 177, 152, 226, \n  1913, 184, 154, 236, \n  1914, 169, 149, 244, \n  1915, 189, 154, 266, \n  1916, 225, 182, 298, \n  1917, 227, 196, 335, \n  1918, 223, 200, 366, \n  1919, 218, 193, 387,\n  1920, 231, 193, 407,\n  1921, 179, 147, 417,\n  1922, 240, 161, 431,\n)","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"as.matrix(PKLdata)","id":2,"options":{"autorun":"false","caption":"For your Task 3 computations ...","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -1737,8 +1702,16 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#task-1" id="toc-task-1" class="nav-link active" data-scroll-target="#task-1">Task 1</a></li>
+  <li><a href="#task-2" id="toc-task-2" class="nav-link" data-scroll-target="#task-2">Task 2</a></li>
+  <li><a href="#task-3" id="toc-task-3" class="nav-link" data-scroll-target="#task-3">Task 3</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -2029,9 +2002,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Factory production</h1>
+<h1 class="title">Balancing labor and capital</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">derivatives</div>
+    <div class="quarto-category">modeling project</div>
+    <div class="quarto-category">economics</div>
+    <div class="quarto-category">log-scales</div>
   </div>
   </div>
 
@@ -2039,17 +2014,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>DTK </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 9, 2025</p>
+      <p class="date">April 10, 2025</p>
     </div>
   </div>
   
@@ -2061,195 +2030,251 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>In the 1920s, economists Paul Douglas (University of Chicago) and Charles Cobb (Amherst College) undertook a study of the growth in US production value and the relative contributions of capital (e.g.&nbsp;machines, factories) and labor. This required a considerable effort in collecting and standardizing data on production, capital, and labor over about a quarter century. The paper reporting their results, <a href="www/Cobb-TheoryProduction-1928.pdf">“A Theory of Production” <em>American Economic Review</em> 1928 <strong>18</strong>(1)</a>, introduced a mathematical model of production that has become famous.</p>
-<p>The data are nicely summarized by “Chart I” from the paper:</p>
-<div id="fig-cobb-douglas-summary-chart-1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cobb-douglas-summary-chart-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="www/cobb-douglas.png" class="img-fluid figure-img">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-cobb-douglas-summary-chart-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Submitting your answers
 </div>
-<p>Examine Chart I to characterize mathematically the growth of capital, labor, and physical product over the 23-year period. What functional forms (<span class="math inline">\(K(t)\)</span>, <span class="math inline">\(L(t)\)</span>, <span class="math inline">\(P(t)\)</span>) are appropriate given the types of axes used. State appropriate parameter values to approximate the general trends in each of the three functions.</p>
-<p>The appropriate form for a model depends on the purpose for which the model is intended. Two of the questions they asked in their paper are:</p>
-<ol type="i">
-<li>“May it be possible to determine … the <em>relative</em> influence upon production of labor as compared with capital?”</li>
-<li>“Can we measure the probable slopes of incremental product which are imputed to labor and to capital and thus give greater definiteness to what is at present purely an hypothesis with no quantitative values attached.” The hypothesis mentioned is often called the <em>diminishing marginal return</em> of the factors of production.</li>
-</ol>
-<p>Here are the data upon which “Chart I” is based:</p>
+</div>
+<div class="callout-body-container callout-body">
+If the answers that have been loaded automatically are not yours, press this button before starting your work:
+<script type="text/javascript">
+      // clear the local storage
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('btnClearStorage');
+      form.addEventListener("click", function () {
+        localStorage.clear();
+        location.reload();
+        console.log("Clearing memory");
+      }, false);
+    }
+    )
+    </script>
+<button id="btnClearStorage">
+Clear memory
+</button>
+<p>At any point, you can submit your answers by collecting them and uploading them to the class site.</p>
+<p><span id="devoirs-docID" style="display: none;">index-labor-capital.rmarkdown</span> <span><button onclick="devoirsSubmit()">Collect your answers</button></span> <span id="devoirs_summary">No answers yet collected</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PKLdata <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> year, <span class="sc">~</span> product, <span class="sc">~</span>labor, <span class="sc">~</span> capital, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1899</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1900</span>, <span class="dv">101</span>, <span class="dv">105</span>, <span class="dv">107</span>, </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1901</span>, <span class="dv">112</span>, <span class="dv">110</span>, <span class="dv">114</span>, </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1902</span>, <span class="dv">122</span>, <span class="dv">118</span>, <span class="dv">122</span>, </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1903</span>, <span class="dv">124</span>, <span class="dv">123</span>, <span class="dv">131</span>, </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1904</span>, <span class="dv">122</span>, <span class="dv">116</span>, <span class="dv">138</span>, </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1905</span>, <span class="dv">143</span>, <span class="dv">125</span>, <span class="dv">149</span>, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1906</span>, <span class="dv">152</span>, <span class="dv">133</span>, <span class="dv">163</span>, </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1907</span>, <span class="dv">151</span>, <span class="dv">138</span>, <span class="dv">176</span>, </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1908</span>, <span class="dv">126</span>, <span class="dv">121</span>, <span class="dv">185</span>, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1909</span>, <span class="dv">155</span>, <span class="dv">140</span>, <span class="dv">198</span>, </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1910</span>, <span class="dv">159</span>, <span class="dv">144</span>, <span class="dv">208</span>, </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1911</span>, <span class="dv">153</span>, <span class="dv">145</span>, <span class="dv">216</span>, </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1912</span>, <span class="dv">177</span>, <span class="dv">152</span>, <span class="dv">226</span>, </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1913</span>, <span class="dv">184</span>, <span class="dv">154</span>, <span class="dv">236</span>, </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1914</span>, <span class="dv">169</span>, <span class="dv">149</span>, <span class="dv">244</span>, </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1915</span>, <span class="dv">189</span>, <span class="dv">154</span>, <span class="dv">266</span>, </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1916</span>, <span class="dv">225</span>, <span class="dv">182</span>, <span class="dv">298</span>, </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1917</span>, <span class="dv">227</span>, <span class="dv">196</span>, <span class="dv">335</span>, </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1918</span>, <span class="dv">223</span>, <span class="dv">200</span>, <span class="dv">366</span>, </span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1919</span>, <span class="dv">218</span>, <span class="dv">193</span>, <span class="dv">387</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1920</span>, <span class="dv">231</span>, <span class="dv">193</span>, <span class="dv">407</span>,</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1921</span>, <span class="dv">179</span>, <span class="dv">147</span>, <span class="dv">417</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1922</span>, <span class="dv">240</span>, <span class="dv">161</span>, <span class="dv">431</span>,</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PKLdata <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predicted =</span> <span class="fl">0.25</span><span class="sc">*</span>capital <span class="sc">+</span> <span class="fl">0.75</span><span class="sc">*</span>labor) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_point</span>(capital <span class="sc">~</span> year) <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_line</span>(capital <span class="sc">~</span> year) <span class="sc">|&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_point</span>(labor <span class="sc">~</span> year, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_line</span>(labor <span class="sc">~</span> year, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_point</span>(product <span class="sc">~</span> year, <span class="at">color =</span> <span class="st">"magenta"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_line</span>(product <span class="sc">~</span> year, <span class="at">color =</span> <span class="st">"magenta"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_line</span>(predicted <span class="sc">~</span> year, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_refine</span>(<span class="fu">scale_y_log10</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index-Cobb-Douglas_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<script type="text/javascript">
+ console.log("In devoirs.js")
+
+function devoirsCollectEssays() {
+  var essay_answers = [];
+  var items = document.getElementsByClassName("devoirs-text");
+  for (i = 0; i < items.length; i++) {
+    //console.log("text entry" + i + "being handled");
+    essay_answers[i] = {itemid: items[i].id, contents: items[i].value}
+  }
+
+  return essay_answers;
+}
+
+function devoirsGetDocID() {
+  return document.getElementById("devoirs-docID").innerHTML
+}
+
+function devoirsCollectMC() {
+    let mc_answers = [] // Hold the information
+    var ele = document.getElementsByClassName("devoirs-mcq");
+    var count = 0;
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+          //console.log("Entering conditional.");
+          let checked_one = ele[i];
+          mc_answers[count++] = {itemid: checked_one.id, w: checked_one.getAttribute("w"), contents: checked_one.text};
+        }
+    }
+    return mc_answers;
+}
+
+console.log("About to define WebR")
+
+function devoirsCollectWebR() {
+  var chunk_contents = []; // placeholder for collecting webr items
+  if (typeof qwebrCellDetails == "undefined") {
+    // There aren't any webr chunks
+    return chunk_contents;
+  }
+  var chunks = qwebrCellDetails;
+  for (i = 0; i < chunks.length; i++) {
+    chunk_contents[i] = {itemid: chunks[i].options["label"], contents: chunks[i].code};
+  }
+
+  return chunk_contents;
+}
+
+console.log("About to define devoirsSubmit")
+
+function devoirsSubmit() {
+  console.log("About to collect history")
+
+  // check if there is any sign of a webr entry
+  // If not, don't try to collect webr entries
+  if (typeof qwebrRCommandHistory === 'undefined') {
+    items = {docid: devoirsGetDocID(), MC: devoirsCollectMC(), Essays: devoirsCollectEssays(), WebR: {}, R: {}}
+  } else {
+    console.log("Getting R commands.")
+    var Rhistory = qwebrRCommandHistory.map((x) => x.replace(/Ran code in (.*) at (.*[AP]M).{5}(.*)/, "[chunk: $1, time: $2, code: $3]"))
+
+    items = {docid: devoirsGetDocID(), MC: devoirsCollectMC(), Essays: devoirsCollectEssays()} //, WebR: devoirsCollectWebR(), R: Rhistory}
+  }
+
+  navigator.clipboard.writeText(JSON.stringify(items));
+
+  // summarize what's being collected
+  var my_summary = "Answers copied to clipboard. Fixed choice: " + items.MC.length + " Essays: " + items.Essays.length + " WebR chunks: " + items.WebR.length
+
+  document.getElementById("devoirs_summary").innerHTML = my_summary;
+}
+
+console.log("Read devoirsSubmit()")
+
+// Hint handling in Multiple choice
+
+// Still have to add an on/off switch from options
+
+function devoirs_setup_hintarea() {
+  answers = document.getElementsByClassName("devoirs-mcq")
+  for (i=0; i<answers.length; i++) answers[i].addEventListener('click', function(e){document.getElementById(e.target.name + "-hintarea").innerHTML = e.target.getAttribute("hint")})
+}
+
+ window.addEventListener("load", function() {
+  answers = document.getElementsByClassName("devoirs-mcq")
+  for (i=0; i<answers.length; i++) {
+    if (answers[i].getAttribute("show_hints") == "TRUE") {
+        answers[i].addEventListener('click', function(e){
+        document.getElementById(e.target.name + "-hintarea").innerText = e.target.getAttribute("hint")
+      })
+
+    }
+  }
+})
+
+console.log("Added hint summary.") 
+</script>
+
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Mod <span class="ot">&lt;-</span> PKLdata <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model_train</span>(<span class="fu">log10</span>(product) <span class="sc">~</span> <span class="fu">log10</span>(labor) <span class="sc">+</span> <span class="fu">log10</span>(capital) <span class="sc">-</span> <span class="dv">1</span>) </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Mod <span class="sc">|&gt;</span> <span class="fu">R2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   n k  Rsquared        F     adjR2 p df.num df.denom
-1 24 1 0.9998847 190741.3 0.9998794 0      1       22</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Mod <span class="sc">|&gt;</span> <span class="fu">conf_interval</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 4
-  term            .lwr .coef  .upr
-  &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 log10(labor)   0.655 0.751 0.848
-2 log10(capital) 0.163 0.252 0.341</code></pre>
 </div>
 </div>
-<p>Bootstrapping the distribution of coefficients:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Sims <span class="ot">&lt;-</span>   </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  PKLdata <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">take_sample</span>(<span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model_train</span>(<span class="fu">log10</span>(product) <span class="sc">~</span> <span class="fu">log10</span>(labor) <span class="sc">+</span> <span class="fu">log10</span>(capital) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">conf_interval</span>() <span class="sc">|&gt;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(term, .coef) <span class="sc">|&gt;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trials</span>(<span class="dv">100</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>Sims <span class="sc">|&gt;</span> </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> .trial, </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">names_from =</span> term, </span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values_from =</span> .coef) <span class="sc">|&gt;</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_point</span>(<span class="st">`</span><span class="at">log10(labor)</span><span class="st">`</span> <span class="sc">~</span> <span class="st">`</span><span class="at">log10(capital)</span><span class="st">`</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gf_abline</span>(<span class="at">slope =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index-Cobb-Douglas_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Data for the project
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<p>The <strong><em>Cobb-Douglas production function</em></strong> is a simple mathematical model of how labor <span class="math inline">\(L\)</span> and capital <span class="math inline">\(K\)</span> jointly contribute to the production level <span class="math inline">\(P\)</span>: <span class="math display">\[P(L, K) \equiv A K^\alpha L^{1-\alpha}\]</span></p>
-<p>For simplicity, imagine that capital and labor are both measured in dollars per year—the amount that the labor force is paid in a year and the amount that one could rent a factory for a year.</p>
-<ol type="a">
-<li><p>If production <span class="math inline">\(P(L, K)\)</span> is also measured in dollars per year (say, the value of the factory output each year), what is the dimension of the constant <span class="math inline">\(A\)</span>?</p></li>
-<li><p>According to the model, what happens to production if both <span class="math inline">\(K\)</span> and <span class="math inline">\(L\)</span> are increased by a factor constant factor <span class="math inline">\(\beta\)</span>? (Hint: Substitute in <span class="math inline">\(K \rightarrow \beta K\)</span> and <span class="math inline">\(L \rightarrow \beta L\)</span> and simplify.)</p></li>
-<li><p>Consider a particular factory with <span class="math inline">\(A = 2.5\)</span> and exponent <span class="math inline">\(\alpha = 0.33\)</span>. Using <a href="#lst-cd1" class="quarto-xref">Listing&nbsp;1</a>, implement the function <span class="math inline">\(P (K, L)\)</span>.</p></li>
-</ol>
-<div id="lst-cd1" class="listing quarto-float quarto-figure quarto-figure-left anchored">
-<figure class="quarto-float quarto-float-lst figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst quarto-uncaptioned" id="lst-cd1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Listing&nbsp;1
-</figcaption>
-<div aria-describedby="lst-cd1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
-</figure>
 </div>
-<p>Use your function to compute the production of the factory for <span class="math inline">\(K = 10\)</span> and <span class="math inline">\(L=20\)</span>. Confirm that you get <span class="math inline">\(P(K=10,L=20)= 39.78\)</span></p>
-<ol start="4" type="a">
-<li>A factory that rents for $10/yr and where the labor costs $20/yr is silly. Calculate the value <span class="math inline">\(P (K, L)\)</span> when <span class="math inline">\(K\)</span> is $10 million/yr and <span class="math inline">\(L\)</span> is $20 million/yr.</li>
-</ol>
-<p>We’ll stick with numbers like <span class="math inline">\(K = 10\)</span> and <span class="math inline">\(L = 20\)</span> to keep things easy to read, but feel free to interpret them as “millions of dollars.”</p>
-<p>Congratuations! Based on your ability to use the Cobb-Douglas model, you’ve been promoted to manager of the factory. One of your jobs is to decide how to balance expenditures on capital and labor to raise productivity.</p>
-<p>One basic question is what happens when you raise either capital or labor, holding the other one constant. Using appropriate partial derivatives evaluated at <span class="math inline">\(K = 10\)</span>, <span class="math inline">\(L = 20\)</span>, calculate:</p>
+</div>
+<p>The data frame <code>PKLdata</code> has the data on yearly production levels and levels of capital and labor.</p>
+<section id="task-1" class="level2">
+<h2 class="anchored" data-anchor-id="task-1">Task 1</h2>
+<p>The relationship proposed by Cobb and Douglas in section 6 of <a href="../../projects/Cobb-Douglas/www/Cobb-TheoryProduction-1928.pdf">their 1928 paper</a> is <span id="eq-product-of-power-laws"><span class="math display">\[P = \alpha\ L^{3/4} K^{1/4} \tag{1}\]</span></span> where <span class="math inline">\(\alpha\)</span> is a numerical constant.</p>
+<p>Using the rules of differentiation, find expressions for each of these quantities in terms of <span class="math inline">\(P\)</span>, <span class="math inline">\(L\)</span>, <span class="math inline">\(K\)</span>, and the exponents.</p>
 <ol type="i">
-<li>The rate at which an increase in spending on labor will increase productivity.</li>
-<li>The rate at which an increase in spending on capital will increase productivity.</li>
-<li>Based on the above, if you had to choose between spending on capital or labor, and your goal is to increase productivity as much as possible, which would you spend on, capital or labor?</li>
+<li>The marginal productivity of labor: <span class="math inline">\(\frac{\partial P}{\partial L}\)</span></li>
+<li>The marginal productivity of capital: <span class="math inline">\(\frac{\partial P}{\partial K}\)</span></li>
 </ol>
-<div id="lst-cd2" class="listing quarto-float quarto-figure quarto-figure-left anchored">
-<figure class="quarto-float quarto-float-lst figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst quarto-uncaptioned" id="lst-cd2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Listing&nbsp;2
-</figcaption>
-<div aria-describedby="lst-cd2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>In economics nomenclature, an “<strong>elasticity</strong>” is a derivative of the logarithm of some quantity with respect to the logarithm of another quantity. Find expressions for these quantities. (Hint: The answers, when you find them, will be very simple.)</p>
+<ol start="3" type="i">
+<li><p>The elasticity of the product with respect to small changes in labor alone: <span class="math inline">\(\frac{\partial (\log(P))}{\partial(\log(L))}\)</span></p></li>
+<li><p>The elasticity of the product with respect to small changes in capital alone: <span class="math inline">\(\frac{\partial (\log(P))}{\partial(\log(K))}\)</span></p></li>
+</ol>
+<p>Enter your results for (i)-(iv) here:</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for CD-elasticity.');
+      const form = document.getElementById('CD-elasticity');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('CD-elasticity').value;
+        localStorage.setItem("CD-elasticity-contents", todo);
+        console.log("Saving value of CD-elasticity.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("CD-elasticity-contents");
+      if (savedValue) {
+        document.getElementById('CD-elasticity').value = savedValue;
+      }
+})
+</script>
+<textarea id="CD-elasticity" name="CD-elasticity" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID CD-elasticity)"></textarea>
+</section>
+<section id="task-2" class="level2">
+<h2 class="anchored" data-anchor-id="task-2">Task 2</h2>
+<p>The product of power-law functions in <a href="#eq-product-of-power-laws" class="quarto-xref">Equation&nbsp;1</a> can be put into the form of a <em>linear combination</em> by taking the logarithms of both sides. Re-write <a href="#eq-product-of-power-laws" class="quarto-xref">Equation&nbsp;1</a> in terms of <span class="math inline">\(\log(P)\)</span>, <span class="math inline">\(\log(L)\)</span>, and <span class="math inline">\(\log(K)\)</span>.</p>
+<p>Enter the resulting formula here:</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for CD-linear-combination.');
+      const form = document.getElementById('CD-linear-combination');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('CD-linear-combination').value;
+        localStorage.setItem("CD-linear-combination-contents", todo);
+        console.log("Saving value of CD-linear-combination.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("CD-linear-combination-contents");
+      if (savedValue) {
+        document.getElementById('CD-linear-combination').value = savedValue;
+      }
+})
+</script>
+<textarea id="CD-linear-combination" name="CD-linear-combination" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID CD-linear-combination)"></textarea>
+</section>
+<section id="task-3" class="level2">
+<h2 class="anchored" data-anchor-id="task-3">Task 3</h2>
+<p>Let’s analyze the data in <code>PKLdata</code> to see what they have to say about the linear combination in Task 2.</p>
+<p>We’ll do this with <code>qr.solve(M, b)</code>, where <code>M</code> will be a matrix of explanatory vectors and <code>b</code> will be the target, that is, <span class="math inline">\(\log(P)\)</span>.</p>
+<p>We will use indexing braces, the <code>log()</code> function, and <code>as.matrix()</code> to construct both <code>M</code> and <code>b</code>.</p>
+<p>Here’s a chunk for your calculations:</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</figure>
-</div>
-<p>Your economist friend tells you to watch out for “diminishing marginal returns.” This means that, as you increase spending on either labor or capital, the rate of increase in production tends to diminish. You’ll still get increased production as you increase spending, but it won’t increase as fast at high levels of expense as at low levels.</p>
-<ol start="4" type="a">
-<li><p>Compute the partial derivative of production with respect to labor at a higher level of labor, say <span class="math inline">\(L = 21\)</span>, but holding <span class="math inline">\(K = 10\)</span>. How does the value of the derivative at <span class="math inline">\(L = 21\)</span> compare to that at <span class="math inline">\(L = 20\)</span>? Is this consistent with the idea of “diminishing marginal returns” for labor?</p></li>
-<li><p>Do the same for the partial derivative of production with respect to capital, evaluated at <span class="math inline">\(L = 20\)</span> and <span class="math inline">\(K = 11\)</span>. How does the value of the derivative at <span class="math inline">\(K = 11\)</span> compare to that at <span class="math inline">\(K = 10\)</span>. Is this consistent with the idea of “diminishing marginal returns” for capital?</p></li>
-<li><p>Use an appropriate partial second derivative to find the rate of diminishing partial returns for labor at <span class="math inline">\(L = 20\)</span> and <span class="math inline">\(K = 10\)</span>. Show that it is consistent with the difference you got in Part (d).</p></li>
+<ol type="1">
+<li><p>Note what you get from the <code>as.matrix(PKLdata)</code> construction</p></li>
+<li><p>Use indexing to grab the 3rd and 4th columns of the matrix. (Hint: the expression will look like <code>[ , c(3,4)]</code>.) Take the log of this and call it the matrix <code>M</code>.</p></li>
+<li><p>Similarly, use indexing to grab the 2nd column of the matrix. Take the logarithm and call this <code>b</code>.</p></li>
+<li><p>Find the best linear combination of the columns of <code>M</code> to get as close as possible to <code>b</code>. Relate the coefficients you get to those claimed by Cobb and Douglas in <a href="#eq-product-of-power-laws" class="quarto-xref">Equation&nbsp;1</a>.</p></li>
 </ol>
-<div id="lst-cd3" class="listing quarto-float quarto-figure quarto-figure-left anchored">
-<figure class="quarto-float quarto-float-lst figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst quarto-uncaptioned" id="lst-cd3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Listing&nbsp;3
-</figcaption>
-<div aria-describedby="lst-cd3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</figure>
-</div>
-<ol start="7" type="a">
-<li><p>Use an appropriate partial second derivative to find the rate of diminishing partial returns for capital at <span class="math inline">\(L = 20\)</span> and <span class="math inline">\(K = 10\)</span>. Show that it is consistent with the difference you got in Part (3).</p></li>
-<li><p>You might think of the rate of increase in production with respect to labor as the “value rate” of labor. Similarly, the rate of increase in production with respect to capital is the value rate of capital. Due to diminishing marginal returns, an increase in labor spending, holding capital constant, decreases the value rate of labor. Similarly, an increase in capital spending holding labor spending constant decreases the value rate of capital.</p></li>
-</ol>
-<p>But what happens to the value rate of labor when capital spending is increased? You can answer this by comparing the value rate of labor, <span class="math inline">\(\partial_L P\)</span> , at two different capital spending levels, say <span class="math inline">\((K = 10,L = 20)\)</span> and <span class="math inline">\((K = 11,L = 20)\)</span>. Notice that even though you’re looking at the rate with respect to labor, you’re changing the expenditure on capital.</p>
-<div id="lst-cd3" class="listing quarto-float quarto-figure quarto-figure-left anchored">
-<figure class="quarto-float quarto-float-lst figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst quarto-uncaptioned" id="lst-cd3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Listing&nbsp;4
-</figcaption>
-<div aria-describedby="lst-cd3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</figure>
-</div>
-<ol type="i">
-<li>Compare <span class="math inline">\(\partial_L P\)</span> at slightly different values of <span class="math inline">\(K\)</span> , holding <span class="math inline">\(L\)</span> constant at 20. Does the value rate of labor increase or decrease with spending on capital?</li>
-<li>Similarly, compare <span class="math inline">\(\partial_K P\)</span> at slightly different values of <span class="math inline">\(L\)</span>, holding <span class="math inline">\(K\)</span> constant at 20. Does the value rate of labor increase or decrease with spending on capital?</li>
-<li>Finally, construct and evaluate the mixed partial derivative, $_L _K P at <span class="math inline">\(K = 10\)</span>, <span class="math inline">\(L = 20\)</span>. Compare this to the results you got for the way <span class="math inline">\(\partial_K P\)</span> changes with increasing <span class="math inline">\(L\)</span> and the way <span class="math inline">\(\partial_L P\)</span> changes with increasing <span class="math inline">\(K\)</span>.</li>
-</ol>
-<ul>
-<li>Concrete production: <a href="https://www.ijrbsm.org/pdf/v2-i5/4.pdf" class="uri">https://www.ijrbsm.org/pdf/v2-i5/4.pdf</a></li>
-</ul>
+<p>Enter your overall findings for Task 3 here:</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for CD-task3.');
+      const form = document.getElementById('CD-task3');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('CD-task3').value;
+        localStorage.setItem("CD-task3-contents", todo);
+        console.log("Saving value of CD-task3.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("CD-task3-contents");
+      if (savedValue) {
+        document.getElementById('CD-task3').value = savedValue;
+      }
+})
+</script>
+<textarea id="CD-task3" name="CD-task3" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID CD-task3)"></textarea>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

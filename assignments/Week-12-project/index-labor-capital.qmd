@@ -1,0 +1,106 @@
+---
+title: Balancing labor and capital
+date: 2025-04-10
+summary: "Finishing up the modeling project we started in class."
+categories: [modeling project, economics, log-scales]
+---
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(devoirs)
+```
+
+{{< include ../../_software/devoirs.qmd >}}
+
+::: {.callout-tip collapse=true}
+## Data for the project
+```{webr-r}
+PKLdata <- tibble::tribble(
+  ~ year, ~ product, ~labor, ~ capital, 
+  1899, 100, 100, 100,
+  1900, 101, 105, 107, 
+  1901, 112, 110, 114, 
+  1902, 122, 118, 122, 
+  1903, 124, 123, 131, 
+  1904, 122, 116, 138, 
+  1905, 143, 125, 149, 
+  1906, 152, 133, 163, 
+  1907, 151, 138, 176, 
+  1908, 126, 121, 185, 
+  1909, 155, 140, 198, 
+  1910, 159, 144, 208, 
+  1911, 153, 145, 216, 
+  1912, 177, 152, 226, 
+  1913, 184, 154, 236, 
+  1914, 169, 149, 244, 
+  1915, 189, 154, 266, 
+  1916, 225, 182, 298, 
+  1917, 227, 196, 335, 
+  1918, 223, 200, 366, 
+  1919, 218, 193, 387,
+  1920, 231, 193, 407,
+  1921, 179, 147, 417,
+  1922, 240, 161, 431,
+)
+```
+:::
+
+The data frame `PKLdata` has the data on yearly production levels and levels of capital and labor.
+
+## Task 1
+
+The relationship proposed by Cobb and Douglas in section 6 of [their 1928 paper](../../projects/Cobb-Douglas/www/Cobb-TheoryProduction-1928.pdf) is 
+$$P = \alpha\ L^{3/4} K^{1/4}$$ {#eq-product-of-power-laws}
+where $\alpha$ is a numerical constant. 
+
+Using the rules of differentiation, find expressions for each of these quantities in terms of $P$, $L$, $K$, and the exponents.
+
+i. The marginal productivity of labor: $\frac{\partial P}{\partial L}$
+ii. The marginal productivity of capital: $\frac{\partial P}{\partial K}$
+
+In economics nomenclature, an "**elasticity**" is a derivative of the logarithm of some quantity with respect to the logarithm of another quantity. Find expressions for these quantities. (Hint: The answers, when you find them, will be very simple.)
+
+iii. The elasticity of the product with respect to small changes in labor alone: $\frac{\partial (\log(P))}{\partial(\log(L))}$
+
+iv. The elasticity of the product with respect to small changes in capital alone: $\frac{\partial (\log(P))}{\partial(\log(K))}$
+
+Enter your results for (i)-(iv) here:
+
+`r devoirs_text("CD-elasticity")`
+
+## Task 2
+
+The product of power-law functions in @eq-product-of-power-laws can be put into the form of a *linear combination* by taking the logarithms of both sides. Re-write @eq-product-of-power-laws in terms of $\log(P)$, $\log(L)$, and $\log(K)$.
+
+Enter the resulting formula here:
+
+`r devoirs_text("CD-linear-combination")`
+
+## Task 3
+
+Let's analyze the data in `PKLdata` to see what they have to say about the linear combination in Task 2.
+
+We'll do this with `qr.solve(M, b)`, where `M` will be a matrix of explanatory vectors and `b` will be the target, that is, $\log(P)$.
+
+We will use indexing braces, the `log()` function, and `as.matrix()` to construct both `M` and `b`.
+
+Here's a chunk for your calculations:
+
+```{webr-r}
+#| caption: For your Task 3 computations ...
+as.matrix(PKLdata)
+
+```
+
+1. Note what you get from the `as.matrix(PKLdata)` construction
+
+2. Use indexing to grab the 3rd and 4th columns of the matrix. (Hint: the expression will look like `[ , c(3,4)]`.) Take the log of this and call it the matrix `M`.
+
+3. Similarly, use indexing to grab the 2nd column of the matrix. Take the logarithm and call this `b`.
+
+4. Find the best linear combination of the columns of `M` to get as close as possible to `b`. Relate the coefficients you get to those claimed by Cobb and Douglas in @eq-product-of-power-laws. 
+
+Enter your overall findings for Task 3 here:
+
+`r devoirs_text("CD-task3")`
+
