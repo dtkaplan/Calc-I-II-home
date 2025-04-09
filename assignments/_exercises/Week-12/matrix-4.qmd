@@ -1,0 +1,16 @@
+<!-- matrix-4 -->
+
+Find the value of this product:
+$$\left(\begin{array}{r} 
+ 2 & 2 & 5 & -9 \\ 
+\end{array}\right) \times 
+\left(\begin{array}{r} 
+-1 \\ 
+0 \\ 
+-5 \\ 
+4 \\ 
+\end{array}\right)$$
+
+`r devoirs_text("matrix-4", rows=1, cols=10)`
+
+

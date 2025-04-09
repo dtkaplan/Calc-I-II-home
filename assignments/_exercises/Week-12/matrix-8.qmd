@@ -1,0 +1,26 @@
+<!-- matrix-8.qmd -->
+
+
+What kind of mathematical object will the solution $\bf x$ to this matrix equation be?
+
+$$\left(\begin{array}{r} 
+8 & 9 & 6 \\ 
+-4 & -3 & 9 \\ 
+2 & 6 & 5\\
+\end{array}\right) \ {\bf x} \ =
+\left(\begin{array}{r} 
+6 & 5 & 3 & 2 \\ 
+-1 & 0 & 9 & 1 \\ 
+1 & -8 & 9 & -1 \\ 
+\end{array}\right)$$
+
+```{mcq}
+#| label: what-kinda-thing-3
+#| inline: true
+1. a scalar
+2. a matrix with 2 rows and 4 columns
+3. a matrix with 3 rows and 4 columns [correct]
+4. a matrix with 4 rows and 4 columns
+6. It's meaningless
+```
+

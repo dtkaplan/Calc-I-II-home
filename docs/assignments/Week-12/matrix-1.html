@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>UATX/MOSAIC Calculus – MOSAIC Calc 2025</title>
+<title>matrix-1 – MOSAIC Calc 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-79108a0fc1995748cbd19a5b0e3e3e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-79108a0fc1995748cbd19a5b0e3e3e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,9 +68,38 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">MOSAIC Calc 2025</span>
     </a>
   </div>
@@ -92,23 +121,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./mosaic.html"> 
+    <a class="nav-link" href="../../mosaic.html"> 
 <span class="menu-text">Mosaic?</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./basics.html"> 
+    <a class="nav-link" href="../../basics.html"> 
 <span class="menu-text">Basics</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notes.html"> 
+    <a class="nav-link" href="../../notes.html"> 
 <span class="menu-text">Class notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assignments.html"> 
+    <a class="nav-link" href="../../assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
@@ -124,207 +153,32 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">UATX/MOSAIC Calculus</h1>
-<p class="subtitle lead">Prof.&nbsp;Daniel Kaplan</p>
+
+
+
+<!-- matrix-1 -->
+<p>What kind of mathematical object will the following produce?</p>
+<p><span class="math display">\[\left(\begin{array}{r}
+-8 &amp; 4 &amp; 8 \\
+-9 &amp; 2 &amp; 7 \\
+3 &amp; 8 &amp; 2 \\
+6 &amp; 5 &amp; -8 \\
+\end{array}\right) \times
+\left(\begin{array}{r}
+-1 \\
+0 \\
+-5 \\
+4 \\
+\end{array}\right)\]</span></p>
+<div class="cell">
+<pre class="mcq cell-code"><code>1. A column vector
+2. A row vector
+3. A matrix with three columns
+4. A matrix with three rows
+5. It's meaningless. [correct hint: There are only three vectors in the matrix but the vector has four elements, meaning that it is looking to combine four vectors.]</code></pre>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<hr>
-<p>This is the home page for both terms of the two-term UATX/MOSAIC Calculus sequence. The course has no specific pre-requisites and is suited both to those who have no previous experience with Calculus and those who have taken an AP or IB year-long calculus sequence. The MOSAIC Calculus sequence is designed to replace the entire multi-term traditional sequence—Calc I, II, III, differential equations, linear algebra—for STEM students and is highly relevant to economics, biology and medicine, data science, public policy, physics, and chemistry. Proof and other aspects of “pure” (theoretical) mathematics are introduced only where necessary and appropriate.</p>
-<p>Please read the <a href="basics.html"><strong>Basics</strong></a> page for course policies and such.</p>
-<hr>
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog%20target=%22_blank%22">Homework submission link</a></p>
-<section id="two-term-course-outline" class="level2">
-<h2 class="anchored" data-anchor-id="two-term-course-outline">Two-term course outline</h2>
-<ul>
-<li><p>First term (10 weeks, winter term)</p>
-<ol type="1">
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/preliminaries-part.html">Preliminaries</a>: Quantities, spaces, functions, notation, computing</li>
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/modeling-part.html">Modeling</a>: General techniques used in constructing models, that is, building mathematical representations of real-world objects.</li>
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/differentiation-part.html">Differentiation</a>/anti-differentiation and applications of derivatives.</li>
-</ol></li>
-<li><p>Second term (10 weeks, spring term)</p>
-<ol start="4" type="1">
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/linear-combinations-part.html">Linear algebra</a> (approx 3 weeks). High-dimensional spaces and their residents, projection, decomposition, transformation</li>
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/accumulation-part.html">Accumulation</a> (approx 3 weeks). Taking information about change of state and turning it into information about state.</li>
-<li><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/dynamics-part.html">Dynamics</a> (approx 3 weeks). Modeling state as it evolves in time.</li>
-</ol></li>
-</ul>
-</section>
-<section id="day-by-day-schedule" class="level2">
-<h2 class="anchored" data-anchor-id="day-by-day-schedule">Day-by-day schedule</h2>
-<section id="week-1" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="week-1">Week 1</h4>
-<section id="tuesday-april-1" class="level5">
-<h5 class="anchored" data-anchor-id="tuesday-april-1">Tuesday April 1</h5>
-<ul>
-<li>Topics:
-<ul>
-<li>Review: Objects and operators in calculus</li>
-<li>Vectors and subspaces.</li>
-</ul></li>
-<li>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html">Chap 28</a></li>
-<li>Start <a href="./assignments/Week-11/index-assignment-11.html">Assignment 1</a>. Due next week.</li>
-</ul>
-</section>
-<section id="thursday-april-3" class="level5">
-<h5 class="anchored" data-anchor-id="thursday-april-3">Thursday April 3</h5>
-<ul>
-<li>Modeling day: Review of first term
-<ul>
-<li><a href="projects/Walking-uphill/">Walking uphill</a></li>
-<li><a href="projects/Cobb-Douglas">Factory production</a></li>
-<li>After class: <a href="./assignments/Week-11-project/index-walking-project.html">Assignment about walking project.</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="friday-april-4" class="level5">
-<h5 class="anchored" data-anchor-id="friday-april-4">Friday April 4</h5>
-<ul>
-<li>Topic: Linear combinations of vectors</li>
-<li>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html">Chap 29</a></li>
-</ul>
-</section>
-</section>
-<section id="week-2" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-2">Week 2</h3>
-<section id="tuesday-april-8" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-april-8">Tuesday April 8</h4>
-<ul>
-<li>Topic: Projection and residual</li>
-<li>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html">Chap 30</a></li>
-<li>Start <a href="./assignments/Week-12/index-assignment-12.html">Assignment 2</a>. Due next week.</li>
-</ul>
-</section>
-<section id="thursday-april-10" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-april-10">Thursday April 10</h4>
-<p>Modeling day: linear algebra</p>
-</section>
-<section id="friday-april-11" class="level4">
-<h4 class="anchored" data-anchor-id="friday-april-11">Friday April 11</h4>
-<ul>
-<li>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/31-target-problem.html">Chap 31</a></li>
-</ul>
-</section>
-</section>
-<section id="week-3" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-3">Week 3</h3>
-<section id="tuesday-april-15" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-april-15">Tuesday April 15</h4>
-<ul>
-<li>Reading: <em>MOSAIC Calculus</em> <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/32-stat-modeling.html">Chap 32</a></li>
-</ul>
-</section>
-<section id="thursday-april-17" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-april-17">Thursday April 17</h4>
-<p>Modeling day: linear algebra 2</p>
-</section>
-<section id="friday-april-18" class="level4">
-<h4 class="anchored" data-anchor-id="friday-april-18">Friday April 18</h4>
-</section>
-</section>
-<section id="week-4" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-4">Week 4</h3>
-<section id="tuesday-april-22" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-april-22">Tuesday April 22</h4>
-</section>
-<section id="thursday-april-24" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-april-24">Thursday April 24</h4>
-</section>
-<section id="friday-april-25" class="level4">
-<h4 class="anchored" data-anchor-id="friday-april-25">Friday April 25</h4>
-</section>
-</section>
-<section id="week-5" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-5">Week 5</h3>
-<section id="tuesday-april-29" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-april-29">Tuesday April 29</h4>
-</section>
-<section id="thursday-map-1" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-map-1">Thursday Map 1</h4>
-</section>
-<section id="friday-may-2" class="level4">
-<h4 class="anchored" data-anchor-id="friday-may-2">Friday May 2</h4>
-</section>
-</section>
-<section id="week-6" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-6">Week 6</h3>
-<section id="tuesday-may-13" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-may-13">Tuesday May 13</h4>
-</section>
-<section id="thursday-may-15" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-may-15">Thursday May 15</h4>
-</section>
-<section id="friday-may-16" class="level4">
-<h4 class="anchored" data-anchor-id="friday-may-16">Friday May 16</h4>
-</section>
-</section>
-<section id="week-7" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-7">Week 7</h3>
-<section id="tuesday-may-20" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-may-20">Tuesday May 20</h4>
-</section>
-<section id="thursday-may-22" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-may-22">Thursday May 22</h4>
-</section>
-<section id="friday-may-23" class="level4">
-<h4 class="anchored" data-anchor-id="friday-may-23">Friday May 23</h4>
-</section>
-</section>
-<section id="week-8" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-8">Week 8</h3>
-<section id="tuesday-may-27" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-may-27">Tuesday May 27</h4>
-</section>
-<section id="thursday-may-29" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-may-29">Thursday May 29</h4>
-</section>
-<section id="friday-may-30" class="level4">
-<h4 class="anchored" data-anchor-id="friday-may-30">Friday May 30</h4>
-</section>
-</section>
-<section id="week-9" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-9">Week 9</h3>
-<section id="tuesday-june-3" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-june-3">Tuesday June 3</h4>
-</section>
-<section id="thursday-june-5" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-june-5">Thursday June 5</h4>
-</section>
-<section id="friday-june-6" class="level4">
-<h4 class="anchored" data-anchor-id="friday-june-6">Friday June 6</h4>
-</section>
-</section>
-<section id="week-10" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="week-10">Week 10</h3>
-<section id="tuesday-june-10" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-june-10">Tuesday June 10</h4>
-</section>
-<section id="thursday-june-12" class="level4">
-<h4 class="anchored" data-anchor-id="thursday-june-12">Thursday June 12</h4>
-</section>
-<section id="friday-june-13" class="level4">
-<h4 class="anchored" data-anchor-id="friday-june-13">Friday June 13</h4>
-<hr>
-<p><a href="winter-term.html">Schedule for Winter Term</a></p>
-<!-- THIS IS PAST STUFF. YOU SHOULD BE EDITING ABOVE THIS LINE -->
 
 
 <script type="ojs-module-contents">
@@ -341,9 +195,6 @@ eyJjb250ZW50cyI6W119
 <script type="vfs-file">
 W10=
 </script>
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
@@ -351,9 +202,9 @@ eyJjb250ZW50cyI6W119
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToDoc = "../../assignments/Week-12";
 window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
+window._ojs.paths.docToRoot = "../..";
 window._ojs.selfContained = false;
 window._ojs.runtime.interpretFromScriptTags();
 </script>

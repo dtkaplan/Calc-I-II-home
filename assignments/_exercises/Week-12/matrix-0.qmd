@@ -1,0 +1,53 @@
+<!-- matrix-0 -->
+
+Here are a few vectors. In what dimension space is each of them embedded.
+
+$$
+\vec{v} = \left(\begin{array}{r} 
+-1 \\ 
+0 \\ 
+-5 \\ 
+4 \\ 
+\end{array}\right)\ \ \ \vec{w} = \left(\begin{array}{r} 
+4 \\ 
+2 \\ 
+\end{array}\right)\ \ \ \ \vec{x} = 
+\left(\begin{array}{r} 
+5 \\ 
+\end{array}\right)
+$$
+
+```{mcq}
+#| label: matrix-0-v
+#| inline: true
+#| leed: "$\\vec{v}$"
+1. 1
+2. 2
+3. 3
+4. 4 [correct]
+5. it's not a vector
+```     
+
+```{mcq}
+#| label: matrix-0-w
+#| inline: true
+#| leed: "$\\vec{w}$"
+1. 1
+2. 2 [correct]
+3. 3
+4. 4 
+5. it's not a vector
+```     
+
+```{mcq}
+#| label: matrix-0-x
+#| inline: true
+#| show_hints: true
+#| leed: "$\\vec{x}$"
+1. 1  [correct]
+2. 2
+3. 3
+4. 4 
+5. it's not a vector [hint: Why can't you have a 1-dimensional vector?]
+```     
+

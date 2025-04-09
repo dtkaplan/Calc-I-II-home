@@ -10,6 +10,20 @@ library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
 source("../../_software/software.R")
+matrix2latex <- function(matr) {
+
+printmrow <- function(x) {
+
+    cat(cat(x,sep=" & "),"\\\\ \n")
+}
+
+cat("\\left(\\begin{array}{r}","\n")
+body <- apply(matr,1,printmrow)
+cat("\\end{array}\\right)")
+}
+Lmat <- function(nr, nc) {
+  values_mat(nr, nc) |> matrix2latex()
+}
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
@@ -26,8 +40,52 @@ source("../../_software/software.R")
 
 ## By hand and eye
 
+::: {#exr-matrix-0}
+{{< include ../_exercises/Week-12/matrix-0.qmd >}}
+:::
 
 
+::: {#exr-matrix-mult-1}
+{{< include ../_exercises/Week-12/matrix-1.qmd >}}
+:::
+
+::: {#exr-matrix-mult-2}
+{{< include ../_exercises/Week-12/matrix-2.qmd >}}
+:::
+
+::: {#exr-matrix-mult-3}
+{{< include ../_exercises/Week-12/matrix-3.qmd >}}
+:::
+
+::: {#exr-matrix-mult-4}
+{{< include ../_exercises/Week-12/matrix-4.qmd >}}
+:::
+
+::: {#exr-matrix-mult-5}
+{{< include ../_exercises/Week-12/matrix-5.qmd >}}
+:::
+
+::: {#exr-what-kinda-thing-1}
+{{< include ../_exercises/Week-12/matrix-6.qmd >}}
+:::
+
+::: {#exr-what-kinda-thing-2}
+{{< include ../_exercises/Week-12/matrix-7.qmd >}}
+:::
+
+::: {#exr-what-kinda-thing-3}
+{{< include ../_exercises/Week-12/matrix-8.qmd >}}
+:::
+
+::: {#exr-solve-for-u-v}
+By eye, find the linear combination of vectors $\vec{\bf u}$ and $\vec{\bf v}$ that will run from the origin to the red dot.
+```{r echo=FALSE}
+solve_for(c("u", "v")) |> gf_point(-4 ~ -3, color = "red")
+```
+
+`r devoirs_text("solve-for-u-v", rows = 1, cols = 50)`
+
+:::
 
 ## Computing
 
@@ -41,6 +99,53 @@ Instead, there will be text boxes into which you can paste code and/or results. 
 `r devoirs_text("just-an-example", code="the corresponding chunk")`
 :::
 
+::: {#exr-resid-from-u}
+Using software in Chunk B, find the residual from projecting the red dot onto $\vec{\bf u}$. Paste your code and the result of your calculation into the text box for Chunk B.
+
+```{r echo=FALSE}
+solve_for(c("u", "u")) |> gf_point(-4 ~ -3, color = "red")
+```
+
+```{webr-r}
+#| label: Chunk B
+
+```
+
+
+`r devoirs_text("resid-from-u", rows = 4, cols = 50, code="Chunk B")`
+
+:::
+
+::: {#exr-make-ortho-1}
+
+Here are two vectors, $\vec{\bf a}$ and $\vec{\bf b}$. 
+
+$$\vec{\bf a} \equiv  \left(\begin{array}{r} 
+-8 \\ 
+-2 \\ 
+7 \\ 
+\end{array}\right) \ \ \ \ \ 
+\vec{\bf b} \equiv \left(\begin{array}{r} 
+-5 \\ 
+-4 \\ 
+-8 \\ 
+\end{array}\right)$$
+
+i. Using functions like `vec()`, `%onto%`, `%perp%`, and arithmetic compute the projection of $\vec{\bf b}$ onto $\vec{\bf a}$. (Chunk C is provided for your calculations.)
+
+
+ii. Do the same calculation, but use `%dot%` and `veclen()` instead of `%onto%`.
+
+Paste your code and the results from (i) and (ii) into the text box.
+
+```{webr-r}
+#| caption: Chunk C
+
+
+```
+
+`r devoirs_text("make-ortho-1", code="Chunk C")`
+:::
 
 ::: {#exr-rotation-matrix-by-hand}
 
@@ -126,5 +231,30 @@ glass_pattern(xscale = 0.95, yscale = 1.2, theta = 15) |>
 
 Play around with the parameters for angle and x- and y-scaling to generate some different patterns. Paste the parameters you liked into the following text box.
 
-`r devoirs_text("glass-pattern-nice-params)`
+`r devoirs_text("glass-pattern-nice-params")`
+:::
+
+
+
+
+
+
+::: {#exr-solve-a}
+Solve this matrix equation for $x$. 
+
+$$\left(\begin{array}{r} 
+-7 & 0 & 5 \\ 
+5 & 7 & 2 \\ 
+-5 & 4 & 7 \\ 
+-5 & 0 & -9 \\ 
+\end{array}\right) \ {\bf x}\ =
+\left(\begin{array}{r} 
+ 6 \\ 
+-4 \\ 
+-1 \\ 
+9 \\ 
+\end{array}\right)$$
+
+
+`r devoirs_text("solve-a")`
 :::

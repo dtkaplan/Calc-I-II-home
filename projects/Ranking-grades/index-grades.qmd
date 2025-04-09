@@ -1,7 +1,7 @@
 ---
 title: "Ranking by grade"
 author: DTK
-date: last-modified
+date: 2025-04-08
 format: live-html
 desc: "Applying a sports ranking method to the Registrar database"
 categories: [linear algebra]
@@ -17,12 +17,14 @@ library(tidyr)
 library(LSTbook)
 source("../../_software/software.R")
 ```
-
+::: {.callout-tip collapse=true}
+## Background software
 ```{webr-r}
 #| autorun: true
 #| context: setup
 {{< include ../../_software/software.R >}}
 ```
+:::
 
 The task of this modeling project is to construct a ranking of students based on their grades over a college career.
 
@@ -31,6 +33,7 @@ The data come from a small college in the US Midwest. For reasons of anonymity, 
 The data were originally in the form of three data frames in a relational database. We use data wrangling to merge them into a single data `Events` frame where the unit of observation is an event consisting of a single student receiving a grade in a single course.
 
 ```{r message=FALSE}
+#| caption: Assembling the data
 Events <- LSTbook::Grades |>
   left_join(LSTbook::Sessions) |>
   left_join(LSTbook::Gradepoint)
@@ -55,9 +58,30 @@ Semesters <- Events |>
 Semesters
 ```
 
-TASK: 
-Join `Semesters` with `Events`. Use it to remove students who took any course outside of the most populated 8 semesters.
+::: {.callout-note}
+## For Statistical Modeling students
 
+Join `Semesters` with `Events`. Use it to remove **students** who took any course outside of the most populated 8 semesters.
+
+```{r}
+#| caption: Remove underpopulated semester
+Events |>
+  left_join(Semesters |> select(sem, keep)) |>
+  filter(keep == "keep") -> Goo
+```
+
+But really I want to remove *students*, not just the courses they took in off semesters.
+
+```{r}
+```{r}
+#| caption: Remove underpopulated semester
+Events |>
+  left_join(Semesters |> select(sem, keep)) |>
+  filter(all(keep == "keep"), .by = sid) -> Goo2
+```
+:::
+
+## Ranking with GPA
 
 Most students are familiar with the GPA and its use in ranking students. Here's the calculation written in the `{dplyr}` notation.
 
@@ -106,16 +130,22 @@ Compare <- GPA |>
   mutate(gpa2 = GPA2$.output)
 Compare |> point_plot(gpa_raw ~ gpa2)
 ```
-  
-TASK: Let's speculate on why registrars don't report a GPA with a confidence interval.
+::: {.callout-note}
+## Why don't they ...?
+Let's speculate on why registrars don't report a GPA with a confidence interval.
+:::
 
+## What about the covariates
 TASK: Add in some covariates: semester, class level, class size
 
 ```{r}
 GPA3 <- Events |> 
   model_train(gradepoint ~ sid + enroll + level + sem) |>
-  model_eval(data = tibble(sid = unique(Events$sid), sem="SP2005", level=300, enroll=12), interval = "confidence") |>
-  mutate(.lwr = .output - (.output - .lwr)/sqrt(2), .upr = .output + (.upr - .output)/sqrt(2))
+  model_eval(data = tibble(sid = unique(Events$sid), 
+                           sem="SP2005", level=300, enroll=12), 
+             interval = "confidence") |>
+  mutate(.lwr = .output - (.output - .lwr)/sqrt(2), 
+         .upr = .output + (.upr - .output)/sqrt(2))
 set.seed(101)
 GPA3 |>
   take_sample(n=5) |>
@@ -138,12 +168,13 @@ Events |>
 And find the "instructor-adjusted" GPA:
 ```{r}
 GPA4 <- Events |> 
-  model_train(gradepoint ~ sid + enroll + level + sem + dept + iid) |>
+  model_train(gradepoint ~ sid + enroll + level + sem + dept) |>
   model_eval(data = tibble(sid = unique(Events$sid), 
                            sem="SP2005", level=300, enroll=12,
                            iid = "inst436", dept = "q"), 
              interval = "confidence") |>
-  mutate(.lwr = .output - (.output - .lwr)/sqrt(2), .upr = .output + (.upr - .output)/sqrt(2))
+  mutate(.lwr = .output - (.output - .lwr)/sqrt(2), 
+         .upr = .output + (.upr - .output)/sqrt(2))
 ```
 
 ```{r}
@@ -152,9 +183,25 @@ Compare <- Compare |>
   mutate(r_gpa_raw = rank(gpa_raw),
          r_gpa3 = rank(gpa3),
          r_gpa4 = rank(gpa4))
+```
 
+How do the adjusted models agree with the "raw" gpa
+
+```{r}
 Compare |>
-  point_plot(r_gpa_raw ~ r_gpa4)
+  point_plot(r_gpa3 ~ r_gpa_raw)
+```
+
+```{r}
+Compare |>
+  point_plot(r_gpa4 ~ r_gpa_raw)
+```
+
+How well do the two "adjusted" models agree?
+
+```{r}
+Compare |>
+  point_plot(r_gpa3 ~ r_gpa4)
 ```
 
 
@@ -190,216 +237,103 @@ Keepers <-
 
 <https://maherou.github.io/Teaching/files/CS317/masseyMethod.pdf>
 
+## Trying again
 
-## Matrix of students in departments
+Compare all pairs of students in a session.
 
 ```{r}
-To <- Keepers |> select(sid, dept, gradepoint)
-M <- matrix(0, nrow=40, ncol=443)
-depts <- unique(To$dept)
-depts_inds <- 1:length(depts)
-students <- unique(To$sid)
-students_inds <- 1:length(students)
-
-# Loop over the sessions
-for (k in 1:length(depts)) {
-  this_session <- To |> filter(dept == depts[k]) |> select(sid)
-  inds <- which(students %in% this_session$sid)
-  M[k, inds] <- 1
-}
-image(1:ncol(M), 1:nrow(M), 1000*t(M), col = terrain.colors(5), axes = FALSE)
-
-S <- svd(M)
-inds1 <- order(c(S$u[,1]))
-inds2 <- order(c(S$v[,1]))
-VA <- M[ inds1, inds2 ]
-# assemble the first few rank-1 matrices
-one <- S$u[inds1,1, drop = FALSE] %*% t(S$v[inds2,1, drop = FALSE])
-
-partial <- 0 # initial value
-for (k in 1:4) {
-  partial <- partial +  S$d[k] * S$u[inds1,k, drop = FALSE] %*% t(S$v[inds2,k, drop = FALSE])
+for_one_session <- function(this_session) {
+  Roster <- Events |> 
+    filter(sessionID == this_session) |>
+    select(sid, gradepoint)
+  P1 <- expand.grid(Roster$sid, Roster$sid)
+  P2 <- expand.grid(Roster$gradepoint, Roster$gradepoint)
+  names(P1) <- c("sid", "sid2")
+  names(P2) <- c("gp1", "gp2")
+  dplyr::bind_cols(P1, P2) |> 
+    mutate(gp3 = gp1 - gp2) |>
+    filter(gp3 > 0) 
 }
 
-
-
-
-image(1:ncol(partial), 1:nrow(partial), t(partial), 
-      col = scales::grey_pal(start = 0.2, end = 0.8)(15), 
-      axes = FALSE)
+Sessions <- Events |> 
+  select(sessionID, enroll) |>
+  filter(enroll > 10) |>
+  filter(row_number() == 1, .by = sessionID) 
+Snames <- as.list(Sessions$sessionID)
 ```
 
-
-## Matrix of students in sessions
 
 ```{r}
-To <- Keepers |> select(sid, sessionID, gradepoint)
-M <- matrix(0, nrow=1368, ncol=443)
-sessions <- unique(To$sessionID)
-sessions_inds <- 1:length(sessions)
-students <- unique(To$sid)
-students_inds <- 1:length(students)
+Rosters <- lapply(Snames, 
+                  FUN = function(x) for_one_session(x)) |>
+  dplyr::bind_rows() |> 
+  mutate(sid = as.character(sid), sid2 = as.character(sid2)) |>
+  mutate(competition = row_number())
 
-# Loop over the sessions
-for (k in 1:length(sessions)) {
-  this_session <- To |> filter(sessionID == sessions[k]) |> select(sid)
-  inds <- which(students %in% this_session$sid)
-  M[k, inds] <- 1
-}
+student_index2 <- student_index <- 
+  tibble::tibble(
+    sid = unique(c(Rosters$sid, Rosters$sid2))) |>
+  mutate(sindex = row_number())
+names(student_index2) <- c("sid2", "sindex2")
 
-
-image(1:ncol(M), 1:nrow(M), 1000*t(M), col = terrain.colors(5), axes = FALSE)
-
-S <- svd(M)
-inds1 <- order(c(S$u[,1]))
-inds2 <- order(c(S$v[,1]))
-VA <- M[ inds1, inds2 ]
-# assemble the first few rank-1 matrices
-one <- S$u[inds1,1, drop = FALSE] %*% t(S$v[inds2,1, drop = FALSE])
-
-image(1:ncol(one), 1:nrow(one), 1000*t(one), col = terrain.colors(5), axes = FALSE)
-
-
-dim((S$u[,1, drop = FALSE]))
-dim(S$u[,1, drop=FALSE])
+Rosters <- Rosters |>
+  left_join(student_index) |>
+  left_join(student_index2)
 ```
+
+
+## Fill in the matrix for each competition
 
 ```{r}
-foo <- data.frame(index=c(t(VA)), 
-  y=rep(1:443,times=1368),
-  x=rep(1:1368, each=443) )
-ggplot( foo, aes(x=x, y=y, fill=index)) +
-  geom_tile() +
-  xlab("Class session") + ylab("Student") 
+compete_M <- matrix(0, ncol = nrow(student_index), nrow = nrow(Rosters))
+RC <- cbind(Rosters$competition, Rosters$sindex)
+compete_M[RC] <- 1
+RC2 <- cbind(Rosters$competition, Rosters$sindex2)
+compete_M[RC2] <- -1
+compete_M[nrow(compete_M), ] <- 1
+
+# how many redundant vectors
+table(svd(compete_M)$d > 0.01)
+foo <- qr.solve(compete_M[,1:442], Rosters$gp3)
+
+Rankings <- tibble::tibble(score = foo) |>
+  bind_cols(student_index) |>
+  mutate(rscore = rank(score)) |>
+  arrange(desc(rscore)) |>
+  left_join(GPA) |>
+  select(sid, rscore, gpa_raw)
+
+Rankings |> point_plot(rscore ~ gpa_raw)
 ```
 
-
-## Head-to-head competitions
+Look at special cases, such as S31254 who had a perfect GPA but low rank in the class. Is this because s/he won competitions narrowly with students with a low rank.
 
 ```{r}
-#| label: grades-42lu
-To <- Keepers |> select(sid, sessionID, gradepoint)
-From <- To |>
-  rename(sid2 = sid,  gradepoint2 = gradepoint)
-All <- To |> left_join(From) |> unique()
-Session_pos <- All |>
-  select(sessionID) |>
-  unique() |>
-  mutate(Session_pos = row_number())
-Student_pos <- All |>
-  select(sid) |>
-  unique() |>
-  mutate(Student_pos = row_number())
+RR <- Rosters |> 
+  left_join(Rankings) |> 
+  left_join(Rankings, by = join_by(sid2  == sid))
+RR |> filter(sid == "S31254") -> hoo
+``` 
 
-All<- All |>
-  filter(sid < sid2) |>
-  mutate(pointdiff = gradepoint - gradepoint2) |>
-  left_join(Session_pos) |>
-  left_join(Student_pos) |>
-  left_join(Student_pos |> rename(sid2 = sid, Student2_pos = Student_pos))
 
-M <- matrix(0, nrow = nrow(All), ncol = nrow(Student_pos))
+Or look at the two people with high rank but GPA near 3.0.
 
-Pos1 <- All |> select(Student_pos) |>
-  mutate(pos = row_number() + n()*(Student_pos - 1))
-Pos2 <- All |> select(Student2_pos) |>
-  mutate(pos = row_number() + n()*(Student2_pos - 1))
-M[Pos1$pos] <- 1
-M[Pos2$pos] <- -1
-rankings <- lm(All$pointdiff ~ M - 1)
-Result <- tibble::tibble(ranking = coef(rankings), sid = Student_pos$sid) |> 
-  arrange(desc(ranking))
-```
+Compare the departments in which people of low rank took courses compared to high rank.
 
-Compare ranking to GPA
-```{r}
-#| label: grades-42lv
-Sidebyside <- Events |> 
-  summarize(gpa = mean(gradepoint, na.rm = TRUE), .by = sid) |>
-  left_join(Result)
-
-Sidebyside |> ggformula::gf_point(gpa ~ ranking)
-```
-
-Now we have the gradepoints in a head to head competition
 
 ```{r}
-Pairs <- abs(M)
-dim(Pairs)
-S <- svd(Pairs)
-inds1 <- order(c(S$u[,1]))
-inds2 <- order(c(S$v[,1]))
-VA <- Pairs[ inds1, inds2 ]
-foo <- data.frame(index=c(t(Pairs)), 
-  y=rep(1:443,times=13348),
-  x=rep(1:13348, each=443) )
-ggplot( foo, aes(x=x, y=y, fill=index)) +
-  geom_tile() +
-  xlab("Class session") + ylab("Student") 
+Bottom <- Rankings |> filter(rscore < 100)
+Low <- Events |>
+  filter(sid %in% Bottom$sid) |>
+  summarize(bottom_count = n(), .by = dept)
+Top <- Rankings |> filter(rscore > 375) 
+High <- Events |>
+  filter(sid %in% Top$sid) |>
+  summarize(top_count = n(), .by = dept)
+Together <- Low |> full_join(High)
 ```
 
-## SVD approach, not working
-Break into an array, students on vertical axis, instructors on horizontal.
-
-MINI- PROJect on cleaning: Who are the duplicates?
-
-```{r}
-#| label: grades-42lw
-Mat <-
-  Keepers |> 
-  unique() |> # THERE ARE DUPLICATES
-  select(sessionID, sid, gradepoint) |>
-  pivot_wider(names_from = sid, 
-              values_from = gradepoint,
-              values_fn = ~ mean(.x))
-Mat[is.na(Mat)] <- 3.5
-```
-
-Make into a matrix
-```{r}
-#| label: grades-42lx
-Students <- names(Mat)
-Sessions <- Mat$sessionID
-Mat2 <- Mat |> select(-sessionID) |>
-  unlist() |> as.numeric() |> 
-  matrix(nrow = length(Sessions))
-```
-
-Do the SVD
-
-```{r}
-#| label: grades-42ly
-res <- svd( Mat2)
-a1 <- res$u[,1,drop=FALSE]
-b1 <- res$v[,1,drop=FALSE] |> t()
-a2 <- res$u[,2,drop=FALSE]
-b2 <- res$v[,2,drop=FALSE] |> t()
-```
-
-Show the raw data
-```{r}
-#| label: grades-42lz
-library(reshape2) # for melt
-melt( Mat2 ) |> 
-  ggplot( aes(x=Var1, y=Var2, fill=value)) +
-  geom_tile() +
-  scale_fill_gradient2() +
-  xlab("") + ylab("Student") 
-```
-
-Re-arrange according to principal vectors
-
-```{r}
-#| label: grades-52la
-inds1 <- order(c(res$u[,1]))
-inds2 <- order(c(res$v[,1]))
-Sorted <- Mat2[ inds1, inds2 ]
-Sorted[1:50,1:50] |> melt() |> 
-  ggplot( aes(x=Var1, y=Var2, fill=value)) +
-  geom_tile() +
-  scale_fill_gradient2() +
-  xlab("") + ylab("Student") 
-```
+Look at `Together` to see whether students have the same distribution of departments.
 
 
 ## SAT scores and academic performance

@@ -1,0 +1,24 @@
+<!-- matrix-6.qmd -->
+
+
+What kind of mathematical object will the solution $\bf x$ to this matrix equation be?
+
+$$\left(\begin{array}{r} 
+4 & 7 & -4 & -1 & 1 \\ 
+9 & -1 & 5 & 7 & -3 \\ 
+\end{array}\right) \ {\bf x} \ =
+\left(\begin{array}{r} 
+6 \\ 
+9 \\ 
+\end{array}\right)$$
+
+```{mcq}
+#| label: what-kinda-think-1
+#| inline: true
+1. a scalar
+2. a row vector with 2 elements
+3. a row vector with 5 elements
+4. a column vector with 2 elements
+5. a column vector with 5 elements [correct]
+```
+
