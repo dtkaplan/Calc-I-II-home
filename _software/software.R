@@ -117,3 +117,19 @@ values_mat <- function(nrow=4, ncol=3, values = -9:9) {
   matrix(sample(values, size = nrow * ncol, replace = TRUE),
          nrow = nrow, ncol=ncol)
 }
+
+# Typeset matrices in LaTeX (for assignments and such)
+Lmat <- function(nr, nc) {
+  values_mat(nr, nc) |> latex_helper()
+}
+latex_helper <- function(matr) {
+  printmrow <- function(x) {
+
+    cat(cat(x,sep=" & "),"\\\\ \n")
+  }
+
+  cat("\\left(\\begin{array}{r}","\n")
+  body <- apply(matr,1,printmrow)
+  cat("\\end{array}\\right)")
+}
+

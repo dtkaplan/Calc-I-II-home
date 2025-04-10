@@ -69,11 +69,16 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 
 #### Thursday April 10
 
-Modeling day: linear algebra
+Modeling day: 
+
+- Contributions from capital and labor
+- Ranking with linear algebra
 
 #### Friday April 11
 
 - Reading: *MOSAIC Calculus* [Chap 31](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/31-target-problem.html)
+
+- Start: [Week 12 modeling day assignment](assignments/Week-12-project/index-labor-capital.html)
 
 
 ### Week 3  {.unnumbered}

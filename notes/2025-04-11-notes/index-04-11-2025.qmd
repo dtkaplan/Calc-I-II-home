@@ -1,0 +1,286 @@
+---
+author: DTK
+date: 2025-04-11
+number-offset: 345
+format: live-html
+webr:
+  channel-type: 'automatic'
+  repos: ["https://dtkaplan.r-universe.dev"]
+  packages: ['ggplot2', 'mosaicCalc', "LSTbook" ]
+filters:
+  - webr
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(mosaicCalc)
+source("../../_software/software.R")
+```
+::: {.callout-tip collapse=true}
+## Background software
+```{webr-r}
+#| autorun: true
+#| context: output
+{{< include ../../_software/software.R >}}
+```
+:::
+
+
+# 2025-04-10 class notes
+
+```{webr-r}
+#| caption: User console A
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console B
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console C
+#| persist: true
+```
+
+
+Create a matrix whose elements contain the row-numbers.
+
+
+```{webr-r}
+#| autorun: true
+rand_R_mat <- function(m = 4, nonsingular=FALSE) {
+  R <- values_mat(m, m) * 
+       (col_ind_mat(m, m) >= row_ind_mat(m, m))
+  if (nonsingular) {
+     D <- diag(R)
+     D[D==0] <- sample(setdiff(-9:9, 0),     
+                       size=sum(D==0),
+                       replace=TRUE)
+     diag(R) <- D
+  }
+
+  R
+
+}
+col_ind_mat <- function(nrow=4, ncol=4) {
+  matrix(rep(1:ncol, times = nrow), nrow=nrow, byrow=TRUE)
+}
+row_ind_mat <- function(nrow=4, ncol=4){
+  matrix(rep(1:nrow, times = ncol), nrow=nrow, byrow=FALSE)
+}
+```
+
+
+Solving the matrix equation ${\bf M}\ \vec{\bf x} = \vec{\bf b}$
+
+## Easiest case: ${\bf M}$ is diagonal
+
+$$\left(\begin{array}{webr-r} 
+3 & 0 & 0 & 0 & 0 \\ 
+0 & 1 & 0 & 0 & 0 \\ 
+0 & 0 & -4 & 0 & 0 \\ 
+0 & 0 & 0 & 2 & 0 \\ 
+0 & 0 & 0 & 0 & 7 \\ 
+\end{array}\right)  \left(\begin{array}{r} 
+x_1 \\ 
+x_2 \\ 
+x_3 \\ 
+x_4 \\ 
+x_5 \\ 
+\end{array}\right)\ = \ 
+\left(\begin{array}{r} 
+6 \\ 
+-5 \\ 
+-7 \\ 
+2 \\ 
+-5 \\ 
+\end{array}\right)$$
+
+Example in R:
+
+```{webr-r}
+n <- 6
+M <- diag(rnorm(6))
+made_up_x <- values_mat(nrow = n, ncol = 1)
+corresponding_b <- M %*% made_up_x
+cbind(made_up_x, 0, corresponding_b)
+```
+
+Now try to solve:
+```{webr-r}
+corresponding_b / diag(M)
+```
+
+
+  
+## Still easy: upper triangular matrix.
+An upper triangular matrix `M` (which we'll call `R`, short for "right triangular", which is the same as upper triangular).
+
+$$\left(\begin{array}{r} 
+-8 & -2 & 3 & -6 & 2 \\ 
+0 & -1 & 1 & -6 & -6 \\ 
+0 & 0 & 2 & -9 & -2 \\ 
+0 & 0 & 0 & -1 & -5 \\ 
+0 & 0 & 0 & 0 & -4 \\ 
+\end{array}\right)  \left(\begin{array}{r} 
+x_1 \\ 
+x_2 \\ 
+x_3 \\ 
+x_4 \\ 
+x_5 \\ 
+\end{array}\right)\ = \ 
+\left(\begin{array}{r} 
+6 \\ 
+-5 \\ 
+-7 \\ 
+2 \\ 
+-5 \\ 
+\end{array}\right)$$
+
+Task 1. Proof that there is an $\vec{\bf x}$ by which we could reach any possible $\vec{\bf b}$.
+
+Task 2. Proof that even if there are zeros above the diagonal, there is still an $\vec{\bf x}$ that let's us reach any possible $\vec{\bf b}$.
+
+Task 3. Proof that when there are zeros *on the diagonal*, we cannot reach any possible $\vec{\bf b}$ but we might be able to reach some $\vec{\bf b}$.
+
+## Standard software: `backsolve()`
+
+Let's try the built-in `backsolve()` routine.
+
+```{webr-r}
+n <- 4000
+set.seed(104) # for a singular matrix
+R <- rand_R_mat(n, nonsingular=TRUE)
+b <- R %*% values_mat(n,1)
+#b
+#backsolve(R, b)
+all(R %*% backsolve(R, b) - b  < 0.00000001)
+```
+
+A singular R matrix
+```{webr-r}
+set.seed(104) # for a singular matrix
+R <- rand_R_mat(4)
+b <- R %*% values_mat(4,1)
+```
+
+## Another easy situation: $\bf M$ has mutually orthogonal vectors.
+
+A small, simple example of a Q matrix:
+
+$${\bf M} \equiv \left(\begin{array}{r} 
+-3 & 2 & 0 & 0  \\ 
+2 & 3 & 0 & 0 \\ 
+0 & 0 & 2 & -1\\ 
+0 & 0 & 1 & 2
+\end{array}\right) $$
+
+Demonstrate that it's a Q matrix.
+
+Let's solve a system numerically:
+
+```{webr-r}
+M = cbind(
+vec(-3, 2, 0, 0),
+vec(2, 3, 0, 0),
+vec(0, 0, 2, 1),
+vec(0, 0, -1, 2))
+made_up_x <- vec(1,1,1,1)
+resulting_b <- M %*% made_up_x
+resulting_b
+```
+
+How to solve ${\bf M}\ \vec{\bf x} \ = \vec{\bf b}$ when M is Q?
+
+Multiply both sides by ${\bf M}^T$.
+
+```{webr-r}
+t(M) %*% M
+qr.solve(t(M) %*% M, t(M) %*% resulting_b)
+x <- t(M) %*% resulting_b / diag(t(M) %*% M)
+M %*% x
+```
+
+
+So, for Q, R, and diagonal matrices solving the matrix equations is easy. Problems only when R or diagonal has zeros on the diagonal.
+
+## Creating Q out of an M
+
+Algorithm:
+
+1. Start with a partial Q that is already orthogonal. We'll also make it unit length.
+2. Add a new column to Q which will be the residual from partial Q of the next column of M.
+3. Stop when you have used up all the columns of M.
+
+4. R will be Q^T^ M.
+
+Done
+
+```{webr-r}
+M <- values_mat(5)
+M
+next_Q_column <- function(partialQ, Mcolumn) {
+  # subtract out projections of Mcolumn
+  # onto each of the columns of partialQ (individually)
+  tmp <- Mcolumn
+  for (k in 1:ncol(partialQ)) {
+    tmp <- tmp - Mcolumn %onto% partialQ[, k, drop=FALSE]
+  }
+  tmp / veclen(tmp)
+}
+```
+```{webr-r}
+## initialize
+first_col <- M[, 1, drop = FALSE]
+partial_Q <- first_col / veclen(first_col) 
+## loop over remaining columns of M
+for (k in 2:ncol(M)) {
+  partial_Q <- 
+    cbind(partial_Q, next_Q_column(partial_Q, M[,k]))
+}
+# result
+Q <- partial_Q
+R <- t(Q) %*% M
+```
+
+Is QR == M?
+
+```{webr-r}
+Q %*% R
+```
+
+Now we have a three step method.
+
+1. Find a Q corresponding to M 
+2. Solve QR = M for R
+3. Pre-multiply $\vec{\bf b}$ by Q^T^ from (2).
+4. Backsolve R against result of (3).
+
+Potentially a problem if the R has a zero on the diagonal.
+
+## Experiments
+
+```{webr-r}
+M <- rand_mat(78, 54)
+tmp <- qr(M)
+Q <- qr.Q(tmp)
+R <- qr.R(tmp)
+diag(R)
+```
+
+
+## Random vectors
+
+A fundament of statistics is the alignment of random vectors:
+
+```{webr-r}
+n <- 40
+Runs <- tibble(cosineang = cang(rvec(n), rvec(n)),
+                ang = cosineang * 180 / pi) |> 
+        trials(10000)
+Runs |> summarize(var(cosineang))
+Runs |> point_plot(cosineang ~ 1, annot = "violin")
+```
+

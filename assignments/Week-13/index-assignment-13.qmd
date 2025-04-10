@@ -9,41 +9,49 @@ categories: [linear algebra]
 library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
-{{< include ../../_software/software.R >}}
+source("../../_software/software.r")
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
 
 ```{webr-r}
 #| autorun: true
-#| context: setup
+#| context: output
 {{< include ../../_software/software.R >}}
 ```
 
-Can I make this persistent?
+::: {#exr-solve-diag-system}
+By hand, solve this matrix equation for $\vec{\bf x}$:
+$$\left(\begin{array}{r} 
+3 & 0 & 0 & 0 & 0 \\ 
+0 & 1 & 0 & 0 & 0 \\ 
+0 & 0 & -4 & 0 & 0 \\ 
+0 & 0 & 0 & 2 & 0 \\ 
+0 & 0 & 0 & 0 & 5 \\ 
+\end{array}\right)  \left(\begin{array}{r} 
+x_1 \\ 
+x_2 \\ 
+x_3 \\ 
+x_4 \\ 
+x_5 \\ 
+\end{array}\right)\ = \ 
+\left(\begin{array}{r} 
+6 \\ 
+-5 \\ 
+-7 \\ 
+2 \\ 
+-5 \\ 
+\end{array}\right)$$
 
-`r devoirs_text("try-persistent")`
+Enter your value for $\vec{\bf x}$ in Chunk A, then create the diagonal $\bf M$ matrix, as shown. Confirm by printing them out that both are what you expect them to be. Then computer multiply ${\bf M}$ by $\vec{\bf x}$ to confirm that your answer was correct.
 
-<button id='foo-save'>save</button>
-<button id='foo-restore'>restore</button>
+```{webr-r}
+#| caption: Chunk A
+x <- vec( your_values_here )
+M <- diag(c(6, -5, -7, 2, -5))
+M %*% x
+```
 
-<script type="text/javascript">
+`r devoirs_text("solve-diag-system", code = "Chunk A")`
 
-      //save entered info
-      document.getElementById("foo-save").addEventListener("click", function () {
-        var todo = document.getElementById("try-persistent").value;
-        console.log(todo);
-        localStorage.setItem("try-persistent", todo);
-        alert("Saved text");
-        console.log("Saved text")
-      }, false);
-
-      //reload last session
-      document.getElementById("foo-restore").addEventListener("click", function () {
-        document.getElementById("try-persistent").value = localStorage.getItem("try-persistent");
-        alert("Reloaded text");
-        console.log("Reloaded text")
-      }, false);
-
-    </script>
-
+:::
