@@ -10,6 +10,8 @@ library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
 source("../../_software/software.r")
+answer_style = "style='display: none;'"
+# answer_style = "style='display: block;'"
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
@@ -21,37 +23,12 @@ source("../../_software/software.r")
 ```
 
 ::: {#exr-solve-diag-system}
-By hand, solve this matrix equation for $\vec{\bf x}$:
-$$\left(\begin{array}{r} 
-3 & 0 & 0 & 0 & 0 \\ 
-0 & 1 & 0 & 0 & 0 \\ 
-0 & 0 & -4 & 0 & 0 \\ 
-0 & 0 & 0 & 2 & 0 \\ 
-0 & 0 & 0 & 0 & 5 \\ 
-\end{array}\right)  \left(\begin{array}{r} 
-x_1 \\ 
-x_2 \\ 
-x_3 \\ 
-x_4 \\ 
-x_5 \\ 
-\end{array}\right)\ = \ 
-\left(\begin{array}{r} 
-6 \\ 
--5 \\ 
--7 \\ 
-2 \\ 
--5 \\ 
-\end{array}\right)$$
-
-Enter your value for $\vec{\bf x}$ in Chunk A, then create the diagonal $\bf M$ matrix, as shown. Confirm by printing them out that both are what you expect them to be. Then computer multiply ${\bf M}$ by $\vec{\bf x}$ to confirm that your answer was correct.
-
-```{webr-r}
-#| caption: Chunk A
-x <- vec( your_values_here )
-M <- diag(c(6, -5, -7, 2, -5))
-M %*% x
-```
-
-`r devoirs_text("solve-diag-system", code = "Chunk A")`
-
+{{< include _exercises/solve-diag-system.qmd >}}
 :::
+
+
+::: {#exr-frog-give-bowl}
+{{< include _exercises/frog-give-bowl.qmd >}}
+:::
+
+-----

@@ -7,6 +7,57 @@ description: "Operating in the frequency domain"
 categories: [linear algebra, numerical]
 ---
 
+```{r include=FALSE}
+library(mosaicCalc)
+library(ggformula)
+source("../../_software/software.R")
+```
+
+## Orthogonal functions
+
+Consider the polynomials over the interval $[-1,1]$:
+
+```{r}
+slice_plot(x ~ x, domain(x = -1:1)) |>
+  slice_plot(x^3 ~ x, color = "blue") |>
+  slice_plot(x^5 ~ x, color = "magenta") |>
+  slice_plot(x^7 ~ x, color = "aquamarine") 
+```
+
+
+Making a matrix of values:
+
+```{r}
+x <- seq(-1, 1, length = 1001) |> vec()
+M <- cbind(1, x, x^2, x^3, x^4, x^5, x^6, x^7)
+colnames(M) <- c("zeroth", "first", "second", "third", "fourth", "fifth", "sixth", "seventh")
+svd(M)$d
+```
+
+Orthogonalize them, plotting out the new functions:
+
+```{r}
+Q <- qr.Q(qr(M))
+colnames(Q) <- colnames(M)
+Q <- as.data.frame(Q)
+Q |>
+  gf_line(zeroth ~ first) |>
+  gf_line(first ~ first) |>
+  gf_line(second ~ first) |>
+  gf_line(third ~ first, color = "blue") |>
+  gf_line(fourth ~ first) |>
+  gf_line(fifth ~ first, color = "magenta") |>
+  gf_line(sixth ~ first) |>
+  gf_line(seventh ~ first, color = "aquamarine")
+```
+
+```{r}
+svd(as.matrix(Q))$d
+```
+
+
+
+
 SciComp2009 2009-04-30
 
 fourier.pdf

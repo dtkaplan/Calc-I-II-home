@@ -1,0 +1,76 @@
+---
+id: "frog-give-bowl"
+created: "Mon Apr 14 08:29:05 2025"
+attribution: TBA
+---
+
+Here is a ${\bf M} \vec{\bf x} = \vec{\bf b}$ system where ${\bf M}$ is written in the form of a QR decomposition.
+
+$${\bf M}\ \vec{\bf x} =
+{\bf Q}\ {\bf R}\ \vec{\bf x} = 
+\left(\begin{array}{r} 
+1 & 3\\ 
+-3 & 1 \\ 
+\end{array}\right) 
+\left(\begin{array}{r} 
+1 & 5\\ 
+0 & 2 \\ 
+\end{array}\right)\ \vec{\bf x} =
+\left(\begin{array}{r} 
+4\\ 
+2\\ 
+\end{array}\right)
+$$
+
+Part a
+: By hand, alculate the ${\bf M}$ matrix to which this QR corresponds.
+
+Part b
+: Still by hand, calculate the right-hand side of ${\bf R}\ \vec{\bf x} = {\bf Q}^T\  \vec{\bf b}$
+
+Part c
+: Backsolve the result from part b to find $\vec{\bf x}$.
+
+Enter your answers to parts (a), (b), (c) here:
+
+`r devoirs_text("fgb-1Ty")`
+
+::: {.callout-tip collapse=true `r answer_style`}  
+## Answer
+
+$${\bf M} = \left(\begin{array}{r} 
+1 & 11\\ 
+-3 & -13\\ 
+\end{array}\right)\ \ \ \ \ \ \vec{\bf b} = \left(\begin{array}{r} 
+-2\\ 
+14\\ 
+\end{array}\right)\ \ \ \ \ \ \vec{\bf x} = 
+\left(\begin{array}{r} 
+-37\\ 
+7\\ 
+\end{array}\right)$$
+:::
+
+Part d
+: Write the computer commands to do the calculations in parts (a), (b), and (c).
+
+```{webr-r}
+#| label: fgb-1yH
+#| caption: for part (d) calculations
+
+```
+
+`r devoirs_text("fgb-2yH", code = "part (d) calculations")`
+
+::: {.callout-tip collapse=true `r answer_style`}  
+## Answer
+
+```{r}
+Q <- cbind(vec(1,-3), vec(3, 1))
+R <- cbind(vec(1, 0), vec(5, 2))
+b <- vec(4,2)
+M <- Q %*% R
+t(Q) %*% b
+backsolve(R, t(Q) %*% b)
+```
+:::
