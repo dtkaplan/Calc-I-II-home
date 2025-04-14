@@ -1,0 +1,66 @@
+---
+id: "calf-drink-pants"
+created: "Mon Apr 14 13:15:34 2025"
+attribution: TBA
+---
+
+The R function `model.matrix()` is an automatic way to turn tilde expressions into matrices. We're going to use it for convenience only to illustrate how categorical variables are turned into vectors. As the data source, we'll use the first dozen rows of the `mosaicData::KidsFeet` data frame. (Use `?mosaicData::KidsFeet)` to see the documentation.)
+
+```{webr-r}
+#| autorun: true
+Example <- mosaicData::KidsFeet |> take_sample(n = 12)
+```
+
+Part a
+: The `model.matrix()` function takes a tilde expression as an argument. Only the right-hand side is used. Here are three different uses:
+
+```{webr-r}
+Example |> model.matrix(~ width, data = _)
+Example |> model.matrix(~ sex, data = _)
+Example |> model.matrix(~ sex * width, data = _)
+```
+(The `data = _` argument reflects changes in the style of R commands over the last three decades. It is a way to get the piped-in `Example` to inhabit the `data = ` argument to `model.matrix()`.) 
+
+Explain how the `sexG:width` vector is constructed from the data. 
+
+`r devoirs_text("sexG-width")`
+
+Part b
+: Add `- 1` in the tilde expressions in Part a to suppress the intercept term. (You hardly ever would want to do this in applied work. We're doing it here just to make a point.)
+
+In addition to supressing the intercept term, the `- 1` causes other changes in the resulting model matrices. Describe what these changes are. Also, explain why there is no `sexB:width` even though an interaction between `sex` and `width` is being called for.
+
+`r devoirs_text("suppress-intercept")`
+
+Part c
+: Suppose we construct a model matrix and then append to the matrix a column `1`. 
+
+```{webr-r}
+#| error: true
+M <- Example |> model.matrix(~ sex, data = _)
+b <- Example |> with(Example, vec(length))
+cbind(M, myones = 1)
+qr.solve(cbind(M, myones = 1), b)
+```
+The phrase "singular matrix 'a'" means that the first argument to qr.solve has at least one column that can be written as a linear combination of the other columns. 
+
+In the above chunk, change the argument to the `model.matrix()` function to suppress the intercept column. The resulting matrix `cbind(M, myones=1)` is still singular. 
+
+Explain why the 3-column matrix spans only a two-dimensional subspace (of the 12-dimension embedding space for `Example`.)
+
+`r devoirs_text("3-columns")`
+
+Part d
+: It's inconvenient to have an operation fail just because the ${\bf M}$ matrix is singular. The `model_train()` function knows to be on the lookout for such situations and will handle them gracefully.
+
+```{webr-r}
+A <- cbind(M, myones = 1)
+Example |> model_train(length ~ A) |>
+  conf_interval()
+```
+
+Why are two rows left out from the result of the previous chunk?
+
+`r devoirs_text("singular-grace")`
+
+

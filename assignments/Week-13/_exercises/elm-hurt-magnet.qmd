@@ -1,0 +1,26 @@
+---
+id: "elm-hurt-magnet"
+created: "Mon Apr 14 13:50:17 2025"
+attribution: TBA
+---
+
+Look at `head(M)` on the random matrix ${\bf M}$ produced by the following chunk. The number of rows in ${\bf M}$ is made to match `Galton`, while `k` sets the number of columns.
+
+```{webr-r}
+k = 3
+Random <- rnorm(nrow(Galton) * k)
+M <- matrix(Random, nrow = nrow(Galton))
+dim(M)
+head(M)
+Galton |> model_train(height ~ M) |> R2()
+```
+
+$\bf M$ contains no genuine explanatory information about `height` and, correspondingly, R^2^ is small and the p-value is large.
+
+Use successively higher values for `k` taking note of the corresponding R^2^ and p-values.
+
+Can you choose `k` to get an R^2^ greater than 0.5? How about 0.99? Explain what's going on in terms of the dimension of the space spanned by ${\bf M}$.
+
+`r devoirs_text("M-dimension")`
+
+

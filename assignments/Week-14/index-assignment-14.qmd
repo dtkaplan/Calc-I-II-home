@@ -8,7 +8,7 @@ categories: [linear algebra]
 library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
-{{< include ../../_software/software.R >}}
+source("../../_software/software.R")
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
@@ -19,10 +19,8 @@ library(devoirs)
 {{< include ../../_software/software.R >}}
 ```
 
-::: {#exr-cat-catch-hamper}
-## Just testing system
-{{< include _exercises/cat-catch-hamper.qmd >}}
-:::
+
+Under Construction
 
 -----
 

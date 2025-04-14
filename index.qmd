@@ -37,129 +37,164 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 
 #### Week 1 {.unnumbered}
 
-##### Tuesday April 1
-
-- Topics: 
+Tuesday April 1
+: Topics:     
     * Review: Objects and operators in calculus
     * Vectors and subspaces.
-- Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html) 
-- Start [Assignment 1](./assignments/Week-11/index-assignment-11.html). Due next week.
+: Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html)     
+: Start [Assignment 1](./assignments/Week-11/index-assignment-11.html). Due next week.
 
-##### Thursday April 3
+Thursday April 3
+: Modeling day: Review of first term     
+    * [Walking uphill](projects/Walking-uphill/)    
+    * [Factory production](projects/Cobb-Douglas)    
+    - After class: [Assignment about walking project.](./assignments/Week-11-project/index-walking-project.html)    
 
-- Modeling day: Review of first term 
-    * [Walking uphill](projects/Walking-uphill/)
-    * [Factory production](projects/Cobb-Douglas)
-    - After class: [Assignment about walking project.](./assignments/Week-11-project/index-walking-project.html)
-
-##### Friday April 4
-
-- Topic: Linear combinations of vectors
-- Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html) 
+Friday April 4
+: Topic: Linear combinations of vectors    
+: Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html)     
 
 
 
 ### Week 2  {.unnumbered}
 
-#### Tuesday April 8
+Tuesday April 8
+: Topic: Projection and residual    
+: Reading: *MOSAIC Calculus* [Chap 30](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html)    
+: Start [Assignment 2](./assignments/Week-12/index-assignment-12.html).    
 
-- Topic: Projection and residual
-- Reading: *MOSAIC Calculus* [Chap 30](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html)
-- Start [Assignment 2](./assignments/Week-12/index-assignment-12.html). Due next week.
+Thursday April 10
+: Modeling day:    
+- Contributions from capital and labor    
+- Ranking with linear algebra    
 
-#### Thursday April 10
-
-Modeling day: 
-
-- Contributions from capital and labor
-- Ranking with linear algebra
-
-#### Friday April 11
-
-- Reading: *MOSAIC Calculus* [Chap 31](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/31-target-problem.html)
-
-- Start: [Week 12 modeling day assignment](assignments/Week-12-project/index-labor-capital.html)
+Friday April 11
+: Reading: *MOSAIC Calculus* [Chap 31](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/31-target-problem.html)
+: Start: [Week 2 modeling day assignment](assignments/Week-12-project/index-labor-capital.html)    
 
 
-### Week 3  {.unnumbered}
-
-#### Tuesday April 15
-
-- Reading: *MOSAIC Calculus* [Chap 32](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/32-stat-modeling.html)
-
-#### Thursday April 17
-
-Modeling day: linear algebra 2
-
-#### Friday April 18
-
-### Week 4  {.unnumbered}
-
-#### Tuesday April 22
+## Week 3  {.unnumbered}
 
 
-#### Thursday April 24
+Tuesday April 15
+: Reading: *MOSAIC Calculus* [Chap 32](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/32-stat-modeling.html)    
+: Start: [Week 3 assignment](assignments/Week-13/index-assignment-13.html)    
+
+Thursday April 17
+: Modeling day: Functions as vectors & the Fourier Transform    
+
+Friday April 18
+: Topic: TBA     
+: Due: A good time to catch up on the assignments for Weeks 11, 12, and 13 and to hand in your answers by Monday.
+
+## Week 4  {.unnumbered}
+
+Tuesday April 22    
+: Topic
+: Reading
+
+Thursday April 24    
+: Modeling Day
+
+Friday April 25    
+: Topic
+: Due: [Week 4 assignment](assignments/Week-14/index-assignment-14.html)
+
+## Week 5  {.unnumbered}
 
 
-#### Friday April 25
+Tuesday April 29
+: Topic
+: Reading
 
-### Week 5  {.unnumbered}
+Thursday Map 1
+: Modeling Day
 
-#### Tuesday April 29
+Friday May 2
+: **Mid-term exam** (30 minutes)
+: Topic
+: Reading
+: Due: [Week 5 assignment](assignments/Week-15/index-assignment-15.html)
 
+**Mid-term Break**
 
-#### Thursday Map 1
-
-
-#### Friday May 2
 
 ### Week 6  {.unnumbered}
 
-#### Tuesday May 13
+Tuesday May 13
+: Topic
+: Reading
 
 
-#### Thursday May 15
+Thursday May 15
+: Modeling Day
 
-
-#### Friday May 16
+Friday May 16
+: Topic
+: Reading
+: Due: [Week 6 assignment](assignments/Week-17/index-assignment-16.html)
 
 ### Week 7 {.unnumbered}
 
-#### Tuesday May 20
+Tuesday May 20
+: Topic
+: Reading
 
 
 #### Thursday May 22
 
 
-#### Friday May 23
+Friday May 23
+: Topic
+: Reading
+: Due: [Week 7 assignment](assignments/Week-17/index-assignment-17.html)
 
 ### Week 8 {.unnumbered}
 
-#### Tuesday May 27
+Tuesday May 27
+: Topic
+: Reading
 
 
 #### Thursday May 29
 
 
-#### Friday May 30
+Friday May 30
+: Topic
+: Reading
+: Due: [Week 8 assignment](assignments/Week-18/index-assignment-18.html)
+
+
 
 ### Week 9 {.unnumbered}
 
-#### Tuesday June 3
+Tuesday June 3
+: Topic
+: Reading
 
 
-#### Thursday June 5
+Thursday June 5
+: Modeling Day
 
+Friday June 6
+: Topic
+: Reading
+: Due: [Week 9 assignment](assignments/Week-19/index-assignment-19.html)
 
-#### Friday June 6
 
 ### Week 10 {.unnumbered}
 
-#### Tuesday June 10
+Tuesday June 10
+: Topic
+: Reading
 
-#### Thursday June 12
+Thursday June 12
+: Modeling Day
 
-#### Friday June 13
+Friday June 13
+: **Mid-term exam** (30 minutes)
+: Topic
+: Reading
 
 
 

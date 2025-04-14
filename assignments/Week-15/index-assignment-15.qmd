@@ -8,7 +8,7 @@ categories: [linear algebra]
 library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
-{{< include ../../_software/software.R >}}
+source("../../_software/software.R")
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
@@ -20,4 +20,4 @@ library(devoirs)
 ```
 
 
-
+UNDER CONSTRUCTION

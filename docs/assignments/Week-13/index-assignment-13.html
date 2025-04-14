@@ -401,7 +401,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"# Drawing vectors and matrices\n\ndraw_matrix <- function(M) {\n  image(1:ncol(M), 1:nrow(M), t(M[nrow(M):1, ]),\n        col = colorspace::diverging_hcl(\n          15, h = c(180, 50), c = 80,\n          l = c(20, 95), power = c(0.7, 1.3)),\n        axes = FALSE,\n        useRaster = TRUE)\n}\n\nsomevecs <- tibble::tribble(\n  ~ rootx, ~ rooty, ~ headx, ~ heady, ~ color, ~ name,\n  0, 0, -2, 4, \"blue\", \"u\",\n  1, -2, 5, -3, \"green\", \"v\",\n  -1, -1, -4, -1, \"orange\", \"w\",\n  1, 0, 4, 3, \"brown\", \"x\",\n  0, -2, 3, -3, \"salmon\", \"y\",\n  0, 0, 4, 3, \"magenta\", \"b1\",\n  0, 0, -3, 2, \"magenta\", \"b2\",\n) |>\n  mutate(labelx = (rootx + headx)/2,\n         labely = (2*rooty + heady)/3)\nsolve_for <- function(vecnames) {\n  somevecs |>\n    filter(name %in% vecnames) |>\n    gf_segment(rooty + heady ~ rootx + headx,\n               arrow = grid::arrow(length=unit(0.15, \"inches\"), type=\"closed\"),\n               color = ~ color, linewidth=2) |>\n    gf_label(labely ~ labelx, label= ~ name, color = ~ color, size=3) |>\n    gf_refine(scale_color_identity(),\n              scale_y_continuous(limits=c(-5,5),\n                                 breaks=(-5):5),\n              scale_x_continuous(limits=c(-5,5),\n                                 breaks=(-5):5),\n              coord_fixed()) |>\n    gf_labs(x=\"\", y = \"\")\n}\n\n\n# Simple vector/matrix operations\n\nvec <- function(...) {\n  vals <- list(...) |> unlist()\n  matrix(vals, ncol=1)\n}\n\nrvec <- function(first, ..., rfun=rnorm) {\n  dots <- c(first, list(...)) |> unlist()\n  if (length(dots) == 1) {\n    dots <- rfun(dots[[1]])\n  }\n\n  vec(dots)\n}\n\nveclen <- function(v) sqrt(v %dot% v)\nunitvec <- function(vec) vec/length(vec)\ncang <- function(v, w) {(v %dot% w) / (veclen(v) * veclen(w))}\nmakeQ <- function(...) {\n  dots <- list(...) |> bind_cols()\n  qr.Q(qr(dots))\n}\n\ncheck_for_svd <- function(S) {\n  if (inherits(S, \"matrix\")) S <- svd(S)\n  if (!is.list(S) || !all(c(\"d\",\"v\", \"u\") %in% names(S)))\n    stop(\"Argument must be matrix or the SVD of a matrix.\")\n  S\n}\n\nrank_mat <- function(S, thresh = 0.01) {\n  S <- check_for_svd(S)\n  sum(S$d > S$d[1] * thresh)\n}\n\nrand_mat <- function(nrow=3, ncol=6, rank = pmin(nrow, ncol)) {\n  M <- matrix(runif(nrow*ncol), nrow = nrow, ncol = ncol)\n  if (rank >= nrow || rank >= ncol) {\n   M\n  } else {\n    approx_mat(S, n=sample(pmin(rank, nrow, ncol)))\n  }\n}\n\n# Grab rank 1 matrix from SVD\napprox_mat <- function(S, n=1, order = 0) { # input a matrix or the SVD of a matrix\n  S <- check_for_svd(S)\n  if (order > 0) {\n    inds1 <- order(c(S$u[,order]))\n    inds2 <- order(c(S$v[,order]))\n  } else {\n    inds1 <- 1:nrow(S$u)\n    inds2 <- 1:nrow(S$v)\n  }\n  partial <- 0 # initial value\n  for (k in n) {\n    partial <- partial +  S$d[k] * S$u[inds1,k, drop = FALSE] %*% t(S$v[inds2,k, drop = FALSE])\n  }\n\n  partial\n}\n\npretty_mat <- function(M) {\n  inds1 <- order(rowSums(M))\n  inds2 <- order(colSums(M))\n  M[inds1, inds2]\n}\n\n#' Generate a matrix whose elements are selected randomly from a set\n#' of specified values.\n#' @param nrow number of rows for the matrix produced\n#' @param ncol number of columns\n#' @param values the set from which to draw (randomly) the\n#' values in the matrix. Default: integers -9 to 9\nvalues_mat <- function(nrow=4, ncol=3, values = -9:9) {\n  matrix(sample(values, size = nrow * ncol, replace = TRUE),\n         nrow = nrow, ncol=ncol)\n}\n\n# Typeset matrices in LaTeX (for assignments and such)\nLmat <- function(nr, nc) {\n  values_mat(nr, nc) |> latex_helper()\n}\nlatex_helper <- function(matr) {\n  printmrow <- function(x) {\n\n    cat(cat(x,sep=\" & \"),\"\\\\\\\\ \\n\")\n  }\n\n  cat(\"\\\\left(\\\\begin{array}{r}\",\"\\n\")\n  body <- apply(matr,1,printmrow)\n  cat(\"\\\\end{array}\\\\right)\")\n}\n","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"output","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"x <- vec( your_values_here )\nM <- diag(c(6, -5, -7, 2, -5))\nM %*% x","id":2,"options":{"autorun":"false","caption":"Chunk A","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":3,"options":{"autorun":"false","caption":"for part (d) calculations","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"fgb-1yH","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"# Drawing vectors and matrices\n\ndraw_matrix <- function(M) {\n  image(1:ncol(M), 1:nrow(M), t(M[nrow(M):1, ]),\n        col = colorspace::diverging_hcl(\n          15, h = c(180, 50), c = 80,\n          l = c(20, 95), power = c(0.7, 1.3)),\n        axes = FALSE,\n        useRaster = TRUE)\n}\n\nsomevecs <- tibble::tribble(\n  ~ rootx, ~ rooty, ~ headx, ~ heady, ~ color, ~ name,\n  0, 0, -2, 4, \"blue\", \"u\",\n  1, -2, 5, -3, \"green\", \"v\",\n  -1, -1, -4, -1, \"orange\", \"w\",\n  1, 0, 4, 3, \"brown\", \"x\",\n  0, -2, 3, -3, \"salmon\", \"y\",\n  0, 0, 4, 3, \"magenta\", \"b1\",\n  0, 0, -3, 2, \"magenta\", \"b2\",\n) |>\n  dplyr::mutate(labelx = (rootx + headx)/2,\n         labely = (2*rooty + heady)/3)\nsolve_for <- function(vecnames) {\n  somevecs |>\n    dplyr::filter(name %in% vecnames) |>\n    gf_segment(rooty + heady ~ rootx + headx,\n               arrow = grid::arrow(length=unit(0.15, \"inches\"), type=\"closed\"),\n               color = ~ color, linewidth=2) |>\n    gf_label(labely ~ labelx, label= ~ name, color = ~ color, size=3) |>\n    gf_refine(scale_color_identity(),\n              scale_y_continuous(limits=c(-5,5),\n                                 breaks=(-5):5),\n              scale_x_continuous(limits=c(-5,5),\n                                 breaks=(-5):5),\n              coord_fixed()) |>\n    gf_labs(x=\"\", y = \"\")\n}\n\n\n# Simple vector/matrix operations\n\nvec <- function(...) {\n  vals <- list(...) |> unlist()\n  matrix(vals, ncol=1)\n}\n\nrvec <- function(first, ..., rfun=rnorm) {\n  dots <- c(first, list(...)) |> unlist()\n  if (length(dots) == 1) {\n    dots <- rfun(dots[[1]])\n  }\n\n  vec(dots)\n}\n\nveclen <- function(v) sqrt(v %dot% v)\nunitvec <- function(vec) vec/length(vec)\ncang <- function(v, w) {(v %dot% w) / (veclen(v) * veclen(w))}\nmakeQ <- function(...) {\n  dots <- list(...) |> bind_cols()\n  qr.Q(qr(dots))\n}\n\ncheck_for_svd <- function(S) {\n  if (inherits(S, \"matrix\")) S <- svd(S)\n  if (!is.list(S) || !all(c(\"d\",\"v\", \"u\") %in% names(S)))\n    stop(\"Argument must be matrix or the SVD of a matrix.\")\n  S\n}\n\nrank_mat <- function(S, thresh = 0.01) {\n  S <- check_for_svd(S)\n  sum(S$d > S$d[1] * thresh)\n}\n\nrand_mat <- function(nrow=3, ncol=6, rank = pmin(nrow, ncol)) {\n  M <- matrix(runif(nrow*ncol), nrow = nrow, ncol = ncol)\n  if (rank >= nrow || rank >= ncol) {\n   M\n  } else {\n    approx_mat(S, n=sample(pmin(rank, nrow, ncol)))\n  }\n}\n\n# Grab rank 1 matrix from SVD\napprox_mat <- function(S, n=1, order = 0) { # input a matrix or the SVD of a matrix\n  S <- check_for_svd(S)\n  if (order > 0) {\n    inds1 <- order(c(S$u[,order]))\n    inds2 <- order(c(S$v[,order]))\n  } else {\n    inds1 <- 1:nrow(S$u)\n    inds2 <- 1:nrow(S$v)\n  }\n  partial <- 0 # initial value\n  for (k in n) {\n    partial <- partial +  S$d[k] * S$u[inds1,k, drop = FALSE] %*% t(S$v[inds2,k, drop = FALSE])\n  }\n\n  partial\n}\n\npretty_mat <- function(M) {\n  inds1 <- order(rowSums(M))\n  inds2 <- order(colSums(M))\n  M[inds1, inds2]\n}\n\n#' Generate a matrix whose elements are selected randomly from a set\n#' of specified values.\n#' @param nrow number of rows for the matrix produced\n#' @param ncol number of columns\n#' @param values the set from which to draw (randomly) the\n#' values in the matrix. Default: integers -9 to 9\nvalues_mat <- function(nrow=4, ncol=3, values = -9:9) {\n  matrix(sample(values, size = nrow * ncol, replace = TRUE),\n         nrow = nrow, ncol=ncol)\n}\n\n# Typeset matrices in LaTeX (for assignments and such)\nLmat <- function(nr, nc) {\n  values_mat(nr, nc) |> latex_helper()\n}\nlatex_helper <- function(matr) {\n  printmrow <- function(x) {\n\n    cat(cat(x,sep=\" & \"),\"\\\\\\\\ \\n\")\n  }\n\n  cat(\"\\\\left(\\\\begin{array}{r}\",\"\\n\")\n  body <- apply(matr,1,printmrow)\n  cat(\"\\\\end{array}\\\\right)\")\n}\n","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"output","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"x <- vec( your_values_here )\nM <- diag(c(6, -5, -7, 2, -5))\nM %*% x","id":2,"options":{"autorun":"false","caption":"Chunk A","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":3,"options":{"autorun":"false","caption":"for part (d) calculations","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"fgb-1yH","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"mtcars |> model_train(mpg ~ wt + hp) |>\n  conf_interval() |>\n  dplyr::select(term, .coef)","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"M <- with(mtcars, cbind(vec(wt), vec(hp)))\nb <- with(mtcars, vec(mpg))","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-6","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"qr.solve(M, b)","id":7,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-7","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"qr.solve(cbind(M, 1), b)","id":8,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-8","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":9,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-9","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"M <- with(mtcars, cbind(vec(cyl), vec(hp), 1))\nb <- with(mtcars, vec(disp))","id":10,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-10","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"x <- qr.solve(M, b)\nbhat <- M %*% x","id":11,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-11","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"resid <- b - bhat","id":12,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-12","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"var(bhat) / var(b)","id":13,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-13","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"veclen( bhat + resid - b)","id":14,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-14","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Example <- mosaicData::KidsFeet |> take_sample(n = 12)","id":15,"options":{"autorun":"true","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-15","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Example |> model.matrix(~ width, data = _)\nExample |> model.matrix(~ sex, data = _)\nExample |> model.matrix(~ sex * width, data = _)","id":16,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-16","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"M <- Example |> model.matrix(~ sex, data = _)\nb <- Example |> with(Example, vec(length))\ncbind(M, myones = 1)\nqr.solve(cbind(M, myones = 1), b)","id":17,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","error":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-17","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"A <- cbind(M, myones = 1)\nExample |> model_train(length ~ A) |>\n  conf_interval()","id":18,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-18","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"k = 3\nRandom <- rnorm(nrow(Galton) * k)\nM <- matrix(Random, nrow = nrow(Galton))\ndim(M)\nhead(M)\nGalton |> model_train(height ~ M) |> R2()","id":19,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-19","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -2189,7 +2189,7 @@ console.log("Added hint summary.")
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div id="exr-solve-diag-system" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> By hand, solve this matrix equation for <span class="math inline">\(\vec{\bf x}\)</span>: <span class="math display">\[\left(\begin{array}{r}
+<p><span class="theorem-title"><strong>Exercise 1 (Solving when <span class="math inline">\({\bf M}\)</span> is diagonal)</strong></span> By hand, solve this matrix equation for <span class="math inline">\(\vec{\bf x}\)</span>: <span class="math display">\[\left(\begin{array}{r}
 3 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; -4 &amp; 0 &amp; 0 \\
@@ -2232,8 +2232,9 @@ x_5 \\
 </script>
 <textarea id="solve-diag-system" name="solve-diag-system" class="devoirs-text devoirs-computer" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Enter your code from Chunk A here."></textarea>
 </div>
+<hr>
 <div id="exr-frog-give-bowl" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2</strong></span> Here is a <span class="math inline">\({\bf M} \vec{\bf x} = \vec{\bf b}\)</span> system where <span class="math inline">\({\bf M}\)</span> is written in the form of a QR decomposition.</p>
+<p><span class="theorem-title"><strong>Exercise 2 (QR by hand)</strong></span> Here is a <span class="math inline">\({\bf M} \vec{\bf x} = \vec{\bf b}\)</span> system where <span class="math inline">\({\bf M}\)</span> is written in the form of a QR decomposition.</p>
 <p><span class="math display">\[{\bf M}\ \vec{\bf x} =
 {\bf Q}\ {\bf R}\ \vec{\bf x} =
 \left(\begin{array}{r}
@@ -2283,7 +2284,8 @@ Backsolve the result from part b to find <span class="math inline">\(\vec{\bf x}
 })
 </script>
 <textarea id="fgb-1Ty" name="fgb-1Ty" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID fgb-1Ty)"></textarea>
-<div class="callout callout-style-default callout-tip callout-titled" style="display: none;">
+<!-- Opening answer: fgb-2rs -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -2306,9 +2308,11 @@ Answer
 -37\\
 7\\
 \end{array}\right)\]</span></p>
+<p><span data-tooltip="Ans id: fgb-2rs">..id..</span></p>
 </div>
 </div>
 </div>
+<!-- closing answer fgb-2rs -->
 <dl>
 <dt>Part d</dt>
 <dd>
@@ -2336,7 +2340,8 @@ Write the computer commands to do the calculations in parts (a), (b), and (c).
 })
 </script>
 <textarea id="fgb-2yH" name="fgb-2yH" class="devoirs-text devoirs-computer" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Enter your code from part (d) calculations here."></textarea>
-<div class="callout callout-style-default callout-tip callout-titled" style="display: none;">
+<!-- Opening answer: fgb-4RH -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -2366,9 +2371,448 @@ Answer
 [2,]    7</code></pre>
 </div>
 </div>
+<p><span data-tooltip="Ans id: fgb-4RH">..id..</span></p>
 </div>
 </div>
 </div>
+<!-- closing answer fgb-4RH -->
+</div>
+<hr>
+<div id="exr-fly-hear-radio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (Comparing <code>model_train()</code> and <code>qr.solve()</code>)</strong></span> In order to understand how linear model-training is done, we’re going to compare <code>LSTbook::model_train()</code> and <code>qr.solve()</code>. Let’s work with the <code>mtcars</code> data frame, which is short enough to see the results. (<code>?mtcars</code> for the documentation.)</p>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<dl>
+<dt>Part a</dt>
+<dd>
+Use <code>model_train()</code> to fit the model specification <code>mpg ~ wt + hp</code> and look at the coefficients.
+</dd>
+</dl>
+<!-- Opening answer: fhr-6LS -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><span data-tooltip="Ans id: fhr-6LS">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer fhr-6LS -->
+<dl>
+<dt>Part b</dt>
+<dd>
+Construct a “model matrix” <span class="math inline">\({\bf M}\)</span> and a “target vector” <span class="math inline">\({\bf b}\)</span> that matches the right and left side respectively of the model specification in Part a.
+</dd>
+</dl>
+<p>We generally build matrices using the <code>cbind()</code> and <code>vec()</code> functions. But here, we need to refer to the <code>mtcars</code> data frame. So your matrix-construction statement will look like <code>M &lt;- with(mtcars, cbind(vec(...), vec(...)))</code>. Use with as well to contruct the target vector.</p>
+<!-- Opening answer: fhr-9OC -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><span data-tooltip="Ans id: fhr-9OC">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer fhr-9OC -->
+<dl>
+<dt>Part c</dt>
+<dd>
+Now that you’ve built <span class="math inline">\({\bf M}\)</span> and <span class="math inline">\(\vec{\bf b}\)</span>, find the <span class="math inline">\(\vec{\bf x}\)</span> in <span class="math inline">\({\bf M}\ \vec{\bf x} = \vec{\bf b}\)</span> using the <code>qr.solve(M, b)</code> command.
+</dd>
+</dl>
+<p>Explain why you got three coefficients as the result of Part a, but Part c gives you only two coefficients.</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for fhr-3gp.');
+      const form = document.getElementById('fhr-3gp');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('fhr-3gp').value;
+        localStorage.setItem("fhr-3gp-contents", todo);
+        console.log("Saving value of fhr-3gp.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("fhr-3gp-contents");
+      if (savedValue) {
+        document.getElementById('fhr-3gp').value = savedValue;
+      }
+})
+</script>
+<textarea id="fhr-3gp" name="fhr-3gp" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID fhr-3gp)"></textarea>
+<!-- Opening answer: fhr-7kB -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="qwebr-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>We’re missing one coefficient. That’s because there is no third column in <code>M</code> that corresponds to the intercept term.</p>
+<p><span data-tooltip="Ans id: fhr-7kB">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer fhr-7kB -->
+<dl>
+<dt>Part d</dt>
+<dd>
+Fix the matrix construction in Part b to add in a third column in <span class="math inline">\({\bf M}\)</span> that corresponds to the intercept term in part (a). Do the coefficients from <code>qr.solve()</code> now match the coefficients from Part a?
+</dd>
+</dl>
+<!-- Opening answer: fhr-5kK -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Notice that <code>cbind()</code> is smart enough to interpret <code>1</code> as a vector.</p>
+<p><span data-tooltip="Ans id: fhr-5kK">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer fhr-5kK -->
+</div>
+<hr>
+<div id="exr-dog-chew-candy" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (R<sup>2</sup> and residuals)</strong></span> We’ll use <code>mtcars</code> to demonstrate finding R<sup>2</sup> using the <code>qr.solve()</code> mechanics.</p>
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<dl>
+<dt>Part a</dt>
+<dd>
+Build a model matrix and target vector from <code>mtcars</code> corresponding to the model specification <code>disp ~ cyl + hp</code>. (Hint: Don’t forget the intercept term!)
+</dd>
+</dl>
+<!-- Opening answer: ia1-2LZ -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="qwebr-insertion-location-10"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><span data-tooltip="Ans id: ia1-2LZ">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer ia1-2LZ -->
+<dl>
+<dt>Part b</dt>
+<dd>
+Compute the fitted model values vector from the model in Part a. Call this <code>bhat</code> for future reference.
+</dd>
+</dl>
+<!-- Opening answer: ia1-4Iw -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="qwebr-insertion-location-11"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><span data-tooltip="Ans id: ia1-4Iw">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer ia1-4Iw -->
+<dl>
+<dt>Part c</dt>
+<dd>
+Compute the residual vector from the model in Part a. Call this <code>resid</code> for future reference.
+</dd>
+</dl>
+<!-- Opening answer: ia1-8Qx -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="qwebr-insertion-location-12"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><span data-tooltip="Ans id: ia1-8Qx">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer ia1-8Qx -->
+<dl>
+<dt>Part d</dt>
+<dd>
+Using <code>bhat</code> and the target vector, compute the R<sup>2</sup> as a ratio of variances. Compare this to the answer you get when you use the <code>model_train() |&gt; R2()</code> mechanics.
+</dd>
+</dl>
+<!-- Opening answer: ia1-6lx -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="qwebr-insertion-location-13"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><span data-tooltip="Ans id: ia1-6lx">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer ia1-6lx -->
+<dl>
+<dt>Part e</dt>
+<dd>
+Demonatrate that <code>bhat</code> plus <code>resid</code> equals the target vector.
+</dd>
+</dl>
+<!-- Opening answer: ia1-7vy -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Best to do this by constructing the sum, subtracting <code>b</code>, then looking at the length of the result.</p>
+<div id="qwebr-insertion-location-14"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><span data-tooltip="Ans id: ia1-7vy">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer ia1-7vy -->
+<p>Enter the code and results from Parts d and e into the text box that follows.</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for dcc-8ef.');
+      const form = document.getElementById('dcc-8ef');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('dcc-8ef').value;
+        localStorage.setItem("dcc-8ef-contents", todo);
+        console.log("Saving value of dcc-8ef.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("dcc-8ef-contents");
+      if (savedValue) {
+        document.getElementById('dcc-8ef').value = savedValue;
+      }
+})
+</script>
+<textarea id="dcc-8ef" name="dcc-8ef" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID dcc-8ef)"></textarea>
+</div>
+<hr>
+<div id="exr-calf-drink-pants" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5 (Vectors for categorical explanatory variables)</strong></span> The R function <code>model.matrix()</code> is an automatic way to turn tilde expressions into matrices. We’re going to use it for convenience only to illustrate how categorical variables are turned into vectors. As the data source, we’ll use the first dozen rows of the <code>mosaicData::KidsFeet</code> data frame. (Use <code>?mosaicData::KidsFeet)</code> to see the documentation.)</p>
+<div id="qwebr-insertion-location-15"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<dl>
+<dt>Part a</dt>
+<dd>
+The <code>model.matrix()</code> function takes a tilde expression as an argument. Only the right-hand side is used. Here are three different uses:
+</dd>
+</dl>
+<div id="qwebr-insertion-location-16"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>(The <code>data = _</code> argument reflects changes in the style of R commands over the last three decades. It is a way to get the piped-in <code>Example</code> to inhabit the <code>data =</code> argument to <code>model.matrix()</code>.)</p>
+<p>Explain how the <code>sexG:width</code> vector is constructed from the data.</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for sexG-width.');
+      const form = document.getElementById('sexG-width');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('sexG-width').value;
+        localStorage.setItem("sexG-width-contents", todo);
+        console.log("Saving value of sexG-width.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("sexG-width-contents");
+      if (savedValue) {
+        document.getElementById('sexG-width').value = savedValue;
+      }
+})
+</script>
+<textarea id="sexG-width" name="sexG-width" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID sexG-width)"></textarea>
+<dl>
+<dt>Part b</dt>
+<dd>
+Add <code>- 1</code> in the tilde expressions in Part a to suppress the intercept term. (You hardly ever would want to do this in applied work. We’re doing it here just to make a point.)
+</dd>
+</dl>
+<p>In addition to supressing the intercept term, the <code>- 1</code> causes other changes in the resulting model matrices. Describe what these changes are. Also, explain why there is no <code>sexB:width</code> even though an interaction between <code>sex</code> and <code>width</code> is being called for.</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for suppress-intercept.');
+      const form = document.getElementById('suppress-intercept');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('suppress-intercept').value;
+        localStorage.setItem("suppress-intercept-contents", todo);
+        console.log("Saving value of suppress-intercept.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("suppress-intercept-contents");
+      if (savedValue) {
+        document.getElementById('suppress-intercept').value = savedValue;
+      }
+})
+</script>
+<textarea id="suppress-intercept" name="suppress-intercept" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID suppress-intercept)"></textarea>
+<dl>
+<dt>Part c</dt>
+<dd>
+Suppose we construct a model matrix and then append to the matrix a column <code>1</code>.
+</dd>
+</dl>
+<div id="qwebr-insertion-location-17"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>The phrase “singular matrix ‘a’” means that the first argument to qr.solve has at least one column that can be written as a linear combination of the other columns.</p>
+<p>In the above chunk, change the argument to the <code>model.matrix()</code> function to suppress the intercept column. The resulting matrix <code>cbind(M, myones=1)</code> is still singular.</p>
+<p>Explain why the 3-column matrix spans only a two-dimensional subspace (of the 12-dimension embedding space for <code>Example</code>.)</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for 3-columns.');
+      const form = document.getElementById('3-columns');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('3-columns').value;
+        localStorage.setItem("3-columns-contents", todo);
+        console.log("Saving value of 3-columns.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("3-columns-contents");
+      if (savedValue) {
+        document.getElementById('3-columns').value = savedValue;
+      }
+})
+</script>
+<textarea id="3-columns" name="3-columns" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID 3-columns)"></textarea>
+<dl>
+<dt>Part d</dt>
+<dd>
+It’s inconvenient to have an operation fail just because the <span class="math inline">\({\bf M}\)</span> matrix is singular. The <code>model_train()</code> function knows to be on the lookout for such situations and will handle them gracefully.
+</dd>
+</dl>
+<div id="qwebr-insertion-location-18"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Why are two rows left out from the result of the previous chunk?</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for singular-grace.');
+      const form = document.getElementById('singular-grace');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('singular-grace').value;
+        localStorage.setItem("singular-grace-contents", todo);
+        console.log("Saving value of singular-grace.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("singular-grace-contents");
+      if (savedValue) {
+        document.getElementById('singular-grace').value = savedValue;
+      }
+})
+</script>
+<textarea id="singular-grace" name="singular-grace" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID singular-grace)"></textarea>
+</div>
+<hr>
+<div id="exr-elm-hurt-magnet" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6 (Randomly explaining <code>height</code>)</strong></span> Look at <code>head(M)</code> on the random matrix <span class="math inline">\({\bf M}\)</span> produced by the following chunk. The number of rows in <span class="math inline">\({\bf M}\)</span> is made to match <code>Galton</code>, while <code>k</code> sets the number of columns.</p>
+<div id="qwebr-insertion-location-19"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><span class="math inline">\(\bf M\)</span> contains no genuine explanatory information about <code>height</code> and, correspondingly, R<sup>2</sup> is small and the p-value is large.</p>
+<p>Use successively higher values for <code>k</code> taking note of the corresponding R<sup>2</sup> and p-values.</p>
+<p>Can you choose <code>k</code> to get an R<sup>2</sup> greater than 0.5? How about 0.99? Explain what’s going on in terms of the dimension of the space spanned by <span class="math inline">\({\bf M}\)</span>.</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for M-dimension.');
+      const form = document.getElementById('M-dimension');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('M-dimension').value;
+        localStorage.setItem("M-dimension-contents", todo);
+        console.log("Saving value of M-dimension.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("M-dimension-contents");
+      if (savedValue) {
+        document.getElementById('M-dimension').value = savedValue;
+      }
+})
+</script>
+<textarea id="M-dimension" name="M-dimension" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID M-dimension)"></textarea>
 </div>
 <hr>
 

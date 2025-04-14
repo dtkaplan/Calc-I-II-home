@@ -1,0 +1,89 @@
+---
+id: "fly-hear-radio"
+created: "Mon Apr 14 11:20:12 2025"
+attribution: TBA
+---
+
+In order to understand how linear model-training is done, we're going to compare `LSTbook::model_train()` and `qr.solve()`. Let's work with the `mtcars` data frame, which is short enough to see the results. (`?mtcars` for the documentation.)
+
+```{webr-r}
+
+
+```
+
+Part a
+: Use `model_train()` to fit the model specification `mpg ~ wt + hp` and look at the coefficients.
+
+<!-- Opening answer: fhr-6LS -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer{data-tooltip="Ans id: fhr-6LS"}
+
+```{webr-r}
+mtcars |> model_train(mpg ~ wt + hp) |>
+  conf_interval() |>
+  dplyr::select(term, .coef)
+```
+
+[..id..]{data-tooltip="Ans id: fhr-6LS"}
+:::
+<!-- closing answer fhr-6LS -->
+
+Part b
+: Construct a "model matrix" ${\bf M}$ and a "target vector" ${\bf b}$ that matches the right and left side respectively of the model specification in Part a.  
+
+We generally build matrices using the `cbind()` and `vec()` functions. But here, we need to refer to the `mtcars` data frame. So your matrix-construction statement will look like `M <- with(mtcars, cbind(vec(...), vec(...)))`. Use with as well to contruct the target vector.
+
+<!-- Opening answer: fhr-9OC -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer{data-tooltip="Ans id: fhr-9OC"}
+
+```{webr-r}
+M <- with(mtcars, cbind(vec(wt), vec(hp)))
+b <- with(mtcars, vec(mpg))
+```
+
+
+[..id..]{data-tooltip="Ans id: fhr-9OC"}
+:::
+<!-- closing answer fhr-9OC -->
+
+
+
+Part c
+: Now that you've built ${\bf M}$ and $\vec{\bf b}$, find the $\vec{\bf x}$ in ${\bf M}\ \vec{\bf x} = \vec{\bf b}$ using the `qr.solve(M, b)` command.
+
+Explain why you got three coefficients as the result of Part a, but Part c gives you only two coefficients. 
+
+`r devoirs_text("fhr-3gp")`
+
+<!-- Opening answer: fhr-7kB -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer{data-tooltip="Ans id: fhr-7kB"}
+
+```{webr-r}
+qr.solve(M, b)
+```
+
+We're missing one coefficient. That's because there is no third column in `M` that corresponds to the intercept term.
+
+[..id..]{data-tooltip="Ans id: fhr-7kB"}
+:::
+<!-- closing answer fhr-7kB -->
+
+Part d
+: Fix the matrix construction in Part b to add in a third column in ${\bf M}$ that corresponds to the intercept term in part (a). Do the coefficients from `qr.solve()` now match the coefficients from Part a?
+
+<!-- Opening answer: fhr-5kK -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer{data-tooltip="Ans id: fhr-5kK"}
+
+```{webr-r}
+qr.solve(cbind(M, 1), b)
+```
+
+Notice that `cbind()` is smart enough to interpret `1` as a vector.
+
+
+[..id..]{data-tooltip="Ans id: fhr-5kK"}
+:::
+<!-- closing answer fhr-5kK -->

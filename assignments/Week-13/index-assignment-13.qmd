@@ -10,8 +10,8 @@ library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
 source("../../_software/software.r")
-answer_style = "style='display: none;'"
-# answer_style = "style='display: block;'"
+devoirs::answer_style("none") 
+devoirs::answer_style("block") 
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
@@ -23,12 +23,47 @@ answer_style = "style='display: none;'"
 ```
 
 ::: {#exr-solve-diag-system}
+## Solving when ${\bf M}$ is diagonal
 {{< include _exercises/solve-diag-system.qmd >}}
 :::
 
+-----
 
 ::: {#exr-frog-give-bowl}
+## QR by hand
 {{< include _exercises/frog-give-bowl.qmd >}}
+:::
+
+-----
+
+
+
+::: {#exr-fly-hear-radio}
+## Comparing `model_train()` and `qr.solve()`
+{{< include _exercises/fly-hear-radio.qmd >}}
+:::
+
+-----
+
+::: {#exr-dog-chew-candy}
+## R^2^ and residuals
+{{< include _exercises/dog-chew-candy.qmd >}}
+:::
+
+-----
+
+
+
+::: {#exr-calf-drink-pants}
+## Vectors for categorical explanatory variables
+{{< include _exercises/calf-drink-pants.qmd >}}
+:::
+
+-----
+
+::: {#exr-elm-hurt-magnet}
+## Randomly explaining `height`
+{{< include _exercises/elm-hurt-magnet.qmd >}}
 :::
 
 -----

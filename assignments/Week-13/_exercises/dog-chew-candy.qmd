@@ -1,0 +1,96 @@
+---
+id: "dog-chew-candy"
+created: "Mon Apr 14 11:45:02 2025"
+attribution: TBA
+---
+
+We'll use `mtcars` to demonstrate finding R^2^ using the `qr.solve()` mechanics.
+
+```{webr-r}
+
+```
+
+Part a
+: Build a model matrix and target vector from `mtcars` corresponding to the model specification `disp ~ cyl + hp`. (Hint: Don't forget the intercept term!)
+
+<!-- Opening answer: ia1-2LZ -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer{data-tooltip="Ans id: ia1-2LZ"}
+
+```{webr-r}
+M <- with(mtcars, cbind(vec(cyl), vec(hp), 1))
+b <- with(mtcars, vec(disp))
+```
+
+[..id..]{data-tooltip="Ans id: ia1-2LZ"}
+:::
+<!-- closing answer ia1-2LZ -->
+
+Part b
+: Compute the fitted model values vector from the model in Part a. Call this `bhat` for future reference.
+
+<!-- Opening answer: ia1-4Iw -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer{data-tooltip="Ans id: ia1-4Iw"}
+
+```{webr-r}
+x <- qr.solve(M, b)
+bhat <- M %*% x
+```
+
+
+[..id..]{data-tooltip="Ans id: ia1-4Iw"}
+:::
+<!-- closing answer ia1-4Iw -->
+Part c
+: Compute the residual vector from the model in Part a. Call this `resid` for future reference.
+
+<!-- Opening answer: ia1-8Qx -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer{data-tooltip="Ans id: ia1-8Qx"}
+
+```{webr-r}
+resid <- b - bhat
+```
+
+
+[..id..]{data-tooltip="Ans id: ia1-8Qx"}
+:::
+<!-- closing answer ia1-8Qx -->
+
+Part d
+: Using `bhat` and the target vector, compute the R^2^ as a ratio of variances. Compare this to the answer you get when you use the `model_train() |> R2()` mechanics.
+
+<!-- Opening answer: ia1-6lx -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer{data-tooltip="Ans id: ia1-6lx"}
+
+```{webr-r}
+var(bhat) / var(b)
+```
+
+[..id..]{data-tooltip="Ans id: ia1-6lx"}
+:::
+<!-- closing answer ia1-6lx -->
+
+Part e
+: Demonatrate that `bhat` plus `resid` equals the target vector.
+
+<!-- Opening answer: ia1-7vy -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer{data-tooltip="Ans id: ia1-7vy"}
+
+Best to do this by constructing the sum, subtracting `b`, then looking at the length of the result.
+```{webr-r}
+veclen( bhat + resid - b)
+```
+
+[..id..]{data-tooltip="Ans id: ia1-7vy"}
+:::
+<!-- closing answer ia1-7vy -->
+
+Enter the code and results from Parts d and e into the text box that follows.
+
+`r devoirs_text("dcc-8ef")`
+
+

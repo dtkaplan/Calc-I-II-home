@@ -35,8 +35,10 @@ Enter your answers to parts (a), (b), (c) here:
 
 `r devoirs_text("fgb-1Ty")`
 
-::: {.callout-tip collapse=true `r answer_style`}  
-## Answer
+
+<!-- Opening answer: fgb-2rs -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer{data-tooltip="Ans id: fgb-2rs"}
 
 $${\bf M} = \left(\begin{array}{r} 
 1 & 11\\ 
@@ -49,7 +51,11 @@ $${\bf M} = \left(\begin{array}{r}
 -37\\ 
 7\\ 
 \end{array}\right)$$
+
+[..id..]{data-tooltip="Ans id: fgb-2rs"}
 :::
+<!-- closing answer fgb-2rs -->
+
 
 Part d
 : Write the computer commands to do the calculations in parts (a), (b), and (c).
@@ -60,9 +66,13 @@ Part d
 
 ```
 
+
+
 `r devoirs_text("fgb-2yH", code = "part (d) calculations")`
 
-::: {.callout-tip collapse=true `r answer_style`}  
+
+<!-- Opening answer: fgb-4RH -->
+::: {.callout-tip collapse=true `r answer_style()`}
 ## Answer
 
 ```{r}
@@ -73,4 +83,8 @@ M <- Q %*% R
 t(Q) %*% b
 backsolve(R, t(Q) %*% b)
 ```
+
+
+[..id..]{data-tooltip="Ans id: fgb-4RH"}
 :::
+<!-- closing answer fgb-4RH -->

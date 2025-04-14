@@ -19,11 +19,11 @@ somevecs <- tibble::tribble(
   0, 0, 4, 3, "magenta", "b1",
   0, 0, -3, 2, "magenta", "b2",
 ) |>
-  mutate(labelx = (rootx + headx)/2,
+  dplyr::mutate(labelx = (rootx + headx)/2,
          labely = (2*rooty + heady)/3)
 solve_for <- function(vecnames) {
   somevecs |>
-    filter(name %in% vecnames) |>
+    dplyr::filter(name %in% vecnames) |>
     gf_segment(rooty + heady ~ rootx + headx,
                arrow = grid::arrow(length=unit(0.15, "inches"), type="closed"),
                color = ~ color, linewidth=2) |>
