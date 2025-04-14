@@ -1,0 +1,417 @@
+---
+author: DTK
+date: 2025-04-15
+number-offset: 35
+format: live-html
+webr:
+  channel-type: 'automatic'
+  repos: ["https://dtkaplan.r-universe.dev"]
+  packages: ['ggplot2', 'mosaicCalc', "LSTbook" ]
+filters:
+  - webr
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(mosaicCalc)
+source("../../_software/software.R")
+```
+::: {.callout-tip collapse=true}
+## Background software
+```{webr-r}
+#| autorun: true
+#| context: output
+{{< include ../../_software/software.R >}}
+```
+:::
+
+
+# 2025-04-15 class notes
+
+```{webr-r}
+#| caption: User console A
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console B
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console C
+#| persist: true
+```
+
+
+Create a matrix whose elements contain the row-numbers.
+
+
+```{webr-r}
+#| autorun: true
+rand_R_mat <- function(m = 4, nonsingular=FALSE) {
+  R <- values_mat(m, m) * 
+       (col_ind_mat(m, m) >= row_ind_mat(m, m))
+  if (nonsingular) {
+     D <- diag(R)
+     D[D==0] <- sample(setdiff(-9:9, 0),     
+                       size=sum(D==0),
+                       replace=TRUE)
+     diag(R) <- D
+  }
+
+  R
+
+}
+col_ind_mat <- function(nrow=4, ncol=4) {
+  matrix(rep(1:ncol, times = nrow), nrow=nrow, byrow=TRUE)
+}
+row_ind_mat <- function(nrow=4, ncol=4){
+  matrix(rep(1:nrow, times = ncol), nrow=nrow, byrow=FALSE)
+}
+```
+
+
+Solving the matrix equation ${\bf M}\ \vec{\bf x} = \vec{\bf b}$
+
+## Easiest case: ${\bf M}$ is diagonal
+
+$$\left(\begin{array}{webr-r} 
+3 & 0 & 0 & 0 & 0 \\ 
+0 & 1 & 0 & 0 & 0 \\ 
+0 & 0 & -4 & 0 & 0 \\ 
+0 & 0 & 0 & 2 & 0 \\ 
+0 & 0 & 0 & 0 & 7 \\ 
+\end{array}\right)  \left(\begin{array}{r} 
+x_1 \\ 
+x_2 \\ 
+x_3 \\ 
+x_4 \\ 
+x_5 \\ 
+\end{array}\right)\ = \ 
+\left(\begin{array}{r} 
+6 \\ 
+-5 \\ 
+-7 \\ 
+2 \\ 
+-5 \\ 
+\end{array}\right)$$
+
+Example in R:
+
+```{webr-r}
+n <- 6
+M <- diag(rnorm(6))
+made_up_x <- values_mat(nrow = n, ncol = 1)
+corresponding_b <- M %*% made_up_x
+cbind(made_up_x, 0, corresponding_b)
+```
+
+Now try to solve:
+```{webr-r}
+corresponding_b / diag(M)
+```
+
+
+  
+## Still easy: upper triangular matrix.
+An upper triangular matrix `M` (which we'll call `R`, short for "right triangular", which is the same as upper triangular).
+
+$$\left(\begin{array}{r} 
+-8 & -2 & 3 & -6 & 2 \\ 
+0 & -1 & 1 & -6 & -6 \\ 
+0 & 0 & 2 & -9 & -2 \\ 
+0 & 0 & 0 & -1 & -5 \\ 
+0 & 0 & 0 & 0 & -4 \\ 
+\end{array}\right)  \left(\begin{array}{r} 
+x_1 \\ 
+x_2 \\ 
+x_3 \\ 
+x_4 \\ 
+x_5 \\ 
+\end{array}\right)\ = \ 
+\left(\begin{array}{r} 
+6 \\ 
+-5 \\ 
+-7 \\ 
+2 \\ 
+-5 \\ 
+\end{array}\right)$$
+
+Task 1. Proof that there is an $\vec{\bf x}$ by which we could reach any possible $\vec{\bf b}$.
+
+Task 2. Proof that even if there are zeros above the diagonal, there is still an $\vec{\bf x}$ that let's us reach any possible $\vec{\bf b}$.
+
+Task 3. Proof that when there are zeros *on the diagonal*, we cannot reach any possible $\vec{\bf b}$ but we might be able to reach some $\vec{\bf b}$.
+
+## Standard software: `backsolve()`
+
+Let's try the built-in `backsolve()` routine.
+
+```{webr-r}
+n <- 4000
+set.seed(104) # for a singular matrix
+R <- rand_R_mat(n, nonsingular=TRUE)
+b <- R %*% values_mat(n,1)
+#b
+#backsolve(R, b)
+all(R %*% backsolve(R, b) - b  < 0.00000001)
+```
+
+A singular R matrix
+```{webr-r}
+set.seed(104) # for a singular matrix
+R <- rand_R_mat(4)
+b <- R %*% values_mat(4,1)
+```
+
+## Another easy situation: $\bf M$ has mutually orthogonal vectors.
+
+A small, simple example of a Q matrix:
+
+$${\bf M} \equiv \left(\begin{array}{r} 
+-3 & 2 & 0 & 0  \\ 
+2 & 3 & 0 & 0 \\ 
+0 & 0 & 2 & -1\\ 
+0 & 0 & 1 & 2
+\end{array}\right) $$
+
+Demonstrate that it's a Q matrix.
+
+Let's solve a system numerically:
+
+```{webr-r}
+M = cbind(
+vec(-3, 2, 0, 0),
+vec(2, 3, 0, 0),
+vec(0, 0, 2, 1),
+vec(0, 0, -1, 2))
+made_up_x <- vec(1,1,1,1)
+resulting_b <- M %*% made_up_x
+resulting_b
+```
+
+How to solve ${\bf M}\ \vec{\bf x} \ = \vec{\bf b}$ when M is Q?
+
+Multiply both sides by ${\bf M}^T$.
+
+```{webr-r}
+t(M) %*% M
+qr.solve(t(M) %*% M, t(M) %*% resulting_b)
+x <- t(M) %*% resulting_b / diag(t(M) %*% M)
+M %*% x
+```
+
+
+So, for Q, R, and diagonal matrices solving the matrix equations is easy. Problems only when R or diagonal has zeros on the diagonal.
+
+## Creating Q out of an M
+
+Algorithm:
+
+1. Start with a partial Q that is already orthogonal. We'll also make it unit length.
+2. Add a new column to Q which will be the residual from partial Q of the next column of M.
+3. Stop when you have used up all the columns of M.
+
+4. R will be Q^T^ M.
+
+Done
+
+```{webr-r}
+M <- values_mat(5)
+M
+next_Q_column <- function(partialQ, Mcolumn) {
+  # subtract out projections of Mcolumn
+  # onto each of the columns of partialQ (individually)
+  tmp <- Mcolumn
+  for (k in 1:ncol(partialQ)) {
+    tmp <- tmp - Mcolumn %onto% partialQ[, k, drop=FALSE]
+  }
+  tmp / veclen(tmp)
+}
+```
+```{webr-r}
+## initialize
+first_col <- M[, 1, drop = FALSE]
+partial_Q <- first_col / veclen(first_col) 
+## loop over remaining columns of M
+for (k in 2:ncol(M)) {
+  partial_Q <- 
+    cbind(partial_Q, next_Q_column(partial_Q, M[,k]))
+}
+# result
+Q <- partial_Q
+R <- t(Q) %*% M
+```
+
+Is QR == M?
+
+```{webr-r}
+Q %*% R
+```
+
+Now we have a three step method.
+
+1. Find a Q corresponding to M 
+2. Solve QR = M for R
+3. Pre-multiply $\vec{\bf b}$ by Q^T^ from (2).
+4. Backsolve R against result of (3).
+
+Potentially a problem if the R has a zero on the diagonal.
+
+## Experiments
+
+```{webr-r}
+M <- rand_mat(78, 54)
+tmp <- qr(M)
+Q <- qr.Q(tmp)
+R <- qr.R(tmp)
+diag(R)
+```
+
+## ${\bf Q}^T$ projects $\vec{\bf b}$ onto $\bf M$ subspace.
+
+Let's make an M and a b
+
+```{webr-r}
+M <- rand_mat(10, 3)
+b <- rand_mat(10, 1)
+x1 <- qr.solve(M, b)
+bhat <- M %*% x1
+resid <- b - bhat
+Q <- M |> qr() |> qr.Q()
+Q
+x2 <- qr.solve(Q, bhat)
+ontoQ <- Q %*% x2
+resid_from_Q <- bhat - ontoQ
+veclen(resid_from_Q)
+```
+  
+  
+  
+## Random vectors
+
+A fundament of statistics is the alignment of random vectors:
+
+```{webr-r}
+n <- 40
+Runs <- tibble(cosineang = cang(rvec(n), rvec(n)),
+                ang = cosineang * 180 / pi) |> 
+        trials(10000)
+Runs |> summarize(var(cosineang))
+Runs |> point_plot(cosineang ~ 1, annot = "violin")
+```
+
+::: {#fig-random-2-and-3}
+![](random-in-2.png)
+![](random-in-3.png)
+:::
+
+## Polynomials as vectors
+
+## Orthogonal functions
+
+Consider the polynomials over the interval $[-1,1]$:
+
+```{webr-r}
+slice_plot(x ~ x, domain(x = -1:1)) |>
+  slice_plot(x^2 ~ x, color = "orange") |>
+  slice_plot(x^3 ~ x, color = "dodgerblue") |>
+  slice_plot(x^4 ~ x, color = "tomato") |>
+  slice_plot(x^5 ~ x, color = "steelblue") |>
+  slice_plot(x^6 ~ x, color = "red") |>
+  slice_plot(x^7 ~ x, color = "blue") 
+```
+
+
+Making a matrix of values:
+
+```{webr-r}
+x <- seq(-1, 1, length = 1001) |> vec()
+M <- cbind(1, x, x^2, x^3, x^4, x^5, x^6, x^7)
+colnames(M) <- c("zeroth", "first", "second", "third", "fourth", "fifth", "sixth", "seventh")
+svd(M)$d
+```
+
+Orthogonalize them, plotting out the new functions:
+
+```{webr-r}
+Q <- qr.Q(qr(M))
+colnames(Q) <- colnames(M)
+Qdf <- cbind(x, as.data.frame(Q))
+Qdf |>
+  gf_line(zeroth  ~ x) |>
+  gf_line(first   ~ x) |>
+  gf_line(second  ~ x, color = "orange") |>
+  gf_line(third   ~ x, color = "dodgerblue") |>
+  gf_line(fourth  ~ x, color = "tomato") |>
+  gf_line(fifth   ~ x, color = "steelblue", linewidth=2) |>
+  gf_line(sixth   ~ x, color = "red", linewidth=2) |>
+  gf_line(seventh ~ x, color = "blue", linewidth=2) 
+```
+
+```{webr-r}
+svd(M)$d
+svd(Q)$d
+```
+
+## The geometric theory of confidence intervals
+
+::: {#fig-random-noise-model}
+![](SM-14-5.png)
+:::
+
+
+
+::: {#fig-projection-A-on-BC}
+![](SM-11-2.png)
+Projecting A onto the subspace defined by a set of two model vectors, B and C. The model triangle is shaded.
+:::
+
+::: {#fig-reverse-engineering}
+![](SM-14-6.png)
+
+We measure response variable A and project onto the model subspace B. The residual gives us an idea of how big the random component is. Since the raw estimate of the residual size is biased to be short, we unbias it by consideration of $n$ and $p$---the dimension of the model subspace.
+:::
+
+::: {#fig-random-angles}
+![](random-angles.png)
+
+
+The embedding space has dimension $n$. Random vectors in high-dimensional spaces tend to be closer to orthogonal than for low-dimensional spaces.
+:::
+
+::: {#fig-random-vecs-ortho-1}
+#| layout-ncol: 2
+#| fig-subcap:
+#| - Small $n$
+#| - Large $n$
+![](SM-14-7-a.png)
+
+![](SM-14-7-b.png)
+
+:::
+
+::: {#fig-collinearity-CI}
+![](collinearity-CI.png)
+Confidence intervals on the B coefficient for two models. The shaded circle shows the range covered by simulated values of the residuals Asim. The contour lines show the values of the coefficient $c_B$ for any possible value of Asim. The confidence interval can be read off as the range of contours covered by the shaded circle. For the model A ∼ B+C that spacing depends on the angle between B and C.
+:::
+
+$$ \mbox{standard error of B coef.} = 
+|\mbox{residuals}|\frac{1}{|\mbox{B}|}\ 
+\frac{1}{\sin( \theta )}\ \frac{1}{\sqrt{n}}\ \sqrt{\frac{n}{n-m}} .$$
+
+
+There are five components to this formula, each of which says something about the standard error of a coefficient:
+
+i. |residuals| -- The standard error is directly proportional to the size of the residuals.
+
+ii. 1/|B| -- The length of the model vector reflects the units of that variable or, for the indicator vector for a categorical variable, how many cases are at the corresponding level.
+
+iii. 1/sin(θ) -- This is the magnifying effect of collinearity.  θ is the angle between explanatory vector B and all the other explanatory vectors.  More precisely, it is the angle between B and the vector   that would be found by fitting B to all the other explanatory vectors.  When θ is 90°, then sin(θ)=1 and there is no collinearity and no magnification.  When θ = 45°, the magnification is only 1.4.  But for strong collinearity, the magnification can be very large: when θ = 10°, the magnification is 5.8.  When θ = 1°, magnification is 57.  For θ = 0, the alignment becomes a matter of redundancy, since B can be exactly modeled by the other explanatory variables.  Magnification would be infinite, but statistical software will identify the redundancy and eliminate it. 
+
+iv. 1/√n -- This reflects the amount of data.  Larger samples give more precise estimates of coefficients, that is, a smaller standard error.  Because of the square-root relationship, quadrupling the size of the sample will halve the size of the standard error. To improve the standard error by ten-fold requires a 100-fold increase in the size of the sample. 
+
+v. $\sqrt{n/(n-m)} --  The fitting process chooses coefficients that make the residuals as small as possible consistent with the data.  This tends to underestimate the size of residuals – for any other estimate of the coefficients, even one well within the confidence interval, the residuals would be larger. This correction factor balances this bias out.  n is, as always, the number of cases in the sample and m is the number of model vectors.  So long as m is much less than n, which is typical of models, the bias correction factor is close to 1.
+

@@ -1,0 +1,47 @@
+---
+author: DTK
+date: 2025-04-25
+number-offset: 41
+format: live-html
+webr:
+  channel-type: 'automatic'
+  repos: ["https://dtkaplan.r-universe.dev"]
+  packages: ['ggplot2', 'mosaicCalc', "LSTbook" ]
+filters:
+  - webr
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(mosaicCalc)
+source("../../_software/software.R")
+```
+::: {.callout-tip collapse=true}
+## Background software
+```{webr-r}
+#| autorun: true
+#| context: output
+{{< include ../../_software/software.R >}}
+```
+:::
+
+
+# 2025-04-25 class notes
+
+```{webr-r}
+#| caption: User console A
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console B
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console C
+#| persist: true
+```
+
+
