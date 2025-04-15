@@ -9,7 +9,7 @@ categories: [linear algebra]
 library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
-{{< include ../../_software/software.R >}}
+source("../../_software/software.R")
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
@@ -115,7 +115,7 @@ veclen <- function(v) sqrt(v %dot% v)
 :::
 
 ::: {#exr-31-veclen-test}
-Write three tests for `length()` on vectors where you *already know* the answer.
+Write three tests for `veclen()` on vectors where you *already know* the answer.
 
 ```{webr-r}
 #| label: length-tests
@@ -139,7 +139,7 @@ unitvec <- function(vec) {
 ::: {.callout-tip collapse=true}
 ```{r }
 unitvec <- function(vec) {
-  vec/length(vec)
+  vec/veclen(vec)
 }
 ```
 :::
@@ -155,7 +155,7 @@ Here's a test that I invented. See if it works in any dimension 2 or greater$
 # Here's a test of mine
 v <- rvec(3)
 veclen(
-  (length(v) *  unitvec(v)) - v
+  (veclen(v) *  unitvec(v)) - v
 )
 ```
 

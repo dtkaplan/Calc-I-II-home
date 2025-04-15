@@ -105,9 +105,9 @@ Using software in Chunk B, find the residual from projecting the red dot onto $\
 ```{r echo=FALSE}
 solve_for(c("u", "u")) |> gf_point(-4 ~ -3, color = "red")
 ```
-
+**Chunk B**
 ```{webr-r}
-#| label: Chunk B
+#| caption: Chunk B
 
 ```
 

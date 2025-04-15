@@ -15,6 +15,8 @@ library(devoirs)
 ::: {.callout-tip collapse=true}
 ## Data for the project
 ```{webr-r}
+#| autorun: true
+#| context: setup
 PKLdata <- tibble::tribble(
   ~ year, ~ product, ~labor, ~ capital, 
   1899, 100, 100, 100,
@@ -44,6 +46,8 @@ PKLdata <- tibble::tribble(
 )
 ```
 :::
+
+
 
 The data frame `PKLdata` has the data on yearly production levels and levels of capital and labor.
 

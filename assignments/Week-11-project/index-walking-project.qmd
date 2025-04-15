@@ -51,6 +51,10 @@ Remember that the objective of walking this distance $d$ was to get the hiker to
 
 In other words, $d$ is a function of $g_\text{path}$, that is $d(g_\text{path})$. Substitute the formula for this function into @eq-energy-uphill to get an expression for $E(g_\text{path})$. 
 
+```{webr-r}
+# Graph the function E(g) to find the argmin in g
+```
+
 Graph the function $E(g_\text{path})$ over an appropriate domain to determine if there is a minimum and, if there is, the corresponding argmin. This is the answer we sought: the grade that makes getting uphill as energy-efficient as possible.
 
 One way to help people visualize your recommended grade ... Pick a few real-world examples of paths, both steep and shallow. For example, there's the Manitou incline near Colorado Springs as an example of a steep hike. Heartbreak Hill in the Boston Marathon has earned its name. Another example, pick a couple of streets in San Francisco, perhaps one with a cable-car running along it. Paste the URLs of the images that you like into the answer box.

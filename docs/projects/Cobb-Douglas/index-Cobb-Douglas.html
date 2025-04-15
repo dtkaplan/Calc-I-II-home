@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="DTK">
-<meta name="dcterms.date" content="2025-04-09">
+<meta name="dcterms.date" content="2025-04-15">
 
 <title>Factory production – MOSAIC Calc 2025</title>
 <style>
@@ -402,7 +402,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"P <- makeFun( _____  ~ L & K, A = 2.5, alpha = 0.33)","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"PKLdata <- tibble::tribble(\n  ~ year, ~ product, ~labor, ~ capital,\n  1899, 100, 100, 100,\n  1900, 101, 105, 107,\n  1901, 112, 110, 114,\n  1902, 122, 118, 122,\n  1903, 124, 123, 131,\n  1904, 122, 116, 138,\n  1905, 143, 125, 149,\n  1906, 152, 133, 163,\n  1907, 151, 138, 176,\n  1908, 126, 121, 185,\n  1909, 155, 140, 198,\n  1910, 159, 144, 208,\n  1911, 153, 145, 216,\n  1912, 177, 152, 226,\n  1913, 184, 154, 236,\n  1914, 169, 149, 244,\n  1915, 189, 154, 266,\n  1916, 225, 182, 298,\n  1917, 227, 196, 335,\n  1918, 223, 200, 366,\n  1919, 218, 193, 387,\n  1920, 231, 193, 407,\n  1921, 179, 147, 417,\n  1922, 240, 161, 431,\n)","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"P <- makeFun( _____  ~ L & K, A = 2.5, alpha = 0.33)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"lst-cd2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -2049,7 +2049,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 9, 2025</p>
+      <p class="date">April 15, 2025</p>
     </div>
   </div>
   
@@ -2082,33 +2082,35 @@ Figure&nbsp;1
 <p>Here are the data upon which “Chart I” is based:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PKLdata <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> year, <span class="sc">~</span> product, <span class="sc">~</span>labor, <span class="sc">~</span> capital, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> year, <span class="sc">~</span> product, <span class="sc">~</span>labor, <span class="sc">~</span> capital,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1899</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1900</span>, <span class="dv">101</span>, <span class="dv">105</span>, <span class="dv">107</span>, </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1901</span>, <span class="dv">112</span>, <span class="dv">110</span>, <span class="dv">114</span>, </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1902</span>, <span class="dv">122</span>, <span class="dv">118</span>, <span class="dv">122</span>, </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1903</span>, <span class="dv">124</span>, <span class="dv">123</span>, <span class="dv">131</span>, </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1904</span>, <span class="dv">122</span>, <span class="dv">116</span>, <span class="dv">138</span>, </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1905</span>, <span class="dv">143</span>, <span class="dv">125</span>, <span class="dv">149</span>, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1906</span>, <span class="dv">152</span>, <span class="dv">133</span>, <span class="dv">163</span>, </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1907</span>, <span class="dv">151</span>, <span class="dv">138</span>, <span class="dv">176</span>, </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1908</span>, <span class="dv">126</span>, <span class="dv">121</span>, <span class="dv">185</span>, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1909</span>, <span class="dv">155</span>, <span class="dv">140</span>, <span class="dv">198</span>, </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1910</span>, <span class="dv">159</span>, <span class="dv">144</span>, <span class="dv">208</span>, </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1911</span>, <span class="dv">153</span>, <span class="dv">145</span>, <span class="dv">216</span>, </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1912</span>, <span class="dv">177</span>, <span class="dv">152</span>, <span class="dv">226</span>, </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1913</span>, <span class="dv">184</span>, <span class="dv">154</span>, <span class="dv">236</span>, </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1914</span>, <span class="dv">169</span>, <span class="dv">149</span>, <span class="dv">244</span>, </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1915</span>, <span class="dv">189</span>, <span class="dv">154</span>, <span class="dv">266</span>, </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1916</span>, <span class="dv">225</span>, <span class="dv">182</span>, <span class="dv">298</span>, </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1917</span>, <span class="dv">227</span>, <span class="dv">196</span>, <span class="dv">335</span>, </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1918</span>, <span class="dv">223</span>, <span class="dv">200</span>, <span class="dv">366</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1900</span>, <span class="dv">101</span>, <span class="dv">105</span>, <span class="dv">107</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1901</span>, <span class="dv">112</span>, <span class="dv">110</span>, <span class="dv">114</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1902</span>, <span class="dv">122</span>, <span class="dv">118</span>, <span class="dv">122</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1903</span>, <span class="dv">124</span>, <span class="dv">123</span>, <span class="dv">131</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1904</span>, <span class="dv">122</span>, <span class="dv">116</span>, <span class="dv">138</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1905</span>, <span class="dv">143</span>, <span class="dv">125</span>, <span class="dv">149</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1906</span>, <span class="dv">152</span>, <span class="dv">133</span>, <span class="dv">163</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1907</span>, <span class="dv">151</span>, <span class="dv">138</span>, <span class="dv">176</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1908</span>, <span class="dv">126</span>, <span class="dv">121</span>, <span class="dv">185</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1909</span>, <span class="dv">155</span>, <span class="dv">140</span>, <span class="dv">198</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1910</span>, <span class="dv">159</span>, <span class="dv">144</span>, <span class="dv">208</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1911</span>, <span class="dv">153</span>, <span class="dv">145</span>, <span class="dv">216</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1912</span>, <span class="dv">177</span>, <span class="dv">152</span>, <span class="dv">226</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1913</span>, <span class="dv">184</span>, <span class="dv">154</span>, <span class="dv">236</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1914</span>, <span class="dv">169</span>, <span class="dv">149</span>, <span class="dv">244</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1915</span>, <span class="dv">189</span>, <span class="dv">154</span>, <span class="dv">266</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1916</span>, <span class="dv">225</span>, <span class="dv">182</span>, <span class="dv">298</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1917</span>, <span class="dv">227</span>, <span class="dv">196</span>, <span class="dv">335</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1918</span>, <span class="dv">223</span>, <span class="dv">200</span>, <span class="dv">366</span>,</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1919</span>, <span class="dv">218</span>, <span class="dv">193</span>, <span class="dv">387</span>,</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1920</span>, <span class="dv">231</span>, <span class="dv">193</span>, <span class="dv">407</span>,</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1921</span>, <span class="dv">179</span>, <span class="dv">147</span>, <span class="dv">417</span>,</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1922</span>, <span class="dv">240</span>, <span class="dv">161</span>, <span class="dv">431</span>,</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PKLdata <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predicted =</span> <span class="fl">0.25</span><span class="sc">*</span>capital <span class="sc">+</span> <span class="fl">0.75</span><span class="sc">*</span>labor) <span class="sc">|&gt;</span></span>
@@ -2179,7 +2181,7 @@ Figure&nbsp;1
 Listing&nbsp;1
 </figcaption>
 <div aria-describedby="lst-cd1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="qwebr-insertion-location-1"></div>
+<div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </figure>
@@ -2202,7 +2204,7 @@ Listing&nbsp;1
 Listing&nbsp;2
 </figcaption>
 <div aria-describedby="lst-cd2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="qwebr-insertion-location-2"></div>
+<div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </figure>
@@ -2219,7 +2221,7 @@ Listing&nbsp;2
 Listing&nbsp;3
 </figcaption>
 <div aria-describedby="lst-cd3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="qwebr-insertion-location-3"></div>
+<div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </figure>
@@ -2235,7 +2237,7 @@ Listing&nbsp;3
 Listing&nbsp;4
 </figcaption>
 <div aria-describedby="lst-cd3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="qwebr-insertion-location-4"></div>
+<div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </figure>
