@@ -133,3 +133,44 @@ latex_helper <- function(matr) {
   cat("\\end{array}\\right)")
 }
 
+# Fourier transform stuff
+# sigfft shows only the left-hand side of the FFT
+# isigfft restores it by adding back the right-hand side then inverse FFT.
+
+ifft <- function(x) fft(x/length(x), inverse = TRUE)
+
+sigfft <- function(x) {
+  tmp <- fft(x)
+  nyquist <- round((length(x) + 1.1 - (length(x) %% 2))/2)
+  tmp[1:nyquist]
+}
+isigfft <- function(Lfftx) {
+  tmp <- if (length(Lfftx) %% 2) {
+    # odd length
+    c(Lfftx, Conj(rev(Lfftx[c(-1, -length(Lfftx))])))
+
+  } else {
+    c(Lfftx, Conj(rev(Lfftx[-1])))
+  }
+  ifft(tmp) |> Re()
+}
+
+squash_small <- function(x, tol=1e-9) {
+  r1 <- Re(x)
+  r1 <- ifelse(abs(r1) < tol, 0, r1)
+  c1 <- Im(x)
+  c1 <- ifelse(abs(c1) < tol, 0, c1)
+  # return real part if all of imaginary part is small
+  if (all(c1 == 0)) r1
+  else r1 + 1i * c1
+}
+
+# Plot the amplitude spectrum versus frequency
+sig_amp_spec <- function(x, sampfreq=100) {
+  Tmp <- tibble::tibble(
+    amp = abs(sigfft(x)),
+    frequency = seq(0, sampfreq/2, length = length(amp)))
+  Tmp |>
+    gf_segment(0 + amp ~ frequency + frequency, alpha = 0.2) |>
+    gf_point(amp ~ frequency, color = "blue", size = 0.5)
+}

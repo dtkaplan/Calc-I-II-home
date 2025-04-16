@@ -13,13 +13,76 @@ library(ggformula)
 source("../../_software/software.R")
 ```
 
+The basic functions needed are:
+
+i. `fft` computes the forward and inverse FFT.  Set named argument `inverse=TRUE` to take the inverse.
+i. `Re` and `Im`  takes the real and imaginary parts (respectively) of a complex number
+i. `Mod` and `Arg` takes the length and angle of the complex number.
+i. `Conj` takes the complex conjugate.
 
 
 
-SciComp2009 2009-04-30
+## Filtering out noise
 
-fourier.pdf
+```{r}
+fine_wave <- "/Users/kaplan/UATX/Calc-I-II-home/projects/Fourier_transform/finest_hour.wav"
+orig <- wav::read_wav(fine_wave)
+attributes(orig)
+orig <- c(orig)
+audio::play(orig, rate = 11025)
+```
 
-SciCompFiles/whistle.wav
+```{r}
+plot(orig[6000 + (1:6000)], type="l")
+audio::play(orig[6000 + (1:6000)], rate = 11025)
+But <- orig[8300:9200]
+audio::play(But, rate = 11025)
+If <- orig[9500:12000]
+audio::play(If, rate = 11025)
+The <- orig[12000:13500]
+audio::play(The, rate = 11025)
+plot(The, type = "l")
+```
 
-SciCompFiles/aeiou.wav g-fugue.wav finest-hour.wav
+Amplitude filtering
+
+```{r}
+f1 <- orig
+f1[abs(orig) < 0.1] <- 0
+plot(f1[6000 + (1:6000)], type = "l")
+plot(f1[12000:13500], type = "l")
+```
+
+
+Changing the basis set to sines
+
+```{r}
+sig_amp_spec(orig[000 + (1:6000)], sampfreq = 11025)
+sound_ft <- sigfft(orig)
+sig_amp_spec(orig, sampfreq = 11025)
+sound_ft[abs(sound_ft) < 200] <- 0
+#plot(abs(sound_ft),  type = "l")
+recovered <- isigfft(sound_ft)
+audio::play(recovered, rate = 11025)
+plot(recovered[1:6000], type = "l")
+plot(abs(sound_ft[1:6000]))
+```
+
+Filtering out the high-frequency stuff.
+
+```{r}
+sig_filter_envelope <- 
+  function(ftx, sampfreq = 11025, 
+           bottom = 6000, top = sampfreq) {
+  freqs <- seq(0,sampfreq, length=length(ftx))  
+  ones <- rep(1, length(ftx))
+  ones[freqs > bottom & freqs <= top] <- 0
+  
+  ones
+  }
+filter <- sig_filter_envelope(sound_ft, sampfreq = 11025, bottom = 5000)
+recovered <- isigfft(sound_ft * filter)
+audio::play(recovered/2, rate = 11025)
+audio::play(orig, rate = 11025)
+```
+

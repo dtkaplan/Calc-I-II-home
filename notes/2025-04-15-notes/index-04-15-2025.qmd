@@ -308,53 +308,6 @@ Runs |> point_plot(cosineang ~ 1, annot = "violin")
 ![](random-in-3.png)
 :::
 
-## Polynomials as vectors
-
-## Orthogonal functions
-
-Consider the polynomials over the interval $[-1,1]$:
-
-```{webr-r}
-slice_plot(x ~ x, domain(x = -1:1)) |>
-  slice_plot(x^2 ~ x, color = "orange") |>
-  slice_plot(x^3 ~ x, color = "dodgerblue") |>
-  slice_plot(x^4 ~ x, color = "tomato") |>
-  slice_plot(x^5 ~ x, color = "steelblue") |>
-  slice_plot(x^6 ~ x, color = "red") |>
-  slice_plot(x^7 ~ x, color = "blue") 
-```
-
-
-Making a matrix of values:
-
-```{webr-r}
-x <- seq(-1, 1, length = 1001) |> vec()
-M <- cbind(1, x, x^2, x^3, x^4, x^5, x^6, x^7)
-colnames(M) <- c("zeroth", "first", "second", "third", "fourth", "fifth", "sixth", "seventh")
-svd(M)$d
-```
-
-Orthogonalize them, plotting out the new functions:
-
-```{webr-r}
-Q <- qr.Q(qr(M))
-colnames(Q) <- colnames(M)
-Qdf <- cbind(x, as.data.frame(Q))
-Qdf |>
-  gf_line(zeroth  ~ x) |>
-  gf_line(first   ~ x) |>
-  gf_line(second  ~ x, color = "orange") |>
-  gf_line(third   ~ x, color = "dodgerblue") |>
-  gf_line(fourth  ~ x, color = "tomato") |>
-  gf_line(fifth   ~ x, color = "steelblue", linewidth=2) |>
-  gf_line(sixth   ~ x, color = "red", linewidth=2) |>
-  gf_line(seventh ~ x, color = "blue", linewidth=2) 
-```
-
-```{webr-r}
-svd(M)$d
-svd(Q)$d
-```
 
 ## The geometric theory of confidence intervals
 

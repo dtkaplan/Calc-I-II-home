@@ -29,6 +29,223 @@ source("../../_software/software.R")
 
 # 2025-04-17 class notes
 
+1. Hand out map from walking project. Have students, in groups of two, draw a path.
+
+2. Fourier transform modeling project.
+
+## Polynomials as vectors
+
+Consider the polynomials over the interval $[-1,1]$:
+
+```{webr-r}
+slice_plot(x ~ x, domain(x = -1:1)) |>
+  slice_plot(x^2 ~ x, color = "orange") |>
+  slice_plot(x^3 ~ x, color = "dodgerblue") |>
+  slice_plot(x^4 ~ x, color = "tomato") |>
+  slice_plot(x^5 ~ x, color = "steelblue") |>
+  slice_plot(x^6 ~ x, color = "red") |>
+  slice_plot(x^7 ~ x, color = "blue") 
+```
+
+
+Making a matrix of values:
+
+```{webr-r}
+x <- seq(-1, 1, length = 1001) |> vec()
+M <- cbind(1, x, x^2, x^3, x^4, x^5, x^6, x^7)
+colnames(M) <- c("zeroth", "first", "second", "third", "fourth", "fifth", "sixth", "seventh")
+svd(M)$d
+```
+
+Orthogonalize them, plotting out the new functions:
+
+```{webr-r}
+Q <- qr.Q(qr(M))
+colnames(Q) <- colnames(M)
+Qdf <- cbind(x, as.data.frame(Q))
+Qdf |>
+  gf_line(zeroth  ~ x) |>
+  gf_line(first   ~ x) |>
+  gf_line(second  ~ x, color = "orange") |>
+  gf_line(third   ~ x, color = "dodgerblue") |>
+  gf_line(fourth  ~ x, color = "tomato") |>
+  gf_line(fifth   ~ x, color = "steelblue", linewidth=2) |>
+  gf_line(sixth   ~ x, color = "red", linewidth=2) |>
+  gf_line(seventh ~ x, color = "blue", linewidth=2) 
+```
+
+
+# The Basis Set and the Layout of the FFT
+
+
+Make some sinusoidal vectors. The first few components of the Fourier basis with $n=64$.
+
+```{webr-r}
+Sines <- tibble::tibble(
+  t = 0:63,
+  DC = 1,
+  cos1 = cos(1*2*pi*t/64),
+  sin1 = sin(1*2*pi*t/64),
+  cos2 = cos(2*2*pi*t/64),
+  sin2 = sin(2*2*pi*t/64),
+  cos3 = cos(3*2*pi*t/64),
+  sin3 = sin(3*2*pi*t/64),
+  cos7 = cos(7*2*pi*t/64),
+  sin7 = sin(7*2*pi*t/64)
+)
+
+Sines |> 
+  gf_line(cos1 ~ t, color = "dodgerblue") |>
+  gf_line(sin3 ~ t, color = "orange") 
+```
+
+```{webr-r}
+sigfft(Sines$DC) |> squash_small()
+```
+
+```{webr-r}
+sigfft(Sines$cos1) |> squash_small()
+sigfft(Sines$sin1) |> squash_small()
+sigfft(Sines$cos2) |> squash_small()
+sigfft(Sines$sin2) |> squash_small()
+# 0, 1, 0, 1, 0, 1
+sigfft(Sines$t %% 2) |> squash_small()
+# 1, -1, 1, -1, ...
+sigfft(1 - 2*(Sines$t%%2)) |> squash_small()
+
+# linear combinations
+sigfft(Sines$sin1 + 3*Sines$cos2) |> isigfft() |> squash_small() |> plot()
+```
+
+## Noise
+
+```{webr-r}
+sig_amp_spec(cos2)
+sig_amp_spec(rnorm(64))  
+
+sig_amp_spec(rnorm(64) +  Sines$cos2 )
+```
+
+
+## Sines as basis vectors
+
+
+## Example: Tides
+To illustrate, consider the `mosaicCalc::RI_tide` data frame from which we will use two variables:
+
+- `level` the water height in meters
+- `hours` the time in hours after the start of April 2010
+
+Measurements are made once a second. The record covers 108 hours: four and a half days.
+
+```{webr-r}
+RI_tide |> select(hour, level) |> head()
+```
+
+We want to model the tide signal to figure out to what extent it is a linear combination of simple functions.
+
+```{webr-r}
+RI_tide |> gf_line(level ~ hour)
+```
+
+Since it's an oscillatory function, let's look for sinusoidal components. And since the tide is a daily phenomenon, we can start with a 1-day sine and cosine. We'll make the model matrix:
+
+```{webr-r}
+M1 <- with(RI_tide, cbind(1, sin(2*pi*hour/24), cos(2*pi*hour/24)))
+b <- with(RI_tide, vec(level))
+X <- qr.solve(M1, b)
+RI_tide$M1 <- M1 %*% X
+RI_tide |> gf_line(M1 ~ hour, color = "blue") |>
+  gf_line(level ~ hour) |>
+  gf_refine(scale_x_continuous(breaks = seq(0, 108, by = 4)))
+```
+
+What features is this model missing? What should we add in to the model matrix?
+
+```{webr-r}
+M2 <- with(RI_tide, cbind(M1, sin(2*2*pi*hour/12), cos(2*2*pi*hour/12)))
+X <- qr.solve(M2, b)
+RI_tide$M2 <- M2 %*% X
+RI_tide |> gf_line(M2 ~ hour, color = "blue") |>
+  gf_line(level ~ hour) |>
+  gf_refine(scale_x_continuous(breaks = seq(0, 108, by = 4)))
+```
+
+Much better. But a period of 12 hours is a little short. We can estimate how much we need to increase the period: 5 hours out of about 100, so 5% increase in the period: 25.2 hours as a start
+
+```{webr-r}
+period2 = 24.8 #26.1 #25.2
+M3 <- with(RI_tide, 
+           cbind(M2, 
+                 sin(2*pi*hour/period2), cos(2*pi*hour/period2),
+                 sin(2*2*pi*hour/period2), cos(2*2*pi*hour/period2)
+                 ))
+X <- qr.solve(M3, b)
+RI_tide$M3 <- M3 %*% X
+RI_tide |> gf_line(M3 ~ hour, color = "blue") |>
+  gf_line(level ~ hour) |>
+  gf_refine(scale_x_continuous(breaks = seq(0, 108, by = 4))) 
+```
+
+Look at the residual:
+
+```{webr-r}
+RI_tide <- RI_tide |> 
+  mutate(resid3 = level - M3) 
+RI_tide |>
+  gf_line(resid3 ~ hour, color = "blue") |>
+  gf_refine(scale_x_continuous(breaks = seq(0, 108, by = 4)))
+```
+
+We can go looking for more regular periods in the residual. A systematic way to do it involves constructing a grand ${\bf M}$ matrix that has every sinusoid in it. Solving ${\bf M}\ \vec{\bf x} = \vec{\bf b}$ for $\vec{x}$ is called taking the **Fourier Transform* of the signal.
+
+We'll look just at the amplitudes for each frequency, neglecting the phase of the sines.
+
+```{webr-r}
+sig_amp_spec(RI_tide$level, sampfreq = 60) |>
+  gf_lims( y = c(0, 2000)) |>
+  gf_refine(
+    scale_x_continuous(
+      limits = c(0.0,0.2), 
+      sec.axis = 
+      sec_axis(transform = ~ 1/ ., 
+               breaks = c(seq(5, 24, by = 1),
+                          seq(24, 36, by = 2)), name = "period (hrs)")))
+```
+
+```{webr-r}
+M4 <- with(RI_tide, 
+           cbind(M3, 
+                 sin(2*2*pi*hour/period2), cos(2*2*pi*hour/period2),
+                 sin(3*2*pi*hour/period2), cos(3*2*pi*hour/period2),
+                 sin(4*2*pi*hour/period2), cos(4*2*pi*hour/period2),
+                 sin(3*2*pi*hour/24), cos(3*2*pi*hour/24),
+                 sin(4*2*pi*hour/24), cos(4*2*pi*hour/24)
+                 ))
+X <- qr.solve(M4, b)
+RI_tide$M4 <- M4 %*% X
+RI_tide |> gf_line(M4 ~ hour, color = "blue") |>
+  gf_line(level ~ hour) |>
+  gf_refine(scale_x_continuous(breaks = seq(0, 108, by = 4))) 
+```
+
+Interpolate the Anchorage tide
+
+```{webr-r}
+Anchorage_fixed <- with(Anchorage_tide, spline(hour, level, n = 88000)) |> as.data.frame()
+names(Anchorage_fixed) <- c("hours", "level")
+```
+
+```{webr-r}
+sig_amp_spec(RI_tide$level, sampfreq = 10.07273) |>
+  gf_lims(x = c(0, .15), y = c(0, 500))
+```
+
+```{webr-r}
+svd(M)$d
+svd(Q)$d
+```
+
 ```{webr-r}
 #| caption: User console A
 #| persist: true
