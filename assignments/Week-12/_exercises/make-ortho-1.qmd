@@ -1,0 +1,54 @@
+::: {#exr-make-ortho-1}
+
+Here are two vectors, $\vec{\bf a}$ and $\vec{\bf b}$. 
+
+$$\vec{\bf a} \equiv  \left(\begin{array}{r} 
+-8 \\ 
+-2 \\ 
+7 \\ 
+\end{array}\right) \ \ \ \ \ 
+\vec{\bf b} \equiv \left(\begin{array}{r} 
+-5 \\ 
+-4 \\ 
+-8 \\ 
+\end{array}\right)$$
+
+i. Using functions like `vec()`, `%onto%`, `%perp%`, and arithmetic compute the projection of $\vec{\bf b}$ onto $\vec{\bf a}$. (Chunk C is provided for your calculations.)
+
+
+ii. Do the same calculation, but use `%dot%` and `veclen()` instead of `%onto%`.
+
+Paste your code and the results into the computation block
+
+
+**Computation block**
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
+```{webr-r}
+#| caption: Webr chunk
+#| persist: true
+
+```
+
+## Submission
+
+This box connects to the "collect answers" button.
+
+`r devoirs_text("make-ortho-1")`
+
+## Scratch 1 
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+```
+
+## Scratch 2 
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+```
+:::
+
+:::
+

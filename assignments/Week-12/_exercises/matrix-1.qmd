@@ -1,5 +1,5 @@
 <!-- matrix-1 -->
-
+::: {#exr-matrix-mult-1}
 What kind of mathematical object will the following produce?
 
 $$\left(\begin{array}{r} 
@@ -26,3 +26,4 @@ $$\left(\begin{array}{r}
 5. A matrix with three rows
 6. It's meaningless. [correct hint: There are only three vectors in the matrix but the vector has four elements, meaning that it is looking to combine four vectors.]
 ```
+:::

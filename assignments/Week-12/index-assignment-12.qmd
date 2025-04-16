@@ -28,210 +28,118 @@ Lmat <- function(nr, nc) {
 
 {{< include ../../_software/devoirs.qmd >}}
 
-::: {.callout-warning collapse=true}
-## Background software
+<!-- ::: {.callout-warning collapse=true}
+## Background software -->
 ```{webr-r}
 #| autorun: true
-#| context: setup
-#| results: 
+#| context: output
+#| echo: false
+#| caption: Background software
+#| 
 {{< include ../../_software/software.R >}}
 ```
-:::
+<!-- ::: -->
 
 ## By hand and eye
 
-::: {#exr-matrix-0}
-{{< include ../_exercises/Week-12/matrix-0.qmd >}}
+::: {.panel-tabset}
+
+## Exer 1 
+{{< include _exercises/matrix-0.qmd >}}
+
+## Exer 2 
+{{< include _exercises/matrix-1.qmd >}}
+
+## Exer 3
+{{< include _exercises/matrix-2.qmd >}}
+
+## Exer 4 
+{{< include _exercises/matrix-3.qmd >}}
+
+## Exer 5
+{{< include _exercises/matrix-4.qmd >}}
+
+## Exer 6
+{{< include _exercises/matrix-5.qmd >}}
+
+## Exer 7
+{{< include _exercises/matrix-6.qmd >}}
+
+## Exer 8
+{{< include _exercises/matrix-7.qmd >}}
+
+## Exer 9
+{{< include _exercises/matrix-8.qmd >}}
+
+## Exer 10
+{{< include _exercises/elephant-hit-pot.qmd >}}
 :::
 
-
-::: {#exr-matrix-mult-1}
-{{< include ../_exercises/Week-12/matrix-1.qmd >}}
-:::
-
-::: {#exr-matrix-mult-2}
-{{< include ../_exercises/Week-12/matrix-2.qmd >}}
-:::
-
-::: {#exr-matrix-mult-3}
-{{< include ../_exercises/Week-12/matrix-3.qmd >}}
-:::
-
-::: {#exr-matrix-mult-4}
-{{< include ../_exercises/Week-12/matrix-4.qmd >}}
-:::
-
-::: {#exr-matrix-mult-5}
-{{< include ../_exercises/Week-12/matrix-5.qmd >}}
-:::
-
-::: {#exr-what-kinda-thing-1}
-{{< include ../_exercises/Week-12/matrix-6.qmd >}}
-:::
-
-::: {#exr-what-kinda-thing-2}
-{{< include ../_exercises/Week-12/matrix-7.qmd >}}
-:::
-
-::: {#exr-what-kinda-thing-3}
-{{< include ../_exercises/Week-12/matrix-8.qmd >}}
-:::
-
-::: {#exr-solve-for-u-v}
-By eye, find the linear combination of vectors $\vec{\bf u}$ and $\vec{\bf v}$ that will run from the origin to the red dot.
-```{r echo=FALSE}
-solve_for(c("u", "v")) |> gf_point(-4 ~ -3, color = "red")
-```
-
-`r devoirs_text("solve-for-u-v", rows = 1, cols = 50)`
-
-:::
 
 ## Computing
 
-::: {.callout-tip}
-## Submitting code and responses
+::: {.callout-tip collapse="true"}
+## Note on submitting code and responses
 
 The `{devoirs}` package has changed. In the old version, your R-chunks were collected automatically when you press the "collect answers" button. That is no longer true.
 
-Instead, there will be text boxes into which you can paste code and/or results. They will look like this:
+Instead, there will be a set of "tabs" collected together. You can do your calculations in any of the Webr or "scratch" chunks---they all talk to one another. Put your response to the question in the "Submission" text box.
 
-`r devoirs_text("just-an-example", code="the corresponding chunk")`
+Both your code and your "submission" will be preserved in your browser. CAUTION: When you return to the document, the code chunks will be filled in with your last entry, but you will have to run the chunk (if needed) by pressing the "Run Code" button. 
+
+
+<!-- Start of rich webr chunk ia1-7Wi -->
+
+Example: What is 12 + 3?
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
+```{webr-r}
+#| caption: Webr chunk
+#| persist: true
+#| label: ia1-7Wi-main
+
+
+```
+
+## Submission
+`r devoirs_text("ia1-7Wi")`
+
+
+## Scratch 1
+
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: ia1-7Wi-scratch1
+```
+
+## Scratch 2
+
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: ia1-7Wi-scratch1
+```
+:::
+<!-- end of enriched webr chunk ia1-7Wi -->
 :::
 
-::: {#exr-resid-from-u}
-Using software in Chunk B, find the residual from projecting the red dot onto $\vec{\bf u}$. Paste your code and the result of your calculation into the text box for Chunk B.
+::: {.panel-tabset}
+## Exer 12.11
+{{< include _exercises/make-ortho-1.qmd >}}
 
-```{r echo=FALSE}
-solve_for(c("u", "u")) |> gf_point(-4 ~ -3, color = "red")
-```
-**Chunk B**
-```{webr-r}
-#| caption: Chunk B
+## Exer 12.12
+{{< include _exercises/rotation-matrix-by-hand.qmd >}}
 
-```
+## Exer 12.13
+{{< include _exercises/resid-from-u.qmd >}}
 
+## Exer 12.13
+{{< include _exercises/cat-cost-radio.qmd >}}
 
-`r devoirs_text("resid-from-u", rows = 4, cols = 50, code="Chunk B")`
-
-:::
-
-::: {#exr-make-ortho-1}
-
-Here are two vectors, $\vec{\bf a}$ and $\vec{\bf b}$. 
-
-$$\vec{\bf a} \equiv  \left(\begin{array}{r} 
--8 \\ 
--2 \\ 
-7 \\ 
-\end{array}\right) \ \ \ \ \ 
-\vec{\bf b} \equiv \left(\begin{array}{r} 
--5 \\ 
--4 \\ 
--8 \\ 
-\end{array}\right)$$
-
-i. Using functions like `vec()`, `%onto%`, `%perp%`, and arithmetic compute the projection of $\vec{\bf b}$ onto $\vec{\bf a}$. (Chunk C is provided for your calculations.)
-
-
-ii. Do the same calculation, but use `%dot%` and `veclen()` instead of `%onto%`.
-
-Paste your code and the results from (i) and (ii) into the text box.
-
-```{webr-r}
-#| caption: Chunk C
-
-
-```
-
-`r devoirs_text("make-ortho-1", code="Chunk C")`
-:::
-
-::: {#exr-rotation-matrix-by-hand}
-
-Here is a matrix that when multiplied by a vector $\vec{v}$ will produce a rotated version of $\vec{v}$.
-
-$$\left(\begin{array}{rr} \cos(\theta) & \sin(\theta)\\ -\sin(\theta) & \cos(\theta)\end{array} \right)$$
-
-Such matrices are called "*rotation matrices*."
-
-Use Chunk A to write a function `mat_rotation()` that takes the angle $\theta$ (in radians) and produces the corresponding rotation matrix.
-
-```{webr-r}
-#| caption: Chunk A (rotation matrix function)
-mat_rotation <- function(theta) {
-  
-}
-```
-
-1. Use your function to create a rotation matrix and show that it is orthogonal. (Hint: Calculate `t(M) %*% M` and correctly interpret the result.) You can create the matrix in Chunk A, do the demonstration of orthogonality, and paste your code and results here:
-
-`r devoirs_text("rotation-ortho", code = "Chunk A")`
-
-
-2. For your convenience, here is a function that will compute the orientation angle of a 2-dimensional vector.
-
-```{webr-r}
-#| caption: Helper to find angle
-#| autorun: true
-find_vec_angle <- function(v) {
-  atan2(v[[2]], v[[1]])
-}
-```
-
-Write a couple of test cases and explain the results here.
-
-`r devoirs_text("angle-helper", code="Helper to find angle")`
-
-3. Create a vector, and find the orientation angle. Then multiply the vector by a rotation matrix with $\theta = \pi/4$ and show that the orientation angle has changed accordingly. Paste your code, results, and commentary into the text-entry box here:
-
-`r devoirs_text("test-rotation-matrix-on-vector")`
-
-:::
-
-
-::: {#exr-glass-patterns-8322}
-
-As a more compelling example of the action of rotation matrices, consider a visual phenomenon called a ["Glass pattern"](www/Glass69a.pdf) discovered about 50 years ago. 
-
-The pattern appears when a set of random dots is copied, perhaps with some rotation and scaling in the x and/or y directions. Even though the dots are random, the human visual system is easily able to discern the relationship between the original and transformed dot. The function `glass_pattern()`---defined below---generates a dataframe with `x` and `y` variables, and a rotated/scaled pair `x2` and `y2`. It allows you to easily generate the pairs of dots in a format (a data frame) that makes them easy to graph.
-
-```{webr-r}
-#| autorun: true
-#| caption: Produces correlated pairs
-glass_pattern <- function(n=1000, theta=5, xscale = 1, yscale = 1) {
-  theta <- pi*theta/180 # in radians
-  Pts <- tibble::tibble(
-    x = runif(n, -1, 1),
-    y = runif(n, -1, 1),
-    xx = x*xscale,
-    yy = y*yscale) |>
-    mutate(x2 = cos(theta)*xx + sin(theta)*yy,
-           y2 = -sin(theta)*xx + cos(theta)*yy) |>
-    select(-xx, -yy)
-}
-```
-  
-a. Where in the definition for `glass_pattern()` do you see the application of a rotation matrix?
-
-`r devoirs_text("glass-pattern-function-rotation")`
-  
-
-b. Chunk B generates a Glass pattern and plots it. (In Glass's work, just the point were shown. Probably I have over-elaborated by plotting little segments between pairs instead. You can comment out the `gf_segment()` and uncomment the `gf_point()`s if you want to see the original form.)
-
-```{webr-r}
-#| caption: Chunk B show a transformation
-glass_pattern(xscale = 0.95, yscale = 1.2, theta = 15) |>
-  # gf_point(y ~ x, size=0.3) |>
-  # gf_point(y2 ~ x2, size=0.3) |>
-  gf_segment(y + y2 ~ x + x2, linewidth=0.2,
-             arrow = arrow(length=unit(0.03, "inches"))) |>
-  gf_refine(coord_fixed())
-```  
-
-Play around with the parameters for angle and x- and y-scaling to generate some different patterns. Paste the parameters you liked into the following text box.
-
-`r devoirs_text("glass-pattern-nice-params")`
+## Exer 12.15
+{{< include _exercises/frog-close-chair.qmd >}}
 :::
 
 
@@ -239,22 +147,6 @@ Play around with the parameters for angle and x- and y-scaling to generate some 
 
 
 
-::: {#exr-solve-a}
-Solve this matrix equation for $x$. 
-
-$$\left(\begin{array}{r} 
--7 & 0 & 5 \\ 
-5 & 7 & 2 \\ 
--5 & 4 & 7 \\ 
--5 & 0 & -9 \\ 
-\end{array}\right) \ {\bf x}\ =
-\left(\begin{array}{r} 
- 6 \\ 
--4 \\ 
--1 \\ 
-9 \\ 
-\end{array}\right)$$
 
 
-`r devoirs_text("solve-a")`
-:::
+-----

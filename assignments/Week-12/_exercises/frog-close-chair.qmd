@@ -1,0 +1,57 @@
+---
+id: "frog-close-chair"
+created: "Wed Apr 16 09:26:32 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-frog-close-chair}
+
+As a more compelling example of the action of rotation matrices, consider a visual phenomenon called a ["Glass pattern"](www/Glass69a.pdf) discovered about 50 years ago. 
+
+The pattern appears when a set of random dots is copied, perhaps with some rotation and scaling in the x and/or y directions. Even though the dots are random, the human visual system is easily able to discern the relationship between the original and transformed dot. The function `glass_pattern()`---defined below---generates a dataframe with `x` and `y` variables, and a rotated/scaled pair `x2` and `y2`. It allows you to easily generate the pairs of dots in a format (a data frame) that makes them easy to graph.
+
+```{webr-r}
+#| autorun: true
+#| caption: Produces correlated pairs
+glass_pattern <- function(n=1000, theta=5, xscale = 1, yscale = 1) {
+  theta <- pi*theta/180 # in radians
+  Pts <- tibble::tibble(
+    x = runif(n, -1, 1),
+    y = runif(n, -1, 1),
+    xx = x*xscale,
+    yy = y*yscale) |>
+    mutate(x2 = cos(theta)*xx + sin(theta)*yy,
+           y2 = -sin(theta)*xx + cos(theta)*yy) |>
+    select(-xx, -yy)
+}
+```
+  
+a. Where in the definition for `glass_pattern()` do you see the application of a rotation matrix?
+
+`r devoirs_text("glass-pattern-function-rotation")`
+  
+
+b. Chunk B generates a Glass pattern and plots it. (In Glass's work, just the point were shown. Probably I have over-elaborated by plotting little segments between pairs instead. You can comment out the `gf_segment()` and uncomment the `gf_point()`s if you want to see the original form.)
+
+```{webr-r}
+#| caption: Chunk B show a transformation
+glass_pattern(xscale = 0.95, yscale = 1.2, theta = 15) |>
+  # gf_point(y ~ x, size=0.3) |>
+  # gf_point(y2 ~ x2, size=0.3) |>
+  gf_segment(y + y2 ~ x + x2, linewidth=0.2,
+             arrow = arrow(length=unit(0.03, "inches"))) |>
+  gf_refine(coord_fixed())
+```  
+
+Play around with the parameters for angle and x- and y-scaling to generate some different patterns. Paste the parameters you liked into the following text box.
+
+`r devoirs_text("glass-pattern-nice-params")`
+
+:::
+ <!-- end of exr-frog-close-chair -->)

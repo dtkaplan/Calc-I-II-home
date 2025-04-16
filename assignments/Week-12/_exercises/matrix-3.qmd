@@ -1,0 +1,35 @@
+<!-- matrix-3 -->
+
+```{r echo=FALSE, include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-matrix-mult-3}
+What kind of mathematical object will the following produce?
+
+$$\left(\begin{array}{r} 
+8 & 4 & 8 \\ 
+4 & 2 & 7 \\ 
+3 & 8 & 2 \\ 
+6 & 5 & -8 \\ 
+\end{array}\right) \times 
+\left(\begin{array}{r} 
+-1 & 2 & -4\\ 
+0 & 0 & 9\\ 
+-5 & 3 & 8 \\ 
+4 & 1 & 1\\ 
+\end{array}\right)$$
+
+```{mcq}
+#| label: mcq-matrix-3
+#| inline: true
+1. A scalar 
+2. A column vector
+3. A row vector
+4. A matrix with three columns [correct]
+5. A matrix with three rows
+6. It's meaningless. 
+```
+:::

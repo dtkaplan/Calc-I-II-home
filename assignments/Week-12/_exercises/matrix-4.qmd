@@ -1,5 +1,12 @@
 <!-- matrix-4 -->
 
+```{r echo=FALSE, include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-matrix-mult-4}
 Find the value of this product:
 $$\left(\begin{array}{r} 
  2 & 2 & 5 & -9 \\ 
@@ -12,5 +19,6 @@ $$\left(\begin{array}{r}
 \end{array}\right)$$
 
 `r devoirs_text("matrix-4", rows=1, cols=10)`
+:::
 
 

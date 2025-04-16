@@ -1,0 +1,48 @@
+```{r echo=FALSE, include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+source("../../_software/software.R")
+```
+
+::: {#exr-resid-from-u}
+Using software, find the residual from projecting the red dot onto $\vec{\bf u}$. Submit both your code and the result of your calculation.
+
+```{r echo=FALSE}
+# for drawing the graphic
+solve_for(c("u", "u")) |> gf_point(-4 ~ -3, color = "red")
+```
+
+<!-- Start of rich webr chunk rfu-9Zg -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
+```{webr-r}
+#| caption: Webr chunk
+#| persist: true
+#| label: rfu-9Zg-main
+
+
+```
+
+## Answer submission
+This box connects to the "collect answers" button.
+
+`r devoirs_text("rfu-9Zg")`
+
+## Scratch 1
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: rfu-9Zg-scratch1
+```
+
+## Scratch 2
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: rfu-9Zg-scratch1
+```
+:::
+<!-- end of enriched webr chunk rfu-9Zg -->
+:::

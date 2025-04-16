@@ -18,7 +18,7 @@ website:
         text: Projects
 
 format:
-  html:
+  live-html:
     theme: litera
     css: styles.css
     toc: true

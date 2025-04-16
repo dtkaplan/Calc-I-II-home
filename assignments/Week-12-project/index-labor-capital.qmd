@@ -3,6 +3,7 @@ title: Balancing labor and capital
 date: 2025-04-10
 summary: "Finishing up the modeling project we started in class."
 categories: [modeling project, economics, log-scales]
+format: live-html
 ---
 
 ```{r include=FALSE}
@@ -92,6 +93,7 @@ Here's a chunk for your calculations:
 
 ```{webr-r}
 #| caption: For your Task 3 computations ...
+#| persist: true
 as.matrix(PKLdata)
 
 ```
@@ -99,6 +101,9 @@ as.matrix(PKLdata)
 1. Note what you get from the `as.matrix(PKLdata)` construction
 
 2. Use indexing to grab the 3rd and 4th columns of the matrix. (Hint: the expression will look like `[ , c(3,4)]`.) Take the log of this and call it the matrix `M`.
+
+
+
 
 3. Similarly, use indexing to grab the 2nd column of the matrix. Take the logarithm and call this `b`.
 

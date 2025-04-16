@@ -40,6 +40,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,1559 +69,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
-<style type="text/css">
-.monaco-editor pre {
-  background-color: unset !important;
-}
-
-.qwebr-editor-toolbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
-.qwebr-editor-toolbar-left-buttons, .qwebr-editor-toolbar-right-buttons {
-  display: flex;
-}
-
-.qwebr-non-interactive-loading-container.qwebr-cell-needs-evaluation, .qwebr-non-interactive-loading-container.qwebr-cell-evaluated {
-  justify-content: center;
-  display: flex;
-  background-color: rgba(250, 250, 250, 0.65);
-  border: 1px solid rgba(233, 236, 239, 0.65);
-  border-radius: 0.5rem;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.qwebr-r-project-logo {
-  color: #2767B0; /* R Project's blue color */
-}
-
-.qwebr-icon-status-spinner {
-  color: #7894c4;
-}
-
-.qwebr-icon-run-code {
-  color: #0d9c29
-}
-
-body.quarto-light .qwebr-output-code-stdout {
-  color: #111;
-}
-
-body.quarto-dark .qwebr-output-code-stdout {
-  color: #EEE;
-}
-
-.qwebr-output-code-stderr {
-  color: #db4133;
-}
-
-body.quarto-light .qwebr-editor {
-  border: 1px solid #EEEEEE;
-}
-
-body.quarto-light .qwebr-editor-toolbar {
-  background-color: #EEEEEE;
-  padding: 0.2rem 0.5rem;
-}
-
-body.quarto-dark .qwebr-editor {
-  border: 1px solid #111;
-}
-
-body.quarto-dark .qwebr-editor-toolbar {
-  background-color: #111;
-  padding: 0.2rem 0.5rem;
-}
-
-.qwebr-button {
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1;
-  text-decoration: none;
-  text-align: center;
-  padding: 0.375rem 0.75rem;
-  font-size: .9rem;
-  border-radius: 0.25rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-body.quarto-light .qwebr-button {
-  background-color: #EEEEEE;
-  color: #000;
-  border-color: #dee2e6;
-  border: 1px solid rgba(0,0,0,0);
-}
-
-body.quarto-dark .qwebr-button {
-  background-color: #111;
-  color: #EEE;
-  border-color: #dee2e6;
-  border: 1px solid rgba(0,0,0,0);
-}
-
-body.quarto-light .qwebr-button:hover {
-  color: #000;
-  background-color: #d9dce0;
-  border-color: #c8ccd0;
-}
-
-body.quarto-dark .qwebr-button:hover {
-  color: #d9dce0;
-  background-color: #323232;
-  border-color: #d9dce0;
-}
-
-.qwebr-button:disabled,.qwebr-button.disabled,fieldset:disabled .qwebr-button {
-  pointer-events: none;
-  opacity: .65
-}
-
-.qwebr-button-reset {
-  color: #696969; /*#4682b4;*/
-}
-
-.qwebr-button-copy {
-  color: #696969;
-}
-
-/* Style the code highlight lines */
-body.quarto-light .qwebr-editor-highlight-line {
-  background-color: lightblue;
-}
-
-body.quarto-dark .qwebr-editor-highlight-line {
-  background-color: darkblue;
-}
-
-/* Style the modal pop-up */
-
-/* The Modal (background) */
-.qwebr-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content */
-.qwebr-modal-content {
-  background-color: #fefefe;
-  margin: 5% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-.qwebr-modal-content-code {
-  max-height: 50vh;
-  min-height: 5vh;
-  overflow: scroll;
-  border: 1px solid #888;
-}
-
-/* The Close Button */
-.qwebr-modal-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.qwebr-modal-close:hover,
-.qwebr-modal-close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.qwebr-download-btn {
-  margin-top: 10px;
-  text-decoration: none !important;
-}
-
-/* Styling to download image that is created */
-
-.qwebr-canvas-image {
-  position: relative;
-  display: inline-block;
-  margin: 10px;
-}
-
-.qwebr-canvas-image-download-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 10px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  cursor: pointer;
-  display: none;
-}
-
-figure:hover .qwebr-canvas-image-download-btn {
-  display: block;
-}
-
-/* Custom styling for RevealJS Presentations*/
-
-/* Reset the style of the interactive area */
-.reveal div.qwebr-interactive-area {
-  display: block;
-  box-shadow: none;
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* Provide space to entries */
-.reveal div.qwebr-output-code-area pre div {
-  margin: 1px 2px 1px 10px;
-}
-
-/* Collapse the inside code tags to avoid extra space between line outputs */
-.reveal pre div code.qwebr-output-code-stdout, .reveal pre div code.qwebr-output-code-stderr {
-  padding: 0;
-  display: contents;
-}
-
-body.reveal.quarto-light pre div code.qwebr-output-code-stdout {
-  color: #111;
-}
-
-body.reveal.quarto-dark pre div code.qwebr-output-code-stdout {
-  color: #EEEEEE;
-}
-
-.reveal pre div code.qwebr-output-code-stderr {
-  color: #db4133;
-}
-
-
-/* Create a border around console and output (does not effect graphs) */
-body.reveal.quarto-light div.qwebr-console-area {
-  border: 1px solid #EEEEEE;
-  box-shadow: 2px 2px 10px #EEEEEE;
-}
-
-body.reveal.quarto-dark div.qwebr-console-area {
-  border: 1px solid #111;
-  box-shadow: 2px 2px 10px #111;
-}
-
-
-/* Cap output height and allow text to scroll */
-/* TODO: Is there a better way to fit contents/max it parallel to the monaco editor size? */
-.reveal div.qwebr-output-code-area pre {
-  max-height: 400px;
-  overflow: scroll;
-}
-
-iframe.qwebr-output-code-browse {
-  width: 100%;
-
-  /*
-    TODO: How to make the height automatic according to the widget size,
-    or respect the quarto code block options?
-  */
-  min-height: 500px;
-}
-
-</style>
-<script type="module">
-// Document level settings ----
-
-// Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['ggplot2', 'mosaicCalc', 'LSTbook'];
-
-// Specify possible locations to search for the repository
-globalThis.qwebrPackageRepoURLS = ['https://dtkaplan.r-universe.dev', 'https://repo.r-wasm.org/'];
-
-// Check to see if we have an empty array, if we do set to skip the installation.
-globalThis.qwebrSetupRPackages = !(qwebrInstallRPackagesList.indexOf("") !== -1);
-globalThis.qwebrAutoloadRPackages = true;
-
-// Display a startup message?
-globalThis.qwebrShowStartupMessage = true;
-globalThis.qwebrShowHeaderMessage = false;
-
-// Describe the webR settings that should be used
-globalThis.qwebrCustomizedWebROptions = {
-  "baseURL": "https://webr.r-wasm.org/v0.4.0/",
-  "serviceWorkerUrl": "",
-  "homedir": "/home/web_user", 
-  "channelType": "ChannelType.Automatic"
-};
-
-// Store cell data
-globalThis.qwebrCellDetails = [{"code":"# Drawing vectors and matrices\n\ndraw_matrix <- function(M) {\n  image(1:ncol(M), 1:nrow(M), t(M[nrow(M):1, ]),\n        col = colorspace::diverging_hcl(\n          15, h = c(180, 50), c = 80,\n          l = c(20, 95), power = c(0.7, 1.3)),\n        axes = FALSE,\n        useRaster = TRUE)\n}\n\nsomevecs <- tibble::tribble(\n  ~ rootx, ~ rooty, ~ headx, ~ heady, ~ color, ~ name,\n  0, 0, -2, 4, \"blue\", \"u\",\n  1, -2, 5, -3, \"green\", \"v\",\n  -1, -1, -4, -1, \"orange\", \"w\",\n  1, 0, 4, 3, \"brown\", \"x\",\n  0, -2, 3, -3, \"salmon\", \"y\",\n  0, 0, 4, 3, \"magenta\", \"b1\",\n  0, 0, -3, 2, \"magenta\", \"b2\",\n) |>\n  dplyr::mutate(labelx = (rootx + headx)/2,\n         labely = (2*rooty + heady)/3)\nsolve_for <- function(vecnames) {\n  somevecs |>\n    dplyr::filter(name %in% vecnames) |>\n    gf_segment(rooty + heady ~ rootx + headx,\n               arrow = grid::arrow(length=unit(0.15, \"inches\"), type=\"closed\"),\n               color = ~ color, linewidth=2) |>\n    gf_label(labely ~ labelx, label= ~ name, color = ~ color, size=3) |>\n    gf_refine(scale_color_identity(),\n              scale_y_continuous(limits=c(-5,5),\n                                 breaks=(-5):5),\n              scale_x_continuous(limits=c(-5,5),\n                                 breaks=(-5):5),\n              coord_fixed()) |>\n    gf_labs(x=\"\", y = \"\")\n}\n\n\n# Simple vector/matrix operations\n\nvec <- function(...) {\n  vals <- list(...) |> unlist()\n  matrix(vals, ncol=1)\n}\n\nrvec <- function(first, ..., rfun=rnorm) {\n  dots <- c(first, list(...)) |> unlist()\n  if (length(dots) == 1) {\n    dots <- rfun(dots[[1]])\n  }\n\n  vec(dots)\n}\n\nveclen <- function(v) sqrt(v %dot% v)\nunitvec <- function(vec) vec/length(vec)\ncang <- function(v, w) {(v %dot% w) / (veclen(v) * veclen(w))}\nmakeQ <- function(...) {\n  dots <- list(...) |> bind_cols()\n  qr.Q(qr(dots))\n}\n\ncheck_for_svd <- function(S) {\n  if (inherits(S, \"matrix\")) S <- svd(S)\n  if (!is.list(S) || !all(c(\"d\",\"v\", \"u\") %in% names(S)))\n    stop(\"Argument must be matrix or the SVD of a matrix.\")\n  S\n}\n\nrank_mat <- function(S, thresh = 0.01) {\n  S <- check_for_svd(S)\n  sum(S$d > S$d[1] * thresh)\n}\n\nrand_mat <- function(nrow=3, ncol=6, rank = pmin(nrow, ncol)) {\n  M <- matrix(runif(nrow*ncol), nrow = nrow, ncol = ncol)\n  if (rank >= nrow || rank >= ncol) {\n   M\n  } else {\n    approx_mat(S, n=sample(pmin(rank, nrow, ncol)))\n  }\n}\n\n# Grab rank 1 matrix from SVD\napprox_mat <- function(S, n=1, order = 0) { # input a matrix or the SVD of a matrix\n  S <- check_for_svd(S)\n  if (order > 0) {\n    inds1 <- order(c(S$u[,order]))\n    inds2 <- order(c(S$v[,order]))\n  } else {\n    inds1 <- 1:nrow(S$u)\n    inds2 <- 1:nrow(S$v)\n  }\n  partial <- 0 # initial value\n  for (k in n) {\n    partial <- partial +  S$d[k] * S$u[inds1,k, drop = FALSE] %*% t(S$v[inds2,k, drop = FALSE])\n  }\n\n  partial\n}\n\npretty_mat <- function(M) {\n  inds1 <- order(rowSums(M))\n  inds2 <- order(colSums(M))\n  M[inds1, inds2]\n}\n\n#' Generate a matrix whose elements are selected randomly from a set\n#' of specified values.\n#' @param nrow number of rows for the matrix produced\n#' @param ncol number of columns\n#' @param values the set from which to draw (randomly) the\n#' values in the matrix. Default: integers -9 to 9\nvalues_mat <- function(nrow=4, ncol=3, values = -9:9) {\n  matrix(sample(values, size = nrow * ncol, replace = TRUE),\n         nrow = nrow, ncol=ncol)\n}\n\n# Typeset matrices in LaTeX (for assignments and such)\nLmat <- function(nr, nc) {\n  values_mat(nr, nc) |> latex_helper()\n}\nlatex_helper <- function(matr) {\n  printmrow <- function(x) {\n\n    cat(cat(x,sep=\" & \"),\"\\\\\\\\ \\n\")\n  }\n\n  cat(\"\\\\left(\\\\begin{array}{r}\",\"\\n\")\n  body <- apply(matr,1,printmrow)\n  cat(\"\\\\end{array}\\\\right)\")\n}\n","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"","warning":"true"}},{"code":"","id":2,"options":{"autorun":"false","caption":"Chunk B","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":3,"options":{"autorun":"false","caption":"Chunk C","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"mat_rotation <- function(theta) {\n  \n}","id":4,"options":{"autorun":"false","caption":"Chunk A (rotation matrix function)","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"find_vec_angle <- function(v) {\n  atan2(v[[2]], v[[1]])\n}","id":5,"options":{"autorun":"true","caption":"Helper to find angle","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"glass_pattern <- function(n=1000, theta=5, xscale = 1, yscale = 1) {\n  theta <- pi*theta/180 # in radians\n  Pts <- tibble::tibble(\n    x = runif(n, -1, 1),\n    y = runif(n, -1, 1),\n    xx = x*xscale,\n    yy = y*yscale) |>\n    mutate(x2 = cos(theta)*xx + sin(theta)*yy,\n           y2 = -sin(theta)*xx + cos(theta)*yy) |>\n    select(-xx, -yy)\n}","id":6,"options":{"autorun":"true","caption":"Produces correlated pairs","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-6","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"glass_pattern(xscale = 0.95, yscale = 1.2, theta = 15) |>\n  # gf_point(y ~ x, size=0.3) |>\n  # gf_point(y2 ~ x2, size=0.3) |>\n  gf_segment(y + y2 ~ x + x2, linewidth=0.2,\n             arrow = arrow(length=unit(0.03, \"inches\"))) |>\n  gf_refine(coord_fixed())","id":7,"options":{"autorun":"false","caption":"Chunk B show a transformation","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-7","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
-
-</script>
-<script type="module">
-// Declare startupMessageQWebR globally
-globalThis.qwebrStartupMessage = document.createElement("p");
-
-// Verify if OffScreenCanvas is supported
-globalThis.qwebrOffScreenCanvasSupport = function() {
-  return typeof OffscreenCanvas !== 'undefined'
-}
-
-// Function to set the button text
-globalThis.qwebrSetInteractiveButtonState = function(buttonText, enableCodeButton = true) {
-  document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
-    btn.innerHTML = buttonText;
-    btn.disabled = !enableCodeButton;
-  });
-}
-
-// Function to update the status message in non-interactive cells
-globalThis.qwebrUpdateStatusMessage = function(message) {
-  document.querySelectorAll(".qwebr-status-text.qwebr-cell-needs-evaluation").forEach((elem) => {
-    elem.innerText = message;
-  });
-}
-
-// Function to update the status message
-globalThis.qwebrUpdateStatusHeader = function(message) {
-  qwebrStartupMessage.innerHTML = `
-    <i class="fa-solid fa-spinner fa-spin qwebr-icon-status-spinner"></i>
-    <span>${message}</span>`;
-}
-
-// Function to return true if element is found, false if not
-globalThis.qwebrCheckHTMLElementExists = function(selector) {
-  const element = document.querySelector(selector);
-  return !!element;
-}
-
-// Function that detects whether reveal.js slides are present
-globalThis.qwebrIsRevealJS = function() {
-  // If the '.reveal .slides' selector exists, RevealJS is likely present
-  return qwebrCheckHTMLElementExists('.reveal .slides');
-}
-
-// Initialize the Quarto sidebar element
-function qwebrSetupQuartoSidebar() {
-  var newSideBarDiv = document.createElement('div');
-  newSideBarDiv.id = 'quarto-margin-sidebar';
-  newSideBarDiv.className = 'sidebar margin-sidebar';
-  newSideBarDiv.style.top = '0px';
-  newSideBarDiv.style.maxHeight = 'calc(0px + 100vh)';
-
-  return newSideBarDiv;
-}
-
-// Position the sidebar in the document
-function qwebrPlaceQuartoSidebar() {
-  // Get the reference to the element with id 'quarto-document-content'
-  var referenceNode = document.getElementById('quarto-document-content');
-
-  // Create the new div element
-  var newSideBarDiv = qwebrSetupQuartoSidebar();
-
-  // Insert the new div before the 'quarto-document-content' element
-  referenceNode.parentNode.insertBefore(newSideBarDiv, referenceNode);
-}
-
-function qwebrPlaceMessageContents(content, html_location = "title-block-header", revealjs_location = "title-slide") {
-
-  // Get references to header elements
-  const headerHTML = document.getElementById(html_location);
-  const headerRevealJS = document.getElementById(revealjs_location);
-
-  // Determine where to insert the quartoTitleMeta element
-  if (headerHTML || headerRevealJS) {
-    // Append to the existing "title-block-header" element or "title-slide" div
-    (headerHTML || headerRevealJS).appendChild(content);
-  } else {
-    // If neither headerHTML nor headerRevealJS is found, insert after "webr-monaco-editor-init" script
-    const monacoScript = document.getElementById("qwebr-monaco-editor-init");
-    const header = document.createElement("header");
-    header.setAttribute("id", "title-block-header");
-    header.appendChild(content);
-    monacoScript.after(header);
-  }
-}
-
-
-
-function qwebrOffScreenCanvasSupportWarningMessage() {
-  
-  // Verify canvas is supported.
-  if(qwebrOffScreenCanvasSupport()) return;
-
-  // Create the main container div
-  var calloutContainer = document.createElement('div');
-  calloutContainer.classList.add('callout', 'callout-style-default', 'callout-warning', 'callout-titled');
-
-  // Create the header div
-  var headerDiv = document.createElement('div');
-  headerDiv.classList.add('callout-header', 'd-flex', 'align-content-center');
-
-  // Create the icon container div
-  var iconContainer = document.createElement('div');
-  iconContainer.classList.add('callout-icon-container');
-
-  // Create the icon element
-  var iconElement = document.createElement('i');
-  iconElement.classList.add('callout-icon');
-
-  // Append the icon element to the icon container
-  iconContainer.appendChild(iconElement);
-
-  // Create the title container div
-  var titleContainer = document.createElement('div');
-  titleContainer.classList.add('callout-title-container', 'flex-fill');
-  titleContainer.innerText = 'Warning: Web Browser Does Not Support Graphing!';
-
-  // Append the icon container and title container to the header div
-  headerDiv.appendChild(iconContainer);
-  headerDiv.appendChild(titleContainer);
-
-  // Create the body container div
-  var bodyContainer = document.createElement('div');
-  bodyContainer.classList.add('callout-body-container', 'callout-body');
-
-  // Create the paragraph element for the body content
-  var paragraphElement = document.createElement('p');
-  paragraphElement.innerHTML = 'This web browser does not have support for displaying graphs through the <code>quarto-webr</code> extension since it lacks an <code>OffScreenCanvas</code>. Please upgrade your web browser to one that supports <code>OffScreenCanvas</code>.';
-
-  // Append the paragraph element to the body container
-  bodyContainer.appendChild(paragraphElement);
-
-  // Append the header div and body container to the main container div
-  calloutContainer.appendChild(headerDiv);
-  calloutContainer.appendChild(bodyContainer);
-
-  // Append the main container div to the document depending on format
-  qwebrPlaceMessageContents(calloutContainer, "title-block-header"); 
-
-}
-
-
-// Function that attaches the document status message and diagnostics
-function displayStartupMessage(showStartupMessage, showHeaderMessage) {
-  if (!showStartupMessage) {
-    return;
-  }
-
-  // Create the outermost div element for metadata
-  const quartoTitleMeta = document.createElement("div");
-  quartoTitleMeta.classList.add("quarto-title-meta");
-
-  // Create the first inner div element
-  const firstInnerDiv = document.createElement("div");
-  firstInnerDiv.setAttribute("id", "qwebr-status-message-area");
-
-  // Create the second inner div element for "WebR Status" heading and contents
-  const secondInnerDiv = document.createElement("div");
-  secondInnerDiv.setAttribute("id", "qwebr-status-message-title");
-  secondInnerDiv.classList.add("quarto-title-meta-heading");
-  secondInnerDiv.innerText = "WebR Status";
-
-  // Create another inner div for contents
-  const secondInnerDivContents = document.createElement("div");
-  secondInnerDivContents.setAttribute("id", "qwebr-status-message-body");
-  secondInnerDivContents.classList.add("quarto-title-meta-contents");
-
-  // Describe the WebR state
-  qwebrStartupMessage.innerText = "🟡 Loading...";
-  qwebrStartupMessage.setAttribute("id", "qwebr-status-message-text");
-  // Add `aria-live` to auto-announce the startup status to screen readers
-  qwebrStartupMessage.setAttribute("aria-live", "assertive");
-
-  // Append the startup message to the contents
-  secondInnerDivContents.appendChild(qwebrStartupMessage);
-
-  // Add a status indicator for COOP and COEP Headers if needed
-  if (showHeaderMessage) {
-    const crossOriginMessage = document.createElement("p");
-    crossOriginMessage.innerText = `${crossOriginIsolated ? '🟢' : '🟡'} COOP & COEP Headers`;
-    crossOriginMessage.setAttribute("id", "qwebr-coop-coep-header");
-    secondInnerDivContents.appendChild(crossOriginMessage);
-  }
-
-  // Combine the inner divs and contents
-  firstInnerDiv.appendChild(secondInnerDiv);
-  firstInnerDiv.appendChild(secondInnerDivContents);
-  quartoTitleMeta.appendChild(firstInnerDiv);
-
-  // Place message on webpage
-  qwebrPlaceMessageContents(quartoTitleMeta); 
-}
-
-function qwebrAddCommandHistoryModal() {
-  // Create the modal div
-  var modalDiv = document.createElement('div');
-  modalDiv.id = 'qwebr-history-modal';
-  modalDiv.className = 'qwebr-modal';
-
-  // Create the modal content div
-  var modalContentDiv = document.createElement('div');
-  modalContentDiv.className = 'qwebr-modal-content';
-
-  // Create the span for closing the modal
-  var closeSpan = document.createElement('span');
-  closeSpan.id = 'qwebr-command-history-close-btn';
-  closeSpan.className = 'qwebr-modal-close';
-  closeSpan.innerHTML = '&times;';
-
-  // Create the h1 element for the modal
-  var modalH1 = document.createElement('h1');
-  modalH1.textContent = 'R History Command Contents';
-
-  // Create an anchor element for downloading the Rhistory file 
-  var downloadLink = document.createElement('a');
-  downloadLink.href = '#';
-  downloadLink.id = 'qwebr-download-history-btn';
-  downloadLink.className = 'qwebr-download-btn';
-
-  // Create an 'i' element for the icon
-  var icon = document.createElement('i');
-  icon.className = 'bi bi-file-code';
-
-  // Append the icon to the anchor element
-  downloadLink.appendChild(icon);
-
-  // Add the text 'Download R History' to the anchor element
-  downloadLink.appendChild(document.createTextNode(' Download R History File'));
-
-  // Create the pre for command history contents
-  var commandContentsPre = document.createElement('pre');
-  commandContentsPre.id = 'qwebr-command-history-contents';
-  commandContentsPre.className = 'qwebr-modal-content-code';
-
-  // Append the close span, h1, and history contents pre to the modal content div
-  modalContentDiv.appendChild(closeSpan);
-  modalContentDiv.appendChild(modalH1);
-  modalContentDiv.appendChild(downloadLink);
-  modalContentDiv.appendChild(commandContentsPre);
-
-  // Append the modal content div to the modal div
-  modalDiv.appendChild(modalContentDiv);
-
-  // Append the modal div to the body
-  document.body.appendChild(modalDiv);
-}
-
-function qwebrRegisterRevealJSCommandHistoryModal() {
-  // Select the <ul> element inside the <div> with data-panel="Custom0"
-  let ulElement = document.querySelector('div[data-panel="Custom0"] > ul.slide-menu-items');
-
-  // Find the last <li> element with class slide-tool-item
-  let lastItem = ulElement.querySelector('li.slide-tool-item:last-child');
-
-  // Calculate the next data-item value
-  let nextItemValue = 0;
-  if (lastItem) {
-      nextItemValue = parseInt(lastItem.dataset.item) + 1;
-  }
-
-  // Create a new <li> element
-  let newListItem = document.createElement('li');
-  newListItem.className = 'slide-tool-item';
-  newListItem.dataset.item = nextItemValue.toString(); // Set the next available data-item value
-
-  // Create the <a> element inside the <li>
-  let newLink = document.createElement('a');
-  newLink.href = '#';
-  newLink.id = 'qwebrRHistoryButton'; // Set the ID for the new link
-  
-  // Create the <kbd> element inside the <a>
-  let newKbd = document.createElement('kbd');
-  newKbd.textContent = ' '; // Set to empty as we are not registering a keyboard shortcut
-
-  // Create text node for the link text
-  let newText = document.createTextNode(' View R History');
-
-  // Append <kbd> and text node to <a>
-  newLink.appendChild(newKbd);
-  newLink.appendChild(newText);
-
-  // Append <a> to <li>
-  newListItem.appendChild(newLink);
-
-  // Append <li> to <ul>
-  ulElement.appendChild(newListItem);
-}
-
-// Handle setting up the R history modal
-function qwebrCodeLinks() {
-
-  if (qwebrIsRevealJS()) {
-    qwebrRegisterRevealJSCommandHistoryModal();
-    return;
-  }
-
-  // Create the container div
-  var containerDiv = document.createElement('div');
-  containerDiv.className = 'quarto-code-links';
-
-  // Create the h2 element
-  var h2 = document.createElement('h2');
-  h2.textContent = 'webR Code Links';
-
-  // Create the ul element
-  var ul = document.createElement('ul');
-
-  // Create the li element
-  var li = document.createElement('li');
-
-  // Create the a_history_btn element
-  var a_history_btn = document.createElement('a');
-  a_history_btn.href = 'javascript:void(0)';
-  a_history_btn.setAttribute('id', 'qwebrRHistoryButton');
-
-  // Create the i_history_btn element
-  var i_history_btn = document.createElement('i');
-  i_history_btn.className = 'bi bi-file-code';
-
-  // Create the text node for the link text
-  var text_history_btn = document.createTextNode('View R History');
-
-  // Append the icon element and link text to the a element
-  a_history_btn.appendChild(i_history_btn);
-  a_history_btn.appendChild(text_history_btn);
-
-  // Append the a element to the li element
-  li.appendChild(a_history_btn);
-
-  // Append the li element to the ul element
-  ul.appendChild(li);
-
-  // Append the h2 and ul elements to the container div
-  containerDiv.appendChild(h2);
-  containerDiv.appendChild(ul);
-
-  // Append the container div to the element with the ID 'quarto-margin-sidebar'
-  var sidebar = document.getElementById('quarto-margin-sidebar');
-    
-  // If the sidebar element is not found, create it
-  if(!sidebar) {
-    qwebrPlaceQuartoSidebar();
-  }
-  
-  // Re-select the sidebar element (if it was just created)
-  sidebar = document.getElementById('quarto-margin-sidebar');   
-
-
-  // If the sidebar element exists, append the container div to it
-  if(sidebar) {
-    // Append the container div to the sidebar
-    sidebar.appendChild(containerDiv);
-    // Force the sidebar to be clickable by removing the 'zindex-bottom' class
-    // added in pre-release: https://github.com/quarto-dev/quarto-cli/commit/f0c53a1ffcaa1de4eccbf07803b096898248adcc
-    sidebar.className = 'sidebar margin-sidebar';
-  } else {
-    // Get a debugger ...
-    console.warn('Element with ID "quarto-margin-sidebar" not found.');
-  }
-}
-
-// Call the function to append the code links for qwebR into the right sidebar
-qwebrCodeLinks();
-
-// Add the command history modal
-qwebrAddCommandHistoryModal();
-
-displayStartupMessage(qwebrShowStartupMessage, qwebrShowHeaderMessage);
-qwebrOffScreenCanvasSupportWarningMessage();
-</script>
-<script type="module">
-// Define a global storage and retrieval solution ----
-
-// Store commands executed in R
-globalThis.qwebrRCommandHistory = [];
-
-// Function to retrieve the command history
-globalThis.qwebrFormatRHistory = function() {
-   return qwebrRCommandHistory.join("\n\n");
-}
-
-// Retrieve HTML Elements ----
-
-// Get the command modal
-const command_history_modal = document.getElementById("qwebr-history-modal");
-
-// Get the button that opens the command modal
-const command_history_btn = document.getElementById("qwebrRHistoryButton");
-
-// Get the <span> element that closes the command modal
-const command_history_close_span = document.getElementById("qwebr-command-history-close-btn");
-
-// Get the download button for r history information
-const command_history_download_btn = document.getElementById("qwebr-download-history-btn");
-
-// Plug in command history into modal/download button ----
-
-// Function to populate the modal with command history
-function populateCommandHistoryModal() {
-    document.getElementById("qwebr-command-history-contents").innerHTML = qwebrFormatRHistory() || "No commands have been executed yet.";
-}
-
-// Function to format the current date and time to
-// a string with the format YYYY-MM-DD-HH-MM-SS
-function formatDateTime() {
-    const now = new Date();
-
-    const year = now.getFullYear();
-    const day = String(now.getDate()).padStart(2, '0');
-    const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-
-    return `${year}-${month}-${day}-${hours}-${minutes}-${seconds}`;
-}
-
-
-// Function to convert document title with datetime to a safe filename
-function safeFileName() {
-    // Get the current page title
-    let pageTitle = document.title;
-
-    // Combine the current page title with the current date and time
-    let pageNameWithDateTime = `Rhistory-${pageTitle}-${formatDateTime()}`;
-
-    // Replace unsafe characters with safe alternatives
-    let safeFilename = pageNameWithDateTime.replace(/[\\/:\*\?! "<>\|]/g, '-');
-
-    return safeFilename;
-}
-
-
-// Function to download list contents as text file
-function downloadRHistory() {
-    // Get the current page title + datetime and use it as the filename
-    const filename = `${safeFileName()}.R`;
-
-    // Get the text contents of the R History list
-    const text = qwebrFormatRHistory();
-
-    // Create a new Blob object with the text contents
-    const blob = new Blob([text], { type: 'text/plain' });
-  
-    // Create a new anchor element for the download
-    const a = document.createElement('a');
-    a.style.display = 'none';
-    a.href = URL.createObjectURL(blob);
-    a.download = filename;
-
-    // Append the anchor to the body, click it, and remove it
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-// Register event handlers ----
-
-// When the user clicks the View R History button, open the command modal
-command_history_btn.onclick = function() {
-    populateCommandHistoryModal();
-    command_history_modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the command modal
-command_history_close_span.onclick = function() {
-    command_history_modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the command modal, close it
-window.onclick = function(event) {
-    if (event.target == command_history_modal) {
-        command_history_modal.style.display = "none";
-    }
-}
-
-// Add an onclick event listener to the download button so that
-// the user can download the R history as a text file
-command_history_download_btn.onclick = function() {
-    downloadRHistory();
-};
-</script>
-<script type="module">
-// Supported Evaluation Types for Context
-globalThis.EvalTypes = Object.freeze({
-  Interactive: 'interactive',
-  Setup: 'setup',
-  Output: 'output',
-});
-
-// Function that obtains the font size for a given element 
-globalThis.qwebrCurrentFontSizeOnElement = function(element, cssProperty = 'font-size') {
-
-  const currentFontSize = parseFloat(
-    window
-    .getComputedStyle(element)
-    .getPropertyValue(cssProperty)
-  );
-  
-  return currentFontSize;
-}
-
-// Function to determine font scaling
-globalThis.qwebrScaledFontSize = function(div, qwebrOptions) {
-  // Determine if we should compute font-size using RevealJS's `--r-main-font-size` 
-  // or if we can directly use the document's `font-size`.
-  const cssProperty = document.body.classList.contains('reveal') ? 
-    "--r-main-font-size" : "font-size";
-  
-  // Get the current font size on the div element
-  const elementFontSize = qwebrCurrentFontSizeOnElement(div, cssProperty);
-
-  // Determine the scaled font size value
-  const scaledFontSize = ((qwebrOptions['editor-font-scale'] ?? 1) * elementFontSize) ?? 17.5;
-
-  return scaledFontSize;
-}
-
-
-// Function that dispatches the creation request
-globalThis.qwebrCreateHTMLElement = function (
-  cellData
-) {
-
-  // Extract key components
-  const evalType = cellData.options.context;
-  const qwebrCounter = cellData.id;
-
-  // We make an assumption that insertion points are defined by the Lua filter as:
-  // qwebr-insertion-location-{qwebrCounter} 
-  const elementLocator = document.getElementById(`qwebr-insertion-location-${qwebrCounter}`);
-
-  // Figure out the routine to use to insert the element.
-  let qwebrElement;
-  switch ( evalType ) {
-    case EvalTypes.Interactive:
-      qwebrElement = qwebrCreateInteractiveElement(qwebrCounter, cellData.options);
-      break;
-    case EvalTypes.Output: 
-      qwebrElement = qwebrCreateNonInteractiveOutputElement(qwebrCounter, cellData.options);
-      break;
-    case EvalTypes.Setup: 
-      qwebrElement = qwebrCreateNonInteractiveSetupElement(qwebrCounter, cellData.options);
-      break;
-    default: 
-      qwebrElement = document.createElement('div');
-      qwebrElement.textContent = 'Error creating `quarto-webr` element';
-  }
-
-  // Insert the dynamically generated object at the document location.
-  elementLocator.appendChild(qwebrElement);
-};
-
-// Function that setups the interactive element creation
-globalThis.qwebrCreateInteractiveElement = function (qwebrCounter, qwebrOptions) {
-
-  // Create main div element
-  var mainDiv = document.createElement('div');
-  mainDiv.id = 'qwebr-interactive-area-' + qwebrCounter;
-  mainDiv.className = `qwebr-interactive-area`;
-  if (qwebrOptions.classes) {
-    mainDiv.className += " " + qwebrOptions.classes
-  }
-
-  // Add a unique cell identifier that users can customize
-  if (qwebrOptions.label) {
-    mainDiv.setAttribute('data-id', qwebrOptions.label);
-  }
-
-  // Create toolbar div
-  var toolbarDiv = document.createElement('div');
-  toolbarDiv.className = 'qwebr-editor-toolbar';
-  toolbarDiv.id = 'qwebr-editor-toolbar-' + qwebrCounter;
-
-  // Create a div to hold the left buttons
-  var leftButtonsDiv = document.createElement('div');
-  leftButtonsDiv.className = 'qwebr-editor-toolbar-left-buttons';
-
-  // Create a div to hold the right buttons
-  var rightButtonsDiv = document.createElement('div');
-  rightButtonsDiv.className = 'qwebr-editor-toolbar-right-buttons';
-
-  // Create Run Code button
-  var runCodeButton = document.createElement('button');
-  runCodeButton.className = 'btn btn-default qwebr-button qwebr-button-run';
-  runCodeButton.disabled = true;
-  runCodeButton.type = 'button';
-  runCodeButton.id = 'qwebr-button-run-' + qwebrCounter;
-  runCodeButton.textContent = '🟡 Loading webR...';
-  runCodeButton.title = `Run code (Shift + Enter)`;
-
-  // Append buttons to the leftButtonsDiv
-  leftButtonsDiv.appendChild(runCodeButton);
-
-  // Create Reset button
-  var resetButton = document.createElement('button');
-  resetButton.className = 'btn btn-light btn-xs qwebr-button qwebr-button-reset';
-  resetButton.type = 'button';
-  resetButton.id = 'qwebr-button-reset-' + qwebrCounter;
-  resetButton.title = 'Start over';
-  resetButton.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i>';
-
-  // Create Copy button
-  var copyButton = document.createElement('button');
-  copyButton.className = 'btn btn-light btn-xs qwebr-button qwebr-button-copy';
-  copyButton.type = 'button';
-  copyButton.id = 'qwebr-button-copy-' + qwebrCounter;
-  copyButton.title = 'Copy code';
-  copyButton.innerHTML = '<i class="fa-regular fa-copy"></i>';
-
-  // Append buttons to the rightButtonsDiv
-  rightButtonsDiv.appendChild(resetButton);
-  rightButtonsDiv.appendChild(copyButton);
-
-  // Create console area div
-  var consoleAreaDiv = document.createElement('div');
-  consoleAreaDiv.id = 'qwebr-console-area-' + qwebrCounter;
-  consoleAreaDiv.className = 'qwebr-console-area';
-
-  // Create editor div
-  var editorDiv = document.createElement('div');
-  editorDiv.id = 'qwebr-editor-' + qwebrCounter;
-  editorDiv.className = 'qwebr-editor';
-
-  // Create output code area div
-  var outputCodeAreaDiv = document.createElement('div');
-  outputCodeAreaDiv.id = 'qwebr-output-code-area-' + qwebrCounter;
-  outputCodeAreaDiv.className = 'qwebr-output-code-area';
-  outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
-
-  // Create pre element inside output code area
-  var preElement = document.createElement('pre');
-  preElement.style.visibility = 'hidden';
-  outputCodeAreaDiv.appendChild(preElement);
-
-  // Create output graph area div
-  var outputGraphAreaDiv = document.createElement('div');
-  outputGraphAreaDiv.id = 'qwebr-output-graph-area-' + qwebrCounter;
-  outputGraphAreaDiv.className = 'qwebr-output-graph-area';
-
-  // Append buttons to the toolbar
-  toolbarDiv.appendChild(leftButtonsDiv);
-  toolbarDiv.appendChild(rightButtonsDiv);
-
-  // Append all elements to the main div
-  mainDiv.appendChild(toolbarDiv);
-  consoleAreaDiv.appendChild(editorDiv);
-  consoleAreaDiv.appendChild(outputCodeAreaDiv);
-  mainDiv.appendChild(consoleAreaDiv);
-  mainDiv.appendChild(outputGraphAreaDiv);
-
-  return mainDiv;
-}
-
-// Function that adds output structure for non-interactive output
-globalThis.qwebrCreateNonInteractiveOutputElement = function(qwebrCounter, qwebrOptions) {
-  // Create main div element
-  var mainDiv = document.createElement('div');
-  mainDiv.id = 'qwebr-noninteractive-area-' + qwebrCounter;
-  mainDiv.className = `qwebr-noninteractive-area`;
-  if (qwebrOptions.classes) {
-    mainDiv.className += " " + qwebrOptions.classes
-  }
-  
-  // Add a unique cell identifier that users can customize
-  if (qwebrOptions.label) {
-    mainDiv.setAttribute('data-id', qwebrOptions.label);
-  }
-  
-  // Create a status container div
-  var statusContainer = createLoadingContainer(qwebrCounter);
-
-  // Create output code area div
-  var outputCodeAreaDiv = document.createElement('div');
-  outputCodeAreaDiv.id = 'qwebr-output-code-area-' + qwebrCounter;
-  outputCodeAreaDiv.className = 'qwebr-output-code-area';
-  outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
-
-  // Create pre element inside output code area
-  var preElement = document.createElement('pre');
-  preElement.style.visibility = 'hidden';
-  outputCodeAreaDiv.appendChild(preElement);
-
-  // Create output graph area div
-  var outputGraphAreaDiv = document.createElement('div');
-  outputGraphAreaDiv.id = 'qwebr-output-graph-area-' + qwebrCounter;
-  outputGraphAreaDiv.className = 'qwebr-output-graph-area';
-
-  // Append all elements to the main div
-  mainDiv.appendChild(statusContainer);
-  mainDiv.appendChild(outputCodeAreaDiv);
-  mainDiv.appendChild(outputGraphAreaDiv);
-
-  return mainDiv;
-};
-
-// Function that adds a stub in the page to indicate a setup cell was used.
-globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter, qwebrOptions) {
-  // Create main div element
-  var mainDiv = document.createElement('div');
-  mainDiv.id = `qwebr-noninteractive-setup-area-${qwebrCounter}`;
-  mainDiv.className = `qwebr-noninteractive-setup-area`;
-  if (qwebrOptions.classes) {
-    mainDiv.className += " " + qwebrOptions.classes
-  }
-
-
-  // Add a unique cell identifier that users can customize
-  if (qwebrOptions.label) {
-    mainDiv.setAttribute('data-id', qwebrOptions.label);
-  }
-
-  // Create a status container div
-  var statusContainer = createLoadingContainer(qwebrCounter);
-
-  // Append status onto the main div
-  mainDiv.appendChild(statusContainer);
-
-  return mainDiv;
-}
-
-
-// Function to create loading container with specified ID
-globalThis.createLoadingContainer = function(qwebrCounter) {
-
-  // Create a status container
-  const container = document.createElement('div');
-  container.id = `qwebr-non-interactive-loading-container-${qwebrCounter}`;
-  container.className = 'qwebr-non-interactive-loading-container qwebr-cell-needs-evaluation';
-
-  // Create an R project logo to indicate its a code space
-  const rProjectIcon = document.createElement('i');
-  rProjectIcon.className = 'fa-brands fa-r-project fa-3x qwebr-r-project-logo';
-
-  // Setup a loading icon from font awesome
-  const spinnerIcon = document.createElement('i');
-  spinnerIcon.className = 'fa-solid fa-spinner fa-spin fa-1x qwebr-icon-status-spinner';
-
-  // Add a section for status text
-  const statusText = document.createElement('p');
-  statusText.id = `qwebr-status-text-${qwebrCounter}`;
-  statusText.className = `qwebr-status-text qwebr-cell-needs-evaluation`;
-  statusText.innerText = 'Loading webR...';
-
-  // Incorporate an inner container
-  const innerContainer = document.createElement('div');
-
-  // Append elements to the inner container
-  innerContainer.appendChild(spinnerIcon);
-  innerContainer.appendChild(statusText);
-
-  // Append elements to the main container
-  container.appendChild(rProjectIcon);
-  container.appendChild(innerContainer);
-
-  return container;
-}
-</script>
-<script type="module">
-// Function to install a single package
-async function qwebrInstallRPackage(packageName) {
-  await mainWebR.evalRVoid(`webr::install('${packageName}');`);
-}
-
-// Function to load a single package
-async function qwebrLoadRPackage(packageName) {
-  await mainWebR.evalRVoid(`require('${packageName}', quietly = TRUE)`);
-}
-
-// Generic function to process R packages
-async function qwebrProcessRPackagesWithStatus(packages, processType, displayStatusMessageUpdate = true) {
-  // Switch between contexts
-  const messagePrefix = processType === 'install' ? 'Installing' : 'Loading';
-
-  // Modify button state
-  qwebrSetInteractiveButtonState(`🟡 ${messagePrefix} package ...`, false);
-
-  // Iterate over packages
-  for (let i = 0; i < packages.length; i++) {
-    const activePackage = packages[i];
-    const formattedMessage = `${messagePrefix} package ${i + 1} out of ${packages.length}: ${activePackage}`;
-
-    // Display the update in header
-    if (displayStatusMessageUpdate) {
-      qwebrUpdateStatusHeader(formattedMessage);
-    }
-
-    // Display the update in non-active areas
-    qwebrUpdateStatusMessage(formattedMessage);
-
-    // Run package installation
-    if (processType === 'install') {
-      await qwebrInstallRPackage(activePackage);
-    } else {
-      await qwebrLoadRPackage(activePackage);
-    }
-  }
-
-  // Clean slate
-  if (processType === 'load') {
-    await mainWebR.flush();
-  }
-}
-
-// Start a timer
-const initializeWebRTimerStart = performance.now();
-
-// Encase with a dynamic import statement
-globalThis.qwebrInstance = import(qwebrCustomizedWebROptions.baseURL + "webr.mjs").then(
-  async ({ WebR, ChannelType }) => {
-    // Populate WebR options with defaults or new values based on `webr` meta
-    globalThis.mainWebR = new WebR(qwebrCustomizedWebROptions);
-
-    // Initialization WebR
-    await mainWebR.init();
-
-    // Setup a shelter
-    globalThis.mainWebRCodeShelter = await new mainWebR.Shelter();
-
-    // Setup a pager to allow processing help documentation
-    await mainWebR.evalRVoid('webr::pager_install()');
-
-    // Setup a viewer to allow processing htmlwidgets.
-    // This might not be available in old webr version
-    await mainWebR.evalRVoid('try({ webr::viewer_install() })');
-
-    // Override the existing install.packages() to use webr::install()
-    await mainWebR.evalRVoid('webr::shim_install()');
-
-    // Specify the repositories to pull from
-    // Note: webR does not use the `repos` option, but instead uses `webr_pkg_repos`
-    // inside of `install()`. However, other R functions still pull from `repos`.
-    await mainWebR.evalRVoid(`
-      options(
-        webr_pkg_repos = c(${qwebrPackageRepoURLS.map(repoURL => `'${repoURL}'`).join(',')}),
-        repos = c(${qwebrPackageRepoURLS.map(repoURL => `'${repoURL}'`).join(',')})
-      )
-    `);
-
-    // Check to see if any packages need to be installed
-    if (qwebrSetupRPackages) {
-      // Obtain only a unique list of packages
-      const uniqueRPackageList = Array.from(new Set(qwebrInstallRPackagesList));
-
-      // Install R packages one at a time (either silently or with a status update)
-      await qwebrProcessRPackagesWithStatus(uniqueRPackageList, 'install', qwebrShowStartupMessage);
-
-      if (qwebrAutoloadRPackages) {
-        // Load R packages one at a time (either silently or with a status update)
-        await qwebrProcessRPackagesWithStatus(uniqueRPackageList, 'load', qwebrShowStartupMessage);
-      }
-    }
-  }
-);
-
-// Stop timer
-const initializeWebRTimerEnd = performance.now();
-
-</script>
-<script type="module">
-// Function to verify a given JavaScript Object is empty
-globalThis.qwebrIsObjectEmpty = function (arr) {
-    return Object.keys(arr).length === 0;
-}
-
-// Global version of the Escape HTML function that converts HTML
-// characters to their HTML entities.
-globalThis.qwebrEscapeHTMLCharacters = function(unsafe) {
-    return unsafe
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-};
-
-// Passthrough results
-globalThis.qwebrIdentity = function(x) {
-    return x;
-};
-
-// Append a comment
-globalThis.qwebrPrefixComment = function(x, comment) {
-    return `${comment}${x}`;
-};
-
-// Function to store the code in the history
-globalThis.qwebrLogCodeToHistory = function(codeToRun, options) {
-    qwebrRCommandHistory.push(
-        `# Ran code in ${options.label} at ${new Date().toLocaleString()} ----\n${codeToRun}`
-    );
-};
-
-// Function to attach a download button onto the canvas
-// allowing the user to download the image.
-function qwebrImageCanvasDownloadButton(canvas, canvasContainer) {
-
-    // Create the download button
-    const downloadButton = document.createElement('button');
-    downloadButton.className = 'qwebr-canvas-image-download-btn';
-    downloadButton.textContent = 'Download Image';
-    canvasContainer.appendChild(downloadButton);
-
-    // Trigger a download of the image when the button is clicked
-    downloadButton.addEventListener('click', function() {
-        const image = canvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.href = image;
-        link.download = 'qwebr-canvas-image.png';
-        link.click();
-    });
-}
-
-
-// Function to parse the pager results
-globalThis.qwebrParseTypePager = async function (msg) {
-
-    // Split out the event data
-    const { path, title, deleteFile } = msg.data;
-
-    // Process the pager data by reading the information from disk
-    const paged_data = await mainWebR.FS.readFile(path).then((data) => {
-        // Obtain the file content
-        let content = new TextDecoder().decode(data);
-
-        // Remove excessive backspace characters until none remain
-        while(content.match(/.[\b]/)){
-            content = content.replace(/.[\b]/g, '');
-        }
-
-        // Returned cleaned data
-        return content;
-    });
-
-    // Unlink file if needed
-    if (deleteFile) {
-        await mainWebR.FS.unlink(path);
-    }
-
-    // Return extracted data with spaces
-    return paged_data;
-};
-
-
-// Function to parse the browse results
-globalThis.qwebrParseTypeBrowse = async function (msg) {
-
-    // msg.type === "browse"
-    const path = msg.data.url;
-
-    // Process the browse data by reading the information from disk
-    const browse_data = await mainWebR.FS.readFile(path).then((data) => {
-        // Obtain the file content
-        let content = new TextDecoder().decode(data);
-
-        return content;
-    });
-
-    // Return extracted data as-is
-    return browse_data;
-};
-
-// Function to run the code using webR and parse the output
-globalThis.qwebrComputeEngine = async function(
-    codeToRun,
-    elements,
-    options) {
-
-    // Call into the R compute engine that persists within the document scope.
-    // To be prepared for all scenarios, the following happens:
-    // 1. We setup a canvas device to write to by making a namespace call into the {webr} package
-    // 2. We use values inside of the options array to set the figure size.
-    // 3. We capture the output stream information (STDOUT and STERR)
-    // 4. We disable the current device's image creation.
-    // 5. Piece-wise parse the results into the different output areas
-
-    // Create a pager variable for help/file contents
-    let pager = [];
-
-    // Handle how output is processed
-    let showMarkup = options.results === "markup" && options.output !== "asis";
-    let processOutput;
-
-    if (showMarkup) {
-        processOutput = qwebrEscapeHTMLCharacters;
-    } else {
-        processOutput = qwebrIdentity;
-    }
-
-    // ----
-    // Convert from Inches to Pixels by using DPI (dots per inch)
-    // for bitmap devices (dpi * inches = pixels)
-    let fig_width = options["fig-width"] * options["dpi"];
-    let fig_height = options["fig-height"] * options["dpi"];
-
-    // Initialize webR
-    await mainWebR.init();
-
-    // Configure capture output
-    let captureOutputOptions = {
-        withAutoprint: true,
-        captureStreams: true,
-        captureConditions: false,
-        // env: webR.objs.emptyEnv, // maintain a global environment for webR v0.2.0
-    };
-
-    // Determine if the browser supports OffScreen
-    if (qwebrOffScreenCanvasSupport()) {
-        // Mirror default options of webr::canvas()
-        // with changes to figure height and width.
-        captureOutputOptions.captureGraphics = {
-            width: fig_width,
-            height: fig_height,
-            bg: "white", // default: transparent
-            pointsize: 12,
-            capture: true
-        };
-    }  else {
-        // Disable generating graphics
-        captureOutputOptions.captureGraphics = false;
-    }
-
-    // Store the code to run in history
-    qwebrLogCodeToHistory(codeToRun, options);
-
-    // Setup a webR canvas by making a namespace call into the {webr} package
-    // Evaluate the R code
-    // Remove the active canvas silently
-    const result = await mainWebRCodeShelter.captureR(
-        `${codeToRun}`,
-        captureOutputOptions
-    );
-
-    // -----
-
-    // Start attempting to parse the result data
-    processResultOutput:try {
-
-        // Avoid running through output processing
-        if (options.results === "hide" || options.output === "false") {
-            break processResultOutput;
-        }
-
-        // Merge output streams of STDOUT and STDErr (messages and errors are combined.)
-        // Require both `warning` and `message` to be true to display `STDErr`.
-        const out = result.output
-        .filter(
-            evt => evt.type === "stdout" ||
-            ( evt.type === "stderr" && (options.warning === "true" && options.message === "true"))
-        )
-        .map((evt, index) => {
-            const className = `qwebr-output-code-${evt.type}`;
-            const outputResult = qwebrPrefixComment(processOutput(evt.data), options.comment);
-            return `<code id="${className}-editor-${elements.id}-result-${index + 1}" class="${className}">${outputResult}</code>`;
-        })
-        .join("\n");
-
-
-        // Clean the state
-        // We're now able to process pager events.
-        // As a result, we cannot maintain a true 1-to-1 output order
-        // without individually feeding each line
-        const msgs = await mainWebR.flush();
-
-        // Use `map` to process the filtered "pager" events asynchronously
-        const pager = [];
-        const browse = [];
-
-        await Promise.all(
-            msgs.map(
-                async (msg) => {
-
-                    const msgType = msg.type || "unknown";
-
-                    switch(msgType) {
-                        case 'pager':
-                            const pager_data = await qwebrParseTypePager(msg);
-                            pager.push(pager_data);
-                            break;
-                        case 'browse':
-                            const browse_data = await qwebrParseTypeBrowse(msg);
-                            browse.push(browse_data);
-                            break;
-                    }
-                    return;
-                }
-            )
-        );
-
-        // Nullify the output area of content
-        elements.outputCodeDiv.innerHTML = "";
-        elements.outputGraphDiv.innerHTML = "";
-
-        // Design an output object for messages
-        const pre = document.createElement("pre");
-        if (/\S/.test(out)) {
-            // Display results as HTML elements to retain output styling
-            const div = document.createElement("div");
-            div.innerHTML = out;
-
-            // Calculate a scaled font-size value
-            const scaledFontSize = qwebrScaledFontSize(
-                elements.outputCodeDiv, options);
-
-            // Override output code cell size
-            pre.style.fontSize = `${scaledFontSize}px`;
-            pre.appendChild(div);
-        } else {
-            // If nothing is present, hide the element.
-            pre.style.visibility = "hidden";
-        }
-
-        elements.outputCodeDiv.appendChild(pre);
-
-        // Determine if we have graphs to display
-        if (result.images.length > 0) {
-
-            // Create figure element
-            const figureElement = document.createElement("figure");
-            figureElement.className = "qwebr-canvas-image";
-
-            // Place each rendered graphic onto a canvas element
-            result.images.forEach((img) => {
-
-                // Construct canvas for object
-                const canvas = document.createElement("canvas");
-
-                // Add an image download button
-                qwebrImageCanvasDownloadButton(canvas, figureElement);
-
-                // Set canvas size to image
-                canvas.width = img.width;
-                canvas.height = img.height;
-
-                // Apply output truncations
-                canvas.style.width = options["out-width"] ? options["out-width"] : `${fig_width}px`;
-                if (options["out-height"]) {
-                    canvas.style.height = options["out-height"];
-                }
-
-                // Apply styling
-                canvas.style.display = "block";
-                canvas.style.margin = "auto";
-
-                // Draw image onto Canvas
-                const ctx = canvas.getContext("2d");
-                ctx.drawImage(img, 0, 0, img.width, img.height);
-
-                // Append canvas to figure output area
-                figureElement.appendChild(canvas);
-
-            });
-
-            if (options['fig-cap']) {
-                // Create figcaption element
-                const figcaptionElement = document.createElement('figcaption');
-                figcaptionElement.innerText = options['fig-cap'];
-                // Append figcaption to figure
-                figureElement.appendChild(figcaptionElement);
-            }
-
-            elements.outputGraphDiv.appendChild(figureElement);
-
-        }
-
-        // Display the pager data
-        if (pager.length > 0) {
-            // Use the `pre` element to preserve whitespace.
-            pager.forEach((paged_data, index) => {
-                const pre_pager = document.createElement("pre");
-                pre_pager.innerText = paged_data;
-                pre_pager.classList.add("qwebr-output-code-pager");
-                pre_pager.setAttribute("id", `qwebr-output-code-pager-editor-${elements.id}-result-${index + 1}`);
-                elements.outputCodeDiv.appendChild(pre_pager);
-            });
-        }
-
-        // Display the browse data
-        if (browse.length > 0) {
-            // Use the `pre` element to preserve whitespace.
-            browse.forEach((browse_data, index) => {
-                const iframe_browse = document.createElement('iframe');
-                iframe_browse.classList.add("qwebr-output-code-browse");
-                iframe_browse.setAttribute("id", `qwebr-output-code-browse-editor-${elements.id}-result-${index + 1}`);
-                iframe_browse.style.width = "100%";
-                iframe_browse.style.minHeight = "500px";
-                elements.outputCodeDiv.appendChild(iframe_browse);
-
-                iframe_browse.contentWindow.document.open();
-                iframe_browse.contentWindow.document.write(browse_data);
-                iframe_browse.contentWindow.document.close();
-            });
-        }
-    } finally {
-        // Clean up the remaining code
-        mainWebRCodeShelter.purge();
-    }
-};
-
-// Function to execute the code (accepts code as an argument)
-globalThis.qwebrExecuteCode = async function (
-    codeToRun,
-    id,
-    options = {}) {
-
-    // If options are not passed, we fall back on the bare minimum to handle the computation
-    if (qwebrIsObjectEmpty(options)) {
-        options = {
-            "context": "interactive",
-            "fig-width": 7, "fig-height": 5,
-            "out-width": "700px", "out-height": "",
-            "dpi": 72,
-            "results": "markup",
-            "warning": "true", "message": "true",
-        };
-    }
-
-    // Next, we access the compute areas values
-    const elements = {
-        runButton: document.getElementById(`qwebr-button-run-${id}`),
-        outputCodeDiv: document.getElementById(`qwebr-output-code-area-${id}`),
-        outputGraphDiv: document.getElementById(`qwebr-output-graph-area-${id}`),
-        id: id,
-    }
-
-    // Disallowing execution of other code cells
-    document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
-        btn.disabled = true;
-    });
-
-    if (options.context == EvalTypes.Interactive) {
-        // Emphasize the active code cell
-        elements.runButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin qwebr-icon-status-spinner"></i> <span>Run Code</span>';
-    }
-
-    // Evaluate the code and parse the output into the document
-    await qwebrComputeEngine(codeToRun, elements, options);
-
-    // Switch to allowing execution of code
-    document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
-        btn.disabled = false;
-    });
-
-    if (options.context == EvalTypes.Interactive) {
-        // Revert to the initial code cell state
-        elements.runButton.innerHTML = '<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>';
-    }
-}
-
-</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -1714,290 +165,6 @@ window.Quarto = {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
-<script type="module" id="qwebr-monaco-editor-init">
-
-  // Configure the Monaco Editor's loader
-  require.config({
-    paths: {
-      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
-    }
-  });
-</script>
-<script type="module">
-// Function to update Monaco Editors when body class changes
-function updateMonacoEditorsOnBodyClassChange() {
-    // Select the body element
-    const body = document.querySelector('body');
-
-    // Options for the observer (which mutations to observe)
-    const observerOptions = {
-        attributes: true,  // Observe changes to attributes
-        attributeFilter: ['class'] // Only observe changes to the 'class' attribute
-    };
-
-    // Callback function to execute when mutations are observed
-    const bodyClassChangeCallback = function(mutationsList, observer) {
-        for(let mutation of mutationsList) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                // Class attribute has changed
-                // Update all Monaco Editors on the page
-                updateMonacoEditorTheme();
-            }
-        }
-    };
-
-    // Create an observer instance linked to the callback function
-    const observer = new MutationObserver(bodyClassChangeCallback);
-
-    // Start observing the target node for configured mutations
-    observer.observe(body, observerOptions);
-}
-
-// Function to update all instances of Monaco Editors on the page
-function updateMonacoEditorTheme() {
-    // Determine what VS Theme to use
-    const vsThemeToUse = document.body.classList.contains("quarto-dark") ? 'vs-dark' : 'vs' ;
-
-    // Iterate through all initialized Monaco Editors
-    qwebrEditorInstances.forEach( function(editorInstance) { 
-        editorInstance.updateOptions({ theme: vsThemeToUse }); 
-    });
-}
-
-// Call the function to start observing changes to body class
-updateMonacoEditorsOnBodyClassChange();
-</script>
-<script type="module">
-// Global array to store Monaco Editor instances
-globalThis.qwebrEditorInstances = [];
-
-function isValidCodeLineNumbers(stringCodeLineNumbers) {
-  // Regular expression to match valid input strings
-  const regex = /^(\d+(-\d+)?)(,\d+(-\d+)?)*$/;
-  return regex.test(stringCodeLineNumbers);
-}
-
-// Function that builds and registers a Monaco Editor instance    
-globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
-
-  const initialCode = cellData.code;
-  const qwebrCounter = cellData.id;
-  const qwebrOptions = cellData.options;
-
-  // Retrieve the previously created document elements
-  let runButton = document.getElementById(`qwebr-button-run-${qwebrCounter}`);
-  let resetButton = document.getElementById(`qwebr-button-reset-${qwebrCounter}`);
-  let copyButton = document.getElementById(`qwebr-button-copy-${qwebrCounter}`);
-  let editorDiv = document.getElementById(`qwebr-editor-${qwebrCounter}`);
-
-  // Load the Monaco Editor and create an instance
-  let editor;
-  require(['vs/editor/editor.main'], function () {
-    editor = monaco.editor.create(editorDiv, {
-      value: initialCode,
-      language: 'r',
-      theme: 'vs-light',
-      automaticLayout: true,           // Works wonderfully with RevealJS
-      scrollBeyondLastLine: false,
-      minimap: {
-        enabled: false
-      },
-      fontSize: qwebrScaledFontSize(editorDiv, qwebrOptions),         
-      renderLineHighlight: "none",      // Disable current line highlighting
-      hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
-      readOnly: qwebrOptions['read-only'] ?? false,
-      quickSuggestions: qwebrOptions['editor-quick-suggestions'] ?? false,
-      wordWrap: (qwebrOptions['editor-word-wrap'] == 'true' ? "on" : "off")
-    });
-
-    // Store the official counter ID to be used in keyboard shortcuts
-    editor.__qwebrCounter = qwebrCounter;
-
-    // Store the official div container ID
-    editor.__qwebrEditorId = `qwebr-editor-${qwebrCounter}`;
-
-    // Store the initial code value and options
-    editor.__qwebrinitialCode = initialCode;
-    editor.__qwebrOptions = qwebrOptions;
-
-    // Set at the model level the preferred end of line (EOL) character to LF.
-    // This prevent `\r\n` from being given to the webR engine if the user is on Windows.
-    // See details in: https://github.com/coatless/quarto-webr/issues/94
-    // Associated error text: 
-    // Error: <text>:1:7 unexpected input
-
-    // Retrieve the underlying model
-    const model = editor.getModel();
-    // Set EOL for the model
-    model.setEOL(monaco.editor.EndOfLineSequence.LF);
-    
-    // Dynamically modify the height of the editor window if new lines are added.
-    let ignoreEvent = false;
-    const updateHeight = () => {
-      // Increment editor height by 2 to prevent vertical scroll bar from appearing
-      const contentHeight = editor.getContentHeight() + 2;
-
-      // Retrieve editor-max-height option
-      const maxEditorHeight = qwebrOptions['editor-max-height'];
-
-      // If editor-max-height is missing, allow infinite growth. Otherwise, threshold.
-      const editorHeight = !maxEditorHeight ?  contentHeight : Math.min(contentHeight, maxEditorHeight);
-
-      // We're avoiding a width change
-      //editorDiv.style.width = `${width}px`;
-      editorDiv.style.height = `${editorHeight}px`;
-      try {
-        ignoreEvent = true;
-
-        // The key to resizing is this call
-        editor.layout();
-      } finally {
-        ignoreEvent = false;
-      }
-    };
-
-    // Function to generate decorations to highlight lines
-    // in the editor based on input string.
-    function decoratorHighlightLines(codeLineNumbers) {
-      // Store the lines to be lighlight
-      let linesToHighlight = [];
-      
-      // Parse the codeLineNumbers string to get the line numbers to highlight
-      // First, split the string by commas
-      codeLineNumbers.split(',').forEach(part => {
-        // Check if we have a range of lines
-        if (part.includes('-')) {
-            // Handle range of lines (e.g., "6-8")
-            const [start, end] = part.split('-').map(Number);
-            for (let i = start; i <= end; i++) {
-                linesToHighlight.push(i);
-            }
-        } else {
-            // Handle single line (e.g., "7")
-            linesToHighlight.push(Number(part));
-        }
-      });
-  
-      // Create monaco decorations for the lines to highlight
-      const decorations = linesToHighlight.map(lineNumber => ({
-          range: new monaco.Range(lineNumber, 1, lineNumber, 1),
-          options: {
-              isWholeLine: true,
-              className: 'qwebr-editor-highlight-line'
-          }
-      }));
-  
-      // Return decorations to be applied to the editor
-      return decorations;
-    }
-
-    // Ensure that the editor-code-line-numbers option is set and valid
-    // then apply styling
-    if (qwebrOptions['editor-code-line-numbers']) {
-      // Remove all whitespace from the string
-      const codeLineNumbers = qwebrOptions['editor-code-line-numbers'].replace(/\s/g,'');
-      // Check if the string is valid for line numbers, e.g., "1,3-5,7"
-      if (isValidCodeLineNumbers(codeLineNumbers)) {
-        // Apply the decorations to the editor
-        editor.createDecorationsCollection(decoratorHighlightLines(codeLineNumbers));
-      } else {
-        // Warn the user that the input is invalid
-        console.warn(`Invalid "editor-code-line-numbers" value in code cell ${qwebrOptions['label']}: ${codeLineNumbers}`);
-      }
-    }
-
-    // Helper function to check if selected text is empty
-    function isEmptyCodeText(selectedCodeText) {
-      return (selectedCodeText === null || selectedCodeText === undefined || selectedCodeText === "");
-    }
-
-    // Registry of keyboard shortcuts that should be re-added to each editor window
-    // when focus changes.
-    const addWebRKeyboardShortCutCommands = () => {
-      // Add a keydown event listener for Shift+Enter to run all code in cell
-      editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, () => {
-
-        // Retrieve all text inside the editor
-        qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter, editor.__qwebrOptions);
-      });
-
-      // Add a keydown event listener for CMD/Ctrl+Enter to run selected code
-      editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
-
-        // Get the selected text from the editor
-        const selectedText = editor.getModel().getValueInRange(editor.getSelection());
-        // Check if no code is selected
-        if (isEmptyCodeText(selectedText)) {
-          // Obtain the current cursor position
-          let currentPosition = editor.getPosition();
-          // Retrieve the current line content
-          let currentLine = editor.getModel().getLineContent(currentPosition.lineNumber);
-
-          // Propose a new position to move the cursor to
-          let newPosition = new monaco.Position(currentPosition.lineNumber + 1, 1);
-
-          // Check if the new position is beyond the last line of the editor
-          if (newPosition.lineNumber > editor.getModel().getLineCount()) {
-            // Add a new line at the end of the editor
-            editor.executeEdits("addNewLine", [{
-            range: new monaco.Range(newPosition.lineNumber, 1, newPosition.lineNumber, 1),
-            text: "\n", 
-            forceMoveMarkers: true,
-            }]);
-          }
-          
-          // Run the entire line of code.
-          qwebrExecuteCode(currentLine, editor.__qwebrCounter, editor.__qwebrOptions);
-
-          // Move cursor to new position
-          editor.setPosition(newPosition);
-        } else {
-          // Code to run when Ctrl+Enter is pressed with selected code
-          qwebrExecuteCode(selectedText, editor.__qwebrCounter, editor.__qwebrOptions);
-        }
-      });
-    }
-
-    // Register an on focus event handler for when a code cell is selected to update
-    // what keyboard shortcut commands should work.
-    // This is a workaround to fix a regression that happened with multiple
-    // editor windows since Monaco 0.32.0 
-    // https://github.com/microsoft/monaco-editor/issues/2947
-    editor.onDidFocusEditorText(addWebRKeyboardShortCutCommands);
-
-    // Register an on change event for when new code is added to the editor window
-    editor.onDidContentSizeChange(updateHeight);
-
-    // Manually re-update height to account for the content we inserted into the call
-    updateHeight();
-
-    // Store the editor instance in the global dictionary
-    qwebrEditorInstances[editor.__qwebrCounter] = editor;
-
-  });
-
-  // Add a click event listener to the run button
-  runButton.onclick = function () {
-    qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter, editor.__qwebrOptions);
-  };
-
-  // Add a click event listener to the reset button
-  copyButton.onclick = function () {
-    // Retrieve current code data
-    const data = editor.getValue();
-    
-    // Write code data onto the clipboard.
-    navigator.clipboard.writeText(data || "");
-  };
-  
-  // Add a click event listener to the copy button
-  resetButton.onclick = function () {
-    editor.setValue(editor.__qwebrinitialCode);
-  };
-  
-}
-</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -2028,31 +195,21 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Submitting your answers
+Remember to hand in your work …
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-If the answers that have been loaded automatically are not yours, press this button before starting your work:
-<script type="text/javascript">
-      // clear the local storage
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('btnClearStorage');
-      form.addEventListener("click", function () {
-        localStorage.clear();
-        location.reload();
-        console.log("Clearing memory");
-      }, false);
-    }
-    )
-    </script>
-<button id="btnClearStorage">
-Clear memory
-</button>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Submitting answers</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Clearing document memory</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>At any point, you can submit your answers by collecting them and uploading them to the class site.</p>
 <p><span id="devoirs-docID" style="display: none;">index-assignment-12.rmarkdown</span> <span><button onclick="devoirsSubmit()">Collect your answers</button></span> <span id="devoirs_summary">No answers yet collected</span></p>
 <div class="cell">
@@ -2157,31 +314,51 @@ console.log("Added hint summary.")
 
 </div>
 </div>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog%20target=%22_blank%22" target="_blank">Link to upload site</a></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+If the answers that have been loaded automatically are not yours, press this button before starting your work:
+<script type="text/javascript">
+      // clear the local storage
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('btnClearStorage');
+      form.addEventListener("click", function () {
+        localStorage.clear();
+        location.reload();
+        console.log("Clearing memory");
+      }, false);
+    }
+    )
+    </script>
+<button id="btnClearStorage">
+Clear memory
+</button>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Background software
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div id="qwebr-insertion-location-1"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </div>
 </div>
+</div>
+<!-- ::: {.callout-warning collapse=true}
+## Background software -->
+<div>
+<div id="webr-1" class="exercise-cell">
+
+</div>
+<script type="webr-1-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNhcHRpb24iOiJCYWNrZ3JvdW5kIHNvZnR3YXJlIiwiY29udGV4dCI6Im91dHB1dCIsImVjaG8iOmZhbHNlLCJlZGl0IjpmYWxzZSwiZXZhbCI6dHJ1ZX0sImNvZGUiOiIjIERyYXdpbmcgdmVjdG9ycyBhbmQgbWF0cmljZXNcblxuZHJhd19tYXRyaXggPC0gZnVuY3Rpb24oTSkge1xuICBpbWFnZSgxOm5jb2woTSksIDE6bnJvdyhNKSwgdChNW25yb3coTSk6MSwgXSksXG4gICAgICAgIGNvbCA9IGNvbG9yc3BhY2U6OmRpdmVyZ2luZ19oY2woXG4gICAgICAgICAgMTUsIGggPSBjKDE4MCwgNTApLCBjID0gODAsXG4gICAgICAgICAgbCA9IGMoMjAsIDk1KSwgcG93ZXIgPSBjKDAuNywgMS4zKSksXG4gICAgICAgIGF4ZXMgPSBGQUxTRSxcbiAgICAgICAgdXNlUmFzdGVyID0gVFJVRSlcbn1cblxuc29tZXZlY3MgPC0gdGliYmxlOjp0cmliYmxlKFxuICB+IHJvb3R4LCB+IHJvb3R5LCB+IGhlYWR4LCB+IGhlYWR5LCB+IGNvbG9yLCB+IG5hbWUsXG4gIDAsIDAsIC0yLCA0LCBcImJsdWVcIiwgXCJ1XCIsXG4gIDEsIC0yLCA1LCAtMywgXCJncmVlblwiLCBcInZcIixcbiAgLTEsIC0xLCAtNCwgLTEsIFwib3JhbmdlXCIsIFwid1wiLFxuICAxLCAwLCA0LCAzLCBcImJyb3duXCIsIFwieFwiLFxuICAwLCAtMiwgMywgLTMsIFwic2FsbW9uXCIsIFwieVwiLFxuICAwLCAwLCA0LCAzLCBcIm1hZ2VudGFcIiwgXCJiMVwiLFxuICAwLCAwLCAtMywgMiwgXCJtYWdlbnRhXCIsIFwiYjJcIixcbikgfD5cbiAgZHBseXI6Om11dGF0ZShsYWJlbHggPSAocm9vdHggKyBoZWFkeCkvMixcbiAgICAgICAgIGxhYmVseSA9ICgyKnJvb3R5ICsgaGVhZHkpLzMpXG5zb2x2ZV9mb3IgPC0gZnVuY3Rpb24odmVjbmFtZXMpIHtcbiAgc29tZXZlY3MgfD5cbiAgICBkcGx5cjo6ZmlsdGVyKG5hbWUgJWluJSB2ZWNuYW1lcykgfD5cbiAgICBnZl9zZWdtZW50KHJvb3R5ICsgaGVhZHkgfiByb290eCArIGhlYWR4LFxuICAgICAgICAgICAgICAgYXJyb3cgPSBncmlkOjphcnJvdyhsZW5ndGg9dW5pdCgwLjE1LCBcImluY2hlc1wiKSwgdHlwZT1cImNsb3NlZFwiKSxcbiAgICAgICAgICAgICAgIGNvbG9yID0gfiBjb2xvciwgbGluZXdpZHRoPTIpIHw+XG4gICAgZ2ZfbGFiZWwobGFiZWx5IH4gbGFiZWx4LCBsYWJlbD0gfiBuYW1lLCBjb2xvciA9IH4gY29sb3IsIHNpemU9MykgfD5cbiAgICBnZl9yZWZpbmUoc2NhbGVfY29sb3JfaWRlbnRpdHkoKSxcbiAgICAgICAgICAgICAgc2NhbGVfeV9jb250aW51b3VzKGxpbWl0cz1jKC01LDUpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWtzPSgtNSk6NSksXG4gICAgICAgICAgICAgIHNjYWxlX3hfY29udGludW91cyhsaW1pdHM9YygtNSw1KSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrcz0oLTUpOjUpLFxuICAgICAgICAgICAgICBjb29yZF9maXhlZCgpKSB8PlxuICAgIGdmX2xhYnMoeD1cIlwiLCB5ID0gXCJcIilcbn1cblxuXG4jIFNpbXBsZSB2ZWN0b3IvbWF0cml4IG9wZXJhdGlvbnNcblxudmVjIDwtIGZ1bmN0aW9uKC4uLikge1xuICB2YWxzIDwtIGxpc3QoLi4uKSB8PiB1bmxpc3QoKVxuICBtYXRyaXgodmFscywgbmNvbD0xKVxufVxuXG5ydmVjIDwtIGZ1bmN0aW9uKGZpcnN0LCAuLi4sIHJmdW49cm5vcm0pIHtcbiAgZG90cyA8LSBjKGZpcnN0LCBsaXN0KC4uLikpIHw+IHVubGlzdCgpXG4gIGlmIChsZW5ndGgoZG90cykgPT0gMSkge1xuICAgIGRvdHMgPC0gcmZ1bihkb3RzW1sxXV0pXG4gIH1cblxuICB2ZWMoZG90cylcbn1cblxudmVjbGVuIDwtIGZ1bmN0aW9uKHYpIHNxcnQodiAlZG90JSB2KVxudW5pdHZlYyA8LSBmdW5jdGlvbih2ZWMpIHZlYy9sZW5ndGgodmVjKVxuY2FuZyA8LSBmdW5jdGlvbih2LCB3KSB7KHYgJWRvdCUgdykgLyAodmVjbGVuKHYpICogdmVjbGVuKHcpKX1cbm1ha2VRIDwtIGZ1bmN0aW9uKC4uLikge1xuICBkb3RzIDwtIGxpc3QoLi4uKSB8PiBiaW5kX2NvbHMoKVxuICBxci5RKHFyKGRvdHMpKVxufVxuXG5jaGVja19mb3Jfc3ZkIDwtIGZ1bmN0aW9uKFMpIHtcbiAgaWYgKGluaGVyaXRzKFMsIFwibWF0cml4XCIpKSBTIDwtIHN2ZChTKVxuICBpZiAoIWlzLmxpc3QoUykgfHwgIWFsbChjKFwiZFwiLFwidlwiLCBcInVcIikgJWluJSBuYW1lcyhTKSkpXG4gICAgc3RvcChcIkFyZ3VtZW50IG11c3QgYmUgbWF0cml4IG9yIHRoZSBTVkQgb2YgYSBtYXRyaXguXCIpXG4gIFNcbn1cblxucmFua19tYXQgPC0gZnVuY3Rpb24oUywgdGhyZXNoID0gMC4wMSkge1xuICBTIDwtIGNoZWNrX2Zvcl9zdmQoUylcbiAgc3VtKFMkZCA+IFMkZFsxXSAqIHRocmVzaClcbn1cblxucmFuZF9tYXQgPC0gZnVuY3Rpb24obnJvdz0zLCBuY29sPTYsIHJhbmsgPSBwbWluKG5yb3csIG5jb2wpKSB7XG4gIE0gPC0gbWF0cml4KHJ1bmlmKG5yb3cqbmNvbCksIG5yb3cgPSBucm93LCBuY29sID0gbmNvbClcbiAgaWYgKHJhbmsgPj0gbnJvdyB8fCByYW5rID49IG5jb2wpIHtcbiAgIE1cbiAgfSBlbHNlIHtcbiAgICBhcHByb3hfbWF0KFMsIG49c2FtcGxlKHBtaW4ocmFuaywgbnJvdywgbmNvbCkpKVxuICB9XG59XG5cbiMgR3JhYiByYW5rIDEgbWF0cml4IGZyb20gU1ZEXG5hcHByb3hfbWF0IDwtIGZ1bmN0aW9uKFMsIG49MSwgb3JkZXIgPSAwKSB7ICMgaW5wdXQgYSBtYXRyaXggb3IgdGhlIFNWRCBvZiBhIG1hdHJpeFxuICBTIDwtIGNoZWNrX2Zvcl9zdmQoUylcbiAgaWYgKG9yZGVyID4gMCkge1xuICAgIGluZHMxIDwtIG9yZGVyKGMoUyR1WyxvcmRlcl0pKVxuICAgIGluZHMyIDwtIG9yZGVyKGMoUyR2WyxvcmRlcl0pKVxuICB9IGVsc2Uge1xuICAgIGluZHMxIDwtIDE6bnJvdyhTJHUpXG4gICAgaW5kczIgPC0gMTpucm93KFMkdilcbiAgfVxuICBwYXJ0aWFsIDwtIDAgIyBpbml0aWFsIHZhbHVlXG4gIGZvciAoayBpbiBuKSB7XG4gICAgcGFydGlhbCA8LSBwYXJ0aWFsICsgIFMkZFtrXSAqIFMkdVtpbmRzMSxrLCBkcm9wID0gRkFMU0VdICUqJSB0KFMkdltpbmRzMixrLCBkcm9wID0gRkFMU0VdKVxuICB9XG5cbiAgcGFydGlhbFxufVxuXG5wcmV0dHlfbWF0IDwtIGZ1bmN0aW9uKE0pIHtcbiAgaW5kczEgPC0gb3JkZXIocm93U3VtcyhNKSlcbiAgaW5kczIgPC0gb3JkZXIoY29sU3VtcyhNKSlcbiAgTVtpbmRzMSwgaW5kczJdXG59XG5cbiMnIEdlbmVyYXRlIGEgbWF0cml4IHdob3NlIGVsZW1lbnRzIGFyZSBzZWxlY3RlZCByYW5kb21seSBmcm9tIGEgc2V0XG4jJyBvZiBzcGVjaWZpZWQgdmFsdWVzLlxuIycgQHBhcmFtIG5yb3cgbnVtYmVyIG9mIHJvd3MgZm9yIHRoZSBtYXRyaXggcHJvZHVjZWRcbiMnIEBwYXJhbSBuY29sIG51bWJlciBvZiBjb2x1bW5zXG4jJyBAcGFyYW0gdmFsdWVzIHRoZSBzZXQgZnJvbSB3aGljaCB0byBkcmF3IChyYW5kb21seSkgdGhlXG4jJyB2YWx1ZXMgaW4gdGhlIG1hdHJpeC4gRGVmYXVsdDogaW50ZWdlcnMgLTkgdG8gOVxudmFsdWVzX21hdCA8LSBmdW5jdGlvbihucm93PTQsIG5jb2w9MywgdmFsdWVzID0gLTk6OSkge1xuICBtYXRyaXgoc2FtcGxlKHZhbHVlcywgc2l6ZSA9IG5yb3cgKiBuY29sLCByZXBsYWNlID0gVFJVRSksXG4gICAgICAgICBucm93ID0gbnJvdywgbmNvbD1uY29sKVxufVxuXG4jIFR5cGVzZXQgbWF0cmljZXMgaW4gTGFUZVggKGZvciBhc3NpZ25tZW50cyBhbmQgc3VjaClcbkxtYXQgPC0gZnVuY3Rpb24obnIsIG5jKSB7XG4gIHZhbHVlc19tYXQobnIsIG5jKSB8PiBsYXRleF9oZWxwZXIoKVxufVxubGF0ZXhfaGVscGVyIDwtIGZ1bmN0aW9uKG1hdHIpIHtcbiAgcHJpbnRtcm93IDwtIGZ1bmN0aW9uKHgpIHtcblxuICAgIGNhdChjYXQoeCxzZXA9XCIgJiBcIiksXCJcXFxcXFxcXCBcXG5cIilcbiAgfVxuXG4gIGNhdChcIlxcXFxsZWZ0KFxcXFxiZWdpbnthcnJheX17cn1cIixcIlxcblwiKVxuICBib2R5IDwtIGFwcGx5KG1hdHIsMSxwcmludG1yb3cpXG4gIGNhdChcIlxcXFxlbmR7YXJyYXl9XFxcXHJpZ2h0KVwiKVxufVxuIn0=
+</script>
+</div>
+<!-- ::: -->
 <section id="by-hand-and-eye" class="level2">
 <h2 class="anchored" data-anchor-id="by-hand-and-eye">By hand and eye</h2>
-<div id="exr-matrix-0" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> &nbsp;</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Exer 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Exer 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Exer 3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Exer 4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false">Exer 5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-6" role="tab" aria-controls="tabset-3-6" aria-selected="false">Exer 6</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-7" role="tab" aria-controls="tabset-3-7" aria-selected="false">Exer 7</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-8" role="tab" aria-controls="tabset-3-8" aria-selected="false">Exer 8</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-9-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-9" role="tab" aria-controls="tabset-3-9" aria-selected="false">Exer 9</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-10-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-10" role="tab" aria-controls="tabset-3-10" aria-selected="false">Exer 10</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <!-- matrix-0 -->
-<p>Here are a few vectors. In what dimension space is each of them embedded.</p>
+<div id="exr-matrix-0" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> Here are a few vectors. In what dimension space is each of them embedded.</p>
 <p><span class="math display">\[
 \vec{v} = \left(\begin{array}{r}
 -1 \\
@@ -2199,7 +376,7 @@ Background software
 <div class="cell" data-inline="true" data-leed="$\vec{v}$">
 <span class="math inline">\(\vec{v}\)</span>&nbsp;&nbsp; <span> <small style="color: grey;" id="matrix-0-v-hintarea" class="hintarea">matrix-0-v</small>
 <form id="matrix-0-v-form">
-<span> <span> <input type="radio" class="devoirs-mcq" value="1" id="matrix-0-v-1" w="19" name="matrix-0-v" hint="Hmmm ..." show_hints="false"> 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2" id="matrix-0-v-2" w="7" name="matrix-0-v" hint="Incorrect." show_hints="false"> 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="3" id="matrix-0-v-3" w="23" name="matrix-0-v" hint="Incorrect choice." show_hints="false"> 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="4" id="matrix-0-v-4" w="41" name="matrix-0-v" hint="Bullseye!" show_hints="false"> 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="it's not a vector" id="matrix-0-v-5" w="32" name="matrix-0-v" hint="Wrong." show_hints="false"> it’s not a vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="matrix-0-v" id="matrix-0-v.null" style="display: none;" w="skipped" checked=""> </span> </span>
+<span> <span> <input type="radio" class="devoirs-mcq" value="1" id="matrix-0-v-1" w="3" name="matrix-0-v" hint="Sorry!" show_hints="false"> 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2" id="matrix-0-v-2" w="23" name="matrix-0-v" hint="Incorrect choice." show_hints="false"> 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="3" id="matrix-0-v-3" w="3" name="matrix-0-v" hint="Not quite." show_hints="false"> 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="4" id="matrix-0-v-4" w="16" name="matrix-0-v" hint="You're right!" show_hints="false"> 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="it's not a vector" id="matrix-0-v-5" w="3" name="matrix-0-v" hint="Wrong." show_hints="false"> it’s not a vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="matrix-0-v" id="matrix-0-v.null" style="display: none;" w="skipped" checked=""> </span> </span>
 </form>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -2232,7 +409,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="cell" data-inline="true" data-leed="$\vec{w}$">
 <span class="math inline">\(\vec{w}\)</span>&nbsp;&nbsp; <span> <small style="color: grey;" id="matrix-0-w-hintarea" class="hintarea">matrix-0-w</small>
 <form id="matrix-0-w-form">
-<span> <span> <input type="radio" class="devoirs-mcq" value="1" id="matrix-0-w-1" w="23" name="matrix-0-w" hint="Incorrect." show_hints="false"> 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2" id="matrix-0-w-2" w="41" name="matrix-0-w" hint="Yes!" show_hints="false"> 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="3" id="matrix-0-w-3" w="7" name="matrix-0-w" hint="Not so!" show_hints="false"> 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="4 " id="matrix-0-w-4" w="7" name="matrix-0-w" hint="Incorrect choice." show_hints="false"> 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="it's not a vector" id="matrix-0-w-5" w="32" name="matrix-0-w" hint="Not quite." show_hints="false"> it’s not a vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="matrix-0-w" id="matrix-0-w.null" style="display: none;" w="skipped" checked=""> </span> </span>
+<span> <span> <input type="radio" class="devoirs-mcq" value="1" id="matrix-0-w-1" w="3" name="matrix-0-w" hint="Incorrect choice." show_hints="false"> 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2" id="matrix-0-w-2" w="18" name="matrix-0-w" hint="Bingo!" show_hints="false"> 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="3" id="matrix-0-w-3" w="87" name="matrix-0-w" hint="Try again!" show_hints="false"> 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="4 " id="matrix-0-w-4" w="19" name="matrix-0-w" hint="Incorrect." show_hints="false"> 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="it's not a vector" id="matrix-0-w-5" w="7" name="matrix-0-w" hint="Not so!" show_hints="false"> it’s not a vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="matrix-0-w" id="matrix-0-w.null" style="display: none;" w="skipped" checked=""> </span> </span>
 </form>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -2265,7 +442,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="cell" data-inline="true" data-show_hints="true" data-leed="$\vec{x}$">
 <span class="math inline">\(\vec{x}\)</span>&nbsp;&nbsp; <span> <small style="color: grey;" id="matrix-0-x-hintarea" class="hintarea">matrix-0-x</small>
 <form id="matrix-0-x-form">
-<span> <span> <input type="radio" class="devoirs-mcq" value="1 " id="matrix-0-x-1" w="35" name="matrix-0-x" hint="Bingo!" show_hints="TRUE"> 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2" id="matrix-0-x-2" w="7" name="matrix-0-x" hint="Not quite." show_hints="TRUE"> 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="3" id="matrix-0-x-3" w="23" name="matrix-0-x" hint="No." show_hints="TRUE"> 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="4 " id="matrix-0-x-4" w="23" name="matrix-0-x" hint="Sorry!" show_hints="TRUE"> 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="it's not a vector" id="matrix-0-x-5" w="7" name="matrix-0-x" hint="Why can't you have a 1-dimensional vector?" show_hints="TRUE"> it’s not a vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="matrix-0-x" id="matrix-0-x.null" style="display: none;" w="skipped" checked=""> </span> </span>
+<span> <span> <input type="radio" class="devoirs-mcq" value="1 " id="matrix-0-x-1" w="41" name="matrix-0-x" hint="Certainly." show_hints="TRUE"> 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2" id="matrix-0-x-2" w="87" name="matrix-0-x" hint="Not on target." show_hints="TRUE"> 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="3" id="matrix-0-x-3" w="23" name="matrix-0-x" hint="Nope." show_hints="TRUE"> 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="4 " id="matrix-0-x-4" w="19" name="matrix-0-x" hint="Incorrect." show_hints="TRUE"> 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="it's not a vector" id="matrix-0-x-5" w="32" name="matrix-0-x" hint="Why can't you have a 1-dimensional vector?" show_hints="TRUE"> it’s not a vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="matrix-0-x" id="matrix-0-x.null" style="display: none;" w="skipped" checked=""> </span> </span>
 </form>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -2296,10 +473,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <p></p>
 </span></div>
 </div>
-<div id="exr-matrix-mult-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2</strong></span> &nbsp;</p>
+<!-- end of exercise exr-matrix-0 -->
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <!-- matrix-1 -->
-<p>What kind of mathematical object will the following produce?</p>
+<div id="exr-matrix-mult-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> What kind of mathematical object will the following produce?</p>
 <p><span class="math display">\[\left(\begin{array}{r}
 -8 &amp; 4 &amp; 8 \\
 -9 &amp; 2 &amp; 7 \\
@@ -2315,7 +494,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="cell" data-inline="true" data-show_hints="true">
 <span> <small style="color: grey;" id="mcq-matrix-1-hintarea" class="hintarea">mcq-matrix-1</small>
 <form id="mcq-matrix-1-form">
-<span> <span> <input type="radio" class="devoirs-mcq" value="A scalar" id="mcq-matrix-1-1" w="3" name="mcq-matrix-1" hint="Oops!" show_hints="TRUE"> A scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A column vector" id="mcq-matrix-1-2" w="32" name="mcq-matrix-1" hint="Not on target." show_hints="TRUE"> A column vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A row vector" id="mcq-matrix-1-3" w="87" name="mcq-matrix-1" hint="Better luck next time." show_hints="TRUE"> A row vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... ee columns" id="mcq-matrix-1-4" w="87" name="mcq-matrix-1" hint="Wrong." show_hints="TRUE"> A matrix with three columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... three rows" id="mcq-matrix-1-5" w="87" name="mcq-matrix-1" hint="This is wide of the mark." show_hints="TRUE"> A matrix with three rows &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="It's meaningless." id="mcq-matrix-1-6" w="14" name="mcq-matrix-1" hint="There are only three vectors in the matrix but the vector has four elements, meaning that it is looking to combine four vectors." show_hints="TRUE"> It’s meaningless. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="mcq-matrix-1" id="mcq-matrix-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
+<span> <span> <input type="radio" class="devoirs-mcq" value="A scalar" id="mcq-matrix-1-1" w="23" name="mcq-matrix-1" hint="You're wrong here." show_hints="TRUE"> A scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A column vector" id="mcq-matrix-1-2" w="7" name="mcq-matrix-1" hint="Sorry!" show_hints="TRUE"> A column vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A row vector" id="mcq-matrix-1-3" w="23" name="mcq-matrix-1" hint="Not so!" show_hints="TRUE"> A row vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... ee columns" id="mcq-matrix-1-4" w="7" name="mcq-matrix-1" hint="Oops!" show_hints="TRUE"> A matrix with three columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... three rows" id="mcq-matrix-1-5" w="23" name="mcq-matrix-1" hint="Incorrect choice." show_hints="TRUE"> A matrix with three rows &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="It's meaningless." id="mcq-matrix-1-6" w="16" name="mcq-matrix-1" hint="There are only three vectors in the matrix but the vector has four elements, meaning that it is looking to combine four vectors." show_hints="TRUE"> It’s meaningless. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="mcq-matrix-1" id="mcq-matrix-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
 </form>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -2346,10 +525,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <p></p>
 </span></div>
 </div>
-<div id="exr-matrix-mult-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3</strong></span> &nbsp;</p>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <!-- matrix-2 -->
-<p>What kind of mathematical object will the following produce?</p>
+<div id="exr-matrix-mult-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3</strong></span> What kind of mathematical object will the following produce?</p>
 <p><span class="math display">\[\left(\begin{array}{r}
 2 &amp; 2 &amp; 5 &amp; -9 \\
 \end{array}\right) \times
@@ -2362,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="cell" data-inline="true">
 <span> <small style="color: grey;" id="mcq-matrix-2-hintarea" class="hintarea">mcq-matrix-2</small>
 <form id="mcq-matrix-2-form">
-<span> <span> <input type="radio" class="devoirs-mcq" value="A scalar" id="mcq-matrix-2-1" w="29" name="mcq-matrix-2" hint="Right-O!" show_hints="false"> A scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A column vector" id="mcq-matrix-2-2" w="3" name="mcq-matrix-2" hint="Boo!" show_hints="false"> A column vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A row vector" id="mcq-matrix-2-3" w="19" name="mcq-matrix-2" hint="Not quite." show_hints="false"> A row vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... ee columns" id="mcq-matrix-2-4" w="19" name="mcq-matrix-2" hint="Not on target." show_hints="false"> A matrix with three columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... three rows" id="mcq-matrix-2-5" w="32" name="mcq-matrix-2" hint="Oops!" show_hints="false"> A matrix with three rows &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="It's meaningless. " id="mcq-matrix-2-6" w="3" name="mcq-matrix-2" hint="Try again!" show_hints="false"> It’s meaningless. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="mcq-matrix-2" id="mcq-matrix-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+<span> <span> <input type="radio" class="devoirs-mcq" value="A scalar" id="mcq-matrix-2-1" w="29" name="mcq-matrix-2" hint="A hit!" show_hints="false"> A scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A column vector" id="mcq-matrix-2-2" w="23" name="mcq-matrix-2" hint="Not quite." show_hints="false"> A column vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A row vector" id="mcq-matrix-2-3" w="32" name="mcq-matrix-2" hint="Incorrect." show_hints="false"> A row vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... ee columns" id="mcq-matrix-2-4" w="19" name="mcq-matrix-2" hint="Untrue!" show_hints="false"> A matrix with three columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... three rows" id="mcq-matrix-2-5" w="7" name="mcq-matrix-2" hint="Better luck next time." show_hints="false"> A matrix with three rows &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="It's meaningless. " id="mcq-matrix-2-6" w="23" name="mcq-matrix-2" hint="Untrue!" show_hints="false"> It’s meaningless. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="mcq-matrix-2" id="mcq-matrix-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
 </form>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -2393,10 +573,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <p></p>
 </span></div>
 </div>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<!-- matrix-3 -->
 <div id="exr-matrix-mult-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4</strong></span> &nbsp;</p>
-<!-- matrix-2 -->
-<p>What kind of mathematical object will the following produce?</p>
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> What kind of mathematical object will the following produce?</p>
 <p><span class="math display">\[\left(\begin{array}{r}
 8 &amp; 4 &amp; 8 \\
 4 &amp; 2 &amp; 7 \\
@@ -2412,7 +593,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="cell" data-inline="true">
 <span> <small style="color: grey;" id="mcq-matrix-3-hintarea" class="hintarea">mcq-matrix-3</small>
 <form id="mcq-matrix-3-form">
-<span> <span> <input type="radio" class="devoirs-mcq" value="A scalar " id="mcq-matrix-3-1" w="3" name="mcq-matrix-3" hint="Hmmm ..." show_hints="false"> A scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A column vector" id="mcq-matrix-3-2" w="87" name="mcq-matrix-3" hint="You're mistaken" show_hints="false"> A column vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A row vector" id="mcq-matrix-3-3" w="23" name="mcq-matrix-3" hint="Not so!" show_hints="false"> A row vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... ee columns" id="mcq-matrix-3-4" w="41" name="mcq-matrix-3" hint="Spot on!" show_hints="false"> A matrix with three columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... three rows" id="mcq-matrix-3-5" w="23" name="mcq-matrix-3" hint="Incorrect." show_hints="false"> A matrix with three rows &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="It's meaningless. " id="mcq-matrix-3-6" w="7" name="mcq-matrix-3" hint="No." show_hints="false"> It’s meaningless. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="mcq-matrix-3" id="mcq-matrix-3.null" style="display: none;" w="skipped" checked=""> </span> </span>
+<span> <span> <input type="radio" class="devoirs-mcq" value="A scalar " id="mcq-matrix-3-1" w="7" name="mcq-matrix-3" hint="Not quite right." show_hints="false"> A scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A column vector" id="mcq-matrix-3-2" w="23" name="mcq-matrix-3" hint="You're mistaken" show_hints="false"> A column vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A row vector" id="mcq-matrix-3-3" w="3" name="mcq-matrix-3" hint="Not quite right." show_hints="false"> A row vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... ee columns" id="mcq-matrix-3-4" w="14" name="mcq-matrix-3" hint="A win!" show_hints="false"> A matrix with three columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="A matrix w ... three rows" id="mcq-matrix-3-5" w="3" name="mcq-matrix-3" hint="Oops!" show_hints="false"> A matrix with three rows &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="It's meaningless. " id="mcq-matrix-3-6" w="32" name="mcq-matrix-3" hint="Not quite right." show_hints="false"> It’s meaningless. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="mcq-matrix-3" id="mcq-matrix-3.null" style="display: none;" w="skipped" checked=""> </span> </span>
 </form>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -2443,10 +624,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <p></p>
 </span></div>
 </div>
-<div id="exr-matrix-mult-4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5</strong></span> &nbsp;</p>
+</div>
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
 <!-- matrix-4 -->
-<p>Find the value of this product: <span class="math display">\[\left(\begin{array}{r}
+<div id="exr-matrix-mult-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> Find the value of this product: <span class="math display">\[\left(\begin{array}{r}
 2 &amp; 2 &amp; 5 &amp; -9 \\
 \end{array}\right) \times
 \left(\begin{array}{r}
@@ -2475,10 +657,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <textarea id="matrix-4" name="matrix-4" class="devoirs-text" style="font-family: monospace, monospace;" rows="1" cols="10" placeholder="Type here. (ID matrix-4)"></textarea>
 </div>
-<div id="exr-matrix-mult-5" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6</strong></span> &nbsp;</p>
+</div>
+<div id="tabset-3-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-6-tab">
 <!-- matrix-5 -->
-<p>Find the value of this product: <span class="math display">\[\left(\begin{array}{r}
+<div id="exr-matrix-mult-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6</strong></span> Find the value of this product: <span class="math display">\[\left(\begin{array}{r}
 1 &amp; 3 &amp; -2 &amp; 4\\
 2 &amp; 2 &amp; 5 &amp; -9 \\
 \end{array}\right) \times
@@ -2508,10 +691,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <textarea id="matrix-5" name="matrix-5" class="devoirs-text" style="font-family: monospace, monospace;" rows="3" cols="20" placeholder="Type here. (ID matrix-5)"></textarea>
 </div>
-<div id="exr-what-kinda-thing-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7</strong></span> &nbsp;</p>
+</div>
+<div id="tabset-3-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-7-tab">
 <!-- matrix-6.qmd -->
-<p>What kind of mathematical object will the solution <span class="math inline">\(\bf x\)</span> to this matrix equation be?</p>
+<div id="exr-what-kinda-thing-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7</strong></span> What kind of mathematical object will the solution <span class="math inline">\(\bf x\)</span> to this matrix equation be?</p>
 <p><span class="math display">\[\left(\begin{array}{r}
 4 &amp; 7 &amp; -4 &amp; -1 &amp; 1 \\
 9 &amp; -1 &amp; 5 &amp; 7 &amp; -3 \\
@@ -2523,7 +707,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="cell" data-inline="true">
 <span> <small style="color: grey;" id="what-kinda-think-1-hintarea" class="hintarea">what-kinda-think-1</small>
 <form id="what-kinda-think-1-form">
-<span> <span> <input type="radio" class="devoirs-mcq" value="a scalar" id="what-kinda-think-1-1" w="87" name="what-kinda-think-1" hint="Incorrect choice." show_hints="false"> a scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a row vect ... 2 elements" id="what-kinda-think-1-2" w="3" name="what-kinda-think-1" hint="Untrue!" show_hints="false"> a row vector with 2 elements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a row vect ... 5 elements" id="what-kinda-think-1-3" w="23" name="what-kinda-think-1" hint="Not so!" show_hints="false"> a row vector with 5 elements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a column v ... 2 elements" id="what-kinda-think-1-4" w="7" name="what-kinda-think-1" hint="Not quite right." show_hints="false"> a column vector with 2 elements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a column v ... 5 elements" id="what-kinda-think-1-5" w="14" name="what-kinda-think-1" hint="Yeah!" show_hints="false"> a column vector with 5 elements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="what-kinda-think-1" id="what-kinda-think-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
+<span> <span> <input type="radio" class="devoirs-mcq" value="a scalar" id="what-kinda-think-1-1" w="19" name="what-kinda-think-1" hint="Sorry!" show_hints="false"> a scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a row vect ... 2 elements" id="what-kinda-think-1-2" w="23" name="what-kinda-think-1" hint="This is wide of the mark." show_hints="false"> a row vector with 2 elements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a row vect ... 5 elements" id="what-kinda-think-1-3" w="3" name="what-kinda-think-1" hint="Oops!" show_hints="false"> a row vector with 5 elements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a column v ... 2 elements" id="what-kinda-think-1-4" w="87" name="what-kinda-think-1" hint="Not on target." show_hints="false"> a column vector with 2 elements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a column v ... 5 elements" id="what-kinda-think-1-5" w="35" name="what-kinda-think-1" hint="Right." show_hints="false"> a column vector with 5 elements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="what-kinda-think-1" id="what-kinda-think-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
 </form>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -2554,10 +738,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <p></p>
 </span></div>
 </div>
-<div id="exr-what-kinda-thing-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8</strong></span> &nbsp;</p>
+</div>
+<div id="tabset-3-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-8-tab">
 <!-- matrix-7.qmd -->
-<p>What kind of mathematical object will the solution <span class="math inline">\(\bf x\)</span> to this matrix equation be?</p>
+<div id="exr-what-kinda-thing-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8</strong></span> What kind of mathematical object will the solution <span class="math inline">\(\bf x\)</span> to this matrix equation be?</p>
 <p><span class="math display">\[\left(\begin{array}{r}
 8 &amp; 9 &amp; 6 \\
 -4 &amp; -3 &amp; 9 \\
@@ -2570,7 +755,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="cell" data-inline="true">
 <span> <small style="color: grey;" id="what-kinda-thing-2-hintarea" class="hintarea">what-kinda-thing-2</small>
 <form id="what-kinda-thing-2-form">
-<span> <span> <input type="radio" class="devoirs-mcq" value="a scalar" id="what-kinda-thing-2-1" w="3" name="what-kinda-thing-2" hint="No." show_hints="false"> a scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-2-2" w="7" name="what-kinda-thing-2" hint="Oops!" show_hints="false"> a matrix with 2 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-2-3" w="87" name="what-kinda-thing-2" hint="Oops!" show_hints="false"> a matrix with 3 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-2-4" w="87" name="what-kinda-thing-2" hint="Untrue!" show_hints="false"> a matrix with 4 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="It's meaningless" id="what-kinda-thing-2-6" w="41" name="what-kinda-thing-2" hint="You're right." show_hints="false"> It’s meaningless &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="what-kinda-thing-2" id="what-kinda-thing-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+<span> <span> <input type="radio" class="devoirs-mcq" value="a scalar" id="what-kinda-thing-2-1" w="7" name="what-kinda-thing-2" hint="Sorry!" show_hints="false"> a scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-2-2" w="32" name="what-kinda-thing-2" hint="Sorry!" show_hints="false"> a matrix with 2 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-2-3" w="32" name="what-kinda-thing-2" hint="Boo!" show_hints="false"> a matrix with 3 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-2-4" w="87" name="what-kinda-thing-2" hint="Boo!" show_hints="false"> a matrix with 4 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="It's meaningless" id="what-kinda-thing-2-6" w="16" name="what-kinda-thing-2" hint="You've got it!" show_hints="false"> It’s meaningless &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="what-kinda-thing-2" id="what-kinda-thing-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
 </form>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -2601,10 +786,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <p></p>
 </span></div>
 </div>
-<div id="exr-what-kinda-thing-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9</strong></span> &nbsp;</p>
+</div>
+<div id="tabset-3-9" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-9-tab">
 <!-- matrix-8.qmd -->
-<p>What kind of mathematical object will the solution <span class="math inline">\(\bf x\)</span> to this matrix equation be?</p>
+<div id="exr-what-kinda-thing-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9</strong></span> What kind of mathematical object will the solution <span class="math inline">\(\bf x\)</span> to this matrix equation be?</p>
 <p><span class="math display">\[\left(\begin{array}{r}
 8 &amp; 9 &amp; 6 \\
 -4 &amp; -3 &amp; 9 \\
@@ -2618,7 +804,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="cell" data-inline="true">
 <span> <small style="color: grey;" id="what-kinda-thing-3-hintarea" class="hintarea">what-kinda-thing-3</small>
 <form id="what-kinda-thing-3-form">
-<span> <span> <input type="radio" class="devoirs-mcq" value="a scalar" id="what-kinda-thing-3-1" w="32" name="what-kinda-thing-3" hint="Incorrect choice." show_hints="false"> a scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-3-2" w="19" name="what-kinda-thing-3" hint="Not on target." show_hints="false"> a matrix with 2 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-3-3" w="18" name="what-kinda-thing-3" hint="You're right!" show_hints="false"> a matrix with 3 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-3-4" w="3" name="what-kinda-thing-3" hint="Incorrect." show_hints="false"> a matrix with 4 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="It's meaningless" id="what-kinda-thing-3-6" w="3" name="what-kinda-thing-3" hint="No." show_hints="false"> It’s meaningless &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="what-kinda-thing-3" id="what-kinda-thing-3.null" style="display: none;" w="skipped" checked=""> </span> </span>
+<span> <span> <input type="radio" class="devoirs-mcq" value="a scalar" id="what-kinda-thing-3-1" w="23" name="what-kinda-thing-3" hint="Nope." show_hints="false"> a scalar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-3-2" w="87" name="what-kinda-thing-3" hint="Not so!" show_hints="false"> a matrix with 2 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-3-3" w="29" name="what-kinda-thing-3" hint="Score!" show_hints="false"> a matrix with 3 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="a matrix w ...  4 columns" id="what-kinda-thing-3-4" w="7" name="what-kinda-thing-3" hint="Incorrect." show_hints="false"> a matrix with 4 rows and 4 columns &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="It's meaningless" id="what-kinda-thing-3-6" w="23" name="what-kinda-thing-3" hint="Not quite." show_hints="false"> It’s meaningless &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="what-kinda-thing-3" id="what-kinda-thing-3.null" style="display: none;" w="skipped" checked=""> </span> </span>
 </form>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -2649,13 +835,21 @@ document.addEventListener('DOMContentLoaded', function() {
 <p></p>
 </span></div>
 </div>
-<div id="exr-solve-for-u-v" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10</strong></span> By eye, find the linear combination of vectors <span class="math inline">\(\vec{\bf u}\)</span> and <span class="math inline">\(\vec{\bf v}\)</span> that will run from the origin to the red dot.</p>
+</div>
+<div id="tabset-3-10" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-10-tab">
+<div id="exr-elephant-hit-pot" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10</strong></span> &nbsp;</p>
+<dl>
+<dt>Part A</dt>
+<dd>
+By eye, find the linear combination of vectors <span class="math inline">\(\vec{\bf u}\)</span> and <span class="math inline">\(\vec{\bf v}\)</span> that will run from the origin to the red dot. Your answer will, naturally, not be exact.
+</dd>
+</dl>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index-assignment-12_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index-assignment-12_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2663,95 +857,180 @@ document.addEventListener('DOMContentLoaded', function() {
 <script type="text/javascript">
       //save entered info
       document.addEventListener('DOMContentLoaded', function() {
-      console.log('Adding event listener for solve-for-u-v.');
-      const form = document.getElementById('solve-for-u-v');
+      console.log('Adding event listener for ehp-3hT.');
+      const form = document.getElementById('ehp-3hT');
       form.addEventListener("input", function () {
-        var todo = document.getElementById('solve-for-u-v').value;
-        localStorage.setItem("solve-for-u-v-contents", todo);
-        console.log("Saving value of solve-for-u-v.")
+        var todo = document.getElementById('ehp-3hT').value;
+        localStorage.setItem("ehp-3hT-contents", todo);
+        console.log("Saving value of ehp-3hT.")
       }, false);
 
       //on page load, read in the old value
-      const savedValue = localStorage.getItem("solve-for-u-v-contents");
+      const savedValue = localStorage.getItem("ehp-3hT-contents");
       if (savedValue) {
-        document.getElementById('solve-for-u-v').value = savedValue;
+        document.getElementById('ehp-3hT').value = savedValue;
       }
 })
 </script>
-<textarea id="solve-for-u-v" name="solve-for-u-v" class="devoirs-text" style="font-family: monospace, monospace;" rows="1" cols="50" placeholder="Type here. (ID solve-for-u-v)"></textarea>
+<textarea id="ehp-3hT" name="ehp-3hT" class="devoirs-text" style="font-family: monospace, monospace;" rows="2" cols="50" placeholder="Type here. (ID ehp-3hT)"></textarea>
+<dl>
+<dt>Part B</dt>
+<dd>
+Now do the calculation numerically. (Remember: The vector coordinates should be found tip-to-tail, not just from the position of the tip.)
+</dd>
+</dl>
+<!-- Start of rich webr chunk ehp-6tB -->
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-page-layout="custom">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Webr chunk</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Code submission</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Scratch 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Scratch 2</a></li></ul>
+<div class="tab-content" data-page-layout="custom">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div>
+<div id="webr-2" class="exercise-cell">
+
+</div>
+<script type="webr-2-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJGb3IgdGhlIG51bWVyaWNhbCBjYWxjdWxhdGlvbiIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoiZWhwLTZ0Qi1tYWluIiwicGVyc2lzdCI6dHJ1ZX0sImNvZGUiOiJVIDwtIHZlYyggKVxuViA8LSB2ZWMoIClcbnRhcmdldCA8LSB2ZWMoIClcbnFyLnNvbHZlKGNiaW5kKFUsIFYpLCB0YXJnZXQpIn0=
+</script>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>This box connects to the “collect answers” button.</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for ehp-6tB.');
+      const form = document.getElementById('ehp-6tB');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('ehp-6tB').value;
+        localStorage.setItem("ehp-6tB-contents", todo);
+        console.log("Saving value of ehp-6tB.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("ehp-6tB-contents");
+      if (savedValue) {
+        document.getElementById('ehp-6tB').value = savedValue;
+      }
+})
+</script>
+<textarea id="ehp-6tB" name="ehp-6tB" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID ehp-6tB)"></textarea>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>If you need to, do computations on the side to check things out!</p>
+<div>
+<div id="webr-3" class="exercise-cell">
+
+</div>
+<script type="webr-3-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJTY3JhdGNoIHdvcmsgcGFuZWwgMSIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoiZWhwLTZ0Qi1zY3JhdGNoMSIsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
+</script>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p>More on-the-side computations if you need.</p>
+<div>
+<div id="webr-4" class="exercise-cell">
+
+</div>
+<script type="webr-4-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJTY3JhdGNoIHdvcmsgcGFuZWwgMiIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoiZWhwLTZ0Qi1zY3JhdGNoMSIsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
+</script>
+</div>
+</div>
+</div>
+</div>
+<!-- end of enriched webr chunk ehp-6tB -->
+</div>
+<p><!-- end of exr-elephant-hit-pot --></p>
+</div>
+</div>
 </div>
 </section>
 <section id="computing" class="level2">
 <h2 class="anchored" data-anchor-id="computing">Computing</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Submitting code and responses
+Note on submitting code and responses
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The <code>{devoirs}</code> package has changed. In the old version, your R-chunks were collected automatically when you press the “collect answers” button. That is no longer true.</p>
-<p>Instead, there will be text boxes into which you can paste code and/or results. They will look like this:</p>
-<script type="text/javascript">
-      //save entered info
-      document.addEventListener('DOMContentLoaded', function() {
-      console.log('Adding event listener for just-an-example.');
-      const form = document.getElementById('just-an-example');
-      form.addEventListener("input", function () {
-        var todo = document.getElementById('just-an-example').value;
-        localStorage.setItem("just-an-example-contents", todo);
-        console.log("Saving value of just-an-example.")
-      }, false);
-
-      //on page load, read in the old value
-      const savedValue = localStorage.getItem("just-an-example-contents");
-      if (savedValue) {
-        document.getElementById('just-an-example').value = savedValue;
-      }
-})
-</script>
-<textarea id="just-an-example" name="just-an-example" class="devoirs-text devoirs-computer" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Enter your code from the corresponding chunk here."></textarea>
-</div>
-</div>
-<div id="exr-resid-from-u" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11</strong></span> Using software in Chunk B, find the residual from projecting the red dot onto <span class="math inline">\(\vec{\bf u}\)</span>. Paste your code and the result of your calculation into the text box for Chunk B.</p>
-<div class="cell">
-<div class="cell-output-display">
+<p>Instead, there will be a set of “tabs” collected together. You can do your calculations in any of the Webr or “scratch” chunks—they all talk to one another. Put your response to the question in the “Submission” text box.</p>
+<p>Both your code and your “submission” will be preserved in your browser. CAUTION: When you return to the document, the code chunks will be filled in with your last entry, but you will have to run the chunk (if needed) by pressing the “Run Code” button.</p>
+<!-- Start of rich webr chunk ia1-7Wi -->
+<p>Example: What is 12 + 3?</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-page-layout="custom">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Webr chunk</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Submission</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Scratch 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Scratch 2</a></li></ul>
+<div class="tab-content" data-page-layout="custom">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div>
-<figure class="figure">
-<p><img src="index-assignment-12_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div id="webr-5" class="exercise-cell">
+
+</div>
+<script type="webr-5-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJXZWJyIGNodW5rIiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJpYTEtN1dpLW1haW4iLCJwZXJzaXN0Ijp0cnVlfSwiY29kZSI6IiJ9
+</script>
 </div>
 </div>
-</div>
-<p><strong>Chunk B</strong></p>
-<div id="qwebr-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <script type="text/javascript">
       //save entered info
       document.addEventListener('DOMContentLoaded', function() {
-      console.log('Adding event listener for resid-from-u.');
-      const form = document.getElementById('resid-from-u');
+      console.log('Adding event listener for ia1-7Wi.');
+      const form = document.getElementById('ia1-7Wi');
       form.addEventListener("input", function () {
-        var todo = document.getElementById('resid-from-u').value;
-        localStorage.setItem("resid-from-u-contents", todo);
-        console.log("Saving value of resid-from-u.")
+        var todo = document.getElementById('ia1-7Wi').value;
+        localStorage.setItem("ia1-7Wi-contents", todo);
+        console.log("Saving value of ia1-7Wi.")
       }, false);
 
       //on page load, read in the old value
-      const savedValue = localStorage.getItem("resid-from-u-contents");
+      const savedValue = localStorage.getItem("ia1-7Wi-contents");
       if (savedValue) {
-        document.getElementById('resid-from-u').value = savedValue;
+        document.getElementById('ia1-7Wi').value = savedValue;
       }
 })
 </script>
-<textarea id="resid-from-u" name="resid-from-u" class="devoirs-text devoirs-computer" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Enter your code from Chunk B here."></textarea>
+<textarea id="ia1-7Wi" name="ia1-7Wi" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID ia1-7Wi)"></textarea>
 </div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<div>
+<div id="webr-6" class="exercise-cell">
+
+</div>
+<script type="webr-6-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJTY3JhdGNoIHdvcmsgcGFuZWwgMSIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoiaWExLTdXaS1zY3JhdGNoMSIsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
+</script>
+</div>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+<div>
+<div id="webr-7" class="exercise-cell">
+
+</div>
+<script type="webr-7-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJTY3JhdGNoIHdvcmsgcGFuZWwgMiIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoiaWExLTdXaS1zY3JhdGNoMSIsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
+</script>
+</div>
+</div>
+</div>
+</div>
+<!-- end of enriched webr chunk ia1-7Wi -->
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Exer 12.11</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Exer 12.12</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-3" role="tab" aria-controls="tabset-7-3" aria-selected="false">Exer 12.13</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-4" role="tab" aria-controls="tabset-7-4" aria-selected="false">Exer 12.13</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-5" role="tab" aria-controls="tabset-7-5" aria-selected="false">Exer 12.15</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
 <div id="exr-make-ortho-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12</strong></span> Here are two vectors, <span class="math inline">\(\vec{\bf a}\)</span> and <span class="math inline">\(\vec{\bf b}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 11</strong></span> Here are two vectors, <span class="math inline">\(\vec{\bf a}\)</span> and <span class="math inline">\(\vec{\bf b}\)</span>.</p>
 <p><span class="math display">\[\vec{\bf a} \equiv  \left(\begin{array}{r}
 -8 \\
 -2 \\
@@ -2766,9 +1045,23 @@ Submitting code and responses
 <li><p>Using functions like <code>vec()</code>, <code>%onto%</code>, <code>%perp%</code>, and arithmetic compute the projection of <span class="math inline">\(\vec{\bf b}\)</span> onto <span class="math inline">\(\vec{\bf a}\)</span>. (Chunk C is provided for your calculations.)</p></li>
 <li><p>Do the same calculation, but use <code>%dot%</code> and <code>veclen()</code> instead of <code>%onto%</code>.</p></li>
 </ol>
-<p>Paste your code and the results from (i) and (ii) into the text box.</p>
-<div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Paste your code and the results into the computation block</p>
+<p><strong>Computation block</strong></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-page-layout="custom">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Webr chunk</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Submission</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Scratch 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-4" role="tab" aria-controls="tabset-5-4" aria-selected="false">Scratch 2</a></li></ul>
+<div class="tab-content" data-page-layout="custom">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div>
+<div id="webr-8" class="exercise-cell">
+
+</div>
+<script type="webr-8-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJXZWJyIGNodW5rIiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwicGVyc2lzdCI6dHJ1ZX0sImNvZGUiOiIifQ==
+</script>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>This box connects to the “collect answers” button.</p>
 <script type="text/javascript">
       //save entered info
       document.addEventListener('DOMContentLoaded', function() {
@@ -2787,15 +1080,46 @@ Submitting code and responses
       }
 })
 </script>
-<textarea id="make-ortho-1" name="make-ortho-1" class="devoirs-text devoirs-computer" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Enter your code from Chunk C here."></textarea>
+<textarea id="make-ortho-1" name="make-ortho-1" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID make-ortho-1)"></textarea>
 </div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<div>
+<div id="webr-9" class="exercise-cell">
+
+</div>
+<script type="webr-9-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJTY3JhdGNoIHdvcmsgcGFuZWwgMSIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
+</script>
+</div>
+</div>
+<div id="tabset-5-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-4-tab">
+<div>
+<div id="webr-10" class="exercise-cell">
+
+</div>
+<script type="webr-10-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJTY3JhdGNoIHdvcmsgcGFuZWwgMiIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
 <div id="exr-rotation-matrix-by-hand" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13</strong></span> Here is a matrix that when multiplied by a vector <span class="math inline">\(\vec{v}\)</span> will produce a rotated version of <span class="math inline">\(\vec{v}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 12</strong></span> Here is a matrix that when multiplied by a vector <span class="math inline">\(\vec{v}\)</span> will produce a rotated version of <span class="math inline">\(\vec{v}\)</span>.</p>
 <p><span class="math display">\[\left(\begin{array}{rr} \cos(\theta) &amp; \sin(\theta)\\ -\sin(\theta) &amp; \cos(\theta)\end{array} \right)\]</span></p>
 <p>Such matrices are called “<em>rotation matrices</em>.”</p>
-<p>Use Chunk A to write a function <code>mat_rotation()</code> that takes the angle <span class="math inline">\(\theta\)</span> (in radians) and produces the corresponding rotation matrix.</p>
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Write a function <code>mat_rotation()</code> that takes the angle <span class="math inline">\(\theta\)</span> (in radians) and produces the corresponding rotation matrix.</p>
+<div>
+<div id="webr-11" class="exercise-cell">
+
+</div>
+<script type="webr-11-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJXcml0ZSBhIGZ1bmN0aW9uIHRvIGNyZWF0ZSBhIHJvdGF0aW9uIG1hdHJpeCIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoibWF0X3JvdGF0aW9uIDwtIGZ1bmN0aW9uKHRoZXRhKSB7XG4gIFxufSJ9
+</script>
+</div>
 <ol type="1">
 <li>Use your function to create a rotation matrix and show that it is orthogonal. (Hint: Calculate <code>t(M) %*% M</code> and correctly interpret the result.) You can create the matrix in Chunk A, do the demonstration of orthogonality, and paste your code and results here:</li>
 </ol>
@@ -2817,12 +1141,18 @@ Submitting code and responses
       }
 })
 </script>
-<textarea id="rotation-ortho" name="rotation-ortho" class="devoirs-text devoirs-computer" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Enter your code from Chunk A here."></textarea>
+<textarea id="rotation-ortho" name="rotation-ortho" class="devoirs-text devoirs-computer" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Enter your response to Chunk A here"></textarea>
 <ol start="2" type="1">
 <li>For your convenience, here is a function that will compute the orientation angle of a 2-dimensional vector.</li>
 </ol>
-<div id="qwebr-insertion-location-5"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div>
+<div id="webr-12" class="exercise-cell">
+
+</div>
+<script type="webr-12-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNhcHRpb24iOiJIZWxwZXIgdG8gZmluZCBhbmdsZSIsImNvbnRleHQiOiJvdXRwdXQiLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6ImZpbmRfdmVjX2FuZ2xlIDwtIGZ1bmN0aW9uKHYpIHtcbiAgYXRhbjIodltbMl1dLCB2W1sxXV0pXG59In0=
+</script>
+</div>
 <p>Write a couple of test cases and explain the results here.</p>
 <script type="text/javascript">
       //save entered info
@@ -2842,7 +1172,7 @@ Submitting code and responses
       }
 })
 </script>
-<textarea id="angle-helper" name="angle-helper" class="devoirs-text devoirs-computer" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Enter your code from Helper to find angle here."></textarea>
+<textarea id="angle-helper" name="angle-helper" class="devoirs-text devoirs-computer" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Enter your response to Helper to find angle here"></textarea>
 <ol start="3" type="1">
 <li>Create a vector, and find the orientation angle. Then multiply the vector by a rotation matrix with <span class="math inline">\(\theta = \pi/4\)</span> and show that the orientation angle has changed accordingly. Paste your code, results, and commentary into the text-entry box here:</li>
 </ol>
@@ -2866,61 +1196,83 @@ Submitting code and responses
 </script>
 <textarea id="test-rotation-matrix-on-vector" name="test-rotation-matrix-on-vector" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID test-rotation-matrix-on-vector)"></textarea>
 </div>
-<div id="exr-glass-patterns-8322" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 14</strong></span> As a more compelling example of the action of rotation matrices, consider a visual phenomenon called a <a href="www/Glass69a.pdf">“Glass pattern”</a> discovered about 50 years ago.</p>
-<p>The pattern appears when a set of random dots is copied, perhaps with some rotation and scaling in the x and/or y directions. Even though the dots are random, the human visual system is easily able to discern the relationship between the original and transformed dot. The function <code>glass_pattern()</code>—defined below—generates a dataframe with <code>x</code> and <code>y</code> variables, and a rotated/scaled pair <code>x2</code> and <code>y2</code>. It allows you to easily generate the pairs of dots in a format (a data frame) that makes them easy to graph.</p>
-<div id="qwebr-insertion-location-6"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ol type="a">
-<li>Where in the definition for <code>glass_pattern()</code> do you see the application of a rotation matrix?</li>
-</ol>
-<script type="text/javascript">
-      //save entered info
-      document.addEventListener('DOMContentLoaded', function() {
-      console.log('Adding event listener for glass-pattern-function-rotation.');
-      const form = document.getElementById('glass-pattern-function-rotation');
-      form.addEventListener("input", function () {
-        var todo = document.getElementById('glass-pattern-function-rotation').value;
-        localStorage.setItem("glass-pattern-function-rotation-contents", todo);
-        console.log("Saving value of glass-pattern-function-rotation.")
-      }, false);
-
-      //on page load, read in the old value
-      const savedValue = localStorage.getItem("glass-pattern-function-rotation-contents");
-      if (savedValue) {
-        document.getElementById('glass-pattern-function-rotation').value = savedValue;
-      }
-})
-</script>
-<textarea id="glass-pattern-function-rotation" name="glass-pattern-function-rotation" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID glass-pattern-function-rotation)"></textarea>
-<ol start="2" type="a">
-<li>Chunk B generates a Glass pattern and plots it. (In Glass’s work, just the point were shown. Probably I have over-elaborated by plotting little segments between pairs instead. You can comment out the <code>gf_segment()</code> and uncomment the <code>gf_point()</code>s if you want to see the original form.)</li>
-</ol>
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Play around with the parameters for angle and x- and y-scaling to generate some different patterns. Paste the parameters you liked into the following text box.</p>
-<script type="text/javascript">
-      //save entered info
-      document.addEventListener('DOMContentLoaded', function() {
-      console.log('Adding event listener for glass-pattern-nice-params.');
-      const form = document.getElementById('glass-pattern-nice-params');
-      form.addEventListener("input", function () {
-        var todo = document.getElementById('glass-pattern-nice-params').value;
-        localStorage.setItem("glass-pattern-nice-params-contents", todo);
-        console.log("Saving value of glass-pattern-nice-params.")
-      }, false);
-
-      //on page load, read in the old value
-      const savedValue = localStorage.getItem("glass-pattern-nice-params-contents");
-      if (savedValue) {
-        document.getElementById('glass-pattern-nice-params').value = savedValue;
-      }
-})
-</script>
-<textarea id="glass-pattern-nice-params" name="glass-pattern-nice-params" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID glass-pattern-nice-params)"></textarea>
 </div>
-<div id="exr-solve-a" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 15</strong></span> Solve this matrix equation for <span class="math inline">\(x\)</span>.</p>
+<div id="tabset-7-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-3-tab">
+<div id="exr-resid-from-u" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13</strong></span> Using software, find the residual from projecting the red dot onto <span class="math inline">\(\vec{\bf u}\)</span>. Submit both your code and the result of your calculation.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index-assignment-12_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<!-- Start of rich webr chunk rfu-9Zg -->
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-page-layout="custom">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Webr chunk</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Answer submission</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-3" role="tab" aria-controls="tabset-6-3" aria-selected="false">Scratch 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-4" role="tab" aria-controls="tabset-6-4" aria-selected="false">Scratch 2</a></li></ul>
+<div class="tab-content" data-page-layout="custom">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div>
+<div id="webr-13" class="exercise-cell">
+
+</div>
+<script type="webr-13-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJXZWJyIGNodW5rIiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZSwibGFiZWwiOiJyZnUtOVpnLW1haW4iLCJwZXJzaXN0Ijp0cnVlfSwiY29kZSI6IiJ9
+</script>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>This box connects to the “collect answers” button.</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for rfu-9Zg.');
+      const form = document.getElementById('rfu-9Zg');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('rfu-9Zg').value;
+        localStorage.setItem("rfu-9Zg-contents", todo);
+        console.log("Saving value of rfu-9Zg.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("rfu-9Zg-contents");
+      if (savedValue) {
+        document.getElementById('rfu-9Zg').value = savedValue;
+      }
+})
+</script>
+<textarea id="rfu-9Zg" name="rfu-9Zg" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID rfu-9Zg)"></textarea>
+</div>
+<div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
+<div>
+<div id="webr-14" class="exercise-cell">
+
+</div>
+<script type="webr-14-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJTY3JhdGNoIHdvcmsgcGFuZWwgMSIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoicmZ1LTlaZy1zY3JhdGNoMSIsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
+</script>
+</div>
+</div>
+<div id="tabset-6-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-4-tab">
+<div>
+<div id="webr-15" class="exercise-cell">
+
+</div>
+<script type="webr-15-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJTY3JhdGNoIHdvcmsgcGFuZWwgMiIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoicmZ1LTlaZy1zY3JhdGNoMSIsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
+</script>
+</div>
+</div>
+</div>
+</div>
+<!-- end of enriched webr chunk rfu-9Zg -->
+</div>
+</div>
+<div id="tabset-7-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-4-tab">
+<div id="exr-cat-cost-radio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14</strong></span> Solve this matrix equation for <span class="math inline">\(x\)</span>.</p>
 <p><span class="math display">\[\left(\begin{array}{r}
 -7 &amp; 0 &amp; 5 \\
 5 &amp; 7 &amp; 2 \\
@@ -2953,11 +1305,112 @@ Submitting code and responses
 </script>
 <textarea id="solve-a" name="solve-a" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID solve-a)"></textarea>
 </div>
+<p><!-- end of exr-cat-cost-radio -->)</p>
+</div>
+<div id="tabset-7-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-5-tab">
+<div id="exr-frog-close-chair" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 15</strong></span> As a more compelling example of the action of rotation matrices, consider a visual phenomenon called a <a href="www/Glass69a.pdf">“Glass pattern”</a> discovered about 50 years ago.</p>
+<p>The pattern appears when a set of random dots is copied, perhaps with some rotation and scaling in the x and/or y directions. Even though the dots are random, the human visual system is easily able to discern the relationship between the original and transformed dot. The function <code>glass_pattern()</code>—defined below—generates a dataframe with <code>x</code> and <code>y</code> variables, and a rotated/scaled pair <code>x2</code> and <code>y2</code>. It allows you to easily generate the pairs of dots in a format (a data frame) that makes them easy to graph.</p>
+<div>
+<div id="webr-16" class="exercise-cell">
+
+</div>
+<script type="webr-16-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNhcHRpb24iOiJQcm9kdWNlcyBjb3JyZWxhdGVkIHBhaXJzIiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZX0sImNvZGUiOiJnbGFzc19wYXR0ZXJuIDwtIGZ1bmN0aW9uKG49MTAwMCwgdGhldGE9NSwgeHNjYWxlID0gMSwgeXNjYWxlID0gMSkge1xuICB0aGV0YSA8LSBwaSp0aGV0YS8xODAgIyBpbiByYWRpYW5zXG4gIFB0cyA8LSB0aWJibGU6OnRpYmJsZShcbiAgICB4ID0gcnVuaWYobiwgLTEsIDEpLFxuICAgIHkgPSBydW5pZihuLCAtMSwgMSksXG4gICAgeHggPSB4KnhzY2FsZSxcbiAgICB5eSA9IHkqeXNjYWxlKSB8PlxuICAgIG11dGF0ZSh4MiA9IGNvcyh0aGV0YSkqeHggKyBzaW4odGhldGEpKnl5LFxuICAgICAgICAgICB5MiA9IC1zaW4odGhldGEpKnh4ICsgY29zKHRoZXRhKSp5eSkgfD5cbiAgICBzZWxlY3QoLXh4LCAteXkpXG59In0=
+</script>
+</div>
+<ol type="a">
+<li>Where in the definition for <code>glass_pattern()</code> do you see the application of a rotation matrix?</li>
+</ol>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for glass-pattern-function-rotation.');
+      const form = document.getElementById('glass-pattern-function-rotation');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('glass-pattern-function-rotation').value;
+        localStorage.setItem("glass-pattern-function-rotation-contents", todo);
+        console.log("Saving value of glass-pattern-function-rotation.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("glass-pattern-function-rotation-contents");
+      if (savedValue) {
+        document.getElementById('glass-pattern-function-rotation').value = savedValue;
+      }
+})
+</script>
+<textarea id="glass-pattern-function-rotation" name="glass-pattern-function-rotation" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID glass-pattern-function-rotation)"></textarea>
+<ol start="2" type="a">
+<li>Chunk B generates a Glass pattern and plots it. (In Glass’s work, just the point were shown. Probably I have over-elaborated by plotting little segments between pairs instead. You can comment out the <code>gf_segment()</code> and uncomment the <code>gf_point()</code>s if you want to see the original form.)</li>
+</ol>
+<div>
+<div id="webr-17" class="exercise-cell">
+
+</div>
+<script type="webr-17-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJDaHVuayBCIHNob3cgYSB0cmFuc2Zvcm1hdGlvbiIsImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZ2xhc3NfcGF0dGVybih4c2NhbGUgPSAwLjk1LCB5c2NhbGUgPSAxLjIsIHRoZXRhID0gMTUpIHw+XG4gICMgZ2ZfcG9pbnQoeSB+IHgsIHNpemU9MC4zKSB8PlxuICAjIGdmX3BvaW50KHkyIH4geDIsIHNpemU9MC4zKSB8PlxuICBnZl9zZWdtZW50KHkgKyB5MiB+IHggKyB4MiwgbGluZXdpZHRoPTAuMixcbiAgICAgICAgICAgICBhcnJvdyA9IGFycm93KGxlbmd0aD11bml0KDAuMDMsIFwiaW5jaGVzXCIpKSkgfD5cbiAgZ2ZfcmVmaW5lKGNvb3JkX2ZpeGVkKCkpIn0=
+</script>
+</div>
+<p>Play around with the parameters for angle and x- and y-scaling to generate some different patterns. Paste the parameters you liked into the following text box.</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for glass-pattern-nice-params.');
+      const form = document.getElementById('glass-pattern-nice-params');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('glass-pattern-nice-params').value;
+        localStorage.setItem("glass-pattern-nice-params-contents", todo);
+        console.log("Saving value of glass-pattern-nice-params.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("glass-pattern-nice-params-contents");
+      if (savedValue) {
+        document.getElementById('glass-pattern-nice-params').value = savedValue;
+      }
+})
+</script>
+<textarea id="glass-pattern-nice-params" name="glass-pattern-nice-params" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID glass-pattern-nice-params)"></textarea>
+</div>
+<p><!-- end of exr-frog-close-chair -->)</p>
+</div>
+</div>
+</div>
+<hr>
 
 
+<script type="webr-data">
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC40LjIvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsImdncGxvdDIiLCJtb3NhaWNDYWxjIiwiTFNUYm9vayJdLCJyZXBvcyI6WyJodHRwczovL2R0a2FwbGFuLnItdW5pdmVyc2UuZGV2Il19LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTc7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE3ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTcsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTY7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE2ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTYtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTYsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTU7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE1ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTUtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTUsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTQ7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE0ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xNC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xNCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTQsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTM7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEzID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTMtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTMsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTI7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEyID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTIsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzExID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTA7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEwID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTAtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xMC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xMCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMTAsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC05IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV85O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzkgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici05LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItOS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV85ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl85LCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfODtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTgiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl84ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItOC1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTgtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfOCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfOCwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTciLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzc7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici03IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNyA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici03LWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzcgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzcsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC02IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV82O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzYgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici02LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItNi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV82ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl82LCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl81ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNS1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTUtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfNSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNSwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTQiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzQ7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici00IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNCA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici00LWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzQgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzQsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8zO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0zLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8zLCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTIiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl8yID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMi1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTItY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMiwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6Il93ZWJyX3ZhbHVlXzEgPSB7XG4gIGNvbnN0IHsgaGlnaGxpZ2h0UiwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMS1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIC8vIERlZmF1bHQgZXZhbHVhdGlvbiBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHtcbiAgICBpZDogXCJ3ZWJyLTEtY29udGVudHNcIixcbiAgICBlY2hvOiB0cnVlLFxuICAgIG91dHB1dDogdHJ1ZVxuICB9LCBibG9jay5hdHRyKTtcblxuICAvLyBFdmFsdWF0ZSB0aGUgcHJvdmlkZWQgUiBjb2RlXG4gIGNvbnN0IHJlc3VsdCA9IHdlYlJPanMucHJvY2Vzcyh7Y29kZTogYmxvY2suY29kZSwgb3B0aW9uc30sIHt9KTtcblxuICAvLyBFYXJseSB5aWVsZCB3aGlsZSB3ZSB3YWl0IGZvciB0aGUgZmlyc3QgZXZhbHVhdGlvbiBhbmQgcmVuZGVyXG4gIGlmIChvcHRpb25zLm91dHB1dCAmJiAhKFwiMVwiIGluIHdlYlJPanMucmVuZGVyZWRPanMpKSB7XG4gICAgY29uc3QgY29udGFpbmVyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcbiAgICBjb25zdCBzcGlubmVyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcblxuICAgIGlmIChvcHRpb25zLmVjaG8pIHtcbiAgICAgIC8vIFNob3cgb3V0cHV0IGFzIGhpZ2hsaWdodGVkIHNvdXJjZVxuICAgICAgY29uc3QgcHJlRWxlbSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJwcmVcIik7XG4gICAgICBjb250YWluZXIuY2xhc3NOYW1lID0gXCJzb3VyY2VDb2RlXCI7XG4gICAgICBwcmVFbGVtLmNsYXNzTmFtZSA9IFwic291cmNlQ29kZSByXCI7XG4gICAgICBwcmVFbGVtLmFwcGVuZENoaWxkKGhpZ2hsaWdodFIoYmxvY2suY29kZSkpO1xuICAgICAgc3Bpbm5lci5jbGFzc05hbWUgPSBcInNwaW5uZXItZ3JvdyBzcGlubmVyLWdyb3ctc20gbS0yIHBvc2l0aW9uLWFic29sdXRlIHRvcC0wIGVuZC0wXCI7XG4gICAgICBwcmVFbGVtLmFwcGVuZENoaWxkKHNwaW5uZXIpO1xuICAgICAgY29udGFpbmVyLmFwcGVuZENoaWxkKHByZUVsZW0pO1xuICAgIH0gZWxzZSB7XG4gICAgICBzcGlubmVyLmNsYXNzTmFtZSA9IFwic3Bpbm5lci1ib3JkZXIgc3Bpbm5lci1ib3JkZXItc21cIjtcbiAgICAgIGNvbnRhaW5lci5hcHBlbmRDaGlsZChzcGlubmVyKTtcbiAgICB9XG5cbiAgICB5aWVsZCBjb250YWluZXI7XG4gIH1cblxuICB3ZWJST2pzLnJlbmRlcmVkT2pzW1wiMVwiXSA9IHRydWU7XG4gIHlpZWxkIGF3YWl0IHJlc3VsdDtcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ3ZWJST2pzID0ge1xuICBjb25zdCB7IFdlYlIsIENoYW5uZWxUeXBlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lLldlYlI7XG4gIGNvbnN0IHtcbiAgICBXZWJSRXZhbHVhdG9yLFxuICAgIFdlYlJFbnZpcm9ubWVudE1hbmFnZXIsXG4gICAgc2V0dXBSLFxuICAgIGI2NERlY29kZSxcbiAgICBjb2xsYXBzZVBhdGhcbiAgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG5cbiAgY29uc3Qgc3RhdHVzQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLXN0YXR1c1wiKTtcbiAgY29uc3QgaW5kaWNhdG9yQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaW5kaWNhdG9yQ29udGFpbmVyLmNsYXNzTGlzdC5yZW1vdmUoXCJkLW5vbmVcIik7XG5cbiAgbGV0IHN0YXR1c1RleHQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpXG4gIHN0YXR1c1RleHQuY2xhc3NMaXN0ID0gXCJleGVyY2lzZS1sb2FkaW5nLWRldGFpbHNcIjtcbiAgc3RhdHVzVGV4dCA9IHN0YXR1c0NvbnRhaW5lci5hcHBlbmRDaGlsZChzdGF0dXNUZXh0KTtcbiAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbml0aWFsaXNlYDtcblxuICAvLyBIb2lzdCBpbmRpY2F0b3Igb3V0IGZyb20gZmluYWwgc2xpZGUgd2hlbiBydW5uaW5nIHVuZGVyIHJldmVhbFxuICBjb25zdCByZXZlYWxTdGF0dXMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCAuZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGlmIChyZXZlYWxTdGF0dXMpIHtcbiAgICByZXZlYWxTdGF0dXMucmVtb3ZlKCk7XG4gICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgPiAuc2xpZGVzXCIpLmFwcGVuZENoaWxkKHJldmVhbFN0YXR1cyk7XG4gIH1cblxuICAvLyBNYWtlIGFueSByZXZlYWwgc2xpZGVzIHdpdGggbGl2ZSBjZWxscyBzY3JvbGxhYmxlXG4gIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoXCIucmV2ZWFsIC5leGVyY2lzZS1jZWxsXCIpLmZvckVhY2goKGVsKSA9PiB7XG4gICAgZWwuY2xvc2VzdCgnc2VjdGlvbi5zbGlkZScpLmNsYXNzTGlzdC5hZGQoXCJzY3JvbGxhYmxlXCIpO1xuICB9KVxuXG4gIC8vIHdlYlIgc3VwcGxlbWVudGFsIGRhdGEgYW5kIG9wdGlvbnNcbiAgY29uc3QgZGF0YUNvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici1kYXRhXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZGF0YSA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGRhdGFDb250ZW50KSk7XG5cbiAgLy8gR3JhYiBsaXN0IG9mIHJlc291cmNlcyB0byBiZSBkb3dubG9hZGVkXG4gIGNvbnN0IGZpbGVzQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ2ZnMtZmlsZVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGZpbGVzID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZmlsZXNDb250ZW50KSk7XG5cbiAgLy8gVXNlIFBvc3RNZXNzYWdlIGNoYW5uZWwgZm9yIGFzeW5jIGNvbW11bmljYXRpb25cbiAgLy8gV2UgZG8gbm90IGV4cGVjdCB0byB0YWtlIG5lc3RlZCBwcm9tcHQgaW5wdXQgaW4gUXVhcnRvIExpdmUgY2VsbHNcbiAgZGF0YS5vcHRpb25zLmNoYW5uZWxUeXBlID0gQ2hhbm5lbFR5cGUuUG9zdE1lc3NhZ2U7XG5cbiAgLy8gSW5pdGlhbGlzZSB3ZWJSIGFuZCBzZXR1cCBmb3IgUiBjb2RlIGV2YWx1YXRpb25cbiAgbGV0IHdlYlJQcm9taXNlID0gKGFzeW5jICh3ZWJSKSA9PiB7XG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyB3ZWJSYDtcbiAgICBhd2FpdCB3ZWJSLmluaXQoKTtcblxuICAgIC8vIEluc3RhbGwgcHJvdmlkZWQgbGlzdCBvZiBwYWNrYWdlc1xuICAgIC8vIEVuc3VyZSB3ZWJSIGRlZmF1bHQgcmVwbyBpcyBpbmNsdWRlZFxuICAgIGRhdGEucGFja2FnZXMucmVwb3MucHVzaChcImh0dHBzOi8vcmVwby5yLXdhc20ub3JnXCIpXG4gICAgYXdhaXQgZGF0YS5wYWNrYWdlcy5wa2dzLm1hcCgocGtnKSA9PiAoKSA9PiB7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6ICR7cGtnfWA7XG4gICAgICByZXR1cm4gd2ViUi5ldmFsUlZvaWQoYFxuICAgICAgICB3ZWJyOjppbnN0YWxsKHBrZywgcmVwb3MgPSByZXBvcylcbiAgICAgICAgbGlicmFyeShwa2csIGNoYXJhY3Rlci5vbmx5ID0gVFJVRSlcbiAgICAgIGAsIHsgZW52OiB7XG4gICAgICAgIHBrZzogcGtnLFxuICAgICAgICByZXBvczogZGF0YS5wYWNrYWdlcy5yZXBvcyxcbiAgICAgIH19KTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIC8vIERvd25sb2FkIGFuZCBpbnN0YWxsIHJlc291cmNlc1xuICAgIGF3YWl0IGZpbGVzLm1hcCgoZmlsZSkgPT4gYXN5bmMgKCkgPT4ge1xuICAgICAgY29uc3QgbmFtZSA9IGZpbGUuc3Vic3RyaW5nKGZpbGUubGFzdEluZGV4T2YoJy8nKSArIDEpO1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyByZXNvdXJjZTogJHtuYW1lfWA7XG4gICAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKGZpbGUpO1xuICAgICAgaWYgKCFyZXNwb25zZS5vaykge1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYENhbid0IGRvd25sb2FkIFxcYCR7ZmlsZX1cXGAuIEVycm9yICR7cmVzcG9uc2Uuc3RhdHVzfTogXCIke3Jlc3BvbnNlLnN0YXR1c1RleHR9XCIuYCk7XG4gICAgICB9XG4gICAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuYXJyYXlCdWZmZXIoKTtcblxuICAgICAgLy8gU3RvcmUgVVJMcyBpbiB0aGUgY3dkIHdpdGhvdXQgYW55IHN1YmRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGlmIChmaWxlLmluY2x1ZGVzKFwiOi8vXCIpKSB7XG4gICAgICAgIGZpbGUgPSBuYW1lO1xuICAgICAgfVxuXG4gICAgICAvLyBDb2xsYXBzZSBoaWdoZXIgZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgZmlsZSA9IGNvbGxhcHNlUGF0aChmaWxlKTtcblxuICAgICAgLy8gQ3JlYXRlIGRpcmVjdG9yeSB0cmVlLCBpZ25vcmluZyBcImRpcmVjdG9yeSBleGlzdHNcIiBWRlMgZXJyb3JzXG4gICAgICBjb25zdCBwYXJ0cyA9IGZpbGUuc3BsaXQoJy8nKS5zbGljZSgwLCAtMSk7XG4gICAgICBsZXQgcGF0aCA9ICcnO1xuICAgICAgd2hpbGUgKHBhcnRzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcGF0aCArPSBwYXJ0cy5zaGlmdCgpICsgJy8nO1xuICAgICAgICB0cnkge1xuICAgICAgICAgIGF3YWl0IHdlYlIuRlMubWtkaXIocGF0aCk7XG4gICAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgICBpZiAoIWUubWVzc2FnZS5pbmNsdWRlcyhcIkZTIGVycm9yXCIpKSB7XG4gICAgICAgICAgICB0aHJvdyBlO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAvLyBXcml0ZSB0aGlzIGZpbGUgdG8gdGhlIFZGU1xuICAgICAgcmV0dXJuIGF3YWl0IHdlYlIuRlMud3JpdGVGaWxlKGZpbGUsIG5ldyBVaW50OEFycmF5KGRhdGEpKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5zdGFsbGluZyB3ZWJSIHNoaW1zYDtcbiAgICBhd2FpdCB3ZWJSLmV2YWxSVm9pZChgd2Vicjo6c2hpbV9pbnN0YWxsKClgKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgV2ViUiBlbnZpcm9ubWVudCBzZXR1cGA7XG4gICAgYXdhaXQgc2V0dXBSKHdlYlIsIGRhdGEpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHdlYlI7XG4gIH0pKG5ldyBXZWJSKGRhdGEub3B0aW9ucykpO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCB3ZWJSID0gYXdhaXQgd2ViUlByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFdlYlJFdmFsdWF0b3Iod2ViUiwgY29udGV4dClcbiAgICBhd2FpdCBldmFsdWF0b3IucHJvY2VzcyhpbnB1dHMpO1xuICAgIHJldHVybiBldmFsdWF0b3IuY29udGFpbmVyO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBwcm9jZXNzLFxuICAgIHdlYlJQcm9taXNlLFxuICAgIHJlbmRlcmVkT2pzLFxuICB9O1xufVxuIn1dfQ==
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../assignments/Week-12";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -3376,122 +1829,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script type="module">
-// Handle cell initialization initialization
-qwebrCellDetails.map(
-  (entry) => {
-    // Handle the creation of the element
-    qwebrCreateHTMLElement(entry);
-    // In the event of interactive, initialize the monaco editor
-    if (entry.options.context == EvalTypes.Interactive) {
-      qwebrCreateMonacoEditorInstance(entry);
-    }
-  }
-);
-
-// Identify non-interactive cells (in order)
-const filteredEntries = qwebrCellDetails.filter(entry => {
-  const contextOption = entry.options && entry.options.context;
-  return ['output', 'setup'].includes(contextOption) || (contextOption == "interactive" && entry.options && entry.options.autorun === 'true');
-});
-
-// Condition non-interactive cells to only be run after webR finishes its initialization.
-qwebrInstance.then(
-  async () => {
-    const nHiddenCells = filteredEntries.length;
-    var currentHiddenCell = 0;
-
-
-    // Modify button state
-    qwebrSetInteractiveButtonState(`🟡 Running hidden code cells ...`, false);
-
-    // Begin processing non-interactive sections
-    // Due to the iteration policy, we must use a for() loop.
-    // Otherwise, we would need to switch to using reduce with an empty
-    // starting promise
-    for (const entry of filteredEntries) {
-
-      // Determine cell being examined
-      currentHiddenCell = currentHiddenCell + 1;
-      const formattedMessage = `Evaluating hidden cell ${currentHiddenCell} out of ${nHiddenCells}`;
-
-      // Update the document status header
-      if (qwebrShowStartupMessage) {
-        qwebrUpdateStatusHeader(formattedMessage);
-      }
-
-      // Display the update in non-active areas
-      qwebrUpdateStatusMessage(formattedMessage);
-
-      // Extract details on the active cell
-      const evalType = entry.options.context;
-      const cellCode = entry.code;
-      const qwebrCounter = entry.id;
-
-      if (['output', 'setup'].includes(evalType)) {
-        // Disable further global status updates
-        const activeContainer = document.getElementById(`qwebr-non-interactive-loading-container-${qwebrCounter}`);
-        activeContainer.classList.remove('qwebr-cell-needs-evaluation');
-        activeContainer.classList.add('qwebr-cell-evaluated');
-
-        // Update status on the code cell
-        const activeStatus = document.getElementById(`qwebr-status-text-${qwebrCounter}`);
-        activeStatus.innerText = " Evaluating hidden code cell...";
-        activeStatus.classList.remove('qwebr-cell-needs-evaluation');
-        activeStatus.classList.add('qwebr-cell-evaluated');
-      }
-
-      switch (evalType) {
-        case 'interactive':
-          // TODO: Make this more standardized.
-          // At the moment, we're overriding the interactive status update by pretending its
-          // output-like. 
-          const tempOptions = entry.options;
-          tempOptions["context"] = "output"
-          // Run the code in a non-interactive state that is geared to displaying output
-          await qwebrExecuteCode(`${cellCode}`, qwebrCounter, tempOptions);
-          break;
-        case 'output':
-          // Run the code in a non-interactive state that is geared to displaying output
-          await qwebrExecuteCode(`${cellCode}`, qwebrCounter, entry.options);
-          break;
-        case 'setup':
-          const activeDiv = document.getElementById(`qwebr-noninteractive-setup-area-${qwebrCounter}`);
-
-          // Store code in history
-          qwebrLogCodeToHistory(cellCode, entry.options);
-
-          // Run the code in a non-interactive state with all output thrown away
-          await mainWebR.evalRVoid(`${cellCode}`);
-          break;
-        default: 
-          break; 
-      }
-
-      if (['output', 'setup'].includes(evalType)) {
-        // Disable further global status updates
-        const activeContainer = document.getElementById(`qwebr-non-interactive-loading-container-${qwebrCounter}`);
-        // Disable visibility
-        activeContainer.style.visibility = 'hidden';
-        activeContainer.style.display = 'none';
-      }
-    }
-  }
-).then(
-  () => {
-    // Release document status as ready
-
-    if (qwebrShowStartupMessage) {
-      qwebrStartupMessage.innerText = "🟢 Ready!"
-    }
-  
-    qwebrSetInteractiveButtonState(
-      `<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>`, 
-      true
-    );  
-  }
-);
-</script>
 
 
 

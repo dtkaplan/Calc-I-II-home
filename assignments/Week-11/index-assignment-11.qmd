@@ -1,7 +1,6 @@
 ---
 title: MOSAIC Assignment Week 11
 date: 2025-03-31
-format: html
 categories: [linear algebra]
 ---
 
@@ -55,7 +54,7 @@ source("../../_software/software.R")
 
 ### Basic operations
 
-a. Use `vec()` to create a vector from individual components (*scalars*). Example:
+a. Use `vec()` to create a vector from individual components (that is, each component is a *scalar*). Example:
 
 ```{webr-r}
 #| persist: true
@@ -86,7 +85,6 @@ Write three test cases for `%dot%` using vectors for which you can easily find t
 ```{webr-r}
 #| persist: true
 #| label: dot-test-cases
-#| eval: false
 vec(.....) %dot% vec(.....) # two dimensional vecs
 vec(.....) %dot% vec(.....) # three dimensional vecs
 vec(.....) %dot% vec(.....) # four dimensional vecs

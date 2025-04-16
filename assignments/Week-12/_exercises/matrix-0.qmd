@@ -1,5 +1,6 @@
 <!-- matrix-0 -->
 
+::: {#exr-matrix-0}
 Here are a few vectors. In what dimension space is each of them embedded.
 
 $$
@@ -50,4 +51,7 @@ $$
 4. 4 
 5. it's not a vector [hint: Why can't you have a 1-dimensional vector?]
 ```     
+
+:::
+<!-- end of exercise exr-matrix-0 -->
 

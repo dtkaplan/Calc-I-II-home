@@ -1,27 +1,26 @@
 <!-- matrix-2 -->
-
+::: {#exr-matrix-mult-2}
 What kind of mathematical object will the following produce?
 
 $$\left(\begin{array}{r} 
-8 & 4 & 8 \\ 
-4 & 2 & 7 \\ 
-3 & 8 & 2 \\ 
-6 & 5 & -8 \\ 
+ 2 & 2 & 5 & -9 \\ 
 \end{array}\right) \times 
 \left(\begin{array}{r} 
--1 & 2 & -4\\ 
-0 & 0 & 9\\ 
--5 & 3 & 8 \\ 
-4 & 1 & 1\\ 
+-1 \\ 
+0 \\ 
+-5 \\ 
+4 \\ 
 \end{array}\right)$$
 
 ```{mcq}
-#| label: mcq-matrix-3
+#| label: mcq-matrix-2
 #| inline: true
-1. A scalar 
+1. A scalar [correct]
 2. A column vector
 3. A row vector
-4. A matrix with three columns [correct]
+4. A matrix with three columns
 5. A matrix with three rows
 6. It's meaningless. 
 ```
+
+::: 

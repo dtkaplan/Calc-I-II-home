@@ -1,0 +1,62 @@
+---
+id: "elephant-hit-pot"
+created: "Wed Apr 16 09:02:18 2025"
+attribution: TBA
+---
+
+::: {#exr-elephant-hit-pot}
+Part A
+: By eye, find the linear combination of vectors $\vec{\bf u}$ and $\vec{\bf v}$ that will run from the origin to the red dot. Your answer will, naturally, not be exact.
+```{r echo=FALSE}
+solve_for(c("u", "v")) |> gf_point(-4 ~ -3, color = "red")
+```
+
+`r devoirs_text("ehp-3hT", rows = 2, cols = 50)`
+
+Part B
+: Now do the calculation numerically. (Remember: The vector coordinates should be found tip-to-tail, not just from the position of the tip.)
+
+
+<!-- Start of rich webr chunk ehp-6tB -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
+```{webr-r}
+#| caption: For the numerical calculation
+#| persist: true
+#| label: ehp-6tB-main
+U <- vec( )
+V <- vec( )
+target <- vec( )
+qr.solve(cbind(U, V), target)
+```
+
+## Code submission
+This box connects to the "collect answers" button.
+
+`r devoirs_text("ehp-6tB")`
+
+
+## Scratch 1
+If you need to, do computations on the side to check things out!
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: ehp-6tB-scratch1
+```
+
+## Scratch 2
+More on-the-side computations if you need.
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: ehp-6tB-scratch1
+```
+:::
+<!-- end of enriched webr chunk ehp-6tB -->
+
+
+
+
+:::
+ <!-- end of exr-elephant-hit-pot -->

@@ -3,11 +3,10 @@
 library(devoirs)
 ```
 
-:::{.callout-warning}
-## Submitting your answers
-
-If the answers that have been loaded automatically are not yours, press this button before starting your work:
-`r devoirs::clear_persistent_storage()`
+::::{.callout-warning collapse=true}
+### Remember to hand in your work ...
+::: {.panel-tabset}
+## Submitting answers
 
 At any point, you can submit your answers by collecting them and uploading them to the class site.
 
@@ -17,6 +16,13 @@ At any point, you can submit your answers by collecting them and uploading them 
 devoirs_end()
 ```
 
+[Link to upload site]({{< var devoirs.uploadsite >}}){target="_blank"}
+
+## Clearing document memory
+If the answers that have been loaded automatically are not yours, press this button before starting your work:
+`r devoirs::clear_persistent_storage()`
 :::
+
+::::
 
 

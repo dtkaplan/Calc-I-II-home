@@ -1,0 +1,44 @@
+::: {#exr-rotation-matrix-by-hand}
+
+Here is a matrix that when multiplied by a vector $\vec{v}$ will produce a rotated version of $\vec{v}$.
+
+$$\left(\begin{array}{rr} \cos(\theta) & \sin(\theta)\\ -\sin(\theta) & \cos(\theta)\end{array} \right)$$
+
+Such matrices are called "*rotation matrices*."
+
+Write a function `mat_rotation()` that takes the angle $\theta$ (in radians) and produces the corresponding rotation matrix.
+
+```{webr-r}
+#| caption: Write a function to create a rotation matrix 
+#| persist: true
+mat_rotation <- function(theta) {
+  
+}
+```
+
+1. Use your function to create a rotation matrix and show that it is orthogonal. (Hint: Calculate `t(M) %*% M` and correctly interpret the result.) You can create the matrix in Chunk A, do the demonstration of orthogonality, and paste your code and results here:
+
+`r devoirs_text("rotation-ortho", code = "Chunk A")`
+
+
+2. For your convenience, here is a function that will compute the orientation angle of a 2-dimensional vector.
+
+```{webr-r}
+#| caption: Helper to find angle
+#| autorun: true
+#| context: output
+find_vec_angle <- function(v) {
+  atan2(v[[2]], v[[1]])
+}
+```
+
+Write a couple of test cases and explain the results here.
+
+`r devoirs_text("angle-helper", code="Helper to find angle")`
+
+3. Create a vector, and find the orientation angle. Then multiply the vector by a rotation matrix with $\theta = \pi/4$ and show that the orientation angle has changed accordingly. Paste your code, results, and commentary into the text-entry box here:
+
+`r devoirs_text("test-rotation-matrix-on-vector")`
+
+:::
+
