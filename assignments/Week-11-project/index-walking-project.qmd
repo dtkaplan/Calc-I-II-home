@@ -71,14 +71,17 @@ tmp <- doodle_fun(~ x + y, seed = 1388)
 elevation <- makeFun(7000 - 25*tmp(x, y) ~ x + y)
 contour_plot(elevation(x/100, y/100) ~ x + y,
            domain(x = -300 : 400, y = -500 : 125),
-           contours_at = seq(6950, 7270, by=10), skip = 2,
+           contours_at = seq(6950, 7270, by=20), skip = 1,
            filled = FALSE) |>
   gf_point(-375 ~ -220, color = "red") |>
   gf_point( -130 ~ 90, color = "red") |>
   gf_text(-400 ~ -200, label="start", color = "red") |>
-  gf_segment(120+70 ~ -250 + -250, color="red") |>
-  gf_segment(50 + 20 ~ -250 + -250, color = "blue") |>
-  gf_refine(coord_fixed())
+  gf_segment(120+70 ~ -250 + -250, color="dodgerblue") |>
+  gf_text(90 ~ -220, label = ~ "50m", color="dodgerblue") |>
+  gf_segment(50 + 20 ~ -250 + -250, color = "magenta") |>
+  gf_text(35 ~ -220, label = ~ "30m", color = "magenta") |>
+  gf_refine(coord_fixed()) |> 
+  gf_theme(ggplot2::theme_minimal())
 ```
 
 The terrain on which to draw paths between the start and the point at the top of the hill. 
