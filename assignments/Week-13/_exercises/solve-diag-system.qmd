@@ -1,4 +1,7 @@
-By hand, solve this matrix equation for $\vec{\bf x}$:
+
+::: {#exr-solve-diag-system}
+Part a
+: By hand, solve this matrix equation for $\vec{\bf x}$:
 $$\left(\begin{array}{r} 
 3 & 0 & 0 & 0 & 0 \\ 
 0 & 1 & 0 & 0 & 0 \\ 
@@ -20,13 +23,48 @@ x_5 \\
 -5 \\ 
 \end{array}\right)$$
 
-Enter your value for $\vec{\bf x}$ in Chunk A, then create the diagonal $\bf M$ matrix, as shown. Confirm by printing them out that both are what you expect them to be. Then computer multiply ${\bf M}$ by $\vec{\bf x}$ to confirm that your answer was correct.
+Your result will take the form of a 5-element vector ${\bf x}$, that is, the numbers $x_1, x_2, x_3, x_4$, and $x_5$. Write down your answers somewhere convenient to prepare for Part b.
 
+Part b
+: Enter your value for $\vec{\bf x}$ in Chunk A, then create the diagonal $\bf M$ matrix, as shown. 
+
+Confirm by printing them out that both are what you expect them to be. Then computer multiply ${\bf M}$ by $\vec{\bf x}$ to confirm that your answer was correct.
+
+
+
+<!-- Start of rich webr chunk sds-5lu -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
 ```{webr-r}
-#| caption: Chunk A
+#| caption: For part b
+#| persist: true
+#| label: sds-5lu-main
 x <- vec( your_values_here )
 M <- diag(c(6, -5, -7, 2, -5))
 M %*% x
+
 ```
 
-`r devoirs_text("solve-diag-system", code = "Chunk A")`
+## Code and results submission
+
+`r devoirs_text("sds-5lu", str="For part b")`
+
+
+## Scratch 1
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: sds-5lu-scratch1
+```
+
+## Scratch 2
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: sds-5lu-scratch1
+```
+:::
+
+[..id..]{data-tooltip="solve-diag-system"}
+:::

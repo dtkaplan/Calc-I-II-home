@@ -1,7 +1,6 @@
 ---
 title: MOSAIC Week 13
 date: 2025-04-03
-format: html
 categories: [linear algebra]
 ---
 
@@ -11,7 +10,7 @@ library(LSTbook)
 library(devoirs)
 source("../../_software/software.r")
 devoirs::answer_style("none") 
-devoirs::answer_style("block") 
+# devoirs::answer_style("block") 
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
@@ -19,51 +18,42 @@ devoirs::answer_style("block")
 ```{webr-r}
 #| autorun: true
 #| context: output
+#| echo: false
+#| results: hide
 {{< include ../../_software/software.R >}}
 ```
 
-::: {#exr-solve-diag-system}
-## Solving when ${\bf M}$ is diagonal
-{{< include _exercises/solve-diag-system.qmd >}}
-:::
+## By hand and eye
 
------
-
-::: {#exr-frog-give-bowl}
-## QR by hand
+::: {.panel-tabset}
+## Exer 13.1
 {{< include _exercises/frog-give-bowl.qmd >}}
-:::
 
------
+## Exer 13.2
+{{< include _exercises/solve-diag-system.qmd >}}
 
+::: 
+<!-- end of hand-and-eye tabset -->
 
+## Computing
 
-::: {#exr-fly-hear-radio}
-## Comparing `model_train()` and `qr.solve()`
+::: {.panel-tabset}
+## 13.C.3
 {{< include _exercises/fly-hear-radio.qmd >}}
-:::
 
------
-
-::: {#exr-dog-chew-candy}
-## R^2^ and residuals
+## 13.C.4
 {{< include _exercises/dog-chew-candy.qmd >}}
-:::
 
------
-
-
-
-::: {#exr-calf-drink-pants}
-## Vectors for categorical explanatory variables
+## 13.C.5
 {{< include _exercises/calf-drink-pants.qmd >}}
-:::
 
------
-
-::: {#exr-elm-hurt-magnet}
-## Randomly explaining `height`
+## 13.C.6
 {{< include _exercises/elm-hurt-magnet.qmd >}}
-:::
+
+## 13.C.7
+{{< include _exercises/dog-hold-ship.qmd >}}
 
 -----
+:::
+
+<!-- end of computing tabset -->

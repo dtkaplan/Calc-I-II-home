@@ -8,17 +8,46 @@ categories: [linear algebra]
 library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
-source("../../_software/software.R")
+source("../../_software/software.r")
+devoirs::answer_style("none") 
+# devoirs::answer_style("block") 
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
 
 ```{webr-r}
 #| autorun: true
-#| context: setup
+#| context: output
+#| echo: false
+#| results: hide
 {{< include ../../_software/software.R >}}
 ```
 
+## By hand and eye
+
+::: {.panel-tabset}
+## Exer 19.1
 
 
-UNDER CONSTRUCTION
+## Exer 19.2
+
+
+::: 
+<!-- end of hand-and-eye tabset -->
+
+## Computing
+
+::: {.panel-tabset}
+## 19.C.3
+
+
+## 19.C.4
+
+
+## 19.C.5
+
+
+## 19.C.6
+
+:::
+<!-- end of computing tabset -->

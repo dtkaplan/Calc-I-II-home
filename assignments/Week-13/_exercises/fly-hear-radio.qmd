@@ -4,15 +4,54 @@ created: "Mon Apr 14 11:20:12 2025"
 attribution: TBA
 ---
 
+::: {#exr-fly-hear-radio}
+## Comparing `model_train()` and `qr.solve()`
 In order to understand how linear model-training is done, we're going to compare `LSTbook::model_train()` and `qr.solve()`. Let's work with the `mtcars` data frame, which is short enough to see the results. (`?mtcars` for the documentation.)
 
+Here's a chunk for doing any computations you'll need and a place to submit your answers to all the questions.
+
+
+<!-- Start of rich webr chunk fhr-5zY -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
 ```{webr-r}
+#| caption: Webr chunk
+#| persist: true
+#| label: fhr-5zY-main
 
 
 ```
 
-Part a
-: Use `model_train()` to fit the model specification `mpg ~ wt + hp` and look at the coefficients.
+## Answers go here
+`r devoirs_text("fhr-5zYa", str="For part a.")`
+
+`r devoirs_text("fhr-5zYb", str="For part b.")`
+
+`r devoirs_text("fhr-5zYc", str="For part c.")`
+
+`r devoirs_text("fhr-5zYd", str="For part d.")`
+
+
+## Scratch 1
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: fhr-5zY-scratch1
+```
+
+## Scratch 2
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: fhr-5zY-scratch1
+```
+:::
+<!-- end of enriched webr chunk fhr-5zY -->
+
+::: {.panel-tabset}
+## Part a
+Use `model_train()` to fit the model specification `mpg ~ wt + hp` and look at the coefficients.
 
 <!-- Opening answer: fhr-6LS -->
 ::: {.callout-tip collapse=true `r answer_style()`}
@@ -28,8 +67,8 @@ mtcars |> model_train(mpg ~ wt + hp) |>
 :::
 <!-- closing answer fhr-6LS -->
 
-Part b
-: Construct a "model matrix" ${\bf M}$ and a "target vector" ${\bf b}$ that matches the right and left side respectively of the model specification in Part a.  
+## Part b
+Construct a "model matrix" ${\bf M}$ and a "target vector" ${\bf b}$ that matches the right and left side respectively of the model specification in Part a.  
 
 We generally build matrices using the `cbind()` and `vec()` functions. But here, we need to refer to the `mtcars` data frame. So your matrix-construction statement will look like `M <- with(mtcars, cbind(vec(...), vec(...)))`. Use with as well to contruct the target vector.
 
@@ -49,8 +88,8 @@ b <- with(mtcars, vec(mpg))
 
 
 
-Part c
-: Now that you've built ${\bf M}$ and $\vec{\bf b}$, find the $\vec{\bf x}$ in ${\bf M}\ \vec{\bf x} = \vec{\bf b}$ using the `qr.solve(M, b)` command.
+## Part c
+Now that you've built ${\bf M}$ and $\vec{\bf b}$, find the $\vec{\bf x}$ in ${\bf M}\ \vec{\bf x} = \vec{\bf b}$ using the `qr.solve(M, b)` command.
 
 Explain why you got three coefficients as the result of Part a, but Part c gives you only two coefficients. 
 
@@ -70,8 +109,8 @@ We're missing one coefficient. That's because there is no third column in `M` th
 :::
 <!-- closing answer fhr-7kB -->
 
-Part d
-: Fix the matrix construction in Part b to add in a third column in ${\bf M}$ that corresponds to the intercept term in part (a). Do the coefficients from `qr.solve()` now match the coefficients from Part a?
+## Part d
+Fix the matrix construction in Part b to add in a third column in ${\bf M}$ that corresponds to the intercept term in part (a). Do the coefficients from `qr.solve()` now match the coefficients from Part a?
 
 <!-- Opening answer: fhr-5kK -->
 ::: {.callout-tip collapse=true `r answer_style()`}
@@ -87,3 +126,8 @@ Notice that `cbind()` is smart enough to interpret `1` as a vector.
 [..id..]{data-tooltip="Ans id: fhr-5kK"}
 :::
 <!-- closing answer fhr-5kK -->
+
+:::
+
+[..id..]{data-tooltip="fly-hear-radio"}
+:::

@@ -10,6 +10,7 @@ library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
 source("../../_software/software.R")
+# for composing questions ...
 matrix2latex <- function(matr) {
 
 printmrow <- function(x) {
@@ -142,11 +143,3 @@ Example: What is 12 + 3?
 {{< include _exercises/frog-close-chair.qmd >}}
 :::
 
-
-
-
-
-
-
-
------

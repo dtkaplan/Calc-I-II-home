@@ -1,0 +1,95 @@
+---
+id: "dog-hold-ship"
+created: "Thu Apr 17 14:29:31 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-dog-hold-ship}
+## Dealing with redundancy
+When constructing a model matrix ${\bf M}$ to solve against a response variable $\vec{\bf b}$ to find the model coefficients $\vec{\bf x}$, one or more of the vectors in ${\bf M}$ will be redundant with one or more of the other vectors in ${\bf M}$.
+
+To give a concrete example, supposing we are modeling the productivity of novelists, which we'll measure by the number of words (in millions) in their books. The data might look like this small, imagined data table:
+
+```{r}
+Authors <- tibble::tribble(
+  ~ name, ~ born, ~ died, ~lifespan, ~ productivity,
+  "Alfred", 1723, 1774, 51, 2.3,
+  "Betty", 1923, 2002, 79, 1.3,
+  "Carol", 1840, 1869, 29, 0.6,
+  "David", 1723, 1774, 51, 3.1,
+  "Eldrith", 1698, 1773, 75, 1.8,
+)
+gt::gt(Authors)
+```
+
+Suppose we fit a model:
+
+```{r}
+Authors |>
+  model_train(productivity ~ born + lifespan + died) |>
+  conf_interval()
+```
+
+Part a
+: Explain, in terms of the dimensionality of model subspaces, why `died` has a `NA` coefficient.
+
+`r devoirs_text("dhs-ayt" , str="Your explanation goes here.")`
+
+Part b
+: Compare Part a to what happens when we use QR decomposition to find the coefficients $\vec{\bf x}$.
+
+```{r}
+#| error: true
+M <- with(Authors, cbind(1, born, lifespan, died))
+colnames(M)[1] <- "Intercept" # give the first column a name
+b <- with(Authors, vec(productivity))
+qr.solve(M, b)
+```
+
+What does "singular matrix" refer to in the error message? (Ignore the `'a'`. The software engineer didn't bother to look up the name of the actual matrix in the command.)
+
+`r devoirs_text("dhs-byt" , str="Explain \"singular matrix\".")`
+
+Part c
+: Look at the Q and R parts of the QR decomposition of `M`:
+
+```{r}
+tmp <- qr(M)
+R <- qr.R(tmp)
+R
+Q <- qr.Q(tmp)
+Q
+```
+
+The first column of R says that only one vector from Q is needed to form the corresponding vector of M. The second column of R says that only two vectors from Q are needed to form the second column of M, and similarly for the third vector of R.
+
+Explain what the fourth column of M says.
+
+`r devoirs_text("dhs-cyt"  , str="Meaning of fourth column of R")`
+
+Part d
+: Here is one technique to get around the problem of the "singular matrix" from Part b: we will make a new Q and a new R that span the same space. We'll write the technique in R. Your task is to give an English-language description of each step.
+
+```{r}
+keepers <- which(abs(diag(R)) > 0.001)
+# Step 1: make new Q
+newQ <- Q[ , keepers]
+# Step 2: make new R
+newR <- R[keepers , keepers]
+# get the coefficients using the new Q and R
+qr.solve(newQ %*% newR, b)
+```
+
+Make as much sense as you can from the code in Part d. You may want to print out the intermediate values to track what is going on and to find the point of the `which()` function.
+
+`r devoirs_text("dhs-dyt", str="Making sense of the code ...")`
+
+[..id..]{.small data-tooltip="dog-hold-trip"}}
+:::
+ <!-- end of exr-dog-hold-ship -->)

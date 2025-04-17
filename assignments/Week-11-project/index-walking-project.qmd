@@ -18,7 +18,8 @@ The American College of Sports Medicine (ACSM) model of power consumption (watts
 
 $$P = (h + w g_\text{path}) V$$ {#eq-power-uphill}
 
-What must be the u-dimension of $h$ and $w$ for @eq-power-uphill to be dimensionally consistent. ($g_\text{path}$ has u-dimension L/L., while power has u-dimension ML^2^T^-3^.)
+Part a
+: What must be the u-dimension of $h$ and $w$ for @eq-power-uphill to be dimensionally consistent. ($g_\text{path}$ has u-dimension L/L., while power has u-dimension ML^2^T^-3^.)
 
 ```{mcq}
 #| label: dimension-h-w
@@ -38,31 +39,85 @@ $$E = P t_d = (h + w g_\text{path}) V t_d = (h + w g_\text{path}) d$${#eq-energy
 
 Remember that the objective of walking this distance $d$ was to get the hiker to an elevation of 1000m. $d$ is the hypothenuse of a right triangle, so what is the correct relationship between $d$ and the gradient.
 
-
+Part b
+: Horizontal distance to climb 100 m as a function of grade.
 ```{mcq}
 #| label: walk-d-at-g
 #| show_hints: true
-1. $d^2 = 1000^2 + (1000 g_\text{path})^2$
-1. $d^2 = 1000^2 + (1000/g_\text{path})^2$ [correct]
-1. $d = 1000/g_\text{path}$
-1. $d^2 = 1000^2 - (1000/g_\text{path})^2$
+1. $d^2 = 100^2 + (100 g_\text{path})^2$
+1. $d^2 = 100^2 + (100/g_\text{path})^2$ [correct]
+1. $d = 100/g_\text{path}$
+1. $d^2 = 100^2 - (100/g_\text{path})^2$
 ```
 
 
-In other words, $d$ is a function of $g_\text{path}$, that is $d(g_\text{path})$. Substitute the formula for this function into @eq-energy-uphill to get an expression for $E(g_\text{path})$. 
+In other words, $d$ is a function of $g_\text{path}$, that is $d(g_\text{path})$. Substitute the formula for this function---from the correct answer to Part b---into @eq-energy-uphill to get an expression for $E(g_\text{path})$. 
 
+
+<!-- Start of rich webr chunk iwp-9Ez -->
+
+Part c
+: Graph the function $E(g_\text{path})$ over an appropriate domain to determine if there is a minimum and, if there is, the corresponding argmin. This is the answer we sought: the grade that makes getting uphill as energy-efficient as possible. You'll have to choose an appropriate *domain* for $g$, but that shouldn't be hard since you're familiar with walking uphill. The argmin will be a specific value for $g$ within that domain.
+
+Enter your graphing code in the Code submission text-entry.
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
 ```{webr-r}
-# Graph the function E(g) to find the argmin in g
+#| caption: Webr chunk
+#| persist: true
+#| label: iwp-9Ez-main
+
+
 ```
 
-Graph the function $E(g_\text{path})$ over an appropriate domain to determine if there is a minimum and, if there is, the corresponding argmin. This is the answer we sought: the grade that makes getting uphill as energy-efficient as possible.
+## Code submission
+This box connects to the "collect answers" button.
 
-One way to help people visualize your recommended grade ... Pick a few real-world examples of paths, both steep and shallow. For example, there's the Manitou incline near Colorado Springs as an example of a steep hike. Heartbreak Hill in the Boston Marathon has earned its name. Another example, pick a couple of streets in San Francisco, perhaps one with a cable-car running along it. Paste the URLs of the images that you like into the answer box.
+`r devoirs_text("iwp-9Ez", str="Enter your graphing code")`
+
+
+## Scratch 1
+If you need to, do computations on the side to check things out!
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: iwp-9Ez-scratch1
+```
+
+## Scratch 2
+More on-the-side computations if you need.
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: iwp-9Ez-scratch1
+```
+:::
+
+
+Part d
+: One way to help people visualize your recommended grade ... Pick a few real-world examples of paths, both steep and shallow. For example, there's the Manitou incline near Colorado Springs as an example of a steep hike. Heartbreak Hill in the Boston Marathon has earned its name. Another example, pick a couple of streets in San Francisco, perhaps one with a cable-car running along it. Paste the URLs of the images that you like into the answer box.
 
 `r devoirs_text("slopes-urls")`
 
 @fig-map-to-draw-on shows an imagined hill with contours drawn at intervals of 10. All units, horizontal and vertical, are in meters.
-Draw a path from the starting mark to the top of the hill that is at the optimal grade for walking. (You don't need to have an exact answer, just a reasonable approximation.) A good way to proceed is to draw a short, straight segment from the starting point on one contour to the appropriate place at the next contour. 
+
+Part e
+: To illustrate drawing a segment of an appropriate path on a contour map, imagine that you have selected a grade of 30% for your trail. In @fig-map-to-draw-on, adjacent contours are spaced by 20m elevation. How long horizontally should a 30%-grade straight segment be that starts on one segment and ends on an adjacent segment? 
+
+```{mcq}
+#| label: iwp-8ha
+#| inline: true
+1. 30m 
+2. 50m
+3. 67m [correct]
+4. 75m
+5. 100m
+```
+
+
+Part f
+: Draw a path from the starting mark to the top of the hill that is at the optimal grade for walking. (You don't need to have an exact answer, just a reasonable approximation.) A good way to proceed is to draw a short, straight segment from the starting point on one contour to the appropriate place at the next contour. 
 
 ::: {#fig-map-to-draw-on}
 ```{r echo=FALSE}

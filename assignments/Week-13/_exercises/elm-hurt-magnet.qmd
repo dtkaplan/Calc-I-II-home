@@ -4,23 +4,56 @@ created: "Mon Apr 14 13:50:17 2025"
 attribution: TBA
 ---
 
+::: {#exr-elm-hurt-magnet}
+## Randomly explaining `height`
 Look at `head(M)` on the random matrix ${\bf M}$ produced by the following chunk. The number of rows in ${\bf M}$ is made to match `Galton`, while `k` sets the number of columns.
 
+The following code computes R^2^ for one trial with two random vectors in $\bf M$. A random $\bf M$ contains no genuine explanatory information about `height` and, correspondingly, R^2^ is small and the p-value is large.
+
+Use the following chunk in an iterative way: use successively higher values for `k` taking note of the corresponding R^2^ and p-values.
+
+Task: Can you choose `k` to get an R^2^ greater than 0.5? How about 0.99? Explain what's going on in terms of the dimension of the space spanned by ${\bf M}$.
+
+<!-- Start of rich webr chunk ehm-1ug -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
 ```{webr-r}
+#| caption: Random M and R^2
+#| persist: true
+#| label: ehm-1ug-main
 k = 3
 Random <- rnorm(nrow(Galton) * k)
 M <- matrix(Random, nrow = nrow(Galton))
 dim(M)
 head(M)
 Galton |> model_train(height ~ M) |> R2()
+
 ```
 
-$\bf M$ contains no genuine explanatory information about `height` and, correspondingly, R^2^ is small and the p-value is large.
-
-Use successively higher values for `k` taking note of the corresponding R^2^ and p-values.
-
-Can you choose `k` to get an R^2^ greater than 0.5? How about 0.99? Explain what's going on in terms of the dimension of the space spanned by ${\bf M}$.
-
-`r devoirs_text("M-dimension")`
+## The task results
 
 
+`r devoirs_text("ehm-1ug")`
+
+
+## Scratch 1
+If you need to, do computations on the side to check things out!
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: ehm-1ug-scratch1
+```
+
+## Scratch 2
+More on-the-side computations if you need.
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: ehm-1ug-scratch1
+```
+:::
+<!-- end of enriched webr chunk ehm-1ug -->
+
+
+:::

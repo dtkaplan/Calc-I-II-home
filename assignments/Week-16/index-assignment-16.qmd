@@ -3,23 +3,51 @@ title: MOSAIC Week 16 Assignment
 date: 2025-05-02
 categories: [linear algebra]
 ---
-
 ```{r include=FALSE}
 library(mosaicCalc)
 library(LSTbook)
 library(devoirs)
-source("../../_software/software.R")
+source("../../_software/software.r")
+devoirs::answer_style("none") 
+# devoirs::answer_style("block") 
 ```
 
 {{< include ../../_software/devoirs.qmd >}}
 
 ```{webr-r}
 #| autorun: true
-#| context: setup
+#| context: output
+#| echo: false
+#| results: hide
 {{< include ../../_software/software.R >}}
 ```
 
+## By hand and eye
 
-UNDER CONSTRUCTION
+::: {.panel-tabset}
+## Exer 16.1
 
+
+## Exer 16.2
+
+
+::: 
+<!-- end of hand-and-eye tabset -->
+
+## Computing
+
+::: {.panel-tabset}
+## 16.C.3
+
+
+## 16.C.4
+
+
+## 16.C.5
+
+
+## 16.C.6
+
+:::
+<!-- end of computing tabset -->
 

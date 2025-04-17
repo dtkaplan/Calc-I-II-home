@@ -3,7 +3,7 @@ id: "frog-give-bowl"
 created: "Mon Apr 14 08:29:05 2025"
 attribution: TBA
 ---
-
+::: {#exr-frog-give-bowl}
 Here is a ${\bf M} \vec{\bf x} = \vec{\bf b}$ system where ${\bf M}$ is written in the form of a QR decomposition.
 
 $${\bf M}\ \vec{\bf x} =
@@ -60,15 +60,41 @@ $${\bf M} = \left(\begin{array}{r}
 Part d
 : Write the computer commands to do the calculations in parts (a), (b), and (c).
 
+
+<!-- Start of rich webr chunk fgb-8TS -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
 ```{webr-r}
-#| label: fgb-1yH
-#| caption: for part (d) calculations
+#| caption: Calculations for (a), (b), & (c)
+#| persist: true
+#| label: fgb-8TS-main
+
 
 ```
 
+## Code submission
+`r devoirs_text("fgb-8TS", str="Paste your answers here.")`
 
 
-`r devoirs_text("fgb-2yH", code = "part (d) calculations")`
+## Scratch 1
+
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: fgb-8TS-scratch1
+```
+
+## Scratch 2
+
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: fgb-8TS-scratch1
+```
+:::
+<!-- end of enriched webr chunk fgb-8TS -->
+
 
 
 <!-- Opening answer: fgb-4RH -->
@@ -88,3 +114,6 @@ backsolve(R, t(Q) %*% b)
 [..id..]{data-tooltip="Ans id: fgb-4RH"}
 :::
 <!-- closing answer fgb-4RH -->
+
+[..id..]{data-tooltip="frog-give-bowl"}
+:::

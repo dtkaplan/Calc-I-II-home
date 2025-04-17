@@ -4,6 +4,8 @@ created: "Mon Apr 14 13:15:34 2025"
 attribution: TBA
 ---
 
+::: {#exr-calf-drink-pants}
+## Vectors for categorical explanatory variables
 The R function `model.matrix()` is an automatic way to turn tilde expressions into matrices. We're going to use it for convenience only to illustrate how categorical variables are turned into vectors. As the data source, we'll use the first dozen rows of the `mosaicData::KidsFeet` data frame. (Use `?mosaicData::KidsFeet)` to see the documentation.)
 
 ```{webr-r}
@@ -23,14 +25,14 @@ Example |> model.matrix(~ sex * width, data = _)
 
 Explain how the `sexG:width` vector is constructed from the data. 
 
-`r devoirs_text("sexG-width")`
+`r devoirs_text("sexG-width", str="For part a.")`
 
 Part b
 : Add `- 1` in the tilde expressions in Part a to suppress the intercept term. (You hardly ever would want to do this in applied work. We're doing it here just to make a point.)
 
 In addition to supressing the intercept term, the `- 1` causes other changes in the resulting model matrices. Describe what these changes are. Also, explain why there is no `sexB:width` even though an interaction between `sex` and `width` is being called for.
 
-`r devoirs_text("suppress-intercept")`
+`r devoirs_text("suppress-intercept", str="For part b.")`
 
 Part c
 : Suppose we construct a model matrix and then append to the matrix a column `1`. 
@@ -48,7 +50,7 @@ In the above chunk, change the argument to the `model.matrix()` function to supp
 
 Explain why the 3-column matrix spans only a two-dimensional subspace (of the 12-dimension embedding space for `Example`.)
 
-`r devoirs_text("3-columns")`
+`r devoirs_text("3-columns", str="For part c.")`
 
 Part d
 : It's inconvenient to have an operation fail just because the ${\bf M}$ matrix is singular. The `model_train()` function knows to be on the lookout for such situations and will handle them gracefully.
@@ -61,6 +63,7 @@ Example |> model_train(length ~ A) |>
 
 Why are two rows left out from the result of the previous chunk?
 
-`r devoirs_text("singular-grace")`
+`r devoirs_text("singular-grace", str="For part d.")`
 
-
+[..id..]{data-tooltip="calf-drink-pants"}
+:::
