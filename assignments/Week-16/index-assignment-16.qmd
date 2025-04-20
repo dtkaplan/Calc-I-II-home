@@ -22,7 +22,15 @@ devoirs::answer_style("none")
 {{< include ../../_software/software.R >}}
 ```
 
-## By hand and eye
+## Chapter 37
+
+## Chapter 38 
+
+{{< include ../../../../MC-Workbook/Block_4/seaweed-bend-socks.qmd >}}
+
+{{< include ../../../../MC-Workbook/Block_4/walnut-bet-pants.qmd >}}
+
+{{< include ../../../../MC-Workbook/Block_4/pony-stand-bottle.qmd >}}
 
 ::: {.panel-tabset}
 ## Exer 16.1

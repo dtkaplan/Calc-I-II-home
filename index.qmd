@@ -90,31 +90,32 @@ Friday April 18
 ## Week 4  {.unnumbered}
 
 Tuesday April 22    
-: Topic
-: Reading
+: Topic Accumulating change
+: Reading [*MOSAIC Calculus* Chap 33](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/33-intro.html)
 
 Thursday April 24    
 : Modeling Day
 
 Friday April 25    
-: Topic
-: Due: [Week 4 assignment](assignments/Week-14/index-assignment-14.html)
+: Topic Adding lots of little bits
+: Reading [*MOSAIC Calculus* Chap 34](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/34-visualizing.html)
 
 ## Week 5  {.unnumbered}
 
-
 Tuesday April 29
-: Topic
-: Reading
+: Topic The *definite integral* is a quantity, not a function
+: Reading [*MOSAIC Calculus* Chap 35](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/35-integration.html)
 
-Thursday Map 1
-: Modeling Day
+Thursday May 1
+: Modeling Day: Mortality and life expectancy. We'll need to construct a function from data, thus the reading of Chap 48
+: Reading [*MOSAIC Calculus* Chap 48](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/48-splines.html). 
+: Due: [Week 4 assignment](assignments/Week-14/index-assignment-14.html)
+
 
 Friday May 2
 : **Mid-term exam** (30 minutes)
-: Topic
-: Reading
-: Due: [Week 5 assignment](assignments/Week-15/index-assignment-15.html)
+: Topic Continuous functions as vectors
+: Reading [*MOSAIC Calculus* Chap 36](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/36-functions.html) 
 
 **Mid-term Break**
 
@@ -123,47 +124,47 @@ Friday May 2
 
 Tuesday May 13
 : Topic
-: Reading
+: Reading [*MOSAIC Calculus* Chap 37](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/37-euler.html)
+: Due: [Week 5 assignment](assignments/Week-15/index-assignment-15.html)
 
 
 Thursday May 15
-: Modeling Day
+: Modeling Day: Present and future value
+: Reading [*MOSAIC Calculus* Chap 51](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/51-future-value.html)
 
 Friday May 16
-: Topic
-: Reading
-: Due: [Week 6 assignment](assignments/Week-17/index-assignment-16.html)
+: Topic Bayesian calculations
+: Reading [*MOSAIC Calculus* Chap 50](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/50-probability.html)
 
 ### Week 7 {.unnumbered}
 
 Tuesday May 20
-: Topic
-: Reading
+: Topic Mechanics and integration
+: Reading [*MOSAIC Calculus* Chap 52](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/52-mechanics.html)
+: Due: [Week 6 assignment](assignments/Week-17/index-assignment-16.html)
 
 
 #### Thursday May 22
 
-
-Friday May 23
-: Topic
+: Topic Modeling Day
 : Reading
-: Due: [Week 7 assignment](assignments/Week-17/index-assignment-17.html)
 
 ### Week 8 {.unnumbered}
 
 Tuesday May 27
 : Topic
 : Reading
+: Due: [Week 7 assignment](assignments/Week-17/index-assignment-17.html)
 
 
-#### Thursday May 29
+Thursday May 29
+: Topic
+: Reading
 
 
 Friday May 30
 : Topic
 : Reading
-: Due: [Week 8 assignment](assignments/Week-18/index-assignment-18.html)
-
 
 
 ### Week 9 {.unnumbered}
@@ -171,6 +172,8 @@ Friday May 30
 Tuesday June 3
 : Topic
 : Reading
+: Due: [Week 8 assignment](assignments/Week-18/index-assignment-18.html)
+
 
 
 Thursday June 5
@@ -179,8 +182,6 @@ Thursday June 5
 Friday June 6
 : Topic
 : Reading
-: Due: [Week 9 assignment](assignments/Week-19/index-assignment-19.html)
-
 
 ### Week 10 {.unnumbered}
 
@@ -195,6 +196,9 @@ Friday June 13
 : **Mid-term exam** (30 minutes)
 : Topic
 : Reading
+: Due: [Week 9 assignment](assignments/Week-19/index-assignment-19.html)
+
+
 
 
 

@@ -30,6 +30,7 @@ orig <- wav::read_wav(fine_wave)
 attributes(orig)
 orig <- c(orig)
 audio::play(orig, rate = 11025)
+plot(orig[6000 + (3500:4500)], type = "l")
 ```
 
 ```{r}

@@ -2,13 +2,6 @@
 author: DTK
 date: 2025-04-22
 number-offset: 41
-format: live-html
-webr:
-  channel-type: 'automatic'
-  repos: ["https://dtkaplan.r-universe.dev"]
-  packages: ['ggplot2', 'mosaicCalc', "LSTbook" ]
-filters:
-  - webr
 ---
 
 {{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
@@ -29,6 +22,78 @@ source("../../_software/software.R")
 
 # 2025-04-18 class notes
 
+Starting on the next topic: Accumulation. Closely related words are "integration" and "anti-differentiation." 
+
+Return to units and u-dimension. We have two basic techniques to translate something in one dimension into another dimension: MULTIPLICATION and DIVISION.
+
+- length x length => area
+- area x length => volume
+- volume / time => flow
+- flow x time => volume
+- velocity x time => distance
+- velocity / time => acceleration
+- birth rate x population size => ?? We need to decide what we mean by birth rate: babies per population, babies per year per population, ...
+
+A good metaphor for multiplying two quantities is the rectangle: the bottom is one quantity, the side is another. The "area" is the product of the two quantities.
+
+This also gives us a metaphor for *division*: take an "area" and divide it by a quantity (say, the bottom length) to get to get another side.
+
+Calculus deals with the situation where we have two related quantities, x and y, and one is a function of the other, say x(y). Sometimes we need to multiply x by y to get a quantity of interest, sometimes we need to divide x by y, sometimes x is already in exactly the form that we want.
+
+- Differentiation: divide x(y) by y
+- Accumulation: multiply x(y) by y
+
+Example: velocity as a function of time:
+
+- Differentiation: acceleration as a function of time
+- Accumulation: position as a function of time.
+
+## Why "accumulation"?
+
+Two basic types if derivative models:
+
+1. We know $\partial_t x(t) equiv g(t)$ and we want to find $x(t)$.
+    - $x(t)$ is on just one side, so we need to undo the $\partial_t$.
+    - This is the central problem of traditional calculus books.
+    - Textbook example: It's snowing at a rate of $s(t)$ which varies over time. How much accumulates to time T?
+
+2. We have a model like $\partial_t x(t) \equiv g(x(t))$ and we want to find $x(t)$.
+    - Now the unknown is on both sides.
+
+
+
+
+
+## Example of 2: Speed limits
+
+Suppose we know $v(x)$ (e.g. the posted speed limit), where x is position on the road. How do we figure out where we will be at time $t$. That is $x$ is a function of $t$: $x$.
+
+Start with $x(t_0)=0$ and $t_0 = 0$. We know $v(x=0)$ from the traffic regulations. Multiply by a small $dt$ to get $dx$.
+
+New state $x(t_1) = x(t_0) + v(x_0) dt$ at time $t_1 = t_0 + dt$
+
+
+Maybe implement a speed limit policy as a some of sigmoids. 
+
+$\int v(x(t)) dt = x(t)$ implies
+
+In a small increment of time $dt$, the change in x is $v(x(t))dt$. The position x is $$x(T) = \int_0^T v(x) dt$$
+
+Accumulate this.
+
+## Sometimes there are tricks ...
+
+
+Population of US: $P(t)$. From historical data, we have constructed a model of per capita population growth: $\frac{\partial_t P(t)}{P(t)} = f(t)$. 
+
+This is equivalent to $\partial_t \ln(P(t)) = f(t)$. 
+
+Accumulation undoes differentiation: $$\ln(P(t)) = \int f(t) \ dt$$
+
+Find $\int f(t) dt$ then exponentiate it to find $P(t)$.
+
+
+
 ```{webr-r}
 #| caption: User console A
 #| persist: true
@@ -44,4 +109,6 @@ source("../../_software/software.R")
 #| persist: true
 ```
 
+## Activities: Move these to paper
 
+{{< include ../../../../MC-Workbook/Block_4/camel-win-bottle.qmd >}}

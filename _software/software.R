@@ -54,6 +54,9 @@ rvec <- function(first, ..., rfun=rnorm) {
   vec(dots)
 }
 
+
+
+
 veclen <- function(v) sqrt(v %dot% v)
 unitvec <- function(vec) vec/length(vec)
 cang <- function(v, w) {(v %dot% w) / (veclen(v) * veclen(w))}

@@ -72,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -129,8 +158,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#by-hand-and-eye" id="toc-by-hand-and-eye" class="nav-link active" data-scroll-target="#by-hand-and-eye">By hand and eye</a></li>
-  <li><a href="#computing" id="toc-computing" class="nav-link" data-scroll-target="#computing">Computing</a></li>
+  <li><a href="#chapter-35" id="toc-chapter-35" class="nav-link active" data-scroll-target="#chapter-35">Chapter 35</a></li>
   </ul>
 </nav>
     </div>
@@ -140,6 +168,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">MOSAIC Week 15 Assignment</h1>
+<p class="subtitle lead">Accumulating Wind Power</p>
   <div class="quarto-categories">
     <div class="quarto-category">linear algebra</div>
   </div>
@@ -315,13 +344,1089 @@ Clear memory
 
 </div>
 <script type="webr-1-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNvbnRleHQiOiJvdXRwdXQiLCJlY2hvIjpmYWxzZSwiZWRpdCI6ZmFsc2UsImV2YWwiOnRydWUsInJlc3VsdHMiOiJoaWRlIn0sImNvZGUiOiIjIERyYXdpbmcgdmVjdG9ycyBhbmQgbWF0cmljZXNcblxuZHJhd19tYXRyaXggPC0gZnVuY3Rpb24oTSkge1xuICBpbWFnZSgxOm5jb2woTSksIDE6bnJvdyhNKSwgdChNW25yb3coTSk6MSwgXSksXG4gICAgICAgIGNvbCA9IGNvbG9yc3BhY2U6OmRpdmVyZ2luZ19oY2woXG4gICAgICAgICAgMTUsIGggPSBjKDE4MCwgNTApLCBjID0gODAsXG4gICAgICAgICAgbCA9IGMoMjAsIDk1KSwgcG93ZXIgPSBjKDAuNywgMS4zKSksXG4gICAgICAgIGF4ZXMgPSBGQUxTRSxcbiAgICAgICAgdXNlUmFzdGVyID0gVFJVRSlcbn1cblxuc29tZXZlY3MgPC0gdGliYmxlOjp0cmliYmxlKFxuICB+IHJvb3R4LCB+IHJvb3R5LCB+IGhlYWR4LCB+IGhlYWR5LCB+IGNvbG9yLCB+IG5hbWUsXG4gIDAsIDAsIC0yLCA0LCBcImJsdWVcIiwgXCJ1XCIsXG4gIDEsIC0yLCA1LCAtMywgXCJncmVlblwiLCBcInZcIixcbiAgLTEsIC0xLCAtNCwgLTEsIFwib3JhbmdlXCIsIFwid1wiLFxuICAxLCAwLCA0LCAzLCBcImJyb3duXCIsIFwieFwiLFxuICAwLCAtMiwgMywgLTMsIFwic2FsbW9uXCIsIFwieVwiLFxuICAwLCAwLCA0LCAzLCBcIm1hZ2VudGFcIiwgXCJiMVwiLFxuICAwLCAwLCAtMywgMiwgXCJtYWdlbnRhXCIsIFwiYjJcIixcbikgfD5cbiAgZHBseXI6Om11dGF0ZShsYWJlbHggPSAocm9vdHggKyBoZWFkeCkvMixcbiAgICAgICAgIGxhYmVseSA9ICgyKnJvb3R5ICsgaGVhZHkpLzMpXG5zb2x2ZV9mb3IgPC0gZnVuY3Rpb24odmVjbmFtZXMpIHtcbiAgc29tZXZlY3MgfD5cbiAgICBkcGx5cjo6ZmlsdGVyKG5hbWUgJWluJSB2ZWNuYW1lcykgfD5cbiAgICBnZl9zZWdtZW50KHJvb3R5ICsgaGVhZHkgfiByb290eCArIGhlYWR4LFxuICAgICAgICAgICAgICAgYXJyb3cgPSBncmlkOjphcnJvdyhsZW5ndGg9dW5pdCgwLjE1LCBcImluY2hlc1wiKSwgdHlwZT1cImNsb3NlZFwiKSxcbiAgICAgICAgICAgICAgIGNvbG9yID0gfiBjb2xvciwgbGluZXdpZHRoPTIpIHw+XG4gICAgZ2ZfbGFiZWwobGFiZWx5IH4gbGFiZWx4LCBsYWJlbD0gfiBuYW1lLCBjb2xvciA9IH4gY29sb3IsIHNpemU9MykgfD5cbiAgICBnZl9yZWZpbmUoc2NhbGVfY29sb3JfaWRlbnRpdHkoKSxcbiAgICAgICAgICAgICAgc2NhbGVfeV9jb250aW51b3VzKGxpbWl0cz1jKC01LDUpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWtzPSgtNSk6NSksXG4gICAgICAgICAgICAgIHNjYWxlX3hfY29udGludW91cyhsaW1pdHM9YygtNSw1KSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrcz0oLTUpOjUpLFxuICAgICAgICAgICAgICBjb29yZF9maXhlZCgpKSB8PlxuICAgIGdmX2xhYnMoeD1cIlwiLCB5ID0gXCJcIilcbn1cblxuXG4jIFNpbXBsZSB2ZWN0b3IvbWF0cml4IG9wZXJhdGlvbnNcblxudmVjIDwtIGZ1bmN0aW9uKC4uLikge1xuICB2YWxzIDwtIGxpc3QoLi4uKSB8PiB1bmxpc3QoKVxuICBtYXRyaXgodmFscywgbmNvbD0xKVxufVxuXG5ydmVjIDwtIGZ1bmN0aW9uKGZpcnN0LCAuLi4sIHJmdW49cm5vcm0pIHtcbiAgZG90cyA8LSBjKGZpcnN0LCBsaXN0KC4uLikpIHw+IHVubGlzdCgpXG4gIGlmIChsZW5ndGgoZG90cykgPT0gMSkge1xuICAgIGRvdHMgPC0gcmZ1bihkb3RzW1sxXV0pXG4gIH1cblxuICB2ZWMoZG90cylcbn1cblxudmVjbGVuIDwtIGZ1bmN0aW9uKHYpIHNxcnQodiAlZG90JSB2KVxudW5pdHZlYyA8LSBmdW5jdGlvbih2ZWMpIHZlYy9sZW5ndGgodmVjKVxuY2FuZyA8LSBmdW5jdGlvbih2LCB3KSB7KHYgJWRvdCUgdykgLyAodmVjbGVuKHYpICogdmVjbGVuKHcpKX1cbm1ha2VRIDwtIGZ1bmN0aW9uKC4uLikge1xuICBkb3RzIDwtIGxpc3QoLi4uKSB8PiBiaW5kX2NvbHMoKVxuICBxci5RKHFyKGRvdHMpKVxufVxuXG5jaGVja19mb3Jfc3ZkIDwtIGZ1bmN0aW9uKFMpIHtcbiAgaWYgKGluaGVyaXRzKFMsIFwibWF0cml4XCIpKSBTIDwtIHN2ZChTKVxuICBpZiAoIWlzLmxpc3QoUykgfHwgIWFsbChjKFwiZFwiLFwidlwiLCBcInVcIikgJWluJSBuYW1lcyhTKSkpXG4gICAgc3RvcChcIkFyZ3VtZW50IG11c3QgYmUgbWF0cml4IG9yIHRoZSBTVkQgb2YgYSBtYXRyaXguXCIpXG4gIFNcbn1cblxucmFua19tYXQgPC0gZnVuY3Rpb24oUywgdGhyZXNoID0gMC4wMSkge1xuICBTIDwtIGNoZWNrX2Zvcl9zdmQoUylcbiAgc3VtKFMkZCA+IFMkZFsxXSAqIHRocmVzaClcbn1cblxucmFuZF9tYXQgPC0gZnVuY3Rpb24obnJvdz0zLCBuY29sPTYsIHJhbmsgPSBwbWluKG5yb3csIG5jb2wpKSB7XG4gIE0gPC0gbWF0cml4KHJ1bmlmKG5yb3cqbmNvbCksIG5yb3cgPSBucm93LCBuY29sID0gbmNvbClcbiAgaWYgKHJhbmsgPj0gbnJvdyB8fCByYW5rID49IG5jb2wpIHtcbiAgIE1cbiAgfSBlbHNlIHtcbiAgICBhcHByb3hfbWF0KFMsIG49c2FtcGxlKHBtaW4ocmFuaywgbnJvdywgbmNvbCkpKVxuICB9XG59XG5cbiMgR3JhYiByYW5rIDEgbWF0cml4IGZyb20gU1ZEXG5hcHByb3hfbWF0IDwtIGZ1bmN0aW9uKFMsIG49MSwgb3JkZXIgPSAwKSB7ICMgaW5wdXQgYSBtYXRyaXggb3IgdGhlIFNWRCBvZiBhIG1hdHJpeFxuICBTIDwtIGNoZWNrX2Zvcl9zdmQoUylcbiAgaWYgKG9yZGVyID4gMCkge1xuICAgIGluZHMxIDwtIG9yZGVyKGMoUyR1WyxvcmRlcl0pKVxuICAgIGluZHMyIDwtIG9yZGVyKGMoUyR2WyxvcmRlcl0pKVxuICB9IGVsc2Uge1xuICAgIGluZHMxIDwtIDE6bnJvdyhTJHUpXG4gICAgaW5kczIgPC0gMTpucm93KFMkdilcbiAgfVxuICBwYXJ0aWFsIDwtIDAgIyBpbml0aWFsIHZhbHVlXG4gIGZvciAoayBpbiBuKSB7XG4gICAgcGFydGlhbCA8LSBwYXJ0aWFsICsgIFMkZFtrXSAqIFMkdVtpbmRzMSxrLCBkcm9wID0gRkFMU0VdICUqJSB0KFMkdltpbmRzMixrLCBkcm9wID0gRkFMU0VdKVxuICB9XG5cbiAgcGFydGlhbFxufVxuXG5wcmV0dHlfbWF0IDwtIGZ1bmN0aW9uKE0pIHtcbiAgaW5kczEgPC0gb3JkZXIocm93U3VtcyhNKSlcbiAgaW5kczIgPC0gb3JkZXIoY29sU3VtcyhNKSlcbiAgTVtpbmRzMSwgaW5kczJdXG59XG5cbiMnIEdlbmVyYXRlIGEgbWF0cml4IHdob3NlIGVsZW1lbnRzIGFyZSBzZWxlY3RlZCByYW5kb21seSBmcm9tIGEgc2V0XG4jJyBvZiBzcGVjaWZpZWQgdmFsdWVzLlxuIycgQHBhcmFtIG5yb3cgbnVtYmVyIG9mIHJvd3MgZm9yIHRoZSBtYXRyaXggcHJvZHVjZWRcbiMnIEBwYXJhbSBuY29sIG51bWJlciBvZiBjb2x1bW5zXG4jJyBAcGFyYW0gdmFsdWVzIHRoZSBzZXQgZnJvbSB3aGljaCB0byBkcmF3IChyYW5kb21seSkgdGhlXG4jJyB2YWx1ZXMgaW4gdGhlIG1hdHJpeC4gRGVmYXVsdDogaW50ZWdlcnMgLTkgdG8gOVxudmFsdWVzX21hdCA8LSBmdW5jdGlvbihucm93PTQsIG5jb2w9MywgdmFsdWVzID0gLTk6OSkge1xuICBtYXRyaXgoc2FtcGxlKHZhbHVlcywgc2l6ZSA9IG5yb3cgKiBuY29sLCByZXBsYWNlID0gVFJVRSksXG4gICAgICAgICBucm93ID0gbnJvdywgbmNvbD1uY29sKVxufVxuXG4jIFR5cGVzZXQgbWF0cmljZXMgaW4gTGFUZVggKGZvciBhc3NpZ25tZW50cyBhbmQgc3VjaClcbkxtYXQgPC0gZnVuY3Rpb24obnIsIG5jKSB7XG4gIHZhbHVlc19tYXQobnIsIG5jKSB8PiBsYXRleF9oZWxwZXIoKVxufVxubGF0ZXhfaGVscGVyIDwtIGZ1bmN0aW9uKG1hdHIpIHtcbiAgcHJpbnRtcm93IDwtIGZ1bmN0aW9uKHgpIHtcblxuICAgIGNhdChjYXQoeCxzZXA9XCIgJiBcIiksXCJcXFxcXFxcXCBcXG5cIilcbiAgfVxuXG4gIGNhdChcIlxcXFxsZWZ0KFxcXFxiZWdpbnthcnJheX17cn1cIixcIlxcblwiKVxuICBib2R5IDwtIGFwcGx5KG1hdHIsMSxwcmludG1yb3cpXG4gIGNhdChcIlxcXFxlbmR7YXJyYXl9XFxcXHJpZ2h0KVwiKVxufVxuXG4jIEZvdXJpZXIgdHJhbnNmb3JtIHN0dWZmXG4jIHNpZ2ZmdCBzaG93cyBvbmx5IHRoZSBsZWZ0LWhhbmQgc2lkZSBvZiB0aGUgRkZUXG4jIGlzaWdmZnQgcmVzdG9yZXMgaXQgYnkgYWRkaW5nIGJhY2sgdGhlIHJpZ2h0LWhhbmQgc2lkZSB0aGVuIGludmVyc2UgRkZULlxuXG5pZmZ0IDwtIGZ1bmN0aW9uKHgpIGZmdCh4L2xlbmd0aCh4KSwgaW52ZXJzZSA9IFRSVUUpXG5cbnNpZ2ZmdCA8LSBmdW5jdGlvbih4KSB7XG4gIHRtcCA8LSBmZnQoeClcbiAgbnlxdWlzdCA8LSByb3VuZCgobGVuZ3RoKHgpICsgMS4xIC0gKGxlbmd0aCh4KSAlJSAyKSkvMilcbiAgdG1wWzE6bnlxdWlzdF1cbn1cbmlzaWdmZnQgPC0gZnVuY3Rpb24oTGZmdHgpIHtcbiAgdG1wIDwtIGlmIChsZW5ndGgoTGZmdHgpICUlIDIpIHtcbiAgICAjIG9kZCBsZW5ndGhcbiAgICBjKExmZnR4LCBDb25qKHJldihMZmZ0eFtjKC0xLCAtbGVuZ3RoKExmZnR4KSldKSkpXG5cbiAgfSBlbHNlIHtcbiAgICBjKExmZnR4LCBDb25qKHJldihMZmZ0eFstMV0pKSlcbiAgfVxuICBpZmZ0KHRtcCkgfD4gUmUoKVxufVxuXG5zcXVhc2hfc21hbGwgPC0gZnVuY3Rpb24oeCwgdG9sPTFlLTkpIHtcbiAgcjEgPC0gUmUoeClcbiAgcjEgPC0gaWZlbHNlKGFicyhyMSkgPCB0b2wsIDAsIHIxKVxuICBjMSA8LSBJbSh4KVxuICBjMSA8LSBpZmVsc2UoYWJzKGMxKSA8IHRvbCwgMCwgYzEpXG4gICMgcmV0dXJuIHJlYWwgcGFydCBpZiBhbGwgb2YgaW1hZ2luYXJ5IHBhcnQgaXMgc21hbGxcbiAgaWYgKGFsbChjMSA9PSAwKSkgcjFcbiAgZWxzZSByMSArIDFpICogYzFcbn1cblxuIyBQbG90IHRoZSBhbXBsaXR1ZGUgc3BlY3RydW0gdmVyc3VzIGZyZXF1ZW5jeVxuc2lnX2FtcF9zcGVjIDwtIGZ1bmN0aW9uKHgsIHNhbXBmcmVxPTEwMCkge1xuICBUbXAgPC0gdGliYmxlOjp0aWJibGUoXG4gICAgYW1wID0gYWJzKHNpZ2ZmdCh4KSksXG4gICAgZnJlcXVlbmN5ID0gc2VxKDAsIHNhbXBmcmVxLzIsIGxlbmd0aCA9IGxlbmd0aChhbXApKSlcbiAgVG1wIHw+XG4gICAgZ2Zfc2VnbWVudCgwICsgYW1wIH4gZnJlcXVlbmN5ICsgZnJlcXVlbmN5LCBhbHBoYSA9IDAuMikgfD5cbiAgICBnZl9wb2ludChhbXAgfiBmcmVxdWVuY3ksIGNvbG9yID0gXCJibHVlXCIsIHNpemUgPSAwLjUpXG59In0=
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNvbnRleHQiOiJvdXRwdXQiLCJlY2hvIjpmYWxzZSwiZWRpdCI6ZmFsc2UsImV2YWwiOnRydWUsInJlc3VsdHMiOiJoaWRlIn0sImNvZGUiOiIjIERyYXdpbmcgdmVjdG9ycyBhbmQgbWF0cmljZXNcblxuZHJhd19tYXRyaXggPC0gZnVuY3Rpb24oTSkge1xuICBpbWFnZSgxOm5jb2woTSksIDE6bnJvdyhNKSwgdChNW25yb3coTSk6MSwgXSksXG4gICAgICAgIGNvbCA9IGNvbG9yc3BhY2U6OmRpdmVyZ2luZ19oY2woXG4gICAgICAgICAgMTUsIGggPSBjKDE4MCwgNTApLCBjID0gODAsXG4gICAgICAgICAgbCA9IGMoMjAsIDk1KSwgcG93ZXIgPSBjKDAuNywgMS4zKSksXG4gICAgICAgIGF4ZXMgPSBGQUxTRSxcbiAgICAgICAgdXNlUmFzdGVyID0gVFJVRSlcbn1cblxuc29tZXZlY3MgPC0gdGliYmxlOjp0cmliYmxlKFxuICB+IHJvb3R4LCB+IHJvb3R5LCB+IGhlYWR4LCB+IGhlYWR5LCB+IGNvbG9yLCB+IG5hbWUsXG4gIDAsIDAsIC0yLCA0LCBcImJsdWVcIiwgXCJ1XCIsXG4gIDEsIC0yLCA1LCAtMywgXCJncmVlblwiLCBcInZcIixcbiAgLTEsIC0xLCAtNCwgLTEsIFwib3JhbmdlXCIsIFwid1wiLFxuICAxLCAwLCA0LCAzLCBcImJyb3duXCIsIFwieFwiLFxuICAwLCAtMiwgMywgLTMsIFwic2FsbW9uXCIsIFwieVwiLFxuICAwLCAwLCA0LCAzLCBcIm1hZ2VudGFcIiwgXCJiMVwiLFxuICAwLCAwLCAtMywgMiwgXCJtYWdlbnRhXCIsIFwiYjJcIixcbikgfD5cbiAgZHBseXI6Om11dGF0ZShsYWJlbHggPSAocm9vdHggKyBoZWFkeCkvMixcbiAgICAgICAgIGxhYmVseSA9ICgyKnJvb3R5ICsgaGVhZHkpLzMpXG5zb2x2ZV9mb3IgPC0gZnVuY3Rpb24odmVjbmFtZXMpIHtcbiAgc29tZXZlY3MgfD5cbiAgICBkcGx5cjo6ZmlsdGVyKG5hbWUgJWluJSB2ZWNuYW1lcykgfD5cbiAgICBnZl9zZWdtZW50KHJvb3R5ICsgaGVhZHkgfiByb290eCArIGhlYWR4LFxuICAgICAgICAgICAgICAgYXJyb3cgPSBncmlkOjphcnJvdyhsZW5ndGg9dW5pdCgwLjE1LCBcImluY2hlc1wiKSwgdHlwZT1cImNsb3NlZFwiKSxcbiAgICAgICAgICAgICAgIGNvbG9yID0gfiBjb2xvciwgbGluZXdpZHRoPTIpIHw+XG4gICAgZ2ZfbGFiZWwobGFiZWx5IH4gbGFiZWx4LCBsYWJlbD0gfiBuYW1lLCBjb2xvciA9IH4gY29sb3IsIHNpemU9MykgfD5cbiAgICBnZl9yZWZpbmUoc2NhbGVfY29sb3JfaWRlbnRpdHkoKSxcbiAgICAgICAgICAgICAgc2NhbGVfeV9jb250aW51b3VzKGxpbWl0cz1jKC01LDUpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWtzPSgtNSk6NSksXG4gICAgICAgICAgICAgIHNjYWxlX3hfY29udGludW91cyhsaW1pdHM9YygtNSw1KSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrcz0oLTUpOjUpLFxuICAgICAgICAgICAgICBjb29yZF9maXhlZCgpKSB8PlxuICAgIGdmX2xhYnMoeD1cIlwiLCB5ID0gXCJcIilcbn1cblxuXG4jIFNpbXBsZSB2ZWN0b3IvbWF0cml4IG9wZXJhdGlvbnNcblxudmVjIDwtIGZ1bmN0aW9uKC4uLikge1xuICB2YWxzIDwtIGxpc3QoLi4uKSB8PiB1bmxpc3QoKVxuICBtYXRyaXgodmFscywgbmNvbD0xKVxufVxuXG5ydmVjIDwtIGZ1bmN0aW9uKGZpcnN0LCAuLi4sIHJmdW49cm5vcm0pIHtcbiAgZG90cyA8LSBjKGZpcnN0LCBsaXN0KC4uLikpIHw+IHVubGlzdCgpXG4gIGlmIChsZW5ndGgoZG90cykgPT0gMSkge1xuICAgIGRvdHMgPC0gcmZ1bihkb3RzW1sxXV0pXG4gIH1cblxuICB2ZWMoZG90cylcbn1cblxuXG5cblxudmVjbGVuIDwtIGZ1bmN0aW9uKHYpIHNxcnQodiAlZG90JSB2KVxudW5pdHZlYyA8LSBmdW5jdGlvbih2ZWMpIHZlYy9sZW5ndGgodmVjKVxuY2FuZyA8LSBmdW5jdGlvbih2LCB3KSB7KHYgJWRvdCUgdykgLyAodmVjbGVuKHYpICogdmVjbGVuKHcpKX1cbm1ha2VRIDwtIGZ1bmN0aW9uKC4uLikge1xuICBkb3RzIDwtIGxpc3QoLi4uKSB8PiBiaW5kX2NvbHMoKVxuICBxci5RKHFyKGRvdHMpKVxufVxuXG5jaGVja19mb3Jfc3ZkIDwtIGZ1bmN0aW9uKFMpIHtcbiAgaWYgKGluaGVyaXRzKFMsIFwibWF0cml4XCIpKSBTIDwtIHN2ZChTKVxuICBpZiAoIWlzLmxpc3QoUykgfHwgIWFsbChjKFwiZFwiLFwidlwiLCBcInVcIikgJWluJSBuYW1lcyhTKSkpXG4gICAgc3RvcChcIkFyZ3VtZW50IG11c3QgYmUgbWF0cml4IG9yIHRoZSBTVkQgb2YgYSBtYXRyaXguXCIpXG4gIFNcbn1cblxucmFua19tYXQgPC0gZnVuY3Rpb24oUywgdGhyZXNoID0gMC4wMSkge1xuICBTIDwtIGNoZWNrX2Zvcl9zdmQoUylcbiAgc3VtKFMkZCA+IFMkZFsxXSAqIHRocmVzaClcbn1cblxucmFuZF9tYXQgPC0gZnVuY3Rpb24obnJvdz0zLCBuY29sPTYsIHJhbmsgPSBwbWluKG5yb3csIG5jb2wpKSB7XG4gIE0gPC0gbWF0cml4KHJ1bmlmKG5yb3cqbmNvbCksIG5yb3cgPSBucm93LCBuY29sID0gbmNvbClcbiAgaWYgKHJhbmsgPj0gbnJvdyB8fCByYW5rID49IG5jb2wpIHtcbiAgIE1cbiAgfSBlbHNlIHtcbiAgICBhcHByb3hfbWF0KFMsIG49c2FtcGxlKHBtaW4ocmFuaywgbnJvdywgbmNvbCkpKVxuICB9XG59XG5cbiMgR3JhYiByYW5rIDEgbWF0cml4IGZyb20gU1ZEXG5hcHByb3hfbWF0IDwtIGZ1bmN0aW9uKFMsIG49MSwgb3JkZXIgPSAwKSB7ICMgaW5wdXQgYSBtYXRyaXggb3IgdGhlIFNWRCBvZiBhIG1hdHJpeFxuICBTIDwtIGNoZWNrX2Zvcl9zdmQoUylcbiAgaWYgKG9yZGVyID4gMCkge1xuICAgIGluZHMxIDwtIG9yZGVyKGMoUyR1WyxvcmRlcl0pKVxuICAgIGluZHMyIDwtIG9yZGVyKGMoUyR2WyxvcmRlcl0pKVxuICB9IGVsc2Uge1xuICAgIGluZHMxIDwtIDE6bnJvdyhTJHUpXG4gICAgaW5kczIgPC0gMTpucm93KFMkdilcbiAgfVxuICBwYXJ0aWFsIDwtIDAgIyBpbml0aWFsIHZhbHVlXG4gIGZvciAoayBpbiBuKSB7XG4gICAgcGFydGlhbCA8LSBwYXJ0aWFsICsgIFMkZFtrXSAqIFMkdVtpbmRzMSxrLCBkcm9wID0gRkFMU0VdICUqJSB0KFMkdltpbmRzMixrLCBkcm9wID0gRkFMU0VdKVxuICB9XG5cbiAgcGFydGlhbFxufVxuXG5wcmV0dHlfbWF0IDwtIGZ1bmN0aW9uKE0pIHtcbiAgaW5kczEgPC0gb3JkZXIocm93U3VtcyhNKSlcbiAgaW5kczIgPC0gb3JkZXIoY29sU3VtcyhNKSlcbiAgTVtpbmRzMSwgaW5kczJdXG59XG5cbiMnIEdlbmVyYXRlIGEgbWF0cml4IHdob3NlIGVsZW1lbnRzIGFyZSBzZWxlY3RlZCByYW5kb21seSBmcm9tIGEgc2V0XG4jJyBvZiBzcGVjaWZpZWQgdmFsdWVzLlxuIycgQHBhcmFtIG5yb3cgbnVtYmVyIG9mIHJvd3MgZm9yIHRoZSBtYXRyaXggcHJvZHVjZWRcbiMnIEBwYXJhbSBuY29sIG51bWJlciBvZiBjb2x1bW5zXG4jJyBAcGFyYW0gdmFsdWVzIHRoZSBzZXQgZnJvbSB3aGljaCB0byBkcmF3IChyYW5kb21seSkgdGhlXG4jJyB2YWx1ZXMgaW4gdGhlIG1hdHJpeC4gRGVmYXVsdDogaW50ZWdlcnMgLTkgdG8gOVxudmFsdWVzX21hdCA8LSBmdW5jdGlvbihucm93PTQsIG5jb2w9MywgdmFsdWVzID0gLTk6OSkge1xuICBtYXRyaXgoc2FtcGxlKHZhbHVlcywgc2l6ZSA9IG5yb3cgKiBuY29sLCByZXBsYWNlID0gVFJVRSksXG4gICAgICAgICBucm93ID0gbnJvdywgbmNvbD1uY29sKVxufVxuXG4jIFR5cGVzZXQgbWF0cmljZXMgaW4gTGFUZVggKGZvciBhc3NpZ25tZW50cyBhbmQgc3VjaClcbkxtYXQgPC0gZnVuY3Rpb24obnIsIG5jKSB7XG4gIHZhbHVlc19tYXQobnIsIG5jKSB8PiBsYXRleF9oZWxwZXIoKVxufVxubGF0ZXhfaGVscGVyIDwtIGZ1bmN0aW9uKG1hdHIpIHtcbiAgcHJpbnRtcm93IDwtIGZ1bmN0aW9uKHgpIHtcblxuICAgIGNhdChjYXQoeCxzZXA9XCIgJiBcIiksXCJcXFxcXFxcXCBcXG5cIilcbiAgfVxuXG4gIGNhdChcIlxcXFxsZWZ0KFxcXFxiZWdpbnthcnJheX17cn1cIixcIlxcblwiKVxuICBib2R5IDwtIGFwcGx5KG1hdHIsMSxwcmludG1yb3cpXG4gIGNhdChcIlxcXFxlbmR7YXJyYXl9XFxcXHJpZ2h0KVwiKVxufVxuXG4jIEZvdXJpZXIgdHJhbnNmb3JtIHN0dWZmXG4jIHNpZ2ZmdCBzaG93cyBvbmx5IHRoZSBsZWZ0LWhhbmQgc2lkZSBvZiB0aGUgRkZUXG4jIGlzaWdmZnQgcmVzdG9yZXMgaXQgYnkgYWRkaW5nIGJhY2sgdGhlIHJpZ2h0LWhhbmQgc2lkZSB0aGVuIGludmVyc2UgRkZULlxuXG5pZmZ0IDwtIGZ1bmN0aW9uKHgpIGZmdCh4L2xlbmd0aCh4KSwgaW52ZXJzZSA9IFRSVUUpXG5cbnNpZ2ZmdCA8LSBmdW5jdGlvbih4KSB7XG4gIHRtcCA8LSBmZnQoeClcbiAgbnlxdWlzdCA8LSByb3VuZCgobGVuZ3RoKHgpICsgMS4xIC0gKGxlbmd0aCh4KSAlJSAyKSkvMilcbiAgdG1wWzE6bnlxdWlzdF1cbn1cbmlzaWdmZnQgPC0gZnVuY3Rpb24oTGZmdHgpIHtcbiAgdG1wIDwtIGlmIChsZW5ndGgoTGZmdHgpICUlIDIpIHtcbiAgICAjIG9kZCBsZW5ndGhcbiAgICBjKExmZnR4LCBDb25qKHJldihMZmZ0eFtjKC0xLCAtbGVuZ3RoKExmZnR4KSldKSkpXG5cbiAgfSBlbHNlIHtcbiAgICBjKExmZnR4LCBDb25qKHJldihMZmZ0eFstMV0pKSlcbiAgfVxuICBpZmZ0KHRtcCkgfD4gUmUoKVxufVxuXG5zcXVhc2hfc21hbGwgPC0gZnVuY3Rpb24oeCwgdG9sPTFlLTkpIHtcbiAgcjEgPC0gUmUoeClcbiAgcjEgPC0gaWZlbHNlKGFicyhyMSkgPCB0b2wsIDAsIHIxKVxuICBjMSA8LSBJbSh4KVxuICBjMSA8LSBpZmVsc2UoYWJzKGMxKSA8IHRvbCwgMCwgYzEpXG4gICMgcmV0dXJuIHJlYWwgcGFydCBpZiBhbGwgb2YgaW1hZ2luYXJ5IHBhcnQgaXMgc21hbGxcbiAgaWYgKGFsbChjMSA9PSAwKSkgcjFcbiAgZWxzZSByMSArIDFpICogYzFcbn1cblxuIyBQbG90IHRoZSBhbXBsaXR1ZGUgc3BlY3RydW0gdmVyc3VzIGZyZXF1ZW5jeVxuc2lnX2FtcF9zcGVjIDwtIGZ1bmN0aW9uKHgsIHNhbXBmcmVxPTEwMCkge1xuICBUbXAgPC0gdGliYmxlOjp0aWJibGUoXG4gICAgYW1wID0gYWJzKHNpZ2ZmdCh4KSksXG4gICAgZnJlcXVlbmN5ID0gc2VxKDAsIHNhbXBmcmVxLzIsIGxlbmd0aCA9IGxlbmd0aChhbXApKSlcbiAgVG1wIHw+XG4gICAgZ2Zfc2VnbWVudCgwICsgYW1wIH4gZnJlcXVlbmN5ICsgZnJlcXVlbmN5LCBhbHBoYSA9IDAuMikgfD5cbiAgICBnZl9wb2ludChhbXAgfiBmcmVxdWVuY3ksIGNvbG9yID0gXCJibHVlXCIsIHNpemUgPSAwLjUpXG59In0=
 </script>
 </div>
-<section id="by-hand-and-eye" class="level2">
-<h2 class="anchored" data-anchor-id="by-hand-and-eye">By hand and eye</h2>
+<section id="chapter-35" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-35">Chapter 35</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Exer 15.1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Exer 15.2</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Exer 15.1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Exer 15.2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Chap 36</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Chapter 48</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-5" role="tab" aria-controls="tabset-4-5" aria-selected="false">Drill</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Remember our conventions for notation:</p>
+<ul>
+<li>Fixed quantities (perhaps with units)
+<ul>
+<li>Symbols: e.g.&nbsp;<span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(x_0\)</span>, <span class="math inline">\(t^{\star}\)</span></li>
+<li>Examples: 3.2, 4.8 meters, 17 feet/sec<span class="math inline">\(^2\)</span></li>
+</ul></li>
+<li>Names of inputs to functions
+<ul>
+<li>Symbols: e.g.&nbsp;<span class="math inline">\(x\)</span>, <span class="math inline">\(t\)</span>, <span class="math inline">\(y\)</span>, <span class="math inline">\(u\)</span>, <span class="math inline">\(v\)</span></li>
+<li>Examples: position, time, velocity</li>
+</ul></li>
+<li>Functions of an input
+<ul>
+<li>Symbols: e.g.&nbsp;<span class="math inline">\(f(x)\)</span>, <span class="math inline">\(g(t)\)</span>, <span class="math inline">\(h(x, t)\)</span></li>
+<li>Examples: position as a function of time, density as a function of position</li>
+</ul></li>
+<li>Functions evaluated at a specific numerical input
+<ul>
+<li>Symbols: e.g.&nbsp;<span class="math inline">\(f(a)\)</span>, <span class="math inline">\(g(t_0)\)</span>, <span class="math inline">\(h(x^{\star}, t^{\star})\)</span></li>
+<li>Examples: velocity at the finish line, starting position</li>
+</ul></li>
+</ul>
+<p>In particular, take care to distinguish between these two kinds of symbolic items:</p>
+<ol type="1">
+<li><span class="math inline">\(f(x)\)</span>, which means <span class="math inline">\(f()\)</span> as a <strong>function</strong> of <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(f(x_0)\)</span>, which means the function <span class="math inline">\(f()\)</span> evaluated at the specific input <span class="math inline">\(x_0\)</span>, producing a <strong>quantity</strong> (e.g., 3.5 meters/sec.)</li>
+</ol>
+<p>A major source of confusion for students is that <span class="math inline">\(a\)</span> is a constant, even though we are not yet saying specifically which numerical value that constant has. Think of <span class="math inline">\(a\)</span> as meaning “insert constant here.” In terms of derivatives …</p>
+<ol type="i">
+<li><span class="math inline">\(\partial_x f(a) = 0\)</span></li>
+<li><span class="math inline">\(\partial_x f(x)\)</span> is a function</li>
+<li><span class="math inline">\(\partial_u f(x) = 0\)</span>, since <span class="math inline">\(u\)</span> and <span class="math inline">\(x\)</span> are different input names.</li>
+<li><span class="math inline">\(\partial_u f(u)\)</span> is a function, the exact same function as in (ii).</li>
+</ol>
+<div id="exr-first-fundamental-theorem" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> With this in mind, turn to our three perspectives on a definite integral <span class="math display">\[\large \int_{\color{brown}{a}}^{\color{brown}{b}} {\color{blue}{f(x)}}\, dx = {\color{magenta}{F(x)}}\left.{\LARGE\strut}\right|_{\color{brown}{a}}^{\color{brown}{b}} = {\color{magenta}{F}({\color{brown}{b}})} -{\color{magenta}{F}({\color{brown}{a}})}\]</span></p>
+<ul>
+<li><span class="math inline">\(\color{brown}{a}\)</span> and <span class="math inline">\(\color{brown}{b}\)</span> are numerical constants</li>
+<li><span class="math inline">\(\color{blue}{f}(x)\)</span> and <span class="math inline">\(\color{magenta}{F}(x)\)</span> are functions of <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(\color{magenta}{F}(\color{brown}{a})\)</span> is the function <span class="math inline">\(\color{magenta}{F}()\)</span> evaluated at the specific input <span class="math inline">\(\color{brown}{a}\)</span>, producing a quantity. Likewise <span class="math inline">\(\color{magenta}{F}(\color{brown}{b})\)</span>.</li>
+</ul>
+<ol type="1">
+<li>What kind of a thing is <span class="math inline">\(F(u)\)</span>, according to our notation convention? (Hint: First figure out what kind of thing is <span class="math inline">\(u\)</span>, according to the notation conventions.)</li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="first-fundamental-theorem-1-hintarea" class="hintarea">first-fundamental-theorem-1</small>
+<form id="first-fundamental-theorem-1-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a fixed quantity" id="first-fundamental-theorem-1-1" w="19" name="first-fundamental-theorem-1" hint="Is $u$ a quantity in our notation?" show_hints="TRUE"> a fixed quantity</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $x$" id="first-fundamental-theorem-1-2" w="19" name="first-fundamental-theorem-1" hint="Close, but not $x$." show_hints="TRUE"> a function of <span class="math inline">\(x\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $u$" id="first-fundamental-theorem-1-3" w="41" name="first-fundamental-theorem-1" hint="Correct $u$ is the name of an input, according to our convention." show_hints="TRUE"> a function of <span class="math inline">\(u\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a definite integral" id="first-fundamental-theorem-1-4" w="19" name="first-fundamental-theorem-1" hint="A definite integral would be something like $\int_a^b f(x) dx$ or $\left. F(x) \right|_a^b$ or $F(b) - F(a)$." show_hints="TRUE"> a definite integral</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="first-fundamental-theorem-1" id="first-fundamental-theorem-1.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for first-fundamental-theorem-1.');
+      const form = document.getElementById('first-fundamental-theorem-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('first-fundamental-theorem-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for first-fundamental-theorem-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for first-fundamental-theorem-1.");
+          localStorage.setItem('first-fundamental-theorem-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="2" type="1">
+<li>What kind of a thing is <span class="math inline">\(F(a)\)</span>, according to our notation convention?</li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="first-fundamental-theorem-2-hintarea" class="hintarea">first-fundamental-theorem-2</small>
+<form id="first-fundamental-theorem-2-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a quantity" id="first-fundamental-theorem-2-1" w="5" name="first-fundamental-theorem-2" hint="we are evaluating $F()$ at a specific numerical value of the input, namely $a$." show_hints="TRUE"> a quantity</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $x$" id="first-fundamental-theorem-2-2" w="3" name="first-fundamental-theorem-2" hint="A function always has one or more inputs. Following our conventions, $a$ is not an input name but a numerical constant." show_hints="TRUE"> a function of <span class="math inline">\(x\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $u$" id="first-fundamental-theorem-2-3" w="7" name="first-fundamental-theorem-2" hint="A function always has one or more inputs. Following our conventions, $a$ is not an input name but a numerical constant." show_hints="TRUE"> a function of <span class="math inline">\(u\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a definite integral" id="first-fundamental-theorem-2-4" w="19" name="first-fundamental-theorem-2" hint="A definite integral would be something like $\int_a^b f(x) dx$ or $\left. F(x) \right|_a^b$ or $F(b) - F(a)$." show_hints="TRUE"> a definite integral</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="first-fundamental-theorem-2" id="first-fundamental-theorem-2.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for first-fundamental-theorem-2.');
+      const form = document.getElementById('first-fundamental-theorem-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('first-fundamental-theorem-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for first-fundamental-theorem-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for first-fundamental-theorem-2.");
+          localStorage.setItem('first-fundamental-theorem-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="3" type="1">
+<li>What kind of a thing is <span class="math inline">\(F(u) - F(a)\)</span>, according to our notation convention?</li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="first-fundamental-theorem-3-hintarea" class="hintarea">first-fundamental-theorem-3</small>
+<form id="first-fundamental-theorem-3-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a quantity" id="first-fundamental-theorem-3-1" w="23" name="first-fundamental-theorem-3" hint="According to our conventions, while $F(a)$ is a quantity, $F(u)$ is not" show_hints="TRUE"> a quantity</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $x$" id="first-fundamental-theorem-3-2" w="19" name="first-fundamental-theorem-3" hint="Close, but not $x$." show_hints="TRUE"> a function of <span class="math inline">\(x\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $u$" id="first-fundamental-theorem-3-3" w="18" name="first-fundamental-theorem-3" hint="Correct Since $F(u)$ is a function of $u$, and $F(a)$ is a constant, $F(u) - F(a)$ is a function of $u$ minus a constant, or, in other words, a function of $u$." show_hints="TRUE"> a function of <span class="math inline">\(u\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a definite integral" id="first-fundamental-theorem-3-4" w="19" name="first-fundamental-theorem-3" hint="A definite integral would be something like $\int_a^b f(x) dx$ or $\left. F(x) \right|_a^b$ or $F(b) - F(a)$." show_hints="TRUE"> a definite integral</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="first-fundamental-theorem-3" id="first-fundamental-theorem-3.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for first-fundamental-theorem-3.');
+      const form = document.getElementById('first-fundamental-theorem-3-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('first-fundamental-theorem-3-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for first-fundamental-theorem-3.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for first-fundamental-theorem-3.");
+          localStorage.setItem('first-fundamental-theorem-3-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="4" type="1">
+<li>According to our notation convention, what kind of a thing is <span class="math display">\[\int_a^u f(x) dx \text{?}\]</span></li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="first-fundamental-theorem-4-hintarea" class="hintarea">first-fundamental-theorem-4</small>
+<form id="first-fundamental-theorem-4-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a quantity" id="first-fundamental-theorem-4-1" w="19" name="first-fundamental-theorem-4" hint="According to our conventions, while $F(a)$ is a quantity, $F(u)$ is not" show_hints="TRUE"> a quantity</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function ... x$ and $u$" id="first-fundamental-theorem-4-2" w="32" name="first-fundamental-theorem-4" hint="The $x$ is just a placeholder name for the &quot;with respect to&quot; input." show_hints="TRUE"> a function of both <span class="math inline">\(x\)</span> and <span class="math inline">\(u\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $x$" id="first-fundamental-theorem-4-3" w="87" name="first-fundamental-theorem-4" hint="Close, but not $x$." show_hints="TRUE"> a function of <span class="math inline">\(x\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $u$" id="first-fundamental-theorem-4-4" w="29" name="first-fundamental-theorem-4" hint="Correct You can see this by referring to the three perspectives equation. $$\int_a^u f(x)dx = F(u) - F(a)$$ which is a function of $u$." show_hints="TRUE"> a function of <span class="math inline">\(u\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a definite integral" id="first-fundamental-theorem-4-5" w="3" name="first-fundamental-theorem-4" hint="Certainly it looks a lot like a definite integral. But $u$ is an input name, not a constant." show_hints="TRUE"> a definite integral</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="first-fundamental-theorem-4" id="first-fundamental-theorem-4.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for first-fundamental-theorem-4.');
+      const form = document.getElementById('first-fundamental-theorem-4-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('first-fundamental-theorem-4-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for first-fundamental-theorem-4.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for first-fundamental-theorem-4.");
+          localStorage.setItem('first-fundamental-theorem-4-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="5" type="1">
+<li>According to our notation convention, what kind of a thing is <span class="math display">\[\int_u^b f(x) dx \text{?}\]</span></li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="first-fundamental-theorem-5-hintarea" class="hintarea">first-fundamental-theorem-5</small>
+<form id="first-fundamental-theorem-5-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a number " id="first-fundamental-theorem-5-1" w="23" name="first-fundamental-theorem-5" hint="Incorrect choice." show_hints="TRUE"> a number</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function ... h x and u " id="first-fundamental-theorem-5-2" w="23" name="first-fundamental-theorem-5" hint="Not quite right." show_hints="TRUE"> a function of both x and u</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $x$" id="first-fundamental-theorem-5-3" w="3" name="first-fundamental-theorem-5" hint="Close, but not $x$." show_hints="TRUE"> a function of <span class="math inline">\(x\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $u$" id="first-fundamental-theorem-5-4" w="8" name="first-fundamental-theorem-5" hint="You can see this by referring to the three perspectives equation. $$\int_u^b f(x)dx = F(b) - F(u)$$ which is a function of $u$." show_hints="TRUE"> a function of <span class="math inline">\(u\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a definite integral" id="first-fundamental-theorem-5-5" w="87" name="first-fundamental-theorem-5" hint="Certainly it looks a lot like a definite integral. But $u$ is an input name, not a constant." show_hints="TRUE"> a definite integral</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="first-fundamental-theorem-5" id="first-fundamental-theorem-5.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for first-fundamental-theorem-5.');
+      const form = document.getElementById('first-fundamental-theorem-5-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('first-fundamental-theorem-5-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for first-fundamental-theorem-5.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for first-fundamental-theorem-5.");
+          localStorage.setItem('first-fundamental-theorem-5-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="6" type="1">
+<li>According to our notation convention, what kind of a thing is <span class="math display">\[\int_u^x f(x) dx \text{?}\]</span></li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="first-fundamental-theorem-6-hintarea" class="hintarea">first-fundamental-theorem-6</small>
+<form id="first-fundamental-theorem-6-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a number " id="first-fundamental-theorem-6-1" w="32" name="first-fundamental-theorem-6" hint="You're wrong here." show_hints="TRUE"> a number</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function ... th x and u" id="first-fundamental-theorem-6-2" w="8" name="first-fundamental-theorem-6" hint="You can see this by referring to the three perspectives equation. $$\int_u^x f(x)dx = F(x) - F(u)$$ which is a function of both $x$ and $u$." show_hints="TRUE"> a function of both x and u</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $x$ " id="first-fundamental-theorem-6-3" w="7" name="first-fundamental-theorem-6" hint="Wrong." show_hints="TRUE"> a function of <span class="math inline">\(x\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $u$ " id="first-fundamental-theorem-6-4" w="87" name="first-fundamental-theorem-6" hint="You might think so, but ..." show_hints="TRUE"> a function of <span class="math inline">\(u\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a definite integral" id="first-fundamental-theorem-6-5" w="19" name="first-fundamental-theorem-6" hint="Certainly it looks a lot like a definite integral. But $x$ and  $u$ are input names, not constants." show_hints="TRUE"> a definite integral</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="first-fundamental-theorem-6" id="first-fundamental-theorem-6.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for first-fundamental-theorem-6.');
+      const form = document.getElementById('first-fundamental-theorem-6-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('first-fundamental-theorem-6-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for first-fundamental-theorem-6.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for first-fundamental-theorem-6.");
+          localStorage.setItem('first-fundamental-theorem-6-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<p>Now turn to the entities involved in the so-called “First Fundamental Theorem of Calculus.” (“Fundamental theorem” is a highfalutin way of saying something like, “This isn’t obvious at first glance, and so you should be especially careful to memorize it so that you identify it when you see it.” Another way to state it is, “Every function is the derivative of some anti-derivative.” But you knew that already, since “every function has an anti-derivative.”)</p>
+<p>Here are the entities involved, which you will recognize as a slight modification of an earlier statement:</p>
+<p><span class="math display">\[\partial_u \int_a^u f(x)dx \ \ =\ \ \partial_u \left. F(x) \right|_a^u \ \ = \ \ \partial_u \left(F(u) - F(a)\right) .\]</span> Let’s look at the right-most expression <span class="math inline">\(\partial_u \left(F(u) + F(a)\right)\)</span> and exploit the the derivative of a sum is the sum of the derivatives. So … <span class="math display">\[\partial_u \left(F(u) + F(a)\right) = \partial_u F(u) - \partial_u F(a) = \partial_u F(u)\]</span></p>
+<ol start="7" type="1">
+<li>Which of the following correctly justifies the step <span class="math display">\[\partial_u F(u) - \partial_u F(a) = \partial_u F(u)\ \text{?}\]</span></li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="first-fundamental-theorem-7-hintarea" class="hintarea">first-fundamental-theorem-7</small>
+<form id="first-fundamental-theorem-7-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$F(a)$ is  ... a constant" id="first-fundamental-theorem-7-1" w="20" name="first-fundamental-theorem-7" hint="Yes And the derivative of a constant is always 0." show_hints="TRUE"> <span class="math inline">\(F(a)\)</span> is a constant</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$F()$ is a ... rivative. " id="first-fundamental-theorem-7-2" w="7" name="first-fundamental-theorem-7" hint="Not on target." show_hints="TRUE"> <span class="math inline">\(F()\)</span> is an anti-derivative.</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$F(b)$ doe ... t appear. " id="first-fundamental-theorem-7-3" w="7" name="first-fundamental-theorem-7" hint="Boo!" show_hints="TRUE"> <span class="math inline">\(F(b)\)</span> does not appear.</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$F(u) = \i ...  f(x) dx$ " id="first-fundamental-theorem-7-4" w="19" name="first-fundamental-theorem-7" hint="Not on target." show_hints="TRUE"> <span class="math inline">\(F(u) = \int f(x) dx\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="first-fundamental-theorem-7" id="first-fundamental-theorem-7.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for first-fundamental-theorem-7.');
+      const form = document.getElementById('first-fundamental-theorem-7-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('first-fundamental-theorem-7-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for first-fundamental-theorem-7.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for first-fundamental-theorem-7.");
+          localStorage.setItem('first-fundamental-theorem-7-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<p>Taking the left-most and right-most expressions in the above equation, we have <span class="math display">\[\partial_u \int_a^u f(x) dx = \partial_u F(u)\]</span></p>
+<ol start="8" type="1">
+<li>Is there an algebraic simplification of <span class="math inline">\(\partial_u F(u)\)</span>?</li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="first-fundamental-theorem-8-hintarea" class="hintarea">first-fundamental-theorem-8</small>
+<form id="first-fundamental-theorem-8-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="No, becaus ... $F(u)$ is." id="first-fundamental-theorem-8-1" w="32" name="first-fundamental-theorem-8" hint="But we know that $F(u)$ is the anti-derivative of $f(u)$." show_hints="TRUE"> No, because it depends on what <span class="math inline">\(F(u)\)</span> is.</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="Yes, becau ... ly $f(u)$." id="first-fundamental-theorem-8-2" w="16" name="first-fundamental-theorem-8" hint="That's right." show_hints="TRUE"> Yes, because <span class="math inline">\(\partial_u F(u)\)</span> is simply <span class="math inline">\(f(u)\)</span>.</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="No, becaus ... l_x F(x)$ " id="first-fundamental-theorem-8-3" w="23" name="first-fundamental-theorem-8" hint="You might think so, but ..." show_hints="TRUE"> No, because we could just as easily have written <span class="math inline">\(\partial_x F(x)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="Yes, becau ... l_x F(x)$ " id="first-fundamental-theorem-8-4" w="32" name="first-fundamental-theorem-8" hint="Oops!" show_hints="TRUE"> Yes, because it is the same thing as <span class="math inline">\(\partial_x F(x)\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="first-fundamental-theorem-8" id="first-fundamental-theorem-8.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for first-fundamental-theorem-8.');
+      const form = document.getElementById('first-fundamental-theorem-8-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('first-fundamental-theorem-8-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for first-fundamental-theorem-8.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for first-fundamental-theorem-8.");
+          localStorage.setItem('first-fundamental-theorem-8-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<p>The equation <span class="math display">\[\partial_u \int_a^u f(x) dx \ \ = \ \  f(u)\]</span> means that “differentiation undoes integration” or, as we’ve been putting it, “differentiation undoes anti-differentiation.”</p>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div id="exr-heat-enging" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (A simple heat engine)</strong></span> In the 1660s, John Boyle made use of then-new instrumentation to measure gas pressure. He discovered what’s now called <em>Boyle’s Law</em>, which says that, at constant temperature in a closed system, pressure times volume is a constant:</p>
+<p><span class="math display">\[PV = const\]</span> In the 1720s, Daniel Fahrenheit developed the first reliable thermometer consisting of a column of mercury in a glass straw. He developed a temperature scale which divided the range from freezing to boiling into 180 small units, which he called “degrees,” as was traditional in measuring angles. (In 1742, Anders Celsius created another scale with freezing at 0 and 100 small units—still called “degrees”—between freezing and boiling.</p>
+<p>With the availability of reliable thermometers, scientists started to consider the role of temperature in the relationship between pressure and volume. Their many discoveries were eventually synthesized into a “combined gas law” and then into an “ideal gas law” which famously states: <span class="math display">\[PV = nRT .\]</span> Here, <span class="math inline">\(n\)</span> is “amount” of gas, quantified as the number of moles of the gas in the container, <span class="math inline">\(T\)</span> is temperature, and <span class="math inline">\(R\)</span> is the “ideal gas constant”: <span class="math display">\[R = 8.314  \text{J}/(\text{K}\ \text{mol})\]</span> The “mol” cancels out the dimension of <span class="math inline">\(n\)</span>, the <span class="math inline">\(K\)</span> cancels out the dimension of <span class="math inline">\(T\)</span>, leaving us with <span class="math inline">\(PV\)</span> having the dimension of energy (Joules). The temperature <span class="math inline">\(T\)</span> is measured in degrees Kelvin, which is just like Celsius but moving the location of 0 from freezing to … Well … the hypothetical temperature when <span class="math inline">\(PV=0\)</span>, which can be estimated by extrapolating measurements of <span class="math inline">\(PV(T)\)</span> (that is, <span class="math inline">\(PV\)</span> as a function of <span class="math inline">\(T\)</span>) to the <span class="math inline">\(T\)</span> where <span class="math inline">\(PV = 0\)</span>.</p>
+<ol type="1">
+<li>It is convenient to have specific units in mind for pressure and volume. Since <span class="math inline">\(P V\)</span> gives energy, let’s arrange <span class="math inline">\(P\)</span> and <span class="math inline">\(V\)</span> to have units such that when multiplied the result is Joules. What is the expression of the dimension Joule in terms of the SI system, that is, time in seconds, length in meters, and mass in kg? Hint: use the above paragraph and knowing that the units for energy are consistent for potential, kinetic, or other types of energy.</li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="PV-units1-hintarea" class="hintarea">PV-units1</small>
+<form id="PV-units1-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$kg  m^2 s^{-2}$" id="PV-units1-1" w="41" name="PV-units1" hint="You're right." show_hints="TRUE"> <span class="math inline">\(kg  m^2 s^{-2}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$kg m / s$" id="PV-units1-2" w="32" name="PV-units1" hint="This is the units of momentum." show_hints="TRUE"> <span class="math inline">\(kg m / s\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$kg^2 m^2 s^3$ " id="PV-units1-3" w="23" name="PV-units1" hint="Not on target." show_hints="TRUE"> <span class="math inline">\(kg^2 m^2 s^3\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$m^2 / s^2$ " id="PV-units1-4" w="32" name="PV-units1" hint="Nope." show_hints="TRUE"> <span class="math inline">\(m^2 / s^2\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="PV-units1" id="PV-units1.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for PV-units1.');
+      const form = document.getElementById('PV-units1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('PV-units1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for PV-units1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for PV-units1.");
+          localStorage.setItem('PV-units1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="2" type="1">
+<li>In the SI units system, volume has units of cubic meters: <span class="math inline">\(m^3\)</span>. What are the SI units for pressure in terms of kg, m, and s? The units of your answer to this question times the units for pressure should be equivilent to your answer from the previous question.</li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="PV_units2-hintarea" class="hintarea">PV_units2</small>
+<form id="PV_units2-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$kg m^{-1} s^{-2}$" id="PV_units2-1" w="29" name="PV_units2" hint="Bingo!" show_hints="TRUE"> <span class="math inline">\(kg m^{-1} s^{-2}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$kg m^1 s^{-2}$" id="PV_units2-2" w="32" name="PV_units2" hint="This is the units of force" show_hints="TRUE"> <span class="math inline">\(kg m^1 s^{-2}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$kg^2 m^1 s^2$ " id="PV_units2-3" w="87" name="PV_units2" hint="Try again!" show_hints="TRUE"> <span class="math inline">\(kg^2 m^1 s^2\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$m s^2 / kg$ " id="PV_units2-4" w="3" name="PV_units2" hint="Wrong." show_hints="TRUE"> <span class="math inline">\(m s^2 / kg\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="PV_units2" id="PV_units2.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for PV_units2.');
+      const form = document.getElementById('PV_units2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('PV_units2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for PV_units2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for PV_units2.");
+          localStorage.setItem('PV_units2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<p>For use in calculus, it is helpful to re-write the Ideal Gas Law in functional form. There are several ways to do this. For instance, if we wanted to measure the number of moles of gas in a container, we could use the function <span class="math inline">\(n(P, V, T) = PV/RT\)</span>. Here, we will focus on pressure as a function of the other quantities: <span class="math display">\[P(n, V, T) = nRT/V.\]</span> Now consider a very simple machine consisting of a cylinder, closed on one end and sealed by a movable piston at the other, as in this picture.</p>
+<div id="fig-heat-engine" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-heat-engine-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><img src="www/Piston.gif" class="img-fluid figure-img"></p>
+<!-- still version  ![](www/Piston-movie.png) -->
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heat-engine-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Source: <a href="https://commons.wikimedia.org/w/index.php?curid=375503">R. Castelnuovo - Own work, CC BY-SA 3.0</a>
+</figcaption>
+</figure>
+</div>
+<p>The machine in the picture is more complicated than the simple machine we want to model. The picture includes two small valves at the top of the cylinder connected each to a pipe.</p>
+<p>Our machine has no valves and no pipes. The cylinder is charged with gas when it is manufactured. After that, nothing material goes in or out of the closed cylinder/piston system.</p>
+<p>When you push on the cylinder, the volume available for the gas gets smaller and the pressure increases. When you let the cylinder push on you, the volume available gets bigger and the pressure decreases. The amount of gas, <span class="math inline">\(n\)</span>, never changes. For simplicity, we will imagine that <span class="math inline">\(n=1\)</span> and that the gas is N<span class="math inline">\(_2\)</span>. This means the mass of the gas is 0.028 kg.</p>
+<p>And, to simplify even more, let’s insist that the temperature of the cylinder and its gaseous content does not change from room temperature: 293<span class="math inline">\(^\circ\)</span> Kelvin.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index-assignment-15_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you start in a high-volume, low-pressure state and push the piston to move to a low-volume, high-pressure state at the same temperature, you will be putting energy into the machine.</p>
+<p>The “area” of each little box in the graph, that is, pressure times volume,</p>
+<ol start="3" type="1">
+<li>How much energy (in Joules) corresponds to one small rectangle of area in the graph?</li>
+</ol>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="PV3-hintarea" class="hintarea">PV3</small>
+<form id="PV3-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="500 J" id="PV3-1" w="32" name="PV3" hint="pick a gray box, what are its dimensions?" show_hints="FALSE"> 500 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="625 J" id="PV3-2" w="35" name="PV3" hint="Exactly." show_hints="FALSE"> 625 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2500 J" id="PV3-3" w="32" name="PV3" hint="pick a gray box, what are its dimensions?" show_hints="FALSE"> 2500 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="25,000 J" id="PV3-4" w="3" name="PV3" hint="This is four gray boxes, not one" show_hints="FALSE"> 25,000 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="PV3" id="PV3.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for PV3.');
+      const form = document.getElementById('PV3-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('PV3-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for PV3.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for PV3.");
+          localStorage.setItem('PV3-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="4" type="1">
+<li>By counting rectangles in the graph, estimate how much energy needs to be put into the machine when the volume changes from 7.5 m<span class="math inline">\(^3\)</span> to 2.5 m<span class="math inline">\(^3\)</span> at a temperature of 300 K?</li>
+</ol>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="PV4-hintarea" class="hintarea">PV4</small>
+<form id="PV4-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="1000 J " id="PV4-1" w="3" name="PV4" hint="Wrong." show_hints="FALSE"> 1000 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="3000 J" id="PV4-2" w="20" name="PV4" hint="Bingo!" show_hints="FALSE"> 3000 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="5000 J " id="PV4-3" w="87" name="PV4" hint="You're wrong here." show_hints="FALSE"> 5000 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="10,000 J " id="PV4-4" w="23" name="PV4" hint="You're mistaken" show_hints="FALSE"> 10,000 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="PV4" id="PV4.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for PV4.');
+      const form = document.getElementById('PV4-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('PV4-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for PV4.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for PV4.");
+          localStorage.setItem('PV4-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<p>Now that you have compressed the gas in the cylinder, by doing work on it, let’s heat up the machine to 1200K.</p>
+<ol start="5" type="1">
+<li>What will be the pressure of the gas when the volume of the machine is 2.5 m<span class="math inline">\(^3\)</span> at temperature 1200 K? (The units will be kg m$^{-1} <span class="math inline">\(s^{-2}\)</span>)</li>
+</ol>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="PV5-hintarea" class="hintarea">PV5</small>
+<form id="PV5-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="1000 " id="PV5-1" w="19" name="PV5" hint="Incorrect." show_hints="FALSE"> 1000 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2000 " id="PV5-2" w="23" name="PV5" hint="Incorrect choice." show_hints="FALSE"> 2000 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="3000 " id="PV5-3" w="7" name="PV5" hint="Boo!" show_hints="FALSE"> 3000 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="4000" id="PV5-4" w="16" name="PV5" hint="Bullseye!" show_hints="FALSE"> 4000 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="PV5" id="PV5.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for PV5.');
+      const form = document.getElementById('PV5-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('PV5-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for PV5.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for PV5.");
+          localStorage.setItem('PV5-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="6" type="1">
+<li>Starting with the machine at 1200K and a volume of 2.5 m<span class="math inline">\(^3\)</span>, how much energy will the machine transfer to you when it expands to 7.5 m<span class="math inline">\(^3\)</span>? Estimate this by counting squares in the graph.</li>
+</ol>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="PV6-hintarea" class="hintarea">PV6</small>
+<form id="PV6-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="about 5000 J " id="PV6-1" w="3" name="PV6" hint="Oops!" show_hints="FALSE"> about 5000 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="about 10,000 J" id="PV6-2" w="5" name="PV6" hint="Yeah!" show_hints="FALSE"> about 10,000 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="about 50,000 J " id="PV6-3" w="87" name="PV6" hint="Untrue!" show_hints="FALSE"> about 50,000 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="about 100,000 J " id="PV6-4" w="23" name="PV6" hint="This is wide of the mark." show_hints="FALSE"> about 100,000 J &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="PV6" id="PV6.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for PV6.');
+      const form = document.getElementById('PV6-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('PV6-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for PV6.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for PV6.");
+          localStorage.setItem('PV6-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<p>The net work done by the machine in completing the cycle, shifting from compression at low temperature to expansion at high temperature, is the difference between the energy put out by the machine when expanding and the energy put into the machine to compress the gas. Such a machine is called a “heat engine” since it turns a source of high temperature and a source of low temperature into energy.</p>
+<p>Evaluate the code in <a href="#lst-heat-engine" class="quarto-xref">Listing&nbsp;1</a>. The first line defines a function <span class="math inline">\(P(V, T)\)</span> with default <span class="math inline">\(n=1\)</span> mole of gas. Anti-differentiate <span class="math inline">\(P()\)</span> with respect to <span class="math inline">\(V\)</span> then calculate the energy needed to compress the cylinder at the low temperature, that is <span class="math display">\[\int_{7.5}^{2.5} P(V, T=300) dV .\]</span> Call this numerical result <code>compress_energy</code>.</p>
+<p>Similarly, calculate the energy done by the machine in the high-temperature expansion <span class="math display">\[\int_{2.5}^{7.5} P(V, T=1200) dV .\]</span> Call this numerical result <code>expand_energy</code>.</p>
+<p>You may want to make a graph of your <span class="math inline">\(P(V, T)\)</span> function to check that it is right. Also, check that the integrals are right by comparing them to the rough estimate you made earlier by counting squares.</p>
+<div id="lst-heat-engine" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst quarto-uncaptioned" id="lst-heat-engine-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;1
+</figcaption>
+<div aria-describedby="lst-heat-engine-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<div id="webr-2" class="exercise-cell">
+
+</div>
+<script type="webr-2-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImxhYmVsIjoiaGVhdC1lbmdpbmUtcmNkIn0sImNvZGUiOiJQIDwtIG1ha2VGdW4oIG4qOC4zMTQqVC9WIH4gViArIFQsIG49MSlcbmFudGlQIDwtIG1ha2VGdW4obio4LjMxNCpUKmxvZyhWKSB+IFYgKyBULCBuPTEpXG5cbmNvbXByZXNzX2VuZXJneSA8LSAuLi4gZXZhbHVhdGUgYW50aVAgYXBwcm9wcmlhdGVseVxuZXhwYW5kX2VuZXJneSAgIDwtIC4uLiBkaXR0b1xuY29tcHJlc3NfZW5lcmd5ICMgcHJpbnRzIG91dCB0aGUgdmFsdWVzIFxuZXhwYW5kX2VuZXJneSJ9
+</script>
+</div>
+</div>
+</figure>
+</div>
+<section id="exer-15.3" class="level2">
+<h2 class="anchored" data-anchor-id="exer-15.3">Exer 15.3</h2>
+<div id="exr-wind-power" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> A function <code>windspeed(t)</code> is being provided to you. It records wind speed at the site of a wind-turbine farm over one day, that is, <span class="math inline">\(0 \leq t \leq 24\)</span> hours. The function <code>speed2power(s)</code> is the production function for the brand of wind turbine used at the farm: the input is speed in miles per hour, the output is in kilowatts. (Both these functions were created for this exercise. They are not about a real turbine at a real wind farm, but are somewhat realistic.) Hint: you can nest a function inside of another function.</p>
+<p>Use the following chunk to graph the functions <code>windspeed()</code> and <code>speed2power()</code> over a sensible domain.</p>
+<div>
+<div id="webr-3" class="exercise-cell">
+
+</div>
+<script type="webr-3-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJQbG90IHRoZSB0d28gZnVuY3Rpb25zIiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZX0sImNvZGUiOiJzbGljZV9wbG90KHdpbmRzcGVlZCh0KSB+IHQsIGRvbWFpbih0ID0gMCA6IDI0KSlcbiMgYW5kIHRoZW4gc3BlZWQycG93ZXIoKSJ9
+</script>
+</div>
+<p>Your task is to find the <em>total energy</em> generated over the 24-hour period by the turbine. Reminder: energy <span class="math inline">\(E\)</span> is electric power multiplied by time. Or, more usefully for this problem, the increment energy <span class="math inline">\(dE\)</span> generated at time <span class="math inline">\(t\)</span> is the product of power at time <span class="math inline">\(t\)</span> multiplied by the increment of time <span class="math inline">\(dt\)</span>, that is, <span class="math inline">\(dE = p(t) dt\)</span>. Consequently, <span class="math display">\[E = \int_\text{morning}^\text{night} p(t) dt\]</span> where “morning” should really be 00:00 h and night 24:00 h on the day in question.</p>
+<p>We don’t have an algebraic formula for <code>windspeed(t)</code> even though it is a function. You can use <code>antiD()</code> to find the anti-derivative of the electric power function.</p>
+<p>The answer you compute should be saved to the name <code>result</code>. The units will be in kWh – kilowatt hours.</p>
+<div style="display: none;">
+<div>
+<div id="webr-4" class="exercise-cell">
+
+</div>
+<script type="webr-4-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidG1wIDwtIGRvb2RsZV9mdW4ofiB0LCBzZWVkPTk4MilcbnRtcDIgPC0gZG9vZGxlX2Z1bih+IHQsIHNlZWQgPSAyOTMyKVxudG1wMyA8LSBkb29kbGVfZnVuKH4gdCwgc2VlZCA9IDQzKVxud2luZHNwZWVkIDwtIGZ1bmN0aW9uKHQpIHtcbiAgYWJzKHRtcCgodCAtIDUpKjMpICsgdG1wMigodCAtIDEwKSoyKSArIHRtcDMoKHQgLSAxNSkqNCkpXG59XG5zcGVlZDJwb3dlciA8LSBmdW5jdGlvbihzKSB7XG4gIHBtaW4oaWZlbHNlKHMgPCA1LCAwLCAocy0yKV4zKSwgNTAwMClcbn0ifQ==
+</script>
+</div>
+</div>
+<div>
+<div id="webr-5" class="exercise-cell">
+
+</div>
+<script type="webr-5-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJDYWxjdWxhdGUgZW5lcmd5IGZyb20gcG93ZXIiLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6ImVuZXJneSA8LSBhbnRpRCggLi4uLnBvd2VyKHQpLi4uIH4gdClcbmVuZXJneSguLi5uaWdodC4uLikgLSBlbmVyZ3koLi4ubW9ybmluZy4uLikifQ==
+</script>
+</div>
+<p>The energy function in the above chunk takes time as an input and produces as output the total energy generated up to that time. But when was the starting time? It was not specified!</p>
+<p>At first, this might seem like nonsense: What’s the point of knowing the total energy up to time <span class="math inline">\(t\)</span> if you don’t know when was the beginning of the accounting period.</p>
+<ol type="1">
+<li>Explain what about the second line of the chunk effectively lets you define the start of the accounting period.</li>
+</ol>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for wind-power-0.');
+      const form = document.getElementById('wind-power-0');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('wind-power-0').value;
+        localStorage.setItem("wind-power-0-contents", todo);
+        console.log("Saving value of wind-power-0.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("wind-power-0-contents");
+      if (savedValue) {
+        document.getElementById('wind-power-0').value = savedValue;
+      }
+})
+</script>
+<textarea id="wind-power-0" name="wind-power-0" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID wind-power-0)"></textarea>
+<!-- Opening answer: wind-power-4jc -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: none;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When you evaluate an anti-derivative <span class="math inline">\(F(t)\)</span> for a specific input, say, <span class="math inline">\(T_\text{end}\)</span>, the output is the accumulation of <span class="math inline">\(f(t)\)</span> for a time interval ending at time <span class="math inline">\(T_\text{end}\)</span>. If you wanted to know when the accumulation started, you would have to do a bit of work, looking for an input <span class="math inline">\(T_0\)</span> where the output of the anti-derivative is zero. Once you find <span class="math inline">\(T_0\)</span>, you’ll know that <span class="math inline">\(F(T_\text{end})\)</span> gives the accumulation of <span class="math inline">\(f(t)\)</span> from <span class="math inline">\(T_0\)</span> up to <span class="math inline">\(T_{end}\)</span>.</p>
+<p>In practice, we don’t usually need to know <span class="math inline">\(T_0\)</span>. Instead, we choose the endpoints of the interval that is of interest to us, specifying this by <span class="math inline">\(T_\text{start}\)</span> to <span class="math inline">\(T_\text{end}\)</span>. We then do <em>two</em> evaluations of the anti-derivative:</p>
+<ol type="i">
+<li><span class="math inline">\(F(T_\text{end})\)</span> which gives the accumulation from <span class="math inline">\(T_0\)</span> to <span class="math inline">\(T_\text{end}\)</span>.</li>
+<li><span class="math inline">\(F(T_\text{start})\)</span> which gives the accumulation from <span class="math inline">\(T_0\)</span> to <span class="math inline">\(T_\text{start}\)</span>.</li>
+</ol>
+<p>When we calculate <span class="math inline">\(F(T_\text{end}) - F(T_\text{start})\)</span> the subtraction “zeros out” any accumulation before <span class="math inline">\(T_\text{start}\)</span>.</p>
+<p><span data-tooltip="Ans id: wind-power-4jc">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer wind-power-4jc -->
+<ol start="2" type="1">
+<li>Wind turbines of this type have a maximum power rating. You should be able to determine the max rating by examining a graph of <code>speed_to_power()</code>. Was this rating exceeded at any point during the day?</li>
+</ol>
+<div class="cell" data-show_hints="false">
+<span> <small style="color: grey;" id="wind-power-1-hintarea" class="hintarea">wind-power-1</small>
+<form id="wind-power-1-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="The maximu ... kilowatts " id="wind-power-1-1" w="87" name="wind-power-1" hint="Wrong." show_hints="FALSE"> The maximum instantaneous power was about 3500 kilowatts</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="The maximu ... kilowatts " id="wind-power-1-2" w="3" name="wind-power-1" hint="No." show_hints="FALSE"> The maximum instantaneous power was about 1100 kilowatts</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="That thres ... about 9 AM" id="wind-power-1-3" w="18" name="wind-power-1" hint="Right-O!" show_hints="FALSE"> That threshold was reached about 9 AM</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="That thres ... bout 8 AM " id="wind-power-1-4" w="32" name="wind-power-1" hint="Oops!" show_hints="FALSE"> That threshold was exceeded about 8 AM</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="The maximu ... on given. " id="wind-power-1-5" w="7" name="wind-power-1" hint="Try again!" show_hints="FALSE"> The maximum instantaneous power cannot be determined from the information given.</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="wind-power-1" id="wind-power-1.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for wind-power-1.');
+      const form = document.getElementById('wind-power-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('wind-power-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for wind-power-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for wind-power-1.");
+          localStorage.setItem('wind-power-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="3" type="1">
+<li>At the maximum power rating, what’s the theoretical maximum amount of energy produced by the turbine over a 24-hour day?</li>
+</ol>
+<div class="cell" data-show_hints="true" data-inline="true">
+<span> <small style="color: grey;" id="wind-power-2-hintarea" class="hintarea">wind-power-2</small>
+<form id="wind-power-2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="5000 * 24  ... watt-hours" id="wind-power-2-1" w="20" name="wind-power-2" hint="A hit!" show_hints="TRUE"> 5000 * 24 kilowatt-hours &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="5000 / 24  ... watt-hours" id="wind-power-2-2" w="87" name="wind-power-2" hint="The units, kilowatt hours, should remind you that energy is power multiplied by time." show_hints="TRUE"> 5000 / 24 kilowatt-hours &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="5000 kilowatts" id="wind-power-2-3" w="87" name="wind-power-2" hint="That's  the **power** rating. We want to know the amount of **energy**." show_hints="TRUE"> 5000 kilowatts &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Can't be d ... on given. " id="wind-power-2-4" w="7" name="wind-power-2" hint="Sorry!" show_hints="TRUE"> Can’t be determined from the information given. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="wind-power-2" id="wind-power-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for wind-power-2.');
+      const form = document.getElementById('wind-power-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('wind-power-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for wind-power-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for wind-power-2.");
+          localStorage.setItem('wind-power-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="4" type="1">
+<li>About what fraction of the theoretical maximum energy did the wind turbine generate over the 24-hour period?</li>
+</ol>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="wind-power-3-hintarea" class="hintarea">wind-power-3</small>
+<form id="wind-power-3-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="About 2.5% " id="wind-power-3-1" w="23" name="wind-power-3" hint="Not quite right." show_hints="FALSE"> About 2.5% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="About 10%" id="wind-power-3-2" w="5" name="wind-power-3" hint="Exactly." show_hints="FALSE"> About 10% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="About 25% " id="wind-power-3-3" w="7" name="wind-power-3" hint="Nope." show_hints="FALSE"> About 25% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="About 50% " id="wind-power-3-4" w="19" name="wind-power-3" hint="Hmmm ..." show_hints="FALSE"> About 50% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Can't be d ... on given. " id="wind-power-3-5" w="23" name="wind-power-3" hint="Not quite right." show_hints="FALSE"> Can’t be determined from the information given. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="wind-power-3" id="wind-power-3.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for wind-power-3.');
+      const form = document.getElementById('wind-power-3-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('wind-power-3-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for wind-power-3.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for wind-power-3.");
+          localStorage.setItem('wind-power-3-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="5" type="1">
+<li>A peak time for residential energy consumption is from 7 am to 9 am. The price at which you, the energy producer, can sell electrical energy to the grid operator is, say, $0.09 per kilowatt-hour. At that price, how much would the energy produced from 7-9 am be worth?</li>
+</ol>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="wind-power-4-hintarea" class="hintarea">wind-power-4</small>
+<form id="wind-power-4-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="About 20 cents." id="wind-power-4-1" w="7" name="wind-power-4" hint="That would be the answer if the turbine generated only 1 kilowatt of power during that period." show_hints="FALSE"> About 20 cents. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="About $150 " id="wind-power-4-2" w="23" name="wind-power-4" hint="No." show_hints="FALSE"> About $150 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="About $350" id="wind-power-4-3" w="8" name="wind-power-4" hint="Bingo!" show_hints="FALSE"> About $350 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="About $650 " id="wind-power-4-4" w="3" name="wind-power-4" hint="Not quite." show_hints="FALSE"> About $650 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="wind-power-4" id="wind-power-4.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for wind-power-4.');
+      const form = document.getElementById('wind-power-4-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('wind-power-4-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for wind-power-4.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for wind-power-4.");
+          localStorage.setItem('wind-power-4-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="6" type="1">
+<li>What’s the average wind speed over the 24-hour period?</li>
+</ol>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="wind-power-5-hintarea" class="hintarea">wind-power-5</small>
+<form id="wind-power-5-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="About 5 mph" id="wind-power-5-1" w="29" name="wind-power-5" hint="Yes." show_hints="FALSE"> About 5 mph &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="About 7 mph " id="wind-power-5-2" w="87" name="wind-power-5" hint="Hmmm ..." show_hints="FALSE"> About 7 mph &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="About 9 mph " id="wind-power-5-3" w="19" name="wind-power-5" hint="Nope." show_hints="FALSE"> About 9 mph &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="wind-power-5" id="wind-power-5.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for wind-power-5.');
+      const form = document.getElementById('wind-power-5-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('wind-power-5-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for wind-power-5.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for wind-power-5.");
+          localStorage.setItem('wind-power-5-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="7" type="1">
+<li>Wind speed fluctuates a lot, but imagine that the wind blew steadily at the average wind speed from the previous problem. How much energy would be generated over the 24-hour period?</li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="wind-power-6-hintarea" class="hintarea">wind-power-6</small>
+<form id="wind-power-6-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="0 kilowatt hours" id="wind-power-6-1" w="18" name="wind-power-6" hint="Excellent! That wind wouldn't be strong enough to turn the turbine." show_hints="TRUE"> 0 kilowatt hours</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="500 kilowatt hours " id="wind-power-6-2" w="19" name="wind-power-6" hint="Better luck next time." show_hints="TRUE"> 500 kilowatt hours</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="1000 kilow ... att hours " id="wind-power-6-3" w="32" name="wind-power-6" hint="Try again!" show_hints="TRUE"> 1000 kilowatt hours</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="10,000 kil ... att hours " id="wind-power-6-4" w="19" name="wind-power-6" hint="Not on target." show_hints="TRUE"> 10,000 kilowatt hours</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="wind-power-6" id="wind-power-6.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for wind-power-6.');
+      const form = document.getElementById('wind-power-6-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('wind-power-6-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for wind-power-6.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for wind-power-6.");
+          localStorage.setItem('wind-power-6-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
+</section>
+</div>
+<!-- end of Chap 35 tabset -->
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<!-- for a possible solar power problem 
+For instance, if I had a function ('solarpanelpower') that calculates the amount of power a solar panel generates and another function ('sunlight') that tells me the amount of sunlight at time of the day ('TOD'). I could evaluate this in one step like the following: 'solarpanelpower(sunlight(TOD))'. This would give me the amount of power from the solar panel based upon the time of the day. -->
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">15.3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">15.C.4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">15.C.5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">15.C.6</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 
@@ -329,37 +1434,716 @@ eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNvbnRleHQiOiJvdXRwdXQiLCJlY2hvIjpmYWxzZSwiZWRp
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 
 </div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+
 </div>
 </div>
-<!-- end of hand-and-eye tabset -->
-</section>
-<section id="computing" class="level2">
-<h2 class="anchored" data-anchor-id="computing">Computing</h2>
+</div>
+</div>
+<div id="tabset-4-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-5-tab">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">15.C.3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">15.C.4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">15.C.5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">15.C.6</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">D1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">D2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">D3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">D4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false">D5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-6" role="tab" aria-controls="tabset-3-6" aria-selected="false">D6</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div id="exr-calf-know-painting" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> As you know, <span class="math display">\[\int_a^c f(x) dx = \int_a^b f(x) dx + \int_b^c f(x) dx\\ \text{and}\\\int_a^c f(x) dx = - \int_c^a f(x) dx\ .\]</span></p>
+<p>Here are some definite integrals for which, without stating anything more about the function, we give you the numerical result.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>&nbsp;&nbsp;</th>
+<th>&nbsp;&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\int_{2}^{7} f(x) \,dx = -8\)</span></td>
+<td><span class="math inline">\(\int_{-6}^{-2} g(x) \,dx = 3\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\int_{2}^{12} f(x) \,dx = -14\)</span></td>
+<td><span class="math inline">\(\int_{0}^{2} g(x) \,dx = 1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\int_{2}^{7} h(x) \,dx = 5\)</span></td>
+<td><span class="math inline">\(\int_{0}^{2} h(x) \,dx = 6\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Consider these the facts you have to work with when answering the following questions:</p>
+<ol type="1">
+<li><span class="math inline">\(\int_{2}^{7} 3f(x) \,dx =\)</span>?</li>
+</ol>
+<div class="cell" data-inline="true">
+<span> <small style="color: grey;" id="calf-know-painting-1-hintarea" class="hintarea">calf-know-painting-1</small>
+<form id="calf-know-painting-1-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="-8" id="calf-know-painting-1-1" w="32" name="calf-know-painting-1" hint="Did you see the three?" show_hints="TRUE"> -8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-42" id="calf-know-painting-1-2" w="3" name="calf-know-painting-1" hint="Check the bounds" show_hints="TRUE"> -42 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-24" id="calf-know-painting-1-3" w="29" name="calf-know-painting-1" hint="A win!" show_hints="TRUE"> -24 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="13 " id="calf-know-painting-1-4" w="32" name="calf-know-painting-1" hint="Try again!" show_hints="TRUE"> 13 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="calf-know-painting-1" id="calf-know-painting-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for calf-know-painting-1.');
+      const form = document.getElementById('calf-know-painting-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
 
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('calf-know-painting-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for calf-know-painting-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for calf-know-painting-1.");
+          localStorage.setItem('calf-know-painting-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="2" type="1">
+<li><span class="math inline">\(\int_{7}^{12} f(x) \,dx =\)</span>?</li>
+</ol>
+<div class="cell" data-inline="true">
+<span> <small style="color: grey;" id="calf-know-painting-2-hintarea" class="hintarea">calf-know-painting-2</small>
+<form id="calf-know-painting-2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="6" id="calf-know-painting-2-1" w="87" name="calf-know-painting-2" hint="Be careful with your signs" show_hints="TRUE"> 6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="22" id="calf-know-painting-2-2" w="23" name="calf-know-painting-2" hint="Be careful with your signs" show_hints="TRUE"> 22 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-6" id="calf-know-painting-2-3" w="5" name="calf-know-painting-2" hint="You've got it!" show_hints="TRUE"> -6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-22" id="calf-know-painting-2-4" w="32" name="calf-know-painting-2" hint="Be careful with your signs" show_hints="TRUE"> -22 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="calf-know-painting-2" id="calf-know-painting-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for calf-know-painting-2.');
+      const form = document.getElementById('calf-know-painting-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('calf-know-painting-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for calf-know-painting-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for calf-know-painting-2.");
+          localStorage.setItem('calf-know-painting-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="3" type="1">
+<li><span class="math inline">\(\int_{2}^{7} f(x) + g(x) \,dx =\)</span>?</li>
+</ol>
+<div class="cell" data-inline="true">
+<span> <small style="color: grey;" id="calf-know-painting-3-hintarea" class="hintarea">calf-know-painting-3</small>
+<form id="calf-know-painting-3-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="-3" id="calf-know-painting-3-1" w="19" name="calf-know-painting-3" hint="Do you know $\int_{2}^{7} g(x) \,dx$?" show_hints="TRUE"> -3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="8" id="calf-know-painting-3-2" w="32" name="calf-know-painting-3" hint="Do you know $\int_{2}^{7} g(x) \,dx$?" show_hints="TRUE"> 8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-8" id="calf-know-painting-3-3" w="23" name="calf-know-painting-3" hint="Do you know $\int_{2}^{7} g(x) \,dx$?" show_hints="TRUE"> -8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="insufficie ... tion given" id="calf-know-painting-3-4" w="8" name="calf-know-painting-3" hint="Yes." show_hints="TRUE"> insufficient information given &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="calf-know-painting-3" id="calf-know-painting-3.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for calf-know-painting-3.');
+      const form = document.getElementById('calf-know-painting-3-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('calf-know-painting-3-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for calf-know-painting-3.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for calf-know-painting-3.");
+          localStorage.setItem('calf-know-painting-3-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="4" type="1">
+<li><span class="math inline">\(\int_{2}^{2} r(x) \,dx =\)</span>?</li>
+</ol>
+<div class="cell" data-inline="true">
+<span> <small style="color: grey;" id="calf-know-painting-4-hintarea" class="hintarea">calf-know-painting-4</small>
+<form id="calf-know-painting-4-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="-3" id="calf-know-painting-4-1" w="19" name="calf-know-painting-4" hint="Look at the bounds" show_hints="TRUE"> -3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="0" id="calf-know-painting-4-2" w="35" name="calf-know-painting-4" hint="Even though you don’t know $r(x)$ this is always true when the bounds are the same" show_hints="TRUE"> 0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-8" id="calf-know-painting-4-3" w="19" name="calf-know-painting-4" hint="Look at the bounds" show_hints="TRUE"> -8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="insufficie ... tion given" id="calf-know-painting-4-4" w="19" name="calf-know-painting-4" hint="Look at the bounds" show_hints="TRUE"> insufficient information given &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="calf-know-painting-4" id="calf-know-painting-4.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for calf-know-painting-4.');
+      const form = document.getElementById('calf-know-painting-4-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('calf-know-painting-4-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for calf-know-painting-4.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for calf-know-painting-4.");
+          localStorage.setItem('calf-know-painting-4-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="5" type="1">
+<li><span class="math inline">\(\int_{-6}^{-2} \left[\strut g(x)+3\right] \,dx =\)</span>?</li>
+</ol>
+<div class="cell" data-inline="true">
+<span> <small style="color: grey;" id="calf-know-painting-5-hintarea" class="hintarea">calf-know-painting-5</small>
+<form id="calf-know-painting-5-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="6" id="calf-know-painting-5-1" w="3" name="calf-know-painting-5" hint="You need to integrate the 3" show_hints="TRUE"> 6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="15" id="calf-know-painting-5-2" w="41" name="calf-know-painting-5" hint="Right!" show_hints="TRUE"> 15 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="12" id="calf-know-painting-5-3" w="32" name="calf-know-painting-5" hint="Don’t forget g(x)" show_hints="TRUE"> 12 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="3" id="calf-know-painting-5-4" w="87" name="calf-know-painting-5" hint="Break it up into two different integrals" show_hints="TRUE"> 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="calf-know-painting-5" id="calf-know-painting-5.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for calf-know-painting-5.');
+      const form = document.getElementById('calf-know-painting-5-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('calf-know-painting-5-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for calf-know-painting-5.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for calf-know-painting-5.");
+          localStorage.setItem('calf-know-painting-5-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="6" type="1">
+<li><span class="math inline">\(\int_{12}^{7} f(x) \,dx =\)</span></li>
+</ol>
+<div class="cell" data-inline="true">
+<span> <small style="color: grey;" id="calf-know-painting-6-hintarea" class="hintarea">calf-know-painting-6</small>
+<form id="calf-know-painting-6-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="-6" id="calf-know-painting-6-1" w="23" name="calf-know-painting-6" hint="Be careful with your signs" show_hints="TRUE"> -6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="22" id="calf-know-painting-6-2" w="19" name="calf-know-painting-6" hint="Be careful with your signs" show_hints="TRUE"> 22 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="6" id="calf-know-painting-6-3" w="14" name="calf-know-painting-6" hint="Right!" show_hints="TRUE"> 6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-22" id="calf-know-painting-6-4" w="7" name="calf-know-painting-6" hint="Be careful with your signs" show_hints="TRUE"> -22 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="calf-know-painting-6" id="calf-know-painting-6.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for calf-know-painting-6.');
+      const form = document.getElementById('calf-know-painting-6-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('calf-know-painting-6-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for calf-know-painting-6.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for calf-know-painting-6.");
+          localStorage.setItem('calf-know-painting-6-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div id="exr-three-perspectives" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> <a href="#eq-three-items" class="quarto-xref">Equation&nbsp;1</a> shows three items, all of which are equivalent even though they look different. You can see this from the equal signs separating the three items.</p>
+<!-- png of equation  ![](www/three-perspectives.png) -->
+<p><span id="eq-three-items"><span class="math display">\[\large \int_{\color{brown}{a}}^{\color{brown}{b}} {\color{blue}{f(x)}}\, dx = {\color{magenta}{F(x)}}\left.{\LARGE\strut}\right|_{\color{brown}{a}}^{\color{brown}{b}} = {\color{magenta}{F}({\color{brown}{b}})} -{\color{magenta}{F}({\color{brown}{a}})} \tag{1}\]</span></span></p>
+<p>When you reach the point where you can say, “That’s obvious,” and can write down the three items from memory, you will have achieved an important facility with calculus.</p>
+<ol type="1">
+<li>Since the three items are equivalent, they are all the same kind of “thing.” What kind of thing are they?</li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="three-perspectives-1-hintarea" class="hintarea">three-perspectives-1</small>
+<form id="three-perspectives-1-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a quantity" id="three-perspectives-1-1" w="35" name="three-perspectives-1" hint="Another term for this is *definite integral*. Evaluating an anti-derivative at two values of $x$ and subtracting one from the other gives a number. (Remember, in our notation, $a$ and $b$ stand for numerical constants, unless we specifically say otherwise.)" show_hints="TRUE"> a quantity</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a function of $x$" id="three-perspectives-1-2" w="32" name="three-perspectives-1" hint="Each of the items include something that is a function of $x$, but the entire item is not itself a function of $x$." show_hints="TRUE"> a function of <span class="math inline">\(x\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="an interval" id="three-perspectives-1-3" w="7" name="three-perspectives-1" hint="Each of the items includes an interval, but the entire item is not one." show_hints="TRUE"> an interval</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="an integra ... tion bound" id="three-perspectives-1-4" w="7" name="three-perspectives-1" hint="Each of the items includes an upper and lower bound of integration, but the entire item is not one." show_hints="TRUE"> an integration bound</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="an anti-derivative" id="three-perspectives-1-5" w="3" name="three-perspectives-1" hint="There is an anti-derivative involved in each item, but the entire item is not one." show_hints="TRUE"> an anti-derivative</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="a constant ... ntegration" id="three-perspectives-1-6" w="19" name="three-perspectives-1" hint="No constant of integration is needed to express any of the items" show_hints="TRUE"> a constant of integration</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="three-perspectives-1" id="three-perspectives-1.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for three-perspectives-1.');
+      const form = document.getElementById('three-perspectives-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
 
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('three-perspectives-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for three-perspectives-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for three-perspectives-1.");
+          localStorage.setItem('three-perspectives-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<p>The equation has been <a href="https://betterexplained.com/articles/colorized-math-equations/">written in color</a> to help you identify elements that are the same in each of the three items.</p>
+<ol start="2" type="1">
+<li>Which of the colors stands for <em>a bound of integration</em>?</li>
+</ol>
+<div class="cell" data-show_hints="true" data-inline="true">
+<span> <small style="color: grey;" id="three-perspectives-2-hintarea" class="hintarea">three-perspectives-2</small>
+<form id="three-perspectives-2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="black " id="three-perspectives-2-1" w="3" name="three-perspectives-2" hint="You're wrong here." show_hints="TRUE"> black &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="blue " id="three-perspectives-2-2" w="87" name="three-perspectives-2" hint="Incorrect." show_hints="TRUE"> blue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="brown" id="three-perspectives-2-3" w="41" name="three-perspectives-2" hint="A hit!" show_hints="TRUE"> brown &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="magenta " id="three-perspectives-2-4" w="32" name="three-perspectives-2" hint="Not quite right." show_hints="TRUE"> magenta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="three-perspectives-2" id="three-perspectives-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for three-perspectives-2.');
+      const form = document.getElementById('three-perspectives-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('three-perspectives-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for three-perspectives-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for three-perspectives-2.");
+          localStorage.setItem('three-perspectives-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="3" type="1">
+<li>Which of the colors stands for <em>the derivative of a function that appears elsewhere in the equation</em>?</li>
+</ol>
+<div class="cell" data-show_hints="true" data-inline="true">
+<span> <small style="color: grey;" id="three-perspectives-3-hintarea" class="hintarea">three-perspectives-3</small>
+<form id="three-perspectives-3-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="black " id="three-perspectives-3-1" w="23" name="three-perspectives-3" hint="Not on target." show_hints="TRUE"> black &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="blue" id="three-perspectives-3-2" w="14" name="three-perspectives-3" hint="Correct." show_hints="TRUE"> blue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="tan " id="three-perspectives-3-3" w="3" name="three-perspectives-3" hint="You're wrong here." show_hints="TRUE"> tan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="magenta " id="three-perspectives-3-4" w="7" name="three-perspectives-3" hint="Oops!" show_hints="TRUE"> magenta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="three-perspectives-3" id="three-perspectives-3.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for three-perspectives-3.');
+      const form = document.getElementById('three-perspectives-3-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('three-perspectives-3-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for three-perspectives-3.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for three-perspectives-3.");
+          localStorage.setItem('three-perspectives-3-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="4" type="1">
+<li>Which of the colors stands for <em>an anti-derivative of a function that appears elsewhere in the equation</em>?</li>
+</ol>
+<div class="cell" data-show_hints="true" data-inline="true">
+<span> <small style="color: grey;" id="three-perspectives-4-hintarea" class="hintarea">three-perspectives-4</small>
+<form id="three-perspectives-4-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="black " id="three-perspectives-4-1" w="19" name="three-perspectives-4" hint="Better luck next time." show_hints="TRUE"> black &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="blue " id="three-perspectives-4-2" w="23" name="three-perspectives-4" hint="Think again." show_hints="TRUE"> blue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="tan " id="three-perspectives-4-3" w="7" name="three-perspectives-4" hint="You're wrong here." show_hints="TRUE"> tan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="magenta" id="three-perspectives-4-4" w="41" name="three-perspectives-4" hint="Right-O!" show_hints="TRUE"> magenta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="three-perspectives-4" id="three-perspectives-4.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for three-perspectives-4.');
+      const form = document.getElementById('three-perspectives-4-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('three-perspectives-4-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for three-perspectives-4.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for three-perspectives-4.");
+          localStorage.setItem('three-perspectives-4-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div id="exr-u-on-the-bottom" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6</strong></span> The (so-called) “First Fundamental Theorem of Calculus” says:</p>
+<p><span class="math display">\[\partial_t \int_a^t f(x) dx \ = \ f(t)\]</span></p>
+<p>Consider this new quantity: <span class="math display">\[\partial_t \int_t^a f(x) dx\]</span> Which of the following is a valid simplification of the quantity?</p>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="u-on-the-bottom-1-hintarea" class="hintarea">u-on-the-bottom-1</small>
+<form id="u-on-the-bottom-1-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$f(t)$ " id="u-on-the-bottom-1-1" w="7" name="u-on-the-bottom-1" hint="You might think so, but ..." show_hints="TRUE"> <span class="math inline">\(f(t)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$f(-t)$ " id="u-on-the-bottom-1-2" w="87" name="u-on-the-bottom-1" hint="You might think so, but ..." show_hints="TRUE"> <span class="math inline">\(f(-t)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$-f(t)$" id="u-on-the-bottom-1-3" w="41" name="u-on-the-bottom-1" hint="reversing the limits of integration reverses the sign of the result." show_hints="TRUE"> <span class="math inline">\(-f(t)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="none of the above " id="u-on-the-bottom-1-4" w="23" name="u-on-the-bottom-1" hint="You might think so, but ..." show_hints="TRUE"> none of the above</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="u-on-the-bottom-1" id="u-on-the-bottom-1.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for u-on-the-bottom-1.');
+      const form = document.getElementById('u-on-the-bottom-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
 
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('u-on-the-bottom-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for u-on-the-bottom-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for u-on-the-bottom-1.");
+          localStorage.setItem('u-on-the-bottom-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<!-- Opening answer: utb-7Pe -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explanation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\partial_t \int_a^t f(x) dx\)</span> is equivalent to <span class="math inline">\(\equiv F(t) - F(a)\)</span>, where <span class="math inline">\(F()\)</span> is the anti-derivative of <span class="math inline">\(f()\)</span>.</p>
+<p>Consequently, <span class="math display">\[\partial_t \int_t^a f(x) dx \ \equiv F(a) - F(t) = -\left[F(t) - F(a)\right]\]</span>.</p>
+<p><span data-tooltip="Ans id: utb-7Pe">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer utb-7Pe -->
+</div>
 </div>
 <div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<div id="exr-ape-lie-coat" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7</strong></span> Which of the following is <strong>NOT</strong> equivalent to <span class="math display">\[\int_1^4\frac{1}{x}dx\ ?\]</span></p>
+<div class="cell">
+<span> <small style="color: grey;" id="ape-lie-coat-1-hintarea" class="hintarea">ape-lie-coat-1</small>
+<form id="ape-lie-coat-1-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$\ln|x| {\ ... tiny 4}}$ " id="ape-lie-coat-1-1" w="23" name="ape-lie-coat-1" hint="Boo!" show_hints="TRUE"> <span class="math inline">\(\ln|x| {\Large|_{\tiny 1}^{\tiny 4}}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$1.386294$ " id="ape-lie-coat-1-2" w="7" name="ape-lie-coat-1" hint="This is wide of the mark." show_hints="TRUE"> <span class="math inline">\(1.386294\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$\ln|4|-\ln|1|$ " id="ape-lie-coat-1-3" w="19" name="ape-lie-coat-1" hint="You're wrong here." show_hints="TRUE"> <span class="math inline">\(\ln|4|-\ln|1|\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$\frac {x^ ... \tiny 4}}$" id="ape-lie-coat-1-4" w="35" name="ape-lie-coat-1" hint="right-o The power rule doesn't apply to $$x^{-1}$$, so $$\frac {x^0}{0} {\Large|_{\tiny 1}^{\tiny 4}}$$ is not equivalent." show_hints="TRUE"> <span class="math inline">\(\frac {x^0}{0} {\Large|_{\tiny 1}^{\tiny 4}}\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="ape-lie-coat-1" id="ape-lie-coat-1.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for ape-lie-coat-1.');
+      const form = document.getElementById('ape-lie-coat-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('ape-lie-coat-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for ape-lie-coat-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for ape-lie-coat-1.");
+          localStorage.setItem('ape-lie-coat-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
+</div>
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
+<div id="exr-buck-forgive-canoe" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8</strong></span> The KC-46 is an airborne fuel tanker that can receive or dispense fuel. Suppose <span class="math inline">\(x(t)\)</span> tracks a KC-46’s fuel transfer rate, in pounds per minute, where <span class="math inline">\(t\)</span> is measured in minutes from the start of the mission. Note that <span class="math inline">\(0 &lt; x(t)\)</span> when the KC-46 is receiving fuel from another tanker and <span class="math inline">\(x(t)&lt;0\)</span> when the KC-46 is offloading fuel to a supported aircraft.</p>
+<p>The function <span class="math inline">\(b(t)\)</span> tracks the KC-46’s fuel burn rate, also measured in pounds per minute, with the same interpretation of <span class="math inline">\(t\)</span>. Note that <span class="math inline">\(b(t)\)</span> can never be negative (i.e.&nbsp;<span class="math inline">\(0 \leq b(t)\)</span>)</p>
+<ol type="1">
+<li>Which of the following is the proper representation of the KC-46’s fuel state <span class="math inline">\(m\)</span> minutes after mission start?</li>
+</ol>
+<div class="cell">
+<span> <small style="color: grey;" id="buck-forgive-canoe-1-hintarea" class="hintarea">buck-forgive-canoe-1</small>
+<form id="buck-forgive-canoe-1-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$x(t)-b(t)$ " id="buck-forgive-canoe-1-1" w="87" name="buck-forgive-canoe-1" hint="You're wrong here." show_hints="TRUE"> <span class="math inline">\(x(t)-b(t)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$x(t)-b(t) ...  mission. " id="buck-forgive-canoe-1-2" w="7" name="buck-forgive-canoe-1" hint="Think again." show_hints="TRUE"> <span class="math inline">\(x(t)-b(t)+f_0\)</span> where <span class="math inline">\(f_0\)</span> represents the fuel level at the start of the mission.</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$$\int_0^m ...  b(t)dt$$ " id="buck-forgive-canoe-1-3" w="23" name="buck-forgive-canoe-1" hint="Sorry!" show_hints="TRUE"> <span class="math display">\[\int_0^m x(t)dt-\int_0^m b(t)dt\]</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$$\int_0^m ... he mission" id="buck-forgive-canoe-1-4" w="29" name="buck-forgive-canoe-1" hint="Excellent! Remember without an initial condition, we can only talk about net change." show_hints="TRUE"> <span class="math display">\[\int_0^m x(t)dt-\int_0^m b(t)dt +f_0\]</span> where <span class="math inline">\(f_0\)</span> represents the fuel level at the start of the mission</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="buck-forgive-canoe-1" id="buck-forgive-canoe-1.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for buck-forgive-canoe-1.');
+      const form = document.getElementById('buck-forgive-canoe-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('buck-forgive-canoe-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for buck-forgive-canoe-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for buck-forgive-canoe-1.");
+          localStorage.setItem('buck-forgive-canoe-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="2" type="1">
+<li>What is the meaning of <span class="math display">\[\int_0^{120} x(t)dt=40,000\ ?\]</span> Keep in mind that there are 60 minutes in 1 hour, so 120 minutes is 2 hours.</li>
+</ol>
+<div class="cell">
+<span> <small style="color: grey;" id="buck-forgive-canoe-2-hintarea" class="hintarea">buck-forgive-canoe-2</small>
+<form id="buck-forgive-canoe-2-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="In the fir ...  of fuel. " id="buck-forgive-canoe-2-1" w="87" name="buck-forgive-canoe-2" hint="Incorrect choice." show_hints="TRUE"> In the first two hours of the mission, the KC-46 offloaded a total of 40,000 pounds of fuel.</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="Two hours  ...  of fuel. " id="buck-forgive-canoe-2-2" w="23" name="buck-forgive-canoe-2" hint="Oops!" show_hints="TRUE"> Two hours into the mission, the KC-46’s fuel tanks contain 40,000 pounds of fuel.</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="In the fir ... offloaded." id="buck-forgive-canoe-2-3" w="18" name="buck-forgive-canoe-2" hint="Correct The definite integral tells us about the ***net*** change." show_hints="TRUE"> In the first two hours of the mission, the KC-46 received 40,000 more pounds of fuel than it offloaded.</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="In the fir ...  of fuel. " id="buck-forgive-canoe-2-4" w="7" name="buck-forgive-canoe-2" hint="Not on target." show_hints="TRUE"> In the first two hours of the mission, the KC-46 received a total of 40,000 pounds of fuel.</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="buck-forgive-canoe-2" id="buck-forgive-canoe-2.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for buck-forgive-canoe-2.');
+      const form = document.getElementById('buck-forgive-canoe-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('buck-forgive-canoe-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for buck-forgive-canoe-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for buck-forgive-canoe-2.");
+          localStorage.setItem('buck-forgive-canoe-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
+</div>
+<div id="tabset-3-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-6-tab">
+<div id="exr-rabbit-sell-plate" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9</strong></span> Look at <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/35-integration.html#initial-value-of-the-quantity">Figure 35.1 in <em>MOSAIC Calculus</em></a></p>
+<p>Notice that the zero-crossings of <span class="math inline">\(f()\)</span> each are an argmax or argmin of the anti-derivative <span class="math inline">\(F()\)</span>. Explain why.</p>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for zeros-and-argmaxes.');
+      const form = document.getElementById('zeros-and-argmaxes');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('zeros-and-argmaxes').value;
+        localStorage.setItem("zeros-and-argmaxes-contents", todo);
+        console.log("Saving value of zeros-and-argmaxes.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("zeros-and-argmaxes-contents");
+      if (savedValue) {
+        document.getElementById('zeros-and-argmaxes').value = savedValue;
+      }
+})
+</script>
+<textarea id="zeros-and-argmaxes" name="zeros-and-argmaxes" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID zeros-and-argmaxes)"></textarea>
+<!-- Opening answer: ia1-7Ji -->
+<div class="callout callout-style-default callout-tip callout-titled" style="display: block;">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If we have a function <span class="math inline">\(F(t)\)</span> and want to find the argmaxes or argmins, a procedure is to differentiate <span class="math inline">\(\partial_t F(t)\)</span> and look for the zero crossings. If <span class="math inline">\(F()\)</span> is the anti-derivative of <span class="math inline">\(f()\)</span>, then <span class="math inline">\(f()\)</span> must be the derivative of <span class="math inline">\(F()\)</span>.</p>
+<p><span data-tooltip="Ans id: ia1-7Ji">..id..</span></p>
+</div>
+</div>
+</div>
+<!-- closing answer ia1-7Ji -->
+</div>
+<p><!-- end of exr-rabbit-sell-plate -->)</p>
+</div>
+</div>
+</div>
+
 
 </div>
 </div>
 </div>
-<!-- end of computing tabset -->
-
-
 <script type="webr-data">
-eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC40LjIvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsImdncGxvdDIiLCJtb3NhaWNDYWxjIiwiTFNUYm9vayJdLCJyZXBvcyI6WyJodHRwczovL2R0a2FwbGFuLnItdW5pdmVyc2UuZGV2Il19LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC40LjIvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsIm1vc2FpY0NhbGMiLCJnZ3Bsb3QyIiwiZ2dmb3JtdWxhIiwiTFNUYm9vayJdLCJyZXBvcyI6WyJodHRwczovL2R0a2FwbGFuLnItdW5pdmVyc2UuZGV2Il19LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
 </script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJfd2Vicl92YWx1ZV8xID0ge1xuICBjb25zdCB7IGhpZ2hsaWdodFIsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV2YWx1YXRpb24gY29uZmlndXJhdGlvblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7XG4gICAgaWQ6IFwid2Vici0xLWNvbnRlbnRzXCIsXG4gICAgZWNobzogdHJ1ZSxcbiAgICBvdXRwdXQ6IHRydWVcbiAgfSwgYmxvY2suYXR0cik7XG5cbiAgLy8gRXZhbHVhdGUgdGhlIHByb3ZpZGVkIFIgY29kZVxuICBjb25zdCByZXN1bHQgPSB3ZWJST2pzLnByb2Nlc3Moe2NvZGU6IGJsb2NrLmNvZGUsIG9wdGlvbnN9LCB7fSk7XG5cbiAgLy8gRWFybHkgeWllbGQgd2hpbGUgd2Ugd2FpdCBmb3IgdGhlIGZpcnN0IGV2YWx1YXRpb24gYW5kIHJlbmRlclxuICBpZiAob3B0aW9ucy5vdXRwdXQgJiYgIShcIjFcIiBpbiB3ZWJST2pzLnJlbmRlcmVkT2pzKSkge1xuICAgIGNvbnN0IGNvbnRhaW5lciA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG4gICAgY29uc3Qgc3Bpbm5lciA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG5cbiAgICBpZiAob3B0aW9ucy5lY2hvKSB7XG4gICAgICAvLyBTaG93IG91dHB1dCBhcyBoaWdobGlnaHRlZCBzb3VyY2VcbiAgICAgIGNvbnN0IHByZUVsZW0gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwicHJlXCIpO1xuICAgICAgY29udGFpbmVyLmNsYXNzTmFtZSA9IFwic291cmNlQ29kZVwiO1xuICAgICAgcHJlRWxlbS5jbGFzc05hbWUgPSBcInNvdXJjZUNvZGUgclwiO1xuICAgICAgcHJlRWxlbS5hcHBlbmRDaGlsZChoaWdobGlnaHRSKGJsb2NrLmNvZGUpKTtcbiAgICAgIHNwaW5uZXIuY2xhc3NOYW1lID0gXCJzcGlubmVyLWdyb3cgc3Bpbm5lci1ncm93LXNtIG0tMiBwb3NpdGlvbi1hYnNvbHV0ZSB0b3AtMCBlbmQtMFwiO1xuICAgICAgcHJlRWxlbS5hcHBlbmRDaGlsZChzcGlubmVyKTtcbiAgICAgIGNvbnRhaW5lci5hcHBlbmRDaGlsZChwcmVFbGVtKTtcbiAgICB9IGVsc2Uge1xuICAgICAgc3Bpbm5lci5jbGFzc05hbWUgPSBcInNwaW5uZXItYm9yZGVyIHNwaW5uZXItYm9yZGVyLXNtXCI7XG4gICAgICBjb250YWluZXIuYXBwZW5kQ2hpbGQoc3Bpbm5lcik7XG4gICAgfVxuXG4gICAgeWllbGQgY29udGFpbmVyO1xuICB9XG5cbiAgd2ViUk9qcy5yZW5kZXJlZE9qc1tcIjFcIl0gPSB0cnVlO1xuICB5aWVsZCBhd2FpdCByZXN1bHQ7XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici1wcmVsdWRlIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoid2ViUk9qcyA9IHtcbiAgY29uc3QgeyBXZWJSLCBDaGFubmVsVHlwZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZS5XZWJSO1xuICBjb25zdCB7XG4gICAgV2ViUkV2YWx1YXRvcixcbiAgICBXZWJSRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyB3ZWJSIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIC8vIFVzZSBQb3N0TWVzc2FnZSBjaGFubmVsIGZvciBhc3luYyBjb21tdW5pY2F0aW9uXG4gIC8vIFdlIGRvIG5vdCBleHBlY3QgdG8gdGFrZSBuZXN0ZWQgcHJvbXB0IGlucHV0IGluIFF1YXJ0byBMaXZlIGNlbGxzXG4gIGRhdGEub3B0aW9ucy5jaGFubmVsVHlwZSA9IENoYW5uZWxUeXBlLlBvc3RNZXNzYWdlO1xuXG4gIC8vIEluaXRpYWxpc2Ugd2ViUiBhbmQgc2V0dXAgZm9yIFIgY29kZSBldmFsdWF0aW9uXG4gIGxldCB3ZWJSUHJvbWlzZSA9IChhc3luYyAod2ViUikgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgd2ViUmA7XG4gICAgYXdhaXQgd2ViUi5pbml0KCk7XG5cbiAgICAvLyBJbnN0YWxsIHByb3ZpZGVkIGxpc3Qgb2YgcGFja2FnZXNcbiAgICAvLyBFbnN1cmUgd2ViUiBkZWZhdWx0IHJlcG8gaXMgaW5jbHVkZWRcbiAgICBkYXRhLnBhY2thZ2VzLnJlcG9zLnB1c2goXCJodHRwczovL3JlcG8uci13YXNtLm9yZ1wiKVxuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIHdlYlIuZXZhbFJWb2lkKGBcbiAgICAgICAgd2Vicjo6aW5zdGFsbChwa2csIHJlcG9zID0gcmVwb3MpXG4gICAgICAgIGxpYnJhcnkocGtnLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpXG4gICAgICBgLCB7IGVudjoge1xuICAgICAgICBwa2c6IHBrZyxcbiAgICAgICAgcmVwb3M6IGRhdGEucGFja2FnZXMucmVwb3MsXG4gICAgICB9fSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCB3ZWJSLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKCFlLm1lc3NhZ2UuaW5jbHVkZXMoXCJGUyBlcnJvclwiKSkge1xuICAgICAgICAgICAgdGhyb3cgZTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHJldHVybiBhd2FpdCB3ZWJSLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluc3RhbGxpbmcgd2ViUiBzaGltc2A7XG4gICAgYXdhaXQgd2ViUi5ldmFsUlZvaWQoYHdlYnI6OnNoaW1faW5zdGFsbCgpYCk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFdlYlIgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUih3ZWJSLCBkYXRhKTtcblxuICAgIHN0YXR1c1RleHQucmVtb3ZlKCk7XG4gICAgaWYgKHN0YXR1c0NvbnRhaW5lci5jaGlsZHJlbi5sZW5ndGggPT0gMCkge1xuICAgICAgc3RhdHVzQ29udGFpbmVyLnBhcmVudE5vZGUucmVtb3ZlKCk7XG4gICAgfVxuICAgIHJldHVybiB3ZWJSO1xuICB9KShuZXcgV2ViUihkYXRhLm9wdGlvbnMpKTtcblxuICAvLyBLZWVwIHRyYWNrIG9mIGluaXRpYWwgT0pTIGJsb2NrIHJlbmRlclxuICBjb25zdCByZW5kZXJlZE9qcyA9IHt9O1xuXG4gIGNvbnN0IHByb2Nlc3MgPSBhc3luYyAoY29udGV4dCwgaW5wdXRzKSA9PiB7XG4gICAgY29uc3Qgd2ViUiA9IGF3YWl0IHdlYlJQcm9taXNlO1xuICAgIGNvbnN0IGV2YWx1YXRvciA9IG5ldyBXZWJSRXZhbHVhdG9yKHdlYlIsIGNvbnRleHQpXG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHJvY2VzcyxcbiAgICB3ZWJSUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgfTtcbn1cbiJ9XX0=
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC01IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV81O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzUgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici01LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItNS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV81ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl81LCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNDtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTQiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl80ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNC1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTQtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfNCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNCwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTMiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzM7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0zIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMyA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTMtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0zLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzMgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzMsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8yLCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoiX3dlYnJfdmFsdWVfMSA9IHtcbiAgY29uc3QgeyBoaWdobGlnaHRSLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBldmFsdWF0aW9uIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oe1xuICAgIGlkOiBcIndlYnItMS1jb250ZW50c1wiLFxuICAgIGVjaG86IHRydWUsXG4gICAgb3V0cHV0OiB0cnVlXG4gIH0sIGJsb2NrLmF0dHIpO1xuXG4gIC8vIEV2YWx1YXRlIHRoZSBwcm92aWRlZCBSIGNvZGVcbiAgY29uc3QgcmVzdWx0ID0gd2ViUk9qcy5wcm9jZXNzKHtjb2RlOiBibG9jay5jb2RlLCBvcHRpb25zfSwge30pO1xuXG4gIC8vIEVhcmx5IHlpZWxkIHdoaWxlIHdlIHdhaXQgZm9yIHRoZSBmaXJzdCBldmFsdWF0aW9uIGFuZCByZW5kZXJcbiAgaWYgKG9wdGlvbnMub3V0cHV0ICYmICEoXCIxXCIgaW4gd2ViUk9qcy5yZW5kZXJlZE9qcykpIHtcbiAgICBjb25zdCBjb250YWluZXIgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICAgIGNvbnN0IHNwaW5uZXIgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuXG4gICAgaWYgKG9wdGlvbnMuZWNobykge1xuICAgICAgLy8gU2hvdyBvdXRwdXQgYXMgaGlnaGxpZ2h0ZWQgc291cmNlXG4gICAgICBjb25zdCBwcmVFbGVtID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcInByZVwiKTtcbiAgICAgIGNvbnRhaW5lci5jbGFzc05hbWUgPSBcInNvdXJjZUNvZGVcIjtcbiAgICAgIHByZUVsZW0uY2xhc3NOYW1lID0gXCJzb3VyY2VDb2RlIHJcIjtcbiAgICAgIHByZUVsZW0uYXBwZW5kQ2hpbGQoaGlnaGxpZ2h0UihibG9jay5jb2RlKSk7XG4gICAgICBzcGlubmVyLmNsYXNzTmFtZSA9IFwic3Bpbm5lci1ncm93IHNwaW5uZXItZ3Jvdy1zbSBtLTIgcG9zaXRpb24tYWJzb2x1dGUgdG9wLTAgZW5kLTBcIjtcbiAgICAgIHByZUVsZW0uYXBwZW5kQ2hpbGQoc3Bpbm5lcik7XG4gICAgICBjb250YWluZXIuYXBwZW5kQ2hpbGQocHJlRWxlbSk7XG4gICAgfSBlbHNlIHtcbiAgICAgIHNwaW5uZXIuY2xhc3NOYW1lID0gXCJzcGlubmVyLWJvcmRlciBzcGlubmVyLWJvcmRlci1zbVwiO1xuICAgICAgY29udGFpbmVyLmFwcGVuZENoaWxkKHNwaW5uZXIpO1xuICAgIH1cblxuICAgIHlpZWxkIGNvbnRhaW5lcjtcbiAgfVxuXG4gIHdlYlJPanMucmVuZGVyZWRPanNbXCIxXCJdID0gdHJ1ZTtcbiAgeWllbGQgYXdhaXQgcmVzdWx0O1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItcHJlbHVkZSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IndlYlJPanMgPSB7XG4gIGNvbnN0IHsgV2ViUiwgQ2hhbm5lbFR5cGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWUuV2ViUjtcbiAgY29uc3Qge1xuICAgIFdlYlJFdmFsdWF0b3IsXG4gICAgV2ViUkVudmlyb25tZW50TWFuYWdlcixcbiAgICBzZXR1cFIsXG4gICAgYjY0RGVjb2RlLFxuICAgIGNvbGxhcHNlUGF0aFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gd2ViUiBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICAvLyBVc2UgUG9zdE1lc3NhZ2UgY2hhbm5lbCBmb3IgYXN5bmMgY29tbXVuaWNhdGlvblxuICAvLyBXZSBkbyBub3QgZXhwZWN0IHRvIHRha2UgbmVzdGVkIHByb21wdCBpbnB1dCBpbiBRdWFydG8gTGl2ZSBjZWxsc1xuICBkYXRhLm9wdGlvbnMuY2hhbm5lbFR5cGUgPSBDaGFubmVsVHlwZS5Qb3N0TWVzc2FnZTtcblxuICAvLyBJbml0aWFsaXNlIHdlYlIgYW5kIHNldHVwIGZvciBSIGNvZGUgZXZhbHVhdGlvblxuICBsZXQgd2ViUlByb21pc2UgPSAoYXN5bmMgKHdlYlIpID0+IHtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHdlYlJgO1xuICAgIGF3YWl0IHdlYlIuaW5pdCgpO1xuXG4gICAgLy8gSW5zdGFsbCBwcm92aWRlZCBsaXN0IG9mIHBhY2thZ2VzXG4gICAgLy8gRW5zdXJlIHdlYlIgZGVmYXVsdCByZXBvIGlzIGluY2x1ZGVkXG4gICAgZGF0YS5wYWNrYWdlcy5yZXBvcy5wdXNoKFwiaHR0cHM6Ly9yZXBvLnItd2FzbS5vcmdcIilcbiAgICBhd2FpdCBkYXRhLnBhY2thZ2VzLnBrZ3MubWFwKChwa2cpID0+ICgpID0+IHtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcGFja2FnZTogJHtwa2d9YDtcbiAgICAgIHJldHVybiB3ZWJSLmV2YWxSVm9pZChgXG4gICAgICAgIHdlYnI6Omluc3RhbGwocGtnLCByZXBvcyA9IHJlcG9zKVxuICAgICAgICBsaWJyYXJ5KHBrZywgY2hhcmFjdGVyLm9ubHkgPSBUUlVFKVxuICAgICAgYCwgeyBlbnY6IHtcbiAgICAgICAgcGtnOiBwa2csXG4gICAgICAgIHJlcG9zOiBkYXRhLnBhY2thZ2VzLnJlcG9zLFxuICAgICAgfX0pO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgLy8gRG93bmxvYWQgYW5kIGluc3RhbGwgcmVzb3VyY2VzXG4gICAgYXdhaXQgZmlsZXMubWFwKChmaWxlKSA9PiBhc3luYyAoKSA9PiB7XG4gICAgICBjb25zdCBuYW1lID0gZmlsZS5zdWJzdHJpbmcoZmlsZS5sYXN0SW5kZXhPZignLycpICsgMSk7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHJlc291cmNlOiAke25hbWV9YDtcbiAgICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goZmlsZSk7XG4gICAgICBpZiAoIXJlc3BvbnNlLm9rKSB7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgQ2FuJ3QgZG93bmxvYWQgXFxgJHtmaWxlfVxcYC4gRXJyb3IgJHtyZXNwb25zZS5zdGF0dXN9OiBcIiR7cmVzcG9uc2Uuc3RhdHVzVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXNwb25zZS5hcnJheUJ1ZmZlcigpO1xuXG4gICAgICAvLyBTdG9yZSBVUkxzIGluIHRoZSBjd2Qgd2l0aG91dCBhbnkgc3ViZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgaWYgKGZpbGUuaW5jbHVkZXMoXCI6Ly9cIikpIHtcbiAgICAgICAgZmlsZSA9IG5hbWU7XG4gICAgICB9XG5cbiAgICAgIC8vIENvbGxhcHNlIGhpZ2hlciBkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBmaWxlID0gY29sbGFwc2VQYXRoKGZpbGUpO1xuXG4gICAgICAvLyBDcmVhdGUgZGlyZWN0b3J5IHRyZWUsIGlnbm9yaW5nIFwiZGlyZWN0b3J5IGV4aXN0c1wiIFZGUyBlcnJvcnNcbiAgICAgIGNvbnN0IHBhcnRzID0gZmlsZS5zcGxpdCgnLycpLnNsaWNlKDAsIC0xKTtcbiAgICAgIGxldCBwYXRoID0gJyc7XG4gICAgICB3aGlsZSAocGFydHMubGVuZ3RoID4gMCkge1xuICAgICAgICBwYXRoICs9IHBhcnRzLnNoaWZ0KCkgKyAnLyc7XG4gICAgICAgIHRyeSB7XG4gICAgICAgICAgYXdhaXQgd2ViUi5GUy5ta2RpcihwYXRoKTtcbiAgICAgICAgfSBjYXRjaCAoZSkge1xuICAgICAgICAgIGlmICghZS5tZXNzYWdlLmluY2x1ZGVzKFwiRlMgZXJyb3JcIikpIHtcbiAgICAgICAgICAgIHRocm93IGU7XG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9XG5cbiAgICAgIC8vIFdyaXRlIHRoaXMgZmlsZSB0byB0aGUgVkZTXG4gICAgICByZXR1cm4gYXdhaXQgd2ViUi5GUy53cml0ZUZpbGUoZmlsZSwgbmV3IFVpbnQ4QXJyYXkoZGF0YSkpO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbnN0YWxsaW5nIHdlYlIgc2hpbXNgO1xuICAgIGF3YWl0IHdlYlIuZXZhbFJWb2lkKGB3ZWJyOjpzaGltX2luc3RhbGwoKWApO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBXZWJSIGVudmlyb25tZW50IHNldHVwYDtcbiAgICBhd2FpdCBzZXR1cFIod2ViUiwgZGF0YSk7XG5cbiAgICBzdGF0dXNUZXh0LnJlbW92ZSgpO1xuICAgIGlmIChzdGF0dXNDb250YWluZXIuY2hpbGRyZW4ubGVuZ3RoID09IDApIHtcbiAgICAgIHN0YXR1c0NvbnRhaW5lci5wYXJlbnROb2RlLnJlbW92ZSgpO1xuICAgIH1cbiAgICByZXR1cm4gd2ViUjtcbiAgfSkobmV3IFdlYlIoZGF0YS5vcHRpb25zKSk7XG5cbiAgLy8gS2VlcCB0cmFjayBvZiBpbml0aWFsIE9KUyBibG9jayByZW5kZXJcbiAgY29uc3QgcmVuZGVyZWRPanMgPSB7fTtcblxuICBjb25zdCBwcm9jZXNzID0gYXN5bmMgKGNvbnRleHQsIGlucHV0cykgPT4ge1xuICAgIGNvbnN0IHdlYlIgPSBhd2FpdCB3ZWJSUHJvbWlzZTtcbiAgICBjb25zdCBldmFsdWF0b3IgPSBuZXcgV2ViUkV2YWx1YXRvcih3ZWJSLCBjb250ZXh0KVxuICAgIGF3YWl0IGV2YWx1YXRvci5wcm9jZXNzKGlucHV0cyk7XG4gICAgcmV0dXJuIGV2YWx1YXRvci5jb250YWluZXI7XG4gIH1cblxuICByZXR1cm4ge1xuICAgIHByb2Nlc3MsXG4gICAgd2ViUlByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gIH07XG59XG4ifV19
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">

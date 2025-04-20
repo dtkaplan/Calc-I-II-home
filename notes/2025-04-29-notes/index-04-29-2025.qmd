@@ -1,0 +1,42 @@
+---
+author: DTK
+date: 2025-04-29
+number-offset: 41
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(devoirs)
+source("../../_software/software.R")
+```
+::: {.callout-tip collapse=true}
+## Background software
+```{webr-r}
+#| autorun: true
+#| context: output
+{{< include ../../_software/software.R >}}
+```
+:::
+
+
+
+# 2025-04-29 class notes
+
+```{webr-r}
+#| caption: User console A
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console B
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console C
+#| persist: true
+```
+
+

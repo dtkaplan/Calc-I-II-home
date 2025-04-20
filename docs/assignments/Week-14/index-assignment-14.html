@@ -72,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -129,8 +158,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#by-hand-and-eye" id="toc-by-hand-and-eye" class="nav-link active" data-scroll-target="#by-hand-and-eye">By hand and eye</a></li>
-  <li><a href="#computing" id="toc-computing" class="nav-link" data-scroll-target="#computing">Computing</a></li>
+  <li><a href="#mosaic-calculus-chapters-33-and-34" id="toc-mosaic-calculus-chapters-33-and-34" class="nav-link active" data-scroll-target="#mosaic-calculus-chapters-33-and-34"><em>MOSAIC Calculus</em> Chapters 33 and 34</a></li>
   </ul>
 </nav>
     </div>
@@ -315,51 +343,1053 @@ Clear memory
 
 </div>
 <script type="webr-1-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNvbnRleHQiOiJvdXRwdXQiLCJlY2hvIjpmYWxzZSwiZWRpdCI6ZmFsc2UsImV2YWwiOnRydWUsInJlc3VsdHMiOiJoaWRlIn0sImNvZGUiOiIjIERyYXdpbmcgdmVjdG9ycyBhbmQgbWF0cmljZXNcblxuZHJhd19tYXRyaXggPC0gZnVuY3Rpb24oTSkge1xuICBpbWFnZSgxOm5jb2woTSksIDE6bnJvdyhNKSwgdChNW25yb3coTSk6MSwgXSksXG4gICAgICAgIGNvbCA9IGNvbG9yc3BhY2U6OmRpdmVyZ2luZ19oY2woXG4gICAgICAgICAgMTUsIGggPSBjKDE4MCwgNTApLCBjID0gODAsXG4gICAgICAgICAgbCA9IGMoMjAsIDk1KSwgcG93ZXIgPSBjKDAuNywgMS4zKSksXG4gICAgICAgIGF4ZXMgPSBGQUxTRSxcbiAgICAgICAgdXNlUmFzdGVyID0gVFJVRSlcbn1cblxuc29tZXZlY3MgPC0gdGliYmxlOjp0cmliYmxlKFxuICB+IHJvb3R4LCB+IHJvb3R5LCB+IGhlYWR4LCB+IGhlYWR5LCB+IGNvbG9yLCB+IG5hbWUsXG4gIDAsIDAsIC0yLCA0LCBcImJsdWVcIiwgXCJ1XCIsXG4gIDEsIC0yLCA1LCAtMywgXCJncmVlblwiLCBcInZcIixcbiAgLTEsIC0xLCAtNCwgLTEsIFwib3JhbmdlXCIsIFwid1wiLFxuICAxLCAwLCA0LCAzLCBcImJyb3duXCIsIFwieFwiLFxuICAwLCAtMiwgMywgLTMsIFwic2FsbW9uXCIsIFwieVwiLFxuICAwLCAwLCA0LCAzLCBcIm1hZ2VudGFcIiwgXCJiMVwiLFxuICAwLCAwLCAtMywgMiwgXCJtYWdlbnRhXCIsIFwiYjJcIixcbikgfD5cbiAgZHBseXI6Om11dGF0ZShsYWJlbHggPSAocm9vdHggKyBoZWFkeCkvMixcbiAgICAgICAgIGxhYmVseSA9ICgyKnJvb3R5ICsgaGVhZHkpLzMpXG5zb2x2ZV9mb3IgPC0gZnVuY3Rpb24odmVjbmFtZXMpIHtcbiAgc29tZXZlY3MgfD5cbiAgICBkcGx5cjo6ZmlsdGVyKG5hbWUgJWluJSB2ZWNuYW1lcykgfD5cbiAgICBnZl9zZWdtZW50KHJvb3R5ICsgaGVhZHkgfiByb290eCArIGhlYWR4LFxuICAgICAgICAgICAgICAgYXJyb3cgPSBncmlkOjphcnJvdyhsZW5ndGg9dW5pdCgwLjE1LCBcImluY2hlc1wiKSwgdHlwZT1cImNsb3NlZFwiKSxcbiAgICAgICAgICAgICAgIGNvbG9yID0gfiBjb2xvciwgbGluZXdpZHRoPTIpIHw+XG4gICAgZ2ZfbGFiZWwobGFiZWx5IH4gbGFiZWx4LCBsYWJlbD0gfiBuYW1lLCBjb2xvciA9IH4gY29sb3IsIHNpemU9MykgfD5cbiAgICBnZl9yZWZpbmUoc2NhbGVfY29sb3JfaWRlbnRpdHkoKSxcbiAgICAgICAgICAgICAgc2NhbGVfeV9jb250aW51b3VzKGxpbWl0cz1jKC01LDUpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWtzPSgtNSk6NSksXG4gICAgICAgICAgICAgIHNjYWxlX3hfY29udGludW91cyhsaW1pdHM9YygtNSw1KSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrcz0oLTUpOjUpLFxuICAgICAgICAgICAgICBjb29yZF9maXhlZCgpKSB8PlxuICAgIGdmX2xhYnMoeD1cIlwiLCB5ID0gXCJcIilcbn1cblxuXG4jIFNpbXBsZSB2ZWN0b3IvbWF0cml4IG9wZXJhdGlvbnNcblxudmVjIDwtIGZ1bmN0aW9uKC4uLikge1xuICB2YWxzIDwtIGxpc3QoLi4uKSB8PiB1bmxpc3QoKVxuICBtYXRyaXgodmFscywgbmNvbD0xKVxufVxuXG5ydmVjIDwtIGZ1bmN0aW9uKGZpcnN0LCAuLi4sIHJmdW49cm5vcm0pIHtcbiAgZG90cyA8LSBjKGZpcnN0LCBsaXN0KC4uLikpIHw+IHVubGlzdCgpXG4gIGlmIChsZW5ndGgoZG90cykgPT0gMSkge1xuICAgIGRvdHMgPC0gcmZ1bihkb3RzW1sxXV0pXG4gIH1cblxuICB2ZWMoZG90cylcbn1cblxudmVjbGVuIDwtIGZ1bmN0aW9uKHYpIHNxcnQodiAlZG90JSB2KVxudW5pdHZlYyA8LSBmdW5jdGlvbih2ZWMpIHZlYy9sZW5ndGgodmVjKVxuY2FuZyA8LSBmdW5jdGlvbih2LCB3KSB7KHYgJWRvdCUgdykgLyAodmVjbGVuKHYpICogdmVjbGVuKHcpKX1cbm1ha2VRIDwtIGZ1bmN0aW9uKC4uLikge1xuICBkb3RzIDwtIGxpc3QoLi4uKSB8PiBiaW5kX2NvbHMoKVxuICBxci5RKHFyKGRvdHMpKVxufVxuXG5jaGVja19mb3Jfc3ZkIDwtIGZ1bmN0aW9uKFMpIHtcbiAgaWYgKGluaGVyaXRzKFMsIFwibWF0cml4XCIpKSBTIDwtIHN2ZChTKVxuICBpZiAoIWlzLmxpc3QoUykgfHwgIWFsbChjKFwiZFwiLFwidlwiLCBcInVcIikgJWluJSBuYW1lcyhTKSkpXG4gICAgc3RvcChcIkFyZ3VtZW50IG11c3QgYmUgbWF0cml4IG9yIHRoZSBTVkQgb2YgYSBtYXRyaXguXCIpXG4gIFNcbn1cblxucmFua19tYXQgPC0gZnVuY3Rpb24oUywgdGhyZXNoID0gMC4wMSkge1xuICBTIDwtIGNoZWNrX2Zvcl9zdmQoUylcbiAgc3VtKFMkZCA+IFMkZFsxXSAqIHRocmVzaClcbn1cblxucmFuZF9tYXQgPC0gZnVuY3Rpb24obnJvdz0zLCBuY29sPTYsIHJhbmsgPSBwbWluKG5yb3csIG5jb2wpKSB7XG4gIE0gPC0gbWF0cml4KHJ1bmlmKG5yb3cqbmNvbCksIG5yb3cgPSBucm93LCBuY29sID0gbmNvbClcbiAgaWYgKHJhbmsgPj0gbnJvdyB8fCByYW5rID49IG5jb2wpIHtcbiAgIE1cbiAgfSBlbHNlIHtcbiAgICBhcHByb3hfbWF0KFMsIG49c2FtcGxlKHBtaW4ocmFuaywgbnJvdywgbmNvbCkpKVxuICB9XG59XG5cbiMgR3JhYiByYW5rIDEgbWF0cml4IGZyb20gU1ZEXG5hcHByb3hfbWF0IDwtIGZ1bmN0aW9uKFMsIG49MSwgb3JkZXIgPSAwKSB7ICMgaW5wdXQgYSBtYXRyaXggb3IgdGhlIFNWRCBvZiBhIG1hdHJpeFxuICBTIDwtIGNoZWNrX2Zvcl9zdmQoUylcbiAgaWYgKG9yZGVyID4gMCkge1xuICAgIGluZHMxIDwtIG9yZGVyKGMoUyR1WyxvcmRlcl0pKVxuICAgIGluZHMyIDwtIG9yZGVyKGMoUyR2WyxvcmRlcl0pKVxuICB9IGVsc2Uge1xuICAgIGluZHMxIDwtIDE6bnJvdyhTJHUpXG4gICAgaW5kczIgPC0gMTpucm93KFMkdilcbiAgfVxuICBwYXJ0aWFsIDwtIDAgIyBpbml0aWFsIHZhbHVlXG4gIGZvciAoayBpbiBuKSB7XG4gICAgcGFydGlhbCA8LSBwYXJ0aWFsICsgIFMkZFtrXSAqIFMkdVtpbmRzMSxrLCBkcm9wID0gRkFMU0VdICUqJSB0KFMkdltpbmRzMixrLCBkcm9wID0gRkFMU0VdKVxuICB9XG5cbiAgcGFydGlhbFxufVxuXG5wcmV0dHlfbWF0IDwtIGZ1bmN0aW9uKE0pIHtcbiAgaW5kczEgPC0gb3JkZXIocm93U3VtcyhNKSlcbiAgaW5kczIgPC0gb3JkZXIoY29sU3VtcyhNKSlcbiAgTVtpbmRzMSwgaW5kczJdXG59XG5cbiMnIEdlbmVyYXRlIGEgbWF0cml4IHdob3NlIGVsZW1lbnRzIGFyZSBzZWxlY3RlZCByYW5kb21seSBmcm9tIGEgc2V0XG4jJyBvZiBzcGVjaWZpZWQgdmFsdWVzLlxuIycgQHBhcmFtIG5yb3cgbnVtYmVyIG9mIHJvd3MgZm9yIHRoZSBtYXRyaXggcHJvZHVjZWRcbiMnIEBwYXJhbSBuY29sIG51bWJlciBvZiBjb2x1bW5zXG4jJyBAcGFyYW0gdmFsdWVzIHRoZSBzZXQgZnJvbSB3aGljaCB0byBkcmF3IChyYW5kb21seSkgdGhlXG4jJyB2YWx1ZXMgaW4gdGhlIG1hdHJpeC4gRGVmYXVsdDogaW50ZWdlcnMgLTkgdG8gOVxudmFsdWVzX21hdCA8LSBmdW5jdGlvbihucm93PTQsIG5jb2w9MywgdmFsdWVzID0gLTk6OSkge1xuICBtYXRyaXgoc2FtcGxlKHZhbHVlcywgc2l6ZSA9IG5yb3cgKiBuY29sLCByZXBsYWNlID0gVFJVRSksXG4gICAgICAgICBucm93ID0gbnJvdywgbmNvbD1uY29sKVxufVxuXG4jIFR5cGVzZXQgbWF0cmljZXMgaW4gTGFUZVggKGZvciBhc3NpZ25tZW50cyBhbmQgc3VjaClcbkxtYXQgPC0gZnVuY3Rpb24obnIsIG5jKSB7XG4gIHZhbHVlc19tYXQobnIsIG5jKSB8PiBsYXRleF9oZWxwZXIoKVxufVxubGF0ZXhfaGVscGVyIDwtIGZ1bmN0aW9uKG1hdHIpIHtcbiAgcHJpbnRtcm93IDwtIGZ1bmN0aW9uKHgpIHtcblxuICAgIGNhdChjYXQoeCxzZXA9XCIgJiBcIiksXCJcXFxcXFxcXCBcXG5cIilcbiAgfVxuXG4gIGNhdChcIlxcXFxsZWZ0KFxcXFxiZWdpbnthcnJheX17cn1cIixcIlxcblwiKVxuICBib2R5IDwtIGFwcGx5KG1hdHIsMSxwcmludG1yb3cpXG4gIGNhdChcIlxcXFxlbmR7YXJyYXl9XFxcXHJpZ2h0KVwiKVxufVxuXG4jIEZvdXJpZXIgdHJhbnNmb3JtIHN0dWZmXG4jIHNpZ2ZmdCBzaG93cyBvbmx5IHRoZSBsZWZ0LWhhbmQgc2lkZSBvZiB0aGUgRkZUXG4jIGlzaWdmZnQgcmVzdG9yZXMgaXQgYnkgYWRkaW5nIGJhY2sgdGhlIHJpZ2h0LWhhbmQgc2lkZSB0aGVuIGludmVyc2UgRkZULlxuXG5pZmZ0IDwtIGZ1bmN0aW9uKHgpIGZmdCh4L2xlbmd0aCh4KSwgaW52ZXJzZSA9IFRSVUUpXG5cbnNpZ2ZmdCA8LSBmdW5jdGlvbih4KSB7XG4gIHRtcCA8LSBmZnQoeClcbiAgbnlxdWlzdCA8LSByb3VuZCgobGVuZ3RoKHgpICsgMS4xIC0gKGxlbmd0aCh4KSAlJSAyKSkvMilcbiAgdG1wWzE6bnlxdWlzdF1cbn1cbmlzaWdmZnQgPC0gZnVuY3Rpb24oTGZmdHgpIHtcbiAgdG1wIDwtIGlmIChsZW5ndGgoTGZmdHgpICUlIDIpIHtcbiAgICAjIG9kZCBsZW5ndGhcbiAgICBjKExmZnR4LCBDb25qKHJldihMZmZ0eFtjKC0xLCAtbGVuZ3RoKExmZnR4KSldKSkpXG5cbiAgfSBlbHNlIHtcbiAgICBjKExmZnR4LCBDb25qKHJldihMZmZ0eFstMV0pKSlcbiAgfVxuICBpZmZ0KHRtcCkgfD4gUmUoKVxufVxuXG5zcXVhc2hfc21hbGwgPC0gZnVuY3Rpb24oeCwgdG9sPTFlLTkpIHtcbiAgcjEgPC0gUmUoeClcbiAgcjEgPC0gaWZlbHNlKGFicyhyMSkgPCB0b2wsIDAsIHIxKVxuICBjMSA8LSBJbSh4KVxuICBjMSA8LSBpZmVsc2UoYWJzKGMxKSA8IHRvbCwgMCwgYzEpXG4gICMgcmV0dXJuIHJlYWwgcGFydCBpZiBhbGwgb2YgaW1hZ2luYXJ5IHBhcnQgaXMgc21hbGxcbiAgaWYgKGFsbChjMSA9PSAwKSkgcjFcbiAgZWxzZSByMSArIDFpICogYzFcbn1cblxuIyBQbG90IHRoZSBhbXBsaXR1ZGUgc3BlY3RydW0gdmVyc3VzIGZyZXF1ZW5jeVxuc2lnX2FtcF9zcGVjIDwtIGZ1bmN0aW9uKHgsIHNhbXBmcmVxPTEwMCkge1xuICBUbXAgPC0gdGliYmxlOjp0aWJibGUoXG4gICAgYW1wID0gYWJzKHNpZ2ZmdCh4KSksXG4gICAgZnJlcXVlbmN5ID0gc2VxKDAsIHNhbXBmcmVxLzIsIGxlbmd0aCA9IGxlbmd0aChhbXApKSlcbiAgVG1wIHw+XG4gICAgZ2Zfc2VnbWVudCgwICsgYW1wIH4gZnJlcXVlbmN5ICsgZnJlcXVlbmN5LCBhbHBoYSA9IDAuMikgfD5cbiAgICBnZl9wb2ludChhbXAgfiBmcmVxdWVuY3ksIGNvbG9yID0gXCJibHVlXCIsIHNpemUgPSAwLjUpXG59In0=
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNvbnRleHQiOiJvdXRwdXQiLCJlY2hvIjpmYWxzZSwiZWRpdCI6ZmFsc2UsImV2YWwiOnRydWUsInJlc3VsdHMiOiJoaWRlIn0sImNvZGUiOiIjIERyYXdpbmcgdmVjdG9ycyBhbmQgbWF0cmljZXNcblxuZHJhd19tYXRyaXggPC0gZnVuY3Rpb24oTSkge1xuICBpbWFnZSgxOm5jb2woTSksIDE6bnJvdyhNKSwgdChNW25yb3coTSk6MSwgXSksXG4gICAgICAgIGNvbCA9IGNvbG9yc3BhY2U6OmRpdmVyZ2luZ19oY2woXG4gICAgICAgICAgMTUsIGggPSBjKDE4MCwgNTApLCBjID0gODAsXG4gICAgICAgICAgbCA9IGMoMjAsIDk1KSwgcG93ZXIgPSBjKDAuNywgMS4zKSksXG4gICAgICAgIGF4ZXMgPSBGQUxTRSxcbiAgICAgICAgdXNlUmFzdGVyID0gVFJVRSlcbn1cblxuc29tZXZlY3MgPC0gdGliYmxlOjp0cmliYmxlKFxuICB+IHJvb3R4LCB+IHJvb3R5LCB+IGhlYWR4LCB+IGhlYWR5LCB+IGNvbG9yLCB+IG5hbWUsXG4gIDAsIDAsIC0yLCA0LCBcImJsdWVcIiwgXCJ1XCIsXG4gIDEsIC0yLCA1LCAtMywgXCJncmVlblwiLCBcInZcIixcbiAgLTEsIC0xLCAtNCwgLTEsIFwib3JhbmdlXCIsIFwid1wiLFxuICAxLCAwLCA0LCAzLCBcImJyb3duXCIsIFwieFwiLFxuICAwLCAtMiwgMywgLTMsIFwic2FsbW9uXCIsIFwieVwiLFxuICAwLCAwLCA0LCAzLCBcIm1hZ2VudGFcIiwgXCJiMVwiLFxuICAwLCAwLCAtMywgMiwgXCJtYWdlbnRhXCIsIFwiYjJcIixcbikgfD5cbiAgZHBseXI6Om11dGF0ZShsYWJlbHggPSAocm9vdHggKyBoZWFkeCkvMixcbiAgICAgICAgIGxhYmVseSA9ICgyKnJvb3R5ICsgaGVhZHkpLzMpXG5zb2x2ZV9mb3IgPC0gZnVuY3Rpb24odmVjbmFtZXMpIHtcbiAgc29tZXZlY3MgfD5cbiAgICBkcGx5cjo6ZmlsdGVyKG5hbWUgJWluJSB2ZWNuYW1lcykgfD5cbiAgICBnZl9zZWdtZW50KHJvb3R5ICsgaGVhZHkgfiByb290eCArIGhlYWR4LFxuICAgICAgICAgICAgICAgYXJyb3cgPSBncmlkOjphcnJvdyhsZW5ndGg9dW5pdCgwLjE1LCBcImluY2hlc1wiKSwgdHlwZT1cImNsb3NlZFwiKSxcbiAgICAgICAgICAgICAgIGNvbG9yID0gfiBjb2xvciwgbGluZXdpZHRoPTIpIHw+XG4gICAgZ2ZfbGFiZWwobGFiZWx5IH4gbGFiZWx4LCBsYWJlbD0gfiBuYW1lLCBjb2xvciA9IH4gY29sb3IsIHNpemU9MykgfD5cbiAgICBnZl9yZWZpbmUoc2NhbGVfY29sb3JfaWRlbnRpdHkoKSxcbiAgICAgICAgICAgICAgc2NhbGVfeV9jb250aW51b3VzKGxpbWl0cz1jKC01LDUpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWtzPSgtNSk6NSksXG4gICAgICAgICAgICAgIHNjYWxlX3hfY29udGludW91cyhsaW1pdHM9YygtNSw1KSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrcz0oLTUpOjUpLFxuICAgICAgICAgICAgICBjb29yZF9maXhlZCgpKSB8PlxuICAgIGdmX2xhYnMoeD1cIlwiLCB5ID0gXCJcIilcbn1cblxuXG4jIFNpbXBsZSB2ZWN0b3IvbWF0cml4IG9wZXJhdGlvbnNcblxudmVjIDwtIGZ1bmN0aW9uKC4uLikge1xuICB2YWxzIDwtIGxpc3QoLi4uKSB8PiB1bmxpc3QoKVxuICBtYXRyaXgodmFscywgbmNvbD0xKVxufVxuXG5ydmVjIDwtIGZ1bmN0aW9uKGZpcnN0LCAuLi4sIHJmdW49cm5vcm0pIHtcbiAgZG90cyA8LSBjKGZpcnN0LCBsaXN0KC4uLikpIHw+IHVubGlzdCgpXG4gIGlmIChsZW5ndGgoZG90cykgPT0gMSkge1xuICAgIGRvdHMgPC0gcmZ1bihkb3RzW1sxXV0pXG4gIH1cblxuICB2ZWMoZG90cylcbn1cblxuXG5cblxudmVjbGVuIDwtIGZ1bmN0aW9uKHYpIHNxcnQodiAlZG90JSB2KVxudW5pdHZlYyA8LSBmdW5jdGlvbih2ZWMpIHZlYy9sZW5ndGgodmVjKVxuY2FuZyA8LSBmdW5jdGlvbih2LCB3KSB7KHYgJWRvdCUgdykgLyAodmVjbGVuKHYpICogdmVjbGVuKHcpKX1cbm1ha2VRIDwtIGZ1bmN0aW9uKC4uLikge1xuICBkb3RzIDwtIGxpc3QoLi4uKSB8PiBiaW5kX2NvbHMoKVxuICBxci5RKHFyKGRvdHMpKVxufVxuXG5jaGVja19mb3Jfc3ZkIDwtIGZ1bmN0aW9uKFMpIHtcbiAgaWYgKGluaGVyaXRzKFMsIFwibWF0cml4XCIpKSBTIDwtIHN2ZChTKVxuICBpZiAoIWlzLmxpc3QoUykgfHwgIWFsbChjKFwiZFwiLFwidlwiLCBcInVcIikgJWluJSBuYW1lcyhTKSkpXG4gICAgc3RvcChcIkFyZ3VtZW50IG11c3QgYmUgbWF0cml4IG9yIHRoZSBTVkQgb2YgYSBtYXRyaXguXCIpXG4gIFNcbn1cblxucmFua19tYXQgPC0gZnVuY3Rpb24oUywgdGhyZXNoID0gMC4wMSkge1xuICBTIDwtIGNoZWNrX2Zvcl9zdmQoUylcbiAgc3VtKFMkZCA+IFMkZFsxXSAqIHRocmVzaClcbn1cblxucmFuZF9tYXQgPC0gZnVuY3Rpb24obnJvdz0zLCBuY29sPTYsIHJhbmsgPSBwbWluKG5yb3csIG5jb2wpKSB7XG4gIE0gPC0gbWF0cml4KHJ1bmlmKG5yb3cqbmNvbCksIG5yb3cgPSBucm93LCBuY29sID0gbmNvbClcbiAgaWYgKHJhbmsgPj0gbnJvdyB8fCByYW5rID49IG5jb2wpIHtcbiAgIE1cbiAgfSBlbHNlIHtcbiAgICBhcHByb3hfbWF0KFMsIG49c2FtcGxlKHBtaW4ocmFuaywgbnJvdywgbmNvbCkpKVxuICB9XG59XG5cbiMgR3JhYiByYW5rIDEgbWF0cml4IGZyb20gU1ZEXG5hcHByb3hfbWF0IDwtIGZ1bmN0aW9uKFMsIG49MSwgb3JkZXIgPSAwKSB7ICMgaW5wdXQgYSBtYXRyaXggb3IgdGhlIFNWRCBvZiBhIG1hdHJpeFxuICBTIDwtIGNoZWNrX2Zvcl9zdmQoUylcbiAgaWYgKG9yZGVyID4gMCkge1xuICAgIGluZHMxIDwtIG9yZGVyKGMoUyR1WyxvcmRlcl0pKVxuICAgIGluZHMyIDwtIG9yZGVyKGMoUyR2WyxvcmRlcl0pKVxuICB9IGVsc2Uge1xuICAgIGluZHMxIDwtIDE6bnJvdyhTJHUpXG4gICAgaW5kczIgPC0gMTpucm93KFMkdilcbiAgfVxuICBwYXJ0aWFsIDwtIDAgIyBpbml0aWFsIHZhbHVlXG4gIGZvciAoayBpbiBuKSB7XG4gICAgcGFydGlhbCA8LSBwYXJ0aWFsICsgIFMkZFtrXSAqIFMkdVtpbmRzMSxrLCBkcm9wID0gRkFMU0VdICUqJSB0KFMkdltpbmRzMixrLCBkcm9wID0gRkFMU0VdKVxuICB9XG5cbiAgcGFydGlhbFxufVxuXG5wcmV0dHlfbWF0IDwtIGZ1bmN0aW9uKE0pIHtcbiAgaW5kczEgPC0gb3JkZXIocm93U3VtcyhNKSlcbiAgaW5kczIgPC0gb3JkZXIoY29sU3VtcyhNKSlcbiAgTVtpbmRzMSwgaW5kczJdXG59XG5cbiMnIEdlbmVyYXRlIGEgbWF0cml4IHdob3NlIGVsZW1lbnRzIGFyZSBzZWxlY3RlZCByYW5kb21seSBmcm9tIGEgc2V0XG4jJyBvZiBzcGVjaWZpZWQgdmFsdWVzLlxuIycgQHBhcmFtIG5yb3cgbnVtYmVyIG9mIHJvd3MgZm9yIHRoZSBtYXRyaXggcHJvZHVjZWRcbiMnIEBwYXJhbSBuY29sIG51bWJlciBvZiBjb2x1bW5zXG4jJyBAcGFyYW0gdmFsdWVzIHRoZSBzZXQgZnJvbSB3aGljaCB0byBkcmF3IChyYW5kb21seSkgdGhlXG4jJyB2YWx1ZXMgaW4gdGhlIG1hdHJpeC4gRGVmYXVsdDogaW50ZWdlcnMgLTkgdG8gOVxudmFsdWVzX21hdCA8LSBmdW5jdGlvbihucm93PTQsIG5jb2w9MywgdmFsdWVzID0gLTk6OSkge1xuICBtYXRyaXgoc2FtcGxlKHZhbHVlcywgc2l6ZSA9IG5yb3cgKiBuY29sLCByZXBsYWNlID0gVFJVRSksXG4gICAgICAgICBucm93ID0gbnJvdywgbmNvbD1uY29sKVxufVxuXG4jIFR5cGVzZXQgbWF0cmljZXMgaW4gTGFUZVggKGZvciBhc3NpZ25tZW50cyBhbmQgc3VjaClcbkxtYXQgPC0gZnVuY3Rpb24obnIsIG5jKSB7XG4gIHZhbHVlc19tYXQobnIsIG5jKSB8PiBsYXRleF9oZWxwZXIoKVxufVxubGF0ZXhfaGVscGVyIDwtIGZ1bmN0aW9uKG1hdHIpIHtcbiAgcHJpbnRtcm93IDwtIGZ1bmN0aW9uKHgpIHtcblxuICAgIGNhdChjYXQoeCxzZXA9XCIgJiBcIiksXCJcXFxcXFxcXCBcXG5cIilcbiAgfVxuXG4gIGNhdChcIlxcXFxsZWZ0KFxcXFxiZWdpbnthcnJheX17cn1cIixcIlxcblwiKVxuICBib2R5IDwtIGFwcGx5KG1hdHIsMSxwcmludG1yb3cpXG4gIGNhdChcIlxcXFxlbmR7YXJyYXl9XFxcXHJpZ2h0KVwiKVxufVxuXG4jIEZvdXJpZXIgdHJhbnNmb3JtIHN0dWZmXG4jIHNpZ2ZmdCBzaG93cyBvbmx5IHRoZSBsZWZ0LWhhbmQgc2lkZSBvZiB0aGUgRkZUXG4jIGlzaWdmZnQgcmVzdG9yZXMgaXQgYnkgYWRkaW5nIGJhY2sgdGhlIHJpZ2h0LWhhbmQgc2lkZSB0aGVuIGludmVyc2UgRkZULlxuXG5pZmZ0IDwtIGZ1bmN0aW9uKHgpIGZmdCh4L2xlbmd0aCh4KSwgaW52ZXJzZSA9IFRSVUUpXG5cbnNpZ2ZmdCA8LSBmdW5jdGlvbih4KSB7XG4gIHRtcCA8LSBmZnQoeClcbiAgbnlxdWlzdCA8LSByb3VuZCgobGVuZ3RoKHgpICsgMS4xIC0gKGxlbmd0aCh4KSAlJSAyKSkvMilcbiAgdG1wWzE6bnlxdWlzdF1cbn1cbmlzaWdmZnQgPC0gZnVuY3Rpb24oTGZmdHgpIHtcbiAgdG1wIDwtIGlmIChsZW5ndGgoTGZmdHgpICUlIDIpIHtcbiAgICAjIG9kZCBsZW5ndGhcbiAgICBjKExmZnR4LCBDb25qKHJldihMZmZ0eFtjKC0xLCAtbGVuZ3RoKExmZnR4KSldKSkpXG5cbiAgfSBlbHNlIHtcbiAgICBjKExmZnR4LCBDb25qKHJldihMZmZ0eFstMV0pKSlcbiAgfVxuICBpZmZ0KHRtcCkgfD4gUmUoKVxufVxuXG5zcXVhc2hfc21hbGwgPC0gZnVuY3Rpb24oeCwgdG9sPTFlLTkpIHtcbiAgcjEgPC0gUmUoeClcbiAgcjEgPC0gaWZlbHNlKGFicyhyMSkgPCB0b2wsIDAsIHIxKVxuICBjMSA8LSBJbSh4KVxuICBjMSA8LSBpZmVsc2UoYWJzKGMxKSA8IHRvbCwgMCwgYzEpXG4gICMgcmV0dXJuIHJlYWwgcGFydCBpZiBhbGwgb2YgaW1hZ2luYXJ5IHBhcnQgaXMgc21hbGxcbiAgaWYgKGFsbChjMSA9PSAwKSkgcjFcbiAgZWxzZSByMSArIDFpICogYzFcbn1cblxuIyBQbG90IHRoZSBhbXBsaXR1ZGUgc3BlY3RydW0gdmVyc3VzIGZyZXF1ZW5jeVxuc2lnX2FtcF9zcGVjIDwtIGZ1bmN0aW9uKHgsIHNhbXBmcmVxPTEwMCkge1xuICBUbXAgPC0gdGliYmxlOjp0aWJibGUoXG4gICAgYW1wID0gYWJzKHNpZ2ZmdCh4KSksXG4gICAgZnJlcXVlbmN5ID0gc2VxKDAsIHNhbXBmcmVxLzIsIGxlbmd0aCA9IGxlbmd0aChhbXApKSlcbiAgVG1wIHw+XG4gICAgZ2Zfc2VnbWVudCgwICsgYW1wIH4gZnJlcXVlbmN5ICsgZnJlcXVlbmN5LCBhbHBoYSA9IDAuMikgfD5cbiAgICBnZl9wb2ludChhbXAgfiBmcmVxdWVuY3ksIGNvbG9yID0gXCJibHVlXCIsIHNpemUgPSAwLjUpXG59In0=
 </script>
 </div>
-<section id="by-hand-and-eye" class="level2">
-<h2 class="anchored" data-anchor-id="by-hand-and-eye">By hand and eye</h2>
+<section id="mosaic-calculus-chapters-33-and-34" class="level2">
+<h2 class="anchored" data-anchor-id="mosaic-calculus-chapters-33-and-34"><em>MOSAIC Calculus</em> Chapters 33 and 34</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Exer 14.1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Exer 14.2</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Exer 14.1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Exer 14.2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Exer 14.3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Exer 14.4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Exer 14.5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false">Exer 14.6</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-7" role="tab" aria-controls="tabset-2-7" aria-selected="false">Exer 14.7</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-8" role="tab" aria-controls="tabset-2-8" aria-selected="false">Exer 14.8</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-9-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-9" role="tab" aria-controls="tabset-2-9" aria-selected="false">Exer 14.9</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="exr-wolf-beat-book" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> &nbsp;</p>
+<dl>
+<dt>Part 1</dt>
+<dd>
+What is the name of the with-respect-to input in <span class="math inline">\(\int g(y) dy\)</span>?
+</dd>
+</dl>
+<div class="cell" data-inline="true" data-show_hints="true">
+<span> <small style="color: grey;" id="wolf-beat-book-1-hintarea" class="hintarea">wolf-beat-book-1</small>
+<form id="wolf-beat-book-1-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="y" id="wolf-beat-book-1-1" w="35" name="wolf-beat-book-1" hint="Correct." show_hints="TRUE"> y &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="dy" id="wolf-beat-book-1-2" w="7" name="wolf-beat-book-1" hint="The $d$ is just punctuation preceding the input name." show_hints="TRUE"> dy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="x" id="wolf-beat-book-1-3" w="7" name="wolf-beat-book-1" hint="There is no $x$ in the expression." show_hints="TRUE"> x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="t" id="wolf-beat-book-1-4" w="87" name="wolf-beat-book-1" hint="There is no $t$ in the expression." show_hints="TRUE"> t &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="wolf-beat-book-1" id="wolf-beat-book-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for wolf-beat-book-1.');
+      const form = document.getElementById('wolf-beat-book-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
 
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('wolf-beat-book-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for wolf-beat-book-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for wolf-beat-book-1.");
+          localStorage.setItem('wolf-beat-book-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<dl>
+<dt>Part 2</dt>
+<dd>
+What is the name of the with-respect-to input in <span class="math inline">\(\int g(t) dy\)</span>?
+</dd>
+</dl>
+<div class="cell" data-inline="true" data-show_hints="true">
+<span> <small style="color: grey;" id="wolf-beat-book-2-hintarea" class="hintarea">wolf-beat-book-2</small>
+<form id="wolf-beat-book-2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="y" id="wolf-beat-book-2-1" w="18" name="wolf-beat-book-2" hint="Yup!" show_hints="TRUE"> y &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="dy" id="wolf-beat-book-2-2" w="3" name="wolf-beat-book-2" hint="The $d$ is just punctuation preceding the input name." show_hints="TRUE"> dy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="x" id="wolf-beat-book-2-3" w="7" name="wolf-beat-book-2" hint="There is no $x$ in the expression." show_hints="TRUE"> x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="t" id="wolf-beat-book-2-4" w="3" name="wolf-beat-book-2" hint="Even though $g(t)$ is not a function of $y$, the notation says we are to anti-differentiate it with respect to $y$. The result will be $y g(t) + C$." show_hints="TRUE"> t &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="wolf-beat-book-2" id="wolf-beat-book-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for wolf-beat-book-2.');
+      const form = document.getElementById('wolf-beat-book-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('wolf-beat-book-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for wolf-beat-book-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for wolf-beat-book-2.");
+          localStorage.setItem('wolf-beat-book-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<dl>
+<dt>Part 3</dt>
+<dd>
+What is the name of the with-respect-to input in <span class="math inline">\(\int g(x, t) dt\)</span>?
+</dd>
+</dl>
+<div class="cell" data-inline="true" data-show_hints="true">
+<span> <small style="color: grey;" id="wolf-beat-book-3-hintarea" class="hintarea">wolf-beat-book-3</small>
+<form id="wolf-beat-book-3-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="y " id="wolf-beat-book-3-1" w="7" name="wolf-beat-book-3" hint="Sorry!" show_hints="TRUE"> y &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="dt" id="wolf-beat-book-3-2" w="7" name="wolf-beat-book-3" hint="The $d$ is just punctuation preceding the input name." show_hints="TRUE"> dt &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="x" id="wolf-beat-book-3-3" w="23" name="wolf-beat-book-3" hint="$g()$ is a function of both $x$ and $t$, but we are indication that the anti-differentiation is to be done with respect to $t$, not $x$." show_hints="TRUE"> x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="t" id="wolf-beat-book-3-4" w="14" name="wolf-beat-book-3" hint="A hit!" show_hints="TRUE"> t &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="wolf-beat-book-3" id="wolf-beat-book-3.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for wolf-beat-book-3.');
+      const form = document.getElementById('wolf-beat-book-3-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('wolf-beat-book-3-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for wolf-beat-book-3.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for wolf-beat-book-3.");
+          localStorage.setItem('wolf-beat-book-3-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>A basic fact about anti-differentiation looks fancy when you write it in mathematical notation, but is actually a very simple idea.</p>
+<p>In math notation: <span class="math display">\[\partial_x \left[\int f(x) dx\right] = f(x).\]</span> In plainer English, the derivative of the anti-derivative of a function is the function itself.</p>
+<p>If someone proposes that <span class="math inline">\(\int f(x) dx\)</span> is the same as a function <span class="math inline">\(F(x)\)</span>, you can evaluate their proposal simply by computing <span class="math inline">\(\partial_x F(x)\)</span> and checking if the result is <span class="math inline">\(f(x)\)</span>.</p>
+<div id="exr-fir-lead-canoe" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> &nbsp;</p>
+<dl>
+<dt>Part 1</dt>
+<dd>
+Which of the following functions is <span class="math inline">\(\int \left[a + bx \right] dx\)</span>? (Hint: Here the function <span class="math inline">\(f(x) \equiv a + bx\)</span>. The choices amount to different proposals for what <span class="math inline">\(F(x)\)</span> might be. Differentiate each of them until you find the one that matches <span class="math inline">\(f(x)\)</span>.)
+</dd>
+</dl>
+<div class="cell" data-inline="true" data-show_hints="true">
+<span> <small style="color: grey;" id="fir-lead-canoe-1-hintarea" class="hintarea">fir-lead-canoe-1</small>
+<form id="fir-lead-canoe-1-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="$ax + \fra ... b x^2 + C$" id="fir-lead-canoe-1-1" w="5" name="fir-lead-canoe-1" hint="Yes!" show_hints="TRUE"> <span class="math inline">\(ax + \frac{1}{2}b x^2 + C\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$ax + 2 b x^2 + C$" id="fir-lead-canoe-1-2" w="23" name="fir-lead-canoe-1" hint="The derivative of this is $a + 4b x$, not $a + bx$." show_hints="TRUE"> <span class="math inline">\(ax + 2 b x^2 + C\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$a + b x^2 + C$" id="fir-lead-canoe-1-3" w="23" name="fir-lead-canoe-1" hint="The derivative of this is $2 b x$, not $a + bx$." show_hints="TRUE"> <span class="math inline">\(a + b x^2 + C\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="fir-lead-canoe-1" id="fir-lead-canoe-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for fir-lead-canoe-1.');
+      const form = document.getElementById('fir-lead-canoe-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('fir-lead-canoe-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for fir-lead-canoe-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for fir-lead-canoe-1.");
+          localStorage.setItem('fir-lead-canoe-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<dl>
+<dt>Part 2</dt>
+<dd>
+Which of the following functions is <span class="math inline">\(\int e^{-kx} dt\)</span>?
+</dd>
+</dl>
+<div class="cell" data-inline="true" data-show_hints="true">
+<span> <small style="color: grey;" id="fir-lead-canoe-2-hintarea" class="hintarea">fir-lead-canoe-2</small>
+<form id="fir-lead-canoe-2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="$-e^{-kx}\,/\,k$" id="fir-lead-canoe-2-1" w="29" name="fir-lead-canoe-2" hint="Exactly." show_hints="TRUE"> <span class="math inline">\(-e^{-kx}\,/\,k\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$- k e^{-k x}$ " id="fir-lead-canoe-2-2" w="23" name="fir-lead-canoe-2" hint="Boo!" show_hints="TRUE"> <span class="math inline">\(- k e^{-k x}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$e^{-kx}\,/\,k$ " id="fir-lead-canoe-2-3" w="32" name="fir-lead-canoe-2" hint="Untrue!" show_hints="TRUE"> <span class="math inline">\(e^{-kx}\,/\,k\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="fir-lead-canoe-2" id="fir-lead-canoe-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for fir-lead-canoe-2.');
+      const form = document.getElementById('fir-lead-canoe-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('fir-lead-canoe-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for fir-lead-canoe-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for fir-lead-canoe-2.");
+          localStorage.setItem('fir-lead-canoe-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Every function has an anti-derivative function. Sometimes there is even a formula for the anti-derivative function, but not always. When there is no formula, the anti-derivative <em>function</em> can be calculated using numerical approximations. You trigger the numerics only when you evaluate the function.</p>
+<p>To illustrate, let’s construct <span class="math inline">\(\int \text{pnorm}(x) dx\)</span>, calling the result <code>F()</code></p>
+<div>
+<div id="webr-2" class="exercise-cell">
 
 </div>
+<script type="webr-2-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJFeGFtcGxlIiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZX0sImNvZGUiOiJGIDwtIGFudGlEKHBub3JtKHgpIH4geClcbkYgIyBwcmludCBpdCBvdXQifQ==
+</script>
 </div>
-</div>
-<!-- end of hand-and-eye tabset -->
-</section>
-<section id="computing" class="level2">
-<h2 class="anchored" data-anchor-id="computing">Computing</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">14.C.3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">14.C.4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">14.C.5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">14.C.6</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p><code>F()</code> is a strange-looking function. The arithmetical approximations are hidden away. Even so, you can use <code>F()</code> like any other function:</p>
+<div>
+<div id="webr-3" class="exercise-cell">
 
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<script type="webr-3-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJVc2luZyBGKCkiLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJ3YXJuaW5nIjpmYWxzZX0sImNvZGUiOiJGKDUpXG5zbGljZV9wbG90KEYoeCkgfiB4LCBkb21haW4oeD0tMzozKSkifQ==
+</script>
+</div>
+<div>
+<div id="webr-4" class="exercise-cell">
 
 </div>
-<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<script type="webr-4-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJGb3IgeW91ciBjYWxjdWxhdGlvbnMgLi4uIiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZX0sImNvZGUiOiIifQ==
+</script>
+</div>
+<div id="exr-bee-bid-knife" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3</strong></span> &nbsp;</p>
+<dl>
+<dt>Part 1</dt>
+<dd>
+For the function <span class="math inline">\(f(x) \equiv \pnorm(x^2)\)</span>, what is <span class="math inline">\(F(5)\)</span>? (Pick the closest answer.)
+</dd>
+</dl>
+<div class="cell" data-inline="true" data-show_hints="true">
+<span> <small style="color: grey;" id="bee-bid-knife-1-hintarea" class="hintarea">bee-bid-knife-1</small>
+<form id="bee-bid-knife-1-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="4 " id="bee-bid-knife-1-1" w="32" name="bee-bid-knife-1" hint="Oops!" show_hints="TRUE"> 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="4.5" id="bee-bid-knife-1-2" w="20" name="bee-bid-knife-1" hint="Right!" show_hints="TRUE"> 4.5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="5 " id="bee-bid-knife-1-3" w="87" name="bee-bid-knife-1" hint="You're mistaken" show_hints="TRUE"> 5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="5.5 " id="bee-bid-knife-1-4" w="19" name="bee-bid-knife-1" hint="Not quite." show_hints="TRUE"> 5.5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="6 " id="bee-bid-knife-1-5" w="19" name="bee-bid-knife-1" hint="This is wide of the mark." show_hints="TRUE"> 6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="6.5 " id="bee-bid-knife-1-6" w="32" name="bee-bid-knife-1" hint="Incorrect." show_hints="TRUE"> 6.5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="bee-bid-knife-1" id="bee-bid-knife-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for bee-bid-knife-1.');
+      const form = document.getElementById('bee-bid-knife-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('bee-bid-knife-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for bee-bid-knife-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for bee-bid-knife-1.");
+          localStorage.setItem('bee-bid-knife-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<dl>
+<dt>Part 2</dt>
+<dd>
+For the function <span class="math inline">\(f(x) \equiv \sin(x) \ln(x^2)\)</span>, what is <span class="math inline">\(F(5)\)</span>? (Pick the closest answer.)
+</dd>
+</dl>
+<div class="cell" data-inline="true" data-show_hints="true">
+<span> <small style="color: grey;" id="bee-bid-knife-2-hintarea" class="hintarea">bee-bid-knife-2</small>
+<form id="bee-bid-knife-2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="-4 " id="bee-bid-knife-2-1" w="23" name="bee-bid-knife-2" hint="Sorry!" show_hints="TRUE"> -4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-3.5 " id="bee-bid-knife-2-2" w="87" name="bee-bid-knife-2" hint="Incorrect choice." show_hints="TRUE"> -3.5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-3 " id="bee-bid-knife-2-3" w="23" name="bee-bid-knife-2" hint="This is wide of the mark." show_hints="TRUE"> -3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-2.5" id="bee-bid-knife-2-4" w="20" name="bee-bid-knife-2" hint="Bingo!" show_hints="TRUE"> -2.5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="-2 " id="bee-bid-knife-2-5" w="19" name="bee-bid-knife-2" hint="Wrong." show_hints="TRUE"> -2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="bee-bid-knife-2" id="bee-bid-knife-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for bee-bid-knife-2.');
+      const form = document.getElementById('bee-bid-knife-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('bee-bid-knife-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for bee-bid-knife-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for bee-bid-knife-2.");
+          localStorage.setItem('bee-bid-knife-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<dl>
+<dt>Part 3</dt>
+<dd>
+For the function <span class="math inline">\(f(x) \equiv x^2 \pnorm(x)\)</span>, what is <span class="math inline">\(F(5)\)</span>? (Pick the closest answer.)
+</dd>
+</dl>
+<div class="cell" data-inline="true" data-show_hints="true">
+<span> <small style="color: grey;" id="bee-bid-knife-3-hintarea" class="hintarea">bee-bid-knife-3</small>
+<form id="bee-bid-knife-3-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="35 " id="bee-bid-knife-3-1" w="7" name="bee-bid-knife-3" hint="Oops!" show_hints="TRUE"> 35 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="37 " id="bee-bid-knife-3-2" w="32" name="bee-bid-knife-3" hint="You're wrong here." show_hints="TRUE"> 37 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="39 " id="bee-bid-knife-3-3" w="7" name="bee-bid-knife-3" hint="Not quite right." show_hints="TRUE"> 39 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="41" id="bee-bid-knife-3-4" w="35" name="bee-bid-knife-3" hint="Right!" show_hints="TRUE"> 41 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="43 " id="bee-bid-knife-3-5" w="3" name="bee-bid-knife-3" hint="You're wrong here." show_hints="TRUE"> 43 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="bee-bid-knife-3" id="bee-bid-knife-3.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for bee-bid-knife-3.');
+      const form = document.getElementById('bee-bid-knife-3-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('bee-bid-knife-3-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for bee-bid-knife-3.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for bee-bid-knife-3.");
+          localStorage.setItem('bee-bid-knife-3-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div id="exr-horse-takes-pillow" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> &nbsp;</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index-assignment-14_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The graph above shows a function <span class="math inline">\(f(x)\)</span>. Like all functions, it has an anti-derivative.</p>
+<p>The chunk that follows defines four random functions, <span class="math inline">\(F_1(x)\)</span> through <span class="math inline">\(F_4(x)\)</span>.</p>
+<p>Your task is to figure out which one of the four is the anti-derivative of the function shown in the graph. (NOTE: <code>doodle_fun()</code> is a program that generates functions, a different one for each <code>seed</code>. It has been used here to generate <code>F1()</code> through <code>F4()</code> for you to use. Once you run those four lines in you can use <code>slice_plot()</code> in the usual way to plot out any of the four functions over the domain <span class="math inline">\(-5 \leq x \leq 5\)</span>.)</p>
+<div>
+<div id="webr-5" class="exercise-cell">
 
 </div>
-<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<script type="webr-5-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNhcHRpb24iOiJGb3VyIHJhbmRvbSBmdW5jdGlvbnMiLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJsYWJlbCI6ImhvcnNlLXRha2VzLXBpbGxvdyJ9LCJjb2RlIjoiRjEgPC0gZG9vZGxlX2Z1bih+IHgsIHNlZWQgPSA3ODIpXG5GMiA8LSBkb29kbGVfZnVuKH4geCwgc2VlZCA9IDkzNClcbkYzIDwtIGRvb2RsZV9mdW4ofiB4LCBzZWVkID0gMjk3KVxuRjQgPC0gZG9vZGxlX2Z1bih+IHgsIHNlZWQgPSA4OTIpIn0=
+</script>
+</div>
+<dl>
+<dt>Part 1</dt>
+<dd>
+Confirming graphically that a candidate <span class="math inline">\(F_i(x)\)</span> is indeed the anti-derivative of <span class="math inline">\(f(x)\)</span> is hard because the two functions can have very different shapes. But there is a very simple operation you can apply to <span class="math inline">\(F_i(x)\)</span> to make the comparison trivial. What is this operation?
+</dd>
+</dl>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="horse-takes-pillow-1-hintarea" class="hintarea">horse-takes-pillow-1</small>
+<form id="horse-takes-pillow-1-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="anti-diffe ...  $F_i(x)$ " id="horse-takes-pillow-1-1" w="87" name="horse-takes-pillow-1" hint="Boo!" show_hints="TRUE"> anti-differentiate <span class="math inline">\(F_i(x)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="differenti ... e $F_i(x)$" id="horse-takes-pillow-1-2" w="5" name="horse-takes-pillow-1" hint="If the result matches the shape of $f(x)$, you've confirmed that $F_i(x)$ is the anti-derivative of $f(x)$." show_hints="TRUE"> differentiate <span class="math inline">\(F_i(x)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="compose $f ... th itself " id="horse-takes-pillow-1-3" w="19" name="horse-takes-pillow-1" hint="Incorrect." show_hints="TRUE"> compose <span class="math inline">\(f(x)\)</span> with itself</p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="multiply $ ... mes $f(x) " id="horse-takes-pillow-1-4" w="3" name="horse-takes-pillow-1" hint="You might think so, but ..." show_hints="TRUE"> multiply <span class="math inline">\(F_i(x)\)</span> times $f(x)</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="horse-takes-pillow-1" id="horse-takes-pillow-1.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for horse-takes-pillow-1.');
+      const form = document.getElementById('horse-takes-pillow-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('horse-takes-pillow-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for horse-takes-pillow-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for horse-takes-pillow-1.");
+          localStorage.setItem('horse-takes-pillow-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<p>For each of the <span class="math inline">\(F_i()\)</span> functions, perform the correct operation and graph the result (in Chunk A). Then you’ll be able to answer Part 2.</p>
+<div>
+<div id="webr-6" class="exercise-cell">
 
 </div>
+<script type="webr-6-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJDaHVuayBBIiwiZWRpdCI6dHJ1ZSwiZXZhbCI6dHJ1ZX0sImNvZGUiOiIifQ==
+</script>
+</div>
+<dl>
+<dt>Part 2</dt>
+<dd>
+Which one of the functions is an anti-derivative of the function graphed above? (Hint: See the next problem.)
+</dd>
+</dl>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="horse-takes-pillow-2-hintarea" class="hintarea">horse-takes-pillow-2</small>
+<form id="horse-takes-pillow-2-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="`F1()`" id="horse-takes-pillow-2-1" w="5" name="horse-takes-pillow-2" hint="Bingo!" show_hints="TRUE"> <code>F1()</code></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="`F2()` " id="horse-takes-pillow-2-2" w="7" name="horse-takes-pillow-2" hint="Not so!" show_hints="TRUE"> <code>F2()</code></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="`F3()` " id="horse-takes-pillow-2-3" w="3" name="horse-takes-pillow-2" hint="Not quite." show_hints="TRUE"> <code>F3()</code></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="`F4()` " id="horse-takes-pillow-2-4" w="23" name="horse-takes-pillow-2" hint="Oops!" show_hints="TRUE"> <code>F4()</code></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="horse-takes-pillow-2" id="horse-takes-pillow-2.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for horse-takes-pillow-2.');
+      const form = document.getElementById('horse-takes-pillow-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('horse-takes-pillow-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for horse-takes-pillow-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for horse-takes-pillow-2.");
+          localStorage.setItem('horse-takes-pillow-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
 </div>
 </div>
-<!-- end of computing tabset -->
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<div id="exr-frog-choose-coat" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> &nbsp;</p>
+<ol type="1">
+<li>What pattern-book function has a derivative <span class="math display">\[\partial_x\, f(x)=\frac{1}{x}\ ?\]</span></li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="frog-choose-coat-1-hintarea" class="hintarea">frog-choose-coat-1</small>
+<form id="frog-choose-coat-1-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$f(x)\equiv e^x$ " id="frog-choose-coat-1-1" w="32" name="frog-choose-coat-1" hint="Oops!" show_hints="TRUE"> <span class="math inline">\(f(x)\equiv e^x\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$f(x)\equi ... v sin(x)$ " id="frog-choose-coat-1-2" w="32" name="frog-choose-coat-1" hint="Nope." show_hints="TRUE"> <span class="math inline">\(f(x)\equiv sin(x)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$f(x)\equiv \ln(x)$" id="frog-choose-coat-1-3" w="35" name="frog-choose-coat-1" hint="Excellent!" show_hints="TRUE"> <span class="math inline">\(f(x)\equiv \ln(x)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$f(x)\equi ... norm}(x)$ " id="frog-choose-coat-1-4" w="23" name="frog-choose-coat-1" hint="No." show_hints="TRUE"> <span class="math inline">\(f(x)\equiv \text{dnorm}(x)\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="frog-choose-coat-1" id="frog-choose-coat-1.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for frog-choose-coat-1.');
+      const form = document.getElementById('frog-choose-coat-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('frog-choose-coat-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for frog-choose-coat-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for frog-choose-coat-1.");
+          localStorage.setItem('frog-choose-coat-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="2" type="1">
+<li>What pattern-book function has a derivative <span class="math display">\[\partial_x\, f(x)=\text{dnorm}(x)\ ?\]</span></li>
+</ol>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="frog-choose-coat-2-hintarea" class="hintarea">frog-choose-coat-2</small>
+<form id="frog-choose-coat-2-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$f(x)\equi ... pnorm}(x)$" id="frog-choose-coat-2-1" w="8" name="frog-choose-coat-2" hint="Right on the nose!" show_hints="TRUE"> <span class="math inline">\(f(x)\equiv \text{pnorm}(x)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$f(x)\equi ... norm}(x)$ " id="frog-choose-coat-2-2" w="3" name="frog-choose-coat-2" hint="Hmmm ..." show_hints="TRUE"> <span class="math inline">\(f(x)\equiv -x\ \text{pnorm}(x)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$f(x)\equi ... norm}(x)$ " id="frog-choose-coat-2-3" w="7" name="frog-choose-coat-2" hint="Hmmm ..." show_hints="TRUE"> <span class="math inline">\(f(x)\equiv \text{dnorm}(x)\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$f(x)\equi ... norm}(x)$ " id="frog-choose-coat-2-4" w="87" name="frog-choose-coat-2" hint="Boo!" show_hints="TRUE"> <span class="math inline">\(f(x)\equiv -x\  \text{dnorm}(x)\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="frog-choose-coat-2" id="frog-choose-coat-2.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for frog-choose-coat-2.');
+      const form = document.getElementById('frog-choose-coat-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('frog-choose-coat-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for frog-choose-coat-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for frog-choose-coat-2.");
+          localStorage.setItem('frog-choose-coat-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
+</div>
+<div id="tabset-2-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-6-tab">
+<div id="exr-kid-show-blanket" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6</strong></span> &nbsp;</p>
+<ol type="1">
+<li>What is the anti-derivative of Force with respect to Distance?</li>
+</ol>
+<div class="cell" data-inline="true" data-show_hints="true">
+<span> <small style="color: grey;" id="kid-show-blanket-1-hintarea" class="hintarea">kid-show-blanket-1</small>
+<form id="kid-show-blanket-1-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="Acceleration " id="kid-show-blanket-1-1" w="19" name="kid-show-blanket-1" hint="Nope." show_hints="TRUE"> Acceleration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Work/Energy" id="kid-show-blanket-1-2" w="18" name="kid-show-blanket-1" hint="Yeah!" show_hints="TRUE"> Work/Energy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Momentum " id="kid-show-blanket-1-3" w="3" name="kid-show-blanket-1" hint="Not quite right." show_hints="TRUE"> Momentum &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Power " id="kid-show-blanket-1-4" w="7" name="kid-show-blanket-1" hint="Boo!" show_hints="TRUE"> Power &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="kid-show-blanket-1" id="kid-show-blanket-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for kid-show-blanket-1.');
+      const form = document.getElementById('kid-show-blanket-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('kid-show-blanket-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for kid-show-blanket-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for kid-show-blanket-1.");
+          localStorage.setItem('kid-show-blanket-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="2" type="1">
+<li>What is the anti-derivative of Velocity with respect to Time?</li>
+</ol>
+<div class="cell" data-inline="true" data-show_hints="true">
+<span> <small style="color: grey;" id="kid-show-blanket-2-hintarea" class="hintarea">kid-show-blanket-2</small>
+<form id="kid-show-blanket-2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="Momentum " id="kid-show-blanket-2-1" w="7" name="kid-show-blanket-2" hint="Wrong." show_hints="TRUE"> Momentum &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Displacement" id="kid-show-blanket-2-2" w="18" name="kid-show-blanket-2" hint="You're right!" show_hints="TRUE"> Displacement &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Power " id="kid-show-blanket-2-3" w="7" name="kid-show-blanket-2" hint="You might think so, but ..." show_hints="TRUE"> Power &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Acceleration " id="kid-show-blanket-2-4" w="87" name="kid-show-blanket-2" hint="Boo!" show_hints="TRUE"> Acceleration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="kid-show-blanket-2" id="kid-show-blanket-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for kid-show-blanket-2.');
+      const form = document.getElementById('kid-show-blanket-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('kid-show-blanket-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for kid-show-blanket-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for kid-show-blanket-2.");
+          localStorage.setItem('kid-show-blanket-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
+</div>
+<div id="tabset-2-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-7-tab">
+<p>The output of a function, being a quantity, has dimension and units. Suppose the dimension of the output of a function <span class="math inline">\(v(t)\)</span> is <span class="math inline">\(L/T\)</span>, for instance, meters-per-second.</p>
+<p>The anti-derivative function <span class="math inline">\(V(t) \equiv \int v(t) dt\)</span> will also have dimension and units.</p>
+<p>Recall that in constructing the anti-derivative using the Euler method, we multiply the values of <span class="math inline">\(v(t)\)</span> times some small increment in the input, <span class="math inline">\(h\)</span>. Therefore the dimension of the output of <span class="math inline">\(V(t)\)</span> will be <span class="math inline">\([v(t)] [t]\)</span>. So if <span class="math inline">\([v(t)] = L/T\)</span>, the dimension <span class="math inline">\([V(t)] [t] = L T/T = L\)</span>. Units for such a dimension would be, for instance, meters. This makes sense, since if you accumulate velocity (meters-per-sec) over an interval of time (sec) you end up with the distance travelled (meters).</p>
+<div id="exr-Units-of-antiD" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7</strong></span> &nbsp;</p>
+<dl>
+<dt>Part 1</dt>
+<dd>
+Suppose you know the acceleration <span class="math inline">\(a(t)\)</span> of an object as a function of time. The dimension of acceleration is <span class="math inline">\(L/T^2\)</span>.
+</dd>
+</dl>
+<p>What is the dimension of <span class="math display">\[\int a(t) dt\ \text{?}\]</span></p>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="units-of-antiD-1-hintarea" class="hintarea">units-of-antiD-1</small>
+<form id="units-of-antiD-1-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="$L/T^3$ " id="units-of-antiD-1-1" w="7" name="units-of-antiD-1" hint="You're mistaken" show_hints="FALSE"> <span class="math inline">\(L/T^3\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$L$ " id="units-of-antiD-1-2" w="32" name="units-of-antiD-1" hint="This is wide of the mark." show_hints="FALSE"> <span class="math inline">\(L\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$LT$ " id="units-of-antiD-1-3" w="19" name="units-of-antiD-1" hint="Not quite." show_hints="FALSE"> <span class="math inline">\(LT\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$L/T$" id="units-of-antiD-1-4" w="14" name="units-of-antiD-1" hint="Yup!" show_hints="FALSE"> <span class="math inline">\(L/T\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$LT^2$ " id="units-of-antiD-1-5" w="7" name="units-of-antiD-1" hint="Wrong." show_hints="FALSE"> <span class="math inline">\(LT^2\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="units-of-antiD-1" id="units-of-antiD-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for units-of-antiD-1.');
+      const form = document.getElementById('units-of-antiD-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('units-of-antiD-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for units-of-antiD-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for units-of-antiD-1.");
+          localStorage.setItem('units-of-antiD-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<dl>
+<dt>Part 2</dt>
+<dd>
+Suppose you know the power consumed by an appliance <span class="math inline">\(p(t)\)</span> as a function of time. Typically appliances have a cycle and use different amounts of power during different parts of the cycle. (Think of a clothes washer.)
+</dd>
+</dl>
+<p>What will be the dimension of <span class="math inline">\(\int p(t) dt\ \text{?}\)</span></p>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="units-of-antiD-2-hintarea" class="hintarea">units-of-antiD-2</small>
+<form id="units-of-antiD-2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="energy" id="units-of-antiD-2-1" w="41" name="units-of-antiD-2" hint="You're right!" show_hints="FALSE"> energy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="force " id="units-of-antiD-2-2" w="19" name="units-of-antiD-2" hint="Wrong." show_hints="FALSE"> force &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="acceleration " id="units-of-antiD-2-3" w="87" name="units-of-antiD-2" hint="Think again." show_hints="FALSE"> acceleration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="length " id="units-of-antiD-2-4" w="19" name="units-of-antiD-2" hint="Not quite right." show_hints="FALSE"> length &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="units-of-antiD-2" id="units-of-antiD-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for units-of-antiD-2.');
+      const form = document.getElementById('units-of-antiD-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('units-of-antiD-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for units-of-antiD-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for units-of-antiD-2.");
+          localStorage.setItem('units-of-antiD-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
+</div>
+<div id="tabset-2-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-8-tab">
+<div id="exr-falcon-tell-mug" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8</strong></span> The following graphic was produced based on data from the <a href="https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm">US Centers for Disease Control</a> in early December 2020. It shows deaths as a function of time of year.</p>
+<p><img src="www/US-deaths.png" class="img-fluid"></p>
+<ol type="1">
+<li>What are the units of the quantity on the vertical axis of the graph?</li>
+</ol>
+<div class="cell" data-show_hints="true" data-inline="true">
+<span> <small style="color: grey;" id="ftm1-hintarea" class="hintarea">ftm1</small>
+<form id="ftm1-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="people/week" id="ftm1-1" w="5" name="ftm1" hint="Yes In the phrase &quot;weekly deaths,&quot; the 'weekly' is not an adjective (as might be the case in, say, &quot;traffic deaths,&quot; but a description of the time interval over which the count was made." show_hints="TRUE"> people/week &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="people weeks " id="ftm1-2" w="7" name="ftm1" hint="This is wide of the mark." show_hints="TRUE"> people weeks &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="people " id="ftm1-3" w="32" name="ftm1" hint="Not so!" show_hints="TRUE"> people &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="none of these " id="ftm1-4" w="23" name="ftm1" hint="Sorry!" show_hints="TRUE"> none of these &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="ftm1" id="ftm1.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for ftm1.');
+      const form = document.getElementById('ftm1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('ftm1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for ftm1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for ftm1.");
+          localStorage.setItem('ftm1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="2" type="1">
+<li>What is the <em>dimension</em> of the quantity on the vertical axis?</li>
+</ol>
+<div class="cell" data-show_hints="true" data-inline="true">
+<span> <small style="color: grey;" id="ftm2-hintarea" class="hintarea">ftm2</small>
+<form id="ftm2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="T " id="ftm2-1" w="32" name="ftm2" hint="Sorry!" show_hints="TRUE"> T &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="T$^{-1}$" id="ftm2-2" w="35" name="ftm2" hint="Excellent! Counts are not conventionally given a dimension." show_hints="TRUE"> T<span class="math inline">\(^{-1}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="L/T" id="ftm2-3" w="19" name="ftm2" hint="What has length got to do with anything?" show_hints="TRUE"> L/T &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Dimensionless " id="ftm2-4" w="32" name="ftm2" hint="Sorry!" show_hints="TRUE"> Dimensionless &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="ftm2" id="ftm2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for ftm2.');
+      const form = document.getElementById('ftm2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('ftm2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for ftm2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for ftm2.");
+          localStorage.setItem('ftm2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<ol start="3" type="1">
+<li>What are the units of the quantity on the horizontal axis?</li>
+</ol>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="ftm3-hintarea" class="hintarea">ftm3</small>
+<form id="ftm3-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="Unitless " id="ftm3-1" w="32" name="ftm3" hint="Not so!" show_hints="FALSE"> Unitless &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Months" id="ftm3-2" w="5" name="ftm3" hint="Right!" show_hints="FALSE"> Months &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Weeks " id="ftm3-3" w="23" name="ftm3" hint="Hmmm ..." show_hints="FALSE"> Weeks &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Days " id="ftm3-4" w="87" name="ftm3" hint="You're mistaken" show_hints="FALSE"> Days &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="ftm3" id="ftm3.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for ftm3.');
+      const form = document.getElementById('ftm3-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('ftm3-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for ftm3.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for ftm3.");
+          localStorage.setItem('ftm3-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<p>Your task is to use the information in the plot to estimate the total number of deaths in 2019. This is conceptually an integral of the death rate over the entire year. An integral has units that are the product of the vertical units times the horizontal units. Here, that is people.months/week.</p>
+<p>As a shortcut we will model the 2019 death-rate function as a segment of a sine wave:</p>
+<div>
+<div id="webr-7" class="exercise-cell">
+
+</div>
+<script type="webr-7-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZjIwMTkgPC0gbWFrZUZ1big2MDAwMCAtIDgwMDAqc2luKDIqcGkqdC8yNCkgfiB0KVxuc2xpY2VfcGxvdChmMjAxOSh0KSB+IHQsIGRvbWFpbih0PTA6MTIpKSB8PlxuICBnZl9sYWJzKHkgPSBcIkRlYXRocyBwZXIgd2VlayAoMjAxOSlcIiwgeD1cIk1vbnRoXCIpIHw+XG4gIGdmX2xpbXMoeSA9IGMoNTAwMDAsIDgwMDAwKSkifQ==
+</script>
+</div>
+<p>These commands calculate the integral over the year:</p>
+<div>
+<div id="webr-8" class="exercise-cell">
+
+</div>
+<script type="webr-8-contents">
+eyJhdHRyIjp7ImNhcHRpb24iOiJFdmFsdWF0aW5nIHRoZSBpbnRlZ3JhbCIsImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiRjIwMTkgPC0gYW50aUQoZjIwMTkodCkgfiB0KVxuRjIwMTkoMTIpIC0gRjIwMTkoMCkifQ==
+</script>
+</div>
+<p>This is a precise-looking answer, but it is completely wrong, because it has the wrong units even if it has the right u-dimension. In reality, there were approximately 3,000,000 deaths in the US in 2019.</p>
+<ol start="4" type="1">
+<li>Say what’s wrong with the units of the integral <code>F2019(12) - F2019(0)</code>. State justify a conversion factor (a u-dimensionless “flavor of one”) that will give the proper estimate.</li>
+</ol>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for falcon-tell-mug-essay.');
+      const form = document.getElementById('falcon-tell-mug-essay');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('falcon-tell-mug-essay').value;
+        localStorage.setItem("falcon-tell-mug-essay-contents", todo);
+        console.log("Saving value of falcon-tell-mug-essay.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("falcon-tell-mug-essay-contents");
+      if (savedValue) {
+        document.getElementById('falcon-tell-mug-essay').value = savedValue;
+      }
+})
+</script>
+<textarea id="falcon-tell-mug-essay" name="falcon-tell-mug-essay" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID falcon-tell-mug-essay)"></textarea>
+</div>
+</div>
+<div id="tabset-2-9" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-9-tab">
+<div id="exr-fish-go-scarf" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9</strong></span> &nbsp;</p>
+<div id="fig-fish-go-scarf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fish-go-scarf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="www/DD31-four-funs.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-fish-go-scarf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+<dl>
+<dt>Part A</dt>
+<dd>
+Which of the four functions shown in <a href="#fig-fish-go-scarf" class="quarto-xref">Figure&nbsp;1</a> is an anti-derivative of the function graphed in <a href="#fig-dd31-1" class="quarto-xref">Figure&nbsp;2</a>?
+</dd>
+</dl>
+<div id="fig-dd31-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dd31-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="www/DD31-four-funs-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dd31-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Function for question (A).
+</figcaption>
+</figure>
+</div>
+<div class="cell" data-show_hints="false" data-inline="true">
+<span> <small style="color: grey;" id="fish-go-scarf-1-hintarea" class="hintarea">fish-go-scarf-1</small>
+<form id="fish-go-scarf-1-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="Black/Dotted" id="fish-go-scarf-1-1" w="5" name="fish-go-scarf-1" hint="Yes!" show_hints="FALSE"> Black/Dotted &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Red/Dashed ...  &amp; Dotted " id="fish-go-scarf-1-2" w="87" name="fish-go-scarf-1" hint="Incorrect choice." show_hints="FALSE"> Red/Dashed &amp; Dotted &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Blue/Long Dashed " id="fish-go-scarf-1-3" w="87" name="fish-go-scarf-1" hint="Try again!" show_hints="FALSE"> Blue/Long Dashed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Magenta/Solid " id="fish-go-scarf-1-4" w="87" name="fish-go-scarf-1" hint="No." show_hints="FALSE"> Magenta/Solid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="fish-go-scarf-1" id="fish-go-scarf-1.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for fish-go-scarf-1.');
+      const form = document.getElementById('fish-go-scarf-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('fish-go-scarf-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for fish-go-scarf-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for fish-go-scarf-1.");
+          localStorage.setItem('fish-go-scarf-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<hr>
+<dl>
+<dt>Part B</dt>
+<dd>
+Which of the four functions shown in the top graph is an anti-derivative of the function graphed in <a href="#fig-dd31-2" class="quarto-xref">Figure&nbsp;3</a>?
+</dd>
+</dl>
+<div id="fig-dd31-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dd31-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="www/DD31-four-funs-2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dd31-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Function for question (B).
+</figcaption>
+</figure>
+</div>
+<div class="cell" data-inline="true" data-show_hints="false">
+<span> <small style="color: grey;" id="fish-go-scarf-2-hintarea" class="hintarea">fish-go-scarf-2</small>
+<form id="fish-go-scarf-2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="Black/Dotted " id="fish-go-scarf-2-1" w="19" name="fish-go-scarf-2" hint="No." show_hints="FALSE"> Black/Dotted &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Red/Dashed &amp; Dotted" id="fish-go-scarf-2-2" w="14" name="fish-go-scarf-2" hint="Right." show_hints="FALSE"> Red/Dashed &amp; Dotted &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Blue/Long Dashed " id="fish-go-scarf-2-3" w="32" name="fish-go-scarf-2" hint="Not quite right." show_hints="FALSE"> Blue/Long Dashed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="Magenta/Solid " id="fish-go-scarf-2-4" w="32" name="fish-go-scarf-2" hint="Nope." show_hints="FALSE"> Magenta/Solid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="fish-go-scarf-2" id="fish-go-scarf-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for fish-go-scarf-2.');
+      const form = document.getElementById('fish-go-scarf-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('fish-go-scarf-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for fish-go-scarf-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for fish-go-scarf-2.");
+          localStorage.setItem('fish-go-scarf-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- end of review tabset -->
 
 
 <script type="webr-data">
-eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC40LjIvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsImdncGxvdDIiLCJtb3NhaWNDYWxjIiwiTFNUYm9vayJdLCJyZXBvcyI6WyJodHRwczovL2R0a2FwbGFuLnItdW5pdmVyc2UuZGV2Il19LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC40LjIvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsIm1vc2FpY0NhbGMiLCJnZ3Bsb3QyIiwiZ2dmb3JtdWxhIiwiTFNUYm9vayJdLCJyZXBvcyI6WyJodHRwczovL2R0a2FwbGFuLnItdW5pdmVyc2UuZGV2Il19LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
 </script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJfd2Vicl92YWx1ZV8xID0ge1xuICBjb25zdCB7IGhpZ2hsaWdodFIsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV2YWx1YXRpb24gY29uZmlndXJhdGlvblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7XG4gICAgaWQ6IFwid2Vici0xLWNvbnRlbnRzXCIsXG4gICAgZWNobzogdHJ1ZSxcbiAgICBvdXRwdXQ6IHRydWVcbiAgfSwgYmxvY2suYXR0cik7XG5cbiAgLy8gRXZhbHVhdGUgdGhlIHByb3ZpZGVkIFIgY29kZVxuICBjb25zdCByZXN1bHQgPSB3ZWJST2pzLnByb2Nlc3Moe2NvZGU6IGJsb2NrLmNvZGUsIG9wdGlvbnN9LCB7fSk7XG5cbiAgLy8gRWFybHkgeWllbGQgd2hpbGUgd2Ugd2FpdCBmb3IgdGhlIGZpcnN0IGV2YWx1YXRpb24gYW5kIHJlbmRlclxuICBpZiAob3B0aW9ucy5vdXRwdXQgJiYgIShcIjFcIiBpbiB3ZWJST2pzLnJlbmRlcmVkT2pzKSkge1xuICAgIGNvbnN0IGNvbnRhaW5lciA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG4gICAgY29uc3Qgc3Bpbm5lciA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG5cbiAgICBpZiAob3B0aW9ucy5lY2hvKSB7XG4gICAgICAvLyBTaG93IG91dHB1dCBhcyBoaWdobGlnaHRlZCBzb3VyY2VcbiAgICAgIGNvbnN0IHByZUVsZW0gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwicHJlXCIpO1xuICAgICAgY29udGFpbmVyLmNsYXNzTmFtZSA9IFwic291cmNlQ29kZVwiO1xuICAgICAgcHJlRWxlbS5jbGFzc05hbWUgPSBcInNvdXJjZUNvZGUgclwiO1xuICAgICAgcHJlRWxlbS5hcHBlbmRDaGlsZChoaWdobGlnaHRSKGJsb2NrLmNvZGUpKTtcbiAgICAgIHNwaW5uZXIuY2xhc3NOYW1lID0gXCJzcGlubmVyLWdyb3cgc3Bpbm5lci1ncm93LXNtIG0tMiBwb3NpdGlvbi1hYnNvbHV0ZSB0b3AtMCBlbmQtMFwiO1xuICAgICAgcHJlRWxlbS5hcHBlbmRDaGlsZChzcGlubmVyKTtcbiAgICAgIGNvbnRhaW5lci5hcHBlbmRDaGlsZChwcmVFbGVtKTtcbiAgICB9IGVsc2Uge1xuICAgICAgc3Bpbm5lci5jbGFzc05hbWUgPSBcInNwaW5uZXItYm9yZGVyIHNwaW5uZXItYm9yZGVyLXNtXCI7XG4gICAgICBjb250YWluZXIuYXBwZW5kQ2hpbGQoc3Bpbm5lcik7XG4gICAgfVxuXG4gICAgeWllbGQgY29udGFpbmVyO1xuICB9XG5cbiAgd2ViUk9qcy5yZW5kZXJlZE9qc1tcIjFcIl0gPSB0cnVlO1xuICB5aWVsZCBhd2FpdCByZXN1bHQ7XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici1wcmVsdWRlIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoid2ViUk9qcyA9IHtcbiAgY29uc3QgeyBXZWJSLCBDaGFubmVsVHlwZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZS5XZWJSO1xuICBjb25zdCB7XG4gICAgV2ViUkV2YWx1YXRvcixcbiAgICBXZWJSRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyB3ZWJSIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIC8vIFVzZSBQb3N0TWVzc2FnZSBjaGFubmVsIGZvciBhc3luYyBjb21tdW5pY2F0aW9uXG4gIC8vIFdlIGRvIG5vdCBleHBlY3QgdG8gdGFrZSBuZXN0ZWQgcHJvbXB0IGlucHV0IGluIFF1YXJ0byBMaXZlIGNlbGxzXG4gIGRhdGEub3B0aW9ucy5jaGFubmVsVHlwZSA9IENoYW5uZWxUeXBlLlBvc3RNZXNzYWdlO1xuXG4gIC8vIEluaXRpYWxpc2Ugd2ViUiBhbmQgc2V0dXAgZm9yIFIgY29kZSBldmFsdWF0aW9uXG4gIGxldCB3ZWJSUHJvbWlzZSA9IChhc3luYyAod2ViUikgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgd2ViUmA7XG4gICAgYXdhaXQgd2ViUi5pbml0KCk7XG5cbiAgICAvLyBJbnN0YWxsIHByb3ZpZGVkIGxpc3Qgb2YgcGFja2FnZXNcbiAgICAvLyBFbnN1cmUgd2ViUiBkZWZhdWx0IHJlcG8gaXMgaW5jbHVkZWRcbiAgICBkYXRhLnBhY2thZ2VzLnJlcG9zLnB1c2goXCJodHRwczovL3JlcG8uci13YXNtLm9yZ1wiKVxuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIHdlYlIuZXZhbFJWb2lkKGBcbiAgICAgICAgd2Vicjo6aW5zdGFsbChwa2csIHJlcG9zID0gcmVwb3MpXG4gICAgICAgIGxpYnJhcnkocGtnLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpXG4gICAgICBgLCB7IGVudjoge1xuICAgICAgICBwa2c6IHBrZyxcbiAgICAgICAgcmVwb3M6IGRhdGEucGFja2FnZXMucmVwb3MsXG4gICAgICB9fSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgdHJ5IHtcbiAgICAgICAgICBhd2FpdCB3ZWJSLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgaWYgKCFlLm1lc3NhZ2UuaW5jbHVkZXMoXCJGUyBlcnJvclwiKSkge1xuICAgICAgICAgICAgdGhyb3cgZTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHJldHVybiBhd2FpdCB3ZWJSLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluc3RhbGxpbmcgd2ViUiBzaGltc2A7XG4gICAgYXdhaXQgd2ViUi5ldmFsUlZvaWQoYHdlYnI6OnNoaW1faW5zdGFsbCgpYCk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFdlYlIgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUih3ZWJSLCBkYXRhKTtcblxuICAgIHN0YXR1c1RleHQucmVtb3ZlKCk7XG4gICAgaWYgKHN0YXR1c0NvbnRhaW5lci5jaGlsZHJlbi5sZW5ndGggPT0gMCkge1xuICAgICAgc3RhdHVzQ29udGFpbmVyLnBhcmVudE5vZGUucmVtb3ZlKCk7XG4gICAgfVxuICAgIHJldHVybiB3ZWJSO1xuICB9KShuZXcgV2ViUihkYXRhLm9wdGlvbnMpKTtcblxuICAvLyBLZWVwIHRyYWNrIG9mIGluaXRpYWwgT0pTIGJsb2NrIHJlbmRlclxuICBjb25zdCByZW5kZXJlZE9qcyA9IHt9O1xuXG4gIGNvbnN0IHByb2Nlc3MgPSBhc3luYyAoY29udGV4dCwgaW5wdXRzKSA9PiB7XG4gICAgY29uc3Qgd2ViUiA9IGF3YWl0IHdlYlJQcm9taXNlO1xuICAgIGNvbnN0IGV2YWx1YXRvciA9IG5ldyBXZWJSRXZhbHVhdG9yKHdlYlIsIGNvbnRleHQpXG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHJvY2VzcyxcbiAgICB3ZWJSUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgfTtcbn1cbiJ9XX0=
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC04IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV84O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzggPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici04LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItOC1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV84ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl84LCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNztcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTciLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl83ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNy1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTctY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfNyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNywge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTYiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzY7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici02IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNiA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTYtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici02LWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzYgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzYsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC01IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV81O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzUgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici01LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItNS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV81ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl81LCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNDtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTQiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl80ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNC1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTQtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfNCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNCwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTMiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzM7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0zIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMyA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTMtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0zLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzMgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzMsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8yLCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoiX3dlYnJfdmFsdWVfMSA9IHtcbiAgY29uc3QgeyBoaWdobGlnaHRSLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBldmFsdWF0aW9uIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oe1xuICAgIGlkOiBcIndlYnItMS1jb250ZW50c1wiLFxuICAgIGVjaG86IHRydWUsXG4gICAgb3V0cHV0OiB0cnVlXG4gIH0sIGJsb2NrLmF0dHIpO1xuXG4gIC8vIEV2YWx1YXRlIHRoZSBwcm92aWRlZCBSIGNvZGVcbiAgY29uc3QgcmVzdWx0ID0gd2ViUk9qcy5wcm9jZXNzKHtjb2RlOiBibG9jay5jb2RlLCBvcHRpb25zfSwge30pO1xuXG4gIC8vIEVhcmx5IHlpZWxkIHdoaWxlIHdlIHdhaXQgZm9yIHRoZSBmaXJzdCBldmFsdWF0aW9uIGFuZCByZW5kZXJcbiAgaWYgKG9wdGlvbnMub3V0cHV0ICYmICEoXCIxXCIgaW4gd2ViUk9qcy5yZW5kZXJlZE9qcykpIHtcbiAgICBjb25zdCBjb250YWluZXIgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICAgIGNvbnN0IHNwaW5uZXIgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuXG4gICAgaWYgKG9wdGlvbnMuZWNobykge1xuICAgICAgLy8gU2hvdyBvdXRwdXQgYXMgaGlnaGxpZ2h0ZWQgc291cmNlXG4gICAgICBjb25zdCBwcmVFbGVtID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcInByZVwiKTtcbiAgICAgIGNvbnRhaW5lci5jbGFzc05hbWUgPSBcInNvdXJjZUNvZGVcIjtcbiAgICAgIHByZUVsZW0uY2xhc3NOYW1lID0gXCJzb3VyY2VDb2RlIHJcIjtcbiAgICAgIHByZUVsZW0uYXBwZW5kQ2hpbGQoaGlnaGxpZ2h0UihibG9jay5jb2RlKSk7XG4gICAgICBzcGlubmVyLmNsYXNzTmFtZSA9IFwic3Bpbm5lci1ncm93IHNwaW5uZXItZ3Jvdy1zbSBtLTIgcG9zaXRpb24tYWJzb2x1dGUgdG9wLTAgZW5kLTBcIjtcbiAgICAgIHByZUVsZW0uYXBwZW5kQ2hpbGQoc3Bpbm5lcik7XG4gICAgICBjb250YWluZXIuYXBwZW5kQ2hpbGQocHJlRWxlbSk7XG4gICAgfSBlbHNlIHtcbiAgICAgIHNwaW5uZXIuY2xhc3NOYW1lID0gXCJzcGlubmVyLWJvcmRlciBzcGlubmVyLWJvcmRlci1zbVwiO1xuICAgICAgY29udGFpbmVyLmFwcGVuZENoaWxkKHNwaW5uZXIpO1xuICAgIH1cblxuICAgIHlpZWxkIGNvbnRhaW5lcjtcbiAgfVxuXG4gIHdlYlJPanMucmVuZGVyZWRPanNbXCIxXCJdID0gdHJ1ZTtcbiAgeWllbGQgYXdhaXQgcmVzdWx0O1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItcHJlbHVkZSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IndlYlJPanMgPSB7XG4gIGNvbnN0IHsgV2ViUiwgQ2hhbm5lbFR5cGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWUuV2ViUjtcbiAgY29uc3Qge1xuICAgIFdlYlJFdmFsdWF0b3IsXG4gICAgV2ViUkVudmlyb25tZW50TWFuYWdlcixcbiAgICBzZXR1cFIsXG4gICAgYjY0RGVjb2RlLFxuICAgIGNvbGxhcHNlUGF0aFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gd2ViUiBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICAvLyBVc2UgUG9zdE1lc3NhZ2UgY2hhbm5lbCBmb3IgYXN5bmMgY29tbXVuaWNhdGlvblxuICAvLyBXZSBkbyBub3QgZXhwZWN0IHRvIHRha2UgbmVzdGVkIHByb21wdCBpbnB1dCBpbiBRdWFydG8gTGl2ZSBjZWxsc1xuICBkYXRhLm9wdGlvbnMuY2hhbm5lbFR5cGUgPSBDaGFubmVsVHlwZS5Qb3N0TWVzc2FnZTtcblxuICAvLyBJbml0aWFsaXNlIHdlYlIgYW5kIHNldHVwIGZvciBSIGNvZGUgZXZhbHVhdGlvblxuICBsZXQgd2ViUlByb21pc2UgPSAoYXN5bmMgKHdlYlIpID0+IHtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHdlYlJgO1xuICAgIGF3YWl0IHdlYlIuaW5pdCgpO1xuXG4gICAgLy8gSW5zdGFsbCBwcm92aWRlZCBsaXN0IG9mIHBhY2thZ2VzXG4gICAgLy8gRW5zdXJlIHdlYlIgZGVmYXVsdCByZXBvIGlzIGluY2x1ZGVkXG4gICAgZGF0YS5wYWNrYWdlcy5yZXBvcy5wdXNoKFwiaHR0cHM6Ly9yZXBvLnItd2FzbS5vcmdcIilcbiAgICBhd2FpdCBkYXRhLnBhY2thZ2VzLnBrZ3MubWFwKChwa2cpID0+ICgpID0+IHtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcGFja2FnZTogJHtwa2d9YDtcbiAgICAgIHJldHVybiB3ZWJSLmV2YWxSVm9pZChgXG4gICAgICAgIHdlYnI6Omluc3RhbGwocGtnLCByZXBvcyA9IHJlcG9zKVxuICAgICAgICBsaWJyYXJ5KHBrZywgY2hhcmFjdGVyLm9ubHkgPSBUUlVFKVxuICAgICAgYCwgeyBlbnY6IHtcbiAgICAgICAgcGtnOiBwa2csXG4gICAgICAgIHJlcG9zOiBkYXRhLnBhY2thZ2VzLnJlcG9zLFxuICAgICAgfX0pO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgLy8gRG93bmxvYWQgYW5kIGluc3RhbGwgcmVzb3VyY2VzXG4gICAgYXdhaXQgZmlsZXMubWFwKChmaWxlKSA9PiBhc3luYyAoKSA9PiB7XG4gICAgICBjb25zdCBuYW1lID0gZmlsZS5zdWJzdHJpbmcoZmlsZS5sYXN0SW5kZXhPZignLycpICsgMSk7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHJlc291cmNlOiAke25hbWV9YDtcbiAgICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goZmlsZSk7XG4gICAgICBpZiAoIXJlc3BvbnNlLm9rKSB7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgQ2FuJ3QgZG93bmxvYWQgXFxgJHtmaWxlfVxcYC4gRXJyb3IgJHtyZXNwb25zZS5zdGF0dXN9OiBcIiR7cmVzcG9uc2Uuc3RhdHVzVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXNwb25zZS5hcnJheUJ1ZmZlcigpO1xuXG4gICAgICAvLyBTdG9yZSBVUkxzIGluIHRoZSBjd2Qgd2l0aG91dCBhbnkgc3ViZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgaWYgKGZpbGUuaW5jbHVkZXMoXCI6Ly9cIikpIHtcbiAgICAgICAgZmlsZSA9IG5hbWU7XG4gICAgICB9XG5cbiAgICAgIC8vIENvbGxhcHNlIGhpZ2hlciBkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBmaWxlID0gY29sbGFwc2VQYXRoKGZpbGUpO1xuXG4gICAgICAvLyBDcmVhdGUgZGlyZWN0b3J5IHRyZWUsIGlnbm9yaW5nIFwiZGlyZWN0b3J5IGV4aXN0c1wiIFZGUyBlcnJvcnNcbiAgICAgIGNvbnN0IHBhcnRzID0gZmlsZS5zcGxpdCgnLycpLnNsaWNlKDAsIC0xKTtcbiAgICAgIGxldCBwYXRoID0gJyc7XG4gICAgICB3aGlsZSAocGFydHMubGVuZ3RoID4gMCkge1xuICAgICAgICBwYXRoICs9IHBhcnRzLnNoaWZ0KCkgKyAnLyc7XG4gICAgICAgIHRyeSB7XG4gICAgICAgICAgYXdhaXQgd2ViUi5GUy5ta2RpcihwYXRoKTtcbiAgICAgICAgfSBjYXRjaCAoZSkge1xuICAgICAgICAgIGlmICghZS5tZXNzYWdlLmluY2x1ZGVzKFwiRlMgZXJyb3JcIikpIHtcbiAgICAgICAgICAgIHRocm93IGU7XG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9XG5cbiAgICAgIC8vIFdyaXRlIHRoaXMgZmlsZSB0byB0aGUgVkZTXG4gICAgICByZXR1cm4gYXdhaXQgd2ViUi5GUy53cml0ZUZpbGUoZmlsZSwgbmV3IFVpbnQ4QXJyYXkoZGF0YSkpO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbnN0YWxsaW5nIHdlYlIgc2hpbXNgO1xuICAgIGF3YWl0IHdlYlIuZXZhbFJWb2lkKGB3ZWJyOjpzaGltX2luc3RhbGwoKWApO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBXZWJSIGVudmlyb25tZW50IHNldHVwYDtcbiAgICBhd2FpdCBzZXR1cFIod2ViUiwgZGF0YSk7XG5cbiAgICBzdGF0dXNUZXh0LnJlbW92ZSgpO1xuICAgIGlmIChzdGF0dXNDb250YWluZXIuY2hpbGRyZW4ubGVuZ3RoID09IDApIHtcbiAgICAgIHN0YXR1c0NvbnRhaW5lci5wYXJlbnROb2RlLnJlbW92ZSgpO1xuICAgIH1cbiAgICByZXR1cm4gd2ViUjtcbiAgfSkobmV3IFdlYlIoZGF0YS5vcHRpb25zKSk7XG5cbiAgLy8gS2VlcCB0cmFjayBvZiBpbml0aWFsIE9KUyBibG9jayByZW5kZXJcbiAgY29uc3QgcmVuZGVyZWRPanMgPSB7fTtcblxuICBjb25zdCBwcm9jZXNzID0gYXN5bmMgKGNvbnRleHQsIGlucHV0cykgPT4ge1xuICAgIGNvbnN0IHdlYlIgPSBhd2FpdCB3ZWJSUHJvbWlzZTtcbiAgICBjb25zdCBldmFsdWF0b3IgPSBuZXcgV2ViUkV2YWx1YXRvcih3ZWJSLCBjb250ZXh0KVxuICAgIGF3YWl0IGV2YWx1YXRvci5wcm9jZXNzKGlucHV0cyk7XG4gICAgcmV0dXJuIGV2YWx1YXRvci5jb250YWluZXI7XG4gIH1cblxuICByZXR1cm4ge1xuICAgIHByb2Nlc3MsXG4gICAgd2ViUlByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gIH07XG59XG4ifV19
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">

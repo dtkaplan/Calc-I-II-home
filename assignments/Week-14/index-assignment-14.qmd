@@ -23,31 +23,46 @@ devoirs::answer_style("none")
 {{< include ../../_software/software.R >}}
 ```
 
-## By hand and eye
-
+## *MOSAIC Calculus* Chapters 33 and 34
 ::: {.panel-tabset}
 ## Exer 14.1
 
+{{< include ../../../../MC-Workbook/Block_4/wolf-beat-book.qmd >}}
 
 ## Exer 14.2
 
+{{< include ../../../../MC-Workbook/Block_4/fir-lead-canoe.qmd >}}
+
+## Exer 14.3
+
+{{< include ../../../../MC-Workbook/Block_4/bee-bid-knife.qmd >}}
+
+## Exer 14.4
+{{< include ../../../../MC-Workbook/Block_4/horse-takes-pillow.qmd >}}
+
+## Exer 14.5
+
+{{< include ../../../../MC-Workbook/Block_4/frog-choose-coat.qmd >}}
+
+## Exer 14.6
+
+{{< include ../../../../MC-Workbook/Block_4/kid-show-blanket.qmd >}}
+
+## Exer 14.7
+
+{{< include ../../../../MC-Workbook/Block_4/units-of-antid.qmd >}}
+
+## Exer 14.8
+
+{{< include ../../../../MC-Workbook/Block_4/falcon-tell-mug.qmd >}}
+
+## Exer 14.9
+
+{{< include ../../../../MC-Workbook/Block_4/fish-go-scarf.qmd >}}
+
 
 ::: 
-<!-- end of hand-and-eye tabset -->
-
-## Computing
-
-::: {.panel-tabset}
-## 14.C.3
+<!-- end of review tabset -->
 
 
-## 14.C.4
 
-
-## 14.C.5
-
-
-## 14.C.6
-
-:::
-<!-- end of computing tabset -->

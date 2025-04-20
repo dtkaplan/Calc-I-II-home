@@ -1,0 +1,56 @@
+---
+author: DTK
+date: 2025-05-02
+number-offset: 41
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(devoirs)
+source("../../_software/software.R")
+```
+::: {.callout-tip collapse=true}
+## Background software
+```{webr-r}
+#| autorun: true
+#| context: output
+{{< include ../../_software/software.R >}}
+```
+:::
+
+
+# 2025-05-02 class notes
+
+The drawing canvas has been initialized with two Bezier segments. Your task is to re-arrange the endpoints and control points to create a single stroke that resembles the lower-case character "e". On your homework paper, sketch out the resulting curve and mark the locations of the control points that generated it.
+
+::: {#fig-bezier-canvas}
+<p align="center"><iframe width="540" height="540" src="http://www.mosaic-web.org/bezier-app.svg?a=.2,.2,.3,.3,.4,.4,.5,.5&b=.5,.5,.7,.7,.8,.5,.9,.9&c=-100,-100,-100,-100&animate=0"></iframe></p> 
+
+Also available at [this link](http://www.mosaic-web.org/bezier-app.svg?a=.2,.2,.3,.3,.4,.4,.5,.5&b=.5,.5,.7,.7,.8,.5,.9,.9&c=-100,-100,-100,-10X0&animate=0)
+:::
+
+<!-- www/bezier-snapshot.png -->
+
+
+
+
+
+
+```{webr-r}
+#| caption: User console A
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console B
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console C
+#| persist: true
+```
+
+

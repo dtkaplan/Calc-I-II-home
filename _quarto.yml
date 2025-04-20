@@ -27,7 +27,7 @@ format:
 webr:
   channel-type: 'automatic'
   repos: ["https://dtkaplan.r-universe.dev"]
-  packages: ['ggplot2', 'mosaicCalc', "LSTbook" ]
+  packages: ['mosaicCalc', 'ggplot2', 'ggformula', "LSTbook" ]
 filters:
   - webr
 
