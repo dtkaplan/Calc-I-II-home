@@ -1,0 +1,144 @@
+---
+title: "MOSAIC Calculus Quiz 6: Prof. Kaplan"
+subtitle: "April 22, 2025"
+author: "Student name: __________________.            Do what you can in 20 minutes." 
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      left: 1cm
+      right: 1cm
+      top: 1cm
+      bottom: 8mm
+    columns: 2
+    shift-heading-level-by: -1
+    
+crossref:
+  chapters: true
+  exr-title: "Question"
+  exr-prefix: "Question"
+---
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+knitr::opts_chunk$set(results="asis", roman=TRUE)
+```{r include=FALSE}
+library(devoirs)
+source("../_software/software.R")
+```
+
+[**Question 7.1**]{.underline}: 
+
+Refer to @fig-7-1. Write down the coefficients that solve for $\vec{\mathbf b}$ in terms of $\vec{\mathbf a}$ and $\vec{\mathbf c}$. 
+
+::: {#fig-7-1}
+```{r echo=FALSE}
+#| warning: false 
+#| out.width: 500
+solve_graph(seed = 9799, integers = TRUE)
+```
+
+:::
+
+ 
+
+ 
+
+[**Question 7.2**]{.underline}: 
+
+Using dot products (by hand), compute numerically the projection of $\vec{\mathbf b}$ onto $\vec{\mathbf a}$ and write down numerically the two vectors that result.
+
+$$\vec{\mathbf a} \equiv \left(\begin{array}{c} 
+-4 \\ 
+1 \\ 
+3 \\ 
+7 \\ 
+5 \\ 
+\end{array}\right) \ \ \ \ \text{and}\ \ \ \ \vec{\mathbf b}\equiv \left(\begin{array}{r} 
+2 \\ 
+1 \\ 
+0 \\ 
+-3 \\
+2\\
+\end{array}\right)$$
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+[**Question 7.3**]{.underline}: 
+
+Referring to @fig-7-1, and rounding off the vector positions to integer values, 
+
+i. draw the projection of $\vec{\mathbf b}$ onto $\vec{\mathbf c}$. 
+ii. Using dot products, find the cosine of the angle between the two vectors. 
+iii. Estimate the R^2^ of the projection.
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+[**Question 7.4**]{.underline}: 
+
+Consider this matrix ${\mathbf M}$ and vector ${\mathbf b}$ and the task of solving ${\mathbf M}\ \vec{\mathbf x} \ = \ \vec{\mathbf b}$
+
+ 
+
+
+$${\mathbf M} \equiv \left(\begin{array}{rrrr}
+1 & & 3 & & 4 & & -6 \\ 
+4 & & -4 & & 0 & & 8 \\ 
+8 & & 0 & & 8 & & 0 \\ 
+\end{array}\right)\ \ \ \ \text{and}\ \ \ \ \vec{\mathbf b}\ \equiv\ \left(\begin{array}{r} 
+-5 \\ 
+-2 \\ 
+1 \\ 
+\end{array}\right) $$
+
+ 
+
+
+
+i. After defining `M` and `b` in R, I tried `qr.solve(M, b)`. The result was an error message, [Error in qr.solve(M, b) : singular matrix 'a' in solve`]{style = "color: blue;"}. Explain what went wrong.
+
+ 
+
+ii. You could fix the problem by crossing out two of the vectors in ${\mathbf M}$. Figure out two that will do the job and X-them out.
+
+ 
+
+iii. The result of the deletion in (ii) means that there will be a non-zero residual. Pencil in a new (third) vector for $\mathbf M$ that would permit *zero residual*. (Hint: don't overthink it!)
+
+[**Note**: Flip the sheet for another question.]
+
+[**Question 7.5**]{.underline}: 
+
+Construct a matrix $\mathbf Q$ with mutually orthogonal vectors that spans the same space as the given $\mathbf M$. (The vectors do not need to be unit length. Let them be whatever length is easier for you.)
+
+$${\mathbf M}\ \equiv \ \left(\begin{array}{r} 
+\vec{x} & & \vec{y} & & \vec{z}\\
+8 & & 1 & & 1 \\ 
+4 & & 0 & & -2 \\ 
+0 & & 4 & & 2\\ 
+1 & & -8 & & 1 \\ 
+\end{array}\right)$$
+
+For the sake of convenience, you can refer to the columns of ${\mathbf M}$ by the names $\vec{x}, \vec{y}$ and $\vec{z}$ respectively. (Hint: It might be easier than you are thinking.)
+
+
+
+

@@ -38,6 +38,60 @@ solve_for <- function(vecnames) {
 }
 
 
+solve_graph <- function(seed=101, integers=FALSE) {
+  set.seed(seed)
+  if (integers) {
+    u <- vec(sample(setdiff(-5:5, 0), size = 2))
+    v <- vec(sample(setdiff(-5:5, 0), size = 2))
+    # if too close in angle, try again
+    while ( abs((u %dot% v) / (veclen(u)*veclen(v))) > 0.6 )
+      v <- vec(sample(-5:5, size=2))
+  } else {
+    u <- vec(sample(c(-5:5, runif(3, -3, 3)), size = 2))
+    v <- vec(sample(c(-5:5, runif(3, -3, 3)), size = 2))
+    # if too close in angle, try again
+    while ( abs((u %dot% v) / (veclen(u)*veclen(v))) > 0.6 )
+      v <- vec(sample(c(-3:3, runif(3, -3, 3)), size=2))
+  }
+  ucoef <- sample(setdiff(-2:2, 0), size = 1)
+  vcoef <- sample(setdiff(-2:2, 0), size = 1)
+  b <- u*ucoef + v*vcoef
+  both <- matrix( c(0, 0, u, 0, 0, v, 0, 0, b),
+                  ncol=4, byrow = TRUE) |>
+    tibble::as_tibble()
+  names(both) <- c("rootx", "rooty", "headx", "heady")
+  both$label <- c("a", "c", "b")
+  both$color <- c(sample(c("blue", "darkorange", "tomato", "brown","magenta", "red"), size=2),
+                  "forestgreen")
+  both <- both |>
+    dplyr::mutate(labelx = (rootx + headx)/2,
+                  labely = (2*rooty + heady)/3)
+
+  longest <- round(max(abs(c(u, v, b))) + 1)
+  skip <- ifelse(longest > 7, 2, 1)
+
+  both |>
+    # dplyr::filter(label != "b") |>
+    gf_segment(rooty + heady ~ rootx + headx,
+               arrow = grid::arrow(length=unit(0.15, "inches"), type="closed"),
+               color = ~ color, linewidth=2) |>
+    gf_label(labely ~ labelx, label= ~ label, color = ~ color, size=3) |>
+    gf_refine(scale_color_identity(),
+              scale_y_continuous(limits=c(-longest, longest),
+                                 breaks=seq(-longest, longest, by = skip)),
+              scale_x_continuous(limits=c(-longest, longest),
+                                 breaks=seq(-longest, longest, by = skip)),
+              coord_fixed()) |>
+    # gf_label(heady ~ headx,
+    #          label = ~ label,
+    #          color = ~ color,
+    #          data = both |> dplyr::filter(label == "b")) |>
+    gf_labs(x="", y = "") |>
+    gf_refine(theme_minimal())
+}
+
+
+
 # Simple vector/matrix operations
 
 vec <- function(...) {
