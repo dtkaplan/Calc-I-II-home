@@ -79,7 +79,36 @@ $\int v(x(t)) dt = x(t)$ implies
 
 In a small increment of time $dt$, the change in x is $v(x(t))dt$. The position x is $$x(T) = \int_0^T v(x) dt$$
 
-Accumulate this.
+Accumulate this. Speed limit is in miles per hour, time is in minutes.
+
+A simple problem: How far does the car go, when driving the speed limit.
+```{webr-r}
+fr <- doodle_fun(~ x, seed = 299)
+speed_limit <- makeFun(4*fr(2*(t-2)) + 25 ~ t)
+slice_plot(speed_limit(t) ~ t, domain(t = 0: 4)) |>
+  gf_labs(x = "time (hrs)", y = "speed (mph)")
+position <- antiD(speed_limit(t) ~ t)
+slice_plot(position(t) ~ t, domain(t = 0: 4))
+```
+The above is deeply unnatural. Speed limits are usually set mile-by-mile, not hour-by-hour,
+
+
+
+More subtle: Speed limit is function of **position**
+
+```{webr-r}
+#| message: false
+fx <- doodle_fun(~ x, seed = 299)
+speed_limit2 <- makeFun(4*fx((x-75)/30) + 45  + 20 - 35~ x)
+slice_plot(speed_limit2(x) ~ x, domain(x = 0:200)) |>
+  gf_labs(y = "speed limit (mph)")
+pos <- integrateODE(dx ~ speed_limit2(x), domain(t = 0:6), dt =0.001,x = 0)
+slice_plot(pos$x(t) ~ t, domain(t = 0: 6)) |>
+  gf_labs(x = "time (hrs)", y = "distance (mi)")
+actual_speed <- D(pos$x(t) ~ t)
+slice_plot(actual_speed(t) ~ t, domain(t=0:6), npts=100) |>
+  gf_labs(x = "time (hrs)", y = "speed (mph)")
+```
 
 ## Sometimes there are tricks ...
 
