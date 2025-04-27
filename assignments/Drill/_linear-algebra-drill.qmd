@@ -1,0 +1,34 @@
+---
+subject: Linear algebra drill problems
+---
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(LSTbook)
+library(devoirs)
+source("../../_software/software.R")
+```
+
+::: {.panel-tabset}
+
+
+## @exr-puppy-cost-screen
+
+{{< include _exercises/puppy-cost-screen.qmd >}}
+
+## @exr-lamb-iron-dress
+
+{{< include _exercises/lamb-iron-dress.qmd >}}
+
+## @exr-pony-leave-dish
+
+{{< include _exercises/pony-leave-dish.qmd >}}
+
+## @exr-calf-sail-closet
+
+{{< include _exercises/calf-sail-closet.qmd >}}
+
+
+
+:::

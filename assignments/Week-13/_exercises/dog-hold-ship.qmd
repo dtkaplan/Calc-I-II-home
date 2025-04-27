@@ -12,7 +12,7 @@ library(mosaicCalc)
 
 ::: {#exr-dog-hold-ship}
 ## Dealing with redundancy
-When constructing a model matrix ${\bf M}$ to solve against a response variable $\vec{\bf b}$ to find the model coefficients $\vec{\bf x}$, one or more of the vectors in ${\bf M}$ will be redundant with one or more of the other vectors in ${\bf M}$.
+When constructing a model matrix ${\bf M}$ to solve against a response variable $\vec{\bf b}$ to find the model coefficients $\vec{\bf x}$, it may happen that one or more of the vectors in ${\bf M}$ is redundant with one or more of the other vectors in ${\bf M}$.
 
 To give a concrete example, supposing we are modeling the productivity of novelists, which we'll measure by the number of words (in millions) in their books. The data might look like this small, imagined data table:
 

@@ -10,6 +10,7 @@ library(LSTbook)
 library(devoirs)
 source("../../_software/software.r")
 devoirs::answer_style("none") 
+
 # devoirs::answer_style("block") 
 ```
 
@@ -32,7 +33,11 @@ devoirs::answer_style("none")
 ## Exer 13.2
 {{< include _exercises/solve-diag-system.qmd >}}
 
-::: 
+## Exer 13.3
+
+{{< include _exercises/boy-cut-sheet.qmd >}}
+
+:::
 <!-- end of hand-and-eye tabset -->
 
 ## Computing
@@ -52,6 +57,39 @@ devoirs::answer_style("none")
 
 ## 13.C.7
 {{< include _exercises/dog-hold-ship.qmd >}}
+
+## Exer 13.C.8
+
+{{< include _exercises/eagle-drink-saucer.qmd >}}
+
+## Exer 13.C.9
+
+
+
+
+
+## Scratch computing
+
+```{webr-r}
+#| caption: "For scratch work: A"
+#| persist: true
+
+```
+
+
+```{webr-r}
+#| caption: "For scratch work: B"
+#| persist: true
+
+```
+
+```{webr-r}
+#| caption: "For scratch work: C"
+#| persist: true
+
+```
+
+
 
 -----
 :::

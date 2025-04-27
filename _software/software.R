@@ -108,8 +108,28 @@ rvec <- function(first, ..., rfun=rnorm) {
   vec(dots)
 }
 
+# Convenience functions on vectors and matrices
 
-
+# Give a colname to a vector or multiple colnames to a matrix
+vec_names <- `colnames<-`
+# Vector minus the mean
+vec_mm <- function(...)  {
+  v <- vec(...)
+  v - mean(v, na.rm = TRUE)
+}
+set_col_names <- function(v, nms) {
+  colnames(v) <- nms
+  v
+}
+one_sided <- function(tilde) {
+ if (length(tilde) == 3)
+   stop("The tilde expression should be one-sided, e.g. ~ b, not a ~ b")
+}
+# create a model matrix pipe style
+data_M <- function(.data, tilde) {
+  M <- model.matrix(tilde, data = .data |> tibble::remove_rownames())
+  M[ , - which(colnames(M) == "(Intercept)"), drop = FALSE]
+}
 
 veclen <- function(v) sqrt(v %dot% v)
 unitvec <- function(vec) vec/length(vec)

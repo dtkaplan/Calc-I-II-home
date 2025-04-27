@@ -1,0 +1,43 @@
+---
+id: "boy-cut-sheet"
+created: "Sat Apr 26 10:14:13 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-boy-cut-sheet}
+## Variance
+
+The **variance** of a variable (in statistics) describes how much variability there is among the specimens. We're going to look at the variance of **vectors**.
+
+Some easy computation will be needed. For instance, the variance of the vector $(1, 0, -1)^T$ is ...
+
+```{r}
+#| caption: variance calculations
+var(vec(1,0,-1))
+```
+
+1. Calculate the variance of the vector $(5, 4, 3)$. Compare the result to the variance of $(1, 0, -1)^T$ and explain why this is happening. (Hint: It's not an error.)
+
+`r devoirs_text("var-calc-1")`
+
+The variance of a vector is closely related to the length of the vector. We'll show you a few attempts at making the approximating the relationship. Your job is to find the modification to the calculation that makes the vector-length method exactly the same as the variance.
+
+```{r}
+#| caption: vector length and variance
+b <- vec(5,4,3)
+veclen(b)^2 / nrow(b)
+veclen(vec_mm(b))^2 / nrow(b)
+```
+
+2. What does `vec_mm()` do? And how can you change the denominator of the last line in the chunk so that the vector-length-style calculation corresponds *exactly* to the variance?
+
+`r devoirs_text("var-calc-2")`
+
+:::
+ <!-- end of exr-boy-cut-sheet -->)

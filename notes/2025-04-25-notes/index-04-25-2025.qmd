@@ -16,6 +16,8 @@ filters:
 ```{r include=FALSE}
 library(mosaicCalc)
 library(devoirs)
+library(dplyr)
+library(LSTdata)
 source("../../_software/software.R")
 ```
 ::: {.callout-tip collapse=true}
@@ -27,9 +29,83 @@ source("../../_software/software.R")
 ```
 :::
 
-## Dimension example
+[NYTimes article on birthrate](https://www.nytimes.com/2025/04/23/health/birth-rates-cdc.html?smid=nytcore-ios-share&referringSource=articleShare)
 
-{{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}
+
+- Review `cumsum()` and `cumprod()`
+- What other things amount to these operations: inflation, debt, mortgage
+- `cumprod()` is (for positive numbers),
+
+```{r}
+Survive <- SSA2021F |>
+  mutate(survival = 1 - mortality) |>
+  mutate(total = exp(cumsum(log(survival))))
+```
+
+```{r}
+mfun <- spliner(mortality ~ age, data = SSA2021F)
+
+f <- D(mfun(age) ~ age + age)
+slice_plot(f(age + 1) ~ age, domain(age = 1:120))
+dmfun <- D(mfun(age) ~ age) 
+ADmfun = antiD(log(1 - mfun(age)) ~ age)
+slice_plot(exp(ADmfun(age)) ~ age, domain(age = 1:120))
+```
+
+
+
+
+
+```{r}
+Survive |>
+  gf_line(total ~ age) |> gf_point(total ~ age) 
+```
+
+
+```r
+variable |> log() |> cumsum() |> exp()`
+```
+
+```r
+SSA2021F |>
+  mutate(survival = 1 - mortality) |> 
+  mutate(total = survival |> log() |> exp())
+```
+
+antiD is like cumsum()
+
+integrate is like sum()
+
+Take care with traditional notation ...
+
+- $\int g(t) dt$ means cumsum(): result is function
+- $\int_0^{30} g(t) dt$ mean sum() the rows for ages 0 to 30. Result is a number.
+- $\int_0^x g(t) dt$ means cumsum(), starting at zero, moving up to whatever is given for x. Result is a function.
+
+Do calculation by splining, anti-differentiation, to get survival function.
+
+Life expectancy at a given age.  
+
+- For median death age, solve to find age that gives 50% of the starting mortality.
+- For life expectancy, accumulate survival times age.
+
+```{r}
+Wartime <- Mortality_history |>
+  filter(year == 1944)
+mfun1944 <- spliner(mortality ~ age, data = Wartime)
+f <-  antiD(log(1 - mfun(age)) ~ age)
+slice_plot(exp(f(age)) ~ age, domain(age = 2:60)) |>
+  slice_plot(exp(ADmfun(age))~age, color = "blue")
+f
+```
+
+```{r}
+g <- mosaic::rfun(~t, seed = 932)
+slim <- makeFun(60 + g(t) ~ t)
+slice_plot(slim(t) ~ t, domain(t = 0:3))
+pos <- antiD(slim(t) ~ t)
+slice_plot(pos(t) ~ t, domain(t = 0:3))
+```
 
 # 2025-04-25 class notes
 

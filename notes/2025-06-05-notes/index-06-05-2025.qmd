@@ -1,6 +1,6 @@
 ---
 author: DTK
-date: 2025-04-25
+date: 2025-06-05
 number-offset: 41
 format: live-html
 webr:
@@ -27,11 +27,8 @@ source("../../_software/software.R")
 ```
 :::
 
-## Dimension example
 
-{{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}
-
-# 2025-04-25 class notes
+# 2025-06-05 class notes
 
 ```{webr-r}
 #| caption: User console A

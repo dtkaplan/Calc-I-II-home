@@ -1,0 +1,31 @@
+{
+  "listing": "/projects.html",
+  "items": [
+    "/projects/Gaussian-quadrature/GQ-87a.html",
+    "/projects/Walking-uphill/index-walking-uphill.html",
+    "/projects/TEMPLATE/index-TOPIC.html",
+    "/projects/Stress-in-a-truss/index-stress-in-a-truss.html",
+    "/projects/SVD-parliament/index-SVD-parliament.html",
+    "/projects/Ranking-grades/index-grades.html",
+    "/projects/Present-value/index-present-value.html",
+    "/projects/Dominant-eigenvalue/index-dominant-eigenvalue.html",
+    "/projects/Engine-scaling/index-engine-scaling.html",
+    "/projects/Life-tables/index-life-tables.html",
+    "/projects/Life_expectancy/index-Life-expectancy.html",
+    "/projects/Iterative-search/index-iterative-search.html",
+    "/projects/GPS/index-GPS.html",
+    "/projects/Gaussian-quadrature/index-gaussian-quadrature.html",
+    "/projects/Fourier_transform/index-FFT.html",
+    "/projects/Cobb-Douglas/index-Cobb-Douglas.html",
+    "/projects/Coupled-pendula/index-coupled-pendula.html",
+    "/projects/Diffusion/index-diffusion.html",
+    "/projects/Shadow-prices/index-shadow-prices.html",
+    "/projects/Fuel-use/index-fuel-use.html",
+    "/projects/Standard-and-Poors-ratings/index-S-and-P.html",
+    "/projects/SVD-ordway/index-ordway.html",
+    "/projects/Probability/index-probability.html",
+    "/projects/Automatic-differentiation/index-AD.html",
+    "/projects/Adaptive-quadrature/index-adaptive-quadrature.html",
+    "/projects/SIR/index-SIR.html"
+  ]
+}

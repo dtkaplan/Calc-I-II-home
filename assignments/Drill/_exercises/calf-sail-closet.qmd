@@ -1,0 +1,81 @@
+---
+id: "calf-sail-closet"
+created: "Wed Apr 23 15:55:32 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-calf-sail-closet}
+Consider this matrix ${M}$ and vector ${b}$ and the task of solving ${M}\ \vec{x} \ = \ \vec{b}$
+
+
+$${M} \equiv \left(\begin{array}{rrrr}
+1 & & 3 & & 4 & & -6 \\ 
+4 & & -4 & & 0 & & 8 \\ 
+8 & & 0 & & 8 & & 0 \\ 
+\end{array}\right)\ \ \ \ \text{and}\ \ \ \ \vec{b}\ \equiv\ \left(\begin{array}{r} 
+-5 \\ 
+-2 \\ 
+1 \\ 
+\end{array}\right) $$
+
+
+i. After defining `M` and `b` in R, I tried `qr.solve(M, b)`. The result was an error message, 
+
+> Error in qr.solve(M, b) : singular matrix 'a' in solve. 
+
+Explain what went wrong.
+
+<!-- Opening answer: csc-6MT -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+
+Each of the vectors in $\bf M$ is in three dimensional space. But there are four such vectors in $\bf M$, so at least one of them is redundant. `qr.solve()` doesn't eliminate redundant vectors. Instead, it chokes, printing the error message as it does.
+[..id..]{data-tooltip="Ans id: csc-6MT"}
+:::
+<!-- closing answer csc-6MT -->
+
+
+ii. You could fix the problem by crossing out two of the vectors in ${M}$. Figure out two that will do the job and X-them out.
+
+<!-- Opening answer: csc-6Le -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+We're told we can fix the problem by crossing out **two** vectors. This implies that two of the vectors in $\bf M$ are redundant. But which two? To answer, walk through the second and later columns of $\bf M$ looking to see if each can be written as a linear combination of the vectors on the left. 
+
+Column 2 is not a scaled version of column 1. So column 2 is not redundant.
+
+Column 3, however, is a linear combination of columns 1 and 2: adding up columns 1 and 2 gives column 3.
+
+Column 4 is just column 2 scaled by -2. So it's also redundant.
+
+```{r}
+#| caption: Try it out with the computer
+M <- cbind(vec(1, 4, 8), vec(3, -4, 0),
+           vec(4, 0, 8), vec(-6, 8, 0))
+b <- vec(-5, -2, 1)
+first_two_columns <- M[, c(1,2)]
+x <- qr.solve(first_two_columns, b)
+first_two_columns %*% x
+```
+No error!
+[..id..]{data-tooltip="Ans id: csc-6Le"}
+:::
+<!-- closing answer csc-6Le -->
+iii. The result of the deletion in (ii) means that there will be a non-zero residual. Pencil in a new (third) vector for $M$ that would permit *zero residual*. (Hint: don't overthink it!)
+
+Any third vector that isn't a linear combination of the first two will do the job. Most likely, a random vector will do. For instance, adding up the first two columns, then changing one of the elements will create a suitable vector that is not in the space spanned by the first two.
+
+```{r}
+third <- first_two_columns %*% vec(1,1)
+third[3] <- third[3] + 1
+x2 <- qr.solve(first_two_columns, third)
+first_two_columns %*% x2 - third # is there a non-zero residual?
+```
+:::
+ <!-- end of exr-calf-sail-closet -->)

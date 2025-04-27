@@ -29,7 +29,7 @@ source("../../_software/software.R")
 
 ## Dimension example
 
-{{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}
+
 
 # 2025-04-25 class notes
 

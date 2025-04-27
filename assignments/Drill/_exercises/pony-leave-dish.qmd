@@ -1,0 +1,74 @@
+---
+id: "pony-leave-dish"
+created: "Wed Apr 23 13:57:31 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-pony-leave-dish}
+Using dot products (by hand), compute numerically the projection of $\vec{b}$ onto $\vec{a}$ and the residual from that projection. Write down numerically the two vectors that you found.
+
+$$\vec{a} \equiv \left(\begin{array}{c} 
+-4 \\ 
+1 \\ 
+3 \\ 
+7 \\ 
+5 \\ 
+\end{array}\right) \ \ \ \ \text{and}\ \ \ \ \vec{b}\equiv \left(\begin{array}{r} 
+2 \\ 
+1 \\ 
+0 \\ 
+-3 \\
+2\\
+\end{array}\right)$$
+
+<!-- Opening answer: pld-9Yd -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+
+Suppose we denote the projection of $\vec{b}$ onto $\vec{a}$ as $\widehat{\vec{b}}$is a scaled version of $\beta\ \vec{a}$. The scalar is given by $$\beta \equiv\frac{\vec{b} \cdot \vec{a}}{\vec{a}\cdot\vec{a}}\ .$$
+Numerically, this is $$\beta = \frac{-4 \times 2\ 
++\  1 \times 1 \ +\  3 \times 0 \ +\  7\times (-3) \ +\  5 \times 2}{-4 \times (-4) \ +\  1 \times 1 \ +\ 3 \times 3\  + \ 7 \times \ 7 \ +\  5\times 5} = \frac{-18}{\ \ 100}$$
+giving
+$$\widehat{\vec{b}} = -0.18\ \vec{a} = \left(\begin{array}{r} 
+0.72 \\ 
+-0.18 \\ 
+-0.54 \\ 
+-1.26 \\ 
+-0.9 \\ 
+\end{array}\right)$$
+
+The residual is $$\vec{b} - \widehat{\vec{b}} = \left(\begin{array}{r} 
+2 \\ 
+1 \\ 
+0 \\ 
+-3 \\
+2\\
+\end{array}\right) - \left(\begin{array}{r} 
+0.72 \\ 
+-0.18 \\ 
+-0.54 \\ 
+-1.26 \\ 
+-0.9 \\ 
+\end{array}\right) = \left(\begin{array}{r} 
+1.28 \\ 
+1.18 \\ 
+0.54 \\ 
+-1.74 \\ 
+2.90 \\ 
+\end{array}\right)$$
+
+[..id..]{data-tooltip="Ans id: pld-9Yd"}
+:::
+<!-- closing answer pld-9Yd -->
+
+
+
+
+:::
+ <!-- end of exr-pony-leave-dish -->)

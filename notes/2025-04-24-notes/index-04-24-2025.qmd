@@ -15,6 +15,7 @@ filters:
 
 ```{r include=FALSE}
 library(mosaicCalc)
+library(LSTdata)
 source("../../_software/software.R")
 ```
 ::: {.callout-tip collapse=true}
@@ -27,7 +28,43 @@ source("../../_software/software.R")
 :::
 
 
+Survival to age n
+
+In class:
+```{r}
+Two <- SSA2021F |>
+  mutate(survive = 1 - mortality) |>
+  mutate(total_survival =  cumprod(survive))
+```
+
+
+
+
 # 2025-04-24 class notes
+
+Mortality table from Social Security Administration
+
+```{r}
+head(SSA2021F)
+```
+
+
+Create mortality as a continuous function of age:
+
+```{r}
+mortality <- mosaic::spliner(mortality ~ age, data = SSA2021F)
+Lsurvival <- makeFun(log(1 - mortality(age)) ~ age)
+Accumulated <- antiD(Lsurvival(age) ~ age)
+slice_plot(exp(Accumulated(age)) ~ age, domain(age = 0:120))
+```
+
+
+
+
+
+
+
+
 
 ```{webr-r}
 #| caption: User console A

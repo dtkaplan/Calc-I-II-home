@@ -1,0 +1,22 @@
+---
+id: "puppy-cost-screen"
+created: "Wed Apr 23 16:22:49 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-puppy-cost-screen}
+Here's a matrix M
+
+1. Implement M and b in the chunk. 
+2. Calculate `bhat`, the projection of `b` onto `M`
+3. Find the residual, that is `b - bhat`.
+4. If the length of the residual is zero, then the vectors in M span a space that includes b. In general, the vector analog to the statistical R^2^ is the length of `bhat` divided by the length of `b`. If R^2^ is zero, there is no residual. If R^2^ is 1, `b` is orthogonal to the space spanned by M.
+
+:::
+ <!-- end of exr-puppy-cost-screen -->)

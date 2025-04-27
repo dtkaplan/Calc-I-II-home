@@ -1,0 +1,123 @@
+---
+id: "eagle-drink-saucer"
+created: "Sat Apr 26 09:19:23 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-eagle-drink-saucer}
+## The model matrix
+In the conventional statistical modeling context, there is a *response variable* whose variation we seek to explain, and one or more *explanatory variable*s to do the explaining. 
+
+The statistical modeling context is very closely related to the ${\bf M} \vec{x} \simeq b$ problem in linear algebra. First, the $\bf M$ matrix, called the **model matrix**, contains vectors corresponding to the explanatory variables (and any terms derived from them, such as interaction terms or the indicator vectors that encode a categorical variable). There is almost always another vector in $\bf M$, the vector of all 1's called the **intercept vector**.
+
+To illustrate, here is a tiny data set to which we want to fit the model `disp ~ cyl + hp`.
+
+```{r echo=FALSE}
+Tiny <- mtcars[1:5, 2:4] |> 
+  tibble::remove_rownames()
+```
+
+```{r}
+Tiny
+```
+
+
+The response variable $\vec{b}$ is `disp`. The model matrix consists of the columns for the explanatory variables, `cyl` and `hp` in this example.
+
+```{r}
+#| caption: b by hand
+b <- vec(160, 160, 108, 258, 360) |>
+  set_col_names("disp")
+b
+```
+```{r}
+#| caption: M by hand
+M <- cbind(
+  vec(110, 110, 93, 110, 175),
+  vec(6, 6, 4, 6, 8),
+  1 # the intercept
+) |>
+  set_col_names(c("hp", "cyl", "intercept"))
+M
+```
+
+The model coefficients are:
+
+```{r}
+x <- qr.solve(M, b)
+x
+```
+
+The `model_train()` (or `lm()`) functions give the same results:
+
+```{r}
+Model <- Tiny |> 
+  model_train(disp ~ hp + cyl) 
+Model |>  
+  conf_interval() |>
+  select(term, .coef)
+```
+
+Naturally, you don't want to be pulling out vectors from a data frame by retyping as we did in the "b by hand" and "M by hand" chunks above. For convenience, the `data_M()` function creates a model matrix using a tilde expression on a data frame piped into it.
+
+```{r}
+#| caption: without retyping
+b <- mtcars |> data_M(~ disp)
+M <- mtcars |> data_M(~ hp + cyl)
+```
+
+Part 1
+: Does the model matrix `M` created by the previous chunk include an "intercept" vector?
+
+`r devoirsTF(FALSE, wrong.hint = "Do you see a column of all ones?", leed = "Yes or No")`
+
+Part 2
+:  From the `Galton` data frame and using `data_M()`, construct the target vector `b` and the model matrix `M` corresponding to the model `height ~ mother + father`. Then construct `M2` which is M with an intercept term added. Finally, get the coefficients from `qr.solve(M, b)` and also `qr.solve(M2, b)`. Which of these corresponds to the coefficients from `Galton |> model_train(height ~ mother + father) |> conf_interval()`?
+
+
+<!-- Start of rich webr chunk eds-2wV -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
+```{webr-r}
+#| caption: Webr chunk
+#| persist: true
+#| label: eds-2wV-main
+
+
+```
+
+## Code submission
+Copy your code and the output here
+
+`r devoirs_text("eds-2wV")`
+
+
+## Scratch 1
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: eds-2wV-scratch1
+```
+
+## Scratch 2
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: eds-2wV-scratch1
+```
+:::
+<!-- end of enriched webr chunk eds-2wV -->
+
+
+
+
+
+:::
+ <!-- end of exr-eagle-drink-saucer -->

@@ -73,35 +73,6 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -187,7 +158,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#class-notes" id="toc-class-notes" class="nav-link active" data-scroll-target="#class-notes"><span class="header-section-number">42</span> 2025-04-25 class notes</a></li>
+  <li><a href="#class-notes" id="toc-class-notes" class="nav-link active" data-scroll-target="#class-notes"><span class="header-section-number">58</span> 2025-06-10 class notes</a></li>
   </ul>
 </nav>
     </div>
@@ -215,219 +186,14 @@ Background software
 
 </div>
 <script type="webr-1-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNvbnRleHQiOiJvdXRwdXQiLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6IiMgRHJhd2luZyB2ZWN0b3JzIGFuZCBtYXRyaWNlc1xuXG5kcmF3X21hdHJpeCA8LSBmdW5jdGlvbihNKSB7XG4gIGltYWdlKDE6bmNvbChNKSwgMTpucm93KE0pLCB0KE1bbnJvdyhNKToxLCBdKSxcbiAgICAgICAgY29sID0gY29sb3JzcGFjZTo6ZGl2ZXJnaW5nX2hjbChcbiAgICAgICAgICAxNSwgaCA9IGMoMTgwLCA1MCksIGMgPSA4MCxcbiAgICAgICAgICBsID0gYygyMCwgOTUpLCBwb3dlciA9IGMoMC43LCAxLjMpKSxcbiAgICAgICAgYXhlcyA9IEZBTFNFLFxuICAgICAgICB1c2VSYXN0ZXIgPSBUUlVFKVxufVxuXG5zb21ldmVjcyA8LSB0aWJibGU6OnRyaWJibGUoXG4gIH4gcm9vdHgsIH4gcm9vdHksIH4gaGVhZHgsIH4gaGVhZHksIH4gY29sb3IsIH4gbmFtZSxcbiAgMCwgMCwgLTIsIDQsIFwiYmx1ZVwiLCBcInVcIixcbiAgMSwgLTIsIDUsIC0zLCBcImdyZWVuXCIsIFwidlwiLFxuICAtMSwgLTEsIC00LCAtMSwgXCJvcmFuZ2VcIiwgXCJ3XCIsXG4gIDEsIDAsIDQsIDMsIFwiYnJvd25cIiwgXCJ4XCIsXG4gIDAsIC0yLCAzLCAtMywgXCJzYWxtb25cIiwgXCJ5XCIsXG4gIDAsIDAsIDQsIDMsIFwibWFnZW50YVwiLCBcImIxXCIsXG4gIDAsIDAsIC0zLCAyLCBcIm1hZ2VudGFcIiwgXCJiMlwiLFxuKSB8PlxuICBkcGx5cjo6bXV0YXRlKGxhYmVseCA9IChyb290eCArIGhlYWR4KS8yLFxuICAgICAgICAgbGFiZWx5ID0gKDIqcm9vdHkgKyBoZWFkeSkvMylcbnNvbHZlX2ZvciA8LSBmdW5jdGlvbih2ZWNuYW1lcykge1xuICBzb21ldmVjcyB8PlxuICAgIGRwbHlyOjpmaWx0ZXIobmFtZSAlaW4lIHZlY25hbWVzKSB8PlxuICAgIGdmX3NlZ21lbnQocm9vdHkgKyBoZWFkeSB+IHJvb3R4ICsgaGVhZHgsXG4gICAgICAgICAgICAgICBhcnJvdyA9IGdyaWQ6OmFycm93KGxlbmd0aD11bml0KDAuMTUsIFwiaW5jaGVzXCIpLCB0eXBlPVwiY2xvc2VkXCIpLFxuICAgICAgICAgICAgICAgY29sb3IgPSB+IGNvbG9yLCBsaW5ld2lkdGg9MikgfD5cbiAgICBnZl9sYWJlbChsYWJlbHkgfiBsYWJlbHgsIGxhYmVsPSB+IG5hbWUsIGNvbG9yID0gfiBjb2xvciwgc2l6ZT0zKSB8PlxuICAgIGdmX3JlZmluZShzY2FsZV9jb2xvcl9pZGVudGl0eSgpLFxuICAgICAgICAgICAgICBzY2FsZV95X2NvbnRpbnVvdXMobGltaXRzPWMoLTUsNSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVha3M9KC01KTo1KSxcbiAgICAgICAgICAgICAgc2NhbGVfeF9jb250aW51b3VzKGxpbWl0cz1jKC01LDUpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWtzPSgtNSk6NSksXG4gICAgICAgICAgICAgIGNvb3JkX2ZpeGVkKCkpIHw+XG4gICAgZ2ZfbGFicyh4PVwiXCIsIHkgPSBcIlwiKVxufVxuXG5cbiMgU2ltcGxlIHZlY3Rvci9tYXRyaXggb3BlcmF0aW9uc1xuXG52ZWMgPC0gZnVuY3Rpb24oLi4uKSB7XG4gIHZhbHMgPC0gbGlzdCguLi4pIHw+IHVubGlzdCgpXG4gIG1hdHJpeCh2YWxzLCBuY29sPTEpXG59XG5cbnJ2ZWMgPC0gZnVuY3Rpb24oZmlyc3QsIC4uLiwgcmZ1bj1ybm9ybSkge1xuICBkb3RzIDwtIGMoZmlyc3QsIGxpc3QoLi4uKSkgfD4gdW5saXN0KClcbiAgaWYgKGxlbmd0aChkb3RzKSA9PSAxKSB7XG4gICAgZG90cyA8LSByZnVuKGRvdHNbWzFdXSlcbiAgfVxuXG4gIHZlYyhkb3RzKVxufVxuXG5cblxuXG52ZWNsZW4gPC0gZnVuY3Rpb24odikgc3FydCh2ICVkb3QlIHYpXG51bml0dmVjIDwtIGZ1bmN0aW9uKHZlYykgdmVjL2xlbmd0aCh2ZWMpXG5jYW5nIDwtIGZ1bmN0aW9uKHYsIHcpIHsodiAlZG90JSB3KSAvICh2ZWNsZW4odikgKiB2ZWNsZW4odykpfVxubWFrZVEgPC0gZnVuY3Rpb24oLi4uKSB7XG4gIGRvdHMgPC0gbGlzdCguLi4pIHw+IGJpbmRfY29scygpXG4gIHFyLlEocXIoZG90cykpXG59XG5cbmNoZWNrX2Zvcl9zdmQgPC0gZnVuY3Rpb24oUykge1xuICBpZiAoaW5oZXJpdHMoUywgXCJtYXRyaXhcIikpIFMgPC0gc3ZkKFMpXG4gIGlmICghaXMubGlzdChTKSB8fCAhYWxsKGMoXCJkXCIsXCJ2XCIsIFwidVwiKSAlaW4lIG5hbWVzKFMpKSlcbiAgICBzdG9wKFwiQXJndW1lbnQgbXVzdCBiZSBtYXRyaXggb3IgdGhlIFNWRCBvZiBhIG1hdHJpeC5cIilcbiAgU1xufVxuXG5yYW5rX21hdCA8LSBmdW5jdGlvbihTLCB0aHJlc2ggPSAwLjAxKSB7XG4gIFMgPC0gY2hlY2tfZm9yX3N2ZChTKVxuICBzdW0oUyRkID4gUyRkWzFdICogdGhyZXNoKVxufVxuXG5yYW5kX21hdCA8LSBmdW5jdGlvbihucm93PTMsIG5jb2w9NiwgcmFuayA9IHBtaW4obnJvdywgbmNvbCkpIHtcbiAgTSA8LSBtYXRyaXgocnVuaWYobnJvdypuY29sKSwgbnJvdyA9IG5yb3csIG5jb2wgPSBuY29sKVxuICBpZiAocmFuayA+PSBucm93IHx8IHJhbmsgPj0gbmNvbCkge1xuICAgTVxuICB9IGVsc2Uge1xuICAgIGFwcHJveF9tYXQoUywgbj1zYW1wbGUocG1pbihyYW5rLCBucm93LCBuY29sKSkpXG4gIH1cbn1cblxuIyBHcmFiIHJhbmsgMSBtYXRyaXggZnJvbSBTVkRcbmFwcHJveF9tYXQgPC0gZnVuY3Rpb24oUywgbj0xLCBvcmRlciA9IDApIHsgIyBpbnB1dCBhIG1hdHJpeCBvciB0aGUgU1ZEIG9mIGEgbWF0cml4XG4gIFMgPC0gY2hlY2tfZm9yX3N2ZChTKVxuICBpZiAob3JkZXIgPiAwKSB7XG4gICAgaW5kczEgPC0gb3JkZXIoYyhTJHVbLG9yZGVyXSkpXG4gICAgaW5kczIgPC0gb3JkZXIoYyhTJHZbLG9yZGVyXSkpXG4gIH0gZWxzZSB7XG4gICAgaW5kczEgPC0gMTpucm93KFMkdSlcbiAgICBpbmRzMiA8LSAxOm5yb3coUyR2KVxuICB9XG4gIHBhcnRpYWwgPC0gMCAjIGluaXRpYWwgdmFsdWVcbiAgZm9yIChrIGluIG4pIHtcbiAgICBwYXJ0aWFsIDwtIHBhcnRpYWwgKyAgUyRkW2tdICogUyR1W2luZHMxLGssIGRyb3AgPSBGQUxTRV0gJSolIHQoUyR2W2luZHMyLGssIGRyb3AgPSBGQUxTRV0pXG4gIH1cblxuICBwYXJ0aWFsXG59XG5cbnByZXR0eV9tYXQgPC0gZnVuY3Rpb24oTSkge1xuICBpbmRzMSA8LSBvcmRlcihyb3dTdW1zKE0pKVxuICBpbmRzMiA8LSBvcmRlcihjb2xTdW1zKE0pKVxuICBNW2luZHMxLCBpbmRzMl1cbn1cblxuIycgR2VuZXJhdGUgYSBtYXRyaXggd2hvc2UgZWxlbWVudHMgYXJlIHNlbGVjdGVkIHJhbmRvbWx5IGZyb20gYSBzZXRcbiMnIG9mIHNwZWNpZmllZCB2YWx1ZXMuXG4jJyBAcGFyYW0gbnJvdyBudW1iZXIgb2Ygcm93cyBmb3IgdGhlIG1hdHJpeCBwcm9kdWNlZFxuIycgQHBhcmFtIG5jb2wgbnVtYmVyIG9mIGNvbHVtbnNcbiMnIEBwYXJhbSB2YWx1ZXMgdGhlIHNldCBmcm9tIHdoaWNoIHRvIGRyYXcgKHJhbmRvbWx5KSB0aGVcbiMnIHZhbHVlcyBpbiB0aGUgbWF0cml4LiBEZWZhdWx0OiBpbnRlZ2VycyAtOSB0byA5XG52YWx1ZXNfbWF0IDwtIGZ1bmN0aW9uKG5yb3c9NCwgbmNvbD0zLCB2YWx1ZXMgPSAtOTo5KSB7XG4gIG1hdHJpeChzYW1wbGUodmFsdWVzLCBzaXplID0gbnJvdyAqIG5jb2wsIHJlcGxhY2UgPSBUUlVFKSxcbiAgICAgICAgIG5yb3cgPSBucm93LCBuY29sPW5jb2wpXG59XG5cbiMgVHlwZXNldCBtYXRyaWNlcyBpbiBMYVRlWCAoZm9yIGFzc2lnbm1lbnRzIGFuZCBzdWNoKVxuTG1hdCA8LSBmdW5jdGlvbihuciwgbmMpIHtcbiAgdmFsdWVzX21hdChuciwgbmMpIHw+IGxhdGV4X2hlbHBlcigpXG59XG5sYXRleF9oZWxwZXIgPC0gZnVuY3Rpb24obWF0cikge1xuICBwcmludG1yb3cgPC0gZnVuY3Rpb24oeCkge1xuXG4gICAgY2F0KGNhdCh4LHNlcD1cIiAmIFwiKSxcIlxcXFxcXFxcIFxcblwiKVxuICB9XG5cbiAgY2F0KFwiXFxcXGxlZnQoXFxcXGJlZ2lue2FycmF5fXtyfVwiLFwiXFxuXCIpXG4gIGJvZHkgPC0gYXBwbHkobWF0ciwxLHByaW50bXJvdylcbiAgY2F0KFwiXFxcXGVuZHthcnJheX1cXFxccmlnaHQpXCIpXG59XG5cbiMgRm91cmllciB0cmFuc2Zvcm0gc3R1ZmZcbiMgc2lnZmZ0IHNob3dzIG9ubHkgdGhlIGxlZnQtaGFuZCBzaWRlIG9mIHRoZSBGRlRcbiMgaXNpZ2ZmdCByZXN0b3JlcyBpdCBieSBhZGRpbmcgYmFjayB0aGUgcmlnaHQtaGFuZCBzaWRlIHRoZW4gaW52ZXJzZSBGRlQuXG5cbmlmZnQgPC0gZnVuY3Rpb24oeCkgZmZ0KHgvbGVuZ3RoKHgpLCBpbnZlcnNlID0gVFJVRSlcblxuc2lnZmZ0IDwtIGZ1bmN0aW9uKHgpIHtcbiAgdG1wIDwtIGZmdCh4KVxuICBueXF1aXN0IDwtIHJvdW5kKChsZW5ndGgoeCkgKyAxLjEgLSAobGVuZ3RoKHgpICUlIDIpKS8yKVxuICB0bXBbMTpueXF1aXN0XVxufVxuaXNpZ2ZmdCA8LSBmdW5jdGlvbihMZmZ0eCkge1xuICB0bXAgPC0gaWYgKGxlbmd0aChMZmZ0eCkgJSUgMikge1xuICAgICMgb2RkIGxlbmd0aFxuICAgIGMoTGZmdHgsIENvbmoocmV2KExmZnR4W2MoLTEsIC1sZW5ndGgoTGZmdHgpKV0pKSlcblxuICB9IGVsc2Uge1xuICAgIGMoTGZmdHgsIENvbmoocmV2KExmZnR4Wy0xXSkpKVxuICB9XG4gIGlmZnQodG1wKSB8PiBSZSgpXG59XG5cbnNxdWFzaF9zbWFsbCA8LSBmdW5jdGlvbih4LCB0b2w9MWUtOSkge1xuICByMSA8LSBSZSh4KVxuICByMSA8LSBpZmVsc2UoYWJzKHIxKSA8IHRvbCwgMCwgcjEpXG4gIGMxIDwtIEltKHgpXG4gIGMxIDwtIGlmZWxzZShhYnMoYzEpIDwgdG9sLCAwLCBjMSlcbiAgIyByZXR1cm4gcmVhbCBwYXJ0IGlmIGFsbCBvZiBpbWFnaW5hcnkgcGFydCBpcyBzbWFsbFxuICBpZiAoYWxsKGMxID09IDApKSByMVxuICBlbHNlIHIxICsgMWkgKiBjMVxufVxuXG4jIFBsb3QgdGhlIGFtcGxpdHVkZSBzcGVjdHJ1bSB2ZXJzdXMgZnJlcXVlbmN5XG5zaWdfYW1wX3NwZWMgPC0gZnVuY3Rpb24oeCwgc2FtcGZyZXE9MTAwKSB7XG4gIFRtcCA8LSB0aWJibGU6OnRpYmJsZShcbiAgICBhbXAgPSBhYnMoc2lnZmZ0KHgpKSxcbiAgICBmcmVxdWVuY3kgPSBzZXEoMCwgc2FtcGZyZXEvMiwgbGVuZ3RoID0gbGVuZ3RoKGFtcCkpKVxuICBUbXAgfD5cbiAgICBnZl9zZWdtZW50KDAgKyBhbXAgfiBmcmVxdWVuY3kgKyBmcmVxdWVuY3ksIGFscGhhID0gMC4yKSB8PlxuICAgIGdmX3BvaW50KGFtcCB+IGZyZXF1ZW5jeSwgY29sb3IgPSBcImJsdWVcIiwgc2l6ZSA9IDAuNSlcbn0ifQ==
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNvbnRleHQiOiJvdXRwdXQiLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6IiMgRHJhd2luZyB2ZWN0b3JzIGFuZCBtYXRyaWNlc1xuXG5kcmF3X21hdHJpeCA8LSBmdW5jdGlvbihNKSB7XG4gIGltYWdlKDE6bmNvbChNKSwgMTpucm93KE0pLCB0KE1bbnJvdyhNKToxLCBdKSxcbiAgICAgICAgY29sID0gY29sb3JzcGFjZTo6ZGl2ZXJnaW5nX2hjbChcbiAgICAgICAgICAxNSwgaCA9IGMoMTgwLCA1MCksIGMgPSA4MCxcbiAgICAgICAgICBsID0gYygyMCwgOTUpLCBwb3dlciA9IGMoMC43LCAxLjMpKSxcbiAgICAgICAgYXhlcyA9IEZBTFNFLFxuICAgICAgICB1c2VSYXN0ZXIgPSBUUlVFKVxufVxuXG5zb21ldmVjcyA8LSB0aWJibGU6OnRyaWJibGUoXG4gIH4gcm9vdHgsIH4gcm9vdHksIH4gaGVhZHgsIH4gaGVhZHksIH4gY29sb3IsIH4gbmFtZSxcbiAgMCwgMCwgLTIsIDQsIFwiYmx1ZVwiLCBcInVcIixcbiAgMSwgLTIsIDUsIC0zLCBcImdyZWVuXCIsIFwidlwiLFxuICAtMSwgLTEsIC00LCAtMSwgXCJvcmFuZ2VcIiwgXCJ3XCIsXG4gIDEsIDAsIDQsIDMsIFwiYnJvd25cIiwgXCJ4XCIsXG4gIDAsIC0yLCAzLCAtMywgXCJzYWxtb25cIiwgXCJ5XCIsXG4gIDAsIDAsIDQsIDMsIFwibWFnZW50YVwiLCBcImIxXCIsXG4gIDAsIDAsIC0zLCAyLCBcIm1hZ2VudGFcIiwgXCJiMlwiLFxuKSB8PlxuICBkcGx5cjo6bXV0YXRlKGxhYmVseCA9IChyb290eCArIGhlYWR4KS8yLFxuICAgICAgICAgbGFiZWx5ID0gKDIqcm9vdHkgKyBoZWFkeSkvMylcbnNvbHZlX2ZvciA8LSBmdW5jdGlvbih2ZWNuYW1lcykge1xuICBzb21ldmVjcyB8PlxuICAgIGRwbHlyOjpmaWx0ZXIobmFtZSAlaW4lIHZlY25hbWVzKSB8PlxuICAgIGdmX3NlZ21lbnQocm9vdHkgKyBoZWFkeSB+IHJvb3R4ICsgaGVhZHgsXG4gICAgICAgICAgICAgICBhcnJvdyA9IGdyaWQ6OmFycm93KGxlbmd0aD11bml0KDAuMTUsIFwiaW5jaGVzXCIpLCB0eXBlPVwiY2xvc2VkXCIpLFxuICAgICAgICAgICAgICAgY29sb3IgPSB+IGNvbG9yLCBsaW5ld2lkdGg9MikgfD5cbiAgICBnZl9sYWJlbChsYWJlbHkgfiBsYWJlbHgsIGxhYmVsPSB+IG5hbWUsIGNvbG9yID0gfiBjb2xvciwgc2l6ZT0zKSB8PlxuICAgIGdmX3JlZmluZShzY2FsZV9jb2xvcl9pZGVudGl0eSgpLFxuICAgICAgICAgICAgICBzY2FsZV95X2NvbnRpbnVvdXMobGltaXRzPWMoLTUsNSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVha3M9KC01KTo1KSxcbiAgICAgICAgICAgICAgc2NhbGVfeF9jb250aW51b3VzKGxpbWl0cz1jKC01LDUpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWtzPSgtNSk6NSksXG4gICAgICAgICAgICAgIGNvb3JkX2ZpeGVkKCkpIHw+XG4gICAgZ2ZfbGFicyh4PVwiXCIsIHkgPSBcIlwiKVxufVxuXG5cbnNvbHZlX2dyYXBoIDwtIGZ1bmN0aW9uKHNlZWQ9MTAxLCBpbnRlZ2Vycz1GQUxTRSkge1xuICBzZXQuc2VlZChzZWVkKVxuICBpZiAoaW50ZWdlcnMpIHtcbiAgICB1IDwtIHZlYyhzYW1wbGUoc2V0ZGlmZigtNTo1LCAwKSwgc2l6ZSA9IDIpKVxuICAgIHYgPC0gdmVjKHNhbXBsZShzZXRkaWZmKC01OjUsIDApLCBzaXplID0gMikpXG4gICAgIyBpZiB0b28gY2xvc2UgaW4gYW5nbGUsIHRyeSBhZ2FpblxuICAgIHdoaWxlICggYWJzKCh1ICVkb3QlIHYpIC8gKHZlY2xlbih1KSp2ZWNsZW4odikpKSA+IDAuNiApXG4gICAgICB2IDwtIHZlYyhzYW1wbGUoLTU6NSwgc2l6ZT0yKSlcbiAgfSBlbHNlIHtcbiAgICB1IDwtIHZlYyhzYW1wbGUoYygtNTo1LCBydW5pZigzLCAtMywgMykpLCBzaXplID0gMikpXG4gICAgdiA8LSB2ZWMoc2FtcGxlKGMoLTU6NSwgcnVuaWYoMywgLTMsIDMpKSwgc2l6ZSA9IDIpKVxuICAgICMgaWYgdG9vIGNsb3NlIGluIGFuZ2xlLCB0cnkgYWdhaW5cbiAgICB3aGlsZSAoIGFicygodSAlZG90JSB2KSAvICh2ZWNsZW4odSkqdmVjbGVuKHYpKSkgPiAwLjYgKVxuICAgICAgdiA8LSB2ZWMoc2FtcGxlKGMoLTM6MywgcnVuaWYoMywgLTMsIDMpKSwgc2l6ZT0yKSlcbiAgfVxuICB1Y29lZiA8LSBzYW1wbGUoc2V0ZGlmZigtMjoyLCAwKSwgc2l6ZSA9IDEpXG4gIHZjb2VmIDwtIHNhbXBsZShzZXRkaWZmKC0yOjIsIDApLCBzaXplID0gMSlcbiAgYiA8LSB1KnVjb2VmICsgdip2Y29lZlxuICBib3RoIDwtIG1hdHJpeCggYygwLCAwLCB1LCAwLCAwLCB2LCAwLCAwLCBiKSxcbiAgICAgICAgICAgICAgICAgIG5jb2w9NCwgYnlyb3cgPSBUUlVFKSB8PlxuICAgIHRpYmJsZTo6YXNfdGliYmxlKClcbiAgbmFtZXMoYm90aCkgPC0gYyhcInJvb3R4XCIsIFwicm9vdHlcIiwgXCJoZWFkeFwiLCBcImhlYWR5XCIpXG4gIGJvdGgkbGFiZWwgPC0gYyhcImFcIiwgXCJjXCIsIFwiYlwiKVxuICBib3RoJGNvbG9yIDwtIGMoc2FtcGxlKGMoXCJibHVlXCIsIFwiZGFya29yYW5nZVwiLCBcInRvbWF0b1wiLCBcImJyb3duXCIsXCJtYWdlbnRhXCIsIFwicmVkXCIpLCBzaXplPTIpLFxuICAgICAgICAgICAgICAgICAgXCJmb3Jlc3RncmVlblwiKVxuICBib3RoIDwtIGJvdGggfD5cbiAgICBkcGx5cjo6bXV0YXRlKGxhYmVseCA9IChyb290eCArIGhlYWR4KS8yLFxuICAgICAgICAgICAgICAgICAgbGFiZWx5ID0gKDIqcm9vdHkgKyBoZWFkeSkvMylcblxuICBsb25nZXN0IDwtIHJvdW5kKG1heChhYnMoYyh1LCB2LCBiKSkpICsgMSlcbiAgc2tpcCA8LSBpZmVsc2UobG9uZ2VzdCA+IDcsIDIsIDEpXG5cbiAgYm90aCB8PlxuICAgICMgZHBseXI6OmZpbHRlcihsYWJlbCAhPSBcImJcIikgfD5cbiAgICBnZl9zZWdtZW50KHJvb3R5ICsgaGVhZHkgfiByb290eCArIGhlYWR4LFxuICAgICAgICAgICAgICAgYXJyb3cgPSBncmlkOjphcnJvdyhsZW5ndGg9dW5pdCgwLjE1LCBcImluY2hlc1wiKSwgdHlwZT1cImNsb3NlZFwiKSxcbiAgICAgICAgICAgICAgIGNvbG9yID0gfiBjb2xvciwgbGluZXdpZHRoPTIpIHw+XG4gICAgZ2ZfbGFiZWwobGFiZWx5IH4gbGFiZWx4LCBsYWJlbD0gfiBsYWJlbCwgY29sb3IgPSB+IGNvbG9yLCBzaXplPTMpIHw+XG4gICAgZ2ZfcmVmaW5lKHNjYWxlX2NvbG9yX2lkZW50aXR5KCksXG4gICAgICAgICAgICAgIHNjYWxlX3lfY29udGludW91cyhsaW1pdHM9YygtbG9uZ2VzdCwgbG9uZ2VzdCksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVha3M9c2VxKC1sb25nZXN0LCBsb25nZXN0LCBieSA9IHNraXApKSxcbiAgICAgICAgICAgICAgc2NhbGVfeF9jb250aW51b3VzKGxpbWl0cz1jKC1sb25nZXN0LCBsb25nZXN0KSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrcz1zZXEoLWxvbmdlc3QsIGxvbmdlc3QsIGJ5ID0gc2tpcCkpLFxuICAgICAgICAgICAgICBjb29yZF9maXhlZCgpKSB8PlxuICAgICMgZ2ZfbGFiZWwoaGVhZHkgfiBoZWFkeCxcbiAgICAjICAgICAgICAgIGxhYmVsID0gfiBsYWJlbCxcbiAgICAjICAgICAgICAgIGNvbG9yID0gfiBjb2xvcixcbiAgICAjICAgICAgICAgIGRhdGEgPSBib3RoIHw+IGRwbHlyOjpmaWx0ZXIobGFiZWwgPT0gXCJiXCIpKSB8PlxuICAgIGdmX2xhYnMoeD1cIlwiLCB5ID0gXCJcIikgfD5cbiAgICBnZl9yZWZpbmUodGhlbWVfbWluaW1hbCgpKVxufVxuXG5cblxuIyBTaW1wbGUgdmVjdG9yL21hdHJpeCBvcGVyYXRpb25zXG5cbnZlYyA8LSBmdW5jdGlvbiguLi4pIHtcbiAgdmFscyA8LSBsaXN0KC4uLikgfD4gdW5saXN0KClcbiAgbWF0cml4KHZhbHMsIG5jb2w9MSlcbn1cblxucnZlYyA8LSBmdW5jdGlvbihmaXJzdCwgLi4uLCByZnVuPXJub3JtKSB7XG4gIGRvdHMgPC0gYyhmaXJzdCwgbGlzdCguLi4pKSB8PiB1bmxpc3QoKVxuICBpZiAobGVuZ3RoKGRvdHMpID09IDEpIHtcbiAgICBkb3RzIDwtIHJmdW4oZG90c1tbMV1dKVxuICB9XG5cbiAgdmVjKGRvdHMpXG59XG5cbiMgQ29udmVuaWVuY2UgZnVuY3Rpb25zIG9uIHZlY3RvcnMgYW5kIG1hdHJpY2VzXG5cbiMgR2l2ZSBhIGNvbG5hbWUgdG8gYSB2ZWN0b3Igb3IgbXVsdGlwbGUgY29sbmFtZXMgdG8gYSBtYXRyaXhcbnZlY19uYW1lcyA8LSBgY29sbmFtZXM8LWBcbiMgVmVjdG9yIG1pbnVzIHRoZSBtZWFuXG52ZWNfbW0gPC0gZnVuY3Rpb24oLi4uKSAge1xuICB2IDwtIHZlYyguLi4pXG4gIHYgLSBtZWFuKHYsIG5hLnJtID0gVFJVRSlcbn1cbnNldF9jb2xfbmFtZXMgPC0gZnVuY3Rpb24odiwgbm1zKSB7XG4gIGNvbG5hbWVzKHYpIDwtIG5tc1xuICB2XG59XG5vbmVfc2lkZWQgPC0gZnVuY3Rpb24odGlsZGUpIHtcbiBpZiAobGVuZ3RoKHRpbGRlKSA9PSAzKVxuICAgc3RvcChcIlRoZSB0aWxkZSBleHByZXNzaW9uIHNob3VsZCBiZSBvbmUtc2lkZWQsIGUuZy4gfiBiLCBub3QgYSB+IGJcIilcbn1cbiMgY3JlYXRlIGEgbW9kZWwgbWF0cml4IHBpcGUgc3R5bGVcbmRhdGFfTSA8LSBmdW5jdGlvbiguZGF0YSwgdGlsZGUpIHtcbiAgTSA8LSBtb2RlbC5tYXRyaXgodGlsZGUsIGRhdGEgPSAuZGF0YSB8PiB0aWJibGU6OnJlbW92ZV9yb3duYW1lcygpKVxuICBNWyAsIC0gd2hpY2goY29sbmFtZXMoTSkgPT0gXCIoSW50ZXJjZXB0KVwiKSwgZHJvcCA9IEZBTFNFXVxufVxuXG52ZWNsZW4gPC0gZnVuY3Rpb24odikgc3FydCh2ICVkb3QlIHYpXG51bml0dmVjIDwtIGZ1bmN0aW9uKHZlYykgdmVjL2xlbmd0aCh2ZWMpXG5jYW5nIDwtIGZ1bmN0aW9uKHYsIHcpIHsodiAlZG90JSB3KSAvICh2ZWNsZW4odikgKiB2ZWNsZW4odykpfVxubWFrZVEgPC0gZnVuY3Rpb24oLi4uKSB7XG4gIGRvdHMgPC0gbGlzdCguLi4pIHw+IGJpbmRfY29scygpXG4gIHFyLlEocXIoZG90cykpXG59XG5cbmNoZWNrX2Zvcl9zdmQgPC0gZnVuY3Rpb24oUykge1xuICBpZiAoaW5oZXJpdHMoUywgXCJtYXRyaXhcIikpIFMgPC0gc3ZkKFMpXG4gIGlmICghaXMubGlzdChTKSB8fCAhYWxsKGMoXCJkXCIsXCJ2XCIsIFwidVwiKSAlaW4lIG5hbWVzKFMpKSlcbiAgICBzdG9wKFwiQXJndW1lbnQgbXVzdCBiZSBtYXRyaXggb3IgdGhlIFNWRCBvZiBhIG1hdHJpeC5cIilcbiAgU1xufVxuXG5yYW5rX21hdCA8LSBmdW5jdGlvbihTLCB0aHJlc2ggPSAwLjAxKSB7XG4gIFMgPC0gY2hlY2tfZm9yX3N2ZChTKVxuICBzdW0oUyRkID4gUyRkWzFdICogdGhyZXNoKVxufVxuXG5yYW5kX21hdCA8LSBmdW5jdGlvbihucm93PTMsIG5jb2w9NiwgcmFuayA9IHBtaW4obnJvdywgbmNvbCkpIHtcbiAgTSA8LSBtYXRyaXgocnVuaWYobnJvdypuY29sKSwgbnJvdyA9IG5yb3csIG5jb2wgPSBuY29sKVxuICBpZiAocmFuayA+PSBucm93IHx8IHJhbmsgPj0gbmNvbCkge1xuICAgTVxuICB9IGVsc2Uge1xuICAgIGFwcHJveF9tYXQoUywgbj1zYW1wbGUocG1pbihyYW5rLCBucm93LCBuY29sKSkpXG4gIH1cbn1cblxuIyBHcmFiIHJhbmsgMSBtYXRyaXggZnJvbSBTVkRcbmFwcHJveF9tYXQgPC0gZnVuY3Rpb24oUywgbj0xLCBvcmRlciA9IDApIHsgIyBpbnB1dCBhIG1hdHJpeCBvciB0aGUgU1ZEIG9mIGEgbWF0cml4XG4gIFMgPC0gY2hlY2tfZm9yX3N2ZChTKVxuICBpZiAob3JkZXIgPiAwKSB7XG4gICAgaW5kczEgPC0gb3JkZXIoYyhTJHVbLG9yZGVyXSkpXG4gICAgaW5kczIgPC0gb3JkZXIoYyhTJHZbLG9yZGVyXSkpXG4gIH0gZWxzZSB7XG4gICAgaW5kczEgPC0gMTpucm93KFMkdSlcbiAgICBpbmRzMiA8LSAxOm5yb3coUyR2KVxuICB9XG4gIHBhcnRpYWwgPC0gMCAjIGluaXRpYWwgdmFsdWVcbiAgZm9yIChrIGluIG4pIHtcbiAgICBwYXJ0aWFsIDwtIHBhcnRpYWwgKyAgUyRkW2tdICogUyR1W2luZHMxLGssIGRyb3AgPSBGQUxTRV0gJSolIHQoUyR2W2luZHMyLGssIGRyb3AgPSBGQUxTRV0pXG4gIH1cblxuICBwYXJ0aWFsXG59XG5cbnByZXR0eV9tYXQgPC0gZnVuY3Rpb24oTSkge1xuICBpbmRzMSA8LSBvcmRlcihyb3dTdW1zKE0pKVxuICBpbmRzMiA8LSBvcmRlcihjb2xTdW1zKE0pKVxuICBNW2luZHMxLCBpbmRzMl1cbn1cblxuIycgR2VuZXJhdGUgYSBtYXRyaXggd2hvc2UgZWxlbWVudHMgYXJlIHNlbGVjdGVkIHJhbmRvbWx5IGZyb20gYSBzZXRcbiMnIG9mIHNwZWNpZmllZCB2YWx1ZXMuXG4jJyBAcGFyYW0gbnJvdyBudW1iZXIgb2Ygcm93cyBmb3IgdGhlIG1hdHJpeCBwcm9kdWNlZFxuIycgQHBhcmFtIG5jb2wgbnVtYmVyIG9mIGNvbHVtbnNcbiMnIEBwYXJhbSB2YWx1ZXMgdGhlIHNldCBmcm9tIHdoaWNoIHRvIGRyYXcgKHJhbmRvbWx5KSB0aGVcbiMnIHZhbHVlcyBpbiB0aGUgbWF0cml4LiBEZWZhdWx0OiBpbnRlZ2VycyAtOSB0byA5XG52YWx1ZXNfbWF0IDwtIGZ1bmN0aW9uKG5yb3c9NCwgbmNvbD0zLCB2YWx1ZXMgPSAtOTo5KSB7XG4gIG1hdHJpeChzYW1wbGUodmFsdWVzLCBzaXplID0gbnJvdyAqIG5jb2wsIHJlcGxhY2UgPSBUUlVFKSxcbiAgICAgICAgIG5yb3cgPSBucm93LCBuY29sPW5jb2wpXG59XG5cbiMgVHlwZXNldCBtYXRyaWNlcyBpbiBMYVRlWCAoZm9yIGFzc2lnbm1lbnRzIGFuZCBzdWNoKVxuTG1hdCA8LSBmdW5jdGlvbihuciwgbmMpIHtcbiAgdmFsdWVzX21hdChuciwgbmMpIHw+IGxhdGV4X2hlbHBlcigpXG59XG5sYXRleF9oZWxwZXIgPC0gZnVuY3Rpb24obWF0cikge1xuICBwcmludG1yb3cgPC0gZnVuY3Rpb24oeCkge1xuXG4gICAgY2F0KGNhdCh4LHNlcD1cIiAmIFwiKSxcIlxcXFxcXFxcIFxcblwiKVxuICB9XG5cbiAgY2F0KFwiXFxcXGxlZnQoXFxcXGJlZ2lue2FycmF5fXtyfVwiLFwiXFxuXCIpXG4gIGJvZHkgPC0gYXBwbHkobWF0ciwxLHByaW50bXJvdylcbiAgY2F0KFwiXFxcXGVuZHthcnJheX1cXFxccmlnaHQpXCIpXG59XG5cbiMgRm91cmllciB0cmFuc2Zvcm0gc3R1ZmZcbiMgc2lnZmZ0IHNob3dzIG9ubHkgdGhlIGxlZnQtaGFuZCBzaWRlIG9mIHRoZSBGRlRcbiMgaXNpZ2ZmdCByZXN0b3JlcyBpdCBieSBhZGRpbmcgYmFjayB0aGUgcmlnaHQtaGFuZCBzaWRlIHRoZW4gaW52ZXJzZSBGRlQuXG5cbmlmZnQgPC0gZnVuY3Rpb24oeCkgZmZ0KHgvbGVuZ3RoKHgpLCBpbnZlcnNlID0gVFJVRSlcblxuc2lnZmZ0IDwtIGZ1bmN0aW9uKHgpIHtcbiAgdG1wIDwtIGZmdCh4KVxuICBueXF1aXN0IDwtIHJvdW5kKChsZW5ndGgoeCkgKyAxLjEgLSAobGVuZ3RoKHgpICUlIDIpKS8yKVxuICB0bXBbMTpueXF1aXN0XVxufVxuaXNpZ2ZmdCA8LSBmdW5jdGlvbihMZmZ0eCkge1xuICB0bXAgPC0gaWYgKGxlbmd0aChMZmZ0eCkgJSUgMikge1xuICAgICMgb2RkIGxlbmd0aFxuICAgIGMoTGZmdHgsIENvbmoocmV2KExmZnR4W2MoLTEsIC1sZW5ndGgoTGZmdHgpKV0pKSlcblxuICB9IGVsc2Uge1xuICAgIGMoTGZmdHgsIENvbmoocmV2KExmZnR4Wy0xXSkpKVxuICB9XG4gIGlmZnQodG1wKSB8PiBSZSgpXG59XG5cbnNxdWFzaF9zbWFsbCA8LSBmdW5jdGlvbih4LCB0b2w9MWUtOSkge1xuICByMSA8LSBSZSh4KVxuICByMSA8LSBpZmVsc2UoYWJzKHIxKSA8IHRvbCwgMCwgcjEpXG4gIGMxIDwtIEltKHgpXG4gIGMxIDwtIGlmZWxzZShhYnMoYzEpIDwgdG9sLCAwLCBjMSlcbiAgIyByZXR1cm4gcmVhbCBwYXJ0IGlmIGFsbCBvZiBpbWFnaW5hcnkgcGFydCBpcyBzbWFsbFxuICBpZiAoYWxsKGMxID09IDApKSByMVxuICBlbHNlIHIxICsgMWkgKiBjMVxufVxuXG4jIFBsb3QgdGhlIGFtcGxpdHVkZSBzcGVjdHJ1bSB2ZXJzdXMgZnJlcXVlbmN5XG5zaWdfYW1wX3NwZWMgPC0gZnVuY3Rpb24oeCwgc2FtcGZyZXE9MTAwKSB7XG4gIFRtcCA8LSB0aWJibGU6OnRpYmJsZShcbiAgICBhbXAgPSBhYnMoc2lnZmZ0KHgpKSxcbiAgICBmcmVxdWVuY3kgPSBzZXEoMCwgc2FtcGZyZXEvMiwgbGVuZ3RoID0gbGVuZ3RoKGFtcCkpKVxuICBUbXAgfD5cbiAgICBnZl9zZWdtZW50KDAgKyBhbXAgfiBmcmVxdWVuY3kgKyBmcmVxdWVuY3ksIGFscGhhID0gMC4yKSB8PlxuICAgIGdmX3BvaW50KGFtcCB+IGZyZXF1ZW5jeSwgY29sb3IgPSBcImJsdWVcIiwgc2l6ZSA9IDAuNSlcbn0ifQ==
 </script>
 </div>
 </div>
 </div>
 </div>
-<section id="dimension-example" class="level4" data-number="41.1">
-<h4 data-number="41.1" class="anchored" data-anchor-id="dimension-example"><span class="header-section-number">41.1</span> Dimension example</h4>
-<div id="exr-differential-orbit" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> Early in Math 141Z we undertook to figure out how fast a satellite travels. As you recall, we measured the <span class="math inline">\(r\)</span>, the orbit height <em>from the center of the Earth</em>. Assuming a circular orbit (which is not necessarily a good assumption) the total path length of an orbit is <span class="math inline">\(2 \pi r\)</span>. We also assumed that the acceleration of the satellite due to gravity is 9.8 m/s^2 , the value on the Earth’s surface. (And a reasonably good approximation to the value at a height of, say, 100 mi above the surface.)</p>
-<p>Then we asked, how large is the centripetal acceleration needed to keep a satellite in orbit of radius <span class="math inline">\(r\)</span> at velocity <span class="math inline">\(v\)</span>. We used dimensional analysis to say that <span class="math inline">\(a = v^2/r\)</span>, a formula that is dimensionally consistent.</p>
-<dl>
-<dt>Part A</dt>
-<dd>
-Demonstrate that <span class="math inline">\(a = v^2/r\)</span> is dimensionally consistent.
-</dd>
-</dl>
-<script type="text/javascript">
-      //save entered info
-      document.addEventListener('DOMContentLoaded', function() {
-      console.log('Adding event listener for differential-orbit-A.');
-      const form = document.getElementById('differential-orbit-A');
-      form.addEventListener("input", function () {
-        var todo = document.getElementById('differential-orbit-A').value;
-        localStorage.setItem("differential-orbit-A-contents", todo);
-        console.log("Saving value of differential-orbit-A.")
-      }, false);
-
-      //on page load, read in the old value
-      const savedValue = localStorage.getItem("differential-orbit-A-contents");
-      if (savedValue) {
-        document.getElementById('differential-orbit-A').value = savedValue;
-      }
-})
-</script>
-<textarea id="differential-orbit-A" name="differential-orbit-A" class="devoirs-text" style="font-family: monospace, monospace;" rows="Answer for Part A" cols="50" placeholder="Type here. (ID differential-orbit-A)"></textarea>
-<dl>
-<dt>Part B</dt>
-<dd>
-Knowing that <span class="math inline">\(a \approx 9.8\)</span> m/s^2 , and specifying <span class="math inline">\(r = 4050mi\)</span> (that is, 100 mi above the surface of the Earth), we solved for <span class="math inline">\(v\)</span>: <span class="math display">\[v = \sqrt{a \times r} = \sqrt{9.8 \text{m}\, \text{s}^{-2} \times 4050 \text{mi}} = 191.5 \sqrt{\text{m}\cdot\text{mi}\strut}\ \text{s}^{-1}\]</span>
-</dd>
-</dl>
-<p>What is the numerical value of <span class="math inline">\(\sqrt{\text{m}\cdot\text{mi}\strut}\)</span> expressed in miles?</p>
-<div class="cell" data-show_hints="true">
-<span> <small style="color: grey;" id="differential-orbit-1-hintarea" class="hintarea">differential-orbit-1</small>
-<form id="differential-orbit-1-form">
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{160 ... = 40.12 m$" id="differential-orbit-1-1" w="87" name="differential-orbit-1" hint="You were asked for the value of $\sqrt{\text{m}\cdot\text{mi}\strut}$ in miles, not meters." show_hints="TRUE"> <span class="math inline">\(\sqrt{1609.34 \text{m}^2} = 40.12 m\)</span></p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{40. ... \text{mi}$" id="differential-orbit-1-2" w="23" name="differential-orbit-1" hint="But if you think about the area of 1 meter times 1 mile, it is much, much less than a square mile. The square root of a square mile is 1 mile. So the true answer must be much less than that." show_hints="TRUE"> <span class="math inline">\(\sqrt{40.12 \text{mi}^2} \approx 6.33 \text{mi}\)</span></p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{0.0 ... \text{mi}$" id="differential-orbit-1-3" w="16" name="differential-orbit-1" hint="right-o roughly 1/1600, which makes sense considering there are roughly 1600 m in a mile." show_hints="TRUE"> <span class="math inline">\(\sqrt{0.000621371 \text{mi}^2} \approx 0.025 \text{mi}\)</span></p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="It is craz ... m\strut}$." id="differential-orbit-1-4" w="23" name="differential-orbit-1" hint="Indeed, there is no such thing as $\sqrt{1 m\strut}$. But that is  irrelevant here because the contents of the square-root are a product of 1 m $\times$ 1 mile, which has dimension L^2 Taking the squareroot of a quantity with dimension L^2 gives a quantity with dimension L, a perfectly everyday affair." show_hints="TRUE"> It is crazy to take the square root of a length. There is no such thing as <span class="math inline">\(\sqrt{1 m\strut}\)</span>.</p>
-<p></p>
-<input type="radio" class="devoirs-mcq" name="differential-orbit-1" id="differential-orbit-1.null" style="display: none;" w="skipped" checked="">
-</form>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-      console.log('Adding event listener for differential-orbit-1.');
-      const form = document.getElementById('differential-orbit-1-form');
-      const radioButtons = form.querySelectorAll('input[type="radio"]');
-
-      // Load saved value on page load
-      const savedValue = localStorage.getItem('differential-orbit-1-choice');
-      if (savedValue) {
-        console.log("Restoring radio button values for differential-orbit-1.");
-        radioButtons.forEach(radio => {
-          if (radio.value === savedValue) {
-            radio.checked = true;
-          }
-        });
-      }
-
-      // Save value on change
-      form.addEventListener('change', function(event) {
-        if (event.target.type === 'radio') {
-          console.log("Saving changed value for differential-orbit-1.");
-          localStorage.setItem('differential-orbit-1-choice', event.target.value);
-        }
-      });
-    });
-</script>
-<p></p>
-</span></div>
-<dl>
-<dt>Part C</dt>
-<dd>
-Units aside, consider the formula <span class="math inline">\(a = v^2/r\)</span>. It is dimensionally consistent, but how do we know that acceleration isn’t twice or half or some other constant multiple of <span class="math inline">\(v^2/r\)</span>? Now that we have tools from calculus, we can address this issue straight on.
-</dd>
-</dl>
-<div id="fig-centripetal.png" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-centripetal.png-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="www/centripetal.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-centripetal.png-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The figure shows a diagram of the situation. There is a satellite in circular orbit. (Earth hasn’t been included in the diagram.) Annotating one point of the orbit is a vector, <span class="math inline">\({\mathbf v}_1\)</span>, which represents the velocity of the satellite at that point in the orbit. The velocity vector is tangent to the orbit itself; it is <em>instantaneous</em> velocity. One-hundred eighty degrees opposite <span class="math inline">\({\mathbf v}_1\)</span> is another velocity vector, <span class="math inline">\({\mathbf v}_3\)</span> that has the same length as <span class="math inline">\({\mathbf v}_1\)</span> but faces in exactly the opposite direction: <span class="math inline">\({\mathbf v}_3 = -{\mathbf v}_1\)</span>.
-</figcaption>
-</figure>
-</div>
-<p>The change in the velocity vector over half the orbital time is simple: <span class="math inline">\({\mathbf v}_3 - {\mathbf v}_1 = {\mathbf v}_3 + {\mathbf v}_3 = 2 {\mathbf v}_3\)</span>.</p>
-<p>Now calculus comes in: the change in velocity is the integral with respect to time of acceleration over the time to complete half an orbit. <span class="math display">\[\int_{t=\text{start}}^{t=\text{end}} {\mathbf a}\, dt = 2 {\mathbf v}_3\]</span><br>
-We can simplify by setting the “start” time to zero. The end time is how long it takes to complete half an orbit. This will be the distance covered divided by the speed. The half circumference of the orbit is <span class="math inline">\(\pi r\)</span>. The speed of the satellite is <span class="math inline">\(|v|\)</span>. So the end time is <span class="math inline">\(\pi r/ v\)</span>.</p>
-<p>Now we will take a false step. (You may not see it as such yet, but heads up!) The acceleration is constant: the satellite is always a constant distance from the center of the Earth. That is the nature of circular orbits. So the integral is simple:</p>
-<p><span class="math display">\[\int_{t=\text{start}}^{t=\text{end}} {\mathbf a}\, dt = \int_{t=0}^{t=\pi r /v} a\, dt = a \int_{t=0}^{t=\pi r /v} dt = a \pi r/v = 2v .\]</span> The rightmost equals relationship comes from our previous analysis of the change in velocity in half an orbit. Solving <span class="math inline">\(a \pi r/v = 2 v\)</span> we get <span class="math display">\[a = \frac{2}{\pi} \frac{v^2}{r} \neq \frac{v^2}{r}\]</span> This half-an-orbit analysis gives a different answer for the relationship between acceleration and velocity than we used in the earlier calculation. At least one of them is wrong.</p>
-<p>Where is the flaw in reasoning? First, although the magnitude of the acceleration is constant, the acceleration is a vector which is certainly not constant as the satellite moves through the orbit. And, being a vector, we need to keep track of the changing components of the vector. Referring to the diagram, only the “horizontal” component of the acceleration contributes to the change in velocity from point 1 to point 3, because that change is entirely horizontal.</p>
-<p>Look at an intermediate point between 1 and 3. The vector <span class="math inline">\({\mathbf v}_2\)</span> is shown at an angle <span class="math inline">\(\theta\)</span> from the <span class="math inline">\({\mathbf v}_1\)</span>. At point 2, the acceleration vector is directed (as always) toward the center of the orbit. The horizontal component of the acceleration vector is <span class="math inline">\(a \sin(\theta)\)</span>, as you can see from the trigonometry of the situation. The previous integral should have been written in terms of the horizontal component of the acceleration:</p>
-<p><span class="math display">\[\int_{t=0}^{t=\pi r/v} |{\mathbf a}|\,\sin(\theta)\, dt \]</span> Keep in mind that <span class="math inline">\(\theta\)</span> is a function of <span class="math inline">\(t\)</span>. The relationship is <span class="math display">\[\theta = v t / r \ \ \implies\ \ \ d\theta = \frac{v}{r}dt\]</span><br>
-We’ve written the differential of the relationship because we will substitute for <span class="math inline">\(t\)</span> and <span class="math inline">\(dt\)</span> to translate the integral to be solely in terms of <span class="math inline">\(\theta\)</span>: <span class="math display">\[\int_{\theta=0}^{\theta = \pi} |{\mathbf a}| \sin(\theta)\frac{r}{v}\, d \theta = |{\mathbf a}| \frac{r}{v} \int_{\theta=0}^{\theta = \pi} \sin(\theta)\, d \theta\]</span> The integral involves one of the basic modeling functions, so you have already memorized the answer.</p>
-<ol type="i">
-<li>What is <span class="math display">\[\int_{\theta=0}^{\theta = \pi} \sin(\theta)\, d \theta \ \text{?}\]</span></li>
-</ol>
-<div class="cell" data-show_hints="true">
-<span> <small style="color: grey;" id="differential-orbit-2-hintarea" class="hintarea">differential-orbit-2</small>
-<form id="differential-orbit-2-form">
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="0 " id="differential-orbit-2-1" w="87" name="differential-orbit-2" hint="This is wide of the mark." show_hints="TRUE"> 0</p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="2" id="differential-orbit-2-2" w="20" name="differential-orbit-2" hint="Score!" show_hints="TRUE"> 2</p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$-\cos(\theta)$" id="differential-orbit-2-3" w="23" name="differential-orbit-2" hint="$-\cos(\theta)$ is the anti-derivative of $\sin(\theta)$, but we are asking for the value of a definite integral, so the answer you give should be a number." show_hints="TRUE"> <span class="math inline">\(-\cos(\theta)\)</span></p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$- \pi \co ... s(\theta)$" id="differential-orbit-2-4" w="87" name="differential-orbit-2" hint="What's the $\pi$ doing there?" show_hints="TRUE"> <span class="math inline">\(- \pi \cos(\theta)\)</span></p>
-<p></p>
-<input type="radio" class="devoirs-mcq" name="differential-orbit-2" id="differential-orbit-2.null" style="display: none;" w="skipped" checked="">
-</form>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-      console.log('Adding event listener for differential-orbit-2.');
-      const form = document.getElementById('differential-orbit-2-form');
-      const radioButtons = form.querySelectorAll('input[type="radio"]');
-
-      // Load saved value on page load
-      const savedValue = localStorage.getItem('differential-orbit-2-choice');
-      if (savedValue) {
-        console.log("Restoring radio button values for differential-orbit-2.");
-        radioButtons.forEach(radio => {
-          if (radio.value === savedValue) {
-            radio.checked = true;
-          }
-        });
-      }
-
-      // Save value on change
-      form.addEventListener('change', function(event) {
-        if (event.target.type === 'radio') {
-          console.log("Saving changed value for differential-orbit-2.");
-          localStorage.setItem('differential-orbit-2-choice', event.target.value);
-        }
-      });
-    });
-</script>
-<p></p>
-</span></div>
-<ol start="2" type="i">
-<li>Set <span class="math display">\[|{\mathbf a}| \frac{r}{v}\int_{\theta=0}^{\theta = \pi} \sin(\theta)\, d \theta = 2 v\]</span> and solve for <span class="math inline">\(a\)</span>. Which one of these is it?</li>
-</ol>
-<div class="cell" data-show_hints="true">
-<span> <small style="color: grey;" id="differential-orbit-3-hintarea" class="hintarea">differential-orbit-3</small>
-<form id="differential-orbit-3-form">
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$a = 2 \fr ... {v^2}{r}$ " id="differential-orbit-3-1" w="87" name="differential-orbit-3" hint="You're wrong here." show_hints="TRUE"> <span class="math inline">\(a = 2 \frac{v^2}{r}\)</span></p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$a = \frac{v^2}{r}$" id="differential-orbit-3-2" w="5" name="differential-orbit-3" hint="You're right!" show_hints="TRUE"> <span class="math inline">\(a = \frac{v^2}{r}\)</span></p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$a = 4 \fr ... {v^2}{r}$ " id="differential-orbit-3-3" w="87" name="differential-orbit-3" hint="Oops!" show_hints="TRUE"> <span class="math inline">\(a = 4 \frac{v^2}{r}\)</span></p>
-<p></p>
-<p>
-</p><p><input type="radio" class="devoirs-mcq" value="$a = \frac ... {v^2}{r}$ " id="differential-orbit-3-4" w="23" name="differential-orbit-3" hint="Incorrect." show_hints="TRUE"> <span class="math inline">\(a = \frac{2}{\pi} \frac{v^2}{r}\)</span></p>
-<p></p>
-<input type="radio" class="devoirs-mcq" name="differential-orbit-3" id="differential-orbit-3.null" style="display: none;" w="skipped" checked="">
-</form>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-      console.log('Adding event listener for differential-orbit-3.');
-      const form = document.getElementById('differential-orbit-3-form');
-      const radioButtons = form.querySelectorAll('input[type="radio"]');
-
-      // Load saved value on page load
-      const savedValue = localStorage.getItem('differential-orbit-3-choice');
-      if (savedValue) {
-        console.log("Restoring radio button values for differential-orbit-3.");
-        radioButtons.forEach(radio => {
-          if (radio.value === savedValue) {
-            radio.checked = true;
-          }
-        });
-      }
-
-      // Save value on change
-      form.addEventListener('change', function(event) {
-        if (event.target.type === 'radio') {
-          console.log("Saving changed value for differential-orbit-3.");
-          localStorage.setItem('differential-orbit-3-choice', event.target.value);
-        }
-      });
-    });
-</script>
-<p></p>
-</span></div>
-</div>
-</section>
-<section id="class-notes" class="level3" data-number="42">
-<h3 data-number="42" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">42</span> 2025-04-25 class notes</h3>
+<section id="class-notes" class="level3" data-number="58">
+<h3 data-number="58" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">58</span> 2025-06-10 class notes</h3>
 <div>
 <div id="webr-2" class="exercise-cell">
 

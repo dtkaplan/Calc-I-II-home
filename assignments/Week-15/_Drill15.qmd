@@ -1,0 +1,30 @@
+`r push_answer_style("block")`
+
+::: {.panel-tabset}
+## D1
+
+{{< include ../../../../MC-Workbook/Block_4/calf-know-painting.qmd >}}
+
+## D2
+
+{{< include ../../../../MC-Workbook/Block_4/three-perspectives.qmd >}}
+
+## D3
+
+{{< include ../../../../MC-Workbook/Block_4/u-on-the-bottom.qmd >}}
+
+## D4
+
+{{< include ../../../../MC-Workbook/Block_4/ape-lie-coat.qmd >}}
+
+## D5
+
+{{< include ../../../../MC-Workbook/Block_4/buck-forgive-canoe.qmd >}}
+
+## D6
+
+{{< include _exercises/rabbit-sell-plate.qmd >}}
+
+
+`r pop_answer_style()`
+:::

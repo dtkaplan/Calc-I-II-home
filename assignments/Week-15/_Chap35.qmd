@@ -1,0 +1,40 @@
+::: {.panel-tabset}
+## Exer 15.1
+
+{{< include ../../../../MC-Workbook/Block_4/first-fundamental-theorem.qmd >}}
+
+## Exer 15.2
+
+{{< include ../../../../MC-Workbook/Block_4/fundamental-theorem-integral.qmd >}}
+
+## Exer 15.3
+
+{{< include ../../../../MC-Workbook/Block_4/heat-engine.qmd >}}
+
+## Exer 15.4
+
+{{< include ../../../../MC-Workbook/Block_4/wind-power.qmd >}}
+
+## Exer 15.5
+
+{{< include ../../../../MC-Workbook/Block_4/panda-tear-cotton.qmd >}}
+
+## Exer 15.6
+
+{{< include ../../../../MC-Workbook/Block_4/ups-and-downs.qmd >}}
+
+## Exer 15.7
+
+{{< include ../../../../MC-Workbook/Block_4/seaweed-bend-socks.qmd >}}
+
+
+
+## Exer 15.7
+
+::: {#exr-tent-area}
+{{< include ../../../../MC-Workbook/Block_4/tent-area.qmd >}}
+:::
+
+<!-- end of Chap 35 tabset -->
+:::
+<!-- end of panel-tabset -->

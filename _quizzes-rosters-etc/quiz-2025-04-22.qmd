@@ -30,7 +30,7 @@ source("../_software/software.R")
 
 [**Question 7.1**]{.underline}: 
 
-Refer to @fig-7-1. Write down the coefficients that solve for $\vec{\mathbf b}$ in terms of $\vec{\mathbf a}$ and $\vec{\mathbf c}$. 
+Refer to @fig-7-1. Write down the coefficients that solve for $\vec{b}$ in terms of $\vec{a}$ and $\vec{c}$. 
 
 ::: {#fig-7-1}
 ```{r echo=FALSE}
@@ -47,15 +47,15 @@ solve_graph(seed = 9799, integers = TRUE)
 
 [**Question 7.2**]{.underline}: 
 
-Using dot products (by hand), compute numerically the projection of $\vec{\mathbf b}$ onto $\vec{\mathbf a}$ and write down numerically the two vectors that result.
+Using dot products (by hand), compute numerically the projection of $\vec{b}$ onto $\vec{a}$ and the residual from that projection. Write down numerically the two vectors that you found.
 
-$$\vec{\mathbf a} \equiv \left(\begin{array}{c} 
+$$\vec{a} \equiv \left(\begin{array}{c} 
 -4 \\ 
 1 \\ 
 3 \\ 
 7 \\ 
 5 \\ 
-\end{array}\right) \ \ \ \ \text{and}\ \ \ \ \vec{\mathbf b}\equiv \left(\begin{array}{r} 
+\end{array}\right) \ \ \ \ \text{and}\ \ \ \ \vec{b}\equiv \left(\begin{array}{r} 
 2 \\ 
 1 \\ 
 0 \\ 
@@ -79,14 +79,11 @@ $$\vec{\mathbf a} \equiv \left(\begin{array}{c}
 
 Referring to @fig-7-1, and rounding off the vector positions to integer values, 
 
-i. draw the projection of $\vec{\mathbf b}$ onto $\vec{\mathbf c}$. 
+i. draw the projection of $\vec{b}$ onto $\vec{c}$. 
 ii. Using dot products, find the cosine of the angle between the two vectors. 
 iii. Estimate the R^2^ of the projection.
 
 
- 
-
- 
 
  
 
@@ -94,16 +91,16 @@ iii. Estimate the R^2^ of the projection.
 
 [**Question 7.4**]{.underline}: 
 
-Consider this matrix ${\mathbf M}$ and vector ${\mathbf b}$ and the task of solving ${\mathbf M}\ \vec{\mathbf x} \ = \ \vec{\mathbf b}$
+Consider this matrix ${M}$ and vector ${b}$ and the task of solving ${M}\ \vec{x} \ = \ \vec{b}$
 
  
 
 
-$${\mathbf M} \equiv \left(\begin{array}{rrrr}
+$${M} \equiv \left(\begin{array}{rrrr}
 1 & & 3 & & 4 & & -6 \\ 
 4 & & -4 & & 0 & & 8 \\ 
 8 & & 0 & & 8 & & 0 \\ 
-\end{array}\right)\ \ \ \ \text{and}\ \ \ \ \vec{\mathbf b}\ \equiv\ \left(\begin{array}{r} 
+\end{array}\right)\ \ \ \ \text{and}\ \ \ \ \vec{b}\ \equiv\ \left(\begin{array}{r} 
 -5 \\ 
 -2 \\ 
 1 \\ 
@@ -113,23 +110,27 @@ $${\mathbf M} \equiv \left(\begin{array}{rrrr}
 
 
 
-i. After defining `M` and `b` in R, I tried `qr.solve(M, b)`. The result was an error message, [Error in qr.solve(M, b) : singular matrix 'a' in solve`]{style = "color: blue;"}. Explain what went wrong.
+i. After defining `M` and `b` in R, I tried `qr.solve(M, b)`. The result was an error message, 
+
+> Error in qr.solve(M, b) : singular matrix 'a' in solve. 
+
+Explain what went wrong.
 
  
 
-ii. You could fix the problem by crossing out two of the vectors in ${\mathbf M}$. Figure out two that will do the job and X-them out.
+ii. You could fix the problem by crossing out two of the vectors in ${M}$. Figure out two that will do the job and X-them out.
 
  
 
-iii. The result of the deletion in (ii) means that there will be a non-zero residual. Pencil in a new (third) vector for $\mathbf M$ that would permit *zero residual*. (Hint: don't overthink it!)
+iii. The result of the deletion in (ii) means that there will be a non-zero residual. Pencil in a new (third) vector for $M$ that would permit *zero residual*. (Hint: don't overthink it!)
 
 [**Note**: Flip the sheet for another question.]
 
 [**Question 7.5**]{.underline}: 
 
-Construct a matrix $\mathbf Q$ with mutually orthogonal vectors that spans the same space as the given $\mathbf M$. (The vectors do not need to be unit length. Let them be whatever length is easier for you.)
+Construct a matrix $Q$ with mutually orthogonal vectors that spans the same space as the given $M$. (The vectors do not need to be unit length. Let them be whatever length is easier for you.)
 
-$${\mathbf M}\ \equiv \ \left(\begin{array}{r} 
+$${M}\ \equiv \ \left(\begin{array}{r} 
 \vec{x} & & \vec{y} & & \vec{z}\\
 8 & & 1 & & 1 \\ 
 4 & & 0 & & -2 \\ 
@@ -137,7 +138,7 @@ $${\mathbf M}\ \equiv \ \left(\begin{array}{r}
 1 & & -8 & & 1 \\ 
 \end{array}\right)$$
 
-For the sake of convenience, you can refer to the columns of ${\mathbf M}$ by the names $\vec{x}, \vec{y}$ and $\vec{z}$ respectively. (Hint: It might be easier than you are thinking.)
+For the sake of convenience, you can refer to the columns of ${M}$ by the names $\vec{x}, \vec{y}$ and $\vec{z}$ respectively. (Hint: It might be easier than you are thinking.)
 
 
 

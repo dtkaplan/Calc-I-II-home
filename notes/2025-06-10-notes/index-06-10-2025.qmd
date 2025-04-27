@@ -1,7 +1,7 @@
 ---
 author: DTK
 date: 2025-04-25
-number-offset: 41
+number-offset: 57
 format: live-html
 webr:
   channel-type: 'automatic'
@@ -27,11 +27,9 @@ source("../../_software/software.R")
 ```
 :::
 
-## Dimension example
 
-{{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}
 
-# 2025-04-25 class notes
+# 2025-06-10 class notes
 
 ```{webr-r}
 #| caption: User console A

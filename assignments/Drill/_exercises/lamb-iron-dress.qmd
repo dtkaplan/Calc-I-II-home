@@ -1,0 +1,27 @@
+---
+id: "lamb-iron-dress"
+created: "Wed Apr 23 13:20:55 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-lamb-iron-dress}
+Refer to @fig-lad-dkss. Write down the coefficients that solve for $\vec{b}$ in terms of $\vec{a}$ and $\vec{c}$. 
+
+::: {#fig-lad-dkss}
+```{r echo=FALSE}
+#| warning: false 
+#| out.width: 500
+solve_graph(seed = 9799, integers = TRUE)
+```
+
+:::
+
+
+:::
+ <!-- end of exr-lamb-iron-dress -->

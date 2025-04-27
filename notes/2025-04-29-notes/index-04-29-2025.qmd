@@ -24,6 +24,17 @@ source("../../_software/software.R")
 
 # 2025-04-29 class notes
 
+## Dimension example
+
+There are typos
+
+{{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}
+
+
+
+
+
+
 ```{webr-r}
 #| caption: User console A
 #| persist: true
