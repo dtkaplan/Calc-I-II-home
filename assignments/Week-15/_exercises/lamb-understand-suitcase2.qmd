@@ -1,0 +1,35 @@
+---
+id: "lamb-understand-suitcase2"
+created: "Sun Apr 27 17:41:35 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-lamb-understand-suitcase2}
+Draw $G(x) \equiv \int g(x) dx$
+```{r}
+#| echo: false
+g <- function(x) as.numeric(2*((x-2) < 0) - 1)
+P <- drawFpair(g, bottom = -1)
+P$P1
+P$P2
+```
+
+<!-- Opening answer: lus-4dN -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+```{r}
+#| echo: false
+drawFpair(g, alpha = 1)$P2
+```
+
+[..id..]{data-tooltip="Ans id: lus-4dN2"}
+:::
+<!-- closing answer lus-4dN -->
+:::
+ <!-- end of exr-lamb-understand-suitcase -->

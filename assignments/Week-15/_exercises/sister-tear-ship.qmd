@@ -1,0 +1,35 @@
+---
+id: "sister-tear-ship"
+created: "Sun Apr 27 19:02:20 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-sister-tear-ship}
+Make many like this:
+
+- Simplify $\int_{-t}^{t}1\ dx$
+
+- $\int_a^b 1 dx
+
+- $\int_0^x 3 t^2\ dt$
+
+- $\int_a^b f(x)\ dx + \int_b^a f(y)\ dy$
+
+- $\int_1^x \frac{1}{t}\ dt$
+
+- $\int_0^{t^2} \omega \cos(\omega t)\ dt$ -> $\sin(\omega t^2)$
+
+- $\partial_x \int dnorm(x)\ dx$ is dnorm(x)
+
+- $\partial_t \int pnorm(x)\ dx$ is 0
+
+- $\int e^{a + bt}\ dt$
+
+:::
+ <!-- end of exr-sister-tear-ship -->)

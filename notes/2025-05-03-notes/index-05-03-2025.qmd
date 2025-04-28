@@ -27,6 +27,11 @@ source("../../_software/software.R")
 ```
 :::
 
+
+## Splines and interpolating functions
+
+giraffe-dig-radio
+
 ## Dimension example
 
 

@@ -32,6 +32,27 @@ devoirs::answer_style("none")
 
 {{< include ../../../../MC-Workbook/Block_4/pony-stand-bottle.qmd >}}
 
+::: {.callout-note collapse=true}
+## Chapter 48
+
+{{{< include _Chap48.qmd >}}}
+
+:::
+
+
+
+## Splines
+
+Find the shape of the solar power curve for a given week in the year. Do this 
+for several weeks during the year. Combination of wrangling to pull out the weeks (across all years) then finding the max at each timestamp, then splining through this to find the cloudiness.
+
+DRAFT
+
+for a possible solar power problem 
+For instance, if I had a function ('solarpanelpower') that calculates the amount of power a solar panel generates and another function ('sunlight') that tells me the amount of sunlight at time of the day ('TOD'). I could evaluate this in one step like the following: 'solarpanelpower(sunlight(TOD))'. This would give me the amount of power from the solar panel based upon the time of the day.
+:::
+
+
 ::: {.panel-tabset}
 ## Exer 16.1
 

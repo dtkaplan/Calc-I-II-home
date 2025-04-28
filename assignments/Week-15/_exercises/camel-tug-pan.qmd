@@ -1,0 +1,102 @@
+---
+id: "camel-tug-pan"
+created: "Sun Apr 27 10:22:49 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-camel-tug-pan}
+## Why $n-1$ in the variance
+
+In statistics, the variance of a column of numbers $x$ is the mean of the "deviations" of the individual $x_i$ from the overall mean $\bar{x}$. Like this:
+
+$$ \text{var}(x) \equiv \sum_{i=1}^n \frac{1}{n-1} (x_i - \bar{x})^2$${#eq-variance}
+Generations of students have been mystified by the $n-1$ in @eq-variance. One way to describe the reasoning is that subtracting the mean from a vector with $n$ elements results in a vector that lives in an $n-1$-dimensional subspace.
+
+Let's explore this.
+
+Create a random vector `v` as in the R chunk:
+
+```{webr-r}
+#| caption: Scratch chunk A
+v <- rand_mat(4, 1)
+v
+```
+
+You could subtrace the mean using standard R operations, for instance `v - mean(v)`. Do that in the above chunk and verify that the result indeed has a mean of zero. (Remember, computer round-off error might result in a value like 10^-15^ which can safely be treated as zero.)
+
+We're going to switch to a convenience function from the `{mosaicCalc}` package: `M_map()`. This takes a matrix or vector (a vector is a one-column matrix), and applies a function to each column of the matrix, returning the result as a matrix. The `center` function subtracts the mean of a vector from the vector itself. Likewise, `unit` calculates the unit-length vector while `centerunit` subtracts the mean and normalizes to zero length.
+
+For example:
+
+```{webr-r}
+#| caption: Scratch chunk B
+M <- cbind(vec(5,6,7), vec(9,8,6), vec(2, 4, 6))
+M_map(M, center)
+```
+
+Part 1.
+: Make a random matrix `M` that has four rows and four or more columns. For instance `M <- values_mat(4, 6)` or `M <- rand_mat(4,7)`. Naturally, each vector inhabits a four-dimensional space. Since `M` contains more than four vectors, it's highly likely that the random vectors in it will space all four dimensions. To make sure, we can look at the diagonal entries on the R matrix that results from QR decomposition. The statement `diag(qr.R(qr(M)))` will show you the diagonal elements.
+
+a. How many non-zero diagonal elements are there in the R matrix?
+
+```{mcq}
+#| label: diag-R-1a
+#| inline: true
+1. none
+2. 3
+3. 4 [correct]
+4. same as the number of columns in M
+```
+
+b. Find the diagonal entries of R for a submatrix of `M` with just three columns. (You can use indexing to pull out the columns you want, e.g. `M[ , c(2,4,3)]`.) 
+How many non-zero diagonal elements are in the R matrix from the 3-column submatrix you made.
+
+```{mcq}
+#| label: diag-R-1b
+#| inline: true
+1. none
+2. 3 [correct]
+3. 4
+4. same as the number of columns in M
+```
+
+c. Create a new matrix `uM` that contains the same vectors as the original `M` but normalized to zero length. How many non-zero diagonal elements of R are there? 
+
+```{mcq}
+#| label: diag-R-1c
+#| inline: true
+1. none
+2. 3
+2. 4 [correct]
+4. same as the number of columns in M
+```
+
+Part 2.
+: Create a new matrix `cM` from your original M matrix that has each vector "centered," that is, each vector has zero mean. Then find the number of non-zero elements on the diagonal of the R matrix constructed from `cM`. How many are there?
+
+```{mcq}
+#| label: diag-R-2
+#| inline: true
+1. none
+2. 3 [correct]
+2. 4 
+4. same as the number of columns in M
+```
+
+Part 3.
+: Here's a brief explanation. In a "centered" matrix, that is, a matrix whose columns all have zero mean, any linear combination of the columns will likewise have zero mean. But not all vectors in the space spanned by non-centered M will have zero mean; the centering restricts the linear combinations to a sub-space that doesn't include any vectors with non-zero mean.
+
+Another way to look at this: in every centered vector each of the elements can be calculated from the other elements. It's like there is a redundant element. Briefly explain how to calculate any element of a centered vector from the rest of the elements. 
+
+`r devoirs_text("centered-element")`
+
+
+
+:::
+ <!-- end of exr-camel-tug-pan -->)

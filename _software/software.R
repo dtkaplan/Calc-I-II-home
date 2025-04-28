@@ -117,6 +117,38 @@ vec_mm <- function(...)  {
   v <- vec(...)
   v - mean(v, na.rm = TRUE)
 }
+
+# arbitrary vec->vec or vec->scalar function applied to each column of a vector
+M_map <- function(M, f = "center") {
+  choices <- c("center", "unit",
+               "unitcenter", "mean", "var", "vlen")
+
+  str <- as.character(substitute(f))
+  if (str[1] %in% choices) {
+    f <- switch (str[1],
+                 center = \(x) (x - mean(x, na.rm = TRUE)),
+                 unit = \(x) x / sqrt(sum(x^2)),
+                 mean = \(x) mean(x, na.rm = TRUE),
+                 var = \(x) var(x, na.rm = TRUE),
+                 len = \(x) sqrt(sum(x*x)),
+                 len2 = \(x) sum(x*x),
+                 unitcenter = function(x) {
+                   v <- x - mean(x, na.rm = TRUE)
+                   v / sqrt(sum(v^2))
+                 }
+    )
+  }
+  if (!is.function(f)) stop("Not a recognized function.")
+  first <- f(M[,1])
+  res <- matrix(0, length(first), ncol(M))
+  for (k in 1:ncol(M)) {
+    res[, k] <- f(M[,k])
+  }
+  res
+}
+
+
+
 set_col_names <- function(v, nms) {
   colnames(v) <- nms
   v
@@ -251,3 +283,28 @@ sig_amp_spec <- function(x, sampfreq=100) {
     gf_segment(0 + amp ~ frequency + frequency, alpha = 0.2) |>
     gf_point(amp ~ frequency, color = "blue", size = 0.5)
 }
+
+# Plotting a function with room for drawing the anti-deriv
+drawFpair <- function(f, dom = domain(x = 0:4), bottom = -0.5, alpha=0) {
+  # alpha = 0 for problem
+  # alpha = 1 for answer
+  fname <- as.character(substitute(f))
+  vname <- names(dom)
+  tilde <- glue::glue("{fname}({vname}) ~ {vname}")
+  label <- glue::glue("{fname}({vname})")
+  Ftilde <- glue::glue("{toupper(fname)}({vname}) ~ {vname}")
+  labelF <- glue::glue("{toupper(fname)}({vname})")
+  P1 <- slice_plot(as.formula(tilde), dom, npts = 1000) |>
+    gf_labs(y = label, x = "") |>
+    gf_lims(y = c(bottom, NA)) |>
+    gf_hline(yintercept = 0, color = "blue", linetype = "dashed") |>
+    gf_theme(theme_minimal(base_size = 22))
+  assign(toupper(fname), antiD(as.formula(tilde)))
+  P2 <- slice_plot(as.formula(Ftilde), dom, alpha = alpha) |>
+    gf_labs(y = labelF, x = vname) |>
+    gf_hline(yintercept = 0, color = "blue", linetype = "dashed") |>
+    gf_theme(theme_minimal(base_size = 22))
+  list(P1 = P1, P2 = P2)
+}
+
+

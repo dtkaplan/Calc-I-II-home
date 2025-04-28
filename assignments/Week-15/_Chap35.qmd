@@ -27,13 +27,14 @@
 
 {{< include ../../../../MC-Workbook/Block_4/seaweed-bend-socks.qmd >}}
 
+## Exer 15.8
 
+{{< include ../../../../MC-Workbook/Block_4/buck-forgive-canoe.qmd >}}
 
-## Exer 15.7
+## Exer 15.9
 
-::: {#exr-tent-area}
 {{< include ../../../../MC-Workbook/Block_4/tent-area.qmd >}}
-:::
+
 
 <!-- end of Chap 35 tabset -->
 :::

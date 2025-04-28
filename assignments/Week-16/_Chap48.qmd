@@ -1,0 +1,20 @@
+::: {.panel-tabset}
+
+## Exer 48.1
+{{< include ../../../../MC-Workbook/Block_6/ant-lend-scarf.qmd >}}
+
+## Exer 48.2
+{{< include ../../../../MC-Workbook/Block_6/frog-spend-plate3.qmd >}}
+
+## Exer 48.3
+{{< include ../../../../MC-Workbook/Block_6/frog-spend-plate.qmd >}}
+
+## Exer 48.4
+{{< include ../../../../MC-Workbook/Block_6/frog-spend-plate2.qmd >}}
+
+## Exer 48.5
+{{< include ../../../../MC-Workbook/Block_6/reptile-stand-jacket.qmd >}}
+
+
+:::
+

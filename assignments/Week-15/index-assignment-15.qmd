@@ -23,43 +23,37 @@ devoirs::answer_style("none")
 {{< include ../../_software/software.R >}}
 ```
 
+
 ::: {.callout-note collapse=true}
 ## Drill
 {{< include _Drill15.qmd >}}
 :::
 
-::: {.callout-note collapse=true}
-## Chapter 35
-{{< include _Chap35.qmd >}}
-:::
-
-
-::: {.callout-note collapse="true"}
-## Activities
-
-::: {#exr-horse-drive-futon}
-{{< include ../../../../MC-Workbook/Block_4/horse-drive-futon.qmd >}}
-:::
-
-:::
-
 
 ::: {.callout-note collapse=true}
-## Chap 36
+## Return to linear algebra
 
-DRAFT
+::: {.panel-tabset}
+## Exer A
+{{{< include _exercises/camel-tug-pan.qmd >}}}
 
-for a possible solar power problem 
-For instance, if I had a function ('solarpanelpower') that calculates the amount of power a solar panel generates and another function ('sunlight') that tells me the amount of sunlight at time of the day ('TOD'). I could evaluate this in one step like the following: 'solarpanelpower(sunlight(TOD))'. This would give me the amount of power from the solar panel based upon the time of the day.
+
 :::
+
+:::
+<!-- end of linear algebra callout -->
 
 
 ::: {.callout-note collapse=true}
-## Chapter 48
-
-{{< include _Chap48.qmd >}}
-
+## Chapter 35
+{{{< include _Chap35.qmd >}}}
 :::
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,36 @@
+---
+id: "lamb-understand-suitcase8"
+created: "Sun Apr 27 17:41:35 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-lamb-understand-suitcase8}
+Draw $g(t) \equiv \int g(t) dt$
+```{r}
+#| echo: false
+g <- function(x) exp(x*2) - 1
+fdomain <- domain(t = -2:1)
+P <- drawFpair(g, bottom = -1, dom = fdomain)
+P$P1
+P$P2
+```
+
+<!-- Opening answer: lus-4dN37 -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+```{r}
+#| echo: false
+drawFpair(g, dom = fdomain, alpha = 1)$P2
+```
+
+[..id..]{data-tooltip="Ans id: lus-4dN7"}
+:::
+<!-- closing answer lus-4dN4 -->
+:::
+ <!-- end of exr-lamb-understand-suitcase4 -->
