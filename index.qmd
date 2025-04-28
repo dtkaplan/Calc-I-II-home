@@ -3,18 +3,21 @@ title: "UATX/MOSAIC Calculus"
 subtitle: "Prof. Daniel Kaplan"
 ---
 
+[Homework submission link](https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog target="_blank")
 
 
-------
+::: {.callout-note collapse=true}
+## What is MOSAIC Calculus
 
 This is the home page for both terms of the two-term UATX/MOSAIC Calculus sequence. The course has no specific pre-requisites and is suited both to those who have no previous experience with Calculus and those who have taken an AP or IB year-long calculus sequence. The MOSAIC Calculus sequence is designed to replace the entire multi-term traditional sequence---Calc I, II, III, differential equations, linear algebra---for STEM students and is highly relevant to economics, biology and medicine, data science, public policy, physics, and chemistry. Proof and other aspects of "pure" (theoretical) mathematics are introduced only where necessary and appropriate.
+:::
+
 
 Please read the [**Basics**](basics.html) page for course policies and such. 
 
-------
 
-[Homework submission link](https://docs.google.com/forms/d/e/1FAIpQLSdvTVopfAxoEUcmXzi7CH6YoTpUzEwy2B3mtLmrgWptfIckVA/viewform?usp=dialog target="_blank")
 
+::: {.callout-note collapse=true}
 ## Two-term course outline
 
 * First term (10 weeks, winter term)
@@ -29,13 +32,14 @@ Please read the [**Basics**](basics.html) page for course policies and such.
     5. [Accumulation](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/accumulation-part.html) (approx 3 weeks). Taking information about change of state and turning it into information about state.
     6. [Dynamics](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/dynamics-part.html) (approx 3 weeks). Modeling state as it evolves in time.
     
-
+:::
 
 
 
 ## Day-by-day schedule
 
-#### Week 1 {.unnumbered}
+::: {.callout-note collapse=true}
+## Week 1 
 
 Tuesday April 1
 : Topics:     
@@ -54,9 +58,10 @@ Friday April 4
 : Topic: Linear combinations of vectors    
 : Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html)     
 
+:::
 
-
-### Week 2  {.unnumbered}
+::: {.callout-note collapse=true}
+## Week 2 
 
 Tuesday April 8
 : Topic: Projection and residual    
@@ -72,9 +77,10 @@ Friday April 11
 : Reading: *MOSAIC Calculus* [Chap 31](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/31-target-problem.html)
 : Start: [Week 2 modeling day assignment](assignments/Week-12-project/index-labor-capital.html)    
 
+:::
 
-## Week 3  {.unnumbered}
-
+::: {.callout-note collapse=true}
+## Week 3 
 
 Tuesday April 15
 : Reading: *MOSAIC Calculus* [Chap 32](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/32-stat-modeling.html)    
@@ -86,24 +92,31 @@ Thursday April 17
 Friday April 18
 : Topic: TBA     
 : Due: A good time to catch up on the assignments for Weeks 11, 12, and 13 and to hand in your answers by Monday.
+:::
 
-## Week 4  {.unnumbered}
+::: {.callout-note collapse=true}
+## Week 4 
 
 Tuesday April 22    
 : Topic Accumulating change
 : Reading [*MOSAIC Calculus* Chap 33](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/33-intro.html)
 
 Thursday April 24    
-: Modeling Day
+: Modeling Day: Mortality and life expectancy. We'll need to construct a function from data, thus the quick reading of Chap 48
+: Quick reading [*MOSAIC Calculus* Chap 48](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/48-splines.html). We will return to this after break
 
 Friday April 25    
 : Topic Adding lots of little bits
 : Reading [*MOSAIC Calculus* Chap 34](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/34-visualizing.html)
 
+:::
+
 ## Week 5  {.unnumbered}
 
 Tuesday April 29
-: Topic The *definite integral* is a quantity, not a function
+: Topics    
+- anti-derivatives of the pattern-book and basic modeling functions    
+- Fundamental theorem of calculus    
 : Reading [*MOSAIC Calculus* Chap 35](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/35-integration.html)
 
 Thursday May 1
@@ -113,7 +126,7 @@ Thursday May 1
 
 
 Friday May 2
-: **Mid-term exam** (30 minutes)
+: **Mid-term exam** (30 minutes) questions will be similar to those in the DRILL section of the [Week 5 assignment](assignments/Week-15/index-assignment-15.html)
 : Topic Continuous functions as vectors
 : Reading [*MOSAIC Calculus* Chap 36](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/36-functions.html) 
 
@@ -143,10 +156,12 @@ Tuesday May 20
 : Reading [*MOSAIC Calculus* Chap 52](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/52-mechanics.html)
 : Due: [Week 6 assignment](assignments/Week-17/index-assignment-16.html)
 
-
-#### Thursday May 22
-
+Thursday May 22
 : Topic Modeling Day
+: Reading
+
+Friday May 23
+: Topic
 : Reading
 
 ### Week 8 {.unnumbered}
