@@ -50,7 +50,7 @@
 
 ## D15
 
-{{{< include _exercises/sister-tear-ship.qmd >}}}
+{{< include _exercises/sister-tear-ship.qmd >}}
 
 -----
 

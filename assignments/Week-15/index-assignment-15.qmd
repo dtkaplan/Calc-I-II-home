@@ -35,7 +35,7 @@ devoirs::answer_style("none")
 
 ::: {.panel-tabset}
 ## Exer A
-{{{< include _exercises/camel-tug-pan.qmd >}}}
+{{< include _exercises/camel-tug-pan.qmd >}}
 
 
 :::
@@ -43,11 +43,6 @@ devoirs::answer_style("none")
 :::
 <!-- end of linear algebra callout -->
 
-
-::: {.callout-note collapse=true}
-## Chapter 35
-{{{< include _Chap35.qmd >}}}
-:::
 
 
 

@@ -1,11 +1,11 @@
 ::: {.panel-tabset}
 ## Exer 15.1
 
-{{< include ../../../../MC-Workbook/Block_4/first-fundamental-theorem.qmd >}}
+{{{< include ../../../../MC-Workbook/Block_4/first-fundamental-theorem.qmd >}}}
 
 ## Exer 15.2
 
-{{< include ../../../../MC-Workbook/Block_4/fundamental-theorem-integral.qmd >}}
+{{{< include ../../../../MC-Workbook/Block_4/fundamental-theorem-integral.qmd >}}}
 
 ## Exer 15.3
 

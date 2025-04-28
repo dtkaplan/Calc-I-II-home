@@ -99,4 +99,4 @@ Another way to look at this: in every centered vector each of the elements can b
 
 
 :::
- <!-- end of exr-camel-tug-pan -->)
+ <!-- end of exr-camel-tug-pan -->

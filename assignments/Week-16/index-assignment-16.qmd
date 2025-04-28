@@ -40,6 +40,12 @@ devoirs::answer_style("none")
 :::
 
 
+::: {.callout-note collapse=true}
+## Chapter 35
+{{< include _Chap35.qmd >}}
+:::
+
+
 
 ## Splines
 

@@ -11,25 +11,145 @@ library(mosaicCalc)
 ```
 
 ::: {#exr-sister-tear-ship}
-Make many like this:
 
-- Simplify $\int_{-t}^{t}1\ dx$
 
-- $\int_a^b 1 dx
+Part 1  
+: Simplify $\int_{t}^{-t}1\ dt$
 
-- $\int_0^x 3 t^2\ dt$
+<!-- Opening answer: sts-2KX -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+The anti-derivative $G(t) = \int 1 dt = t + C$. Evaluating $G()$ at the limits of integration gives $$G(t) - G(-1) = t + C - \left[-t + C\right] - 2\,t\. $$
 
-- $\int_a^b f(x)\ dx + \int_b^a f(y)\ dy$
+We have include the "constant of integration" $C$ here for completeness, but when the calculation is going to involve $G(upper) - G(lower)$, the constants of integration will *always* cancal out.
 
-- $\int_1^x \frac{1}{t}\ dt$
+[..id..]{data-tooltip="Ans id: sts-2KX"}
+:::
+<!-- closing answer sts-2KX -->
 
-- $\int_0^{t^2} \omega \cos(\omega t)\ dt$ -> $\sin(\omega t^2)$
 
-- $\partial_x \int dnorm(x)\ dx$ is dnorm(x)
+Part 2  
+: $\int_a^b 1 dx$
 
-- $\partial_t \int pnorm(x)\ dx$ is 0
+<!-- Opening answer: sts-3sW -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+The anti-derivative $G(t) = \int 1 dx = x + C$. Evaluating $G()$ at the limits of integration gives $G(b) - G(a) = b + C - [a + C] = b - a\ .$$
 
-- $\int e^{a + bt}\ dt$
+Again, we've put in the constant of integration C explicitly, but we'll stop now since all the calculations below involve $G(upper) - G(lower)$ where the constants of integration will cancel out.
+[..id..]{data-tooltip="Ans id: sts-3sW"}
+:::
+<!-- closing answer sts-3sW -->
+
+
+Part 3  
+: $\int_0^x 3 t^2\ dt$
+
+<!-- Opening answer: sts-7Ks -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+Happily, we recognize the integrand, $3 t^2$, as the derivative of the function $t^3$. So $G(t) = t^3$. (We're leaving out the constant of integration $C$ for the reason described in the previous answer blocks.)
+
+Evaluating $G()$ at the upper and lower limits of integration gives $$G(x) - G(0)\ .$$
+
+[..id..]{data-tooltip="Ans id: sts-7Ks"}
+:::
+<!-- closing answer sts-7Ks -->
+
+
+Part 4  
+: $\int_a^b f(x)\ dx + \int_b^a f(y)\ dy$
+
+<!-- Opening answer: sts-9go -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+Some things to notice:
+
+1. The name of the with-respect-to variable doesn't matter so the second integral is the same as the first integral but with the limits of integration flipped around.
+2. Even though we don't know $f(x)$, we can still make progress. Let's call $\int f(x) dx$ by the name $F(x)$. We don't know $F()$ but we can still formally evaluate it at the limits of integration:
+
+$$F(b) - F(a) - \left[F(b) - F(a)\right] = 0\ .$$
+
+
+[..id..]{data-tooltip="Ans id: sts-9go"}
+:::
+<!-- closing answer sts-9go -->
+
+Part 5  
+: $\int_1^x \frac{1}{t}\ dt$
+
+<!-- Opening answer: sts-7Wa -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+With luck, you'll recognize the function $1/t$ as the derivative of $\ln(t)$. Consequently, we know that $G(t) \equiv \ln(t)$. (Again, leaving out the constant of integration since we have both lower and upper limits of integration.) Overall, the result: $$G(x) - G(1) = \ln(x) - \ln(1) = \ln(x)\ .$$
+
+[..id..]{data-tooltip="Ans id: sts-7Wa"}
+:::
+<!-- closing answer sts-7Wa -->
+
+
+Part 6  
+: $\int_0^{t^2} \omega \cos(\omega t)\ dt$ -> $\sin(\omega t^2)$
+
+<!-- Opening answer: sts-6lO -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+How nice! $\omega \cos(\omega t)$ is the derivative of the basic modeling function $\sin(\omega t)$. Correspondingly, $G(t) = \sin(\omega t)$. Evaluating at the limits of integration gives $$\sin(\omega t^2) - \sin(\omega 0) = \sin(\omega t^2)\ .$$
+
+It may seem odd to have a limit of integration be a compound expresssion like $t^2$, but any expression can serve as a limit of integration.
+
+[..id..]{data-tooltip="Ans id: sts-6lO"}
+:::
+<!-- closing answer sts-6lO -->
+
+
+Part 7  
+: $\partial_x \int x \text{dnorm}(x)\ dx$ 
+
+<!-- Opening answer: sts-3Ea -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+There seems to be a pattern among these exercises: the integrands have been selected to give simple results since they are the derivatives of pattern-book functions.
+
+Here, the integrand is the derivative of $\text{dnorm}(x)$ so the anti-derivative is $G(x) = \text{dnorm}(x)$. Taking the derivative $\partial_x G(x)$ gives $x \text{dnorm}(x)$. 
+
+Even simpler, we can recognize the $\partial_x$ as undoing the $\int f(x) dx$, so the result is just the integrand.
+
+
+[..id..]{data-tooltip="Ans id: sts-3Ea"}
+:::
+<!-- closing answer sts-3Ea -->
+
+Part 8  
+: $\partial_t \int_0^x pnorm(x)\ dx$
+
+<!-- Opening answer: sts-5MN -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+A trick here! We don't actually know the anti-derivative of $\text{pnorm}(x)$, but let's just call it $G()$ so the integral is $G(x) - G(0)$. Neither of these is a function of $t$, so the overall expression is simply zero.
+
+
+[..id..]{data-tooltip="Ans id: sts-5MN"}
+:::
+<!-- closing answer sts-5MN -->
+
+Part 9  
+: $\int e^{a + bt}\ dt$
+
+<!-- Opening answer: sts-9vA -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+Let's re-write this with a simplified integrand:
+
+$$\int e^{a + bt}\ dt = \int e^a e^{bt}\ dt = e^a \int e^{bt}\ dt$$
+Now $e^{bt}$ isn't the derivative of a pattern-book function, but it's close! $b e^{bt}$ is the derivative of $e^{bt}$. The trick is to recognize that $e^{bt} = \frac{b}{b} e^{bt}$ so
+
+$$e^a \int e^{bt}\ dt = e^a \int \frac{b}{b} e^{bt}\ dt = \frac{e^a}{b} \int b e^{bt}\ dt = \frac{e^a}{b} e^{bt} = \frac{1}{b}e^{a + bt}$$
+
+
+[..id..]{data-tooltip="Ans id: sts-9vA"}
+:::
+<!-- closing answer sts-9vA -->
 
 :::
- <!-- end of exr-sister-tear-ship -->)
+ <!--Part 1  : end of exr-sister-tear-ship -->

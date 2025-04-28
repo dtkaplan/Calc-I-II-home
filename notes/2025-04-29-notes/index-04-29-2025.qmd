@@ -24,11 +24,140 @@ source("../../_software/software.R")
 
 # 2025-04-29 class notes
 
+## Definite and "indefinite" integrals
+
+"Integration" and anti-differentiation are closely related but distinct operations.
+
+1. Anti-differentiation takes a function as input and produces a function as output.
+2. "Indefinite" integration is the same as anti-differentiation, and is a first step in many cases to "definite" integration.
+3. "Definite integration" takes **two** inputs and produces a number (quantity) as output.
+    i. a function
+    ii. a domain
+    
+*MOSAIC Calculus* uses "integration" to refer to the *definite type* and "anti-differentiation" to produce a *function*. Often, but not always, you will use anti-differentiation as a first step in integrating.
+
+The traditional notation is ubiquitous, so you have to understand it entirely.
+
+
+Notation | explanation
+---------|------------
+$$\int f(x)\ dx$$ | indefinite integral
+$$\int_0^{10} f(x)\ dx$$ | definite integral over the domain $0 \leq x \leq 10$
+`F <- antiD(f(x) ~ x)` | indefinite integral
+`F(10) - F(0)` | definite integral over the domain $0 \leq x \leq 10$
+
+
+$$\Large\text{A quantity:}\ \ \ \ \  \int_\color{magenta}{\boxed{\,0\,}}^\color{red}{\boxed{\,10\,}} \color{brown}{\boxed{\,g\,}}\left(\color{blue}{\boxed{\color{blue}{\,t\, }}}\right) d\ \color{blue}{\boxed{\color{blue}{\,t\,}}}$$
+![](www/eq1.png)
+
+Color key:    
+
+i. **BLACK** is the punctuation framework for the expression. This is non-negotiable.
+ii. [BROWN]{style="color: brown;"} is the function to be integrated, the **integrand**
+iii. [BLUE]{style="color: blue;"} is the **with-respect-to** variable.
+     a. Almost always the with-respect-to variable is an argument to the integrand, so the with-respect-to variable occurs twice.
+     b. The name doesn't matter. It could be replaced with any other name without changing the meaning. Think of it as a pronoun.
+iv. [MAGENTA]{style="color: magenta;"} is the **lower limit** of the domain of integration.
+v. [RED]{style="color: red;"} is the **upper limit** of the domain of integration.
+
+$$\Large\text{A function:}\ \ \ \ \ \color{orange}{\boxed{\strut G}}(\color{green}{\boxed{\strut\,x\,}}) \equiv \int_\color{magenta}{\boxed{\,\,}}^\color{red}{\boxed{\,\,}} \color{brown}{\boxed{\strut\,g\,}}\left(\color{blue}{\boxed{\color{blue}{\strut\,t\, }}}\right) d\ \color{blue}{\boxed{\color{blue}{\strut\,t\,}}}$$ {#eq-just-G}
+
+![](www/eq2.png)
+
+vi. [GREEN]{style="color: green;"} is the name used as the argument for the function produced by the operation. Since the with-respect-to variable name is arbitrary, we can use any name we like for the argument to the output function. A good default is to use the name of the with-respect-to variable.
+vii. [ORANGE]{style="color: orange;"} the name we choose for the output function.
+
+Equivalent in `{mosaicCalc}`:
+
+$$\Large \color{orange}{\boxed{\strut {\mathtt G}}} \leftarrow \mathtt{antiD}\left(\right. {\color{brown}{\boxed{\strut \mathtt{\,g\,}}}}( \color{green}{\boxed{\strut\,t\,}} )\ \sim \color{green}{\boxed{\strut\,t\,}}\ )$$
+
+![](www/eq3.png)
+
+$$\Large\text{A function:}\ \ \ \ \ H(\color{magenta}{\boxed{\strut\,a\,}}, \color{red}{\boxed{\strut\,b\,}}) \equiv \int_\color{magenta}{\boxed{\strut\,a\,}}^\color{red}{\boxed{\strut\,b\,}} \color{brown}{\boxed{\strut\,g\,}}\left(\color{blue}{\boxed{\color{blue}{\strut\,t\, }}}\right) d\ \color{blue}{\boxed{\color{blue}{\strut\,t\,}}}$${#eq-definite-integral}
+
+![](www/eq4.png)
+
+Another way to write this:
+
+$$\Large\text{Definite integral:}\ \ \ \color{orange}{\boxed{\strut {\mathtt G}}}( \color{red}{\boxed{\strut\,b\,}} )   \ - \ \color{orange}{\boxed{\strut {\mathtt G}}}( \color{magenta}{\boxed{\strut\,a\,}} )$$ {#eq-G-minus-G}
+
+![](www/eq5.png)
+
+i. Note: If both $a$ and $b$ are numbers, the result is a **definite integral**, hence, not a function but a number (quantity).
+
+I think the situation is clearer in computer notation:
+
+::: {style="font-size:28;"}
+```r
+G <- antiD(g(t) ~ t)
+H <- makeFun(G(b) - G(a) ~ a & b)
+```
+
+i. Notice that `H()` is a function of *both* `a` and `b` and *always* has the simple form `G(b) - G(a)`. 
+ii. The order `G(b) - G(a)` is important.
+
+## Constant of integration
+
+There is another, equivalent convention for @eq-definite-integral which replaces the lower limit of integration by a constant, usually named $C$:
+
+$$\Large\text{A function:}\ \ \ \ \ \color{orange}{\boxed{\strut\, G\,}}\left(\color{red}{\boxed{\strut\,b\,}}\right) \equiv \int_\color{magenta}{\boxed{\strut\,a\,}}^\color{red}{\boxed{\strut\,b\,}} \color{brown}{\boxed{\strut\,g\,}}\left(\color{blue}{\boxed{\color{blue}{\strut\,t\, }}}\right) d\ \color{blue}{\boxed{\color{blue}{\strut\,t\,}}}\ + \color{forestgreen}{\boxed{\strut\,C\,}}$$
+![](www/eq6.png)
+
+vii. [GREEN]{style="color: forestgreen;"} the **constant of integration**.
+
+i. Notice that if $\color{green}{C} = G(a)$, then this is exactly equivalent to @eq-G-minus-G.
+
+`{mosaicCalc}`'s `antiD()` gives you this format directly, but assigns a default value to C of zero so that you can ignore it if you wish.
+
+```{r}
+G <- antiD(cos(t) ~ t)
+G
+```
+
+## Pattern-book functions
+
+We've already memorized the derivatives of the pattern-book functions:
+
+name     | formula | $\partial_t$ function
+---------|----------|-------------
+const    | 1 | 0
+identity | $t$ | 1
+square   | $t^2$ | $2 t$
+gaussian | dnorm$(t)$ | $t\ \text{dnorm}(t)$
+sigmoid  | pnorm$(t)$ | dnorm$(t)$
+sine     | $\sin(t)$ | $\cos(t)$
+logarithm      | $\ln(t)$  | $1/t$
+exponential    | $\exp(t)$ or $e^t$ | $\exp(t)$ or $e^t$
+power-law      | $t^k$  | $k t^{k-1}$ when $k \neq 0$
+
+i. In the happy situation where the **integrand** $f(t)$ in $\int f(t) dt$ is one of the derivatives of the pattern book functions, you know that the anti-derivative will be that pattern book function.
+ii. Any other time that you recognize the **integrand** as the derivative of a function you know, then that known function will be the result of anti-differentiation.
+
+## Basic modeling functions
+
+The basic modeling functions are the pattern-book functions $g(t)$ with input and/or output scaling, e.g. when $f()$ where is a pattern book function.
+
+$g(t) = A f(a t + b) + B$ or, equivalently $g(t) = A f(a (t - t_0)) + B$.
+
+Here's the basic rule for when the integrand is the derivative of a basic modeling function:
+
+$$\large\int  \left[\strut A f'(a t + b) + B\right] dt = \int A f'(a t + b)dt + \int B\, dt \ =\ \frac{A}{a} \left[f(at + b)\right] + B\,t + C$$
+
+For instance: $$\large \int \cos(\omega t) dt = \frac{1}{\omega} sin(\omega t) + C$$
+
+
+
+## Differentiation undoes anti-differentiation and *vice versa*
+
+Anti-differentiation undoes differentiation
+$$\LARGE f(t)\ = \int \partial_t \left[f(t)\right] dt\ = \ \partial_t\left[ \int f(t) dt\right]$$
+
+
 ## Dimension example
 
 There are typos
 
-{{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}
+{{{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}}
 
 
 
