@@ -92,4 +92,4 @@ Make as much sense as you can from the code in Part d. You may want to print out
 
 [..id..]{.small data-tooltip="dog-hold-trip"}}
 :::
- <!-- end of exr-dog-hold-ship -->)
+ <!-- end of exr-dog-hold-ship -->

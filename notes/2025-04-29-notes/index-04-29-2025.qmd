@@ -113,6 +113,11 @@ i. Notice that if $\color{green}{C} = G(a)$, then this is exactly equivalent to 
 G <- antiD(cos(t) ~ t)
 G
 ```
+## A graphical depiction
+
+Go to `"Packages/Calculus-Apps/Old_apps/CalcZapps/inst/Solar-panels/Solar-panels.Rmd"` and run the app. Maybe best to open the `CalcZapps` project
+
+
 
 ## Pattern-book functions
 
@@ -155,9 +160,10 @@ $$\LARGE f(t)\ = \int \partial_t \left[f(t)\right] dt\ = \ \partial_t\left[ \int
 
 ## Dimension example
 
-There are typos
+check for typos
 
-{{{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}}
+
+{{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}
 
 
 

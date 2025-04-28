@@ -1,58 +1,48 @@
 `r push_answer_style("block")`
 
 ::: {.panel-tabset}
-## D1
-
+## D3
 {{< include ../../../../MC-Workbook/Block_4/calf-know-painting.qmd >}}
 
-## D2
-
+## D4
 {{< include ../../../../MC-Workbook/Block_4/three-perspectives.qmd >}}
 
-## D3
-
+## D5
 {{< include ../../../../MC-Workbook/Block_4/u-on-the-bottom.qmd >}}
 
-## D4
-
+## D6
 {{< include ../../../../MC-Workbook/Block_4/ape-lie-coat.qmd >}}
 
-
-
-## D6
-
+## D7
 {{< include _exercises/rabbit-sell-plate.qmd >}}
 
-## D7
-
+## D8
 {{< include _exercises/lamb-understand-suitcase.qmd >}}
 
-## D8
+## D9
 {{< include _exercises/lamb-understand-suitcase7.qmd >}}
 
-## D9
+## D10
 {{< include _exercises/lamb-understand-suitcase3.qmd >}}
 
-## D10
+## D11
 {{< include _exercises/lamb-understand-suitcase4.qmd >}}
 
-## D11
+## D12
 {{< include _exercises/lamb-understand-suitcase5.qmd >}}
 
-## D12
+## D13
 {{< include _exercises/lamb-understand-suitcase2.qmd >}}
 
-## D13
+## D14
 {{< include _exercises/lamb-understand-suitcase6.qmd >}}
 
-## D14
+## D15
 {{< include _exercises/lamb-understand-suitcase8.qmd >}}
 
-## D15
-
+## D16
 {{< include _exercises/sister-tear-ship.qmd >}}
 
------
 
 `r pop_answer_style()`
 :::

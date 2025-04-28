@@ -26,7 +26,7 @@ devoirs::answer_style("none")
 
 ## Chapter 38 
 
-{{< include ../../../../MC-Workbook/Block_4/seaweed-bend-socks.qmd >}}
+
 
 {{< include ../../../../MC-Workbook/Block_4/walnut-bet-pants.qmd >}}
 

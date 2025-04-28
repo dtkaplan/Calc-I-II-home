@@ -54,4 +54,4 @@ Play around with the parameters for angle and x- and y-scaling to generate some 
 `r devoirs_text("glass-pattern-nice-params")`
 
 :::
- <!-- end of exr-frog-close-chair -->)
+ <!-- end of exr-frog-close-chair -->

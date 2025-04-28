@@ -40,4 +40,4 @@ veclen(vec_mm(b))^2 / nrow(b)
 `r devoirs_text("var-calc-2")`
 
 :::
- <!-- end of exr-boy-cut-sheet -->)
+ <!-- end of exr-boy-cut-sheet -->

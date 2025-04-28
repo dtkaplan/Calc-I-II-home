@@ -78,4 +78,4 @@ x2 <- qr.solve(first_two_columns, third)
 first_two_columns %*% x2 - third # is there a non-zero residual?
 ```
 :::
- <!-- end of exr-calf-sail-closet -->)
+ <!-- end of exr-calf-sail-closet -->

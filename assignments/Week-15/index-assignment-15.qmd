@@ -25,9 +25,27 @@ devoirs::answer_style("none")
 
 
 ::: {.callout-note collapse=true}
+## Fundamental theorem of calculus
+::: {.panel-tabset}
+## Exer 15.1
+
+{{< include ../../../../MC-Workbook/Block_4/first-fundamental-theorem.qmd >}}
+
+## Exer 15.2
+
+{{< include ../../../../MC-Workbook/Block_4/fundamental-theorem-integral.qmd >}}
+
+
+
+:::
+:::
+<!-- end of callout -->
+
+::: {.callout-note collapse=true}
 ## Drill
 {{< include _Drill15.qmd >}}
 :::
+
 
 
 ::: {.callout-note collapse=true}

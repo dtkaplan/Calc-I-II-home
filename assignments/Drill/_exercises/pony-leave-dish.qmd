@@ -71,4 +71,4 @@ The residual is $$\vec{b} - \widehat{\vec{b}} = \left(\begin{array}{r}
 
 
 :::
- <!-- end of exr-pony-leave-dish -->)
+ <!-- end of exr-pony-leave-dish -->
