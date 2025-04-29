@@ -1,6 +1,6 @@
 ---
 title: MOSAIC Week 19 Assignment
-date: 2025-05-26
+date: 2025-06-10
 categories: [linear algebra]
 ---
 

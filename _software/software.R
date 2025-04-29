@@ -1,3 +1,9 @@
+# Defining functions
+
+
+
+
+
 # Drawing vectors and matrices
 
 draw_matrix <- function(M) {
@@ -284,6 +290,8 @@ sig_amp_spec <- function(x, sampfreq=100) {
     gf_point(amp ~ frequency, color = "blue", size = 0.5)
 }
 
+
+
 # Plotting a function with room for drawing the anti-deriv
 drawFpair <- function(f, dom = domain(x = 0:4), bottom = -0.5, alpha=0) {
   # alpha = 0 for problem
@@ -307,4 +315,99 @@ drawFpair <- function(f, dom = domain(x = 0:4), bottom = -0.5, alpha=0) {
   list(P1 = P1, P2 = P2)
 }
 
+if (!exists("take_sample")) {
+  take_sample <<- function (x, n, replace = FALSE, ...) {
+    UseMethod('take_sample')
+  }
+
+
+  #' @export
+  take_sample.vector <<- function(x, n=length(x), replace=FALSE, ...) {
+    base::sample(x, size = n, replace = replace, ...)
+  }
+
+  #' @export
+  take_sample.data.frame <<- function(x, n = nrow(x), replace = FALSE, ..., .by = NULL) {
+
+    # slice_sample uses `by` instead of `.by`
+    # I can get this to work only by turning `.by` into a character string
+    # containing the desired names.
+    groups <- substitute(.by) # `groups` will be a call
+
+    if (!is.null(groups)) {
+      # handle cases with multiple .by variables
+      if (is.call(groups)) {
+        if (!is.name(groups[[2]])) groups <- eval(groups)
+        else groups <- all.vars(groups)
+      }
+    }
+
+    dplyr::slice_sample(x, n = n, by = all_of(groups), replace = replace)
+  }
+
+  #' @export
+  take_sample.datasim <<- function(x, n = 5, replace = FALSE, ..., seed = NULL, report_hidden=FALSE) {
+    datasim_run(x, n = n, seed = seed, report_hidden = report_hidden)
+  }
+
+  #' @param .by Variables to use to define groups for sampling, as in `{dplyr}`. The sample size
+  #' applies to each group.
+  #' @param groups Variable indicating blocks to sample within
+  #' @param orig.ids Logical. If `TRUE`, append a column named "orig.ids" with the
+  #' row from the original `x` that the same came from.
+  #' @param prob Probabilities to use for sampling, one for each element of `x`
+  #'
+  #' @rdname take_sample
+  #' @export
+  take_sample.default <<- function(x, n = length(x), replace=FALSE, prob=NULL, .by = NULL,
+                                  groups = .by, orig.ids=FALSE, ...) {
+    size <- n
+    missingSize <- missing(size)
+    haveGroups <- ! is.null(groups)
+    if (length(x) == 1L && is.numeric(x) && x >= 1) {
+      n <- x
+      x <- 1:n
+      if (missingSize)  size <- n
+    } else {
+      n <- length(x)
+      if (missingSize) size <- length(x)
+    }
+    if (haveGroups && size != n) {
+      warning("'size' is ignored when using groups.")
+      size <- n
+    }
+    ids <- 1:n
+
+    if (haveGroups) {
+      groups <- rep( groups, length.out = size)  # recycle as needed
+      result <- stats::aggregate( ids, by = list(groups), FUN = base::sample,
+                                  simplify = FALSE,
+                                  replace = replace, prob = prob)
+      result <- unlist(result$x)
+      if (orig.ids) { nms <- ids[result] }
+      result <- x[result]
+      if (orig.ids) { names(result) <- nms }
+      return(result)
+    }
+    result <- base::sample(x, size, replace = replace, prob = prob)
+    return(result)
+  }
+
+  #' A convenience function for sampling with replacement
+  #' @rdname take_sample
+  #' @export
+  resample <<- function(..., replace = TRUE) {
+    take_sample(..., replace = replace)
+  }
+
+  #' A convenience function for shuffling, typically used with
+  #' within model_train(), but available elsewhere for, e.g. demonstrations
+  #' @rdname take_sample
+  #' @export
+  shuffle <<- function(...) {
+    take_sample(...)
+  }
+
+
+}
 

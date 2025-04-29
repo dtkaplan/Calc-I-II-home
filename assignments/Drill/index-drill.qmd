@@ -1,6 +1,6 @@
 ---
 title: MOSAIC Calculus Drill Problems
-date: 2025-04-23
+date: 2025-06-11
 categories: [linear algebra, accumulation]
 crossref:
   exr-title: "Drill"
@@ -34,81 +34,11 @@ devoirs::answer_style("block")
 :::::
 
 
-::::: {.callout-note collapse=true}
+::::: {.callout-note collapse=false}
 ## Accumulation
 
-
-
-::: {.panel-tabset}
-
-```{r}
-#| caption: For scratch work
-
-```
-
-It helps to distinguish between two settings for arguments in R functions.
-
-1. A formal argument name. The name in the function definition is just for accounting purposes. The user doing a symbolic calculation can use any name in the tilde expression, so long as the tilde expression is internally consistent. For instance
-
-```{r}
-h <- makeFun(z^2 ~ z)
-h
-```
-
-
-2. A named argument. The name in the function is pre-specified and assigned a default value. For instance:
-
-```{r}
-g <- makeFun( z^2 ~ z, z = 2)
-g # print it
-```
-
-Which of these commands will correctly create the anti-derivative of the given function.
-
-a. `antiD(h(w) ~ w)`
-
-b. `antiD(g(z) ~ z)`
-
-c. `antiD(g(w) ~ w)`
-
-d. `antiD(g(z = w) ~ w)`
- 
-e. `antiD(h(z = w) ~ w)`
-
-
-
-
-Construct a function $f(y)$ in R. You can use a basic modeling function or whatever you like.
-
-1. What kind of thing will be produced by `antiD(f(x) ~ x)`?
-
-```{mcq}
-#| label: index-accumulation-1FE
-#| inline: true
-1. A function of `y`.
-2. A function of `x` [correct]
-3. A numerical quantity.
-4. The command is invalid. 
-```
-
-[Even though the function `f(y)` was constructed with `y` as the formal argument, you can use whatever argument name you like in the tilde expression.]{.shortanswer `r answer_style()` data-tooltip="Ans id: index-accum-6qK"}
-
-
-2. What kind of thing will be produced by `D(f(y))`?
-
-```{mcq}
-#| label: index-accumulation-2FE
-1. A function of `y`.
-2. A function of `x`
-3. A numerical quantity.
-4. The command is invalid [correct]
-```
-
-
-:::
-
-
-
+Drill for the Accumulation section of the course is 
+in the [Week 15 Assignment](../Week-15/index-assignment-15.qmd).
 :::::
-<!-- accumulation -->
 
+<!-- A few accumulation problems are in `_accumulation-drill.qmd` -->

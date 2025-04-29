@@ -1,6 +1,6 @@
 ---
-title: MOSAIC Week 14
-date: 2025-04-06
+title: MOSAIC Week 14 Assignment
+date: 2025-04-21
 categories: [linear algebra]
 ---
 

@@ -1,6 +1,7 @@
 ---
-title: A nice walk up a hill
-date: 2025-04-03
+title: Week 11 Modeling Assignment
+subtitle: A nice walk up a hill
+date: 2025-04-01
 summary: "Finishing up the modeling project we started in class."
 categories: [modeling project, physiology]
 ---

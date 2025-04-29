@@ -357,8 +357,12 @@ sin(t) + C</code></pre>
 </div>
 </div>
 </section>
-<section id="pattern-book-functions" class="level4" data-number="42.3">
-<h4 data-number="42.3" class="anchored" data-anchor-id="pattern-book-functions"><span class="header-section-number">42.3</span> Pattern-book functions</h4>
+<section id="a-graphical-depiction" class="level4" data-number="42.3">
+<h4 data-number="42.3" class="anchored" data-anchor-id="a-graphical-depiction"><span class="header-section-number">42.3</span> A graphical depiction</h4>
+<p>Go to <code>"Packages/Calculus-Apps/Old_apps/CalcZapps/inst/Solar-panels/Solar-panels.Rmd"</code> and run the app. Maybe best to open the <code>CalcZapps</code> project</p>
+</section>
+<section id="pattern-book-functions" class="level4" data-number="42.4">
+<h4 data-number="42.4" class="anchored" data-anchor-id="pattern-book-functions"><span class="header-section-number">42.4</span> Pattern-book functions</h4>
 <p>We’ve already memorized the derivatives of the pattern-book functions:</p>
 <table class="caption-top table">
 <thead>
@@ -421,20 +425,20 @@ sin(t) + C</code></pre>
 <li>Any other time that you recognize the <strong>integrand</strong> as the derivative of a function you know, then that known function will be the result of anti-differentiation.</li>
 </ol>
 </section>
-<section id="basic-modeling-functions" class="level4" data-number="42.4">
-<h4 data-number="42.4" class="anchored" data-anchor-id="basic-modeling-functions"><span class="header-section-number">42.4</span> Basic modeling functions</h4>
+<section id="basic-modeling-functions" class="level4" data-number="42.5">
+<h4 data-number="42.5" class="anchored" data-anchor-id="basic-modeling-functions"><span class="header-section-number">42.5</span> Basic modeling functions</h4>
 <p>The basic modeling functions are the pattern-book functions <span class="math inline">\(g(t)\)</span> with input and/or output scaling, e.g.&nbsp;when <span class="math inline">\(f()\)</span> where is a pattern book function.</p>
 <p><span class="math inline">\(g(t) = A f(a t + b) + B\)</span> or, equivalently <span class="math inline">\(g(t) = A f(a (t - t_0)) + B\)</span>.</p>
 <p>Here’s the basic rule for when the integrand is the derivative of a basic modeling function:</p>
 <p><span class="math display">\[\large\int  \left[\strut A f'(a t + b) + B\right] dt = \int A f'(a t + b)dt + \int B\, dt \ =\ \frac{A}{a} \left[f(at + b)\right] + B\,t + C\]</span></p>
 <p>For instance: <span class="math display">\[\large \int \cos(\omega t) dt = \frac{1}{\omega} sin(\omega t) + C\]</span></p>
 </section>
-<section id="differentiation-undoes-anti-differentiation-and-vice-versa" class="level4" data-number="42.5">
-<h4 data-number="42.5" class="anchored" data-anchor-id="differentiation-undoes-anti-differentiation-and-vice-versa"><span class="header-section-number">42.5</span> Differentiation undoes anti-differentiation and <em>vice versa</em></h4>
+<section id="differentiation-undoes-anti-differentiation-and-vice-versa" class="level4" data-number="42.6">
+<h4 data-number="42.6" class="anchored" data-anchor-id="differentiation-undoes-anti-differentiation-and-vice-versa"><span class="header-section-number">42.6</span> Differentiation undoes anti-differentiation and <em>vice versa</em></h4>
 <p>Anti-differentiation undoes differentiation <span class="math display">\[\LARGE f(t)\ = \int \partial_t \left[f(t)\right] dt\ = \ \partial_t\left[ \int f(t) dt\right]\]</span></p>
 </section>
-<section id="dimension-example" class="level4" data-number="42.6">
-<h4 data-number="42.6" class="anchored" data-anchor-id="dimension-example"><span class="header-section-number">42.6</span> Dimension example</h4>
+<section id="dimension-example" class="level4" data-number="42.7">
+<h4 data-number="42.7" class="anchored" data-anchor-id="dimension-example"><span class="header-section-number">42.7</span> Dimension example</h4>
 <p>check for typos</p>
 <p>When studying u-dimensions a while ago, we undertook to figure out how fast a satellite travels. As you recall, we measured the <span class="math inline">\(r\)</span>, the orbit height <em>from the center of the Earth</em>. Assuming a circular orbit (which is not necessarily a good assumption) the total path length of an orbit is <span class="math inline">\(2 \pi r\)</span>. We also assumed that the acceleration of the satellite due to gravity is 9.8 m/s^2 , the value on the Earth’s surface. (And a reasonably good approximation to the value at a height of, say, 100 mi above the surface.)</p>
 <p>Then we asked how large is the centripetal acceleration needed to keep a satellite in orbit of radius <span class="math inline">\(r\)</span> at velocity <span class="math inline">\(v\)</span>. We used dimensional analysis to say that <span class="math inline">\(a = v^2/r\)</span>, a formula that is dimensionally consistent.</p>
@@ -474,13 +478,13 @@ Knowing that <span class="math inline">\(a \approx 9.8\)</span> m/s^2 , and spec
 <span> <small style="color: grey;" id="differential-orbit-1-hintarea" class="hintarea">differential-orbit-1</small>
 <form id="differential-orbit-1-form">
 <p>
-</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{160 ... = 40.12 m$" id="differential-orbit-1-1" w="19" name="differential-orbit-1" hint="You were asked for the value of $\sqrt{\text{m}\cdot\text{mi}\strut}$ in miles, not meters." show_hints="TRUE"> <span class="math inline">\(\sqrt{1609.34 \text{m}^2} = 40.12 m\)</span></p>
+</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{160 ... = 40.12 m$" id="differential-orbit-1-1" w="32" name="differential-orbit-1" hint="You were asked for the value of $\sqrt{\text{m}\cdot\text{mi}\strut}$ in miles, not meters." show_hints="TRUE"> <span class="math inline">\(\sqrt{1609.34 \text{m}^2} = 40.12 m\)</span></p>
 <p></p>
 <p>
-</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{40. ... \text{mi}$" id="differential-orbit-1-2" w="32" name="differential-orbit-1" hint="But if you think about the area of 1 meter times 1 mile, it is much, much less than a square mile. The square root of a square mile is 1 mile. So the true answer must be much less than that." show_hints="TRUE"> <span class="math inline">\(\sqrt{40.12 \text{mi}^2} \approx 6.33 \text{mi}\)</span></p>
+</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{40. ... \text{mi}$" id="differential-orbit-1-2" w="87" name="differential-orbit-1" hint="But if you think about the area of 1 meter times 1 mile, it is much, much less than a square mile. The square root of a square mile is 1 mile. So the true answer must be much less than that." show_hints="TRUE"> <span class="math inline">\(\sqrt{40.12 \text{mi}^2} \approx 6.33 \text{mi}\)</span></p>
 <p></p>
 <p>
-</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{0.0 ... \text{mi}$" id="differential-orbit-1-3" w="5" name="differential-orbit-1" hint="0.00062 is roughly 1/1600, which makes sense considering there are roughly 1600 m in a mile." show_hints="TRUE"> <span class="math inline">\(\sqrt{0.000621371 \text{mi}^2} \approx 0.025 \text{mi}\)</span></p>
+</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{0.0 ... \text{mi}$" id="differential-orbit-1-3" w="16" name="differential-orbit-1" hint="0.00062 is roughly 1/1600, which makes sense considering there are roughly 1600 m in a mile." show_hints="TRUE"> <span class="math inline">\(\sqrt{0.000621371 \text{mi}^2} \approx 0.025 \text{mi}\)</span></p>
 <p></p>
 <p>
 </p><p><input type="radio" class="devoirs-mcq" value="It is craz ... m\strut}$." id="differential-orbit-1-4" w="3" name="differential-orbit-1" hint="Indeed, there is no such thing as $\sqrt{1 m\strut}$. But that is  irrelevant here because the contents of the square root are a product of 1 m $\times$ 1 mile, which has dimension L^2 Taking the square root of a quantity with dimension L^2 gives a quantity with dimension L, a perfectly everyday affair." show_hints="TRUE"> It is crazy to take the square root of a length. There is no such thing as <span class="math inline">\(\sqrt{1 m\strut}\)</span>.</p>
@@ -547,7 +551,7 @@ What is <span class="math display">\[\int_{\theta=0}^{\theta = \pi} \sin(\theta)
 <div class="cell" data-inline="true">
 <span> <small style="color: grey;" id="differential-orbit-2-hintarea" class="hintarea">differential-orbit-2</small>
 <form id="differential-orbit-2-form">
-<span> <span> <input type="radio" class="devoirs-mcq" value="0 " id="differential-orbit-2-1" w="3" name="differential-orbit-2" hint="Not on target." show_hints="false"> 0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2" id="differential-orbit-2-2" w="8" name="differential-orbit-2" hint="That's right." show_hints="false"> 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$-\cos(\theta)$" id="differential-orbit-2-3" w="19" name="differential-orbit-2" hint="$-\cos(\theta)$ is the anti-derivative of $\sin(\theta)$, but we are asking for the value of a definite integral, so the answer you give should be a number." show_hints="false"> <span class="math inline">\(-\cos(\theta)\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$- \pi \co ... s(\theta)$" id="differential-orbit-2-4" w="19" name="differential-orbit-2" hint="What's the $\pi$ doing there?" show_hints="false"> <span class="math inline">\(- \pi \cos(\theta)\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="differential-orbit-2" id="differential-orbit-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+<span> <span> <input type="radio" class="devoirs-mcq" value="0 " id="differential-orbit-2-1" w="32" name="differential-orbit-2" hint="Wrong." show_hints="false"> 0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2" id="differential-orbit-2-2" w="29" name="differential-orbit-2" hint="Good job!" show_hints="false"> 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$-\cos(\theta)$" id="differential-orbit-2-3" w="87" name="differential-orbit-2" hint="$-\cos(\theta)$ is the anti-derivative of $\sin(\theta)$, but we are asking for the value of a definite integral, so the answer you give should be a number." show_hints="false"> <span class="math inline">\(-\cos(\theta)\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$- \pi \co ... s(\theta)$" id="differential-orbit-2-4" w="32" name="differential-orbit-2" hint="What's the $\pi$ doing there?" show_hints="false"> <span class="math inline">\(- \pi \cos(\theta)\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="differential-orbit-2" id="differential-orbit-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
 </form>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -587,16 +591,16 @@ Set <span id="eq-a-integrated"><span class="math display">\[2 v = |{\mathbf a}| 
 <span> <small style="color: grey;" id="differential-orbit-3-hintarea" class="hintarea">differential-orbit-3</small>
 <form id="differential-orbit-3-form">
 <p>
-</p><p><input type="radio" class="devoirs-mcq" value="$a = 2 \fr ... {v^2}{r}$ " id="differential-orbit-3-1" w="7" name="differential-orbit-3" hint="Better luck next time." show_hints="false"> <span class="math inline">\(a = 2 \frac{v^2}{r}\)</span></p>
+</p><p><input type="radio" class="devoirs-mcq" value="$a = 2 \fr ... {v^2}{r}$ " id="differential-orbit-3-1" w="7" name="differential-orbit-3" hint="Not so!" show_hints="false"> <span class="math inline">\(a = 2 \frac{v^2}{r}\)</span></p>
 <p></p>
 <p>
-</p><p><input type="radio" class="devoirs-mcq" value="$a = \frac{v^2}{r}$" id="differential-orbit-3-2" w="16" name="differential-orbit-3" hint="Yeah!" show_hints="false"> <span class="math inline">\(a = \frac{v^2}{r}\)</span></p>
+</p><p><input type="radio" class="devoirs-mcq" value="$a = \frac{v^2}{r}$" id="differential-orbit-3-2" w="41" name="differential-orbit-3" hint="Good job!" show_hints="false"> <span class="math inline">\(a = \frac{v^2}{r}\)</span></p>
 <p></p>
 <p>
-</p><p><input type="radio" class="devoirs-mcq" value="$a = 4 \fr ... {v^2}{r}$ " id="differential-orbit-3-3" w="32" name="differential-orbit-3" hint="Not so!" show_hints="false"> <span class="math inline">\(a = 4 \frac{v^2}{r}\)</span></p>
+</p><p><input type="radio" class="devoirs-mcq" value="$a = 4 \fr ... {v^2}{r}$ " id="differential-orbit-3-3" w="3" name="differential-orbit-3" hint="Not quite right." show_hints="false"> <span class="math inline">\(a = 4 \frac{v^2}{r}\)</span></p>
 <p></p>
 <p>
-</p><p><input type="radio" class="devoirs-mcq" value="$a = \frac ... {v^2}{r}$ " id="differential-orbit-3-4" w="3" name="differential-orbit-3" hint="You might think so, but ..." show_hints="false"> <span class="math inline">\(a = \frac{2}{\pi} \frac{v^2}{r}\)</span></p>
+</p><p><input type="radio" class="devoirs-mcq" value="$a = \frac ... {v^2}{r}$ " id="differential-orbit-3-4" w="23" name="differential-orbit-3" hint="Better luck next time." show_hints="false"> <span class="math inline">\(a = \frac{2}{\pi} \frac{v^2}{r}\)</span></p>
 <p></p>
 <input type="radio" class="devoirs-mcq" name="differential-orbit-3" id="differential-orbit-3.null" style="display: none;" w="skipped" checked="">
 </form>

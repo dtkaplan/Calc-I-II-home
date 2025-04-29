@@ -1,5 +1,6 @@
 ---
-title: Balancing labor and capital
+title: Week 12 Modeling Assignment
+subtitle: Balancing labor and capital
 date: 2025-04-10
 summary: "Finishing up the modeling project we started in class."
 categories: [modeling project, economics, log-scales]
