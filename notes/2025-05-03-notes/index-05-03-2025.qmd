@@ -27,6 +27,21 @@ source("../../_software/software.R")
 ```
 :::
 
+## Pick up from Tuesday
+
+- Wolfram as a way to do integrals
+
+- Integrals of basic modeling functions
+
+
+
+- $\partial_t v = - a v^2$ and explosions
+
+
+
+## Return to life expectancy
+
+## How do changes in mortality compare to changes in birth rate.
 
 ## Splines and interpolating functions
 

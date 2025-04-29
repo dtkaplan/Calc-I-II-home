@@ -31,6 +31,9 @@ source("../../_software/software.R")
 
 {{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}
 
+
+Chapter 37 stuff: finite-difference approach.
+
 # 2025-04-25 class notes
 
 ```{webr-r}

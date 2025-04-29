@@ -28,6 +28,14 @@ source("../../_software/software.R")
 :::
 
 
+Chapter 50 stuff
+
+## Self-driving cars
+
+Construction of crash and no-crash likelihood functions.
+
+
+
 # 2025-05-17 class notes
 
 ```{webr-r}
