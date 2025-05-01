@@ -1,0 +1,130 @@
+---
+author: DTK
+date: 2025-05-21
+number-offset: 43
+format: live-html
+webr:
+  channel-type: 'automatic'
+  repos: ["https://dtkaplan.r-universe.dev"]
+  packages: ['ggplot2', 'mosaicCalc', "LSTbook" ]
+filters:
+  - webr
+---
+
+{{< include ../../_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(devoirs)
+source("../../_software/software.R")
+```
+::: {.callout-tip collapse=true}
+## Background software
+```{webr-r}
+#| autorun: true
+#| context: output
+{{< include ../../_software/software.R >}}
+```
+:::
+
+## Pick up from Tuesday
+
+- Wolfram as a way to do integrals
+
+- Integrals of basic modeling functions
+
+- $\partial_t v = - a v^2$ and explosions
+
+
+
+## Splines and interpolating functions
+
+Playing with interpolation functions: <https://maa-statprep.shinyapps.io/142Z-Interpolation/>
+
+### Bezier splines
+
+```{webr-r}
+# Make a cubic function that goes through the stated values
+Mbezier <- cbind(
+  vec(1, 1, 0, 0),
+  vec(0, 1, 1, 1),
+  vec(0, 1, 0, 2),
+  vec(0, 1, 0, 3)
+)
+
+bezierFun <- function(x0, x1, xp0, xp1) {
+  b <- vec(x0, x1, xp0, xp1)
+  coefs <- qr.solve(Mbezier, b)
+  function(t) {
+    coefs[1] + coefs[2]*t + coefs[3]*t^2 + coefs[4]*t^3
+  }
+}  
+```  
+
+Question: Can I match any set of four parameters with a cubic polynomial?
+
+
+
+An example:
+```{webr-r}
+fx <- bezierFun(0, 2, 1, 0)
+slice_plot(fx(t) ~ t, domain(t=0:1))
+```
+
+
+Defining both x and y functions and plotting out the resulting spline.
+
+```{webr-r}
+fy <- bezierFun(1, -3, 4, -10)
+traj_plot(fy(t) ~ fx(t), domain(t=0:1))
+```
+
+### Cubic splines
+
+Fit a cubic between each pair of consecutive knot points. We'll choose as the parameters
+
+- $x_0, x_1, {x'}_1, {x''}_1$
+
+```{webr-r}
+# Make a cubic function that goes through the stated values
+Mcubic <- cbind(
+  vec(1, 1, 0, 0),
+  vec(0, 1, 1, 1),
+  vec(0, 1, 2, 3),
+  vec(0, 0, 1, 6)
+)
+
+cubicFun <- function(x0, x1, xp0, xp1) {
+  b <- vec(x0, x1, xp0, xp1)
+  coefs <- qr.solve(Mbezier, b)
+  function(t) {
+    coefs[1] + coefs[2]*t + coefs[3]*t^2 + coefs[4]*t^3
+  }
+}  
+```  
+
+
+
+
+## Dimension example
+
+
+
+# 2025-04-25 class notes
+
+```{webr-r}
+#| caption: User console A
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console B
+#| persist: true
+```
+
+```{webr-r}
+#| caption: User console C
+#| persist: true
+```
+
+

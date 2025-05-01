@@ -29,6 +29,11 @@ source("../../_software/software.R")
 
 
 
+* Return to life expectancy
+* How do changes in mortality compare to changes in birth rate.
+* Fertility vs age
+* Propagating the population age distribution
+
 # 2025-06-06 class notes
 
 ```{webr-r}

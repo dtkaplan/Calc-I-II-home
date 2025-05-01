@@ -1,0 +1,24 @@
+---
+title: "test"
+filters: 
+  - webr
+webr:
+  repos: ["https://dtkaplan.r-universe.dev"]
+  packages: ["LSTbook", "mosaicData"]
+format:
+  live-html:
+    theme: litera
+---
+
+Package version:
+
+
+```{webr-r}
+#| autorun: false
+packageVersion("LSTbook")
+```
+
+```{webr-r}
+#| autorun: false
+?point_plot
+```
