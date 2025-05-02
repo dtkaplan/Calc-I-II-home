@@ -19,7 +19,7 @@ Part 1
 <!-- Opening answer: sts-2KX -->
 ::: {.callout-tip collapse=true `r answer_style()`}
 ## Answer
-The anti-derivative $G(t) = \int 1 dt = t + C$. Evaluating $G()$ at the limits of integration gives $$G(t) - G(-1) = t + C - \left[-t + C\right] - 2\,t\. $$
+The anti-derivative $G(t) = \int 1 dt = t + C$. Evaluating $G()$ at the limits of integration gives $$G(t) - G(-t) = t + C - \left[-t + C\right] - 2\,t\. $$
 
 We have include the "constant of integration" $C$ here for completeness, but when the calculation is going to involve $G(upper) - G(lower)$, the constants of integration will *always* cancal out.
 

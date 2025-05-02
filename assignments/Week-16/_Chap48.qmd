@@ -15,6 +15,10 @@
 ## Exer 48.5
 {{< include ../../../../MC-Workbook/Block_6/reptile-stand-jacket.qmd >}}
 
+## Exer 48.5
+{{< include ../../../../MC-Workbook/Block_6/giraffe-dig-radio.qmd >}}
+
+
 
 :::
 

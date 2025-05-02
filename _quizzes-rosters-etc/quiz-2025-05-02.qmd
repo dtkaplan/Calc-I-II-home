@@ -1,0 +1,182 @@
+---
+title: "MOSAIC Calculus Quiz 7: Prof. Kaplan"
+subtitle: "May 2, 2025"
+author: "Student name: __________________.            Do what you can in 30 minutes." 
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      left: 1cm
+      right: 1cm
+      top: 1cm
+      bottom: 8mm
+    columns: 2
+    shift-heading-level-by: -1
+    
+crossref:
+  chapters: true
+  exr-title: "Question"
+  exr-prefix: "Question"
+---
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+knitr::opts_chunk$set(results="asis", roman=TRUE)
+library(devoirs)
+source("../_software/software.R")
+make_numbering <- function(word) {
+  num <- 1
+  function() {
+    res <- glue::glue(word)
+    num <<- num + 1
+    return(res)
+  }
+} 
+Q <- make_numbering("[**Question 7.{num}**]{{.underline}}")
+```
+
+
+
+
+```{r}
+#| echo: FALSE
+triangle_wave <- function(t) {
+  ifelse(t < pi/2, 
+         t,
+         ifelse(t > 3*pi/2,
+                t - 2*pi,
+                pi - t)
+  )
+}
+# slice_plot(triangle_wave(t) ~ t, domain(t=0:(2*pi)))
+Fig <- drawFpair(triangle_wave, dom = domain(t=0:(2*pi)), bottom = -pi/2)
+Fig2 <-drawFpair(triangle_wave, dom = domain(t=0:(2*pi)), bottom = -pi/2, alpha = 1)
+```
+
+`r Q()` Consider this function
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: "80%"
+Fig$P1 |>
+  gf_labs(y = "f(t)")
+```
+a. Which one of the pattern-book functions most closely resembles the $f(t)$ plotted above?
+
+ 
+
+b. Give a formula for the anti-derivative of the function you chose to answer (a).
+
+ 
+
+c. On the axis grid below, draw in both the function in (b) **AND** your best sketch of the anti-derivative of $f(t)$. (That is, sketch the anti-derivative of the sharp-elbowed function drawn in the previous plot as well as your function in (b).)
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: "90%"
+Fig$P2 |>
+  gf_labs(y = " ") |>
+  gf_lims(y = c(-2.5, 2.5))
+```
+
+d. Explain what the "constant of integration" has to do with the alignment of the two functions you sketched in (c).
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+`r Q()`
+
+Here are some definite integrals for which, without stating anything more about the function, we give you the numerical result.
+
+   |   |  
+---------------------------|---------|------------------------------- 
+$\int_{2}^{5} f(x) \,dx = 8$ | | $\int_{-5}^{-2} f(x) \,dx = 3$
+   |   |  
+$\int_{2}^{10} f(x) \,dx = -6$ | | $\int_{-5}^{5} f(x) \,dx = 1$
+____________________|_______|____________________
+
+Using these the facts, calculate the following integrals. If there's not sufficient information given to perform the calculation, say so.
+
+
+(a) $$\int_{5}^{10} f(x) \,dx$$  | (b) $$\int_{-2}^{2} f(x) \,dx$$ 
+----|-----
+ | 
+(c) $$\int_{-5}^{10} 3 f(x) \,dx $$ | (d) $$\int_{-5}^{5} \left| f(x) \right| \,dx$$
+______________________ | _____________________
+(e) $$\int_{-5}^{10} \left[3 f(x) - 2x\right] \,dx $$ | (f) $$\int_{-2}^{5} f(x)\, dt$$
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+`r Q()` Consider the function graphed below and answer as best you can.
+
+```{r}
+#| echo: FALSE
+#| fig-align: center
+f <- doodle_fun(~ t, seed = 223)
+slice_plot(f(t) ~ t, domain(t = -5:5)) |>
+  gf_theme(theme_minimal())
+```
+
+Is this function the derivative or the anti-derivative of functions?
+
+ 
+
+`r Q()` Explain the distinctions between an "anti-derivative," a "definite," and an "indefinite" integral. 
+
+
+ 
+
+ 
+
+ 
+
+`r Q()` Simplify these expressions as much as possible:
+
+1. $$\int \frac{1}{t} dt$$
+
+2. $$\int \frac{1}{t^2} dt$$
+
+3. $$\int \cos(\omega t) dt$$
+
+4.  For this one, keep in mind that $\int_{-\infty}^\infty \text{dnorm}(t) dt = 1.$
+$$\int_0^\infty \text{dnorm}(t) dt$$.
+
+5. $$\int_0^\infty \text{pnorm}(t) dt$$
+
+ 
+
+ 
+
+ 
+
+`r Q()` A statement like this appears in the textbook. The one in the textbook is correct, but this one has a couple of typographical errors. Fix them.
+
+$$\int_a^b f(t) dx = F(t) \left.\right|_a^b  = F(a) - F(b)$$
+
+
+

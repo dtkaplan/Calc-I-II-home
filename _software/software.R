@@ -392,22 +392,21 @@ if (!exists("take_sample")) {
     result <- base::sample(x, size, replace = replace, prob = prob)
     return(result)
   }
+}
 
-  #' A convenience function for sampling with replacement
-  #' @rdname take_sample
-  #' @export
+if (!exists("resample")) {
   resample <<- function(..., replace = TRUE) {
     take_sample(..., replace = replace)
   }
+}
 
   #' A convenience function for shuffling, typically used with
   #' within model_train(), but available elsewhere for, e.g. demonstrations
   #' @rdname take_sample
   #' @export
+if (!exists("shuffle")) {
   shuffle <<- function(...) {
     take_sample(...)
   }
-
-
 }
 
