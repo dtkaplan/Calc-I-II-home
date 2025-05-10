@@ -22,15 +22,62 @@ devoirs::answer_style("none")
 {{< include ../../_software/software.R >}}
 ```
 
+:::: {.callout-note collapse=true}
+## Drill
+::: {.panel-tabset}
+## D1
+{{< include ../../../../MC-Workbook/Block_4/monkey-light-stove.qmd >}}
+
+
+## D2
+{{< include ../../../../MC-Workbook/Block_4/tiger-tug-shoe.qmd >}}
+
+
+## D3
+{{< include ../../../../MC-Workbook/Block_4/seahorse-choose-canoe.qmd >}}
+
+## D4
+{{< include ../../../../MC-Workbook/Block_4/cumsum.qmd >}}
+
+## D5
+
+{{< include ../../../../MC-Workbook/Block_4/euler-step.qmd >}}
+:::
+::::
+
+
+:::: {.callout-note collapse=true}
+## Chapter 35
+
+{{< include _Chap35.qmd >}}
+
+::::
+
+::: {.callout-note collapse=true}
 ## Chapter 37
 
+::: {.panel-tabset}
+
+## 37.1 
+
+{{< include _exercises/daisy-engage-pot.qmd >}}
+
+:::
+
+::::
+
+:::: {.callout-note collapse=true}
 ## Chapter 38 
 
-
-
+::: {.panel-tabset}
+## 38.1
 {{< include ../../../../MC-Workbook/Block_4/walnut-bet-pants.qmd >}}
 
+## 38.2
 {{< include ../../../../MC-Workbook/Block_4/pony-stand-bottle.qmd >}}
+
+:::
+::::
 
 ::: {.callout-note collapse=true}
 ## Chapter 48
@@ -40,12 +87,8 @@ devoirs::answer_style("none")
 :::
 
 
-::: {.callout-note collapse=true}
-## Chapter 35
-{{< include _Chap35.qmd >}}
-:::
 
-
+<!--
 
 ## Splines
 
@@ -58,31 +101,4 @@ for a possible solar power problem
 For instance, if I had a function ('solarpanelpower') that calculates the amount of power a solar panel generates and another function ('sunlight') that tells me the amount of sunlight at time of the day ('TOD'). I could evaluate this in one step like the following: 'solarpanelpower(sunlight(TOD))'. This would give me the amount of power from the solar panel based upon the time of the day.
 :::
 
-
-::: {.panel-tabset}
-## Exer 16.1
-
-
-## Exer 16.2
-
-
-::: 
-<!-- end of hand-and-eye tabset -->
-
-## Computing
-
-::: {.panel-tabset}
-## 16.C.3
-
-
-## 16.C.4
-
-
-## 16.C.5
-
-
-## 16.C.6
-
-:::
-<!-- end of computing tabset -->
-
+-->

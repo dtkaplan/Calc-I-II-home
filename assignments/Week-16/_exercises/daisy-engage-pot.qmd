@@ -1,0 +1,73 @@
+---
+id: "daisy-engage-pot"
+created: "Sat May 10 16:23:55 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+library(ggformula)
+```
+
+::: {#exr-daisy-engage-pot}
+```{r}
+#| echo: false
+rplot <- function(tilde, domain, npts = 11, position=c("left", "middle", "right"), ...) {
+  position = match.arg(position)
+  f <- makeFun(tilde, ...)
+  ends <- domain[[1]]
+  h <- diff(ends)/(npts - 1)
+  points <- seq(ends[1], ends[2], by = h)
+  Pts <- tibble::tibble(
+    left = points[-length(points)],
+    right = points[-1],
+    mid = (left + right)/2
+    )
+  Pts$val <- if (position == "left") f(Pts$left)
+  else if (position == "middle") f(Pts$mid)
+  else if (position == "right") f(Pts$right)
+  else stop("Invalid <position> argument.")
+   
+  Pts$color <- ifelse(Pts$val > 0, "blue", "tomato")
+  slice_plot(tilde, domain, npts=501) |>
+    gf_hline(yintercept = ~ 0, color = "blue") |>
+    gf_rect(0 + val ~ left + right, data = Pts,
+            inherit = FALSE, fill = NA, alpha = 0, 
+            color = "black", linewidth = 0.1) |>
+    gf_rect(0 + val ~  left + right, data = Pts, 
+            fill = ~ color, 
+            inherit = FALSE, alpha = 0.2) |>
+    gf_refine(scale_fill_identity()) |>
+    gf_theme(theme_void)
+  
+}
+f <- doodle_fun(~ x, seed = 397)
+```
+
+A simple form of numerical integration of a function $f()$ involves dividing up the domain into small, non-overlapping segments, then evaluating $f()$ on each segment, and calculating each segment's contribution to the overall total by multiplying the segment width by the value of $f()$ in that segment.
+
+This description doesn't specify where on the segment to do the function evaluation. @fig-left-mid-right shows three possibilities, evaluating at the left end of the segment, at the right end, or in the middle.
+
+```{r}
+#| label: fig-left-mid-right
+#| fig-cap: Three different function evaluation schemes.
+#| fig-subcap: 
+#|   - left
+#|   - center
+#|   - right
+#| layout-ncol: 1
+#| echo: false
+rplot(f(x) + 5 ~ x, domain(x = -5.1:4), position = "left")
+rplot(f(x) + 5 ~ x, domain(x = -5.1:4), position = "middle")
+rplot(f(x) + 5 ~ x, domain(x = -5.1:4), position = "right")
+```
+
+To judge from the example function shown in @fig-left-mid-right, is one of the three methods to be preferred to the other two?
+
+`r devoirs_text("left-right-middle-integral")`
+
+
+:::
+ <!-- end of exr-daisy-engage-pot -->)
