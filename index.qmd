@@ -136,7 +136,7 @@ Friday May 2
 ### Week 6  {.unnumbered}
 
 Tuesday May 13
-: Topic
+: Topic: Numerical integration and anti-differentiation
 : Reading [*MOSAIC Calculus* Chap 37](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/37-euler.html)
 : Due: [Week 5 assignment](assignments/Week-15/index-assignment-15.html)
 
@@ -151,64 +151,72 @@ Friday May 16
 
 ### Week 7 {.unnumbered}
 
+Starting Block V: Dynamics
+
 Tuesday May 20
-: Topic Mechanics and integration
-: Reading [*MOSAIC Calculus* Chap 52](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/52-mechanics.html)
+: Topic Differential equations
+: Reading [*MC* Chap 39](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/39-diff-eq.html)
+: Quiz (through May 16) 20 minutes
 : Due: [Week 6 assignment](assignments/Week-17/index-assignment-16.html)
 
 Thursday May 22
-: Topic Modeling Day
-: Reading
+: Topic Solutions and trajectories
+: Reading [*MC* Chap 40](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/40-solution.html)
 
 Friday May 23
-: Topic
-: Reading
+: Topic: Qualitative dynamics in one variable
+: Reading [*MC* Chap 41](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/41-flow-on-line.html)
 
 ### Week 8 {.unnumbered}
 
 Tuesday May 27
-: Topic
-: Reading
+: Topic The "Phase plane"
+: Reading [*MC* Chap 42](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/42-flow-on-plane.html)
 : Due: [Week 7 assignment](assignments/Week-17/index-assignment-17.html)
 
 
 Thursday May 29
-: Topic
-: Reading
+: Topic Classic models of dynamics
+: Reading [*MC* Chap 43](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/43-modeling.html)
 
 
 Friday May 30
-: Topic
-: Reading
+: Topic Equilibrium and transient
+: Reading [*MC* Chap 44](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/44-equilibria.html)
 
 
 ### Week 9 {.unnumbered}
 
+: [*MOSAIC Calculus* Chap 52] Mechanics
+
 Tuesday June 3
-: Topic
-: Reading
+: Topic: Eigenvalues, eigenvectors
+: Reading [*MC* Chap 45](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/45-eigen.html)
 : Due: [Week 8 assignment](assignments/Week-18/index-assignment-18.html)
 
 
 
 Thursday June 5
-: Modeling Day
+: Modeling Day Eigenvectors and politics 
+: Quiz (through June 3) 20 minutes
 
 Friday June 6
-: Topic
-: Reading
+: Topic Force-balance equations, resonance
+: Reading [*MC* Chap 46](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/46-second-order.html)
 
 ### Week 10 {.unnumbered}
 
+
 Tuesday June 10
-: Topic
-: Reading
+: Topic: Mechanics of motion
+: Reading: [*MC* Chap 52](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/52-mechanics.html)
 
 Thursday June 12
-: Modeling Day
+: Topic: Optimization, constraint, & trade-off
+: Reading [*MC* Chap 49](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/49-optimization.html)
 
 Friday June 13
-: **Mid-term exam** (30 minutes)
+: **Final Quiz** covering whole semester (30 minutes)
 : Topic
 : Reading
 : Due: [Week 9 assignment](assignments/Week-19/index-assignment-19.html)

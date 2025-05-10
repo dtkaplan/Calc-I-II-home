@@ -1,7 +1,7 @@
 ---
 author: DTK
-date: 2025-05-31
-number-offset: 41
+date: 2025-05-29
+number-offset: 52
 format: live-html
 webr:
   channel-type: 'automatic'
@@ -27,7 +27,8 @@ source("../../_software/software.R")
 ```
 :::
 
-# 2025-05-31 class notes
+
+# 2025-05-29 class notes
 
 ```{webr-r}
 #| caption: User console A

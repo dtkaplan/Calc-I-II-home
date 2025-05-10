@@ -1,7 +1,7 @@
 ---
 author: DTK
-date: 2025-04-25
-number-offset: 41
+date: 2025-05-13
+number-offset: 45
 format: live-html
 webr:
   channel-type: 'automatic'
@@ -27,6 +27,17 @@ source("../../_software/software.R")
 ```
 :::
 
+
+Go over simple approaches to numerical accumulation:
+
+1. Step-wise evaluation at next point.
+2. Trapezoidal rule
+3. Gaussian quadrature
+4. Adaptive partitioning
+5. Anti-differentiation: packaging up integration results as a function. Use splines.
+
+
+
 ## Dimension example
 
 {{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}
@@ -34,7 +45,7 @@ source("../../_software/software.R")
 
 Chapter 37 stuff: finite-difference approach.
 
-# 2025-04-25 class notes
+# 2025-05-13 class notes
 
 ```{webr-r}
 #| caption: User console A

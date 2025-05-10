@@ -1,7 +1,7 @@
 ---
 author: DTK
-date: 2025-05-17
-number-offset: 41
+date: 2025-05-15
+number-offset: 46
 format: live-html
 webr:
   channel-type: 'automatic'
@@ -28,15 +28,7 @@ source("../../_software/software.R")
 :::
 
 
-Chapter 50 stuff
-
-## Self-driving cars
-
-Construction of crash and no-crash likelihood functions.
-
-
-
-# 2025-05-17 class notes
+# 2025-05-15 class notes
 
 ```{webr-r}
 #| caption: User console A

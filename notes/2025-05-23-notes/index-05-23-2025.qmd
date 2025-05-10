@@ -1,7 +1,7 @@
 ---
 author: DTK
-date: 2025-05-21
-number-offset: 41
+date: 2025-04-23
+number-offset: 50
 format: live-html
 webr:
   channel-type: 'automatic'
@@ -16,6 +16,7 @@ filters:
 ```{r include=FALSE}
 library(mosaicCalc)
 library(devoirs)
+library(LSTdata)
 source("../../_software/software.R")
 ```
 ::: {.callout-tip collapse=true}
@@ -29,21 +30,23 @@ source("../../_software/software.R")
 
 
 
-# 2025-05-21 class notes
+# 2025-05-23 class notes
 
+::: {.panel-tabset}
+## Scratch A
 ```{webr-r}
 #| caption: User console A
 #| persist: true
 ```
-
+## Scratch A
 ```{webr-r}
 #| caption: User console B
 #| persist: true
 ```
-
+## Scratch A
 ```{webr-r}
 #| caption: User console C
 #| persist: true
 ```
-
+:::
 
