@@ -29,6 +29,14 @@ source("../../_software/software.R")
 :::
 
 
+Activities:
+
+- squirrel-break-tv
+- bird-meet-sheet
+- giraffe-feel-blanket
+
+
+
 
 # 2025-05-23 class notes
 

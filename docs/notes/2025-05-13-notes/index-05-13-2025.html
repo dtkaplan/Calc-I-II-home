@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="DTK">
-<meta name="dcterms.date" content="2025-04-23">
+<meta name="dcterms.date" content="2025-05-13">
 
-<title>index-05-23-2025 – MOSAIC Calc 2025</title>
+<title>index-05-13-2025 – MOSAIC Calc 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,6 +73,35 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -142,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 23, 2025</p>
+        <p class="date">May 13, 2025</p>
       </div>
     </div>
     
@@ -158,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#class-notes" id="toc-class-notes" class="nav-link active" data-scroll-target="#class-notes"><span class="header-section-number">51</span> 2025-05-23 class notes</a></li>
+  <li><a href="#class-notes" id="toc-class-notes" class="nav-link active" data-scroll-target="#class-notes"><span class="header-section-number">46</span> 2025-05-13 class notes</a></li>
   </ul>
 </nav>
     </div>
@@ -192,12 +221,238 @@ eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNvbnRleHQiOiJvdXRwdXQiLCJlZGl0Ijp0cnVlLCJldmFs
 </div>
 </div>
 </div>
-<section id="class-notes" class="level3" data-number="51">
-<h3 data-number="51" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">51</span> 2025-05-23 class notes</h3>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Scratch A</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Scratch A</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Scratch A</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Go over simple approaches to numerical accumulation:</p>
+<ol type="1">
+<li>Step-wise evaluation at next point.</li>
+<li>Trapezoidal rule</li>
+<li>Gaussian quadrature</li>
+<li>Adaptive partitioning</li>
+<li>Anti-differentiation: packaging up integration results as a function. Use splines.</li>
+</ol>
+<section id="dimension-example" class="level4" data-number="45.1">
+<h4 data-number="45.1" class="anchored" data-anchor-id="dimension-example"><span class="header-section-number">45.1</span> Dimension example</h4>
+<p>When studying u-dimensions a while ago, we undertook to figure out how fast a satellite travels. As you recall, we measured the <span class="math inline">\(r\)</span>, the orbit height <em>from the center of the Earth</em>. Assuming a circular orbit (which is not necessarily a good assumption) the total path length of an orbit is <span class="math inline">\(2 \pi r\)</span>. We also assumed that the acceleration of the satellite due to gravity is 9.8 m/s^2 , the value on the Earth’s surface. (And a reasonably good approximation to the value at a height of, say, 100 mi above the surface.)</p>
+<p>Then we asked how large is the centripetal acceleration needed to keep a satellite in orbit of radius <span class="math inline">\(r\)</span> at velocity <span class="math inline">\(v\)</span>. We used dimensional analysis to say that <span class="math inline">\(a = v^2/r\)</span>, a formula that is dimensionally consistent.</p>
+<dl>
+<dt>Part A</dt>
+<dd>
+Demonstrate that <span class="math inline">\(a = v^2/r\)</span> is dimensionally consistent.
+</dd>
+</dl>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for differential-orbit-A.');
+      const form = document.getElementById('differential-orbit-A');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('differential-orbit-A').value;
+        localStorage.setItem("differential-orbit-A-contents", todo);
+        console.log("Saving value of differential-orbit-A.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("differential-orbit-A-contents");
+      if (savedValue) {
+        document.getElementById('differential-orbit-A').value = savedValue;
+      }
+})
+</script>
+<textarea id="differential-orbit-A" name="differential-orbit-A" class="devoirs-text" style="font-family: monospace, monospace;" rows="Answer for Part A" cols="50" placeholder="Type here. (ID differential-orbit-A)"></textarea>
+<dl>
+<dt>Part B</dt>
+<dd>
+Knowing that <span class="math inline">\(a \approx 9.8\)</span> m/s^2 , and specifying <span class="math inline">\(r = 4050mi\)</span> (that is, 100 mi above the surface of the Earth), we solved for <span class="math inline">\(v\)</span>: <span class="math display">\[v = \sqrt{a \times r} = \sqrt{9.8 \text{m}\, \text{s}^{-2} \times 4050 \text{mi}} = 191.5 \sqrt{\text{m}\cdot\text{mi}\strut}\ \text{s}^{-1}\]</span>
+</dd>
+</dl>
+<p>B.1. What is the numerical value of <span class="math inline">\(\sqrt{\text{m}\cdot\text{mi}\strut}\)</span> expressed in miles?</p>
+<div class="cell" data-show_hints="true">
+<span> <small style="color: grey;" id="differential-orbit-1-hintarea" class="hintarea">differential-orbit-1</small>
+<form id="differential-orbit-1-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{160 ... = 40.12 m$" id="differential-orbit-1-1" w="87" name="differential-orbit-1" hint="You were asked for the value of $\sqrt{\text{m}\cdot\text{mi}\strut}$ in miles, not meters." show_hints="TRUE"> <span class="math inline">\(\sqrt{1609.34 \text{m}^2} = 40.12 m\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{40. ... \text{mi}$" id="differential-orbit-1-2" w="7" name="differential-orbit-1" hint="But if you think about the area of 1 meter times 1 mile, it is much, much less than a square mile. The square root of a square mile is 1 mile. So the true answer must be much less than that." show_hints="TRUE"> <span class="math inline">\(\sqrt{40.12 \text{mi}^2} \approx 6.33 \text{mi}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$\sqrt{0.0 ... \text{mi}$" id="differential-orbit-1-3" w="29" name="differential-orbit-1" hint="0.00062 is roughly 1/1600, which makes sense considering there are roughly 1600 m in a mile." show_hints="TRUE"> <span class="math inline">\(\sqrt{0.000621371 \text{mi}^2} \approx 0.025 \text{mi}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="It is craz ... m\strut}$." id="differential-orbit-1-4" w="87" name="differential-orbit-1" hint="Indeed, there is no such thing as $\sqrt{1 m\strut}$. But that is  irrelevant here because the contents of the square root are a product of 1 m $\times$ 1 mile, which has dimension L^2 Taking the square root of a quantity with dimension L^2 gives a quantity with dimension L, a perfectly everyday affair." show_hints="TRUE"> It is crazy to take the square root of a length. There is no such thing as <span class="math inline">\(\sqrt{1 m\strut}\)</span>.</p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="differential-orbit-1" id="differential-orbit-1.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for differential-orbit-1.');
+      const form = document.getElementById('differential-orbit-1-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('differential-orbit-1-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for differential-orbit-1.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for differential-orbit-1.");
+          localStorage.setItem('differential-orbit-1-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<dl>
+<dt>Part C</dt>
+<dd>
+What happens when we accumulate the acceleration over time, that is, accumulate <span class="math inline">\(a = v^2/r\)</span> over half the period of an orbit. Presumably, the accumulated velocity should be twice the original velocity, so that at the end of the half orbit velocity is pointing in the opposite direction to the beginning velocity. Now that we have tools from calculus, we can check.
+</dd>
+</dl>
+<div id="fig-centripetal.png" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-centripetal.png-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="www/centripetal.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-centripetal.png-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The figure shows a diagram of the situation. There is a satellite in circular orbit. (Earth hasn’t been included in the diagram.) Annotating one point of the orbit is a vector, <span class="math inline">\({\mathbf v}_1\)</span>, which represents the velocity of the satellite at that point in the orbit. The velocity vector is tangent to the orbit itself; it is <em>instantaneous</em> velocity. One-hundred eighty degrees opposite <span class="math inline">\({\mathbf v}_1\)</span> is another velocity vector, <span class="math inline">\({\mathbf v}_3\)</span> that has the same length as <span class="math inline">\({\mathbf v}_1\)</span> but faces in exactly the opposite direction: <span class="math inline">\({\mathbf v}_3 = -{\mathbf v}_1\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>The change in the velocity vector over half the orbital time is simple: <span class="math inline">\({\mathbf v}_3 - {\mathbf v}_1 = {\mathbf v}_3 + {\mathbf v}_3 = 2 {\mathbf v}_3\)</span>.</p>
+<p>Now calculus comes in: the change in velocity is the integral with respect to time of acceleration over the time to complete half an orbit. <span class="math display">\[\int_{t=\text{start}}^{t=\text{end}} {\mathbf a}\, dt = 2 {\mathbf v}_3\]</span><br>
+We can simplify by setting the “start” time to zero. The end time is how long it takes to complete half an orbit. This will be the distance covered divided by the speed. The half circumference of the orbit is <span class="math inline">\(\pi r\)</span>. The speed of the satellite is <span class="math inline">\(|v|\)</span>. So the end time is <span class="math inline">\(\pi r/ v\)</span>.</p>
+<p>Although the magnitude of the acceleration is constant, the acceleration is a vector which is certainly not constant as the satellite moves through the orbit. And, being a vector, we need to keep track of the changing components of the vector. Referring to the diagram, only the “horizontal” component of the acceleration contributes to the change in velocity from point 1 to point 3, because that change is entirely horizontal.</p>
+<p>Look at an intermediate point between 1 and 3. The vector <span class="math inline">\({\mathbf v}_2\)</span> is shown at an angle <span class="math inline">\(\theta\)</span> from the <span class="math inline">\({\mathbf v}_1\)</span>. At point 2, the acceleration vector is directed (as always) toward the center of the orbit. The horizontal component of the acceleration vector is <span class="math inline">\(a \sin(\theta)\)</span>, as you can see from the trigonometry of the situation. The previous integral should have been written in terms of the horizontal component of the acceleration:</p>
+<p><span class="math display">\[\int_{t=0}^{t=\pi r/v} |{\mathbf a}|\,\sin(\theta)\, dt \]</span> Keep in mind that <span class="math inline">\(\theta\)</span> is a function of <span class="math inline">\(t\)</span>. The relationship is <span class="math display">\[\theta = v t / r \ \ \implies\ \ \ d\theta = \frac{v}{r}dt\]</span><br>
+We’ve written the differential of the relationship because we will substitute for <span class="math inline">\(t\)</span> and <span class="math inline">\(dt\)</span> to translate the integral to be solely in terms of <span class="math inline">\(\theta\)</span>: <span class="math display">\[\int_{\theta=0}^{\theta = \pi} |{\mathbf a}| \sin(\theta)\frac{r}{v}\, d \theta = |{\mathbf a}| \frac{r}{v} \int_{\theta=0}^{\theta = \pi} \sin(\theta)\, d \theta\]</span> The integral involves one of the basic modeling functions, so you have already memorized the answer.</p>
+<dl>
+<dt>Part C.1.</dt>
+<dd>
+What is <span class="math display">\[\int_{\theta=0}^{\theta = \pi} \sin(\theta)\, d \theta \ \text{?}\]</span>
+</dd>
+</dl>
+<div class="cell" data-inline="true">
+<span> <small style="color: grey;" id="differential-orbit-2-hintarea" class="hintarea">differential-orbit-2</small>
+<form id="differential-orbit-2-form">
+<span> <span> <input type="radio" class="devoirs-mcq" value="0 " id="differential-orbit-2-1" w="32" name="differential-orbit-2" hint="Better luck next time." show_hints="false"> 0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="2" id="differential-orbit-2-2" w="41" name="differential-orbit-2" hint="A hit!" show_hints="false"> 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$-\cos(\theta)$" id="differential-orbit-2-3" w="7" name="differential-orbit-2" hint="$-\cos(\theta)$ is the anti-derivative of $\sin(\theta)$, but we are asking for the value of a definite integral, so the answer you give should be a number." show_hints="false"> <span class="math inline">\(-\cos(\theta)\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" value="$- \pi \co ... s(\theta)$" id="differential-orbit-2-4" w="32" name="differential-orbit-2" hint="What's the $\pi$ doing there?" show_hints="false"> <span class="math inline">\(- \pi \cos(\theta)\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" class="devoirs-mcq" name="differential-orbit-2" id="differential-orbit-2.null" style="display: none;" w="skipped" checked=""> </span> </span>
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for differential-orbit-2.');
+      const form = document.getElementById('differential-orbit-2-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('differential-orbit-2-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for differential-orbit-2.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for differential-orbit-2.");
+          localStorage.setItem('differential-orbit-2-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<dl>
+<dt>Part C.2.</dt>
+<dd>
+Set <span id="eq-a-integrated"><span class="math display">\[2 v = |{\mathbf a}| \frac{r}{v}\int_{\theta=0}^{\theta = \pi} \sin(\theta)\, d \theta \tag{1}\]</span></span> and solve for <span class="math inline">\(a\)</span>. Which one of these is it?
+</dd>
+</dl>
+<div class="cell">
+<span> <small style="color: grey;" id="differential-orbit-3-hintarea" class="hintarea">differential-orbit-3</small>
+<form id="differential-orbit-3-form">
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$a = 2 \fr ... {v^2}{r}$ " id="differential-orbit-3-1" w="32" name="differential-orbit-3" hint="Sorry!" show_hints="false"> <span class="math inline">\(a = 2 \frac{v^2}{r}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$a = \frac{v^2}{r}$" id="differential-orbit-3-2" w="41" name="differential-orbit-3" hint="Excellent!" show_hints="false"> <span class="math inline">\(a = \frac{v^2}{r}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$a = 4 \fr ... {v^2}{r}$ " id="differential-orbit-3-3" w="32" name="differential-orbit-3" hint="No." show_hints="false"> <span class="math inline">\(a = 4 \frac{v^2}{r}\)</span></p>
+<p></p>
+<p>
+</p><p><input type="radio" class="devoirs-mcq" value="$a = \frac ... {v^2}{r}$ " id="differential-orbit-3-4" w="23" name="differential-orbit-3" hint="No." show_hints="false"> <span class="math inline">\(a = \frac{2}{\pi} \frac{v^2}{r}\)</span></p>
+<p></p>
+<input type="radio" class="devoirs-mcq" name="differential-orbit-3" id="differential-orbit-3.null" style="display: none;" w="skipped" checked="">
+</form>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for differential-orbit-3.');
+      const form = document.getElementById('differential-orbit-3-form');
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+
+      // Load saved value on page load
+      const savedValue = localStorage.getItem('differential-orbit-3-choice');
+      if (savedValue) {
+        console.log("Restoring radio button values for differential-orbit-3.");
+        radioButtons.forEach(radio => {
+          if (radio.value === savedValue) {
+            radio.checked = true;
+          }
+        });
+      }
+
+      // Save value on change
+      form.addEventListener('change', function(event) {
+        if (event.target.type === 'radio') {
+          console.log("Saving changed value for differential-orbit-3.");
+          localStorage.setItem('differential-orbit-3-choice', event.target.value);
+        }
+      });
+    });
+</script>
+<p></p>
+</span></div>
+<dl>
+<dt>Part C.3.</dt>
+<dd>
+The proceeding tells us something important. Dimensional analysis could tell us only that <span class="math inline">\(a = v^2/r\)</span> is dimensionally consistent. But we could multiply the right-hand side by any constant and remain dimensionally consistent. How do we know that constant is 1? Suppose, for instance, that <span class="math inline">\(a = k v^2 / r\)</span>. Substitute that in <a href="#eq-a-integrated" class="quarto-xref">Equation&nbsp;1</a> to see if there are any permitted values of <span class="math inline">\(k\)</span>. Explain what you found.
+</dd>
+</dl>
+<script type="text/javascript">
+      //save entered info
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log('Adding event listener for permitted-k-values.');
+      const form = document.getElementById('permitted-k-values');
+      form.addEventListener("input", function () {
+        var todo = document.getElementById('permitted-k-values').value;
+        localStorage.setItem("permitted-k-values-contents", todo);
+        console.log("Saving value of permitted-k-values.")
+      }, false);
+
+      //on page load, read in the old value
+      const savedValue = localStorage.getItem("permitted-k-values-contents");
+      if (savedValue) {
+        document.getElementById('permitted-k-values').value = savedValue;
+      }
+})
+</script>
+<textarea id="permitted-k-values" name="permitted-k-values" class="devoirs-text" style="font-family: monospace, monospace;" rows="4" cols="50" placeholder="Type here. (ID permitted-k-values)"></textarea>
+<p>:::</p>
+<p>Chapter 37 stuff: finite-difference approach.</p>
+</section>
+<section id="class-notes" class="level3" data-number="46">
+<h3 data-number="46" class="anchored" data-anchor-id="class-notes"><span class="header-section-number">46</span> 2025-05-13 class notes</h3>
 <div>
 <div id="webr-2" class="exercise-cell">
 
@@ -206,8 +461,6 @@ eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNvbnRleHQiOiJvdXRwdXQiLCJlZGl0Ijp0cnVlLCJldmFs
 eyJhdHRyIjp7ImNhcHRpb24iOiJVc2VyIGNvbnNvbGUgQSIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
 </script>
 </div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div>
 <div id="webr-3" class="exercise-cell">
 
@@ -216,8 +469,6 @@ eyJhdHRyIjp7ImNhcHRpb24iOiJVc2VyIGNvbnNvbGUgQSIsImVkaXQiOnRydWUsImV2YWwiOnRydWUs
 eyJhdHRyIjp7ImNhcHRpb24iOiJVc2VyIGNvbnNvbGUgQiIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
 </script>
 </div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div>
 <div id="webr-4" class="exercise-cell">
 
@@ -225,9 +476,6 @@ eyJhdHRyIjp7ImNhcHRpb24iOiJVc2VyIGNvbnNvbGUgQiIsImVkaXQiOnRydWUsImV2YWwiOnRydWUs
 <script type="webr-4-contents">
 eyJhdHRyIjp7ImNhcHRpb24iOiJVc2VyIGNvbnNvbGUgQyIsImVkaXQiOnRydWUsImV2YWwiOnRydWUsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiIn0=
 </script>
-</div>
-</div>
-</div>
 </div>
 
 
@@ -256,7 +504,7 @@ eyJjb250ZW50cyI6W119
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../notes/2025-05-23-notes";
+window._ojs.paths.runtimeToDoc = "../../notes/2025-05-13-notes";
 window._ojs.paths.runtimeToRoot = "../..";
 window._ojs.paths.docToRoot = "../..";
 window._ojs.selfContained = false;

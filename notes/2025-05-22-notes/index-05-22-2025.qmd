@@ -31,6 +31,12 @@ source("../../_software/software.R")
 
 # 2025-05-22 class notes
 
+An activity with Block-5/fox-look-magnet
+
+Also Block-5/ape-grow-oven
+
+
+
 ```{webr-r}
 #| caption: User console A
 #| persist: true

@@ -23,31 +23,116 @@ devoirs::answer_style("none")
 {{< include ../../_software/software.R >}}
 ```
 
-## By hand and eye
+:::: {.callout-note collapse=true}
+## Drill
+
+`r push_answer_style("block")`
 
 ::: {.panel-tabset}
-## Exer 17.1
+## D39.1
+{{< include ../../../../MC-Workbook/Block_5/bear-blow-kayak.qmd >}}
+
+## D39.2
+{{< include ../../../../MC-Workbook/Block_5/rat-find-closet.qmd >}}
+
+## D39.3
+{{< include ../../../../MC-Workbook/Block_5/fish-burn-fridge.qmd >}}
+
+## D39.4
+{{< include ../../../../MC-Workbook/Block_5/squirrel-tell-chair.qmd >}}
+
+## D39.5
+{{< include ../../../../MC-Workbook/Block_5/cheetah-hit-chair.qmd >}}
+
+## D39.6
+{{< include ../../../../MC-Workbook/Block_5/ant-keep-screen.qmd >}}
+
+## D40.1
+{{< include ../../../../MC-Workbook/Block_5/crocodile-dive-laundry.qmd >}}
+
+## D41.1
+{{< include ../../../../MC-Workbook/Block_5/finch-write-fridge.qmd >}}
+
+## D41.2
+{{< include ../../../../MC-Workbook/Block_5/calf-dive-pot.qmd >}}
+
+## D41.3
+{{< include ../../../../MC-Workbook/Block_5/aspen-ride-knob.qmd >}}
+
+## D41.4
+{{< include ../../../../MC-Workbook/Block_5/ape-stand-bowl.qmd >}}
+
+## D41.5
+{{< include ../../../../MC-Workbook/Block_5/doe-have-piano.qmd >}}
 
 
-## Exer 17.2
-
-
-::: 
-<!-- end of hand-and-eye tabset -->
-
-## Computing
-
-::: {.panel-tabset}
-## 17.C.3
-
-
-## 17.C.4
-
-
-## 17.C.5
-
-
-## 17.C.6
+`r pop_answer_style()`
 
 :::
-<!-- end of computing tabset -->
+
+::::
+
+
+:::: {.callout-note collapse=true}
+## Chapter 39
+
+::: {.panel-tabset}
+
+## 39.1
+{{< include ../../../../MC-Workbook/Block_5/sheep-chew-dish.qmd >}}
+
+## 39.2
+{{< include ../../../../MC-Workbook/Block_5/bird-trim-bulb.qmd >}}
+
+:::
+
+::::
+<!-- Chapter 39 -->
+
+
+
+:::: {.callout-note collapse=true}
+## Chapter 40
+
+::: {.panel-tabset}
+## 40.1
+{{< include ../../../../MC-Workbook/Block_5/cat-bite-futon.qmd >}}
+
+## 40.2
+{{< include ../../../../MC-Workbook/Block_5/rabbit-grow-candy.qmd >}}
+
+## 40.3
+{{< include ../../../../MC-Workbook/Block_5/maple-beat-plate.qmd >}}
+
+## 40.4
+{{< include ../../../../MC-Workbook/Block_5/spruce-make-lamp.qmd >}}
+
+:::
+
+::::
+<!-- Chapter 40 -->
+
+
+
+:::: {.callout-note collapse=true}
+## Chapter 41
+
+::: {.panel-tabset}
+## 41.1
+{{< include ../../../../MC-Workbook/Block_5/maple-bring-plant.qmd >}}
+
+## 41.2
+{{< include ../../../../MC-Workbook/Block_5/hamster-dive-window.qmd >}}
+
+## 41.3
+{{< include ../../../../MC-Workbook/Block_5/pine-win-oven.qmd >}}
+
+## 41.4
+{{< include ../../../../MC-Workbook/Block_5/bird-grow-sheet.qmd >}}
+
+## 41.5
+{{< include ../../../../MC-Workbook/Block_5/seal-fly-socks.qmd >}}
+:::
+
+::::
+<!-- Chapter 41 -->
