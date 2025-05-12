@@ -315,6 +315,39 @@ drawFpair <- function(f, dom = domain(x = 0:4), bottom = -0.5, alpha=0) {
   list(P1 = P1, P2 = P2)
 }
 
+# Draw Riemann boxes on a function:
+
+rplot <- function(tilde, domain, npts = 11, position=c("left", "middle", "right"), ...) {
+  position = match.arg(position)
+  f <- makeFun(tilde, ...)
+  ends <- domain[[1]]
+  h <- diff(ends)/(npts - 1)
+  points <- seq(ends[1], ends[2], by = h)
+  Pts <- tibble::tibble(
+    left = points[-length(points)],
+    right = points[-1],
+    mid = (left + right)/2
+  )
+  Pts$val <- if (position == "left") f(Pts$left)
+  else if (position == "middle") f(Pts$mid)
+  else if (position == "right") f(Pts$right)
+  else stop("Invalid <position> argument.")
+
+  Pts$color <- ifelse(Pts$val > 0, "blue", "tomato")
+  slice_plot(tilde, domain, npts=501) |>
+    gf_hline(yintercept = ~ 0, color = "blue") |>
+    gf_rect(0 + val ~ left + right, data = Pts,
+            inherit = FALSE, fill = NA, alpha = 0,
+            color = "black", linewidth = 0.1) |>
+    gf_rect(0 + val ~  left + right, data = Pts,
+            fill = ~ color,
+            inherit = FALSE, alpha = 0.2) |>
+    gf_refine(scale_fill_identity()) |>
+    gf_theme(theme_void)
+
+}
+
+
 if (!exists("take_sample")) {
   take_sample <<- function (x, n, replace = FALSE, ...) {
     UseMethod('take_sample')
@@ -392,6 +425,7 @@ if (!exists("take_sample")) {
     result <- base::sample(x, size, replace = replace, prob = prob)
     return(result)
   }
+
 }
 
 if (!exists("resample")) {

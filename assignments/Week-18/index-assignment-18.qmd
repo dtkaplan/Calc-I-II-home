@@ -23,31 +23,73 @@ devoirs::answer_style("none")
 {{< include ../../_software/software.R >}}
 ```
 
-## By hand and eye
+:::: {.callout-note collapse=true}
+## Drill
 
 ::: {.panel-tabset}
-## Exer 18.1
+## D42.1
 
 
-## Exer 18.2
+## D42.2
 
 
-::: 
-<!-- end of hand-and-eye tabset -->
-
-## Computing
-
-::: {.panel-tabset}
-## 18.C.3
-
-
-## 18.C.4
-
-
-## 18.C.5
-
-
-## 18.C.6
+{{< include ../../../../MC-Workbook/Block_5/finch-show-hamper.qmd >}}
 
 :::
-<!-- end of computing tabset -->
+
+
+::::
+<!-- Drill -->
+
+:::: {.callout-note collapse=true}
+## Chapter 42
+
+::: {.panel-tabset}
+## 42.1
+{{< include ../../../../MC-Workbook/Block_5/bee-wake-bottle.qmd >}}
+
+## 42.2
+
+
+
+
+:::
+
+::::
+<!-- Chapter 43 -->
+
+:::: {.callout-note collapse=true}
+## Chapter 43
+
+::: {.panel-tabset}
+## D43.1
+
+
+## D43.2
+
+
+
+
+:::
+
+
+::::
+<!-- Chapter 43 -->
+
+:::: {.callout-note collapse=true}
+## Chapter 44
+
+::: {.panel-tabset}
+## D44.1
+
+
+## D44.2
+
+
+
+
+:::
+
+::::
+<!-- Chapter 44 -->
+

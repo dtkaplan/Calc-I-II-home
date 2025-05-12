@@ -27,6 +27,192 @@ source("../../_software/software.R")
 ```
 :::
 
+## Splines (summary)
+
+We want to build a cubic spline. To keep it simple, we'll have only three knot points, so two, piecewise-cubic functions to construct: $f_1()$ and $f_2()$. Here are the data:
+
+segment id | x   | y  | $x_0$ | $x_1$| gain on t.
+----|----|-------|------|-----
+i  | 2   | 5  | 2     | 6    | 4
+ii | 6   | 3  | 6     | 7    | 1
+iii| 7   | 4
+
+Each of $f_1()$ and $f_2()$ will be written as a function on the domain of $0 \leq t \leq 1$. When we want to evaluate the spline at some $x^\star$, we'll find the appropriate segment number, then subtract $x_0$ from that and divide the result by the gain for that segment. 
+
+Example: to evaluate at 5.1, we find that segment segment (i) applies. So the $t$ we are looking for is 
+$t = (5.1 - x_0)/\text{gain} = 3.1/4 = 0.775.
+
+First, however, we want to find the coefficients on the cubic polynomial, which will have the same form for each segment. For instance, here is the formula for segment (ii):
+
+$$f_{ii}(t) \equiv a_i + b_i t + c_i t^2 + d_i t^3$$
+
+$$\partial_t f_i(t) \equiv b_i + 2 c_i t + 3 d_i t^2$$
+
+$$\partial_{tt}  f_i(t) \equiv 2 c_i + 6 d_i t$$
+
+We need to find the 8 as yet unknown coefficients: $a_i, b_i, c_i, d_i, a_{ii}, b_{ii}, c_{ii}, d_{ii}$.  This is the $\vec{x}$ in our cannonical ${\bf A} \vec{x} = \vec{b}$. 
+
+We will need 8 facts about the spline
+
+Also helpful to know the first and second derivative. 
+
+
+We know two basic facts about each segment: its values at $t = 0$ and $t = 1$.
+
+1. $f_{i}(t = 0) = a_{i} = y_{i} = 5$
+2. $f_{i}(t = 1) = a_{i} + b_{i} + c_{i} + d_{i}= y_i = 3$
+3. $f_{ii}(t = 0) = a_{ii} = y_{ii} = 3$
+4. $f_{ii}(t = 1) = a_{ii} + b_{ii} + c_{ii} + d_{ii}= y_{iii} = 4$
+
+
+The key to a **smooth** spline is that the first and second derivatives match at the shared knots. So the derivative of $f_i (t)$ at $t = 1$ should be the same as $f_{ii}(t)$ at $t = 0$.
+
+At middle knot $\partial_t f_{i}(t=1) \ \  =\ \ \partial_t f_{ii}(t = 0) $, implying
+
+5. $b_i + 2 c_i  + 3 d_i = b_{ii}$ or, better, $b_i + 2 c_i  + 3 d_i - b_{ii} = 0$
+
+Similarly, at the middle knot $\partial_{tt} f_i (t = 1) = \partial_{tt} f_{ii} (t = 0)$, implying
+
+6. $2 c_i + 6 d_i = 2 c_{ii}$ or $c_i + 3 d_i - c_{ii} = 0$
+
+There are a variety of possibilities for the remaining two facts, depending on what we want. Here, we'll set the second derivative at the extreme knot points to be zero.
+
+7. $c_i = 0$
+
+8. $c_{ii} + 6 d_{ii} = 0$
+
+The $\vec{b}$ vector gets plucked from the RHS of each of the 8 facts. The ${\bf M}$ matrix comes from the coefficients on the as-yet unknown coefficients:
+
+
+$$\left(\begin{array}{c} 
+\square & \square & \square & \square & \square & \square & \square & \square\\
+\square & \square & \square & \square & \square & \square & \square & \square\\
+\square & \square & \square & \square & \square & \square & \square & \square\\
+\square & \square & \square & \square & \square & \square & \square & \square\\
+\square & \square & \square & \square & \square & \square & \square & \square\\
+\square & \square & \square & \square & \square & \square & \square & \square\\
+\square & \square & \square & \square & \square & \square & \square & \square\\
+\square & \square & \square & \square & \square & \square & \square & \square\\
+a_i & b_i  & c_i & d_i & a_{ii} & b_{ii} & c_{ii} & d_{ii}
+\end{array}\right) \left(\begin{array}{c}
+a_i \\ b_i  \\ c_i \\ d_i \\ a_{ii} \\ b_{ii}  \\ c_{ii} \\ d_{ii}\end{array}\right) = \left(\begin{array}{c}5\\3\\3\\4\\0\\0\\0\\0\end{array}\right)$$
+
+Fill in the $\square$s from the list of facts, then find the coefficients via QR.
+
+## Integration and anti-differentiation.
+
+Let's review the ways we know to construct an anti-derivative:
+
+1. We have memorized the anti-derivatives of (most of) the pattern-book functions and the corresponding basic modeling functions. For instance: $\int sin(t) dt = - cos(t) + C$
+
+2. If we happen to have an integral of the form $$F(x) \equiv \int d F(x)$$, we can just read off the answer as $F(x)$.
+
+3. Calculus book offer several ways to spot when $\int g(x) dx$ can be re-written in a form $\int d h(x)$. This art is called "symbolic integration" and conventional calculus courses spend considerable time on it. Prisoner of war stories. 
+
+4. We can use "tables of integrals" or `antiD()` or (much more) sophisticated services like Wolfram Alpha.
+
+Some limitations:
+
+a. Not all functions can be integrated this way. For instance, `dnorm()`.
+b. Functions often are motivated by data.
+    i. If we fit the function to a form (e.g. linear combinations of basic modeling functions) we can often find a symbolic anti-derivative, but the function itself is only an approximation.
+    ii. If we don't have a functional form, just data, what do we do?
+
+My opinions:
+
+1. Although calculus classes emphasize exactitude in almost all problems outside of textbooks exactitude is not an option. 
+2. Integration should always be easy.
+3. Domains of integration are sometimes high-dimensional, in which case random sampling is the way to go.
+4. Think of integration as easier and more reliable than, say, differentiation.
+
+## Numerical integration
+
+### Areas of rectangles. 
+
+```{webr-r}
+f <- doodle_fun(~ x, seed = 397)
+rplot(f(x) + 5 ~ x, domain(x = -3.5:4.1), npts = 11, position = "left")
+```
+
+```{webr-r}
+rplot(f(x) + 5 ~ x, domain(x = -3.5:4.1), npts = 51, position = "middle")
+```
+
+### Euler method
+
+Suppose we know $f(x)$ where $\partial_x F(x) = f(x)$. The finite-difference derivative is
+
+$$f(x) = \frac{F(x) - F(x - h)}{h}$$ which, re-arranged, gives $$F(x) = \underbrace{F(x - h)}_{\text{starting value}} + h f(x)$$ Then iterate.
+
+Somewhat better use the middle position to define the bar
+$$F(x) = F(x - h) + h f(x + h/2)$$
+
+### Splines
+
+Each spline segment is a cubic: $f_i(t) = a_i + b_i t + c_i t^2 + d_i t^3$. The anti-derivative, starting at the left knot point, is $\int_0^t f_i(t)dt$, or 
+
+$F_i(t) = \frac{a_i}{1} t + \frac{b_i}{2} t^2 + \frac{c_i}{3} t^3 + \frac{d_i}{4} t^4$
+
+Multiplying this by the segment gain will give $F_i(x) = F_i(t) \times \underbrace{t \times (x_{i+1} - x_{i})}_\text{segment length correction}$
+
+## Recursive partitioning
+
+```{webr-r}
+integrate(sin, 0, 20, subdivisions = 5)
+```
+0.5919179 with absolute error < 1.5e-11
+
+compare to symbolic
+```{webr-r}
+cos(20) - 1
+```
+
+## Turning `integrate()` into an anti-differentiator
+
+```{webr-r}
+my_antiD <- function(tilde, startx = 0, ...) {
+  f <- makeFun(tilde, ...)
+  # a function that can be evaluated at multiple inputs
+  function(x) {
+    res <- numeric(length(x))
+    res[1] <- integrate(f, startx, x[1])$value
+    if (length(x) > 1) {
+      for (k in 2:length(x)) {
+        res[k] <- integrate(f, x[k-1], x[k])$value
+      }
+    }
+    
+    cumsum(res)
+  }
+}
+```
+
+```{webr-r}
+SIN <- my_antiD(sin(x) ~ x)
+slice_plot(SIN(x) ~ x, domain(x = -10:10), npts = 1000)
+mysin <- D(SIN(x) ~ x)
+slice_plot(mysin(x) ~ x, domain(x = -10:10))
+```
+
+## On the ground integration
+
+
+[Lake Pokegama](www/Pokegama_Lake_measured.pdf)
+
+- quadrature
+- triangles, the area of a triangle defined by two vectors is $\frac{1}{2}\left| v_1 w_2 - w_1 v_2\right|$ - dart throwing: 
+    - throw darts at the map. Area: fraction of dots that hit the lake times the area of the paper. Average the depth at each of the dots that hit. Or, just through the dots and set the non-length ones to a value of zero. Then average the results from the darts and multiply by the area of the paper.
+    - how many do you need?
+    
+    
+    
+    
+
+    
+
+Turn this into an integrator later on.
+
+
 
 Go over simple approaches to numerical accumulation:
 
