@@ -26,17 +26,24 @@ devoirs::answer_style("none")
 :::: {.callout-note collapse=true}
 ## Drill
 
+`r push_answer_style("block")`
+
 ::: {.panel-tabset}
 ## D42.1
-
+{{< include ../../../../MC-Workbook/Block_5/crow-find-sofa.qmd >}}
 
 ## D42.2
+{{< include ../../../../MC-Workbook/Block_5/eagle-choose-mattress.qmd >}}
 
-
+## D42.3
 {{< include ../../../../MC-Workbook/Block_5/finch-show-hamper.qmd >}}
+
+## D42.3
+
 
 :::
 
+`r pop_answer_style()`
 
 ::::
 <!-- Drill -->
@@ -50,6 +57,15 @@ devoirs::answer_style("none")
 
 ## 42.2
 
+{{< include ../../../../MC-Workbook/Block_5/bear-give-futon.qmd >}}
+
+## 42.3
+
+{{< include ../../../../MC-Workbook/Block_5/cow-sharpen-table.qmd >}}
+
+## 42.3
+
+{{< include ../../../../MC-Workbook/Block_5/walnut-tell-pot.qmd >}}
 
 
 

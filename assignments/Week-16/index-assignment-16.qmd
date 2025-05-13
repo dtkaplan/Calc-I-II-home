@@ -24,6 +24,8 @@ devoirs::answer_style("none")
 
 :::: {.callout-note collapse=true}
 ## Drill
+
+`r push_answer_style("block")`
 ::: {.panel-tabset}
 ## D1
 {{< include ../../../../MC-Workbook/Block_4/monkey-light-stove.qmd >}}
@@ -43,6 +45,8 @@ devoirs::answer_style("none")
 
 {{< include ../../../../MC-Workbook/Block_4/euler-step.qmd >}}
 :::
+
+`r pop_answer_style()`
 ::::
 
 
