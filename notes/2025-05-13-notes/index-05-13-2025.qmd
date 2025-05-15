@@ -27,6 +27,9 @@ source("../../_software/software.R")
 ```
 :::
 
+
+# 2025-05-13 class notes
+
 ## Splines (summary)
 
 We want to build a cubic spline. To keep it simple, we'll have only three knot points, so two, piecewise-cubic functions to construct: $f_1()$ and $f_2()$. Here are the data:
@@ -125,6 +128,23 @@ My opinions:
 3. Domains of integration are sometimes high-dimensional, in which case random sampling is the way to go.
 4. Think of integration as easier and more reliable than, say, differentiation.
 
+
+    
+
+Turn this into an integrator later on.
+
+
+
+Go over simple approaches to numerical accumulation:
+
+1. Step-wise evaluation at next point.
+2. Trapezoidal rule
+3. Gaussian quadrature
+4. Adaptive partitioning
+5. Anti-differentiation: packaging up integration results as a function. Use splines.
+
+
+
 ## Numerical integration
 
 ### Areas of rectangles. 
@@ -208,44 +228,14 @@ slice_plot(mysin(x) ~ x, domain(x = -10:10))
     
     
 
-    
-
-Turn this into an integrator later on.
-
-
-
-Go over simple approaches to numerical accumulation:
-
-1. Step-wise evaluation at next point.
-2. Trapezoidal rule
-3. Gaussian quadrature
-4. Adaptive partitioning
-5. Anti-differentiation: packaging up integration results as a function. Use splines.
-
-
 
 ## Dimension example
 
 {{< include ../../../../MC-Workbook/Block_4/differential-orbit.qmd >}}
 
 
-Chapter 37 stuff: finite-difference approach.
 
-# 2025-05-13 class notes
 
-```{webr-r}
-#| caption: User console A
-#| persist: true
-```
 
-```{webr-r}
-#| caption: User console B
-#| persist: true
-```
-
-```{webr-r}
-#| caption: User console C
-#| persist: true
-```
 
 

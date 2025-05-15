@@ -27,6 +27,7 @@ source("../../_software/software.R")
 ```
 :::
 
+Block-5/zebra-wake-shoe as an in-class activity.
 
 # 2025-05-27 class notes
 

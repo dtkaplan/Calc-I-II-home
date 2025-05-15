@@ -111,6 +111,7 @@ Friday April 25
 
 :::
 
+::: {.callout-note collapse=true}
 ## Week 5  {.unnumbered}
 
 Tuesday April 29
@@ -129,6 +130,8 @@ Friday May 2
 : **Mid-term exam** (30 minutes) questions will be similar to those in the DRILL section of the [Week 5 assignment](assignments/Week-15/index-assignment-15.html)
 : Topic Continuous functions as vectors
 : Reading [*MOSAIC Calculus* Chap 36](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/36-functions.html) 
+
+::: 
 
 **Mid-term Break**
 
@@ -157,7 +160,7 @@ Tuesday May 20
 : Topic Differential equations
 : Reading [*MC* Chap 39](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/39-diff-eq.html)
 : Quiz (through May 16) 20 minutes
-: Due: [Week 6 assignment](assignments/Week-17/index-assignment-16.html)
+: Due: [Week 6 assignment](assignments/Week-16/index-assignment-16.html)
 
 Thursday May 22
 : Topic Solutions and trajectories

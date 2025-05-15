@@ -38,7 +38,18 @@ devoirs::answer_style("none")
 ## D42.3
 {{< include ../../../../MC-Workbook/Block_5/finch-show-hamper.qmd >}}
 
-## D42.3
+## D43.1
+{{< include ../../../../MC-Workbook/Block_5/owl-sell-radio.qmd >}}
+
+## D43.2
+{{< include ../../../../MC-Workbook/Block_5/hamster-bend-sofa.qmd >}}
+
+## D43.3
+{{< include ../../../../MC-Workbook/Block_5/birch-bring-bed.qmd >}}
+
+## D44.1
+{{< include ../../../../MC-Workbook/Block_5/fir-meet-shirt.qmd >}}
+
 
 
 :::
@@ -79,10 +90,23 @@ devoirs::answer_style("none")
 
 ::: {.panel-tabset}
 ## D43.1
+{{< include ../../../../MC-Workbook/Block_5/puppy-take-pantry.qmd >}}
 
 
 ## D43.2
 
+{{< include ../../../../MC-Workbook/Block_5/finch-look-dish.qmd >}}
+
+## D43.3
+{{< include ../../../../MC-Workbook/Block_5/dolphin-go-cotton.qmd >}}
+
+## D43.4
+{{< include ../../../../MC-Workbook/Block_5/rhinosaurus-sharpen-knob.qmd >}}
+
+## D43.5
+{{< include ../../../../MC-Workbook/Block_5/wolf-come-saucer.qmd >}}
+
+<!-- zebra-wake-shoe used in class notes. -->
 
 
 
@@ -97,11 +121,11 @@ devoirs::answer_style("none")
 
 ::: {.panel-tabset}
 ## D44.1
-
+{{< include ../../../../MC-Workbook/Block_5/owl-tear-fridge.qmd >}}
 
 ## D44.2
 
-
+{{< include ../../../../MC-Workbook/Block_5/boy-leave-ship.qmd >}}
 
 
 :::
