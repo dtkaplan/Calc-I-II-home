@@ -36,7 +36,50 @@ Construction of crash and no-crash likelihood functions.
 
 
 
-# 2025-05-16 class notes
+
+
+
+
+
+## 2025-05-16 class notes
+
+[Euler-Bernouilli's beam equation](https://en.wikipedia.org/wiki/Euler%E2%80%93Bernoulli_beam_theory) (1750), but first used extensively in the design of the Eiffel Tower.
+: $$ \frac{\mathrm{d}^2}{\mathrm{d} x^2}\left(EI \frac{\mathrm{d}^2 w}{\mathrm{d} x^2}\right) = q\, $$
+
+[Heat equation](https://en.wikipedia.org/wiki/Heat_equation) 1822
+: $$\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x_1^2} + \cdots + \frac{\partial^2 u}{\partial x_n^2}$$ or $$\frac{\partial u}{\partial t}=\nabla \cdot u$$
+
+[Navier-Stokes equation](https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations) (1822-1850)
+: $$\rho\frac{\mathrm{D} \mathbf{u}}{\mathrm{D} t} = - \nabla p + \nabla \cdot \boldsymbol \tau + \rho\,\mathbf{a}$$
+
+[Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations) (1861)
+: $$\begin{align}
+\nabla \cdot \mathbf{E} \,\,\, &= \frac{\rho}{\varepsilon_0} \\
+\nabla \cdot \mathbf{B} \,\,\, &= 0 \\
+\nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \\
+\nabla \times \mathbf{B} &= \mu_0 \left(\mathbf{J} + \varepsilon_0  \frac{\partial \mathbf{E}}{\partial t} \right)
+\end{align}$$
+
+Not originally written in this form:
+
+![](www/Forms-of-Maxwell-Equyations.png)
+
+
+
+[Einstein field equations](https://en.wikipedia.org/wiki/Einstein_field_equations)     (1915)
+: $$G_{\mu \nu} + \Lambda g_{\mu \nu} = \kappa T_{\mu \nu} ,$$
+
+When gravity is non-negligible or when using arbitrary coordinate systems, the divergence of the stress–energy still vanishes. But in this case, ais used which incorporates the **covariant derivative**
+$$0 = \operatorname{div} T = T^{\mu \nu}{}_{;\nu} = \nabla_{\nu} T^{\mu \nu} = T^{\mu \nu}{}_{,\nu} +  \Gamma^{\mu}{}_{\sigma \nu}T^{\sigma \nu} + \Gamma^{\nu}{}_{\sigma \nu} T^{\mu \sigma}$$
+where $$\Gamma^{\mu}{}_{\sigma \nu}$$ is the **Christoffel symbol]** which is the gravitational force field.
+
+[Schrodinger's equation](https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation) (1926)
+: $$i \hbar \frac{d}{d t}\vert\Psi(t)\rangle = \hat H\vert\Psi(t)\rangle$$
+
+
+
+
+
 
 ```{webr-r}
 #| caption: User console A
