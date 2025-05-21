@@ -163,6 +163,7 @@ Tuesday May 20
 : Due: [Week 6 assignment](assignments/Week-16/index-assignment-16.html)
 
 Thursday May 22
+: NOTE: [*MOSAIC Calculus* Apps now available](https://dtkaplan.shinyapps.io/MOSAIC_Calc_apps/)
 : Topic Solutions and trajectories
 : Reading [*MC* Chap 40](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/40-solution.html)
 
