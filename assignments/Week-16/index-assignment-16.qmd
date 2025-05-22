@@ -74,6 +74,9 @@ devoirs::answer_style("none")
 ## Chapter 38 
 
 ::: {.panel-tabset}
+## Note: dot products on functions
+{{< include _exercises/cheetah-break-bottle.qmd >}}
+
 ## 38.1
 {{< include ../../../../MC-Workbook/Block_4/walnut-bet-pants.qmd >}}
 
@@ -86,7 +89,7 @@ devoirs::answer_style("none")
 ::: {.callout-note collapse=true}
 ## Chapter 48
 
-{{{< include _Chap48.qmd >}}}
+{{< include _Chap48.qmd >}}
 
 :::
 

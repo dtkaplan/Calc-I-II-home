@@ -24,9 +24,10 @@
 
 {{< include ../../../../MC-Workbook/Block_4/buck-forgive-canoe.qmd >}}
 
-## Exer 35.9
+<!-- Double integral, too complicated 
+{{{< include ../../../../MC-Workbook/Block_4/tent-area.qmd >}}}
 
-{{< include ../../../../MC-Workbook/Block_4/tent-area.qmd >}}
+-->
 
 
 <!-- end of Chap 35 tabset -->

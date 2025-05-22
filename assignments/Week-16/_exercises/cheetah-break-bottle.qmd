@@ -1,0 +1,34 @@
+---
+id: "cheetah-break-bottle"
+created: "Thu May 22 14:48:19 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+In the following problems, you are going to look at the *length*s of functions and the angle between pairs of them. Naturally, you remember the rule for the length of a vector $\vec{v}$, namely, $|\vec{v}| = \sqrt{\vec{v} \cdot \vec{v}}$. Similarly, the (cosine of the) angle between $\vec{v}$ and $\vec{w}$ is $$\cos(\theta) = \frac{\vec{v} \cdot \vec{w}}{|\vec{v}| |\vec{w}| } \ .$$
+
+As you know, the dot product between two vectors is calculated by multiplying the corresponding entries in the vectors, then adding up the products. When it comes to *functions* defined on a domain $0 \leq t \leq 1$, the adding up is done via accumulation, that is, the dot product is the definite integral $$\text{dot product: }f(t) \underbrace{\strut\cdot}_\text{dot} g(t) \equiv \int_0^1 \underbrace{f(t)g(t)}_\text{scalar multiplication} \ dt$$
+
+
+In answering the following questions, do your calculations in the R chunk and put your answers in the text-submission box. Since the basic dot-product calculation is a "definite integral," you can use the `Integrate()` function to accomplish the task, as in `Integrate(f(t) * g(t) ~ t, domain(t=0:1))`
+
+::: {.callout-warning collapse=true}
+## Fix for glitch in `mosaicCalc`
+
+There is a glitch in the system that delivers `{mosaicCalc}` to these interactive documents. The following chunk is a work-around for that glitch that will work for now. But it's not something that you need to understand.
+
+```{webr-r}
+#| autorun: true
+Integrate <- function(tilde, dom) {
+  h <- makeFun(tilde)
+  integrate(h, dom[[1]][1], dom[[1]][2])$value
+}
+```
+:::
+
+

@@ -31,6 +31,10 @@ source("../../_software/software.R")
 
 # 2025-05-22 class notes
 
+Use shiny app in Calculus-Apps project, OldApps/MoreApps/Flow-1D. also, move this into collection.
+
+Add Latex-markup.R to CalcApps collection. also MoreApps/SeriesApp/app.R. also sinusoid-app.Rmd. Also Slope-intercept.R
+
 An activity with Block-5/fox-look-magnet
 
 Also Block-5/ape-grow-oven
