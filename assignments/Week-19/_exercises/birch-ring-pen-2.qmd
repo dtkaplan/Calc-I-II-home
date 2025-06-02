@@ -1,0 +1,56 @@
+---
+id: "birch-ring-pen2"
+created: "Mon Jun  2 16:11:54 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-birch-ring-pen-2}
+
+@fig-f-g-203 shows a flow field and some nullclines.
+
+::: {#fig-f-g-203}
+
+```{r}
+#| echo: false
+f <- doodle_fun(~ x & y, seed = 203)
+g <- doodle_fun(~ x & y, seed = 679)
+dom = domain(x = -3:4, y = -2.5:8)
+streamlines(dx ~ f(x,y), dy ~ g(x,y), dom, dt = 0.025) |>
+contour_plot(f(x,y) ~ x & y, dom, contours_at =  0, contour_color = "magenta") |>
+  contour_plot(g(x,y) ~ x & y, dom, contours_at =  0, contour_color = "darkgreen") |>
+  gf_theme(theme_minimal())
+  
+```
+
+:::
+
+Are the flow and the nullclines shown in @#fig-f-g-203 plausibly from the same dynamical system? Explain what you see in the graph that leads you to your conclusion.
+
+`r devoirs_text("f-g-203")`
+
+<!-- Opening answer: bp2-7OX -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+
+They match.
+
+1. The flow shows no sign of converging to or diverging from a fixed point, so no fixed point is evident. This is consistent with their being no intersection of the two nullclines.
+
+2. The flow crossing one of the nullclines is entirely vertical, the flow crossing the other is entirely horizontal.
+
+
+[..id..]{data-tooltip="Ans id: bp2-7OX"}
+:::
+<!-- closing answer bp2-7OX -->
+
+
+
+
+:::
+ <!-- end of exr-birch-ring-pen2 -->

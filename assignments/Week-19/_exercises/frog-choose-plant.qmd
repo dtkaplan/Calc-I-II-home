@@ -18,34 +18,7 @@ Each relationship consists of two people. We'll call them Romeo (R) and Juliet (
 Instead of fixing on Shakespeare's star-crossed lovers, we'll imagine that there are different types of personalities, some positive, some negative. To set things up, we will look at different types of possible dynamics for Romeo's love for Juliet. @fig-a-1-b-1 shows how Romeo's love evolves as a function of his level of love/hate for Juliet and Juliet's level of love/hate for Romeo.
 
 
-```{r echo = FALSE}
-romeo_dynamics <- function(a=1, b=1, c=0, d=0, 
-                           title="Romeo's Love Dynamics", traj=FALSE) {
-  drj <- domain(r = -1:1, j = -1:1)
-  love_labels <- c("hate", "dislike", "indifferent", "fond", "in love")
-  P <- vectorfield_plot(r ~ a*r + b*j, 
-                   j ~ c*r + d*j, 
-                   drj,
-                   a = a, b = b, c = c, d = d,
-                   transform = {\(x) x^0.5}) |>
-    gf_refine(
-      coord_fixed(),
-      scale_y_continuous(breaks = seq(-1,1,by=0.5),
-                         labels = love_labels),
-      scale_x_continuous(breaks = seq(-1,1,by=0.5),
-                         labels = love_labels)) |>
-    gf_labs(x = "Romeo's attitude", y = "Juliet's attitude",
-            subtitle = title) |>
-    gf_theme(
-      axis.text.x=element_text(angle = -45, vjust = 0, hjust=.5),
-      axis.text.y=element_text(angle = 45, vjust = 0.5, hjust=0.5)
-    )
-  if (traj) {
-     
-  } 
-  P
-}
-```
+
 
 ::: {#fig-a-1-b-1-horizontal}
 ```{r}
@@ -194,6 +167,8 @@ TASK: Characterize each of the eight strong-weak dynamics. Is the origin stable?
 
 Part 8
 : What is "love at first sight" in terms of these dynamics: the flow or the initial condition? 
+
+`r devoirs_text("love-at-first-sight")`
 
 [Love at first sight positions the initial condition in the upper-right quadrant. ]{.shortanswer `r answer_style()` data-tooltip="Ans id: ia1-6QR"}
 

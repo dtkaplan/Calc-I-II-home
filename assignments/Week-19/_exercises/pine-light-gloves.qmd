@@ -1,0 +1,154 @@
+---
+id: "pine-light-gloves"
+created: "Mon Jun  2 17:57:25 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-pine-light-gloves}
+You have been given `f()` and `g()` as the R implementation of a pair of functions $f(x,y)$ and $g(x,y)$ for the dynamical system
+$$\partial_t x \equiv f(x, y)\\\ \ \ \ \ 
+\partial_t y \equiv g(x, y)$$
+
+::: {style="display: none;"}
+```{webr-r}
+#| autorun: true
+f <- doodle_fun(~ x & y, seed = 382)
+g <- doodle_fun(~ x & y, seed = 272)
+```
+:::
+
+To get you started, here are the nullclines of the dynamical system:
+
+```{webr-r}
+#| caption: Nullclines
+dom <- domain(x = -5:5, y = -5:5)
+contour_plot(f(x, y) ~ x & y, dom, 
+             contours_at = 0, contour_color = "dodgerblue", 
+             filled = FALSE, labels = FALSE) |>
+contour_plot(g(x, y) ~ x & y, dom, 
+             contours_at = 0, contour_color = "tomato", 
+             filled = FALSE, labels = FALSE) |>
+  gf_theme(theme_minimal())
+```
+
+There is a fixed point near $(x_\star \approx -2, y_\star \approx 1)$.
+
+Part 1
+: Linearize the dynamics at that fixed point. Remember, the linear dynamics will be 
+
+$$\left(\begin{array}{c}\partial_t x\\\partial_t y \end{array}\right) \approx \underbrace{\left(\begin{array}{cc}\partial_x f(x_\star, y_\star) & \partial_y f(x_\star, y_\star)\\\partial_x g(x_\star, y_\star) & \partial_y g(x_\star, y_\star)\end{array}\right)}_{\text{matrix } \mathbf A} \left(\begin{array}{c}x - x_\star\\y - y_\star \end{array}\right)$$
+To construct matrix $\mathbf A$, zoom in on the fixed point to find accurate values for $x_\star$ and $y_star$.Then, use statements like `D(f(x,y) ~ x)(xstar, ystar)` to find the numerical value of the corresponding coefficient in the matrix.
+
+
+<!-- Start of rich webr chunk ia1-4RA -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
+```{webr-r}
+#| caption: Calculate linearized dynamics
+#| persist: true
+#| label: ia1-4RA-main
+xstar <- __your value here__
+ystar <- __your value here__
+# do your calculations
+D(f(x,y) ~ x)(xstar, ystar)
+# and so on for the other three matrix elements
+
+# fill in the blanks with the matrix elements
+A <- cbind(vec(___, ___), vec(___, ___))
+```
+
+## Code submission
+Copy your code here.
+
+`r devoirs_text("ia1-4RA")`
+
+
+## Eigenvalues
+If you need to, do computations on the side to check things out!
+```{webr-r}
+#| caption: Calculate eigenvalues
+#| persist: true
+#| label: ia1-4RA-scratch1
+eigen(A)
+```
+
+## Scratch 2
+More on-the-side computations if you need.
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: ia1-4RA-scratch1
+```
+:::
+<!-- end of enriched webr chunk ia1-4RA -->
+
+
+
+Part 2
+: Find the eigenvalues of the linearized dynamics. The simple command, once you have found matrix $\mathbf A$, is under the "Eigenvalues" tab of the chunks above.
+
+Interpret the eigenvalues in terms of the stability of the fixed point. Write your interpretation in the text box.
+
+`r devoirs_text("f-g-stability")`
+
+Part 3
+: Make a new matrix ${\mathbf B} = - {\mathbf A}$. Find the eigenvalues of this new matrix and interpret them in terms of the stability of the system $$\left(\begin{array}{c}\partial_t x\\\partial_t y\end{array}\right) \equiv {\large \mathbf B} \left(\begin{array}{c}x - x_\star\\y - y_\star \end{array}\right)$$
+
+Interpret the resulting eigenvalues as regards stability. Keep in mind that negating $\mathbf A$ is much like "making time go backward."
+
+`r devoirs_text("neg-f-neg-g-stability")`
+
+Part 4
+: Again make a new matrix $\mathbf B$, but this time only the $x$ dynamics should be negated, the $y$ dynamics should stay as they originally were. Will the $x$-negated dynamics have the same nullclines as the original system? Describe the stability of the fixed point with the $x$-negated dynamics.
+
+`r devoirs_text("neg-f-pos-g-stability")`
+
+Part 5
+: Look up the documentation for `streamlines()`. Use `streamlines()` to plot out the flow for the original dynamical system.
+
+
+<!-- Start of rich webr chunk plg-5xI -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
+```{webr-r}
+#| caption: Plot the flow field
+#| persist: true
+#| label: plg-5xI-main
+flow_field(dx = ...., dy = ...., dom)
+```
+
+## Code submission
+This box connects to the "collect answers" button.
+
+`r devoirs_text("plg-5xI")`
+
+
+## Scratch 1
+If you need to, do computations on the side to check things out!
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: plg-5xI-scratch1
+```
+
+## Scratch 2
+More on-the-side computations if you need.
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: plg-5xI-scratch1
+```
+:::
+<!-- end of enriched webr chunk plg-5xI -->
+
+
+:::
+ <!-- end of exr-pine-light-gloves -->
