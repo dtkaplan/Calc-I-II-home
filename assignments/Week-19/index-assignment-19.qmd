@@ -23,31 +23,28 @@ devoirs::answer_style("none")
 {{< include ../../_software/software.R >}}
 ```
 
-## By hand and eye
+## Drill
+
+`r devoirs::push_answer_style("block")`
+
 
 ::: {.panel-tabset}
-## Exer 19.1
+## Love, mathematically
+{{< include _exercises/frog-choose-plant.qmd >}}
 
+## Locating fixed points
 
-## Exer 19.2
+For various models, find the fixed points. You can draw the nullclines
 
+## Dynamics near a fixed point
 
-::: 
-<!-- end of hand-and-eye tabset -->
+Linearizing the dynamics around a fixed point
 
-## Computing
+## Eigenvalues
 
-::: {.panel-tabset}
-## 19.C.3
+The different types of stability
 
-
-## 19.C.4
-
-
-## 19.C.5
-
-
-## 19.C.6
-
+`r devoirs::pop_answer_style()`
 :::
-<!-- end of computing tabset -->
+
+

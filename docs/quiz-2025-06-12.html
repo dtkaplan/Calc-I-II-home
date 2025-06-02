@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Weekly assignments – MOSAIC Calc 2025</title>
+<title>quiz-2025-06-12 – MOSAIC Calc 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,7 +38,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-79108a0fc1995748cbd19a5b0e3e3e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,35 +68,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -128,6 +101,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -160,7 +134,7 @@ window.Quarto = {
 <span class="menu-text">Class notes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./assignments.html" aria-current="page"> 
+    <a class="nav-link" href="./assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
@@ -179,214 +153,149 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(12)</span></div><div class="category" data-category="YWNjdW11bGF0aW9u">accumulation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWNvbm9taWNz">economics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGluZWFyJTIwYWxnZWJyYQ==">linear algebra <span class="quarto-category-count">(10)</span></div><div class="category" data-category="bG9nLXNjYWxlcw==">log-scales <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9kZWxpbmclMjBwcm9qZWN0">modeling project <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cGh5c2lvbG9neQ==">physiology <span class="quarto-category-count">(1)</span></div></div></div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Weekly assignments</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Refer to the <a href="index.html">class schedule</a> for the due date for each assignment. Some of these are in development and may not be assigned.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#n-3-the-unit-sphere." id="toc-n-3-the-unit-sphere." class="nav-link active" data-scroll-target="#n-3-the-unit-sphere."><span class="math inline">\(n = 3\)</span>: the unit sphere.</a></li>
+  <li><a href="#how-the-t-got-its-tails" id="toc-how-the-t-got-its-tails" class="nav-link" data-scroll-target="#how-the-t-got-its-tails">How the t got its tails</a></li>
+  </ul>
+</nav>
     </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<!-- final exam questions -->
+<p>Show the gaussian distribution as a formula. Ask them to calculate <span class="math inline">\(\partial_{ss} \ln(e^{x^2/2 s^2)})\)</span> and relate it to the standard deviation of the gaussian.</p>
+<p>Then give them the Bayesian coin flipping system, construct the log likelihood function, and compute the second derivative at the argmax. Find the numerical value corresponding to <span class="math inline">\(s\)</span> then construct a confidence interval: argmax <span class="math inline">\(\pm 2 s\)</span>.</p>
+<hr>
+<p>Calculate the crash and no-crash likelihood functions for the self-driving car problem. Then, given data, calculate the log-likelihood function and the confidence interval for the exponential distribution rate parameter based on the data.</p>
+<hr>
+<p>Integrate this ODE (Lorenz equations) starting from two nearby points. How does the distance between the trajectories grow (at least for small times)? Select a functional representation and find the parameter indicating the rate of growth.</p>
+<hr>
+<p>Give eigenvalues: sketch the flow or, if no such system is possible, say so.</p>
+<p>Real and complex eigenvalues of different sorts.</p>
+<hr>
+<p>Given eigenvectors and their eigenvalues, sketch the action of the matrix on a circular set of starting points.</p>
+<hr>
+<p>We’re going to work on our intuition of how things are arranged in n-dimensional space. In particular, we are interested in the cosine of the angle between two random vectors. Statistically, this angle is the “correlation coefficient” but our focus here is on geometry and calculus. <a href="#fig-unit-circle" class="quarto-xref">Figure&nbsp;1</a> shows a unit circle in two-dimensional space together with two random unit-vectors. Any point on the circle defines a unit-vector with it’s tail at the center of the circle. I’ve selected two random points on the circle and constructed the unit vectors to those points.</p>
+<p>“Ah,” you say. “Those aren’t really random.” I respond that they are. It’s just that when I draw the unit circle I rotate things so that one of the vectors points dead north. And if the second vector is pointing to the left, I’ll flip the circle left-for-right so that the second vector always points right. None of this changes the angle <span class="math inline">\(\theta\)</span> between the two vectors, which can range from zero to <span class="math inline">\(\pi\)</span> radians, or 0 to 180<span class="math inline">\(^\circ\)</span>degrees. Perhaps it’s intuitive that the second vector is equally likely to be at any point on the right side of the circle, meaning that the angle <span class="math inline">\(\theta\)</span> between the two vectors is equally likely to be anywhere from 0 to <span class="math inline">\(\pi\)</span>.</p>
+<div id="fig-unit-circle" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-unit-circle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="quiz-2025-06-12_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="bGluZWFyJTIwYWxnZWJyYQ==" data-listing-date-sort="1743397200000" data-listing-file-modified-sort="1745940639979" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="577" data-listing-title-sort="MOSAIC Assignment Week 11" data-listing-filename-sort="index-assignment-11.qmd">
-<td>
-<span class="listing-date">Mar 31, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-11/index-assignment-11.html" class="title listing-title">MOSAIC Assignment Week 11</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="bW9kZWxpbmclMjBwcm9qZWN0JTJDcGh5c2lvbG9neQ==" data-listing-date-sort="1743483600000" data-listing-file-modified-sort="1747747294523" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="796" data-listing-title-sort="Week 11 Modeling Assignment" data-listing-filename-sort="index-walking-project.qmd">
-<td>
-<span class="listing-date">Apr 1, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-11-project/index-walking-project.html" class="title listing-title">Week 11 Modeling Assignment</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="2" data-categories="bGluZWFyJTIwYWxnZWJyYQ==" data-listing-date-sort="1743656400000" data-listing-file-modified-sort="1745940641775" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="306" data-listing-title-sort="MOSAIC Week 12 Assignment" data-listing-filename-sort="index-assignment-12.qmd">
-<td>
-<span class="listing-date">Apr 3, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-12/index-assignment-12.html" class="title listing-title">MOSAIC Week 12 Assignment</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="3" data-categories="bW9kZWxpbmclMjBwcm9qZWN0JTJDZWNvbm9taWNzJTJDbG9nLXNjYWxlcw==" data-listing-date-sort="1744261200000" data-listing-file-modified-sort="1747498384381" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="590" data-listing-title-sort="Week 12 Modeling Assignment" data-listing-filename-sort="index-labor-capital.qmd">
-<td>
-<span class="listing-date">Apr 10, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-12-project/index-labor-capital.html" class="title listing-title">Week 12 Modeling Assignment</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="4" data-categories="bGluZWFyJTIwYWxnZWJyYQ==" data-listing-date-sort="1744434000000" data-listing-file-modified-sort="1745940644889" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="99" data-listing-title-sort="MOSAIC Week 13 Assignment" data-listing-filename-sort="index-assignment-13.qmd">
-<td>
-<span class="listing-date">Apr 12, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-13/index-assignment-13.html" class="title listing-title">MOSAIC Week 13 Assignment</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="bGluZWFyJTIwYWxnZWJyYQ==" data-listing-date-sort="1745211600000" data-listing-file-modified-sort="1746196045121" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="75" data-listing-title-sort="MOSAIC Week 14 Assignment" data-listing-filename-sort="index-assignment-14.qmd">
-<td>
-<span class="listing-date">Apr 21, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-14/index-assignment-14.html" class="title listing-title">MOSAIC Week 14 Assignment</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="6" data-categories="bGluZWFyJTIwYWxnZWJyYQ==" data-listing-date-sort="1745643600000" data-listing-file-modified-sort="1747260505514" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62" data-listing-title-sort="MOSAIC Week 15 Assignment" data-listing-filename-sort="index-assignment-15.qmd">
-<td>
-<span class="listing-date">Apr 26, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-15/index-assignment-15.html" class="title listing-title">MOSAIC Week 15 Assignment</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="7" data-categories="bGluZWFyJTIwYWxnZWJyYQ==" data-listing-date-sort="1746766800000" data-listing-file-modified-sort="1747947563391" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="208" data-listing-title-sort="MOSAIC Week 16 Assignment" data-listing-filename-sort="index-assignment-16.qmd">
-<td>
-<span class="listing-date">May 9, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-16/index-assignment-16.html" class="title listing-title">MOSAIC Week 16 Assignment</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="8" data-categories="bGluZWFyJTIwYWxnZWJyYQ==" data-listing-date-sort="1747371600000" data-listing-file-modified-sort="1747870242400" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="139" data-listing-title-sort="MOSAIC Week 17 Assignment" data-listing-filename-sort="index-assignment-17.qmd">
-<td>
-<span class="listing-date">May 16, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-17/index-assignment-17.html" class="title listing-title">MOSAIC Week 17 Assignment</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="9" data-categories="bGluZWFyJTIwYWxnZWJyYQ==" data-listing-date-sort="1748926800000" data-listing-file-modified-sort="1747410228161" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="127" data-listing-title-sort="MOSAIC Week 18 Assignment" data-listing-filename-sort="index-assignment-18.qmd">
-<td>
-<span class="listing-date">Jun 3, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-18/index-assignment-18.html" class="title listing-title">MOSAIC Week 18 Assignment</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="10" data-categories="bGluZWFyJTIwYWxnZWJyYQ==" data-listing-date-sort="1749531600000" data-listing-file-modified-sort="1748822651744" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="56" data-listing-title-sort="MOSAIC Week 19 Assignment" data-listing-filename-sort="index-assignment-19.qmd">
-<td>
-<span class="listing-date">Jun 10, 2025</span>
-</td>
-<td>
-<a href="./assignments/Week-19/index-assignment-19.html" class="title listing-title">MOSAIC Week 19 Assignment</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="11" data-categories="bGluZWFyJTIwYWxnZWJyYSUyQ2FjY3VtdWxhdGlvbg==" data-listing-date-sort="1749618000000" data-listing-file-modified-sort="1745940580228" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="43" data-listing-title-sort="MOSAIC Calculus Drill Problems" data-listing-filename-sort="index-drill.qmd">
-<td>
-<span class="listing-date">Jun 11, 2025</span>
-</td>
-<td>
-<a href="./assignments/Drill/index-drill.html" class="title listing-title">MOSAIC Calculus Drill Problems</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
 </div>
-</div></main> <!-- /main -->
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unit-circle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The unit circle annotated with two random unit-length vectors.
+</figcaption>
+</figure>
+</div>
+<p>The choice of a random, unit-length vector corresponds to the choice of a random point on the unit circle. All such points are equally likely, so the angle <span class="math inline">\(\theta\)</span> is also uniform on <span class="math inline">\(0 \leq \theta \leq pi\)</span>.</p>
+<section id="n-3-the-unit-sphere." class="level2">
+<h2 class="anchored" data-anchor-id="n-3-the-unit-sphere."><span class="math inline">\(n = 3\)</span>: the unit sphere.</h2>
+<p>Now turn to <span class="math inline">\(n=3\)</span> dimensions. The unit circle is now a unit sphere and two random vectors can be defined by picking two random points anywhere on the circle. Since the tip of the orange vector might be anywhere on the sphere with equal probability, the angles <span class="math inline">\(\theta\)</span> are no longer evenly distributed. For instance, very small <span class="math inline">\(\theta\)</span>, corresponding to the tip of the orange vector being near the north pole, are relatively rare. Similarly, random points near the equator (with <span class="math inline">\(\theta \approx \pi/2\)</span>) are much more common: the equator is much longer than the arctic circle. <a href="#fig-unit-sphere" class="quarto-xref">Figure&nbsp;2</a> shows the situation.</p>
+<div id="fig-unit-sphere" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-unit-sphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout="[70,30]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<p><img src="quiz-2025-06-12_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<p><img src="quiz-2025-06-12_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unit-sphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Two random vectors on the unit sphere.
+</figcaption>
+</figure>
+</div>
+<p>The geometry of <a href="#fig-unit-sphere" class="quarto-xref">Figure&nbsp;2</a> is more difficult than in <a href="#fig-unit-circle" class="quarto-xref">Figure&nbsp;1</a>, but the globe is a familiar setting. If you have access, look at a globe and pay attention to the lines of <strong>latitude</strong>, that is, the east-west running circles. Maybe it would be better to think of them as “circles of latitude” rather than “lines.” Move your fingertip at a modest but steady speed along the circle of latitude. The time that it takes you to complete the journey is proportional to the circumference of that circle latitude. Each circle of latitude corresponds to its own <span class="math inline">\(\theta\)</span>. The relative probability of a given <span class="math inline">\(\theta\)</span> is proportional to the circumference of the circle of latitude corresponding to that <span class="math inline">\(\theta\)</span>.</p>
+<p>Each circle of latitude has its own radius. That radius is very small for circles near the arctic or antarctic, but bigger and bigger as you consider circles of latitude closer and closer to the equator. Quantitatively, the radius of the circle of latitude for each given <span class="math inline">\(\theta\)</span> is exactly $()</p>
+<p>integrate up sin(theta)^(n-2)</p>
+</section>
+<section id="how-the-t-got-its-tails" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-t-got-its-tails">How the t got its tails</h2>
+<p>YOU NEED TO RE-WORK this to include the randomness of the <strong>length</strong> of the residual vector. THATS where the Chi-Square comes in in the next plot, for the simulation of Pts2.</p>
+<p>Now for the reason we are interested in random vectors. In statistical modeling, one chooses the optimal (least-squares) coefficients for a model based on projecting a target vector onto the subspace—the model subspace—spanned by the explanatory variables and other explanatory model terms such as the intercept, interactions, and such. The resulting residual will always be perpendicular to the model subspace.</p>
+<p>We know that a new random sample of data would give somewhat different coefficients. The confidence intervals quantify what “somewhat different” means. One way to characterize how a hypothetical new sample will differ from the original is via that residual vector. We can imagine that in other hypothetical samples, the hypothetical residual vectors—one for each hypothetical sample—will point in random directions, not necessarily orthogonal to the model subspace.</p>
+<p>To the extent to which the hypothetical residuals of these imagine samples is inclined toward the model subspace, the target point projected onto the model subspace will be moved “somewhat” from the position it had in the original sample. The new position would lead to “somewhat” different coefficients on the model vectors. That’s how sampling randomness plays out.</p>
+<p>Consider that the origin—the center of the circle in <a href="#fig-unit-circle" class="quarto-xref">Figure&nbsp;1</a> corresponds to the original model vector. When a hypothetical new sample brings a new not-necessarily-orthogonal residual vector into play, the new model vector will be displaced. How much? The orange vector represents the new residual for the hypothetical sample. The model vector for the new sample will be displaced from the origin. The direction will be random, but the length of the displacement will correspond to <span class="math inline">\(\cos(\theta)\)</span> for the new not-necessarily-orthogonal residual.</p>
+<p>In <a href="#fig-unit-circle" class="quarto-xref">Figure&nbsp;1</a>, the orange residual vector is just one of all possibilities. So we need to look at the consequences for displacement across all the possibilities. And, in <span class="math inline">\(n=2\)</span> dimensional space, all possibilities for <span class="math inline">\(0 \leq \theta \leq \pi/2\)</span> are equally likely. <a href="#fig-2d-cosines" class="quarto-xref">Figure&nbsp;3</a> shows how a uniform distribution in <span class="math inline">\(\theta\)</span> translates to a <em>non-uniform</em> distribution of <span class="math inline">\(\cos(\theta)\)</span>.</p>
+<div id="fig-2d-cosines" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-2d-cosines-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 4225 rows containing non-finite outside the scale range
+(`stat_ydensity()`).</code></pre>
+</div>
+<div class="cell quarto-layout-panel" data-layout="[70,15,15]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<p><img src="quiz-2025-06-12_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
+<p><img src="quiz-2025-06-12_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
+<p><img src="quiz-2025-06-12_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid figure-img" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2d-cosines-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Left: The dots are uniformly spaced in <span class="math inline">\(\theta\)</span> but non-uniformly in <span class="math inline">\(\cos(theta)\)</span>. Middle: A conventional violin plot of the distribution of <span class="math inline">\(\cos(\theta)\)</span> values. Note that values near -1 and 1 are the most common. Right: A complete analysis takes into account that the new residual vectors may not be the same length as the original. The result is that the peaks in the middle violin get smoothed and stretched out.
+</figcaption>
+</figure>
+</div>
+<p>```</p>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

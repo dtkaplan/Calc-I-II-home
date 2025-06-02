@@ -29,6 +29,49 @@ source("../../_software/software.R")
 
 # 2025-05-30 class notes
 
+```{r}
+dom <- domain(x = 0:pi)
+pluck <- function(x) (1 - 2*abs(x - pi/2)/pi)
+slice_plot(pluck(x) ~ x, dom)
+```
+
+Make it unit length:
+
+```{r}
+Integrate(pluck(x)^2 ~ x, dom) |> sqrt()
+pluck <- function(x) (1 - 2*abs(x - pi/2)/pi)/1.02333
+```
+
+Model this as sines and cosines. We know that it has to be zero at $x=1$ and at $x = \pi$.
+
+Candidates:
+
+- $\sin(x)$
+- $\sin(2x)$
+- $\sin(3x)$
+
+```{r}
+slice_plot(pluck(x) ~ x, dom) |>
+  slice_plot(sin(x) ~ x, color = "blue") |>
+  slice_plot(sin(2*x) ~ x, color = "tomato") |>
+  slice_plot(sin(3*x) ~ x, color = "darkgreen")
+```
+
+How can we see that the sine functions are mutually orthogonal?
+
+Should we normalize?
+
+```{r}
+S <- antiD(sin(n*x)^2 ~ x)
+S(pi,n=3) - S(0,n=1) |> sqrt() # WARNING
+```
+
+```{r}
+Integrate(sin(n*x)*pluck(x) ~ x, dom, n=5)
+```
+
+
+
 ```{webr-r}
 #| caption: User console A
 #| persist: true

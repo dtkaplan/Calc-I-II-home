@@ -1,0 +1,256 @@
+<!-- final exam questions -->
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(ggformula)
+```
+
+
+Show the gaussian distribution as a formula. Ask them to calculate $\partial_{ss} \ln(e^{x^2/2 s^2)})$ and relate it to the standard deviation of the gaussian.
+
+Then give them the Bayesian coin flipping system, construct the log likelihood function, and compute the second derivative at the argmax. Find the numerical value corresponding to $s$ then construct a confidence interval: argmax $\pm 2 s$. 
+
+----------------------------
+
+Calculate the crash and no-crash likelihood functions for the self-driving car problem. Then, given data, calculate the log-likelihood function and the confidence interval for the exponential distribution rate parameter based on the data.
+
+-----------------------------
+
+Integrate this ODE (Lorenz equations) starting from two nearby points. How does the distance between the trajectories grow (at least for small times)? Select a functional representation and find the parameter indicating the rate of growth.
+
+------------------------------
+
+Give eigenvalues: sketch the flow or, if no such system is possible, say so.
+
+Real and complex eigenvalues of different sorts.
+
+-----------------------
+
+Given eigenvectors and their eigenvalues, sketch the action of the matrix on a circular set of starting points.
+
+------------------------
+
+We're going to work on our intuition of how things are arranged in n-dimensional space. In particular, we are interested in the cosine of the angle between two random vectors. Statistically, this angle is the "correlation coefficient" but our focus here is on geometry and calculus. @fig-unit-circle shows a unit circle in two-dimensional space together with two random unit-vectors. Any point on the circle defines a unit-vector with it's tail at the center of the circle. I've selected two random points on the circle and constructed the unit vectors to those points.
+
+"Ah," you say. "Those aren't really random." I respond that they are. It's just that when I draw the unit circle I rotate things so that one of the vectors points dead north. And if the second vector is pointing to the left, I'll flip the circle left-for-right so that the second vector always points right. None of this changes the angle $\theta$ between the two vectors, which can range from zero to $\pi$ radians, or 0 to 180$^\circ$degrees. Perhaps it's intuitive that the second vector is equally likely to be at any point on the right side of the circle, meaning that the angle $\theta$ between the two vectors is equally likely to be anywhere from 0 to $\pi$.
+
+::: {#fig-unit-circle}
+```{r}
+#| warning: false
+#| echo: false
+P2 <- tibble::tibble(
+  a = seq(0, 2.01*pi, length = 1000),
+  x = cos(a), y = sin(a)
+) |> 
+  gf_path(y ~ x) |>
+  gf_segment(0 + 1 ~ 0 + 0, color = "darkgreen", linewidth = 2,
+             arrow = arrow(), inherit = FALSE) |>
+  gf_segment(0 + 0.866 ~ 0 + 0.5, color = "tomato", linewidth = 2,
+             arrow = arrow(), inherit = FALSE) |>
+  gf_point(0 ~ 0, shape = "x", inherit=FALSE) |>
+  gf_text(0.6 ~ 0.15, label = "θ") |>
+  gf_theme(theme_minimal()) |>
+  gf_refine(coord_fixed()) 
+P2 |> gf_segment(0.866 + 0.866 ~ 0 + 0.5, color = "darkblue") 
+```
+
+
+The unit circle annotated with two random unit-length vectors.
+:::
+
+The choice of a random, unit-length vector corresponds to the choice of a random point on the unit circle. All such points are equally likely, so the angle $\theta$ is also uniform on $0 \leq \theta \leq pi$.
+
+## $n = 3$: the unit sphere.
+
+Now turn to $n=3$ dimensions. The unit circle is now a unit sphere and two random vectors can be defined by picking two random points anywhere on the circle. Since the tip of the orange vector might be anywhere on the sphere with equal probability, the angles $\theta$ are no longer evenly distributed. For instance, very small $\theta$, corresponding to the tip of the orange vector being near the north pole, are relatively rare. Similarly, random points near the equator (with $\theta \approx \pi/2$) are much more common: the equator is much longer than the arctic circle. @fig-unit-sphere shows the situation.
+
+::: {#fig-unit-sphere}
+```{r}
+#| echo: false
+#| warning: false
+latitude  <- function(theta, multiplier = 1, sign = 1) {
+  tibble::tibble(
+    ang = seq(-theta, theta, length = 100),
+    x = sin(ang),
+    y = sign * (cos(theta) - multiplier*0.1*cos(0.5*pi*ang/theta))
+  )
+}
+P2 |> gf_path(y ~ x, data = latitude(pi/6), multiplier = 1.3, color = "blue") |>
+  gf_path(y ~ x, data = latitude(pi/2, multiplier = 2.0)) |>
+  gf_path(y ~ x, data = latitude(3*pi/8, multiplier = 1.8)) |>
+  gf_path(y ~ x, data = latitude(pi/2, multiplier = -2.0), alpha = 0.4) |>
+  gf_path(y ~ x, data = latitude(3*pi/8, multiplier = -1.8), alpha = 0.3) |>
+  gf_path(y ~ x, data = latitude(3*pi/8, multiplier = -1.5, sign = -1)) |>
+  gf_path(y ~ x, data = latitude(3*pi/8, multiplier = 1.5, sign = -1), alpha = 0.3) |>
+  gf_segment(0.866 + 0.866 ~ 0 + 0.5, color = "tomato") |>
+  gf_segment(0.383 + 0.383 ~ 0 + 0.924, color = "tomato") |>
+  gf_segment(0 + 0 ~ 0 + 1, color = "tomato") |>
+  gf_segment(-0.383 + -0.383 ~ 0 + 0.924, color = "tomato") 
+```  
+
+Two random vectors on the unit sphere.
+:::
+
+The geometry of @fig-unit-sphere is more difficult than in @fig-unit-circle, but the globe is a familiar setting. If you have access, look at a globe and pay attention to the lines of **latitude**, that is, the east-west running circles. Maybe it would be better to think of them as "circles of latitude" rather than "lines." Move your fingertip at a modest but steady speed along the circle of latitude. The time that it takes you to complete the journey is proportional to the circumference of that circle latitude. Each circle of latitude corresponds to its own $\theta$. The relative probability of a given $\theta$ is proportional to the circumference of the circle of latitude corresponding to that $\theta$.
+
+Each circle of latitude has its own radius. That radius is very small for circles near the arctic or antarctic, but bigger and bigger as you consider circles of latitude closer and closer to the equator. Quantitatively, the radius of the circle of latitude for each given $\theta$ is exactly $\sin(\theta)$. @fig-sintheta-violin shows the shape of the distribution as a violin plot.
+
+::: {#fig-sintheta-violin}
+```{r}
+tibble::tibble(
+  stheta = seq(-1, 1, length=10000),
+  theta =  asin(stheta) + pi/2
+) |>
+  gf_violin(theta ~ 1, fill = "blue", alpha = 0.3, color = NA, bw=0.01) |>
+  gf_refine(coord_fixed(ratio=1/4)) |>
+  gf_theme(
+    theme_minimal()
+  ) |>
+  gf_labs(x="", y = "θ")
+```
+The distribution between two random vectors on the unit sphere: $\sin(\theta)$ for $0 \leq \theta \leq \pi$.
+:::
+
+The violin in @fig-sintheta-violin shows the relative probability of each angle $\theta$. To turn "relative" into "absolute," we need to *normalize* so that the distribution will have unit area. That is divide $\sin(\theta)$ by $\int_0^{\pi} \sin(\theta) d\theta$. 
+
+Calculate the normalizing factor for $n=3$ using chunk A:
+
+```{webr-r}
+#| caption: A: normalize for n=3
+
+```
+
+## Generalizing to higher $n$
+
+Our intuition of geometry fails when we need to think about the distribution of angles between vectors on a *hyper-sphere* in four dimensions, let along 40 or 400 dimensional space. Let's
+indulge in some speculation. Here's what we've got so far:
+
+
+
+$n$ | Normalizing factor $A_n$ | Probability distribution on $0 \leq \theta \leq \pi$
+----|--------------------|-------------------------
+2 | $A_2 = \int^0^\pi 1\ d\theta$ | $\frac{1}{A_2} = \frac{\sin(\theta)^0}{A_2}$
+3 | $A_3 = \int_0^\pi sin(\theta)^1 d\theta$ | $p(\theta) = \frac{\sin(\theta)^1}{A_3}$
+
+In the $n=2$ row, I wrote $1$ in the strange-looking form $\sin(\theta)^0$ in order to indulge in some speculation. The speculation is that to move to a higher $n$, multiply the previous density by $\sin(\theta)$ and calculate the normalizing constant. That is:
+
+$n$ | Normalizing factor $A$ | Probability distribution on $0 \leq \theta \leq \pi$
+----|--------------------|-------------------------
+$n$   | $A = \int_0^\pi sin(\theta)^{n-2} d\theta$ | $p(\theta) = \frac{\sin(\theta)^{n-2}}{A_n}$
+
+
+
+
+Your task:  
+
+1. Calculate the normalizing factors $A_n$ for $n=2, 3, 4, ..., 10$
+
+2. Try to figure out a pattern. For instance, what is the ratio $A_{n+1}/A_n$. Does it vary with $n$? Can you discern a pattern.
+
+3. It turns out that there is a formula for $A_n$:
+
+$$A_n = \frac{n\, \pi^{n/2}\, \Gamma\left(\frac{n-1}{2} + 1\right)}{(n-1)\, \pi^{(n-1)/2}\, \Gamma\left(\frac{n}{2} + 1\right)}$$
+
+```{r}
+Sn <- makeFun((n)*pi^(n/2)*gamma((n-1)/2 + 1) ~ n)
+Snm1 <- makeFun((n-1)*pi^((n-1)/2)*gamma(n/2 + 1) ~ n)
+Snm1(1)/Sn(1)
+Snm1(2)/Sn(2)
+Snm1(3)/Sn(3)
+```
+
+The function $\Gamma()$ is called the "gamma function." It is implemented in R by `gamma()`.
+
+4. Compare your results to those found by calculating $A_n$ from the formula.
+
+
+<!-- Start of rich webr chunk q01-7kT -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
+```{webr-r}
+#| caption: For your calculations
+#| persist: true
+#| label: q01-7kT-main
+
+
+```
+
+## Code submission
+This box connects to the "collect answers" button.
+
+`r devoirs_text("q01-7kT")`
+
+
+## Scratch 1
+If you need to, do computations on the side to check things out!
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: q01-7kT-scratch1
+```
+
+## Scratch 2
+More on-the-side computations if you need.
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: q01-7kT-scratch1
+```
+:::
+<!-- end of enriched webr chunk q01-7kT -->
+
+
+## How the t got its tails
+
+YOU NEED TO RE-WORK this to include the randomness of the **length** of the residual vector. THATS where the Chi-Square comes in in the next plot, for the simulation of Pts2.
+
+
+
+Now for the reason we are interested in random vectors. In statistical modeling, one chooses the optimal (least-squares) coefficients for a model based on projecting a target vector onto the subspace---the model subspace---spanned by the explanatory variables and other explanatory model terms such as the intercept, interactions, and such. The resulting residual will always be perpendicular to the model subspace. 
+
+We know that a new random sample of data would give somewhat different coefficients. The confidence intervals quantify what "somewhat different" means. One way to characterize how a hypothetical new sample will differ from the original is via that residual vector. We can imagine that in other hypothetical samples, the hypothetical residual vectors---one for each hypothetical sample---will point in random directions, not necessarily orthogonal to the model subspace. 
+
+To the extent to which the hypothetical residuals of these imagine samples is inclined toward the model subspace, the target point projected onto the model subspace will be moved "somewhat" from the position it had in the original sample. The new position would lead to "somewhat" different coefficients on the model vectors. That's how sampling randomness plays out.
+
+Consider that the origin---the center of the circle in @fig-unit-circle corresponds to the original model vector. When a hypothetical new sample brings a new not-necessarily-orthogonal residual vector into play, the new model vector will be displaced. How much? The orange vector represents the new residual for the hypothetical sample. The model vector for the new sample will be displaced from the origin. The direction will be random, but the length of the displacement will correspond to $\cos(\theta)$ for the new not-necessarily-orthogonal residual. 
+
+In @fig-unit-circle, the orange residual vector is just one of all possibilities. So we need to look at the consequences for displacement across all the possibilities. And, in $n=2$ dimensional space, all possibilities for $0 \leq \theta \leq \pi/2$ are equally likely. @fig-2d-cosines shows how a uniform distribution in $\theta$ translates to a *non-uniform* distribution of $\cos(\theta)$.
+
+::: {#fig-2d-cosines}
+```{r}
+#| echo: false
+#| layout: "[70,15,15]"
+Pts1 <- tibble::tibble(theta = seq(0, pi, length=10000), ctheta = rchisq(10000, df=1)*cos(theta)) 
+Pts2 <- tibble::tibble(theta = seq(0, pi, length=100), ctheta = cos(theta)) 
+Pts2 |> 
+  gf_path(ctheta ~ theta, alpha = 0.5) |>
+  gf_point(ctheta ~ theta, color = "tomato", size = 0.5) |>
+  gf_segment(ctheta + ctheta ~ 0 + theta, color = "tomato", line_width = 0.1) |>
+  gf_labs(y = "cos(θ)", x = "θ")
+gf_violin(ctheta ~ 1, alpha = 0.5, fill = "blue", color = NA, bw = 0.3, data = Pts1) |>
+  gf_labs(y = "", x = "") |>
+  gf_theme(axis.title=element_blank(),
+        axis.text=element_blank(),
+        axis.ticks=element_blank())
+
+Pts3 <- tibble::tibble(
+  ctheta = rt(100000, df=1)
+)
+
+gf_violin(ctheta ~ 1, alpha = 0.5, fill = "blue", color = NA, bw = 0.2, data = Pts3) |>
+  gf_labs(y = "Projection onto the model subspace of new residual", x = "") |>
+  gf_lims(y = c(-15,15)) |>
+  gf_theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+```
+Left: The dots are uniformly spaced in $\theta$ but non-uniformly in $\cos(theta)$. Middle: A conventional violin plot of the distribution of $\cos(\theta)$ values. Note that values near -1 and 1 are the most common. Right: A complete analysis takes into account that the new residual vectors may not be the same length as the original. The result is that the peaks in the middle violin get smoothed and stretched out. 
+:::
+
+
+
+
+
+
+```

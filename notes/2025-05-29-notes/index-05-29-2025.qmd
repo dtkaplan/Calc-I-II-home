@@ -27,6 +27,76 @@ source("../../_software/software.R")
 ```
 :::
 
+## Meanwhile, back on the ranch ...
+```{r}
+consumption <- 
+  makeFun((beta*v^2/(v0^2 + v^2))~ v, 
+          beta=0.1, v0=1)
+slice_plot(consumption(v) ~ v, bounds(v=0:10)) %>%
+  gf_labs(y="Consumption (tons/day)", x="v: available biomass (tons)")
+
+```
+
+
+Find the bifurcation point in $H$.
+
+```{r}
+#| message: false
+Grazing <- makeODE(dV ~ r*V*(1 - V/K) - H*consumption(V), 
+                    H=36, r = 2,  K=10)
+TS <- integrateODE(Grazing, domain(t=0:20), V=.4)
+traj_plot(TS$V(t) ~ t, domain(t=0:20)) # or slice_plot()
+```
+ a was 0.0026
+```{r}
+SIR <- makeODE(dS~ -a*S*I, dI ~ a*S*I - b*I, a=0.001, b=0.5, S=762, I=10)
+
+Traj <- integrateODE(SIR, domain(t=0:50), I = 100)
+flow_field(SIR, domain(S=0:800, I = 0:300), npts = 15)
+  traj_plot(Traj$I(t) ~ Traj$S(t), domain(t=0:50))
+  traj_plot(Traj$S(t) ~ t, domain(t=0:50))
+```
+
+
+
+
+
+
+
+
+## Predator-Prey 
+
+$$\frac{dx}{dt} = \alpha x - \beta x y,\\
+\frac{dy}{dt} = - \gamma y + \delta x y , $$ 
+
+alpha=0.1 "Reproduction rate of prey";
+beta=0.02 "Mortality rate of predator per prey";
+gamma=0.4 "Mortality rate of predator";
+delta=0.02 "Reproduction rate of predator per prey";
+x0=10 "Start value of prey population";
+y0=10 "Start value of predator population"
+
+
+## Richer State spaces
+
+Functions of plucked string
+
+
+
+
+
+## Waves in space
+                      
+[Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations) (1861)
+: $$\begin{align}
+\nabla \cdot \mathbf{E} \,\,\, &= \frac{\rho}{\varepsilon_0} \\
+\nabla \cdot \mathbf{B} \,\,\, &= 0 \\
+\nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \\
+\nabla \times \mathbf{B} &= \mu_0 \left(\mathbf{J} + \varepsilon_0  \frac{\partial \mathbf{E}}{\partial t} \right)
+\end{align}$$
+
+In the absence of charge ($\rho$) and current ($\mathbf J$), construct $\partial_{tt}{\mathbf E}$ and see what that tells you.
+
 
 # 2025-05-29 class notes
 
