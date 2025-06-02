@@ -44,6 +44,54 @@ Linearizing the dynamics around a fixed point
 
 The different types of stability
 
+```{r}
+eigenvalues_to_matrix <- function(mid, pm, signature = c(1, 1, 0, -1), as.matrix = TRUE) {
+  sum <- 2*mid
+  prod <- Re(mid^2 + pm * Conj(pm))
+  if (prod == 0) {
+    warning("Eigenvalues are both zero. Matrix is zero.")
+    res <- c(0, 0, 0, 0)
+    if (as.matrix) res <- matrix(res, ncol=0)
+    return(res)
+  }
+  a <- signature[1]; b <- signature[2]; 
+  c <- signature[3]; d <- signature[4]
+  # find a and d
+  if (mid == 0) {
+    a <- - d # possibly changes signature
+  } else {
+    if ((a + d) == 0) {
+      a <- a + sign(a)
+      d <- d - sign(d)
+    }
+    s <- a + d
+    a <- sum * a / s
+    d <- sum * d / s
+  }
+  # find b and c
+  bc <- a*d - prod
+  if (bc == 0) {
+    if (sign(c) == 0 || sign(b) == 0) next
+    else (c <- 0)
+  } else {
+    if (sign(b)*sign(c) == 0) {
+      # must change signature
+      c <- c + 0.1 + sign(c)
+      b <- b + 0.1 + sign(b)
+    }
+    browser()
+    c <- sign(c) * sqrt(bc + 0i)
+    b <- sign(b) * sqrt(bc + 0i)
+  } 
+  
+  res <- c(a, b, c, d)
+  if (as.matrix) res <- matrix(res, nrow=2)
+  
+  res
+}
+
+```
+
 `r devoirs::pop_answer_style()`
 :::
 
