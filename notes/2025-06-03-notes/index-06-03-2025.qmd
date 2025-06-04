@@ -27,22 +27,31 @@ source("../../_software/software.R")
 ```
 :::
 
+## Plan for rest of semester
 
-# 2025-06-03 class notes
+1. There is one more assignment, Week 19. This is due on Friday 13 June.
+2. There will be a short quiz on Friday, focusing on fixed points, nullclines, stability.
+3. On Thursday 5 June, we will talk about eigenvalues and eigenvectors. This will be the culmination of our work with linear algebra and matrices.
+4. Also on Thursday 5 June, I will distribute short projects to be done in pairs or as individuals, as you like.
+    i. Each project will be a classical "phase plane" model, of which SIR is an example. (SIR is not among the set of projects.)
+    ii. You will study the model mathematically/computationally, looking at nullclines, fixed points and their stability, flows, etc.
+    iii. You will **also** study the model phenomenologically, interpreting it and its parameters for the lessons they hold in the real world.
+    iv. You can use **any** resources you like for help, but you **must** do the computations in (ii) with the kit provided by `{mosaicCalc}`. This includes the sort of *graphics* that support your discussion of (ii). 
+    v. We will do presentations on Friday June 13.
+    vi. Expect to spend 3 or 4 hours on the project and your presentation.
+5. On Thursday 13 June, we will have a 30-minute quiz covering the whole of the Spring semester's material.
 
-```{webr-r}
-#| caption: User console A
-#| persist: true
-```
+## For today, science.
 
-```{webr-r}
-#| caption: User console B
-#| persist: true
-```
+For Thursday, math.
 
-```{webr-r}
-#| caption: User console C
-#| persist: true
-```
+We have a format for describing dynamics and a small set of techniques for flows, trajectories, fixed points and stability
 
 
+Newton cooling
+
+Hooke
+
+Chernobyl
+
+Writing acceleration 

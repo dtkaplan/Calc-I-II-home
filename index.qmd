@@ -135,7 +135,7 @@ Friday May 2
 
 **Mid-term Break**
 
-
+::: {.callout-note collapse=true}
 ### Week 6  {.unnumbered}
 
 Tuesday May 13
@@ -151,60 +151,62 @@ Thursday May 15
 Friday May 16
 : Topic Bayesian calculations
 : Reading [*MOSAIC Calculus* Chap 50](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/50-probability.html)
+:::
 
+::: {.callout-note collapse=true}
 ### Week 7 {.unnumbered}
 
 Starting Block V: Dynamics
 
 Tuesday May 20
-: Topic Differential equations
-: Reading [*MC* Chap 39](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/39-diff-eq.html)
+: Topic: Differential equations
+: Reading: [*MC* Chap 39](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/39-diff-eq.html)
 : Quiz (through May 16) 20 minutes
 : Due: [Week 6 assignment](assignments/Week-16/index-assignment-16.html)
 
 Thursday May 22
 : NOTE: [*MOSAIC Calculus* Apps now available](https://dtkaplan.shinyapps.io/MOSAIC_Calc_apps/)
-: Topic Solutions and trajectories
-: Reading [*MC* Chap 40](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/40-solution.html)
+: Topic: Solutions and trajectories
+: Reading: [*MC* Chap 40](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/40-solution.html)
 
 Friday May 23
 : Topic: Qualitative dynamics in one variable
-: Reading [*MC* Chap 41](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/41-flow-on-line.html)
+: Reading: [*MC* Chap 41](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/41-flow-on-line.html)
+:::
 
+::: {.callout-note collapse=true}
 ### Week 8 {.unnumbered}
 
 Tuesday May 27
-: Topic The "Phase plane"
-: Reading [*MC* Chap 42](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/42-flow-on-plane.html)
+: Topic: The "Phase plane"
+: Reading: [*MC* Chap 42](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/42-flow-on-plane.html)
 : Due: [Week 7 assignment](assignments/Week-17/index-assignment-17.html)
 
 
 Thursday May 29
-: Topic Classic models of dynamics
-: Reading [*MC* Chap 43](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/43-modeling.html)
+: Topic: Classic models of dynamics
+: Reading: [*MC* Chap 43](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/43-modeling.html)
 
 
 Friday May 30
-: Topic Equilibrium and transient
-: Reading [*MC* Chap 44](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/44-equilibria.html)
-
+: Topic: Equilibrium and transient
+: Reading: [*MC* Chap 44](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/44-equilibria.html)
+:::
 
 ### Week 9 {.unnumbered}
 
-: [*MOSAIC Calculus* Chap 52] Mechanics
-
 Tuesday June 3
-: Topic: Eigenvalues, eigenvectors
-: Reading [*MC* Chap 45](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/45-eigen.html)
+: Topic: Science and differential equations: vibrations in the quantum guitar, electromagnetic waves
 : Due: [Week 8 assignment](assignments/Week-18/index-assignment-18.html)
-
-
+: Start: [Week 9 assignment](assignments/Week-19/index-assignment-19.html)
 
 Thursday June 5
-: Modeling Day Eigenvectors and politics 
-: Quiz (through June 3) 20 minutes
+: Topic: Eigenvalues, eigenvectors
+: Reading: [*MC* Chap 45](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/45-eigen.html)
+: Start on your [phase-plane dynamics](assignments/Phase-plane-models/index-phase-plane.qmd) modeling project. Presentations due on June 13.
 
 Friday June 6
+: Quiz on fixed points and stability (15 minutes)
 : Topic Force-balance equations, resonance
 : Reading [*MC* Chap 46](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/46-second-order.html)
 
@@ -212,18 +214,19 @@ Friday June 6
 
 
 Tuesday June 10
-: Topic: Mechanics of motion
-: Reading: [*MC* Chap 52](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/52-mechanics.html)
-
-Thursday June 12
 : Topic: Optimization, constraint, & trade-off
 : Reading [*MC* Chap 49](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/49-optimization.html)
+Reading: [*MC* Chap 52](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/52-mechanics.html)
+
+Thursday June 12
+: **Final Quiz** covering whole semester (30 minutes) 
+: Course feedback
+
 
 Friday June 13
-: **Final Quiz** covering whole semester (30 minutes)
-: Topic
-: Reading
-: Due: [Week 9 assignment](assignments/Week-19/index-assignment-19.html)
+
+: Topic: Student phase-plane modeling reports given in class.
+: Due by Monday June 16: all outstanding assignments 
 
 
 

@@ -1,0 +1,152 @@
+---
+title: Low-order Differential Equation Models
+date: 2025-06-10
+categories: [linear algebra]
+---
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(LSTbook)
+library(devoirs)
+source("../../_software/software.r")
+devoirs::answer_style("none") 
+# devoirs::answer_style("block") 
+```
+
+{{< include ../../_software/devoirs.qmd >}}
+
+::: {style="display: none;"}
+```{webr-r}
+#| autorun: true
+#| context: output
+#| echo: false
+{{< include ../../_software/software.R >}}
+```
+:::
+
+
+This short, 3-4 working hours project concerns models of a variety of phenemona, from molecular interactions to arms races between countries. Each model consists of a state consisting of one to three quantities, and a dynamical equation for each of the state quantities. Our notation for the model consists of one *definition* for each of the state quantities. 
+
+Your report will be a document along with a short, in-class presentation of the salient points in the document, describing:
+
+1. What the model is intended to represent.
+2. What the state variables individually represent. If appropriate, use symbols that are mnemonic for each state variable's role, for instance like the $S$ and $I$ used in the classic susceptible-infective-recovered model.
+3. A plain-English, qualitative description of the dynamics.
+4. The dynamics formula with a plain-English explanation of each additive term. (E.g. in SIR, the $S$ dynamics consist of an interaction with $I$, representing an occasion when a susceptible person meets and infective person.)
+5. One or more graphical presentations of the flow in a relevant domain.
+6. One or more time series or trajectories that illustrate how the scenario will play out over time. (You can combine (5) and (6) into unified graphics, e.g. a trajectory placed over a flow field.)
+7. If relevant, a discussion of how changing one or more parameters leads to a qualitative change in the dynamics (e.g. loss of stability, induction of rotation, creation or destruction of fixed points or orbits.) 
+
+You are welcome, indeed encouraged, to use outside resources such as articles about the model, web pages, or generative AI. 
+
+i. Clearly reference each resource where you use it in your report.
+ii. If you use generative AI, indicate if you found it helpful and for what. Similarly, when the AI generates vague descriptions, indicate that.
+iii. Don't feel that you need to recapitulate all of the material in your sources. For instance, often there are published critiques of a model that go beyond what you can reasonably be expected to do in a 3-4 hour project. You do not need to do a comprehensive literature review, just explain the model as indicated in points (1)-(7) above.
+iv. In making technical graphics, use the `{mosaicCalc}` suite of functions. Naturally, if you find an exemplary graphic among your outside resources, feel free to use that to supplement your technical graphics or to illustrate the setting for the model.
+
+## 1. Arms race
+
+Assigned to: [we'll put your names here]
+
+Often called "Richardson's" arms race model, after it's inventor, the dynamics implement three hypothetical causes of why nations increase or decrease their armaments.
+
+Here is a [starting point](www/Caspary-RichardsonsModelArms-1967.pdf).
+
+## 2. Battle
+
+Assigned to:
+
+Developed by a contemporary of Richardson, Lanchester's model describes how the strength of two opposing armies decreases as the battle progresses.
+
+[Starting point](https://en.wikipedia.org/wiki/Lanchester%27s_laws)
+
+Note: There is another, similar-looking model of naval combat, called the [Salvo model](https://en.wikipedia.org/wiki/Salvo_combat_model). This is a discrete-time model, meaning that the dynamics are **not** described as the continuous change of a state. We have not worked with such models
+
+## 3. van der Pol oscillator model
+
+Assigned to: []
+
+Early in the electrical age, it was seen that some kinds of electric lights do not shine steadily but instead oscillate between on and off. van der Pol's model presents dynamics that can lead to such behavior.
+
+[Starting point](https://en.wikipedia.org/wiki/Van_der_Pol_oscillator)
+
+Note that the first equation in the above link is a *second-order differential equation*, that is, an equation with terms like $\partial_{tt} x$. Further down the article, this is transformed to an equivalent pair of *first-order* equations of the sort that we deal with in *MOSAIC Calculus*.
+
+## 4. Predator-Prey 
+
+Assigned to: []
+
+The famous predator-prey model, as formulated by Lotka and Volterra, describes a pair of interacting species. 
+
+Starting point: It is described briefly in our textbook, but a web search on "predator-prey model" or "Lotka-Volterra model" will point you to other resources. 
+
+## 5. Lindemann mechanism of uni-molecular chemical reactions
+
+Assigned to: []
+
+In non-equilibrium chemical reactions, the amounts of the reactants changes in time. The Lindemann mechanism describes the dynamics for reactions involving a single molecule such as isomerization or decomposition.
+
+[Starting point](https://people.uleth.ca/~roussel/C4000foundations/slides/11unimolI.pdf)
+
+
+## 6. Genetic toggle dynamics
+
+
+During cell differentiation, genes in some cell types are turned on and other genes are turned off. This provides a mechanism for creating different cell types. A gene toggle is a pair of genes that regulate one another, creating in effect an on/off switch that can be in either of two stable configurations. 
+
+Note: Read the next paragraph, where the references are imposing. But then move on to the paragraph beginning, "But for the purpose of this report ...." 
+
+These gene toggle dynamics are complicated and an appropriate genetic introduction is [this paper](www/toggle-switch.pdf) from the *Biophysical Journal*. As for the dynamics themselves, this [report](https://isn.ucsd.edu/courses//beng221/problems/2013/project-1-A%20Mathematical%20Model%20of%20a%20Synthetically%20Constructed%20Genetic%20Toggle%20Switch.pdf) may help.
+
+But for the purpose of this report, you might prefer to work with this simplification of the toggle dynamics [given here](https://cran.r-project.org/web/packages/phaseR/vignettes/introduction.html):
+
+$$\partial_t x \equiv -x + \frac{\alpha}{1 + y^\beta},\ \ \ \ \ \partial_t y \equiv -y + \frac{\alpha}{1 + x^\gamma}$$
+
+Questions to answer in your report:
+
+i. Do the dynamics really have two stable fixed points?
+ii. What outside influence does it take to move from one to the other? 
+iii. What are appropriate values for the parameters $\alpha$ (alpha), $\beta$ (beta), and $\gamma$ (gamma).
+
+Note that I do not know the answers to these questions, but intuition suggests starting by setting $\beta = \gamma = 2$ and $\alpha = 1$. Then find the nullclines (using algebra or the computer), find the fixed points, and do stability analysis around the fixed points. 
+
+## 7. Neuron dynamics
+
+Neurons are electrically active cells that play a central role in the nervous system and brain. Their electrical activity is driven by differing concentrations of potassium and sodium ions on either side of the cell membrane. (Muscle cells are also electrically active. Calcium ions play a major role  in muscle dynamics.) Ion-specific protein gates govern the conductivity of the membrane. The dynamics reflect the changing conductivity of the gates as a function of the voltage across the membrane. Also important to neuron dynamics is the electrical current generated by the cell's dendrites.
+
+[Hodgkin and Huxley](muscle cells, also electrically active) famously performed nerve-cell experiments and created differential equations models in the early 1950s. They won the Nobel Prize in 1963. 
+
+The Fitzhugh-Nagumo model is a simplification of the dynamics. 
+
+[Starting point](https://en.wikipedia.org/wiki/FitzHugh%E2%80%93Nagumo_model)
+
+
+## Economics
+
+Economists are often concerned with *equilibria*, for instance the balance between supply and demand as mediated by price. A major theme in undergraduate economics is the location of equilibria as a function of outside factors, for example a change in demand due to the introduction of a competiting product. 
+
+Insofar as equilibria are highly stable and changes in the outside factors are slow, it's reasonable to think of the state of the economic system as staying at equilibrium even as the equilibrium moves. Dynamics comes into play when other factors intervene, for example the presence of *delays* in the system (do to, say, long-term contracts) or to investor decision-making introducing *momentum* in financial markets. (For instance, the poor investment strategy of buying when the market is going up and selling when it is going down leads to momentum.) The "business cycle" is an example of dynamics.
+
+A nice introduction to dynamics from an economics point of view is available in Ronald Shone's *Economic Dynamics:
+Phase Diagrams and Their Economic Application* [available online](https://danielmorochoruiz.wordpress.com/wp-content/uploads/2015/09/ronald_shone_economic_dynamics_phase_diagrams_abookfi-org.pdf).
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+Each definition consists of a left-hand side, e.g. $\partial_t x$, giving the name of the state variable ($x$ here) for which the definition holds and a reminder $(\partial_t)$ that the definition is about the dynamics of that state variable. On the right-hand side of the definition, a scalar-valued function is given whose arguments include the individual state variables.
+
+$$\text{dynamics format:  }{\partial_t}\ \ x\ \ \ \ \  \equiv \underbrace{f}_\text{dynamics function}(\underbrace{x,\ \ y,\ \ z}_\text{set of state variables})$$
+Equivalently, we can write the whole set of state variables as a vector, $\vec{x}$ and use a vector-valued function for the dynamics of this vector:
+
+$$\partial_t\ \vec{x} \equiv \vec{f}(\vec{x})$$
+-->
