@@ -1,0 +1,114 @@
+---
+title: "MOSAIC Calculus Quiz 9: Prof. Kaplan"
+subtitle: "June 6, 2025"
+author: "Student name: __________________.            Do what you can in 30 minutes." 
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      left: 1cm
+      right: 1cm
+      top: 1cm
+      bottom: 8mm
+    columns: 2
+    shift-heading-level-by: -1
+    
+crossref:
+  chapters: true
+  exr-title: "Question"
+  exr-prefix: "Question"
+---
+
+
+```{r include=FALSE}
+library(mosaicCalc)
+knitr::opts_chunk$set(results="asis", roman=TRUE)
+library(devoirs)
+source("../_software/software.R")
+make_numbering <- function(word) {
+  num <- 1
+  function() {
+    res <- glue::glue(word)
+    num <<- num + 1
+    return(res)
+  }
+} 
+Q <- make_numbering("[**Question 7.{num}**]{{.underline}}")
+vspace <- function(n=2) paste(rep("\n\n \n\n ", n), collapse = "\n")
+```
+
+This quiz is about the simple dynamical system
+
+$$\partial_t x \equiv y, \ \ \ \ \ \partial_t y \equiv -x .$$
+
+`r Q()` Draw the nullclines of the system on the graph plane below. Make sure to label clearly which is the x-nullcline and which is the y-nullcline. 
+
+
+![](www/coord-axes.png){align="center"}
+`r vspace(2)`
+
+Double check to make sure you haven't reversed the the nullclines. Hint: the coordinate point $(x = 1, y = 0)$ is on one of the nullclines. 
+
+`r vspace(1)`
+
+`r Q()`  Draw in flow arrows on each of the nullclines to each side of the origin. (There will be 4 flow arrows altogether.)
+
+`r vspace(1)`
+
+
+`r Q()`  Draw in another four flow arrows, one in each of the four quadrants of the plane.
+
+`r vspace(1)`
+
+`r Q()` Bye eye, draw a plausible trajectory for the flow, starting at whatever initial condition you choose (but **not** $(x=0, y=0)$).
+
+`r vspace(1)`
+
+`r Q()`  Consider the time series $x(t) = \sin(t)$ as a **candidate** solution starting at the initial condition $(x = 0, y = 1)$. Use anti-differentiation to find the corresponding $y(t)$.
+
+`r vspace(1)`
+
+`r Q()` Modify the differential equations so that $x(t) = A \sin(\omega t)$ and its corresponding $y(t)$ are solutions, where $\omega$ describes the frequency of the oscillation. Write the modified equations here.
+
+`r vspace(4)`
+
+
+----------------
+
+`r vspace(4)`
+
+Turn the sheet over for an extra-credit problem.
+
+`r vspace(10)`
+
+**Extra credit**: @fig-pendulum shows another dynamical system, a pendulum bob at the end of a rigid rod hung from a pivot. The state is (angle, velocity). Angle 0 means the bob is directly below the pivot. Angles $\pm$180 put the bob straight above the pivot. Positive velocity corresponds to a counter-clockwise swing.
+
+::: {#fig-pendulum}
+```{r}
+#| echo: false
+#| warning: false
+#Coords <- magick::image_read("www/coord-axes.png")
+#magick::image_ggplot(Coords, ) |>
+Dynamics <- makeODE(dx ~ y, dy ~ -sin(x/50) - 0.02*y )
+Soln1 <- integrateODE(Dynamics, domain(t=0:100), x = 0, y = 0)
+streamlines(Dynamics, 
+            domain(x=-200:200, y = -20:20), 
+            dt=.2, npts=20, alpha = 0.2, color = "blue") |>
+  gf_lims(y=c(-20,20), x = c(-200,200)) |>
+  gf_theme(theme_minimal()) |>
+  gf_labs(x = "Angle (degrees)", y = "Velocity (m/s)")
+```
+Dynamics of a pendulum
+:::
+
+`r vspace(1)`
+
+`r Q()` Draw a trajectory from the initial condition where the angle is -120$^\circ$ and the velocity is zero. (Note: the initial angle is *negative*.)
+
+`r vspace(2)`
+
+`r Q()` Draw in the angle- and velocity-nullclines. They may have multiple segments. 
+
+`r vspace(2)`
+
+`r Q()` Mark each of the fixed points in the graphic domain and indicate whether they are stable or unstable.
