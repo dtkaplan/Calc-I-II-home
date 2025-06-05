@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-79108a0fc1995748cbd19a5b0e3e3e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d045e70ebd9269c25e164ecdb4898f56.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -103,9 +103,10 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -181,7 +182,15 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#class-notes" id="toc-class-notes" class="nav-link active" data-scroll-target="#class-notes"><span class="header-section-number">11</span> 2025-01-30 class notes</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -221,7 +230,7 @@ window.Quarto = {
 <h4 data-number="11.2" class="anchored" data-anchor-id="single-input-low-order-polynomials"><span class="header-section-number">11.2</span> Single-input low-order polynomials</h4>
 <p>You studied univariate low-order polynomials in high school. These are the constant, straight-line, and quadratic (square) functions.</p>
 <p>I want you to think of them as “shapes” rather than formulas. Here are the shapes:</p>
-<p><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/12-low-order-polynomials.html#fig-eight-simple-shapes">textbook</a></p>
+<p><a href="https://www.mosaic-web.org/MOSAIC-Calculus/Modeling/12-low-order-polynomials.html#fig-eight-simple-shapes">textbook</a></p>
 <p>Example modeling contexts (from textbook):</p>
 <ol type="1">
 <li><p>How many minutes can you run as a function of speed? Concave down and downward sloping: Shape (F). In everyday terms, you wear out faster if you run at high speed.</p></li>
@@ -239,7 +248,7 @@ window.Quarto = {
 <p>What’s important to us is constructing functions with multiple inputs. We will focus on <strong>two</strong> inputs because it’s easiest to develop intuition about them and to display them graphically. But other than graphics, all the concepts apply to low-order polynomials with any number of inputs.</p>
 <p>Here is the general formula:</p>
 <p><span class="math display">\[g(x, y) \equiv a_0 + a_x x + a_y y + a_{xy} x y + a_{yy} y^2 + a_{xx} x^2\]</span></p>
-<p>We will use a standard set of names to identify the components <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/12-low-order-polynomials.html#sec-low-order-two">here in the textbook</a>.</p>
+<p>We will use a standard set of names to identify the components <a href="https://www.mosaic-web.org/MOSAIC-Calculus/Modeling/12-low-order-polynomials.html#sec-low-order-two">here in the textbook</a>.</p>
 <p><span class="math display">\[g(x, y) \equiv a_0 + \underbrace{a_x x + a_y y}_\text{linear terms} \ \ \ +
 \underbrace{a_{xy} x y}_\text{interaction term} +\ \ \  \underbrace{a_{yy} y^2 + a_{xx} x^2}_\text{quadratic terms}\]</span></p>
 <p>What is the order of an interaction term?</p>

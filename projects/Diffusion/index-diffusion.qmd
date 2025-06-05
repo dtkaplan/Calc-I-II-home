@@ -7,4 +7,4 @@ desc: "Not your grand-parents' calculus"
 categories: [dynamics, finance, Week9]
 ---
 
-See <https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/53-diffusion.html>
+See <https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/53-diffusion.html>

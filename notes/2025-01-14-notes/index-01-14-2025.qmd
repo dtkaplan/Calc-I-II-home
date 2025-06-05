@@ -36,14 +36,14 @@ slice_plot(__tilde_exp__,
 
 ## Spaces, graphs, and graphics
 
-Composition of input and output spaces in `slice_plot()`. [link](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html#spaces-and-graphs-of-functions)
+Composition of input and output spaces in `slice_plot()`. [link](https://www.mosaic-web.org/MOSAIC-Calculus/Preliminaries/04-graphs-and-graphics.html#spaces-and-graphs-of-functions)
 
 Mapping from (part of?) input space to output space.
 
 ### 2-d input spaces. 
 
 - Can compose input space with output space to get a 3-dimensional space. Mathematicians like this because the surfaces are beautiful, especially when you can interact with them. 
-    a. Example: [](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html#fig-first-surface){target="_blank"}
+    a. Example: [](https://www.mosaic-web.org/MOSAIC-Calculus/Preliminaries/04-graphs-and-graphics.html#fig-first-surface){target="_blank"}
     b. The above example is quite complicated and relates to physics/engineering: a wave packet, and such.
     c. Of more general use in modeling are simpler functions that resemble terrain **locally**. The word "local" will be important. Calculus provides tools for translating between the local and the global.
     
@@ -60,6 +60,6 @@ contour_plot(f(w, z) ~ w & z, domain(w=-5:5, z=-5:5), fill_alpha = 0.5)
 
 
 
-[](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Preliminaries/04-graphs-and-graphics.html#fig-contour-pre-slice)
+[](https://www.mosaic-web.org/MOSAIC-Calculus/Preliminaries/04-graphs-and-graphics.html#fig-contour-pre-slice)
 
 

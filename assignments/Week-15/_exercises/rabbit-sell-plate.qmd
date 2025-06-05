@@ -11,7 +11,7 @@ library(mosaicCalc)
 ```
 
 ::: {#exr-rabbit-sell-plate}
-Look at [Figure 35.1 in *MOSAIC Calculus*](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/35-integration.html#initial-value-of-the-quantity)
+Look at [Figure 35.1 in *MOSAIC Calculus*](https://www.mosaic-web.org/MOSAIC-Calculus/Accumulation/35-integration.html#initial-value-of-the-quantity)
 
 Notice that the zero-crossings of $f()$ each are an argmax or argmin of the anti-derivative $F()$. Explain why.
 

@@ -52,7 +52,7 @@ $$ r = \frac{(1 - \partial_x f(x)^2)^{2/3}}{\partial_{xx} f(x)}$$
 ## Specifying the curvature of a highway ramp
 
 
-Highway entrance/exit ramps [from textbook](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Differentiation/21-concavity.html#thm-highway-curves)
+Highway entrance/exit ramps [from textbook](https://www.mosaic-web.org/MOSAIC-Calculus/Differentiation/21-concavity.html#thm-highway-curves)
 
 ```{r}
 K_design <- function(x, xb1 = 1, xb2 = 3, A=.02) {

@@ -7,4 +7,4 @@ desc: "Optimization with multiple objectives"
 categories: [dynamics, linear algebra, economics, optimization, Week2]
 ---
 
-See <https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/49-optimization.html#constraint-cost
+See <https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/49-optimization.html#constraint-cost

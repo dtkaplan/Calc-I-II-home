@@ -44,6 +44,9 @@ ii. If you use generative AI, indicate if you found it helpful and for what. Sim
 iii. Don't feel that you need to recapitulate all of the material in your sources. For instance, often there are published critiques of a model that go beyond what you can reasonably be expected to do in a 3-4 hour project. You do not need to do a comprehensive literature review, just explain the model as indicated in points (1)-(7) above.
 iv. In making technical graphics, use the `{mosaicCalc}` suite of functions. Naturally, if you find an exemplary graphic among your outside resources, feel free to use that to supplement your technical graphics or to illustrate the setting for the model.
 
+There is an interactive R chunk below that you can use for your calculations.
+
+
 ## 1. Arms race
 
 Assigned to: [we'll put your names here]
@@ -119,6 +122,43 @@ Neurons are electrically active cells that play a central role in the nervous sy
 The Fitzhugh-Nagumo model is a simplification of the dynamics. 
 
 [Starting point](https://en.wikipedia.org/wiki/FitzHugh%E2%80%93Nagumo_model)
+
+<!-- Start of rich webr chunk ipp-2ht -->
+
+::: {.panel-tabset page-layout=custom}
+## Webr chunk
+```{webr-r}
+#| caption: Webr chunk
+#| persist: true
+#| label: ipp-2ht-main
+
+
+```
+
+## Code submission
+This box connects to the "collect answers" button.
+
+`r devoirs_text("ipp-2ht")`
+
+
+## Scratch 1
+If you need to, do computations on the side to check things out!
+```{webr-r}
+#| caption: Scratch work panel 1
+#| persist: true
+#| label: ipp-2ht-scratch1
+```
+
+## Scratch 2
+More on-the-side computations if you need.
+```{webr-r}
+#| caption: Scratch work panel 2
+#| persist: true
+#| label: ipp-2ht-scratch1
+```
+:::
+<!-- end of enriched webr chunk ipp-2ht -->
+
 
 
 ## Economics

@@ -44,7 +44,7 @@ You studied univariate low-order polynomials in high school. These are the const
 
 I want you to think of them as "shapes" rather than formulas. Here are the shapes:
 
-[textbook](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/12-low-order-polynomials.html#fig-eight-simple-shapes)
+[textbook](https://www.mosaic-web.org/MOSAIC-Calculus/Modeling/12-low-order-polynomials.html#fig-eight-simple-shapes)
 
 Example modeling contexts (from textbook):
 
@@ -74,7 +74,7 @@ Here is the general formula:
 
 $$g(x, y) \equiv a_0 + a_x x + a_y y + a_{xy} x y + a_{yy} y^2 + a_{xx} x^2$$
 
-We will use a standard set of names to identify the components [here in the textbook](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Modeling/12-low-order-polynomials.html#sec-low-order-two).
+We will use a standard set of names to identify the components [here in the textbook](https://www.mosaic-web.org/MOSAIC-Calculus/Modeling/12-low-order-polynomials.html#sec-low-order-two).
 
 
 $$g(x, y) \equiv a_0 + \underbrace{a_x x + a_y y}_\text{linear terms} \ \ \ + 

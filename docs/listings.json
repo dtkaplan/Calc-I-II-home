@@ -1,5 +1,54 @@
 [
   {
+    "listing": "/assignments.html",
+    "items": [
+      "/assignments/Week-11/index-assignment-11.html",
+      "/assignments/Week-11-project/index-walking-project.html",
+      "/assignments/Week-12/index-assignment-12.html",
+      "/assignments/Week-12-project/index-labor-capital.html",
+      "/assignments/Week-13/index-assignment-13.html",
+      "/assignments/Week-14/index-assignment-14.html",
+      "/assignments/Week-15/index-assignment-15.html",
+      "/assignments/Week-16/index-assignment-16.html",
+      "/assignments/Week-17/index-assignment-17.html",
+      "/assignments/Week-18/index-assignment-18.html",
+      "/assignments/Phase-plane-models/index-phase-plane.html",
+      "/assignments/Week-19/index-assignment-19.html",
+      "/assignments/Drill/index-drill.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/Gaussian-quadrature/GQ-87a.html",
+      "/projects/Walking-uphill/index-walking-uphill.html",
+      "/projects/TEMPLATE/index-TOPIC.html",
+      "/projects/Stress-in-a-truss/index-stress-in-a-truss.html",
+      "/projects/SVD-parliament/index-SVD-parliament.html",
+      "/projects/Ranking-grades/index-grades.html",
+      "/projects/Present-value/index-present-value.html",
+      "/projects/Dominant-eigenvalue/index-dominant-eigenvalue.html",
+      "/projects/Engine-scaling/index-engine-scaling.html",
+      "/projects/Life-tables/index-life-tables.html",
+      "/projects/Life_expectancy/index-Life-expectancy.html",
+      "/projects/Iterative-search/index-iterative-search.html",
+      "/projects/GPS/index-GPS.html",
+      "/projects/Gaussian-quadrature/index-gaussian-quadrature.html",
+      "/projects/Fourier_transform/index-FFT.html",
+      "/projects/Cobb-Douglas/index-Cobb-Douglas.html",
+      "/projects/Coupled-pendula/index-coupled-pendula.html",
+      "/projects/Diffusion/index-diffusion.html",
+      "/projects/Shadow-prices/index-shadow-prices.html",
+      "/projects/Fuel-use/index-fuel-use.html",
+      "/projects/Standard-and-Poors-ratings/index-S-and-P.html",
+      "/projects/SVD-ordway/index-ordway.html",
+      "/projects/Probability/index-probability.html",
+      "/projects/Automatic-differentiation/index-AD.html",
+      "/projects/Adaptive-quadrature/index-adaptive-quadrature.html",
+      "/projects/SIR/index-SIR.html"
+    ]
+  },
+  {
     "listing": "/notes.html",
     "items": [
       "/notes/debugging/index-debugging.html",
@@ -62,55 +111,6 @@
       "/notes/2025-01-10-notes/index.html",
       "/notes/2025-01-09-notes/index.html",
       "/notes/2025-01-07-notes/index.html"
-    ]
-  },
-  {
-    "listing": "/assignments.html",
-    "items": [
-      "/assignments/Week-11/index-assignment-11.html",
-      "/assignments/Week-11-project/index-walking-project.html",
-      "/assignments/Week-12/index-assignment-12.html",
-      "/assignments/Week-12-project/index-labor-capital.html",
-      "/assignments/Week-13/index-assignment-13.html",
-      "/assignments/Week-14/index-assignment-14.html",
-      "/assignments/Week-15/index-assignment-15.html",
-      "/assignments/Week-16/index-assignment-16.html",
-      "/assignments/Week-17/index-assignment-17.html",
-      "/assignments/Week-18/index-assignment-18.html",
-      "/assignments/Phase-plane-models/index-phase-plane.html",
-      "/assignments/Week-19/index-assignment-19.html",
-      "/assignments/Drill/index-drill.html"
-    ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": [
-      "/projects/Gaussian-quadrature/GQ-87a.html",
-      "/projects/Walking-uphill/index-walking-uphill.html",
-      "/projects/TEMPLATE/index-TOPIC.html",
-      "/projects/Stress-in-a-truss/index-stress-in-a-truss.html",
-      "/projects/SVD-parliament/index-SVD-parliament.html",
-      "/projects/Ranking-grades/index-grades.html",
-      "/projects/Present-value/index-present-value.html",
-      "/projects/Dominant-eigenvalue/index-dominant-eigenvalue.html",
-      "/projects/Engine-scaling/index-engine-scaling.html",
-      "/projects/Life-tables/index-life-tables.html",
-      "/projects/Life_expectancy/index-Life-expectancy.html",
-      "/projects/Iterative-search/index-iterative-search.html",
-      "/projects/GPS/index-GPS.html",
-      "/projects/Gaussian-quadrature/index-gaussian-quadrature.html",
-      "/projects/Fourier_transform/index-FFT.html",
-      "/projects/Cobb-Douglas/index-Cobb-Douglas.html",
-      "/projects/Coupled-pendula/index-coupled-pendula.html",
-      "/projects/Diffusion/index-diffusion.html",
-      "/projects/Shadow-prices/index-shadow-prices.html",
-      "/projects/Fuel-use/index-fuel-use.html",
-      "/projects/Standard-and-Poors-ratings/index-S-and-P.html",
-      "/projects/SVD-ordway/index-ordway.html",
-      "/projects/Probability/index-probability.html",
-      "/projects/Automatic-differentiation/index-AD.html",
-      "/projects/Adaptive-quadrature/index-adaptive-quadrature.html",
-      "/projects/SIR/index-SIR.html"
     ]
   }
 ]

@@ -7,4 +7,4 @@ desc: "Update = multiply by likelihood then normalize"
 categories: [Accumulation, probability, Bayes, automobiles]
 ---
 
-See <https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/50-probability.html>
+See <https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/50-probability.html>

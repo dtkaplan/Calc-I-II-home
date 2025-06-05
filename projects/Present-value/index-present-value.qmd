@@ -7,5 +7,5 @@ desc: "What is money worth?"
 categories: [accumulation, finance, Week5]
 ---
 
-See <https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/51-future-value.html>
+See <https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/51-future-value.html>
 

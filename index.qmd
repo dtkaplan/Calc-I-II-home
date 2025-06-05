@@ -22,15 +22,15 @@ Please read the [**Basics**](basics.html) page for course policies and such.
 
 * First term (10 weeks, winter term)
 
-    1. [Preliminaries](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/preliminaries-part.html): Quantities, spaces, functions, notation, computing
-    2. [Modeling](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/modeling-part.html): General techniques used in constructing models, that is, building mathematical representations of real-world objects.
-    3. [Differentiation](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/differentiation-part.html)/anti-differentiation and applications of derivatives.
+    1. [Preliminaries](https://www.mosaic-web.org/MOSAIC-Calculus/preliminaries-part.html): Quantities, spaces, functions, notation, computing
+    2. [Modeling](https://www.mosaic-web.org/MOSAIC-Calculus/modeling-part.html): General techniques used in constructing models, that is, building mathematical representations of real-world objects.
+    3. [Differentiation](https://www.mosaic-web.org/MOSAIC-Calculus/differentiation-part.html)/anti-differentiation and applications of derivatives.
 
 * Second term (10 weeks, spring term)
 
-    4. [Linear algebra](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/linear-combinations-part.html) (approx 3 weeks). High-dimensional spaces and their residents, projection, decomposition, transformation
-    5. [Accumulation](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/accumulation-part.html) (approx 3 weeks). Taking information about change of state and turning it into information about state.
-    6. [Dynamics](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/dynamics-part.html) (approx 3 weeks). Modeling state as it evolves in time.
+    4. [Linear algebra](https://www.mosaic-web.org/MOSAIC-Calculus/linear-combinations-part.html) (approx 3 weeks). High-dimensional spaces and their residents, projection, decomposition, transformation
+    5. [Accumulation](https://www.mosaic-web.org/MOSAIC-Calculus/accumulation-part.html) (approx 3 weeks). Taking information about change of state and turning it into information about state.
+    6. [Dynamics](https://www.mosaic-web.org/MOSAIC-Calculus/dynamics-part.html) (approx 3 weeks). Modeling state as it evolves in time.
     
 :::
 
@@ -45,7 +45,7 @@ Tuesday April 1
 : Topics:     
     * Review: Objects and operators in calculus
     * Vectors and subspaces.
-: Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/28-Vectors.html)     
+: Reading: *MOSAIC Calculus* [Chap 28 ](https://www.mosaic-web.org/MOSAIC-Calculus/Linear-combinations/28-Vectors.html)     
 : Start [Assignment 1](./assignments/Week-11/index-assignment-11.html). Due next week.
 
 Thursday April 3
@@ -56,7 +56,7 @@ Thursday April 3
 
 Friday April 4
 : Topic: Linear combinations of vectors    
-: Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/29-linear-combinations.html)     
+: Reading: *MOSAIC Calculus* [Chap 29 ](https://www.mosaic-web.org/MOSAIC-Calculus/Linear-combinations/29-linear-combinations.html)     
 
 :::
 
@@ -65,7 +65,7 @@ Friday April 4
 
 Tuesday April 8
 : Topic: Projection and residual    
-: Reading: *MOSAIC Calculus* [Chap 30](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/30-projection.html)    
+: Reading: *MOSAIC Calculus* [Chap 30](https://www.mosaic-web.org/MOSAIC-Calculus/Linear-combinations/30-projection.html)    
 : Start [Assignment 2](./assignments/Week-12/index-assignment-12.html).    
 
 Thursday April 10
@@ -74,7 +74,7 @@ Thursday April 10
 - Ranking with linear algebra    
 
 Friday April 11
-: Reading: *MOSAIC Calculus* [Chap 31](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/31-target-problem.html)
+: Reading: *MOSAIC Calculus* [Chap 31](https://www.mosaic-web.org/MOSAIC-Calculus/Linear-combinations/31-target-problem.html)
 : Start: [Week 2 modeling day assignment](assignments/Week-12-project/index-labor-capital.html)    
 
 :::
@@ -83,7 +83,7 @@ Friday April 11
 ## Week 3 
 
 Tuesday April 15
-: Reading: *MOSAIC Calculus* [Chap 32](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Linear-combinations/32-stat-modeling.html)    
+: Reading: *MOSAIC Calculus* [Chap 32](https://www.mosaic-web.org/MOSAIC-Calculus/Linear-combinations/32-stat-modeling.html)    
 : Start: [Week 3 assignment](assignments/Week-13/index-assignment-13.html)    
 
 Thursday April 17
@@ -99,15 +99,15 @@ Friday April 18
 
 Tuesday April 22    
 : Topic Accumulating change
-: Reading [*MOSAIC Calculus* Chap 33](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/33-intro.html)
+: Reading [*MOSAIC Calculus* Chap 33](https://www.mosaic-web.org/MOSAIC-Calculus/Accumulation/33-intro.html)
 
 Thursday April 24    
 : Modeling Day: Mortality and life expectancy. We'll need to construct a function from data, thus the quick reading of Chap 48
-: Quick reading [*MOSAIC Calculus* Chap 48](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/48-splines.html). We will return to this after break
+: Quick reading [*MOSAIC Calculus* Chap 48](https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/48-splines.html). We will return to this after break
 
 Friday April 25    
 : Topic Adding lots of little bits
-: Reading [*MOSAIC Calculus* Chap 34](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/34-visualizing.html)
+: Reading [*MOSAIC Calculus* Chap 34](https://www.mosaic-web.org/MOSAIC-Calculus/Accumulation/34-visualizing.html)
 
 :::
 
@@ -118,18 +118,18 @@ Tuesday April 29
 : Topics    
 - anti-derivatives of the pattern-book and basic modeling functions    
 - Fundamental theorem of calculus    
-: Reading [*MOSAIC Calculus* Chap 35](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/35-integration.html)
+: Reading [*MOSAIC Calculus* Chap 35](https://www.mosaic-web.org/MOSAIC-Calculus/Accumulation/35-integration.html)
 
 Thursday May 1
 : Modeling Day: Mortality and life expectancy. We'll need to construct a function from data, thus the reading of Chap 48
-: Reading [*MOSAIC Calculus* Chap 48](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/48-splines.html). 
+: Reading [*MOSAIC Calculus* Chap 48](https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/48-splines.html). 
 : Due: [Week 4 assignment](assignments/Week-14/index-assignment-14.html)
 
 
 Friday May 2
 : **Mid-term exam** (30 minutes) questions will be similar to those in the DRILL section of the [Week 5 assignment](assignments/Week-15/index-assignment-15.html)
 : Topic Continuous functions as vectors
-: Reading [*MOSAIC Calculus* Chap 36](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/36-functions.html) 
+: Reading [*MOSAIC Calculus* Chap 36](https://www.mosaic-web.org/MOSAIC-Calculus/Accumulation/36-functions.html) 
 
 ::: 
 
@@ -140,17 +140,17 @@ Friday May 2
 
 Tuesday May 13
 : Topic: Numerical integration and anti-differentiation
-: Reading [*MOSAIC Calculus* Chap 37](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Accumulation/37-euler.html)
+: Reading [*MOSAIC Calculus* Chap 37](https://www.mosaic-web.org/MOSAIC-Calculus/Accumulation/37-euler.html)
 : Due: [Week 5 assignment](assignments/Week-15/index-assignment-15.html)
 
 
 Thursday May 15
 : Modeling Day: Present and future value
-: Reading [*MOSAIC Calculus* Chap 51](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/51-future-value.html)
+: Reading [*MOSAIC Calculus* Chap 51](https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/51-future-value.html)
 
 Friday May 16
 : Topic Bayesian calculations
-: Reading [*MOSAIC Calculus* Chap 50](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/50-probability.html)
+: Reading [*MOSAIC Calculus* Chap 50](https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/50-probability.html)
 :::
 
 ::: {.callout-note collapse=true}
@@ -160,18 +160,18 @@ Starting Block V: Dynamics
 
 Tuesday May 20
 : Topic: Differential equations
-: Reading: [*MC* Chap 39](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/39-diff-eq.html)
+: Reading: [*MC* Chap 39](https://www.mosaic-web.org/MOSAIC-Calculus/Dynamics/39-diff-eq.html)
 : Quiz (through May 16) 20 minutes
 : Due: [Week 6 assignment](assignments/Week-16/index-assignment-16.html)
 
 Thursday May 22
 : NOTE: [*MOSAIC Calculus* Apps now available](https://dtkaplan.shinyapps.io/MOSAIC_Calc_apps/)
 : Topic: Solutions and trajectories
-: Reading: [*MC* Chap 40](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/40-solution.html)
+: Reading: [*MC* Chap 40](https://www.mosaic-web.org/MOSAIC-Calculus/Dynamics/40-solution.html)
 
 Friday May 23
 : Topic: Qualitative dynamics in one variable
-: Reading: [*MC* Chap 41](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/41-flow-on-line.html)
+: Reading: [*MC* Chap 41](https://www.mosaic-web.org/MOSAIC-Calculus/Dynamics/41-flow-on-line.html)
 :::
 
 ::: {.callout-note collapse=true}
@@ -179,18 +179,18 @@ Friday May 23
 
 Tuesday May 27
 : Topic: The "Phase plane"
-: Reading: [*MC* Chap 42](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/42-flow-on-plane.html)
+: Reading: [*MC* Chap 42](https://www.mosaic-web.org/MOSAIC-Calculus/Dynamics/42-flow-on-plane.html)
 : Due: [Week 7 assignment](assignments/Week-17/index-assignment-17.html)
 
 
 Thursday May 29
 : Topic: Classic models of dynamics
-: Reading: [*MC* Chap 43](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/43-modeling.html)
+: Reading: [*MC* Chap 43](https://www.mosaic-web.org/MOSAIC-Calculus/Dynamics/43-modeling.html)
 
 
 Friday May 30
 : Topic: Equilibrium and transient
-: Reading: [*MC* Chap 44](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/44-equilibria.html)
+: Reading: [*MC* Chap 44](https://www.mosaic-web.org/MOSAIC-Calculus/Dynamics/44-equilibria.html)
 :::
 
 ### Week 9 {.unnumbered}
@@ -202,21 +202,21 @@ Tuesday June 3
 
 Thursday June 5
 : Topic: Eigenvalues, eigenvectors
-: Reading: [*MC* Chap 45](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/45-eigen.html)
+: Reading: [*MC* Chap 45](https://www.mosaic-web.org/MOSAIC-Calculus/Dynamics/45-eigen.html)
 : Start on your [phase-plane dynamics](assignments/Phase-plane-models/index-phase-plane.qmd) modeling project. Presentations due on June 13.
 
 Friday June 6
 : Quiz on fixed points and stability (15 minutes)
 : Topic Force-balance equations, resonance
-: Reading [*MC* Chap 46](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Dynamics/46-second-order.html)
+: Reading [*MC* Chap 46](https://www.mosaic-web.org/MOSAIC-Calculus/Dynamics/46-second-order.html)
 
 ### Week 10 {.unnumbered}
 
 
 Tuesday June 10
 : Topic: Optimization, constraint, & trade-off
-: Reading [*MC* Chap 49](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/49-optimization.html)
-Reading: [*MC* Chap 52](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/52-mechanics.html)
+: Reading [*MC* Chap 49](https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/49-optimization.html)
+Reading: [*MC* Chap 52](https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/52-mechanics.html)
 
 Thursday June 12
 : **Final Quiz** covering whole semester (30 minutes) 

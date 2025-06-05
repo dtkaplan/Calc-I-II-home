@@ -43,7 +43,7 @@ date: 2025-01-07
 ## Resources
 
 1. Day-by-day schedule will explicitly list readings and assignments. Reading questions are due **before** the class which they are linked to. 
-2. Free, online textbook, [*MOSIAC Calculus*](https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/).
+2. Free, online textbook, [*MOSIAC Calculus*](https://www.mosaic-web.org/MOSAIC-Calculus/).
 3. Exercises, reading questions, projects are in the [*MOSAIC Calculus Workbook*](https://dtkaplan.github.io/MC-Workbook/).
 4. Show how to hand in assignments electronically.
 5. Computing is integral to the course. We use the professional-level R platform, which is also being used in QR2.

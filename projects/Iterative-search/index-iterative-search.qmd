@@ -8,7 +8,7 @@ categories: [dynamics, optimization, Week7]
 ---
 
 
-See <https://www.mosaic-web.org/MOSAIC-Calculus/Textbook/Manifestations/49-optimization.html>
+See <https://www.mosaic-web.org/MOSAIC-Calculus/Manifestations/49-optimization.html>
 
 
 Maybe something on constructing a likelihood function from data.
