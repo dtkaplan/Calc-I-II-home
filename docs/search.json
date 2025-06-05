@@ -18,14 +18,14 @@
     "href": "assignments/Phase-plane-models/index-phase-plane.html#arms-race",
     "title": "Low-order Differential Equation Models",
     "section": "1. Arms race",
-    "text": "1. Arms race\nAssigned to: [we’ll put your names here]\nOften called “Richardson’s” arms race model, after it’s inventor, the dynamics implement three hypothetical causes of why nations increase or decrease their armaments.\nHere is a starting point."
+    "text": "1. Arms race\nAssigned to: Alistair\nOften called “Richardson’s” arms race model, after it’s inventor, the dynamics implement three hypothetical causes of why nations increase or decrease their armaments.\nHere is a starting point."
   },
   {
     "objectID": "assignments/Phase-plane-models/index-phase-plane.html#battle",
     "href": "assignments/Phase-plane-models/index-phase-plane.html#battle",
     "title": "Low-order Differential Equation Models",
     "section": "2. Battle",
-    "text": "2. Battle\nAssigned to:\nDeveloped by a contemporary of Richardson, Lanchester’s model describes how the strength of two opposing armies decreases as the battle progresses.\nStarting point\nNote: There is another, similar-looking model of naval combat, called the Salvo model. This is a discrete-time model, meaning that the dynamics are not described as the continuous change of a state. We have not worked with such models"
+    "text": "2. Battle\nAssigned to: Ian and Ethan\nDeveloped by a contemporary of Richardson, Lanchester’s model describes how the strength of two opposing armies decreases as the battle progresses.\nStarting point\nNote: There is another, similar-looking model of naval combat, called the Salvo model. This is a discrete-time model, meaning that the dynamics are not described as the continuous change of a state. We have not worked with such models"
   },
   {
     "objectID": "assignments/Phase-plane-models/index-phase-plane.html#van-der-pol-oscillator-model",
@@ -39,28 +39,28 @@
     "href": "assignments/Phase-plane-models/index-phase-plane.html#predator-prey",
     "title": "Low-order Differential Equation Models",
     "section": "4. Predator-Prey",
-    "text": "4. Predator-Prey\nAssigned to: []\nThe famous predator-prey model, as formulated by Lotka and Volterra, describes a pair of interacting species.\nStarting point: It is described briefly in our textbook, but a web search on “predator-prey model” or “Lotka-Volterra model” will point you to other resources."
+    "text": "4. Predator-Prey\nAssigned to: Almar and Max L.\nThe famous predator-prey model, as formulated by Lotka and Volterra, describes a pair of interacting species.\nStarting point: It is described briefly in our textbook, but a web search on “predator-prey model” or “Lotka-Volterra model” will point you to other resources."
   },
   {
     "objectID": "assignments/Phase-plane-models/index-phase-plane.html#lindemann-mechanism-of-uni-molecular-chemical-reactions",
     "href": "assignments/Phase-plane-models/index-phase-plane.html#lindemann-mechanism-of-uni-molecular-chemical-reactions",
     "title": "Low-order Differential Equation Models",
     "section": "5. Lindemann mechanism of uni-molecular chemical reactions",
-    "text": "5. Lindemann mechanism of uni-molecular chemical reactions\nAssigned to: []\nIn non-equilibrium chemical reactions, the amounts of the reactants changes in time. The Lindemann mechanism describes the dynamics for reactions involving a single molecule such as isomerization or decomposition.\nStarting point"
+    "text": "5. Lindemann mechanism of uni-molecular chemical reactions\nAssigned to: [tentatively, Everett]\nIn non-equilibrium chemical reactions, the amounts of the reactants changes in time. The Lindemann mechanism describes the dynamics for reactions involving a single molecule such as isomerization or decomposition.\nStarting point"
   },
   {
     "objectID": "assignments/Phase-plane-models/index-phase-plane.html#genetic-toggle-dynamics",
     "href": "assignments/Phase-plane-models/index-phase-plane.html#genetic-toggle-dynamics",
     "title": "Low-order Differential Equation Models",
     "section": "6. Genetic toggle dynamics",
-    "text": "6. Genetic toggle dynamics\nDuring cell differentiation, genes in some cell types are turned on and other genes are turned off. This provides a mechanism for creating different cell types. A gene toggle is a pair of genes that regulate one another, creating in effect an on/off switch that can be in either of two stable configurations.\nNote: Read the next paragraph, where the references are imposing. But then move on to the paragraph beginning, “But for the purpose of this report ….”\nThese gene toggle dynamics are complicated and an appropriate genetic introduction is this paper from the Biophysical Journal. As for the dynamics themselves, this report may help.\nBut for the purpose of this report, you might prefer to work with this simplification of the toggle dynamics given here:\n\\[\\partial_t x \\equiv -x + \\frac{\\alpha}{1 + y^\\beta},\\ \\ \\ \\ \\ \\partial_t y \\equiv -y + \\frac{\\alpha}{1 + x^\\gamma}\\]\nQuestions to answer in your report:\n\nDo the dynamics really have two stable fixed points?\nWhat outside influence does it take to move from one to the other?\nWhat are appropriate values for the parameters \\(\\alpha\\) (alpha), \\(\\beta\\) (beta), and \\(\\gamma\\) (gamma).\n\nNote that I do not know the answers to these questions, but intuition suggests starting by setting \\(\\beta = \\gamma = 2\\) and \\(\\alpha = 1\\). Then find the nullclines (using algebra or the computer), find the fixed points, and do stability analysis around the fixed points."
+    "text": "6. Genetic toggle dynamics\nAssigned to: Lucy and Nicole\nDuring cell differentiation, genes in some cell types are turned on and other genes are turned off. This provides a mechanism for creating different cell types. A gene toggle is a pair of genes that regulate one another, creating in effect an on/off switch that can be in either of two stable configurations.\nNote: Read the next paragraph, where the references are imposing. But then move on to the paragraph beginning, “But for the purpose of this report ….”\nThese gene toggle dynamics are complicated and an appropriate genetic introduction is this paper from the Biophysical Journal. As for the dynamics themselves, this report may help.\nBut for the purpose of this report, you might prefer to work with this simplification of the toggle dynamics given here:\n\\[\\partial_t x \\equiv -x + \\frac{\\alpha}{1 + y^\\beta},\\ \\ \\ \\ \\ \\partial_t y \\equiv -y + \\frac{\\alpha}{1 + x^\\gamma}\\]\nQuestions to answer in your report:\n\nDo the dynamics really have two stable fixed points?\nWhat outside influence does it take to move from one to the other?\nWhat are appropriate values for the parameters \\(\\alpha\\) (alpha), \\(\\beta\\) (beta), and \\(\\gamma\\) (gamma).\n\nNote that I do not know the answers to these questions, but intuition suggests starting by setting \\(\\beta = \\gamma = 2\\) and \\(\\alpha = 1\\). Then find the nullclines (using algebra or the computer), find the fixed points, and do stability analysis around the fixed points."
   },
   {
     "objectID": "assignments/Phase-plane-models/index-phase-plane.html#neuron-dynamics",
     "href": "assignments/Phase-plane-models/index-phase-plane.html#neuron-dynamics",
     "title": "Low-order Differential Equation Models",
     "section": "7. Neuron dynamics",
-    "text": "7. Neuron dynamics\nNeurons are electrically active cells that play a central role in the nervous system and brain. Their electrical activity is driven by differing concentrations of potassium and sodium ions on either side of the cell membrane. (Muscle cells are also electrically active. Calcium ions play a major role in muscle dynamics.) Ion-specific protein gates govern the conductivity of the membrane. The dynamics reflect the changing conductivity of the gates as a function of the voltage across the membrane. Also important to neuron dynamics is the electrical current generated by the cell’s dendrites.\nHodgkin and Huxley famously performed nerve-cell experiments and created differential equations models in the early 1950s. They won the Nobel Prize in 1963.\nThe Fitzhugh-Nagumo model is a simplification of the dynamics.\nStarting point\n\n\nWebr chunkCode submissionScratch 1Scratch 2\n\n\n\n\n\n\n\n\n\n\nThis box connects to the “collect answers” button.\n\n\n\n\nIf you need to, do computations on the side to check things out!\n\n\n\n\n\n\n\n\nMore on-the-side computations if you need."
+    "text": "7. Neuron dynamics\nAssigned to: Grace and Max W\nNeurons are electrically active cells that play a central role in the nervous system and brain. Their electrical activity is driven by differing concentrations of potassium and sodium ions on either side of the cell membrane. (Muscle cells are also electrically active. Calcium ions play a major role in muscle dynamics.) Ion-specific protein gates govern the conductivity of the membrane. The dynamics reflect the changing conductivity of the gates as a function of the voltage across the membrane. Also important to neuron dynamics is the electrical current generated by the cell’s dendrites.\nHodgkin and Huxley famously performed nerve-cell experiments and created differential equations models in the early 1950s. They won the Nobel Prize in 1963.\nThe Fitzhugh-Nagumo model is a simplification of the dynamics.\nStarting point\n\n\nWebr chunkCode submissionScratch 1Scratch 2\n\n\n\n\n\n\n\n\n\n\nThis box connects to the “collect answers” button.\n\n\n\n\nIf you need to, do computations on the side to check things out!\n\n\n\n\n\n\n\n\nMore on-the-side computations if you need."
   },
   {
     "objectID": "assignments/Phase-plane-models/index-phase-plane.html#economics",
