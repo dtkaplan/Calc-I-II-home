@@ -1,0 +1,48 @@
+---
+id: "birch-ring-pen-3"
+created: "Mon Jun  2 16:11:54 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-birch-ring-pen-3}
+
+@fig-f-g-202 shows the nullclines for the flow and shows short trajectories from about 60
+randomly selected initial conditions.
+
+::: {#fig-f-g-202}
+
+```{r}
+#| echo: false
+f <- doodle_fun(~ x & y, seed = 240)
+g <- doodle_fun(~ x & y, seed = 680)
+dom = domain(x = -1:0, y = -5:-2)
+streamlines(dx ~ f(x,y), dy ~ -3*g(x,y), dom, dt = 0.0025) |>
+contour_plot(f(x,y) ~ x & y, dom, contours_at =  0, contour_color = "darkorange") |>
+  contour_plot(g(x,y) ~ x & y, dom, contours_at =  0, contour_color = "darkgreen") |>
+  gf_theme(theme_minimal())        
+```
+
+:::
+
+
+
+Which of these characterizes the eigenvalues of the linear flow near the fixed point?
+```{mcq}
+#| label: brp-3-1
+1. Both real; both positive
+2. Both real; both negative
+3. Both real; one positive and one negative. [correct]
+4. Both complex; stable 
+5. Both complex: unstable 
+6. One complex, one real [hint: Impossible! If one is complex, the other must be its complex conjugate.]
+```
+
+
+:::
+ <!-- end of exr-birch-ring-pen-3 -->

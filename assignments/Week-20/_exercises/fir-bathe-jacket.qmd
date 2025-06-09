@@ -1,0 +1,63 @@
+---
+id: "fir-bathe-jacket"
+created: "Mon Jun  9 17:01:50 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-fir-bathe-jacket}
+
+Consider this dynamical system, whose flow is graphed below for $\mu = 1$:
+
+$$\partial_t x = \mu\left(x - \frac{1}{3} x^3 - y\right)$$
+$$ \partial_t y = \frac{1}{\mu} x$$
+
+
+```{r}
+#| warning: false
+#| echo: false
+mu <- 1
+vdp <- makeODE(dx ~ mu*(x - x^3/3 -y) , dy ~ x/mu, mu = mu)
+streamlines(vdp, domain(v=-2:2, x = -2.3:2.3), 
+            npts = 25, alpha = 0.1, dt=.03) |>
+  contour_plot(
+    mu*(1-x^2)*v - x ~ v & x, 
+    domain(v=-1.4:1.4, x = -1.4:1.4), mu=mu,
+    filled = FALSE, labels = FALSE, contours_at = 0) |>
+  gf_refine(coord_fixed())
+```  
+a. There is only one fixed point in the system. Where is it?
+
+`r vspace(2)`
+
+b. Part of one of the nullclines is shown in the figure. Which is it?
+
+`r vspace(2)`
+
+c. The flow has places where nearby trajectories (i) get pushed together and places where nearby trajectories are (ii) pulled apart. Circle a small region of the state space where (i) applies and another where (ii) applies.
+
+d. Starting from near (not at!) the fixed point draw a trajectory for the flow.
+
+e. The Jacobian matrix corresponds to a linearization of the flow near the fixed point. It looks like this:
+
+$$\left(\begin{array}{r}
+\partial_{xt} x & \partial_{yt} x\\
+\partial_{xt} y & \partial_{yt} y
+\end{array}\right)\ \text{evaluated at the fixed point}$$
+
+Use the dynamical functions to calculate the Jacobian and write it here:
+
+`r vspace(5)`
+
+f. The eigenvalues of the Jacobian are $$\lambda_{1,2} = \frac{ \mu\pm\sqrt{\mu^2 - 4}}{2}$$
+    i. Based on the eigenvalues, when $\mu = 1$ what is the stability of the fixed point? Use terms like these: Stable cycle, stable fixed point, unstable cycle, unstable fixed point, 
+    ii. Think about increasing $\mu$. At what value of $\mu$ does the stability undergo a *qualitative change* in stability from that in (i)?
+    iii. As $\mu$ increases above 2, what is the stability near the fixed point?
+
+:::
+ <!-- end of exr-fir-bathe-jacket -->

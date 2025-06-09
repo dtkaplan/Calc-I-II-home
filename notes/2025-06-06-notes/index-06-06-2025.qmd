@@ -27,6 +27,38 @@ source("../../_software/software.R")
 ```
 :::
 
+```{r}
+theta <- 2*pi - .01 #pick a random number
+strange <- exp(theta * 1i)
+
+strange
+
+```
+
+```{r}
+strange * Conj(strange)
+Arg(strange)*180/pi
+theta*180/pi 
+```
+
+```{r}
+M <- matrix(rnorm(64), nrow=8)
+round(M, 2)
+eigen(M)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 * Return to life expectancy

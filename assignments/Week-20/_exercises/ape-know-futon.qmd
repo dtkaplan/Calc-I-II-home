@@ -1,0 +1,38 @@
+---
+id: "ape-know-futon"
+created: "Mon Jun  9 12:50:27 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-ape-know-futon}
+Here are some relationships expressed in terms of dot products:
+
+i. The square length $|\vec{v}|^2$ of a vector $\vec{v}$ is $\vec{v} \cdot \vec{v}$.
+ii. The cosine of the angle between two vectors $\vec{v}$ and $\vec{w}$ is $$\cos(\theta) = \frac{\vec{v}\cdot\vec{w}}{|\vec{v}| \ |\vec{w}|}$$
+iii. The projection of $\vec{v}$ onto $\vec{w}$ is $$\left(\frac{\vec{v}\cdot\vec{w}}{\vec{w}\cdot \vec{w}}\right)\ \vec{w}$$
+
+Here are two vectors:
+
+$$ \vec{v} = \left(\begin{array}{r}3\\-2\\1 \end{array} \right)\ \ \ \ \text{and} \ \ \ \  \vec{w} = \left(\begin{array}{r}2\\2\\-2 \end{array} \right)$$
+For each of the following, do the arithmetic calculations. Make sure to show your calculations so that it's obvious which formula you are using.
+
+a. What is the $\left|\vec{w}\right|^2$?
+
+`r vspace(n = 2)`
+
+b. What is the angle between $\vec{v}$ and $\vec{w}$?
+
+`r vspace(n = 2)`
+
+c. What is the scalar $\gamma$ by which you would multiply $\vec{w}$ in order to produce a vector $\gamma \vec{w}$ that approximates $\vec{v}$ as closely as possible?
+
+`r vspace(n = 2)`
+
+:::
+ <!-- end of exr-ape-know-futon -->

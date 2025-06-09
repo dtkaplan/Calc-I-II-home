@@ -1,0 +1,176 @@
+---
+id: "frog-choose-plant"
+created: "Sun Jun  1 18:39:39 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-frog-choose-plant}
+We're going to build a very simple model of romantic relationships. Naturally, most people are skeptical that math has much to do with romance, but you can judge for yourself whether the consequences of the simple model have any accord with the human condition.
+
+Each relationship consists of two people. We'll call them Romeo (R) and Juliet (J). The state of the relationship is the amount of love each person has for the other. Zero love corresponds to indifference. Negative love is dislike, even hatred when the negative value becomes extreme. 
+
+Instead of fixing on Shakespeare's star-crossed lovers, we'll imagine that there are different types of personalities, some positive, some negative. To set things up, we will look at different types of possible dynamics for Romeo's love for Juliet. @fig-a-1-b-1 shows how Romeo's love evolves as a function of his level of love/hate for Juliet and Juliet's level of love/hate for Romeo.
+
+
+
+
+::: {#fig-a-1-b-1-horizontal}
+```{r}
+#| echo=FALSE
+romeo_dynamics(1,1, title = "Example")
+```
+Romeo's attitude changes depending on his current attitude and Juliet's current attitude.
+:::
+
+Part 1
+: In @fig-a-1-b-1-horizontal, why are the flow arrows all horizontal?
+
+```{mcq}
+#| label: a-1-b-1
+1. Juliet does not affect Romeo's attitude. [hint: Aù contraire. The greater Juliet's love for Romeo, the faster Romeo's love grows.]
+2. We are looking only at the instantaneous change of Romeos attitude. [correct]
+3. Romeo can't respond to Juliet's affection. [hint: Not at all! Romeo's change of attitude is a strong function of Juliet's current attitude.]
+4. Juliet isn't capable of emotional investment. [hint: Remember what the vertical axis is ... Juliet's affection for Romeo. The graph doesn't tell us what this level of affection is. Instead, the graph shows how Romeo's attitude changes for whatever Juliet's level of affection.]
+5. Romeo is a narcissist. He only loves himself. [hint: Again, the horizontal axis tells us the degree of Romeo's attitude for Juliet. If we want to model Romeo's love for himself, we would have to add a third state variable, say, RR.]
+```
+
+Part 2
+: Romeo's nullcline runs through the origin. What orientation does it have:
+
+```{mcq}
+#| label: a-1-b-1-R-nullcline
+1. Vertical
+2. Horizontal
+3. Diagonal with a positive slope
+4. Diagonal with a negative slope [correct hint: the Romeo nullcline is where Romeo's love doesn't change.]
+5. There's not enough information to tell.
+```
+
+Part 3
+: What can you say about Juliet's nullcline?
+
+```{mcq}
+#| label: a-1-b-1-J-nullcline
+1. It overlaps with Romeo's. 
+2. It is always perpendicular to Romeo's.
+3. @fig-a-1-b-1-horizontal doesn't say anything about Juliet's dynamics. [correct]
+4. Women don't have nullclines. [hint: That's stupid. This is a model. We can set it up however we want!]
+```
+
+Let's set a bit of vocabulary to describe possible personalities for Romeo.
+
+- Stability (or not)
+    - Stable: Whatever Juliet's affection for Romeo, Romeo will settle down to a fixed attitude to Juliet.
+    - Unstable: Whatever Juliet's affection for Romeo, Romeo continues to move away from his starting position
+- Mutual (or not)
+    - Reciprocal: If Juliet loves Romeo, Romeo in the end will love Juliet.
+    - Indifferent: Romeo doesn't really care what Juliet thinks of him.
+    - Antagonistic: If Juliet loves Romeo, Romeo in the end will dislike Juliet. (Also sometimes known as "avoiding commitment.")
+
+@fig-six-personalities shows four different personalities, corresponding to the four combinations 
+
+::: {#fig-six-personalities}
+```{r}
+#| echo: false
+#| layout-ncol: 2
+romeo_dynamics(1,-1, title = "A: unstable antagonistic")
+romeo_dynamics(1, 1, title = "B: unstable reciprocal")
+romeo_dynamics(-1, -1, title = "C: stable antagonism")
+romeo_dynamics(-1, 1, title = "D: stable reciprocal")
+romeo_dynamics(1, 0, title = "E: indifferent unstable")
+romeo_dynamics(-1, 0, title = "F: indifferent stable")
+```
+
+Six different personality types classified by stability and mutuality.
+:::
+
+
+
+Part 4
+:  Each of the six personality types in @fig-six-personalities corresponds to a differential equation for Romeo's love dynamics:
+
+$\partial_t R = \alpha R + \beta J$
+
+TASK: For each of the six, say whether the coefficients $\alpha$ and $\beta$ are negative, positive, or zero.
+
+Part 5
+: So far, we've just been talking about personality types, using the role of Romeo as the case study. Naturally, Juliet has her own personality, potentially any of the six A-F we mapped out for Romeo.
+
+It's time to consider what happens when we combine the various personalities into a couple. Since there are six types of personalities, there are 36 different potential kinds of couples. Some of these may be destined to break up. Some may be destined to stay in love, or, be locked together in mutual hatred. And the outcome may depend on the initial condition: what Romeo's and Juliet's feelings are when they start out. 
+
+We could push the analogy still further and think about life's happy and unhappy events---e.g. birth, sickness, infidelity---as moving the state to a new position.
+
+To start, let's look at what happens to couples who happen to have the same personality type.
+
+::: {#fig-same-personalities}
+```{r}
+#| echo: false
+#| layout-ncol: 2
+romeo_dynamics( 1, -1,  1, -1, title = "A-A")
+romeo_dynamics( 1,  1,  1,  1, title = "B-B")
+romeo_dynamics( 1, -1,  1, -1, title = "C-C")
+romeo_dynamics(-1,  1, -1,  1, title = "D-D")
+romeo_dynamics( 1,  0,  1,  0, title = "E-E")
+romeo_dynamics(-1,  0, -1,  0, title = "F-F")
+```
+:::
+
+TASK: For each of the six types of matched personalities, sketch out come trajectories and characterize the dynamics as happy, unhappy, or tumultuous. 
+
+
+
+Part 6
+: Now let's consider couples with personalities that are *opposite* in some sense. (After all, it's said that opposites attract!) @fig-opposites shows the four different kind of dynamics.  Keep in mind that dynamics that flip the labels of the horizontal and vertical axes play out in exactly the same way. It's just a matter of whom we call Juliet and whom we call Romeo.
+
+::: {#fig-opposites}
+```{r}
+#| echo: false
+#| layout-ncol: 2
+romeo_dynamics(1, -1, -1, -1, title = "A-C")
+romeo_dynamics(1,  1, -1, -1, title = "B-C")
+romeo_dynamics(1, -1, -1,  1, title = "A-D")
+romeo_dynamics(.251,  .251, -.251,  .251, title = "B-D")
+```
+
+Couples with opposite personalities.
+
+:::
+
+Part 7
+: For some couples, one person has a strong relationship and the other is quite passive. Let's model those relationships. There are eight combinations, shown in @fig-strong-weak.
+
+::: {#fig-strong-weak}
+```{r}
+#| echo: false
+#| layout-ncol: 2
+romeo_dynamics( 1, -1,  1, 0, title = "A-E")
+romeo_dynamics( 1,  1,  1, 0, title = "B-E")
+romeo_dynamics(-1, -1,  1, 0, title = "C-E")
+romeo_dynamics(-1,  1,  1, 0, title = "D-E")
+romeo_dynamics( 1, -1, -1, 0, title = "A-F")
+romeo_dynamics(-1,  1, -1, 0, title = "B-F")
+romeo_dynamics(-1, -1, -1, 0, title = "C-F")
+romeo_dynamics(-1,  1, -1, 0, title = "D-F")
+```
+
+A strong personality coupled with a weak one.
+:::
+
+TASK: Characterize each of the eight strong-weak dynamics. Is the origin stable? Do the character's feelings go up and down?
+
+
+Part 8
+: What is "love at first sight" in terms of these dynamics: the flow or the initial condition? 
+
+`r devoirs_text("love-at-first-sight")`
+
+[Love at first sight positions the initial condition in the upper-right quadrant. ]{.shortanswer `r answer_style()` data-tooltip="Ans id: ia1-6QR"}
+
+:::
+ <!-- end of exr-frog-choose-plant -->

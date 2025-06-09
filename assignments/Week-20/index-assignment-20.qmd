@@ -1,0 +1,45 @@
+---
+title: Week 20 In-Class Assessment
+date: 2025-06-12
+categories: []
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      left: 1cm
+      right: 8cm
+      top: 1cm
+      bottom: 1cm
+    columns: 1
+    shift-heading-level-by: -1
+    
+crossref:
+  chapters: true
+  exr-title: "Question"
+  exr-prefix: "Question"
+---
+
+```{r include=FALSE}
+library(mosaicCalc)
+library(LSTbook)
+library(devoirs)
+source("../../_software/software.r")
+source("_software/for_20.R")
+devoirs::answer_style("none") 
+# devoirs::answer_style("block") 
+```
+
+{{< include _exercises/rhinosaurus-throw-gloves.qmd >}}
+
+{{< include _exercises/doe-swim-door.qmd >}}
+
+{{< include _exercises/avoid-ring-cotton.qmd >}}
+
+{{< include _exercises/niece-dream-boat.qmd >}}
+
+{{< include _exercises/ape-know-futon.qmd >}}
+
+{{< include _exercises/daisy-lick-rug.qmd >}}
+
+{{< include _exercises/fir-bathe-jacket.qmd >}}
+

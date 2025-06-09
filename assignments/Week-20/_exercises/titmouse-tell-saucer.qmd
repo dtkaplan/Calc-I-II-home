@@ -1,0 +1,44 @@
+---
+id: "titmouse-tell-saucer"
+created: "Mon Jun  2 17:58:30 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-titmouse-tell-saucer}
+A DRAFT PROBLEM
+
+Consider this matrix:
+
+::: {style="display: none;"}
+```{r}
+#| autorun: true
+M <- eigenvalues_to_matrix(0.6, 0.4) |> round(2)
+```
+
+
+```{r}
+M
+foo <- eigen(M)
+E <- matrix(rep(0,4), nrow=2)
+diag(E) <- foo$ values
+solve(foo$vectors) %*% E %*% foo$vectors
+```
+
+```{r}
+A <- eigenvalues_to_matrix(0.8, 0.1)
+matrix_to_ODE <- function(A) {
+  makeODE(dx ~ a*x + b*y, dy ~ c*x + d*y,
+          a = A[1, 1], b = A[1, 2], 
+          c = A[2, 1], d = A[2, 2])
+}
+```
+
+
+:::
+ <!-- end of exr-titmouse-tell-saucer -->)

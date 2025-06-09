@@ -1,0 +1,29 @@
+---
+id: "doe-swim-door"
+created: "Mon Jun  9 13:53:18 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-doe-swim-door}
+For each of these basic modeling functions, write down the anti-derivative:
+
+i. Straight-line $f(x) \equiv a x + b$.  
+
+$F(x)$ is ...
+
+ii. Sinusoid $g(x) \equiv a \sin\left(\frac{2\pi}{P} x\right) + b$
+
+$G(x)$ is ...
+
+iii. Exponential $h(x) \equiv a e^{kz} + c$
+
+$H(x)$ is ...
+
+:::
+ <!-- end of exr-doe-swim-door -->

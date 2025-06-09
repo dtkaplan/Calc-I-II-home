@@ -1,0 +1,78 @@
+---
+id: "daisy-lick-rug"
+created: "Mon Jun  9 13:35:29 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-daisy-lick-rug}
+
+
+Here is an R definition of a piecewise function $f(x)$.
+```{r}
+left <- function(x) {
+  ifelse(x < 1.5, 1, 0)
+}
+right <- function(x) {
+  ifelse(x < 3.5, -0.5, 0.5)
+}
+f <- function(x) {
+  ifelse (x < 2.5, left(x), right(x))
+}
+```
+
+Here's a graph of $f(t)$ versus $t$:
+```{r}
+#| echo: false
+slice_plot(f(t) ~ t, domain(t = 0:4), npts = 500) |>
+  gf_theme(theme_minimal()) 
+```
+
+a. On the grid below, sketch $F(t)$, an anti-derivative of $f(t)$. Your sketch should be quantitatively correct (allowing for the natural imprecision of sketching by hand). You have two copies of the graph paper in case you make a mistake. Show clearly what is your final answer.
+
+
+![](www/graph-side-by-side.png){width=20cm}
+
+
+<!-- Opening answer: ia2-4hT -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+
+```{r}
+#| echo: false
+F <- antiD(f(t) ~ t)
+slice_plot(F(t) ~ t, domain(t=0:4), npts = 1000)
+```
+
+[..id..]{data-tooltip="Ans id: ia2-4hT"}
+:::
+<!-- closing answer ia2-4hT -->
+
+b. Use your graph of $F(t)$ to find 
+$$\int_1^{3.5} f(t) dt$$.
+
+<!-- Opening answer: ia2-5RA -->
+::: {.callout-tip collapse=true `r answer_style()`}
+## Answer
+
+```{r}
+F(3.5) - F(1)
+```
+
+
+[..id..]{data-tooltip="Ans id: ia2-5RA"}
+:::
+<!-- closing answer ia2-5RA -->
+
+
+c. On the grid for part (a), sketch another anti-derivative of $f(t)$. (Hint: This should require almost no work on your part.)
+
+[Just shift your function $F(t)$ in (a) up or down, corresponding to the constant of integration.]{.shortanswer `r answer_style()` data-tooltip="Ans id: ia2-6CB"}
+
+:::
+ <!-- end of exr-daisy-lick-rug -->

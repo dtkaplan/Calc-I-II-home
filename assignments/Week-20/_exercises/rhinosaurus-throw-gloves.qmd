@@ -1,0 +1,23 @@
+---
+id: "rhinosaurus-throw-gloves"
+created: "Mon Jun  9 13:39:24 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-rhinosaurus-throw-gloves}
+Consider this function, a low-order polynomial:
+
+$$g(x, y) \equiv a + b x + c y + d x y + h x^2 + k y^2$$
+
+Write down, in symbols, $\int g(x, y) dx$.
+
+`r vspace(2)`
+
+:::
+ <!-- end of exr-rhinosaurus-throw-gloves -->

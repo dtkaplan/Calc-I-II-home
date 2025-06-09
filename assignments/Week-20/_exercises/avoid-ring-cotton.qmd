@@ -1,0 +1,19 @@
+---
+id: "avoid-ring-cotton"
+created: "Mon Jun  9 13:42:40 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-avoid-ring-cotton}
+Any matrix ${\mathbf M}$ can be factored into a product of two special matrices ${\mathbf Q} {\mathbf R}$. Explain in a sentence or two what is the special structure of each of these matrices.
+
+`r vspace(4)`
+
+:::
+ <!-- end of exr-avoid-ring-cotton -->

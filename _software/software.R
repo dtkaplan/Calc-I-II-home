@@ -478,3 +478,20 @@ draw_flow <- function(seed=1996, center = c(0,0), width=5,
     gf_point(yend ~ xend, data = Arrows, size = arrow, alpha=0.3) |>
     gf_refine(coord_fixed())
 }
+
+## For formatting
+
+make_numbering <- function(word) {
+  num <- 1
+  function() {
+    res <- glue::glue(word)
+    num <<- num + 1
+    return(res)
+  }
+}
+Q <- make_numbering("[**Question 7.{num}**]{{.underline}}")
+vspace <- function(n=2){
+  if (knitr::is_latex_output()) {
+    paste(rep("\n\n \n\n ", n), collapse = "\n")
+  } else ""
+}

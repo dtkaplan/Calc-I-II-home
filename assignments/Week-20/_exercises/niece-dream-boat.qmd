@@ -1,0 +1,44 @@
+---
+id: "niece-dream-boat"
+created: "Mon Jun  9 12:34:22 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-niece-dream-boat}
+Find the coefficients on $\vec{v}$ and $\vec{w}$ to reach each of the target points, A, B, C. (For ease, all the coefficients are either integers or half integers, e.g. 2 and -1.5.)  Write down the coefficients next to the target point.
+
+```{r}
+#| echo: false
+#| warning: false
+keep <- c(2,5,1)
+tmp <- vec_addition_problem(seed = 342, keep = keep)
+tmp$P # show the plot
+```
+
+
+<!-- Opening answer: ndb-4Ql -->
+<!--
+::: {.callout-tip collapse=true `r answer_style("none")`}
+## Answer
+
+```{r}
+#| echo: false
+#| eval: false
+tmp$multipliers |> 
+  dplyr::mutate_if(is.numeric, function(x) round(x, 1)) |> 
+  gt::gt()
+```
+
+[..id..]{data-tooltip="Ans id: ndb-4Ql"}
+:::
+-->
+<!-- closing answer ndb-4Ql -->
+ 
+:::
+ <!-- end of exr-neice-dream-boat -->
