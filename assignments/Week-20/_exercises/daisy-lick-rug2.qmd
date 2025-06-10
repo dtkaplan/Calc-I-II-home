@@ -19,7 +19,7 @@ left <- function(x) {
   ifelse(x < 1.5, x, -1)
 }
 right <- function(x) {
-  ifelse(x < 3.5, -0.5, 0.5)
+  ifelse(x < 3.5, 0.5, 1)
 }
 f <- function(x) {
   ifelse (x < 2.5, left(x), right(x))

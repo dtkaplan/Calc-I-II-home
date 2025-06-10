@@ -1,0 +1,41 @@
+---
+id: "avoid-ring-cotton2"
+created: "Mon Jun  9 13:42:40 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-avoid-ring-cotton2}
+
+First, a reminder about dot products. Consider these two vectors:
+
+$$\vec{v} = \left(\begin{array}{c}a\\b\\c \end{array}\right)\ \ \ \text{and}\ \ \ \vec{w} = \left(\begin{array}{c}d\\e\\f \end{array}\right)$$
+The dot product of $\vec{v}$ and $\vec{w}$ is, as you know $a d + b e + c f$. This is the same as the matrix product $\vec{v}^T  \vec{w}$, where $\vec{v}^T$ is the **transpose** of $\vec{v}$, that is:
+
+$$\vec{v}^T = (a\ \  b\ \  c)$$
+Consider any matrix ${\mathbf U}$ which is the collection of column vectors $\left(\vec{u}_1, \vec{u}_2,\cdots, \vec{u}_n\right)$. The product ${\mathbf U}^T \ {\mathbf U}$ is a square matrix whose entries are 
+$$\left(\begin{array}{c} 
+\vec{u}_1^T\ \vec{u}_1& \vec{u}_1^T\ \vec{u}_2 & \cdots & \vec{u}_1^T\ \vec{u}_n\\
+\vec{u}_2^T\ \vec{u}_1 & \vec{u}_2^T\ \vec{u}_2 & \cdots&  \vec{u}_2^T\ \vec{u}_n\\
+\vdots & \vdots & \ddots & \vdots\\
+\vec{u}_n^T\ \vec{u}_1 & \vec{u}_n^T\ \vec{u}_2 & \cdots&  \vec{u}_n^T\ \vec{u}_n\\
+\end{array}\right)
+
+$$
+
+Here's an application of multiplying a matrix by its transpose: Any matrix ${\mathbf M}$ can be factored into a product of two special matrices ${\mathbf Q} {\mathbf R}$. This is called *QR decomposition*. We make use of this fact to simplify solving the target problem $${\mathbf M}\ \vec{x} = \vec{b}\ $$ by re-writing it in the form ${\mathbf Q}\ \mathbf{R} \ \vec{x} = \vec{b}$. Then multiply both sides of the equation by ${\mathbf Q}^T$ to get:
+
+
+$${\mathbf Q}^T\ {\mathbf Q}\ {\mathbf R}\ \vec{x} = {\mathbf Q}^T\ \vec{b}\ $$
+
+Using the nature of the column vectors in the ${\mathbf Q}$ matrix of a QR decomposition, explain why the matrix ${\mathbf Q}^T \ {\mathbf Q}$ has a particularly simple form...
+
+`r vspace(4)`
+
+:::
+ <!-- end of exr-avoid-ring-cotton -->

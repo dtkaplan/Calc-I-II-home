@@ -16,9 +16,7 @@ Find the coefficients on $\vec{v}$ and $\vec{w}$ to reach each of the target poi
 ```{r}
 #| echo: false
 #| warning: false
-vec_addition_problem(seed = 343)
-keep <- c(2,5,1)
-tmp <- vec_addition_problem(seed = 342, keep = keep)
+tmp <- vec_addition_problem(seed = 346, theta = 60, keep = c(2,3,4))
 tmp$P # show the plot
 ```
 

@@ -56,7 +56,8 @@ vec_addition_problem <- function(
     gf_refine(scale_color_identity(), coord_fixed()) |>
     gf_theme(theme_void())
 
-  report <- multipliers[keep,] |> tibble::as_tibble()
+  if (is.null(keep)) report <- multipliers |> tibble::as_tibble()
+  else report <- multipliers[keep,] |> tibble::as_tibble()
   names(report) <- vecnames
   report$target <- labs[1:nrow(report)]
 

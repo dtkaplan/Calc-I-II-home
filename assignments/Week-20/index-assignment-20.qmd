@@ -29,17 +29,37 @@ devoirs::answer_style("none")
 # devoirs::answer_style("block") 
 ```
 
-{{< include _exercises/rhinosaurus-throw-gloves.qmd >}}
 
-{{< include _exercises/doe-swim-door.qmd >}}
+MAKE IT NOT WORK
 
-{{< include _exercises/avoid-ring-cotton.qmd >}}
+```{r}
+stop("Stopping assignment 20")
+```
 
-{{< include _exercises/niece-dream-boat.qmd >}}
 
-{{< include _exercises/ape-know-futon.qmd >}}
+{{< include _exercises/daisy-lick-rug2.qmd >}}
 
-{{< include _exercises/daisy-lick-rug.qmd >}}
+-------------
+
+{{< include _exercises/avoid-ring-cotton2.qmd >}}
+
+-------------
+
+{{< include _exercises/niece-dream-boat2.qmd >}}
+
+------------
+
+{{< include _exercises/ape-know-futon2.qmd >}}
+
+------------
 
 {{< include _exercises/fir-bathe-jacket.qmd >}}
+
+------------
+
+{{< include _exercises/rhinosaurus-throw-gloves2.qmd >}}
+
+------------
+
+{{< include _exercises/doe-swim-door2.qmd >}}
 

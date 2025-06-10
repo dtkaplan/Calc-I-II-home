@@ -1,0 +1,29 @@
+---
+id: "doe-swim-door"
+created: "Mon Jun  9 13:53:18 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-doe-swim-door}
+For each of these basic modeling functions, write down the anti-derivative:
+
+i. Gaussian $f(x) \equiv dnorm(x)$.  
+
+$F(x)$ is ...
+
+ii. Linear combination $g(x) \equiv a x^k + b$
+
+$G(x)$ is ...
+
+iii. Linear combination $h(x) \equiv \frac{1}{x} + x$
+
+$H(x)$ is ...
+
+:::
+ <!-- end of exr-doe-swim-door -->

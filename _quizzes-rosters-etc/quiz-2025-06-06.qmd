@@ -64,11 +64,11 @@ Double check to make sure you haven't reversed the the nullclines. Hint: the coo
 
 `r vspace(1)`
 
-`r Q()`  Consider the time series $x(t) = \sin(t)$ as a **candidate** solution starting at the initial condition $(x = 0, y = 1)$. Use anti-differentiation to find the corresponding $y(t)$.
+`r Q()`  Still referring to the differential equations listed at the beginning, consider the time series $x(t) = \sin(t)$ as a **candidate** solution starting at the initial condition $(x = 0, y = 1)$. Use anti-differentiation to find the corresponding $y(t)$.
 
 `r vspace(1)`
 
-`r Q()` Modify the differential equations so that $x(t) = A \sin(\omega t)$ and its corresponding $y(t)$ are solutions, where $\omega$ describes the frequency of the oscillation. Write the modified equations here.
+`r Q()` Again, referring back to the original differential equations, m   bodify the differential equations so that $x(t) = A \sin(\omega t)$ and its corresponding $y(t)$ are solutions, where $\omega$ describes the frequency of the oscillation. Write the modified equations here.
 
 `r vspace(4)`
 

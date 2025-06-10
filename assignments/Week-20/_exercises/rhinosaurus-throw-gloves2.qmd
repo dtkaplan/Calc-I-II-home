@@ -1,0 +1,25 @@
+---
+id: "rhinosaurus-throw-gloves"
+created: "Mon Jun  9 13:39:24 2025"
+attribution: TBA
+---
+
+```{r include=FALSE, eval=!"devoirs" %in% (.packages())}
+# For stand-alone compilation testing
+library(devoirs)
+library(mosaicCalc)
+```
+
+::: {#exr-rhinosaurus-throw-gloves}
+Consider this function, a low-order polynomial:
+
+$$h(x, y) \equiv a + b x + c y + d x y + h x^2 + k y^2$$
+
+a. Write down, in symbols, $\int h(x, y) dy$.
+
+b. Use your answer to (a) to calculate $\int_0^1 h(x,y) dy$.
+
+`r vspace(2)`
+
+:::
+ <!-- end of exr-rhinosaurus-throw-gloves -->
